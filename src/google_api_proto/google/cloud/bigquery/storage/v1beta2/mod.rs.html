@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/storage/v1beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/storage/v1beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1446,7 +1447,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ArrowSchema {
     <span class="doccomment">/// IPC serialized Arrow schema.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>serialized_schema: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Arrow RecordBatch.
@@ -1454,7 +1455,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ArrowRecordBatch {
     <span class="doccomment">/// IPC-serialized Arrow RecordBatch.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>serialized_record_batch: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Contains options specific to Arrow Serialization.
@@ -1462,7 +1463,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ArrowSerializationOptions {
     <span class="doccomment">/// The Arrow IPC format to use.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;arrow_serialization_options::Format&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"arrow_serialization_options::Format"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>format: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ArrowSerializationOptions`.
@@ -1493,19 +1494,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Format::Unspecified =&gt; <span class="string">&quot;FORMAT_UNSPECIFIED&quot;</span>,
-                Format::Arrow014 =&gt; <span class="string">&quot;ARROW_0_14&quot;</span>,
-                Format::Arrow015 =&gt; <span class="string">&quot;ARROW_0_15&quot;</span>,
+                Format::Unspecified =&gt; <span class="string">"FORMAT_UNSPECIFIED"</span>,
+                Format::Arrow014 =&gt; <span class="string">"ARROW_0_14"</span>,
+                Format::Arrow015 =&gt; <span class="string">"ARROW_0_15"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;FORMAT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ARROW_0_14&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Arrow014),
-                <span class="string">&quot;ARROW_0_15&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Arrow015),
+                <span class="string">"FORMAT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ARROW_0_14" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Arrow014),
+                <span class="string">"ARROW_0_15" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Arrow015),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1518,7 +1519,7 @@
     <span class="doccomment">/// Descriptor for input message. The descriptor has to be self contained,
     /// including all the nested types, excepted for proto buffer well known types
     /// (&lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf&gt;).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>proto_descriptor: ::core::option::Option&lt;::prost_types::DescriptorProto&gt;,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1528,7 +1529,7 @@
     ///
     /// See &lt;https://developers.google.com/protocol-buffers/docs/overview&gt; for more
     /// information on deserializing this field.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>serialized_rows: ::prost::alloc::vec::Vec&lt;::prost::bytes::Bytes&gt;,
 }
 <span class="doccomment">/// Avro schema.
@@ -1537,7 +1538,7 @@
 </span><span class="kw">pub struct </span>AvroSchema {
     <span class="doccomment">/// Json serialized schema, as described at
     /// &lt;https://avro.apache.org/docs/1.8.1/spec.html.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>schema: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Avro rows.
@@ -1545,7 +1546,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AvroRows {
     <span class="doccomment">/// Binary serialized rows in a block.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>serialized_binary_rows: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Schema of a table
@@ -1553,7 +1554,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableSchema {
     <span class="doccomment">/// Describes the fields in a table.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>fields: ::prost::alloc::vec::Vec&lt;TableFieldSchema&gt;,
 }
 <span class="doccomment">/// A field in TableSchema
@@ -1563,19 +1564,19 @@
     <span class="doccomment">/// Required. The field name. The name must contain only letters (a-z, A-Z),
     /// numbers (0-9), or underscores (_), and must start with a letter or
     /// underscore. The maximum length is 128 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The field data type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;table_field_schema::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"table_field_schema::Type"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Optional. The field mode. The default value is NULLABLE.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;table_field_schema::Mode&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"table_field_schema::Mode"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>mode: i32,
     <span class="doccomment">/// Optional. Describes the nested schema fields if the type property is set to STRUCT.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>fields: ::prost::alloc::vec::Vec&lt;TableFieldSchema&gt;,
     <span class="doccomment">/// Optional. The field description. The maximum length is 1,024 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `TableFieldSchema`.
@@ -1631,45 +1632,45 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::String =&gt; <span class="string">&quot;STRING&quot;</span>,
-                Type::Int64 =&gt; <span class="string">&quot;INT64&quot;</span>,
-                Type::Double =&gt; <span class="string">&quot;DOUBLE&quot;</span>,
-                Type::Struct =&gt; <span class="string">&quot;STRUCT&quot;</span>,
-                Type::Bytes =&gt; <span class="string">&quot;BYTES&quot;</span>,
-                Type::Bool =&gt; <span class="string">&quot;BOOL&quot;</span>,
-                Type::Timestamp =&gt; <span class="string">&quot;TIMESTAMP&quot;</span>,
-                Type::Date =&gt; <span class="string">&quot;DATE&quot;</span>,
-                Type::Time =&gt; <span class="string">&quot;TIME&quot;</span>,
-                Type::Datetime =&gt; <span class="string">&quot;DATETIME&quot;</span>,
-                Type::Geography =&gt; <span class="string">&quot;GEOGRAPHY&quot;</span>,
-                Type::Numeric =&gt; <span class="string">&quot;NUMERIC&quot;</span>,
-                Type::Bignumeric =&gt; <span class="string">&quot;BIGNUMERIC&quot;</span>,
-                Type::Interval =&gt; <span class="string">&quot;INTERVAL&quot;</span>,
-                Type::Json =&gt; <span class="string">&quot;JSON&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::String =&gt; <span class="string">"STRING"</span>,
+                Type::Int64 =&gt; <span class="string">"INT64"</span>,
+                Type::Double =&gt; <span class="string">"DOUBLE"</span>,
+                Type::Struct =&gt; <span class="string">"STRUCT"</span>,
+                Type::Bytes =&gt; <span class="string">"BYTES"</span>,
+                Type::Bool =&gt; <span class="string">"BOOL"</span>,
+                Type::Timestamp =&gt; <span class="string">"TIMESTAMP"</span>,
+                Type::Date =&gt; <span class="string">"DATE"</span>,
+                Type::Time =&gt; <span class="string">"TIME"</span>,
+                Type::Datetime =&gt; <span class="string">"DATETIME"</span>,
+                Type::Geography =&gt; <span class="string">"GEOGRAPHY"</span>,
+                Type::Numeric =&gt; <span class="string">"NUMERIC"</span>,
+                Type::Bignumeric =&gt; <span class="string">"BIGNUMERIC"</span>,
+                Type::Interval =&gt; <span class="string">"INTERVAL"</span>,
+                Type::Json =&gt; <span class="string">"JSON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
-                <span class="string">&quot;INT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int64),
-                <span class="string">&quot;DOUBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Double),
-                <span class="string">&quot;STRUCT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Struct),
-                <span class="string">&quot;BYTES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bytes),
-                <span class="string">&quot;BOOL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bool),
-                <span class="string">&quot;TIMESTAMP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Timestamp),
-                <span class="string">&quot;DATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
-                <span class="string">&quot;TIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Time),
-                <span class="string">&quot;DATETIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Datetime),
-                <span class="string">&quot;GEOGRAPHY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Geography),
-                <span class="string">&quot;NUMERIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Numeric),
-                <span class="string">&quot;BIGNUMERIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bignumeric),
-                <span class="string">&quot;INTERVAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Interval),
-                <span class="string">&quot;JSON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Json),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STRING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
+                <span class="string">"INT64" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int64),
+                <span class="string">"DOUBLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Double),
+                <span class="string">"STRUCT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Struct),
+                <span class="string">"BYTES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bytes),
+                <span class="string">"BOOL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bool),
+                <span class="string">"TIMESTAMP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Timestamp),
+                <span class="string">"DATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
+                <span class="string">"TIME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Time),
+                <span class="string">"DATETIME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Datetime),
+                <span class="string">"GEOGRAPHY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Geography),
+                <span class="string">"NUMERIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Numeric),
+                <span class="string">"BIGNUMERIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bignumeric),
+                <span class="string">"INTERVAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Interval),
+                <span class="string">"JSON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Json),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1698,21 +1699,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
-                Mode::Nullable =&gt; <span class="string">&quot;NULLABLE&quot;</span>,
-                Mode::Required =&gt; <span class="string">&quot;REQUIRED&quot;</span>,
-                Mode::Repeated =&gt; <span class="string">&quot;REPEATED&quot;</span>,
+                Mode::Unspecified =&gt; <span class="string">"MODE_UNSPECIFIED"</span>,
+                Mode::Nullable =&gt; <span class="string">"NULLABLE"</span>,
+                Mode::Required =&gt; <span class="string">"REQUIRED"</span>,
+                Mode::Repeated =&gt; <span class="string">"REPEATED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NULLABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nullable),
-                <span class="string">&quot;REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Required),
-                <span class="string">&quot;REPEATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Repeated),
+                <span class="string">"MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NULLABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nullable),
+                <span class="string">"REQUIRED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Required),
+                <span class="string">"REPEATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Repeated),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1724,25 +1725,25 @@
 </span><span class="kw">pub struct </span>ReadSession {
     <span class="doccomment">/// Output only. Unique identifier for the session, in the form
     /// `projects/{project_id}/locations/{location}/sessions/{session_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Time at which the session becomes invalid. After this time, subsequent
     /// requests to read this Session will return errors. The expire_time is
     /// automatically assigned and currently cannot be specified or updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Immutable. Data format of the output data.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DataFormat&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DataFormat"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>data_format: i32,
     <span class="doccomment">/// Immutable. Table that this ReadSession is reading from, in the form
     /// `projects/{project_id}/datasets/{dataset_id}/tables/{table_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Any modifiers which are applied when reading from the specified table.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>table_modifiers: ::core::option::Option&lt;read_session::TableModifiers&gt;,
     <span class="doccomment">/// Optional. Read options for this session (e.g. column selection, filters).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>read_options: ::core::option::Option&lt;read_session::TableReadOptions&gt;,
     <span class="doccomment">/// Output only. A list of streams created with the session.
     ///
@@ -1750,12 +1751,12 @@
     /// request_stream_count values *may* result in this list being unpopulated,
     /// in that case, the user will need to use a List method to get the streams
     /// instead, which is not yet available.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>streams: ::prost::alloc::vec::Vec&lt;ReadStream&gt;,
     <span class="doccomment">/// The schema for the read. If read_options.selected_fields is set, the
     /// schema may be different from the table schema as it will only contain
     /// the selected fields.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;read_session::Schema&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"read_session::Schema"</span>, tags = <span class="string">"4, 5"</span>)]
     </span><span class="kw">pub </span>schema: ::core::option::Option&lt;read_session::Schema&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ReadSession`.
@@ -1765,7 +1766,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>TableModifiers {
         <span class="doccomment">/// The snapshot time of the table. If not set, interpreted as now.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>snapshot_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     }
     <span class="doccomment">/// Options dictating how we read a table.
@@ -1776,22 +1777,22 @@
         /// fields will be read. If the specified field is a nested field, all
         /// the sub-fields in the field will be selected. The output field order is
         /// unrelated to the order of fields in selected_fields.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>selected_fields: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// SQL text filtering statement, similar to a WHERE clause in a query.
         /// Aggregates are not supported.
         ///
-        /// Examples: &quot;int_field &gt; 5&quot;
-        ///            &quot;date_field = CAST(&#39;2014-9-27&#39; as DATE)&quot;
-        ///            &quot;nullable_field is not NULL&quot;
-        ///            &quot;st_equals(geo_field, st_geofromtext(&quot;POINT(2, 2)&quot;))&quot;
-        ///            &quot;numeric_field BETWEEN 1.0 AND 5.0&quot;
+        /// Examples: "int_field &gt; 5"
+        ///            "date_field = CAST('2014-9-27' as DATE)"
+        ///            "nullable_field is not NULL"
+        ///            "st_equals(geo_field, st_geofromtext("POINT(2, 2)"))"
+        ///            "numeric_field BETWEEN 1.0 AND 5.0"
         ///
         /// Restricted to a maximum length for 1 MB.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>row_restriction: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. Options specific to the Apache Arrow output format.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>arrow_serialization_options: ::core::option::Option&lt;
             <span class="kw">super</span>::ArrowSerializationOptions,
         &gt;,
@@ -1803,10 +1804,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Schema {
         <span class="doccomment">/// Output only. Avro schema.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>AvroSchema(<span class="kw">super</span>::AvroSchema),
         <span class="doccomment">/// Output only. Arrow schema.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>ArrowSchema(<span class="kw">super</span>::ArrowSchema),
     }
 }
@@ -1818,7 +1819,7 @@
 </span><span class="kw">pub struct </span>ReadStream {
     <span class="doccomment">/// Output only. Name of the stream, in the form
     /// `projects/{project_id}/locations/{location}/sessions/{session_id}/streams/{stream_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Information about a single stream that gets data inside the storage system.
@@ -1827,26 +1828,26 @@
 </span><span class="kw">pub struct </span>WriteStream {
     <span class="doccomment">/// Output only. Name of the stream, in the form
     /// `projects/{project}/datasets/{dataset}/tables/{table}/streams/{stream}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Immutable. Type of the stream.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;write_stream::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"write_stream::Type"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Output only. Create time of the stream. For the _default stream, this is the
     /// creation_time of the table.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Commit time of the stream.
     /// If a stream is of `COMMITTED` type, then it will have a commit_time same as
     /// `create_time`. If the stream is of `PENDING` type, commit_time being empty
     /// means it is not committed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>commit_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The schema of the destination table. It is only returned in
-    /// `CreateWriteStream` response. Caller should generate data that&#39;s
+    /// `CreateWriteStream` response. Caller should generate data that's
     /// compatible with this schema to send in initial `AppendRowsRequest`.
     /// The table schema could go out of date during the life time of the stream.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>table_schema: ::core::option::Option&lt;TableSchema&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `WriteStream`.
@@ -1880,21 +1881,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Committed =&gt; <span class="string">&quot;COMMITTED&quot;</span>,
-                Type::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                Type::Buffered =&gt; <span class="string">&quot;BUFFERED&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::Committed =&gt; <span class="string">"COMMITTED"</span>,
+                Type::Pending =&gt; <span class="string">"PENDING"</span>,
+                Type::Buffered =&gt; <span class="string">"BUFFERED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;COMMITTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Committed),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;BUFFERED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Buffered),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"COMMITTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Committed),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"BUFFERED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Buffered),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1917,19 +1918,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DataFormat::Unspecified =&gt; <span class="string">&quot;DATA_FORMAT_UNSPECIFIED&quot;</span>,
-            DataFormat::Avro =&gt; <span class="string">&quot;AVRO&quot;</span>,
-            DataFormat::Arrow =&gt; <span class="string">&quot;ARROW&quot;</span>,
+            DataFormat::Unspecified =&gt; <span class="string">"DATA_FORMAT_UNSPECIFIED"</span>,
+            DataFormat::Avro =&gt; <span class="string">"AVRO"</span>,
+            DataFormat::Arrow =&gt; <span class="string">"ARROW"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;DATA_FORMAT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;AVRO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Avro),
-            <span class="string">&quot;ARROW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Arrow),
+            <span class="string">"DATA_FORMAT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"AVRO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Avro),
+            <span class="string">"ARROW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Arrow),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1940,10 +1941,10 @@
 </span><span class="kw">pub struct </span>CreateReadSessionRequest {
     <span class="doccomment">/// Required. The request project that owns the session, in the form of
     /// `projects/{project_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Session to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>read_session: ::core::option::Option&lt;ReadSession&gt;,
     <span class="doccomment">/// Max initial number of streams. If unset or zero, the server will
     /// provide a value of streams so as to produce reasonable throughput. Must be
@@ -1953,7 +1954,7 @@
     /// max limit of 1,000.
     ///
     /// Streams must be read starting from offset 0.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>max_stream_count: i32,
 }
 <span class="doccomment">/// Request message for `ReadRows`.
@@ -1961,12 +1962,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReadRowsRequest {
     <span class="doccomment">/// Required. Stream to read rows from.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>read_stream: ::prost::alloc::string::String,
     <span class="doccomment">/// The offset requested must be less than the last row read from Read.
     /// Requesting a larger offset is undefined. If not specified, start reading
     /// from offset zero.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>offset: i64,
 }
 <span class="doccomment">/// Information on if the current connection is being throttled.
@@ -1975,7 +1976,7 @@
 </span><span class="kw">pub struct </span>ThrottleState {
     <span class="doccomment">/// How much this connection is being throttled. Zero means no throttling,
     /// 100 means fully throttled.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>throttle_percent: i32,
 }
 <span class="doccomment">/// Estimated stream statistics for a given Stream.
@@ -1983,7 +1984,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StreamStats {
     <span class="doccomment">/// Represents the progress of the current stream.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>progress: ::core::option::Option&lt;stream_stats::Progress&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `StreamStats`.
@@ -2003,11 +2004,11 @@
         /// Note that if a filter is provided, the `at_response_end` value of the
         /// previous response may not necessarily be equal to the
         /// `at_response_start` value of the current response.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>at_response_start: f64,
         <span class="doccomment">/// Similar to `at_response_start`, except that this value includes the
         /// rows in the current response.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>at_response_end: f64,
     }
 }
@@ -2017,24 +2018,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReadRowsResponse {
     <span class="doccomment">/// Number of serialized rows in the rows block.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>row_count: i64,
     <span class="doccomment">/// Statistics for the stream.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>stats: ::core::option::Option&lt;StreamStats&gt;,
     <span class="doccomment">/// Throttling state. If unset, the latest response still describes
     /// the current throttling status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>throttle_state: ::core::option::Option&lt;ThrottleState&gt;,
     <span class="doccomment">/// Row data is returned in format specified during session creation.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;read_rows_response::Rows&quot;</span>, tags = <span class="string">&quot;3, 4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"read_rows_response::Rows"</span>, tags = <span class="string">"3, 4"</span>)]
     </span><span class="kw">pub </span>rows: ::core::option::Option&lt;read_rows_response::Rows&gt;,
     <span class="doccomment">/// The schema for the read. If read_options.selected_fields is set, the
     /// schema may be different from the table schema as it will only contain
     /// the selected fields. This schema is equivelant to the one returned by
     /// CreateSession. This field is only populated in the first ReadRowsResponse
     /// RPC.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;read_rows_response::Schema&quot;</span>, tags = <span class="string">&quot;7, 8&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"read_rows_response::Schema"</span>, tags = <span class="string">"7, 8"</span>)]
     </span><span class="kw">pub </span>schema: ::core::option::Option&lt;read_rows_response::Schema&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ReadRowsResponse`.
@@ -2044,10 +2045,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Rows {
         <span class="doccomment">/// Serialized row data in AVRO format.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>AvroRows(<span class="kw">super</span>::AvroRows),
         <span class="doccomment">/// Serialized row data in Arrow RecordBatch format.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>ArrowRecordBatch(<span class="kw">super</span>::ArrowRecordBatch),
     }
     <span class="doccomment">/// The schema for the read. If read_options.selected_fields is set, the
@@ -2059,10 +2060,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Schema {
         <span class="doccomment">/// Output only. Avro schema.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>AvroSchema(<span class="kw">super</span>::AvroSchema),
         <span class="doccomment">/// Output only. Arrow schema.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>ArrowSchema(<span class="kw">super</span>::ArrowSchema),
     }
 }
@@ -2071,7 +2072,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SplitReadStreamRequest {
     <span class="doccomment">/// Required. Name of the stream to split.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A value in the range (0.0, 1.0) that specifies the fractional point at
     /// which the original stream should be split. The actual split point is
@@ -2080,7 +2081,7 @@
     /// will be proportional to this fractional value. Additionally, because the
     /// server-side unit for assigning data is collections of rows, this fraction
     /// will always map to a data storage boundary on the server side.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>fraction: f64,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2089,11 +2090,11 @@
     <span class="doccomment">/// Primary stream, which contains the beginning portion of
     /// |original_stream|. An empty value indicates that the original stream can no
     /// longer be split.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>primary_stream: ::core::option::Option&lt;ReadStream&gt;,
     <span class="doccomment">/// Remainder stream, which contains the tail of |original_stream|. An empty
     /// value indicates that the original stream can no longer be split.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>remainder_stream: ::core::option::Option&lt;ReadStream&gt;,
 }
 <span class="doccomment">/// Request message for `CreateWriteStream`.
@@ -2102,10 +2103,10 @@
 </span><span class="kw">pub struct </span>CreateWriteStreamRequest {
     <span class="doccomment">/// Required. Reference to the table to which the stream belongs, in the format
     /// of `projects/{project}/datasets/{dataset}/tables/{table}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Stream to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>write_stream: ::core::option::Option&lt;WriteStream&gt;,
 }
 <span class="doccomment">/// Request message for `AppendRows`.
@@ -2117,23 +2118,23 @@
     /// the stream name, it must equal to the value provided in the first request.
     /// To write to the _default stream, populate this field with a string in the
     /// format `projects/{project}/datasets/{dataset}/tables/{table}/_default`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>write_stream: ::prost::alloc::string::String,
     <span class="doccomment">/// If present, the write is only performed if the next append offset is same
     /// as the provided value. If not present, the write is performed at the
     /// current end of stream. Specifying a value for this field is not allowed
-    /// when calling AppendRows for the &#39;_default&#39; stream.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// when calling AppendRows for the '_default' stream.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>offset: ::core::option::Option&lt;i64&gt;,
     <span class="doccomment">/// Id set by client to annotate its identity. Only initial request setting is
     /// respected.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>trace_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Input rows. The `writer_schema` field must be specified at the initial
     /// request and currently, it will be ignored if specified in following
     /// requests. Following requests must have data in the same format as the
     /// initial request.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;append_rows_request::Rows&quot;</span>, tags = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"append_rows_request::Rows"</span>, tags = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>rows: ::core::option::Option&lt;append_rows_request::Rows&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AppendRowsRequest`.
@@ -2143,10 +2144,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ProtoData {
         <span class="doccomment">/// Proto schema used to serialize the data.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>writer_schema: ::core::option::Option&lt;<span class="kw">super</span>::ProtoSchema&gt;,
         <span class="doccomment">/// Serialized row data in protobuf message format.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>rows: ::core::option::Option&lt;<span class="kw">super</span>::ProtoRows&gt;,
     }
     <span class="doccomment">/// Input rows. The `writer_schema` field must be specified at the initial
@@ -2157,7 +2158,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Rows {
         <span class="doccomment">/// Rows in proto format.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>ProtoRows(ProtoData),
     }
 }
@@ -2168,9 +2169,9 @@
     <span class="doccomment">/// If backend detects a schema update, pass it to user so that user can
     /// use it to input new type of message. It will be empty when no schema
     /// updates have occurred.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>updated_schema: ::core::option::Option&lt;TableSchema&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;append_rows_response::Response&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"append_rows_response::Response"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>response: ::core::option::Option&lt;append_rows_response::Response&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AppendRowsResponse`.
@@ -2181,14 +2182,14 @@
     </span><span class="kw">pub struct </span>AppendResult {
         <span class="doccomment">/// The row offset at which the last append occurred. The offset will not be
         /// set if appending using default streams.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>offset: ::core::option::Option&lt;i64&gt;,
     }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Response {
         <span class="doccomment">/// Result if the append is successful.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>AppendResult(AppendResult),
         <span class="doccomment">/// Error returned when problems were encountered.  If present,
         /// it indicates rows were not accepted into the system.
@@ -2210,7 +2211,7 @@
         /// request can be retried if previous failure is addressed.
         ///
         /// INTERNAL: Indicates server side error(s) that can be retried.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Error(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status),
     }
 }
@@ -2220,7 +2221,7 @@
 </span><span class="kw">pub struct </span>GetWriteStreamRequest {
     <span class="doccomment">/// Required. Name of the stream to get, in the form of
     /// `projects/{project}/datasets/{dataset}/tables/{table}/streams/{stream}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `BatchCommitWriteStreams`.
@@ -2229,10 +2230,10 @@
 </span><span class="kw">pub struct </span>BatchCommitWriteStreamsRequest {
     <span class="doccomment">/// Required. Parent table that all the streams should belong to, in the form
     /// of `projects/{project}/datasets/{dataset}/tables/{table}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The group of streams that will be committed atomically.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>write_streams: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Response message for `BatchCommitWriteStreams`.
@@ -2242,14 +2243,14 @@
     <span class="doccomment">/// The time at which streams were committed in microseconds granularity.
     /// This field will only exist when there are no stream errors.
     /// **Note** if this field is not set, it means the commit was not successful.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>commit_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Stream level error if commit failed. Only streams with error will be in
     /// the list.
     /// If empty, there is no error and all streams are committed successfully.
     /// If non empty, certain streams have errors and ZERO stream is committed due
     /// to atomicity guarantee.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>stream_errors: ::prost::alloc::vec::Vec&lt;StorageError&gt;,
 }
 <span class="doccomment">/// Request message for invoking `FinalizeWriteStream`.
@@ -2258,7 +2259,7 @@
 </span><span class="kw">pub struct </span>FinalizeWriteStreamRequest {
     <span class="doccomment">/// Required. Name of the stream to finalize, in the form of
     /// `projects/{project}/datasets/{dataset}/tables/{table}/streams/{stream}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for `FinalizeWriteStream`.
@@ -2266,7 +2267,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FinalizeWriteStreamResponse {
     <span class="doccomment">/// Number of rows in the finalized stream.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>row_count: i64,
 }
 <span class="doccomment">/// Request message for `FlushRows`.
@@ -2274,11 +2275,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FlushRowsRequest {
     <span class="doccomment">/// Required. The stream that is the target of the flush operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>write_stream: ::prost::alloc::string::String,
     <span class="doccomment">/// Ending offset of the flush operation. Rows before this offset(including
     /// this offset) will be flushed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>offset: ::core::option::Option&lt;i64&gt;,
 }
 <span class="doccomment">/// Respond message for `FlushRows`.
@@ -2286,7 +2287,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FlushRowsResponse {
     <span class="doccomment">/// The rows before this offset (including this offset) are flushed.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>offset: i64,
 }
 <span class="doccomment">/// Structured custom BigQuery Storage error message. The error can be attached
@@ -2297,13 +2298,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StorageError {
     <span class="doccomment">/// BigQuery Storage specific error code.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;storage_error::StorageErrorCode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"storage_error::StorageErrorCode"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// Name of the failed entity.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>entity: ::prost::alloc::string::String,
     <span class="doccomment">/// Message that describes the error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `StorageError`.
@@ -2345,27 +2346,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                StorageErrorCode::Unspecified =&gt; <span class="string">&quot;STORAGE_ERROR_CODE_UNSPECIFIED&quot;</span>,
-                StorageErrorCode::TableNotFound =&gt; <span class="string">&quot;TABLE_NOT_FOUND&quot;</span>,
-                StorageErrorCode::StreamAlreadyCommitted =&gt; <span class="string">&quot;STREAM_ALREADY_COMMITTED&quot;</span>,
-                StorageErrorCode::StreamNotFound =&gt; <span class="string">&quot;STREAM_NOT_FOUND&quot;</span>,
-                StorageErrorCode::InvalidStreamType =&gt; <span class="string">&quot;INVALID_STREAM_TYPE&quot;</span>,
-                StorageErrorCode::InvalidStreamState =&gt; <span class="string">&quot;INVALID_STREAM_STATE&quot;</span>,
-                StorageErrorCode::StreamFinalized =&gt; <span class="string">&quot;STREAM_FINALIZED&quot;</span>,
+                StorageErrorCode::Unspecified =&gt; <span class="string">"STORAGE_ERROR_CODE_UNSPECIFIED"</span>,
+                StorageErrorCode::TableNotFound =&gt; <span class="string">"TABLE_NOT_FOUND"</span>,
+                StorageErrorCode::StreamAlreadyCommitted =&gt; <span class="string">"STREAM_ALREADY_COMMITTED"</span>,
+                StorageErrorCode::StreamNotFound =&gt; <span class="string">"STREAM_NOT_FOUND"</span>,
+                StorageErrorCode::InvalidStreamType =&gt; <span class="string">"INVALID_STREAM_TYPE"</span>,
+                StorageErrorCode::InvalidStreamState =&gt; <span class="string">"INVALID_STREAM_STATE"</span>,
+                StorageErrorCode::StreamFinalized =&gt; <span class="string">"STREAM_FINALIZED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STORAGE_ERROR_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;TABLE_NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TableNotFound),
-                <span class="string">&quot;STREAM_ALREADY_COMMITTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StreamAlreadyCommitted),
-                <span class="string">&quot;STREAM_NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StreamNotFound),
-                <span class="string">&quot;INVALID_STREAM_TYPE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidStreamType),
-                <span class="string">&quot;INVALID_STREAM_STATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidStreamState),
-                <span class="string">&quot;STREAM_FINALIZED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StreamFinalized),
+                <span class="string">"STORAGE_ERROR_CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"TABLE_NOT_FOUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TableNotFound),
+                <span class="string">"STREAM_ALREADY_COMMITTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StreamAlreadyCommitted),
+                <span class="string">"STREAM_NOT_FOUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StreamNotFound),
+                <span class="string">"INVALID_STREAM_TYPE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidStreamType),
+                <span class="string">"INVALID_STREAM_STATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidStreamState),
+                <span class="string">"STREAM_FINALIZED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StreamFinalized),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2380,7 +2381,7 @@
     ///
     /// The Read API can be used to read data from BigQuery.
     ///
-    /// New code should use the v1 Read API going forward, if they don&#39;t use Write
+    /// New code should use the v1 Read API going forward, if they don't use Write
     /// API at the same time.
     </span><span class="attr">#[derive(Debug, Clone)]
     </span><span class="kw">pub struct </span>BigQueryReadClient&lt;T&gt; {
@@ -2390,7 +2391,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2480,19 +2481,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta2.BigQueryRead/CreateReadSession&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta2.BigQueryRead/CreateReadSession"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta2.BigQueryRead&quot;</span>,
-                        <span class="string">&quot;CreateReadSession&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta2.BigQueryRead"</span>,
+                        <span class="string">"CreateReadSession"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2517,19 +2518,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta2.BigQueryRead/ReadRows&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta2.BigQueryRead/ReadRows"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta2.BigQueryRead&quot;</span>,
-                        <span class="string">&quot;ReadRows&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta2.BigQueryRead"</span>,
+                        <span class="string">"ReadRows"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.server_streaming(req, path, codec).<span class="kw">await
@@ -2559,19 +2560,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta2.BigQueryRead/SplitReadStream&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta2.BigQueryRead/SplitReadStream"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta2.BigQueryRead&quot;</span>,
-                        <span class="string">&quot;SplitReadStream&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta2.BigQueryRead"</span>,
+                        <span class="string">"SplitReadStream"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2598,7 +2599,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2660,8 +2661,8 @@
             <span class="self">self
         </span>}
         <span class="doccomment">/// Creates a write stream to the given table.
-        /// Additionally, every table has a special COMMITTED stream named &#39;_default&#39;
-        /// to which data can be written. This stream doesn&#39;t need to be created using
+        /// Additionally, every table has a special COMMITTED stream named '_default'
+        /// to which data can be written. This stream doesn't need to be created using
         /// CreateWriteStream. It is a stream that can be used simultaneously by any
         /// number of clients. Data written to this stream is considered committed as
         /// soon as an acknowledgement is received.
@@ -2675,19 +2676,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/CreateWriteStream&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/CreateWriteStream"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta2.BigQueryWrite&quot;</span>,
-                        <span class="string">&quot;CreateWriteStream&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta2.BigQueryWrite"</span>,
+                        <span class="string">"CreateWriteStream"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2705,7 +2706,7 @@
         /// The response contains the offset at which the append happened. Responses
         /// are received in the same order in which requests are sent. There will be
         /// one response for each successful request. If the `offset` is not set in
-        /// response, it means append didn&#39;t happen due to some errors. If one request
+        /// response, it means append didn't happen due to some errors. If one request
         /// fails, all the subsequent requests will also fail until a success request
         /// is made again.
         ///
@@ -2724,19 +2725,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/AppendRows&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/AppendRows"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta2.BigQueryWrite&quot;</span>,
-                        <span class="string">&quot;AppendRows&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta2.BigQueryWrite"</span>,
+                        <span class="string">"AppendRows"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await
@@ -2752,25 +2753,25 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/GetWriteStream&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/GetWriteStream"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta2.BigQueryWrite&quot;</span>,
-                        <span class="string">&quot;GetWriteStream&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta2.BigQueryWrite"</span>,
+                        <span class="string">"GetWriteStream"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Finalize a write stream so that no new data can be appended to the
-        /// stream. Finalize is not supported on the &#39;_default&#39; stream.
+        /// stream. Finalize is not supported on the '_default' stream.
         </span><span class="kw">pub async fn </span>finalize_write_stream(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::FinalizeWriteStreamRequest&gt;,
@@ -2784,19 +2785,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/FinalizeWriteStream&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/FinalizeWriteStream"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta2.BigQueryWrite&quot;</span>,
-                        <span class="string">&quot;FinalizeWriteStream&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta2.BigQueryWrite"</span>,
+                        <span class="string">"FinalizeWriteStream"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2819,19 +2820,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/BatchCommitWriteStreams&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/BatchCommitWriteStreams"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta2.BigQueryWrite&quot;</span>,
-                        <span class="string">&quot;BatchCommitWriteStreams&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta2.BigQueryWrite"</span>,
+                        <span class="string">"BatchCommitWriteStreams"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2855,19 +2856,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/FlushRows&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta2.BigQueryWrite/FlushRows"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta2.BigQueryWrite&quot;</span>,
-                        <span class="string">&quot;FlushRows&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta2.BigQueryWrite"</span>,
+                        <span class="string">"FlushRows"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

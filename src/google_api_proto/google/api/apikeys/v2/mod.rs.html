@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/api/apikeys/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/api/apikeys/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -623,47 +624,47 @@
     ///
     /// NOTE: Key is a global resource; hence the only supported value for
     /// location is `global`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Unique id in UUID4 format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Human-readable display name of this key that you can modify.
     /// The maximum length is 63 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. An encrypted and signed value held by this key.
     /// This field can be accessed only through the `GetKeyString` method.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>key_string: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A timestamp identifying the time this key was originally
     /// created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. A timestamp identifying the time this key was last
     /// updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. A timestamp when this key was deleted. If the resource is not
     /// deleted, this must be empty.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Annotations is an unstructured key-value map stored with a policy that
     /// may be set by external tools to store and retrieve arbitrary metadata.
     /// They are not queryable and should be preserved when modifying objects.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Key restrictions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>restrictions: ::core::option::Option&lt;Restrictions&gt;,
     <span class="doccomment">/// Output only. A checksum computed by the server based on the current value
     /// of the Key resource. This may be sent on update and delete requests to
     /// ensure the client has an up-to-date value before proceeding. See
     /// &lt;https://google.aip.dev/154.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Describes the restrictions on the key.
@@ -674,12 +675,12 @@
     /// more specific methods. Requests are allowed if they
     /// match any of these restrictions. If no restrictions are
     /// specified, all targets are allowed.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>api_targets: ::prost::alloc::vec::Vec&lt;ApiTarget&gt;,
     <span class="doccomment">/// The websites, IP addresses, Android apps, or iOS apps (the clients) that
     /// are allowed to use the key. You can specify only one type of client
     /// restrictions per key.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;restrictions::ClientRestrictions&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"restrictions::ClientRestrictions"</span>, tags = <span class="string">"1, 2, 3, 4"</span>)]
     </span><span class="kw">pub </span>client_restrictions: ::core::option::Option&lt;restrictions::ClientRestrictions&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Restrictions`.
@@ -691,16 +692,16 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ClientRestrictions {
         <span class="doccomment">/// The HTTP referrers (websites) that are allowed to use the key.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>BrowserKeyRestrictions(<span class="kw">super</span>::BrowserKeyRestrictions),
         <span class="doccomment">/// The IP addresses of callers that are allowed to use the key.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>ServerKeyRestrictions(<span class="kw">super</span>::ServerKeyRestrictions),
         <span class="doccomment">/// The Android apps that are allowed to use the key.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>AndroidKeyRestrictions(<span class="kw">super</span>::AndroidKeyRestrictions),
         <span class="doccomment">/// The iOS apps that are allowed to use the key.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>IosKeyRestrictions(<span class="kw">super</span>::IosKeyRestrictions),
     }
 }
@@ -710,7 +711,7 @@
 </span><span class="kw">pub struct </span>BrowserKeyRestrictions {
     <span class="doccomment">/// A list of regular expressions for the referrer URLs that are allowed
     /// to make API calls with this key.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>allowed_referrers: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The IP addresses of callers that are allowed to use the key.
@@ -719,7 +720,7 @@
 </span><span class="kw">pub struct </span>ServerKeyRestrictions {
     <span class="doccomment">/// A list of the caller IP addresses that are allowed to make API calls
     /// with this key.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>allowed_ips: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The Android apps that are allowed to use the key.
@@ -728,7 +729,7 @@
 </span><span class="kw">pub struct </span>AndroidKeyRestrictions {
     <span class="doccomment">/// A list of Android applications that are allowed to make API calls with
     /// this key.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>allowed_applications: ::prost::alloc::vec::Vec&lt;AndroidApplication&gt;,
 }
 <span class="doccomment">/// Identifier of an Android application for key use.
@@ -739,10 +740,10 @@
     /// acceptable : DA:39:A3:EE:5E:6B:4B:0D:32:55:BF:EF:95:60:18:90:AF:D8:07:09 or
     /// DA39A3EE5E6B4B0D3255BFEF95601890AFD80709.
     /// Output format is the latter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sha1_fingerprint: ::prost::alloc::string::String,
     <span class="doccomment">/// The package name of the application.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>package_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The iOS apps that are allowed to use the key.
@@ -750,7 +751,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>IosKeyRestrictions {
     <span class="doccomment">/// A list of bundle IDs that are allowed when making API calls with this key.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>allowed_bundle_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A restriction for a specific service and optionally one or multiple
@@ -762,7 +763,7 @@
     /// service name, for example: `translate.googleapis.com`.
     /// You can use [`gcloud services list`](/sdk/gcloud/reference/services/list)
     /// to get a list of services that are enabled in the project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. List of one or more methods that can be called.
     /// If empty, all methods for the service are allowed. A wildcard
@@ -772,7 +773,7 @@
     ///    `TranslateText`
     ///    `Get*`
     ///    `translate.googleapis.com.Get*`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>methods: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for `CreateKey` method.
@@ -780,12 +781,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateKeyRequest {
     <span class="doccomment">/// Required. The project in which the API key is created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The API key fields to set at creation time.
     /// You can configure only the `display_name`, `restrictions`, and
     /// `annotations` fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>key: ::core::option::Option&lt;Key&gt;,
     <span class="doccomment">/// User specified key id (optional). If specified, it will become the final
     /// component of the key resource name.
@@ -796,7 +797,7 @@
     /// expression: `[a-z](\[a-z0-9-\]{0,61}\[a-z0-9\])?`.
     ///
     /// The id must NOT be a UUID-like string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>key_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `ListKeys` method.
@@ -804,17 +805,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListKeysRequest {
     <span class="doccomment">/// Required. Lists all API keys associated with this project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Specifies the maximum number of results to be returned at a time.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. Requests a specific page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Indicate that keys deleted in the past 30 days should also be
     /// returned.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>show_deleted: bool,
 }
 <span class="doccomment">/// Response message for `ListKeys` method.
@@ -822,10 +823,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListKeysResponse {
     <span class="doccomment">/// A list of API keys.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>keys: ::prost::alloc::vec::Vec&lt;Key&gt;,
     <span class="doccomment">/// The pagination token for the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `GetKey` method.
@@ -833,7 +834,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetKeyRequest {
     <span class="doccomment">/// Required. The resource name of the API key to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `GetKeyString` method.
@@ -841,7 +842,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetKeyStringRequest {
     <span class="doccomment">/// Required. The resource name of the API key to be retrieved.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for `GetKeyString` method.
@@ -849,7 +850,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetKeyStringResponse {
     <span class="doccomment">/// An encrypted and signed value of the key.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key_string: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `UpdateKey` method.
@@ -859,16 +860,16 @@
     <span class="doccomment">/// Required. Set the `name` field to the resource name of the API key to be
     /// updated. You can update only the `display_name`, `restrictions`, and
     /// `annotations` fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key: ::core::option::Option&lt;Key&gt;,
     <span class="doccomment">/// The field mask specifies which fields to be updated as part of this
     /// request. All other fields are ignored.
     /// Mutable fields are: `display_name`, `restrictions`, and `annotations`.
     /// If an update mask is not provided, the service treats it as an implied mask
     /// equivalent to all allowed fields that are set on the wire. If the field
-    /// mask has a special value &quot;*&quot;, the service treats it equivalent to replace
+    /// mask has a special value "*", the service treats it equivalent to replace
     /// all allowed mutable fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for `DeleteKey` method.
@@ -876,11 +877,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteKeyRequest {
     <span class="doccomment">/// Required. The resource name of the API key to be deleted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The etag known to the client for the expected state of the key.
     /// This is to be used for optimistic concurrency.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `UndeleteKey` method.
@@ -888,7 +889,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UndeleteKeyRequest {
     <span class="doccomment">/// Required. The resource name of the API key to be undeleted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `LookupKey` method.
@@ -896,7 +897,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LookupKeyRequest {
     <span class="doccomment">/// Required. Finds the project that owns the key string value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key_string: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for `LookupKey` method.
@@ -904,11 +905,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LookupKeyResponse {
     <span class="doccomment">/// The project that owns the key with the value specified in the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource name of the API key. If the API key has been purged,
     /// resource name is empty.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -925,7 +926,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1003,20 +1004,20 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.apikeys.v2.ApiKeys/CreateKey&quot;</span>,
+                <span class="string">"/google.api.apikeys.v2.ApiKeys/CreateKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.api.apikeys.v2.ApiKeys&quot;</span>, <span class="string">&quot;CreateKey&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.api.apikeys.v2.ApiKeys"</span>, <span class="string">"CreateKey"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Lists the API keys owned by a project. The key string of the API key
-        /// isn&#39;t included in the response.
+        /// isn't included in the response.
         ///
         /// NOTE: Key is a global resource; hence the only supported value for
         /// location is `global`.
@@ -1033,20 +1034,20 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.apikeys.v2.ApiKeys/ListKeys&quot;</span>,
+                <span class="string">"/google.api.apikeys.v2.ApiKeys/ListKeys"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.api.apikeys.v2.ApiKeys&quot;</span>, <span class="string">&quot;ListKeys&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.api.apikeys.v2.ApiKeys"</span>, <span class="string">"ListKeys"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Gets the metadata for an API key. The key string of the API key
-        /// isn&#39;t included in the response.
+        /// isn't included in the response.
         ///
         /// NOTE: Key is a global resource; hence the only supported value for
         /// location is `global`.
@@ -1060,16 +1061,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.apikeys.v2.ApiKeys/GetKey&quot;</span>,
+                <span class="string">"/google.api.apikeys.v2.ApiKeys/GetKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.api.apikeys.v2.ApiKeys&quot;</span>, <span class="string">&quot;GetKey&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.api.apikeys.v2.ApiKeys"</span>, <span class="string">"GetKey"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Get the key string for an API key.
@@ -1089,22 +1090,22 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.apikeys.v2.ApiKeys/GetKeyString&quot;</span>,
+                <span class="string">"/google.api.apikeys.v2.ApiKeys/GetKeyString"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.api.apikeys.v2.ApiKeys&quot;</span>, <span class="string">&quot;GetKeyString&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.api.apikeys.v2.ApiKeys"</span>, <span class="string">"GetKeyString"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Patches the modifiable fields of an API key.
-        /// The key string of the API key isn&#39;t included in the response.
+        /// The key string of the API key isn't included in the response.
         ///
         /// NOTE: Key is a global resource; hence the only supported value for
         /// location is `global`.
@@ -1121,16 +1122,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.apikeys.v2.ApiKeys/UpdateKey&quot;</span>,
+                <span class="string">"/google.api.apikeys.v2.ApiKeys/UpdateKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.api.apikeys.v2.ApiKeys&quot;</span>, <span class="string">&quot;UpdateKey&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.api.apikeys.v2.ApiKeys"</span>, <span class="string">"UpdateKey"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Deletes an API key. Deleted key can be retrieved within 30 days of
@@ -1151,16 +1152,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.apikeys.v2.ApiKeys/DeleteKey&quot;</span>,
+                <span class="string">"/google.api.apikeys.v2.ApiKeys/DeleteKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.api.apikeys.v2.ApiKeys&quot;</span>, <span class="string">&quot;DeleteKey&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.api.apikeys.v2.ApiKeys"</span>, <span class="string">"DeleteKey"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Undeletes an API key which was deleted within 30 days.
@@ -1180,16 +1181,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.apikeys.v2.ApiKeys/UndeleteKey&quot;</span>,
+                <span class="string">"/google.api.apikeys.v2.ApiKeys/UndeleteKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.api.apikeys.v2.ApiKeys&quot;</span>, <span class="string">&quot;UndeleteKey&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.api.apikeys.v2.ApiKeys"</span>, <span class="string">"UndeleteKey"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Find the parent project and resource name of the API
@@ -1210,16 +1211,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.apikeys.v2.ApiKeys/LookupKey&quot;</span>,
+                <span class="string">"/google.api.apikeys.v2.ApiKeys/LookupKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.api.apikeys.v2.ApiKeys&quot;</span>, <span class="string">&quot;LookupKey&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.api.apikeys.v2.ApiKeys"</span>, <span class="string">"LookupKey"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
     }

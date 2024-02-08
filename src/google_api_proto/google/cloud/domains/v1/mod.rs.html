@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/domains/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/domains/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1829,7 +1830,7 @@
 ///
 /// Another way to create a new `Registration` is to transfer an existing
 /// domain from another registrar. First, go to the current registrar to unlock
-/// the domain for transfer and retrieve the domain&#39;s transfer authorization
+/// the domain for transfer and retrieve the domain's transfer authorization
 /// code. Then call `RetrieveTransferParameters` to confirm that the domain is
 /// unlocked and to get values needed to build a call to `TransferDomain`.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1837,25 +1838,25 @@
 </span><span class="kw">pub struct </span>Registration {
     <span class="doccomment">/// Output only. Name of the `Registration` resource, in the format
     /// `projects/*/locations/*/registrations/&lt;domain_name&gt;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Immutable. The domain name. Unicode domain names must be expressed in Punycode format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>domain_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The creation timestamp of the `Registration` resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The expiration timestamp of the `Registration`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The state of the `Registration`
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;registration::State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"registration::State"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The set of issues with the `Registration` that require attention.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;registration::Issue&quot;</span>, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"registration::Issue"</span>, repeated, packed = <span class="string">"false"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>issues: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Set of labels associated with the `Registration`.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1864,17 +1865,17 @@
     /// and transfer. You cannot update these with the `UpdateRegistration`
     /// method. To update these settings, use the `ConfigureManagementSettings`
     /// method.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>management_settings: ::core::option::Option&lt;ManagementSettings&gt;,
     <span class="doccomment">/// Settings controlling the DNS configuration of the `Registration`. You
     /// cannot update these with the `UpdateRegistration` method. To update these
     /// settings, use the `ConfigureDnsSettings` method.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>dns_settings: ::core::option::Option&lt;DnsSettings&gt;,
     <span class="doccomment">/// Required. Settings for contact information linked to the `Registration`. You cannot
     /// update these with the `UpdateRegistration` method. To update these
     /// settings, use the `ConfigureContactSettings` method.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>contact_settings: ::core::option::Option&lt;ContactSettings&gt;,
     <span class="doccomment">/// Output only. Pending contact settings for the `Registration`. Updates to the
     /// `contact_settings` field that change its `registrant_contact` or `privacy`
@@ -1883,11 +1884,11 @@
     /// to the `contact_settings` that have not been confirmed. To confirm the
     /// changes, the `registrant_contact` must follow the instructions in the
     /// email they receive.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>pending_contact_settings: ::core::option::Option&lt;ContactSettings&gt;,
     <span class="doccomment">/// Output only. Set of options for the `contact_settings.privacy` field that this
     /// `Registration` supports.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ContactPrivacy&quot;</span>, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ContactPrivacy"</span>, repeated, packed = <span class="string">"false"</span>, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>supported_privacy: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Registration`.
@@ -1937,29 +1938,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::RegistrationPending =&gt; <span class="string">&quot;REGISTRATION_PENDING&quot;</span>,
-                State::RegistrationFailed =&gt; <span class="string">&quot;REGISTRATION_FAILED&quot;</span>,
-                State::TransferPending =&gt; <span class="string">&quot;TRANSFER_PENDING&quot;</span>,
-                State::TransferFailed =&gt; <span class="string">&quot;TRANSFER_FAILED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Suspended =&gt; <span class="string">&quot;SUSPENDED&quot;</span>,
-                State::Exported =&gt; <span class="string">&quot;EXPORTED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::RegistrationPending =&gt; <span class="string">"REGISTRATION_PENDING"</span>,
+                State::RegistrationFailed =&gt; <span class="string">"REGISTRATION_FAILED"</span>,
+                State::TransferPending =&gt; <span class="string">"TRANSFER_PENDING"</span>,
+                State::TransferFailed =&gt; <span class="string">"TRANSFER_FAILED"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Suspended =&gt; <span class="string">"SUSPENDED"</span>,
+                State::Exported =&gt; <span class="string">"EXPORTED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;REGISTRATION_PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RegistrationPending),
-                <span class="string">&quot;REGISTRATION_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RegistrationFailed),
-                <span class="string">&quot;TRANSFER_PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransferPending),
-                <span class="string">&quot;TRANSFER_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransferFailed),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;SUSPENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
-                <span class="string">&quot;EXPORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Exported),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"REGISTRATION_PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RegistrationPending),
+                <span class="string">"REGISTRATION_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RegistrationFailed),
+                <span class="string">"TRANSFER_PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransferPending),
+                <span class="string">"TRANSFER_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransferFailed),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"SUSPENDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
+                <span class="string">"EXPORTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Exported),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1983,7 +1984,7 @@
         <span class="doccomment">/// Contact the Cloud Support team to resolve a problem with this domain.
         </span>ContactSupport = <span class="number">1</span>,
         <span class="doccomment">/// [ICANN](&lt;https://icann.org/&gt;) requires verification of the email address
-        /// in the `Registration`&#39;s `contact_settings.registrant_contact` field. To
+        /// in the `Registration`'s `contact_settings.registrant_contact` field. To
         /// verify the email address, follow the
         /// instructions in the email the `registrant_contact` receives following
         /// registration. If you do not complete email verification within
@@ -1997,19 +1998,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Issue::Unspecified =&gt; <span class="string">&quot;ISSUE_UNSPECIFIED&quot;</span>,
-                Issue::ContactSupport =&gt; <span class="string">&quot;CONTACT_SUPPORT&quot;</span>,
-                Issue::UnverifiedEmail =&gt; <span class="string">&quot;UNVERIFIED_EMAIL&quot;</span>,
+                Issue::Unspecified =&gt; <span class="string">"ISSUE_UNSPECIFIED"</span>,
+                Issue::ContactSupport =&gt; <span class="string">"CONTACT_SUPPORT"</span>,
+                Issue::UnverifiedEmail =&gt; <span class="string">"UNVERIFIED_EMAIL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ISSUE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CONTACT_SUPPORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ContactSupport),
-                <span class="string">&quot;UNVERIFIED_EMAIL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnverifiedEmail),
+                <span class="string">"ISSUE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CONTACT_SUPPORT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ContactSupport),
+                <span class="string">"UNVERIFIED_EMAIL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnverifiedEmail),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2020,10 +2021,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ManagementSettings {
     <span class="doccomment">/// Output only. The renewal method for this `Registration`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;management_settings::RenewalMethod&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"management_settings::RenewalMethod"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>renewal_method: i32,
     <span class="doccomment">/// Controls whether the domain can be transferred to another registrar.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TransferLockState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TransferLockState"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>transfer_lock_state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ManagementSettings`.
@@ -2053,7 +2054,7 @@
         /// `expire_time`. This option is only available when the `Registration`
         /// is in state `EXPORTED`.
         ///
-        /// To manage the domain&#39;s current billing and
+        /// To manage the domain's current billing and
         /// renewal settings, go to [Google Domains](&lt;https://domains.google/&gt;).
         </span>ManualRenewal = <span class="number">2</span>,
     }
@@ -2062,19 +2063,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RenewalMethod::Unspecified =&gt; <span class="string">&quot;RENEWAL_METHOD_UNSPECIFIED&quot;</span>,
-                RenewalMethod::AutomaticRenewal =&gt; <span class="string">&quot;AUTOMATIC_RENEWAL&quot;</span>,
-                RenewalMethod::ManualRenewal =&gt; <span class="string">&quot;MANUAL_RENEWAL&quot;</span>,
+                RenewalMethod::Unspecified =&gt; <span class="string">"RENEWAL_METHOD_UNSPECIFIED"</span>,
+                RenewalMethod::AutomaticRenewal =&gt; <span class="string">"AUTOMATIC_RENEWAL"</span>,
+                RenewalMethod::ManualRenewal =&gt; <span class="string">"MANUAL_RENEWAL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RENEWAL_METHOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AUTOMATIC_RENEWAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AutomaticRenewal),
-                <span class="string">&quot;MANUAL_RENEWAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ManualRenewal),
+                <span class="string">"RENEWAL_METHOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AUTOMATIC_RENEWAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AutomaticRenewal),
+                <span class="string">"MANUAL_RENEWAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ManualRenewal),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2086,10 +2087,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DnsSettings {
     <span class="doccomment">/// The list of glue records for this `Registration`. Commonly empty.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>glue_records: ::prost::alloc::vec::Vec&lt;dns_settings::GlueRecord&gt;,
     <span class="doccomment">/// The DNS provider of the registration.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;dns_settings::DnsProvider&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"dns_settings::DnsProvider"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>dns_provider: ::core::option::Option&lt;dns_settings::DnsProvider&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DnsSettings`.
@@ -2101,16 +2102,16 @@
         <span class="doccomment">/// Required. A list of name servers that store the DNS zone for this domain. Each name
         /// server is a domain name, with Unicode domain names expressed in
         /// Punycode format.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name_servers: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// The list of DS records for this domain, which are used to enable DNSSEC.
-        /// The domain&#39;s DNS provider can provide the values to set here. If this
+        /// The domain's DNS provider can provide the values to set here. If this
         /// field is empty, DNSSEC is disabled.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>ds_records: ::prost::alloc::vec::Vec&lt;DsRecord&gt;,
     }
     <span class="doccomment">/// Configuration for using the free DNS zone provided by Google Domains as a
-    /// `Registration`&#39;s `dns_provider`. You cannot configure the DNS zone itself
+    /// `Registration`'s `dns_provider`. You cannot configure the DNS zone itself
     /// using the API. To configure the DNS zone, go to
     /// [Google Domains](&lt;https://domains.google/&gt;).
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2120,35 +2121,35 @@
         /// server is a domain name, with Unicode domain names expressed in
         /// Punycode format. This field is automatically populated with the name
         /// servers assigned to the Google Domains DNS zone.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name_servers: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// Required. The state of DS records for this domain. Used to enable or disable
         /// automatic DNSSEC.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DsState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"DsState"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>ds_state: i32,
         <span class="doccomment">/// Output only. The list of DS records published for this domain. The list is
         /// automatically populated when `ds_state` is `DS_RECORDS_PUBLISHED`,
         /// otherwise it remains empty.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>ds_records: ::prost::alloc::vec::Vec&lt;DsRecord&gt;,
     }
     <span class="doccomment">/// Defines a Delegation Signer (DS) record, which is needed to enable DNSSEC
     /// for a domain. It contains a digest (hash) of a DNSKEY record that must be
-    /// present in the domain&#39;s DNS zone.
+    /// present in the domain's DNS zone.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>DsRecord {
         <span class="doccomment">/// The key tag of the record. Must be set in range 0 -- 65535.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>key_tag: i32,
         <span class="doccomment">/// The algorithm used to generate the referenced DNSKEY.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ds_record::Algorithm&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"ds_record::Algorithm"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>algorithm: i32,
         <span class="doccomment">/// The hash function used to generate the digest of the referenced DNSKEY.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ds_record::DigestType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"ds_record::DigestType"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>digest_type: i32,
         <span class="doccomment">/// The digest generated from the referenced DNSKEY.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>digest: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Nested message and enum types in `DsRecord`.
@@ -2210,49 +2211,49 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    Algorithm::Unspecified =&gt; <span class="string">&quot;ALGORITHM_UNSPECIFIED&quot;</span>,
-                    Algorithm::Rsamd5 =&gt; <span class="string">&quot;RSAMD5&quot;</span>,
-                    Algorithm::Dh =&gt; <span class="string">&quot;DH&quot;</span>,
-                    Algorithm::Dsa =&gt; <span class="string">&quot;DSA&quot;</span>,
-                    Algorithm::Ecc =&gt; <span class="string">&quot;ECC&quot;</span>,
-                    Algorithm::Rsasha1 =&gt; <span class="string">&quot;RSASHA1&quot;</span>,
-                    Algorithm::Dsansec3sha1 =&gt; <span class="string">&quot;DSANSEC3SHA1&quot;</span>,
-                    Algorithm::Rsasha1nsec3sha1 =&gt; <span class="string">&quot;RSASHA1NSEC3SHA1&quot;</span>,
-                    Algorithm::Rsasha256 =&gt; <span class="string">&quot;RSASHA256&quot;</span>,
-                    Algorithm::Rsasha512 =&gt; <span class="string">&quot;RSASHA512&quot;</span>,
-                    Algorithm::Eccgost =&gt; <span class="string">&quot;ECCGOST&quot;</span>,
-                    Algorithm::Ecdsap256sha256 =&gt; <span class="string">&quot;ECDSAP256SHA256&quot;</span>,
-                    Algorithm::Ecdsap384sha384 =&gt; <span class="string">&quot;ECDSAP384SHA384&quot;</span>,
-                    Algorithm::Ed25519 =&gt; <span class="string">&quot;ED25519&quot;</span>,
-                    Algorithm::Ed448 =&gt; <span class="string">&quot;ED448&quot;</span>,
-                    Algorithm::Indirect =&gt; <span class="string">&quot;INDIRECT&quot;</span>,
-                    Algorithm::Privatedns =&gt; <span class="string">&quot;PRIVATEDNS&quot;</span>,
-                    Algorithm::Privateoid =&gt; <span class="string">&quot;PRIVATEOID&quot;</span>,
+                    Algorithm::Unspecified =&gt; <span class="string">"ALGORITHM_UNSPECIFIED"</span>,
+                    Algorithm::Rsamd5 =&gt; <span class="string">"RSAMD5"</span>,
+                    Algorithm::Dh =&gt; <span class="string">"DH"</span>,
+                    Algorithm::Dsa =&gt; <span class="string">"DSA"</span>,
+                    Algorithm::Ecc =&gt; <span class="string">"ECC"</span>,
+                    Algorithm::Rsasha1 =&gt; <span class="string">"RSASHA1"</span>,
+                    Algorithm::Dsansec3sha1 =&gt; <span class="string">"DSANSEC3SHA1"</span>,
+                    Algorithm::Rsasha1nsec3sha1 =&gt; <span class="string">"RSASHA1NSEC3SHA1"</span>,
+                    Algorithm::Rsasha256 =&gt; <span class="string">"RSASHA256"</span>,
+                    Algorithm::Rsasha512 =&gt; <span class="string">"RSASHA512"</span>,
+                    Algorithm::Eccgost =&gt; <span class="string">"ECCGOST"</span>,
+                    Algorithm::Ecdsap256sha256 =&gt; <span class="string">"ECDSAP256SHA256"</span>,
+                    Algorithm::Ecdsap384sha384 =&gt; <span class="string">"ECDSAP384SHA384"</span>,
+                    Algorithm::Ed25519 =&gt; <span class="string">"ED25519"</span>,
+                    Algorithm::Ed448 =&gt; <span class="string">"ED448"</span>,
+                    Algorithm::Indirect =&gt; <span class="string">"INDIRECT"</span>,
+                    Algorithm::Privatedns =&gt; <span class="string">"PRIVATEDNS"</span>,
+                    Algorithm::Privateoid =&gt; <span class="string">"PRIVATEOID"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;ALGORITHM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;RSAMD5&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rsamd5),
-                    <span class="string">&quot;DH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dh),
-                    <span class="string">&quot;DSA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dsa),
-                    <span class="string">&quot;ECC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ecc),
-                    <span class="string">&quot;RSASHA1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rsasha1),
-                    <span class="string">&quot;DSANSEC3SHA1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dsansec3sha1),
-                    <span class="string">&quot;RSASHA1NSEC3SHA1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rsasha1nsec3sha1),
-                    <span class="string">&quot;RSASHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rsasha256),
-                    <span class="string">&quot;RSASHA512&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rsasha512),
-                    <span class="string">&quot;ECCGOST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Eccgost),
-                    <span class="string">&quot;ECDSAP256SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ecdsap256sha256),
-                    <span class="string">&quot;ECDSAP384SHA384&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ecdsap384sha384),
-                    <span class="string">&quot;ED25519&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ed25519),
-                    <span class="string">&quot;ED448&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ed448),
-                    <span class="string">&quot;INDIRECT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Indirect),
-                    <span class="string">&quot;PRIVATEDNS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Privatedns),
-                    <span class="string">&quot;PRIVATEOID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Privateoid),
+                    <span class="string">"ALGORITHM_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"RSAMD5" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rsamd5),
+                    <span class="string">"DH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dh),
+                    <span class="string">"DSA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dsa),
+                    <span class="string">"ECC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ecc),
+                    <span class="string">"RSASHA1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rsasha1),
+                    <span class="string">"DSANSEC3SHA1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dsansec3sha1),
+                    <span class="string">"RSASHA1NSEC3SHA1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rsasha1nsec3sha1),
+                    <span class="string">"RSASHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rsasha256),
+                    <span class="string">"RSASHA512" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rsasha512),
+                    <span class="string">"ECCGOST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Eccgost),
+                    <span class="string">"ECDSAP256SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ecdsap256sha256),
+                    <span class="string">"ECDSAP384SHA384" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ecdsap384sha384),
+                    <span class="string">"ED25519" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ed25519),
+                    <span class="string">"ED448" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ed448),
+                    <span class="string">"INDIRECT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Indirect),
+                    <span class="string">"PRIVATEDNS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Privatedns),
+                    <span class="string">"PRIVATEOID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Privateoid),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -2288,23 +2289,23 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    DigestType::Unspecified =&gt; <span class="string">&quot;DIGEST_TYPE_UNSPECIFIED&quot;</span>,
-                    DigestType::Sha1 =&gt; <span class="string">&quot;SHA1&quot;</span>,
-                    DigestType::Sha256 =&gt; <span class="string">&quot;SHA256&quot;</span>,
-                    DigestType::Gost3411 =&gt; <span class="string">&quot;GOST3411&quot;</span>,
-                    DigestType::Sha384 =&gt; <span class="string">&quot;SHA384&quot;</span>,
+                    DigestType::Unspecified =&gt; <span class="string">"DIGEST_TYPE_UNSPECIFIED"</span>,
+                    DigestType::Sha1 =&gt; <span class="string">"SHA1"</span>,
+                    DigestType::Sha256 =&gt; <span class="string">"SHA256"</span>,
+                    DigestType::Gost3411 =&gt; <span class="string">"GOST3411"</span>,
+                    DigestType::Sha384 =&gt; <span class="string">"SHA384"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;DIGEST_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;SHA1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha1),
-                    <span class="string">&quot;SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha256),
-                    <span class="string">&quot;GOST3411&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gost3411),
-                    <span class="string">&quot;SHA384&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha384),
+                    <span class="string">"DIGEST_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"SHA1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha1),
+                    <span class="string">"SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha256),
+                    <span class="string">"GOST3411" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gost3411),
+                    <span class="string">"SHA384" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha384),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -2320,17 +2321,17 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>GlueRecord {
         <span class="doccomment">/// Required. Domain name of the host in Punycode format.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>host_name: ::prost::alloc::string::String,
         <span class="doccomment">/// List of IPv4 addresses corresponding to this host in the standard decimal
         /// format (e.g. `198.51.100.1`). At least one of `ipv4_address` and
         /// `ipv6_address` must be set.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>ipv4_addresses: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// List of IPv6 addresses corresponding to this host in the standard
         /// hexadecimal format (e.g. `2001:db8::`). At least one of
         /// `ipv4_address` and `ipv6_address` must be set.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>ipv6_addresses: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// The publication state of DS records for a `Registration`.
@@ -2354,7 +2355,7 @@
         </span>DsRecordsUnpublished = <span class="number">1</span>,
         <span class="doccomment">/// DNSSEC is enabled for this domain. Appropriate DS records for this domain
         /// are published in the parent DNS zone. This option is valid only if the
-        /// DNS zone referenced in the `Registration`&#39;s `dns_provider` field is
+        /// DNS zone referenced in the `Registration`'s `dns_provider` field is
         /// already DNSSEC-signed.
         </span>DsRecordsPublished = <span class="number">2</span>,
     }
@@ -2363,19 +2364,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DsState::Unspecified =&gt; <span class="string">&quot;DS_STATE_UNSPECIFIED&quot;</span>,
-                DsState::DsRecordsUnpublished =&gt; <span class="string">&quot;DS_RECORDS_UNPUBLISHED&quot;</span>,
-                DsState::DsRecordsPublished =&gt; <span class="string">&quot;DS_RECORDS_PUBLISHED&quot;</span>,
+                DsState::Unspecified =&gt; <span class="string">"DS_STATE_UNSPECIFIED"</span>,
+                DsState::DsRecordsUnpublished =&gt; <span class="string">"DS_RECORDS_UNPUBLISHED"</span>,
+                DsState::DsRecordsPublished =&gt; <span class="string">"DS_RECORDS_PUBLISHED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DS_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DS_RECORDS_UNPUBLISHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DsRecordsUnpublished),
-                <span class="string">&quot;DS_RECORDS_PUBLISHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DsRecordsPublished),
+                <span class="string">"DS_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DS_RECORDS_UNPUBLISHED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DsRecordsUnpublished),
+                <span class="string">"DS_RECORDS_PUBLISHED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DsRecordsPublished),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2385,11 +2386,11 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>DnsProvider {
         <span class="doccomment">/// An arbitrary DNS provider identified by its name servers.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>CustomDns(CustomDns),
         <span class="doccomment">/// The free DNS zone provided by
         /// [Google Domains](&lt;https://domains.google/&gt;).
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>GoogleDomainsDns(GoogleDomainsDns),
     }
 }
@@ -2397,12 +2398,12 @@
 ///
 /// [ICANN](&lt;https://icann.org/&gt;) requires all domain names to have associated
 /// contact information. The `registrant_contact` is considered the
-/// domain&#39;s legal owner, and often the other contacts are identical.
+/// domain's legal owner, and often the other contacts are identical.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ContactSettings {
     <span class="doccomment">/// Required. Privacy setting for the contacts associated with the `Registration`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ContactPrivacy&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ContactPrivacy"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>privacy: i32,
     <span class="doccomment">/// Required. The registrant contact for the `Registration`.
     ///
@@ -2412,13 +2413,13 @@
     /// *Warning: For new `Registration`s, the registrant receives an email
     /// confirmation that they must complete within 15 days to avoid domain
     /// suspension.*
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>registrant_contact: ::core::option::Option&lt;contact_settings::Contact&gt;,
     <span class="doccomment">/// Required. The administrative contact for the `Registration`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>admin_contact: ::core::option::Option&lt;contact_settings::Contact&gt;,
     <span class="doccomment">/// Required. The technical contact for the `Registration`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>technical_contact: ::core::option::Option&lt;contact_settings::Contact&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ContactSettings`.
@@ -2428,20 +2429,20 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Contact {
         <span class="doccomment">/// Required. Postal address of the contact.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>postal_address: ::core::option::Option&lt;
             <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::PostalAddress,
         &gt;,
         <span class="doccomment">/// Required. Email address of the contact.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
         <span class="doccomment">/// Required. Phone number of the contact in international format. For example,
-        /// `&quot;+1-800-555-0123&quot;`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        /// `"+1-800-555-0123"`.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>phone_number: ::prost::alloc::string::String,
         <span class="doccomment">/// Fax number of the contact in international format. For example,
-        /// `&quot;+1-800-555-0123&quot;`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        /// `"+1-800-555-0123"`.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>fax_number: ::prost::alloc::string::String,
     }
 }
@@ -2450,10 +2451,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchDomainsRequest {
     <span class="doccomment">/// Required. String used to search for available domain names.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The location. Must be in the format `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for the `SearchDomains` method.
@@ -2461,7 +2462,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchDomainsResponse {
     <span class="doccomment">/// Results of the domain name search.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>register_parameters: ::prost::alloc::vec::Vec&lt;RegisterParameters&gt;,
 }
 <span class="doccomment">/// Request for the `RetrieveRegisterParameters` method.
@@ -2469,10 +2470,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RetrieveRegisterParametersRequest {
     <span class="doccomment">/// Required. The domain name. Unicode domain names must be expressed in Punycode format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>domain_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The location. Must be in the format `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for the `RetrieveRegisterParameters` method.
@@ -2480,7 +2481,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RetrieveRegisterParametersResponse {
     <span class="doccomment">/// Parameters to use when calling the `RegisterDomain` method.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>register_parameters: ::core::option::Option&lt;RegisterParameters&gt;,
 }
 <span class="doccomment">/// Request for the `RegisterDomain` method.
@@ -2489,29 +2490,29 @@
 </span><span class="kw">pub struct </span>RegisterDomainRequest {
     <span class="doccomment">/// Required. The parent resource of the `Registration`. Must be in the
     /// format `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The complete `Registration` resource to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>registration: ::core::option::Option&lt;Registration&gt;,
     <span class="doccomment">/// The list of domain notices that you acknowledge. Call
     /// `RetrieveRegisterParameters` to see the notices that need acknowledgement.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DomainNotice&quot;</span>, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DomainNotice"</span>, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>domain_notices: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// The list of contact notices that the caller acknowledges. The notices
     /// needed here depend on the values specified in
     /// `registration.contact_settings`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ContactNotice&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ContactNotice"</span>, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>contact_notices: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Required. Yearly price to register or renew the domain.
     /// The value that should be put here can be obtained from
     /// RetrieveRegisterParameters or SearchDomains calls.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>yearly_price: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// When true, only validation is performed, without actually registering
     /// the domain. Follows:
     /// &lt;https://cloud.google.com/apis/design/design_patterns#request_validation&gt;
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Request for the `RetrieveTransferParameters` method.
@@ -2519,10 +2520,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RetrieveTransferParametersRequest {
     <span class="doccomment">/// Required. The domain name. Unicode domain names must be expressed in Punycode format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>domain_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The location. Must be in the format `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for the `RetrieveTransferParameters` method.
@@ -2530,7 +2531,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RetrieveTransferParametersResponse {
     <span class="doccomment">/// Parameters to use when calling the `TransferDomain` method.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transfer_parameters: ::core::option::Option&lt;TransferParameters&gt;,
 }
 <span class="doccomment">/// Request for the `TransferDomain` method.
@@ -2539,33 +2540,33 @@
 </span><span class="kw">pub struct </span>TransferDomainRequest {
     <span class="doccomment">/// Required. The parent resource of the `Registration`. Must be in the
     /// format `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The complete `Registration` resource to be created.
     ///
     /// You can leave `registration.dns_settings` unset to import the
-    /// domain&#39;s current DNS configuration from its current registrar. Use this
-    /// option only if you are sure that the domain&#39;s current DNS service
+    /// domain's current DNS configuration from its current registrar. Use this
+    /// option only if you are sure that the domain's current DNS service
     /// does not cease upon transfer, as is often the case for DNS services
     /// provided for free by the registrar.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>registration: ::core::option::Option&lt;Registration&gt;,
     <span class="doccomment">/// The list of contact notices that you acknowledge. The notices
     /// needed here depend on the values specified in
     /// `registration.contact_settings`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ContactNotice&quot;</span>, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ContactNotice"</span>, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>contact_notices: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Required. Acknowledgement of the price to transfer or renew the domain for one year.
     /// Call `RetrieveTransferParameters` to obtain the price, which you must
     /// acknowledge.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>yearly_price: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
-    <span class="doccomment">/// The domain&#39;s transfer authorization code. You can obtain this from the
-    /// domain&#39;s current registrar.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// The domain's transfer authorization code. You can obtain this from the
+    /// domain's current registrar.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>authorization_code: ::core::option::Option&lt;AuthorizationCode&gt;,
     <span class="doccomment">/// Validate the request without actually transferring the domain.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Request for the `ListRegistrations` method.
@@ -2574,14 +2575,14 @@
 </span><span class="kw">pub struct </span>ListRegistrationsRequest {
     <span class="doccomment">/// Required. The project and location from which to list `Registration`s, specified in
     /// the format `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Maximum number of results to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// When set to the `next_page_token` from a prior response, provides the next
     /// page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Filter expression to restrict the `Registration`s returned.
     ///
@@ -2591,7 +2592,7 @@
     /// of =, !=, &gt;, &lt;, &gt;=, &lt;=, or : for prefix or wildcard matches.
     ///
     /// For example, to filter to a specific domain name, use an expression like
-    /// `domainName=&quot;example.com&quot;`. You can also check for the existence of a
+    /// `domainName="example.com"`. You can also check for the existence of a
     /// field; for example, to find domains using custom DNS settings, use an
     /// expression like `dnsSettings.customDns:*`.
     ///
@@ -2599,7 +2600,7 @@
     /// `AND` and `OR` operators. For example, to find domains that are suspended
     /// or have specific issues flagged, use an expression like
     /// `(state=SUSPENDED) OR (issue:*)`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for the `ListRegistrations` method.
@@ -2607,11 +2608,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRegistrationsResponse {
     <span class="doccomment">/// A list of `Registration`s.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>registrations: ::prost::alloc::vec::Vec&lt;Registration&gt;,
     <span class="doccomment">/// When present, there are more results to retrieve. Set `page_token` to this
     /// value on a subsequent call to get the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `GetRegistration` method.
@@ -2620,7 +2621,7 @@
 </span><span class="kw">pub struct </span>GetRegistrationRequest {
     <span class="doccomment">/// Required. The name of the `Registration` to get, in the format
     /// `projects/*/locations/*/registrations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `UpdateRegistration` method.
@@ -2628,12 +2629,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateRegistrationRequest {
     <span class="doccomment">/// Fields of the `Registration` to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>registration: ::core::option::Option&lt;Registration&gt;,
     <span class="doccomment">/// Required. The field mask describing which fields to update as a comma-separated list.
     /// For example, if only the labels are being updated, the `update_mask` is
-    /// `&quot;labels&quot;`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// `"labels"`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request for the `ConfigureManagementSettings` method.
@@ -2642,15 +2643,15 @@
 </span><span class="kw">pub struct </span>ConfigureManagementSettingsRequest {
     <span class="doccomment">/// Required. The name of the `Registration` whose management settings are being updated,
     /// in the format `projects/*/locations/*/registrations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>registration: ::prost::alloc::string::String,
     <span class="doccomment">/// Fields of the `ManagementSettings` to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>management_settings: ::core::option::Option&lt;ManagementSettings&gt;,
     <span class="doccomment">/// Required. The field mask describing which fields to update as a comma-separated list.
     /// For example, if only the transfer lock is being updated, the `update_mask`
-    /// is `&quot;transfer_lock_state&quot;`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// is `"transfer_lock_state"`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request for the `ConfigureDnsSettings` method.
@@ -2659,24 +2660,24 @@
 </span><span class="kw">pub struct </span>ConfigureDnsSettingsRequest {
     <span class="doccomment">/// Required. The name of the `Registration` whose DNS settings are being updated,
     /// in the format `projects/*/locations/*/registrations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>registration: ::prost::alloc::string::String,
     <span class="doccomment">/// Fields of the `DnsSettings` to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dns_settings: ::core::option::Option&lt;DnsSettings&gt;,
     <span class="doccomment">/// Required. The field mask describing which fields to update as a comma-separated list.
     /// For example, if only the name servers are being updated for an existing
     /// Custom DNS configuration, the `update_mask` is
-    /// `&quot;custom_dns.name_servers&quot;`.
+    /// `"custom_dns.name_servers"`.
     ///
     /// When changing the DNS provider from one type to another, pass the new
-    /// provider&#39;s field name as part of the field mask. For example, when changing
+    /// provider's field name as part of the field mask. For example, when changing
     /// from a Google Domains DNS configuration to a Custom DNS configuration, the
-    /// `update_mask` is `&quot;custom_dns&quot;`. //
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// `update_mask` is `"custom_dns"`. //
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Validate the request without actually updating the DNS settings.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Request for the `ConfigureContactSettings` method.
@@ -2685,22 +2686,22 @@
 </span><span class="kw">pub struct </span>ConfigureContactSettingsRequest {
     <span class="doccomment">/// Required. The name of the `Registration` whose contact settings are being updated,
     /// in the format `projects/*/locations/*/registrations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>registration: ::prost::alloc::string::String,
     <span class="doccomment">/// Fields of the `ContactSettings` to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>contact_settings: ::core::option::Option&lt;ContactSettings&gt;,
     <span class="doccomment">/// Required. The field mask describing which fields to update as a comma-separated list.
     /// For example, if only the registrant contact is being updated, the
-    /// `update_mask` is `&quot;registrant_contact&quot;`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// `update_mask` is `"registrant_contact"`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// The list of contact notices that the caller acknowledges. The notices
     /// needed here depend on the values specified in `contact_settings`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ContactNotice&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ContactNotice"</span>, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>contact_notices: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Validate the request without actually updating the contact settings.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Request for the `ExportRegistration` method.
@@ -2709,7 +2710,7 @@
 </span><span class="kw">pub struct </span>ExportRegistrationRequest {
     <span class="doccomment">/// Required. The name of the `Registration` to export,
     /// in the format `projects/*/locations/*/registrations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `DeleteRegistration` method.
@@ -2718,7 +2719,7 @@
 </span><span class="kw">pub struct </span>DeleteRegistrationRequest {
     <span class="doccomment">/// Required. The name of the `Registration` to delete,
     /// in the format `projects/*/locations/*/registrations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `RetrieveAuthorizationCode` method.
@@ -2727,7 +2728,7 @@
 </span><span class="kw">pub struct </span>RetrieveAuthorizationCodeRequest {
     <span class="doccomment">/// Required. The name of the `Registration` whose authorization code is being retrieved,
     /// in the format `projects/*/locations/*/registrations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>registration: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `ResetAuthorizationCode` method.
@@ -2736,7 +2737,7 @@
 </span><span class="kw">pub struct </span>ResetAuthorizationCodeRequest {
     <span class="doccomment">/// Required. The name of the `Registration` whose authorization code is being reset,
     /// in the format `projects/*/locations/*/registrations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>registration: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Parameters required to register a new domain.
@@ -2744,21 +2745,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RegisterParameters {
     <span class="doccomment">/// The domain name. Unicode domain names are expressed in Punycode format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>domain_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Indicates whether the domain is available for registration. This value is
     /// accurate when obtained by calling `RetrieveRegisterParameters`, but is
     /// approximate when obtained by calling `SearchDomains`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;register_parameters::Availability&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"register_parameters::Availability"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>availability: i32,
     <span class="doccomment">/// Contact privacy options that the domain supports.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ContactPrivacy&quot;</span>, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ContactPrivacy"</span>, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>supported_privacy: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Notices about special properties of the domain.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DomainNotice&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DomainNotice"</span>, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>domain_notices: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Price to register or renew the domain for one year.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>yearly_price: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RegisterParameters`.
@@ -2796,23 +2797,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Availability::Unspecified =&gt; <span class="string">&quot;AVAILABILITY_UNSPECIFIED&quot;</span>,
-                Availability::Available =&gt; <span class="string">&quot;AVAILABLE&quot;</span>,
-                Availability::Unavailable =&gt; <span class="string">&quot;UNAVAILABLE&quot;</span>,
-                Availability::Unsupported =&gt; <span class="string">&quot;UNSUPPORTED&quot;</span>,
-                Availability::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
+                Availability::Unspecified =&gt; <span class="string">"AVAILABILITY_UNSPECIFIED"</span>,
+                Availability::Available =&gt; <span class="string">"AVAILABLE"</span>,
+                Availability::Unavailable =&gt; <span class="string">"UNAVAILABLE"</span>,
+                Availability::Unsupported =&gt; <span class="string">"UNSUPPORTED"</span>,
+                Availability::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;AVAILABILITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AVAILABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Available),
-                <span class="string">&quot;UNAVAILABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unavailable),
-                <span class="string">&quot;UNSUPPORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unsupported),
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"AVAILABILITY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AVAILABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Available),
+                <span class="string">"UNAVAILABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unavailable),
+                <span class="string">"UNSUPPORTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unsupported),
+                <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2823,24 +2824,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TransferParameters {
     <span class="doccomment">/// The domain name. Unicode domain names are expressed in Punycode format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>domain_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The registrar that currently manages the domain.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>current_registrar: ::prost::alloc::string::String,
     <span class="doccomment">/// The name servers that currently store the configuration of the domain.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>name_servers: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Indicates whether the domain is protected by a transfer lock. For a
     /// transfer to succeed, this must show `UNLOCKED`. To unlock a domain,
     /// go to its current registrar.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TransferLockState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TransferLockState"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>transfer_lock_state: i32,
     <span class="doccomment">/// Contact privacy options that the domain supports.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ContactPrivacy&quot;</span>, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ContactPrivacy"</span>, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>supported_privacy: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Price to transfer or renew the domain for one year.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>yearly_price: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
 }
 <span class="doccomment">/// Defines an authorization code.
@@ -2849,7 +2850,7 @@
 </span><span class="kw">pub struct </span>AuthorizationCode {
     <span class="doccomment">/// The Authorization Code in ASCII. It can be used to transfer the domain
     /// to or from another registrar.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the metadata of the long-running operation. Output only.
@@ -2857,22 +2858,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_detail: ::prost::alloc::string::String,
     <span class="doccomment">/// API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Defines a set of possible contact privacy settings for a `Registration`.
@@ -2893,7 +2894,7 @@
     </span>PublicContactData = <span class="number">1</span>,
     <span class="doccomment">/// None of the data from `ContactSettings` is publicly available. Instead,
     /// proxy contact data is published for your domain. Email sent to the proxy
-    /// email address is forwarded to the registrant&#39;s email address. Cloud Domains
+    /// email address is forwarded to the registrant's email address. Cloud Domains
     /// provides this privacy proxy service at no additional cost.
     </span>PrivateContactData = <span class="number">2</span>,
     <span class="doccomment">/// Some data from `ContactSettings` is publicly available. The actual
@@ -2907,21 +2908,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ContactPrivacy::Unspecified =&gt; <span class="string">&quot;CONTACT_PRIVACY_UNSPECIFIED&quot;</span>,
-            ContactPrivacy::PublicContactData =&gt; <span class="string">&quot;PUBLIC_CONTACT_DATA&quot;</span>,
-            ContactPrivacy::PrivateContactData =&gt; <span class="string">&quot;PRIVATE_CONTACT_DATA&quot;</span>,
-            ContactPrivacy::RedactedContactData =&gt; <span class="string">&quot;REDACTED_CONTACT_DATA&quot;</span>,
+            ContactPrivacy::Unspecified =&gt; <span class="string">"CONTACT_PRIVACY_UNSPECIFIED"</span>,
+            ContactPrivacy::PublicContactData =&gt; <span class="string">"PUBLIC_CONTACT_DATA"</span>,
+            ContactPrivacy::PrivateContactData =&gt; <span class="string">"PRIVATE_CONTACT_DATA"</span>,
+            ContactPrivacy::RedactedContactData =&gt; <span class="string">"REDACTED_CONTACT_DATA"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;CONTACT_PRIVACY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;PUBLIC_CONTACT_DATA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PublicContactData),
-            <span class="string">&quot;PRIVATE_CONTACT_DATA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateContactData),
-            <span class="string">&quot;REDACTED_CONTACT_DATA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RedactedContactData),
+            <span class="string">"CONTACT_PRIVACY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"PUBLIC_CONTACT_DATA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PublicContactData),
+            <span class="string">"PRIVATE_CONTACT_DATA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateContactData),
+            <span class="string">"REDACTED_CONTACT_DATA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RedactedContactData),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2944,17 +2945,17 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DomainNotice::Unspecified =&gt; <span class="string">&quot;DOMAIN_NOTICE_UNSPECIFIED&quot;</span>,
-            DomainNotice::HstsPreloaded =&gt; <span class="string">&quot;HSTS_PRELOADED&quot;</span>,
+            DomainNotice::Unspecified =&gt; <span class="string">"DOMAIN_NOTICE_UNSPECIFIED"</span>,
+            DomainNotice::HstsPreloaded =&gt; <span class="string">"HSTS_PRELOADED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;DOMAIN_NOTICE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;HSTS_PRELOADED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HstsPreloaded),
+            <span class="string">"DOMAIN_NOTICE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"HSTS_PRELOADED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HstsPreloaded),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2974,26 +2975,26 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ContactNotice::Unspecified =&gt; <span class="string">&quot;CONTACT_NOTICE_UNSPECIFIED&quot;</span>,
+            ContactNotice::Unspecified =&gt; <span class="string">"CONTACT_NOTICE_UNSPECIFIED"</span>,
             ContactNotice::PublicContactDataAcknowledgement =&gt; {
-                <span class="string">&quot;PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT&quot;
+                <span class="string">"PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;CONTACT_NOTICE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT&quot; </span>=&gt; {
+            <span class="string">"CONTACT_NOTICE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"PUBLIC_CONTACT_DATA_ACKNOWLEDGEMENT" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::PublicContactDataAcknowledgement)
             }
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }
-<span class="doccomment">/// Possible states of a `Registration`&#39;s transfer lock.
+<span class="doccomment">/// Possible states of a `Registration`'s transfer lock.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>TransferLockState {
@@ -3009,19 +3010,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            TransferLockState::Unspecified =&gt; <span class="string">&quot;TRANSFER_LOCK_STATE_UNSPECIFIED&quot;</span>,
-            TransferLockState::Unlocked =&gt; <span class="string">&quot;UNLOCKED&quot;</span>,
-            TransferLockState::Locked =&gt; <span class="string">&quot;LOCKED&quot;</span>,
+            TransferLockState::Unspecified =&gt; <span class="string">"TRANSFER_LOCK_STATE_UNSPECIFIED"</span>,
+            TransferLockState::Unlocked =&gt; <span class="string">"UNLOCKED"</span>,
+            TransferLockState::Locked =&gt; <span class="string">"LOCKED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;TRANSFER_LOCK_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;UNLOCKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unlocked),
-            <span class="string">&quot;LOCKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locked),
+            <span class="string">"TRANSFER_LOCK_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"UNLOCKED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unlocked),
+            <span class="string">"LOCKED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locked),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -3040,7 +3041,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3119,17 +3120,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/SearchDomains&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/SearchDomains"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>, <span class="string">&quot;SearchDomains&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.domains.v1.Domains"</span>, <span class="string">"SearchDomains"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3148,19 +3149,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/RetrieveRegisterParameters&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/RetrieveRegisterParameters"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>,
-                        <span class="string">&quot;RetrieveRegisterParameters&quot;</span>,
+                        <span class="string">"google.cloud.domains.v1.Domains"</span>,
+                        <span class="string">"RetrieveRegisterParameters"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3191,17 +3192,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/RegisterDomain&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/RegisterDomain"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>, <span class="string">&quot;RegisterDomain&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.domains.v1.Domains"</span>, <span class="string">"RegisterDomain"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3224,19 +3225,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/RetrieveTransferParameters&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/RetrieveTransferParameters"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>,
-                        <span class="string">&quot;RetrieveTransferParameters&quot;</span>,
+                        <span class="string">"google.cloud.domains.v1.Domains"</span>,
+                        <span class="string">"RetrieveTransferParameters"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3246,8 +3247,8 @@
         /// supported.
         ///
         ///
-        /// Before calling this method, go to the domain&#39;s current registrar to unlock
-        /// the domain for transfer and retrieve the domain&#39;s transfer authorization
+        /// Before calling this method, go to the domain's current registrar to unlock
+        /// the domain for transfer and retrieve the domain's transfer authorization
         /// code. Then call `RetrieveTransferParameters` to confirm that the domain is
         /// unlocked and to get values needed to build a call to this method.
         ///
@@ -3255,7 +3256,7 @@
         /// `TRANSFER_PENDING`. It can take several days to complete the transfer
         /// process. The registrant can often speed up this process by approving the
         /// transfer through the current registrar, either by clicking a link in an
-        /// email from the registrar or by visiting the registrar&#39;s website.
+        /// email from the registrar or by visiting the registrar's website.
         ///
         /// A few minutes after transfer approval, the resource transitions to state
         /// `ACTIVE`, indicating that the transfer was successful. If the transfer is
@@ -3275,17 +3276,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/TransferDomain&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/TransferDomain"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>, <span class="string">&quot;TransferDomain&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.domains.v1.Domains"</span>, <span class="string">"TransferDomain"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3303,19 +3304,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/ListRegistrations&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/ListRegistrations"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>,
-                        <span class="string">&quot;ListRegistrations&quot;</span>,
+                        <span class="string">"google.cloud.domains.v1.Domains"</span>,
+                        <span class="string">"ListRegistrations"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3331,17 +3332,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/GetRegistration&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/GetRegistration"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>, <span class="string">&quot;GetRegistration&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.domains.v1.Domains"</span>, <span class="string">"GetRegistration"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3364,24 +3365,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/UpdateRegistration&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/UpdateRegistration"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>,
-                        <span class="string">&quot;UpdateRegistration&quot;</span>,
+                        <span class="string">"google.cloud.domains.v1.Domains"</span>,
+                        <span class="string">"UpdateRegistration"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Updates a `Registration`&#39;s management settings.
+        <span class="doccomment">/// Updates a `Registration`'s management settings.
         </span><span class="kw">pub async fn </span>configure_management_settings(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ConfigureManagementSettingsRequest&gt;,
@@ -3395,24 +3396,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/ConfigureManagementSettings&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/ConfigureManagementSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>,
-                        <span class="string">&quot;ConfigureManagementSettings&quot;</span>,
+                        <span class="string">"google.cloud.domains.v1.Domains"</span>,
+                        <span class="string">"ConfigureManagementSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Updates a `Registration`&#39;s DNS settings.
+        <span class="doccomment">/// Updates a `Registration`'s DNS settings.
         </span><span class="kw">pub async fn </span>configure_dns_settings(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ConfigureDnsSettingsRequest&gt;,
@@ -3426,25 +3427,25 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/ConfigureDnsSettings&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/ConfigureDnsSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>,
-                        <span class="string">&quot;ConfigureDnsSettings&quot;</span>,
+                        <span class="string">"google.cloud.domains.v1.Domains"</span>,
+                        <span class="string">"ConfigureDnsSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Updates a `Registration`&#39;s contact settings. Some changes require
-        /// confirmation by the domain&#39;s registrant contact .
+        <span class="doccomment">/// Updates a `Registration`'s contact settings. Some changes require
+        /// confirmation by the domain's registrant contact .
         </span><span class="kw">pub async fn </span>configure_contact_settings(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ConfigureContactSettingsRequest&gt;,
@@ -3458,19 +3459,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/ConfigureContactSettings&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/ConfigureContactSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>,
-                        <span class="string">&quot;ConfigureContactSettings&quot;</span>,
+                        <span class="string">"google.cloud.domains.v1.Domains"</span>,
+                        <span class="string">"ConfigureContactSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3480,7 +3481,7 @@
         ///
         /// When an active domain is successfully exported, you can continue to use the
         /// domain in [Google Domains](https://domains.google/) until it expires. The
-        /// calling user becomes the domain&#39;s sole owner in Google Domains, and
+        /// calling user becomes the domain's sole owner in Google Domains, and
         /// permissions for the domain are subsequently managed there. The domain does
         /// not renew automatically unless the new owner sets up billing in Google
         /// Domains.
@@ -3497,19 +3498,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/ExportRegistration&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/ExportRegistration"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>,
-                        <span class="string">&quot;ExportRegistration&quot;</span>,
+                        <span class="string">"google.cloud.domains.v1.Domains"</span>,
+                        <span class="string">"ExportRegistration"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3529,7 +3530,7 @@
         ///
         /// When an active registration is successfully deleted, you can continue to
         /// use the domain in [Google Domains](https://domains.google/) until it
-        /// expires. The calling user becomes the domain&#39;s sole owner in Google
+        /// expires. The calling user becomes the domain's sole owner in Google
         /// Domains, and permissions for the domain are subsequently managed there. The
         /// domain does not renew automatically unless the new owner sets up billing in
         /// Google Domains.
@@ -3546,19 +3547,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/DeleteRegistration&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/DeleteRegistration"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>,
-                        <span class="string">&quot;DeleteRegistration&quot;</span>,
+                        <span class="string">"google.cloud.domains.v1.Domains"</span>,
+                        <span class="string">"DeleteRegistration"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3581,19 +3582,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/RetrieveAuthorizationCode&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/RetrieveAuthorizationCode"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>,
-                        <span class="string">&quot;RetrieveAuthorizationCode&quot;</span>,
+                        <span class="string">"google.cloud.domains.v1.Domains"</span>,
+                        <span class="string">"RetrieveAuthorizationCode"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3615,19 +3616,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.domains.v1.Domains/ResetAuthorizationCode&quot;</span>,
+                <span class="string">"/google.cloud.domains.v1.Domains/ResetAuthorizationCode"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.domains.v1.Domains&quot;</span>,
-                        <span class="string">&quot;ResetAuthorizationCode&quot;</span>,
+                        <span class="string">"google.cloud.domains.v1.Domains"</span>,
+                        <span class="string">"ResetAuthorizationCode"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

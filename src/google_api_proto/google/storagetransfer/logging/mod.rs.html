@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/storagetransfer/logging/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/storagetransfer/logging/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -355,19 +356,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AwsS3ObjectMetadata {
     <span class="doccomment">/// Required. Name of the S3 bucket.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bucket: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name/key of the object.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>object_key: ::prost::alloc::string::String,
     <span class="doccomment">/// Last modified time of the object.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>last_modified_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The MD5 checksum of the object&#39;s content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// The MD5 checksum of the object's content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>md5: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Size of the object in bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>size: i64,
 }
 <span class="doccomment">/// AWS S3 bucket metadata.
@@ -375,10 +376,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AwsS3BucketMetadata {
     <span class="doccomment">/// Required. Name of the S3 bucket.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bucket: ::prost::alloc::string::String,
-    <span class="doccomment">/// The path of transfer objects as an object key prefix ending with &quot;/&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The path of transfer objects as an object key prefix ending with "/".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Google Cloud Storage object metadata.
@@ -386,22 +387,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GcsObjectMetadata {
     <span class="doccomment">/// Required. Name of the Cloud Storage bucket.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bucket: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name/key of the object.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>object_key: ::prost::alloc::string::String,
     <span class="doccomment">/// Last modified time of the object.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>last_modified_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The MD5 checksum of the object&#39;s content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// The MD5 checksum of the object's content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>md5: ::prost::alloc::string::String,
-    <span class="doccomment">/// The CRC32C checksum of the object&#39;s content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// The CRC32C checksum of the object's content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>crc32c: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Size of the object in bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>size: i64,
 }
 <span class="doccomment">/// Google Cloud Storage bucket metadata.
@@ -409,10 +410,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GcsBucketMetadata {
     <span class="doccomment">/// Required. Name of the Cloud Storage bucket.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bucket: ::prost::alloc::string::String,
-    <span class="doccomment">/// The path of transfer objects as an object key prefix ending with &quot;/&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The path of transfer objects as an object key prefix ending with "/".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Azure Blob Storage blob metadata.
@@ -420,22 +421,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AzureBlobMetadata {
     <span class="doccomment">/// Required. Name of the Azure Blob storage account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>account: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name of the container.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>container: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name of the blob.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>blob_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Last modified time of the blob.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>last_modified_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The MD5 checksum of the object&#39;s content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// The MD5 checksum of the object's content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>md5: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Size of the blob in bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>size: i64,
 }
 <span class="doccomment">/// Azure Blob Storage container metadata.
@@ -443,13 +444,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AzureBlobContainerMetadata {
     <span class="doccomment">/// Required. Name of the Azure Blob storage account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>account: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name of the container.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>container: ::prost::alloc::string::String,
-    <span class="doccomment">/// The path of transfer blobs as a blob name prefix ending with &quot;/&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The path of transfer blobs as a blob name prefix ending with "/".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// POSIX file metadata.
@@ -457,16 +458,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PosixFileMetadata {
     <span class="doccomment">/// Required. Path of a file.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
     <span class="doccomment">/// Last modified time (mtime) of the file.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>last_modified_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The CRC32C checksum of the object&#39;s content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The CRC32C checksum of the object's content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>crc32c: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Size of the file in bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>size: i64,
 }
 <span class="doccomment">/// HTTP file metadata.
@@ -474,13 +475,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HttpFileMetadata {
     <span class="doccomment">/// Required. Url of the HTTP file.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
-    <span class="doccomment">/// The MD5 checksum of the file&#39;s content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The MD5 checksum of the file's content.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>md5: ::prost::alloc::string::String,
     <span class="doccomment">/// Size of the file in bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>size: i64,
 }
 <span class="doccomment">/// HTTP manifest file metadata.
@@ -489,7 +490,7 @@
 </span><span class="kw">pub struct </span>HttpManifestMetadata {
     <span class="doccomment">/// Required. Url of the HTTP manifest which contains the list of HTTP files to
     /// transfer.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Metadata of a blob/file/object.
@@ -497,9 +498,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ObjectMetadata {
     <span class="doccomment">/// Required. Storage system type of the object.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;StorageSystemType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"StorageSystemType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;object_metadata::Metadata&quot;</span>, tags = <span class="string">&quot;3, 4, 5, 6, 7&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"object_metadata::Metadata"</span>, tags = <span class="string">"3, 4, 5, 6, 7"</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;object_metadata::Metadata&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ObjectMetadata`.
@@ -508,19 +509,19 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Metadata {
         <span class="doccomment">/// Object metadata of AWS S3.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>AwsS3Object(<span class="kw">super</span>::AwsS3ObjectMetadata),
         <span class="doccomment">/// Blob metadata of Azure Blob Storage.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>AzureBlob(<span class="kw">super</span>::AzureBlobMetadata),
         <span class="doccomment">/// Object metadata of Google Cloud Storage.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>GcsObject(<span class="kw">super</span>::GcsObjectMetadata),
         <span class="doccomment">/// File/directory metadata of POSIX file system.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>PosixFile(<span class="kw">super</span>::PosixFileMetadata),
         <span class="doccomment">/// Metadata of a file on a HTTP server.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>HttpFile(<span class="kw">super</span>::HttpFileMetadata),
     }
 }
@@ -529,9 +530,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ContainerMetadata {
     <span class="doccomment">/// Required. Storage system type of the object.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;StorageSystemType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"StorageSystemType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;container_metadata::Metadata&quot;</span>, tags = <span class="string">&quot;3, 4, 5, 6, 7&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"container_metadata::Metadata"</span>, tags = <span class="string">"3, 4, 5, 6, 7"</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;container_metadata::Metadata&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ContainerMetadata`.
@@ -540,19 +541,19 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Metadata {
         <span class="doccomment">/// Bucket metadata of AWS S3.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>AwsS3Bucket(<span class="kw">super</span>::AwsS3BucketMetadata),
         <span class="doccomment">/// Container metadata of Azure Blob Storage.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>AzureBlobContainer(<span class="kw">super</span>::AzureBlobContainerMetadata),
         <span class="doccomment">/// Bucket metadata of Google Cloud Storage.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>GcsBucket(<span class="kw">super</span>::GcsBucketMetadata),
         <span class="doccomment">/// Directory metadata of POSIX file system.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>PosixDirectory(<span class="kw">super</span>::PosixFileMetadata),
         <span class="doccomment">/// Metadata of a manifest file on a HTTP server.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>HttpManifest(<span class="kw">super</span>::HttpManifestMetadata),
     }
 }
@@ -561,32 +562,32 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TransferActivityLog {
     <span class="doccomment">/// Required. Name of the transfer operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operation: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The action which the transfer operation made.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transfer_activity_log::Action&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"transfer_activity_log::Action"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>action: i32,
     <span class="doccomment">/// Required. Status of the action.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;transfer_activity_log::Status&gt;,
     <span class="doccomment">/// Metadata of source bucket/container/directory. Only set if the action is
     /// FIND.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>source_container: ::core::option::Option&lt;ContainerMetadata&gt;,
     <span class="doccomment">/// Metadata of destination bucket/container/directory. Only set if the action
     /// is FIND.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>destination_container: ::core::option::Option&lt;ContainerMetadata&gt;,
     <span class="doccomment">/// Metadata of the source blob/file/object. Only set if the action is COPY or
     /// DELETE when deletion is applied to source.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>source_object: ::core::option::Option&lt;ObjectMetadata&gt;,
     <span class="doccomment">/// Metadata of the destination blob/file/object. Only set if the action is
     /// or DELETE when deletion is applied to destination.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>destination_object: ::core::option::Option&lt;ObjectMetadata&gt;,
     <span class="doccomment">/// Required. Completion time of the action.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>complete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TransferActivityLog`.
@@ -596,16 +597,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Status {
         <span class="doccomment">/// Required. A string value of the Google RPC code as the status of the
-        /// action. The action succeeded if it&#39;s `OK`, and failed otherwise.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// action. The action succeeded if it's `OK`, and failed otherwise.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>status_code: ::prost::alloc::string::String,
         <span class="doccomment">/// A string that represents the type of error encountered. Populated only if
         /// status_code is not `OK`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>error_type: ::prost::alloc::string::String,
         <span class="doccomment">/// A human-readable error message for the failure. Populated only if
         /// status_code is not `OK`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Possible actions which a transfer operation can make.
@@ -637,21 +638,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Action::Unspecified =&gt; <span class="string">&quot;ACTION_UNSPECIFIED&quot;</span>,
-                Action::Find =&gt; <span class="string">&quot;FIND&quot;</span>,
-                Action::Copy =&gt; <span class="string">&quot;COPY&quot;</span>,
-                Action::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
+                Action::Unspecified =&gt; <span class="string">"ACTION_UNSPECIFIED"</span>,
+                Action::Find =&gt; <span class="string">"FIND"</span>,
+                Action::Copy =&gt; <span class="string">"COPY"</span>,
+                Action::Delete =&gt; <span class="string">"DELETE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;FIND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Find),
-                <span class="string">&quot;COPY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Copy),
-                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+                <span class="string">"ACTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"FIND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Find),
+                <span class="string">"COPY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Copy),
+                <span class="string">"DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -679,25 +680,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            StorageSystemType::Unspecified =&gt; <span class="string">&quot;STORAGE_SYSTEM_TYPE_UNSPECIFIED&quot;</span>,
-            StorageSystemType::AwsS3 =&gt; <span class="string">&quot;AWS_S3&quot;</span>,
-            StorageSystemType::AzureBlob =&gt; <span class="string">&quot;AZURE_BLOB&quot;</span>,
-            StorageSystemType::Gcs =&gt; <span class="string">&quot;GCS&quot;</span>,
-            StorageSystemType::PosixFs =&gt; <span class="string">&quot;POSIX_FS&quot;</span>,
-            StorageSystemType::Http =&gt; <span class="string">&quot;HTTP&quot;</span>,
+            StorageSystemType::Unspecified =&gt; <span class="string">"STORAGE_SYSTEM_TYPE_UNSPECIFIED"</span>,
+            StorageSystemType::AwsS3 =&gt; <span class="string">"AWS_S3"</span>,
+            StorageSystemType::AzureBlob =&gt; <span class="string">"AZURE_BLOB"</span>,
+            StorageSystemType::Gcs =&gt; <span class="string">"GCS"</span>,
+            StorageSystemType::PosixFs =&gt; <span class="string">"POSIX_FS"</span>,
+            StorageSystemType::Http =&gt; <span class="string">"HTTP"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;STORAGE_SYSTEM_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;AWS_S3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AwsS3),
-            <span class="string">&quot;AZURE_BLOB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AzureBlob),
-            <span class="string">&quot;GCS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gcs),
-            <span class="string">&quot;POSIX_FS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PosixFs),
-            <span class="string">&quot;HTTP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Http),
+            <span class="string">"STORAGE_SYSTEM_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"AWS_S3" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AwsS3),
+            <span class="string">"AZURE_BLOB" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AzureBlob),
+            <span class="string">"GCS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gcs),
+            <span class="string">"POSIX_FS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PosixFs),
+            <span class="string">"HTTP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Http),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }

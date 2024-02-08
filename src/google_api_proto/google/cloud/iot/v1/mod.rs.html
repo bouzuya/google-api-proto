@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/iot/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/iot/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1664,18 +1665,18 @@
 </span><span class="kw">pub struct </span>Device {
     <span class="doccomment">/// The user-defined device identifier. The device ID must be unique
     /// within a device registry.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource path name. For example,
     /// `projects/p1/locations/us-central1/registries/registry0/devices/dev0` or
     /// `projects/p1/locations/us-central1/registries/registry0/devices/{num_id}`.
     /// When `name` is populated as a response from the service, it always ends
     /// in the device numeric ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// \[Output only\] A server-defined unique numeric ID for the device. This is a
     /// more compact way to identify devices, and it is globally unique.
-    </span><span class="attr">#[prost(uint64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>num_id: u64,
     <span class="doccomment">/// The credentials used to authenticate this device. To allow credential
     /// rotation without interruption, multiple device credentials can be bound to
@@ -1683,67 +1684,67 @@
     /// a time. When new credentials are added to a device, they are verified
     /// against the registry credentials. For details, see the description of the
     /// `DeviceRegistry.credentials` field.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>credentials: ::prost::alloc::vec::Vec&lt;DeviceCredential&gt;,
     <span class="doccomment">/// \[Output only\] The last time an MQTT `PINGREQ` was received. This field
     /// applies only to devices connecting through MQTT. MQTT clients usually only
     /// send `PINGREQ` messages if the connection is idle, and no other messages
     /// have been sent. Timestamps are periodically collected and written to
     /// storage; they may be stale by a few minutes.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>last_heartbeat_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// \[Output only\] The last time a telemetry event was received. Timestamps are
     /// periodically collected and written to storage; they may be stale by a few
     /// minutes.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>last_event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// \[Output only\] The last time a state event was received. Timestamps are
     /// periodically collected and written to storage; they may be stale by a few
     /// minutes.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>last_state_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// \[Output only\] The last time a cloud-to-device config version acknowledgment
     /// was received from the device. This field is only for configurations
     /// sent through MQTT.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>last_config_ack_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// \[Output only\] The last time a cloud-to-device config version was sent to
     /// the device.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>last_config_send_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// If a device is blocked, connections or requests from this device will fail.
     /// Can be used to temporarily prevent the device from connecting if, for
     /// example, the sensor is generating bad data and needs maintenance.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>blocked: bool,
     <span class="doccomment">/// \[Output only\] The time the most recent error occurred, such as a failure to
     /// publish to Cloud Pub/Sub. This field is the timestamp of
-    /// &#39;last_error_status&#39;.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    /// 'last_error_status'.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>last_error_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// \[Output only\] The error message of the most recent error, such as a failure
-    /// to publish to Cloud Pub/Sub. &#39;last_error_time&#39; is the timestamp of this
+    /// to publish to Cloud Pub/Sub. 'last_error_time' is the timestamp of this
     /// field. If no errors have occurred, this field has an empty message
     /// and the status code 0 == OK. Otherwise, this field is expected to have a
     /// status code other than OK.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>last_error_status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// The most recent device configuration, which is eventually sent from
     /// Cloud IoT Core to the device. If not present on creation, the
     /// configuration will be initialized with an empty payload and version value
     /// of `1`. To update this field after creation, use the
     /// `DeviceManager.ModifyCloudToDeviceConfig` method.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;DeviceConfig&gt;,
     <span class="doccomment">/// \[Output only\] The state most recently received from the device. If no state
     /// has been reported, this field is not present.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>state: ::core::option::Option&lt;DeviceState&gt;,
     <span class="doccomment">/// **Beta Feature**
     ///
     /// The logging verbosity for device activity. If unspecified,
     /// DeviceRegistry.log_level will be used.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LogLevel&quot;</span>, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"LogLevel"</span>, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>log_level: i32,
     <span class="doccomment">/// The metadata key-value pairs assigned to the device. This metadata is not
     /// interpreted or indexed by Cloud IoT Core. It can be used to add contextual
@@ -1757,13 +1758,13 @@
     ///
     /// The total size of all keys and values must be less than 256 KB, and the
     /// maximum number of key-value pairs is 500.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Gateway-related configuration and state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"24"</span>)]
     </span><span class="kw">pub </span>gateway_config: ::core::option::Option&lt;GatewayConfig&gt;,
 }
 <span class="doccomment">/// Gateway-related configuration and state.
@@ -1771,18 +1772,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GatewayConfig {
     <span class="doccomment">/// Indicates whether the device is a gateway.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;GatewayType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"GatewayType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gateway_type: i32,
     <span class="doccomment">/// Indicates how to authorize and/or authenticate devices to access the
     /// gateway.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;GatewayAuthMethod&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"GatewayAuthMethod"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gateway_auth_method: i32,
     <span class="doccomment">/// \[Output only\] The ID of the gateway the device accessed most recently.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>last_accessed_gateway_id: ::prost::alloc::string::String,
     <span class="doccomment">/// \[Output only\] The most recent time at which the device accessed the gateway
     /// specified in `last_accessed_gateway`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>last_accessed_gateway_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// A container for a group of devices.
@@ -1790,11 +1791,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeviceRegistry {
     <span class="doccomment">/// The identifier of this device registry. For example, `myRegistry`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource path name. For example,
     /// `projects/example-project/locations/us-central1/registries/my-registry`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The configuration for notification of telemetry events received from the
     /// device. All telemetry events that were successfully published by the
@@ -1802,30 +1803,30 @@
     /// delivered to Cloud Pub/Sub. If multiple configurations match a message,
     /// only the first matching configuration is used. If you try to publish a
     /// device telemetry event using MQTT without specifying a Cloud Pub/Sub topic
-    /// for the device&#39;s registry, the connection closes automatically. If you try
+    /// for the device's registry, the connection closes automatically. If you try
     /// to do so using an HTTP connection, an error is returned. Up to 10
     /// configurations may be provided.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>event_notification_configs: ::prost::alloc::vec::Vec&lt;EventNotificationConfig&gt;,
     <span class="doccomment">/// The configuration for notification of new states received from the device.
     /// State updates are guaranteed to be stored in the state history, but
     /// notifications to Cloud Pub/Sub are not guaranteed. For example, if
-    /// permissions are misconfigured or the specified topic doesn&#39;t exist, no
+    /// permissions are misconfigured or the specified topic doesn't exist, no
     /// notification will be published but the state will still be stored in Cloud
     /// IoT Core.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>state_notification_config: ::core::option::Option&lt;StateNotificationConfig&gt;,
     <span class="doccomment">/// The MQTT configuration for this device registry.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>mqtt_config: ::core::option::Option&lt;MqttConfig&gt;,
     <span class="doccomment">/// The DeviceService (HTTP) configuration for this device registry.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>http_config: ::core::option::Option&lt;HttpConfig&gt;,
     <span class="doccomment">/// **Beta Feature**
     ///
     /// The default logging verbosity for activity from devices in this registry.
     /// The verbosity level can be overridden by Device.log_level.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LogLevel&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"LogLevel"</span>, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>log_level: i32,
     <span class="doccomment">/// The credentials used to verify the device credentials. No more than 10
     /// credentials can be bound to a single registry at a time. The verification
@@ -1838,7 +1839,7 @@
     /// modifications to this list of credentials: after a device has been
     /// successfully created in a registry, it should be able to connect even if
     /// its registry credentials are revoked, deleted, or modified.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>credentials: ::prost::alloc::vec::Vec&lt;RegistryCredential&gt;,
 }
 <span class="doccomment">/// The configuration of MQTT for a device registry.
@@ -1847,7 +1848,7 @@
 </span><span class="kw">pub struct </span>MqttConfig {
     <span class="doccomment">/// If enabled, allows connections using the MQTT protocol. Otherwise, MQTT
     /// connections to this registry will fail.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;MqttState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"MqttState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>mqtt_enabled_state: i32,
 }
 <span class="doccomment">/// The configuration of the HTTP bridge for a device registry.
@@ -1856,7 +1857,7 @@
 </span><span class="kw">pub struct </span>HttpConfig {
     <span class="doccomment">/// If enabled, allows devices to use DeviceService via the HTTP protocol.
     /// Otherwise, any requests to DeviceService will fail for this registry.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HttpState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HttpState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>http_enabled_state: i32,
 }
 <span class="doccomment">/// The configuration for forwarding telemetry events.
@@ -1864,14 +1865,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EventNotificationConfig {
     <span class="doccomment">/// If the subfolder name matches this string exactly, this configuration will
-    /// be used. The string must not include the leading &#39;/&#39; character. If empty,
+    /// be used. The string must not include the leading '/' character. If empty,
     /// all strings are matched. This field is used only for telemetry events;
     /// subfolders are not supported for state changes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>subfolder_matches: ::prost::alloc::string::String,
     <span class="doccomment">/// A Cloud Pub/Sub topic name. For example,
     /// `projects/myProject/topics/deviceEvents`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>pubsub_topic_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The configuration for notification of new states received from the device.
@@ -1880,7 +1881,7 @@
 </span><span class="kw">pub struct </span>StateNotificationConfig {
     <span class="doccomment">/// A Cloud Pub/Sub topic name. For example,
     /// `projects/myProject/topics/deviceEvents`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>pubsub_topic_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A server-stored registry credential used to validate device credentials.
@@ -1888,7 +1889,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RegistryCredential {
     <span class="doccomment">/// The credential data. Reserved for expansion in the future.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;registry_credential::Credential&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"registry_credential::Credential"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>credential: ::core::option::Option&lt;registry_credential::Credential&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RegistryCredential`.
@@ -1898,7 +1899,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Credential {
         <span class="doccomment">/// A public key certificate used to verify the device credentials.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>PublicKeyCertificate(<span class="kw">super</span>::PublicKeyCertificate),
     }
 }
@@ -1907,22 +1908,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>X509CertificateDetails {
     <span class="doccomment">/// The entity that signed the certificate.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>issuer: ::prost::alloc::string::String,
     <span class="doccomment">/// The entity the certificate and public key belong to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>subject: ::prost::alloc::string::String,
     <span class="doccomment">/// The time the certificate becomes valid.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the certificate becomes invalid.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>expiry_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The algorithm used to sign the certificate.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>signature_algorithm: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of public key in the certificate.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>public_key_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A public key certificate format and data.
@@ -1930,13 +1931,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PublicKeyCertificate {
     <span class="doccomment">/// The certificate format.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;PublicKeyCertificateFormat&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"PublicKeyCertificateFormat"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>format: i32,
     <span class="doccomment">/// The certificate data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>certificate: ::prost::alloc::string::String,
     <span class="doccomment">/// \[Output only\] The certificate details. Used only for X.509 certificates.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>x509_details: ::core::option::Option&lt;X509CertificateDetails&gt;,
 }
 <span class="doccomment">/// A server-stored device credential used for authentication.
@@ -1946,10 +1947,10 @@
     <span class="doccomment">/// \[Optional\] The time at which this credential becomes invalid. This
     /// credential will be ignored for new client authentication requests after
     /// this timestamp; however, it will not be automatically deleted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>expiration_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The credential data. Reserved for expansion in the future.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;device_credential::Credential&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"device_credential::Credential"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>credential: ::core::option::Option&lt;device_credential::Credential&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DeviceCredential`.
@@ -1969,7 +1970,7 @@
         /// not contain a certificate, self-signed certificates and public keys will
         /// be accepted. New device credentials must be different from every
         /// registry-level certificate.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>PublicKey(<span class="kw">super</span>::PublicKeyCredential),
     }
 }
@@ -1978,10 +1979,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PublicKeyCredential {
     <span class="doccomment">/// The format of the key.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;PublicKeyFormat&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"PublicKeyFormat"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>format: i32,
     <span class="doccomment">/// The key data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The device configuration. Eventually delivered to devices.
@@ -1992,11 +1993,11 @@
     /// the server, and is always greater than 0 after device creation. The
     /// version must be 0 on the `CreateDevice` request if a `config` is
     /// specified; the response of `CreateDevice` will always have a value of 1.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: i64,
     <span class="doccomment">/// \[Output only\] The time at which this configuration version was updated in
     /// Cloud IoT Core. This timestamp is set by the server.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>cloud_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// \[Output only\] The time at which Cloud IoT Core received the
     /// acknowledgment from the device, indicating that the device has received
@@ -2007,10 +2008,10 @@
     /// connection, only the latest version is sent to the device. Some
     /// versions may never be sent to the device, and therefore are never
     /// acknowledged. This timestamp is set by Cloud IoT Core.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>device_ack_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The device configuration data.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>binary_data: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// The device state, as reported by the device.
@@ -2019,10 +2020,10 @@
 </span><span class="kw">pub struct </span>DeviceState {
     <span class="doccomment">/// \[Output only\] The time at which this state version was updated in Cloud
     /// IoT Core.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The device state data.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>binary_data: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Indicates whether an MQTT connection is enabled or disabled. See the field
@@ -2042,19 +2043,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            MqttState::Unspecified =&gt; <span class="string">&quot;MQTT_STATE_UNSPECIFIED&quot;</span>,
-            MqttState::MqttEnabled =&gt; <span class="string">&quot;MQTT_ENABLED&quot;</span>,
-            MqttState::MqttDisabled =&gt; <span class="string">&quot;MQTT_DISABLED&quot;</span>,
+            MqttState::Unspecified =&gt; <span class="string">"MQTT_STATE_UNSPECIFIED"</span>,
+            MqttState::MqttEnabled =&gt; <span class="string">"MQTT_ENABLED"</span>,
+            MqttState::MqttDisabled =&gt; <span class="string">"MQTT_DISABLED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;MQTT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;MQTT_ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MqttEnabled),
-            <span class="string">&quot;MQTT_DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MqttDisabled),
+            <span class="string">"MQTT_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"MQTT_ENABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MqttEnabled),
+            <span class="string">"MQTT_DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MqttDisabled),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2077,19 +2078,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            HttpState::Unspecified =&gt; <span class="string">&quot;HTTP_STATE_UNSPECIFIED&quot;</span>,
-            HttpState::HttpEnabled =&gt; <span class="string">&quot;HTTP_ENABLED&quot;</span>,
-            HttpState::HttpDisabled =&gt; <span class="string">&quot;HTTP_DISABLED&quot;</span>,
+            HttpState::Unspecified =&gt; <span class="string">"HTTP_STATE_UNSPECIFIED"</span>,
+            HttpState::HttpEnabled =&gt; <span class="string">"HTTP_ENABLED"</span>,
+            HttpState::HttpDisabled =&gt; <span class="string">"HTTP_DISABLED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;HTTP_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;HTTP_ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HttpEnabled),
-            <span class="string">&quot;HTTP_DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HttpDisabled),
+            <span class="string">"HTTP_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"HTTP_ENABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HttpEnabled),
+            <span class="string">"HTTP_DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HttpDisabled),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2120,23 +2121,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            LogLevel::Unspecified =&gt; <span class="string">&quot;LOG_LEVEL_UNSPECIFIED&quot;</span>,
-            LogLevel::None =&gt; <span class="string">&quot;NONE&quot;</span>,
-            LogLevel::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-            LogLevel::Info =&gt; <span class="string">&quot;INFO&quot;</span>,
-            LogLevel::Debug =&gt; <span class="string">&quot;DEBUG&quot;</span>,
+            LogLevel::Unspecified =&gt; <span class="string">"LOG_LEVEL_UNSPECIFIED"</span>,
+            LogLevel::None =&gt; <span class="string">"NONE"</span>,
+            LogLevel::Error =&gt; <span class="string">"ERROR"</span>,
+            LogLevel::Info =&gt; <span class="string">"INFO"</span>,
+            LogLevel::Debug =&gt; <span class="string">"DEBUG"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;LOG_LEVEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
-            <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-            <span class="string">&quot;INFO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Info),
-            <span class="string">&quot;DEBUG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Debug),
+            <span class="string">"LOG_LEVEL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+            <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+            <span class="string">"INFO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Info),
+            <span class="string">"DEBUG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Debug),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2157,19 +2158,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            GatewayType::Unspecified =&gt; <span class="string">&quot;GATEWAY_TYPE_UNSPECIFIED&quot;</span>,
-            GatewayType::Gateway =&gt; <span class="string">&quot;GATEWAY&quot;</span>,
-            GatewayType::NonGateway =&gt; <span class="string">&quot;NON_GATEWAY&quot;</span>,
+            GatewayType::Unspecified =&gt; <span class="string">"GATEWAY_TYPE_UNSPECIFIED"</span>,
+            GatewayType::Gateway =&gt; <span class="string">"GATEWAY"</span>,
+            GatewayType::NonGateway =&gt; <span class="string">"NON_GATEWAY"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;GATEWAY_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;GATEWAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gateway),
-            <span class="string">&quot;NON_GATEWAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonGateway),
+            <span class="string">"GATEWAY_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"GATEWAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gateway),
+            <span class="string">"NON_GATEWAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonGateway),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2198,23 +2199,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            GatewayAuthMethod::Unspecified =&gt; <span class="string">&quot;GATEWAY_AUTH_METHOD_UNSPECIFIED&quot;</span>,
-            GatewayAuthMethod::AssociationOnly =&gt; <span class="string">&quot;ASSOCIATION_ONLY&quot;</span>,
-            GatewayAuthMethod::DeviceAuthTokenOnly =&gt; <span class="string">&quot;DEVICE_AUTH_TOKEN_ONLY&quot;</span>,
+            GatewayAuthMethod::Unspecified =&gt; <span class="string">"GATEWAY_AUTH_METHOD_UNSPECIFIED"</span>,
+            GatewayAuthMethod::AssociationOnly =&gt; <span class="string">"ASSOCIATION_ONLY"</span>,
+            GatewayAuthMethod::DeviceAuthTokenOnly =&gt; <span class="string">"DEVICE_AUTH_TOKEN_ONLY"</span>,
             GatewayAuthMethod::AssociationAndDeviceAuthToken =&gt; {
-                <span class="string">&quot;ASSOCIATION_AND_DEVICE_AUTH_TOKEN&quot;
+                <span class="string">"ASSOCIATION_AND_DEVICE_AUTH_TOKEN"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;GATEWAY_AUTH_METHOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;ASSOCIATION_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AssociationOnly),
-            <span class="string">&quot;DEVICE_AUTH_TOKEN_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeviceAuthTokenOnly),
-            <span class="string">&quot;ASSOCIATION_AND_DEVICE_AUTH_TOKEN&quot; </span>=&gt; {
+            <span class="string">"GATEWAY_AUTH_METHOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"ASSOCIATION_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AssociationOnly),
+            <span class="string">"DEVICE_AUTH_TOKEN_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeviceAuthTokenOnly),
+            <span class="string">"ASSOCIATION_AND_DEVICE_AUTH_TOKEN" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::AssociationAndDeviceAuthToken)
             }
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -2238,21 +2239,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             PublicKeyCertificateFormat::UnspecifiedPublicKeyCertificateFormat =&gt; {
-                <span class="string">&quot;UNSPECIFIED_PUBLIC_KEY_CERTIFICATE_FORMAT&quot;
+                <span class="string">"UNSPECIFIED_PUBLIC_KEY_CERTIFICATE_FORMAT"
             </span>}
-            PublicKeyCertificateFormat::X509CertificatePem =&gt; <span class="string">&quot;X509_CERTIFICATE_PEM&quot;</span>,
+            PublicKeyCertificateFormat::X509CertificatePem =&gt; <span class="string">"X509_CERTIFICATE_PEM"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;UNSPECIFIED_PUBLIC_KEY_CERTIFICATE_FORMAT&quot; </span>=&gt; {
+            <span class="string">"UNSPECIFIED_PUBLIC_KEY_CERTIFICATE_FORMAT" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnspecifiedPublicKeyCertificateFormat)
             }
-            <span class="string">&quot;X509_CERTIFICATE_PEM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::X509CertificatePem),
+            <span class="string">"X509_CERTIFICATE_PEM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::X509CertificatePem),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2289,25 +2290,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             PublicKeyFormat::UnspecifiedPublicKeyFormat =&gt; {
-                <span class="string">&quot;UNSPECIFIED_PUBLIC_KEY_FORMAT&quot;
+                <span class="string">"UNSPECIFIED_PUBLIC_KEY_FORMAT"
             </span>}
-            PublicKeyFormat::RsaPem =&gt; <span class="string">&quot;RSA_PEM&quot;</span>,
-            PublicKeyFormat::RsaX509Pem =&gt; <span class="string">&quot;RSA_X509_PEM&quot;</span>,
-            PublicKeyFormat::Es256Pem =&gt; <span class="string">&quot;ES256_PEM&quot;</span>,
-            PublicKeyFormat::Es256X509Pem =&gt; <span class="string">&quot;ES256_X509_PEM&quot;</span>,
+            PublicKeyFormat::RsaPem =&gt; <span class="string">"RSA_PEM"</span>,
+            PublicKeyFormat::RsaX509Pem =&gt; <span class="string">"RSA_X509_PEM"</span>,
+            PublicKeyFormat::Es256Pem =&gt; <span class="string">"ES256_PEM"</span>,
+            PublicKeyFormat::Es256X509Pem =&gt; <span class="string">"ES256_X509_PEM"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;UNSPECIFIED_PUBLIC_KEY_FORMAT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnspecifiedPublicKeyFormat),
-            <span class="string">&quot;RSA_PEM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaPem),
-            <span class="string">&quot;RSA_X509_PEM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaX509Pem),
-            <span class="string">&quot;ES256_PEM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Es256Pem),
-            <span class="string">&quot;ES256_X509_PEM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Es256X509Pem),
+            <span class="string">"UNSPECIFIED_PUBLIC_KEY_FORMAT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnspecifiedPublicKeyFormat),
+            <span class="string">"RSA_PEM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaPem),
+            <span class="string">"RSA_X509_PEM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaX509Pem),
+            <span class="string">"ES256_PEM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Es256Pem),
+            <span class="string">"ES256_X509_PEM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Es256X509Pem),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2318,12 +2319,12 @@
 </span><span class="kw">pub struct </span>CreateDeviceRegistryRequest {
     <span class="doccomment">/// Required. The project and cloud region where this device registry must be created.
     /// For example, `projects/example-project/locations/us-central1`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The device registry. The field `name` must be empty. The server will
     /// generate that field from the device registry `id` provided and the
     /// `parent` field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>device_registry: ::core::option::Option&lt;DeviceRegistry&gt;,
 }
 <span class="doccomment">/// Request for `GetDeviceRegistry`.
@@ -2332,7 +2333,7 @@
 </span><span class="kw">pub struct </span>GetDeviceRegistryRequest {
     <span class="doccomment">/// Required. The name of the device registry. For example,
     /// `projects/example-project/locations/us-central1/registries/my-registry`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for `DeleteDeviceRegistry`.
@@ -2341,7 +2342,7 @@
 </span><span class="kw">pub struct </span>DeleteDeviceRegistryRequest {
     <span class="doccomment">/// Required. The name of the device registry. For example,
     /// `projects/example-project/locations/us-central1/registries/my-registry`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for `UpdateDeviceRegistry`.
@@ -2351,14 +2352,14 @@
     <span class="doccomment">/// Required. The new values for the device registry. The `id` field must be empty, and
     /// the `name` field must indicate the path of the resource. For example,
     /// `projects/example-project/locations/us-central1/registries/my-registry`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>device_registry: ::core::option::Option&lt;DeviceRegistry&gt;,
     <span class="doccomment">/// Required. Only updates the `device_registry` fields indicated by this mask.
     /// The field mask must not be empty, and it must not contain fields that
     /// are immutable or only set by the server.
     /// Mutable top-level fields: `event_notification_config`, `http_config`,
     /// `mqtt_config`, and `state_notification_config`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request for `ListDeviceRegistries`.
@@ -2367,18 +2368,18 @@
 </span><span class="kw">pub struct </span>ListDeviceRegistriesRequest {
     <span class="doccomment">/// Required. The project and cloud region path. For example,
     /// `projects/example-project/locations/us-central1`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of registries to return in the response. If this value
     /// is zero, the service will select a default size. A call may return fewer
     /// objects than requested. A non-empty `next_page_token` in the response
     /// indicates that more data is available.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value returned by the last `ListDeviceRegistriesResponse`; indicates
     /// that this is a continuation of a prior `ListDeviceRegistries` call and
     /// the system should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for `ListDeviceRegistries`.
@@ -2386,12 +2387,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDeviceRegistriesResponse {
     <span class="doccomment">/// The registries that matched the query.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>device_registries: ::prost::alloc::vec::Vec&lt;DeviceRegistry&gt;,
     <span class="doccomment">/// If not empty, indicates that there may be more registries that match the
     /// request; this value should be passed in a new
     /// `ListDeviceRegistriesRequest`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for `CreateDevice`.
@@ -2401,12 +2402,12 @@
     <span class="doccomment">/// Required. The name of the device registry where this device should be created.
     /// For example,
     /// `projects/example-project/locations/us-central1/registries/my-registry`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The device registration details. The field `name` must be empty. The server
     /// generates `name` from the device registry `id` and the
     /// `parent` field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>device: ::core::option::Option&lt;Device&gt;,
 }
 <span class="doccomment">/// Request for `GetDevice`.
@@ -2416,12 +2417,12 @@
     <span class="doccomment">/// Required. The name of the device. For example,
     /// `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
     /// `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The fields of the `Device` resource to be returned in the response. If the
     /// field mask is unset or empty, all fields are returned. Fields have to be
     /// provided in snake_case format, for example: `last_heartbeat_time`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>field_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request for `UpdateDevice`.
@@ -2432,13 +2433,13 @@
     /// be empty, and the field `name` must specify the name path. For example,
     /// `projects/p0/locations/us-central1/registries/registry0/devices/device0`or
     /// `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>device: ::core::option::Option&lt;Device&gt;,
     <span class="doccomment">/// Required. Only updates the `device` fields indicated by this mask.
     /// The field mask must not be empty, and it must not contain fields that
     /// are immutable or only set by the server.
     /// Mutable top-level fields: `credentials`, `blocked`, and `metadata`
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request for `DeleteDevice`.
@@ -2448,7 +2449,7 @@
     <span class="doccomment">/// Required. The name of the device. For example,
     /// `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
     /// `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for `ListDevices`.
@@ -2457,35 +2458,35 @@
 </span><span class="kw">pub struct </span>ListDevicesRequest {
     <span class="doccomment">/// Required. The device registry path. Required. For example,
     /// `projects/my-project/locations/us-central1/registries/my-registry`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of device numeric IDs. If empty, this field is ignored. Maximum
     /// IDs: 10,000.
-    </span><span class="attr">#[prost(uint64, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>device_num_ids: ::prost::alloc::vec::Vec&lt;u64&gt;,
-    <span class="doccomment">/// A list of device string IDs. For example, `\[&#39;device0&#39;, &#39;device12&#39;\]`.
+    <span class="doccomment">/// A list of device string IDs. For example, `\['device0', 'device12'\]`.
     /// If empty, this field is ignored. Maximum IDs: 10,000
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>device_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The fields of the `Device` resource to be returned in the response. The
     /// fields `id` and `num_id` are always returned, along with any
     /// other fields specified in snake_case format, for example:
     /// `last_heartbeat_time`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>field_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Options related to gateways.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>gateway_list_options: ::core::option::Option&lt;GatewayListOptions&gt;,
     <span class="doccomment">/// The maximum number of devices to return in the response. If this value
     /// is zero, the service will select a default size. A call may return fewer
     /// objects than requested. A non-empty `next_page_token` in the response
     /// indicates that more data is available.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;100&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"100"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value returned by the last `ListDevicesResponse`; indicates
     /// that this is a continuation of a prior `ListDevices` call and
     /// the system should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;101&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"101"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Options for limiting the list based on gateway type and associations.
@@ -2494,7 +2495,7 @@
 </span><span class="kw">pub struct </span>GatewayListOptions {
     <span class="doccomment">/// If not set, all devices and gateways are returned. If set, the list is
     /// filtered based on gateway type and associations.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;gateway_list_options::Filter&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"gateway_list_options::Filter"</span>, tags = <span class="string">"1, 2, 3"</span>)]
     </span><span class="kw">pub </span>filter: ::core::option::Option&lt;gateway_list_options::Filter&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `GatewayListOptions`.
@@ -2507,19 +2508,19 @@
         <span class="doccomment">/// If `GATEWAY` is specified, only gateways are returned. If `NON_GATEWAY`
         /// is specified, only non-gateway devices are returned. If
         /// `GATEWAY_TYPE_UNSPECIFIED` is specified, all devices are returned.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::GatewayType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::GatewayType"</span>, tag = <span class="string">"1"</span>)]
         </span>GatewayType(i32),
         <span class="doccomment">/// If set, only devices associated with the specified gateway are returned.
         /// The gateway ID can be numeric (`num_id`) or the user-defined string
         /// (`id`). For example, if `123` is specified, only devices bound to the
         /// gateway with `num_id` 123 are returned.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>AssociationsGatewayId(::prost::alloc::string::String),
         <span class="doccomment">/// If set, returns only the gateways with which the specified device is
         /// associated. The device ID can be numeric (`num_id`) or the user-defined
         /// string (`id`). For example, if `456` is specified, returns only the
         /// gateways to which the device with `num_id` 456 is bound.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>AssociationsDeviceId(::prost::alloc::string::String),
     }
 }
@@ -2528,11 +2529,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDevicesResponse {
     <span class="doccomment">/// The devices that match the request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>devices: ::prost::alloc::vec::Vec&lt;Device&gt;,
     <span class="doccomment">/// If not empty, indicates that there may be more devices that match the
     /// request; this value should be passed in a new `ListDevicesRequest`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for `ModifyCloudToDeviceConfig`.
@@ -2542,17 +2543,17 @@
     <span class="doccomment">/// Required. The name of the device. For example,
     /// `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
     /// `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The version number to update. If this value is zero, it will not check the
     /// version number of the server and will always update the current version;
     /// otherwise, this update will fail if the version number found on the server
     /// does not match this version number. This is used to support multiple
     /// simultaneous updates without losing data.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>version_to_update: i64,
     <span class="doccomment">/// Required. The configuration data for the device.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>binary_data: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Request for `ListDeviceConfigVersions`.
@@ -2562,12 +2563,12 @@
     <span class="doccomment">/// Required. The name of the device. For example,
     /// `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
     /// `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The number of versions to list. Versions are listed in decreasing order of
     /// the version number. The maximum number of versions retained is 10. If this
     /// value is zero, it will return all the versions available.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>num_versions: i32,
 }
 <span class="doccomment">/// Response for `ListDeviceConfigVersions`.
@@ -2576,7 +2577,7 @@
 </span><span class="kw">pub struct </span>ListDeviceConfigVersionsResponse {
     <span class="doccomment">/// The device configuration for the last few versions. Versions are listed
     /// in decreasing order, starting from the most recent one.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>device_configs: ::prost::alloc::vec::Vec&lt;DeviceConfig&gt;,
 }
 <span class="doccomment">/// Request for `ListDeviceStates`.
@@ -2586,12 +2587,12 @@
     <span class="doccomment">/// Required. The name of the device. For example,
     /// `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
     /// `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The number of states to list. States are listed in descending order of
     /// update time. The maximum number of states retained is 10. If this
     /// value is zero, it will return all the states available.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>num_states: i32,
 }
 <span class="doccomment">/// Response for `ListDeviceStates`.
@@ -2600,7 +2601,7 @@
 </span><span class="kw">pub struct </span>ListDeviceStatesResponse {
     <span class="doccomment">/// The last few device states. States are listed in descending order of server
     /// update time, starting from the most recent one.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>device_states: ::prost::alloc::vec::Vec&lt;DeviceState&gt;,
 }
 <span class="doccomment">/// Request for `SendCommandToDevice`.
@@ -2610,17 +2611,17 @@
     <span class="doccomment">/// Required. The name of the device. For example,
     /// `projects/p0/locations/us-central1/registries/registry0/devices/device0` or
     /// `projects/p0/locations/us-central1/registries/registry0/devices/{num_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The command data to send to the device.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>binary_data: ::prost::bytes::Bytes,
     <span class="doccomment">/// Optional subfolder for the command. If empty, the command will be delivered
     /// to the /devices/{device-id}/commands topic, otherwise it will be delivered
     /// to the /devices/{device-id}/commands/{subfolder} topic. Multi-level
     /// subfolders are allowed. This field must not have more than 256 characters,
-    /// and must not contain any MQTT wildcards (&quot;+&quot; or &quot;#&quot;) or null characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// and must not contain any MQTT wildcards ("+" or "#") or null characters.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>subfolder: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for `SendCommandToDevice`.
@@ -2633,16 +2634,16 @@
 </span><span class="kw">pub struct </span>BindDeviceToGatewayRequest {
     <span class="doccomment">/// Required. The name of the registry. For example,
     /// `projects/example-project/locations/us-central1/registries/my-registry`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The value of `gateway_id` can be either the device numeric ID or the
     /// user-defined device identifier.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gateway_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The device to associate with the specified gateway. The value of
     /// `device_id` can be either the device numeric ID or the user-defined device
     /// identifier.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>device_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for `BindDeviceToGateway`.
@@ -2655,16 +2656,16 @@
 </span><span class="kw">pub struct </span>UnbindDeviceFromGatewayRequest {
     <span class="doccomment">/// Required. The name of the registry. For example,
     /// `projects/example-project/locations/us-central1/registries/my-registry`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The value of `gateway_id` can be either the device numeric ID or the
     /// user-defined device identifier.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gateway_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The device to disassociate from the specified gateway. The value of
     /// `device_id` can be either the device numeric ID or the user-defined device
     /// identifier.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>device_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for `UnbindDeviceFromGateway`.
@@ -2685,7 +2686,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2757,19 +2758,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/CreateDeviceRegistry&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/CreateDeviceRegistry"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;CreateDeviceRegistry&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"CreateDeviceRegistry"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2785,19 +2786,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/GetDeviceRegistry&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/GetDeviceRegistry"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;GetDeviceRegistry&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"GetDeviceRegistry"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2813,19 +2814,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/UpdateDeviceRegistry&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/UpdateDeviceRegistry"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;UpdateDeviceRegistry&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"UpdateDeviceRegistry"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2841,19 +2842,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/DeleteDeviceRegistry&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/DeleteDeviceRegistry"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;DeleteDeviceRegistry&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"DeleteDeviceRegistry"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2872,19 +2873,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/ListDeviceRegistries&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/ListDeviceRegistries"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;ListDeviceRegistries&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"ListDeviceRegistries"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2900,17 +2901,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/CreateDevice&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/CreateDevice"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>, <span class="string">&quot;CreateDevice&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.iot.v1.DeviceManager"</span>, <span class="string">"CreateDevice"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2925,17 +2926,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/GetDevice&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/GetDevice"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>, <span class="string">&quot;GetDevice&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.iot.v1.DeviceManager"</span>, <span class="string">"GetDevice"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2950,17 +2951,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/UpdateDevice&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/UpdateDevice"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>, <span class="string">&quot;UpdateDevice&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.iot.v1.DeviceManager"</span>, <span class="string">"UpdateDevice"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2975,17 +2976,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/DeleteDevice&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/DeleteDevice"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>, <span class="string">&quot;DeleteDevice&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.iot.v1.DeviceManager"</span>, <span class="string">"DeleteDevice"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3003,17 +3004,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/ListDevices&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/ListDevices"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>, <span class="string">&quot;ListDevices&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.iot.v1.DeviceManager"</span>, <span class="string">"ListDevices"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3030,19 +3031,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/ModifyCloudToDeviceConfig&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/ModifyCloudToDeviceConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;ModifyCloudToDeviceConfig&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"ModifyCloudToDeviceConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3062,19 +3063,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/ListDeviceConfigVersions&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/ListDeviceConfigVersions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;ListDeviceConfigVersions&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"ListDeviceConfigVersions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3094,19 +3095,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/ListDeviceStates&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/ListDeviceStates"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;ListDeviceStates&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"ListDeviceStates"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3128,17 +3129,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/SetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/SetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>, <span class="string">&quot;SetIamPolicy&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.iot.v1.DeviceManager"</span>, <span class="string">"SetIamPolicy"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3160,17 +3161,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/GetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/GetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>, <span class="string">&quot;GetIamPolicy&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.iot.v1.DeviceManager"</span>, <span class="string">"GetIamPolicy"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3194,19 +3195,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/TestIamPermissions&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/TestIamPermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;TestIamPermissions&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"TestIamPermissions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3237,19 +3238,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/SendCommandToDevice&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/SendCommandToDevice"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;SendCommandToDevice&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"SendCommandToDevice"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3268,19 +3269,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/BindDeviceToGateway&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/BindDeviceToGateway"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;BindDeviceToGateway&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"BindDeviceToGateway"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3299,19 +3300,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.iot.v1.DeviceManager/UnbindDeviceFromGateway&quot;</span>,
+                <span class="string">"/google.cloud.iot.v1.DeviceManager/UnbindDeviceFromGateway"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.iot.v1.DeviceManager&quot;</span>,
-                        <span class="string">&quot;UnbindDeviceFromGateway&quot;</span>,
+                        <span class="string">"google.cloud.iot.v1.DeviceManager"</span>,
+                        <span class="string">"UnbindDeviceFromGateway"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

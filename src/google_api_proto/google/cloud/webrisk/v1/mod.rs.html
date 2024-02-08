@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/webrisk/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/webrisk/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1021,17 +1022,17 @@
     <span class="doccomment">/// Required. The threat list to update. Only a single ThreatType should be
     /// specified per request. If you want to handle multiple ThreatTypes, you must
     /// make one request per ThreatType.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ThreatType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ThreatType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>threat_type: i32,
     <span class="doccomment">/// The current version token of the client for the requested list (the
     /// client version that was received from the last successful diff).
     /// If the client does not have a version token (this is the first time calling
     /// ComputeThreatListDiff), this may be left empty and a full database
     /// snapshot will be returned.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>version_token: ::prost::bytes::Bytes,
     <span class="doccomment">/// Required. The constraints associated with this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>constraints: ::core::option::Option&lt;
         compute_threat_list_diff_request::Constraints,
     &gt;,
@@ -1045,15 +1046,15 @@
         <span class="doccomment">/// The maximum size in number of entries. The diff will not contain more
         /// entries than this value.  This should be a power of 2 between 2**10 and
         /// 2**20.  If zero, no diff size limit is set.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>max_diff_entries: i32,
         <span class="doccomment">/// Sets the maximum number of entries that the client is willing to have
         /// in the local database. This should be a power of 2 between 2**10 and
         /// 2**20. If zero, no database size limit is set.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>max_database_entries: i32,
         <span class="doccomment">/// The compression types supported by the client.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::CompressionType&quot;</span>, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::CompressionType"</span>, repeated, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>supported_compressions: ::prost::alloc::vec::Vec&lt;i32&gt;,
     }
 }
@@ -1062,42 +1063,42 @@
 </span><span class="kw">pub struct </span>ComputeThreatListDiffResponse {
     <span class="doccomment">/// The type of response. This may indicate that an action must be taken by the
     /// client when the response is received.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;compute_threat_list_diff_response::ResponseType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"compute_threat_list_diff_response::ResponseType"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>response_type: i32,
-    <span class="doccomment">/// A set of entries to add to a local threat type&#39;s list.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// A set of entries to add to a local threat type's list.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>additions: ::core::option::Option&lt;ThreatEntryAdditions&gt;,
-    <span class="doccomment">/// A set of entries to remove from a local threat type&#39;s list.
+    <span class="doccomment">/// A set of entries to remove from a local threat type's list.
     /// This field may be empty.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>removals: ::core::option::Option&lt;ThreatEntryRemovals&gt;,
     <span class="doccomment">/// The new opaque client version token. This should be retained by the client
-    /// and passed into the next call of ComputeThreatListDiff as &#39;version_token&#39;.
+    /// and passed into the next call of ComputeThreatListDiff as 'version_token'.
     /// A separate version token should be stored and used for each threatList.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>new_version_token: ::prost::bytes::Bytes,
     <span class="doccomment">/// The expected SHA256 hash of the client state; that is, of the sorted list
     /// of all hashes present in the database after applying the provided diff.
-    /// If the client state doesn&#39;t match the expected state, the client must
+    /// If the client state doesn't match the expected state, the client must
     /// discard this diff and retry later.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>checksum: ::core::option::Option&lt;compute_threat_list_diff_response::Checksum&gt;,
     <span class="doccomment">/// The soonest the client should wait before issuing any diff
     /// request. Querying sooner is unlikely to produce a meaningful diff.
     /// Waiting longer is acceptable considering the use case.
     /// If this field is not set clients may update as soon as they want.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>recommended_next_diff: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ComputeThreatListDiffResponse`.
 </span><span class="kw">pub mod </span>compute_threat_list_diff_response {
-    <span class="doccomment">/// The expected state of a client&#39;s local database.
+    <span class="doccomment">/// The expected state of a client's local database.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Checksum {
         <span class="doccomment">/// The SHA256 hash of the client state; that is, of the sorted list of all
         /// hashes present in the database.
-        </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>sha256: ::prost::bytes::Bytes,
     }
     <span class="doccomment">/// The type of response sent to the client.
@@ -1116,9 +1117,9 @@
     </span><span class="kw">pub enum </span>ResponseType {
         <span class="doccomment">/// Unknown.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Partial updates are applied to the client&#39;s existing local database.
+        <span class="doccomment">/// Partial updates are applied to the client's existing local database.
         </span>Diff = <span class="number">1</span>,
-        <span class="doccomment">/// Full updates resets the client&#39;s entire local database. This means
+        <span class="doccomment">/// Full updates resets the client's entire local database. This means
         /// that either the client had no state, was seriously out-of-date,
         /// or the client is believed to be corrupt.
         </span>Reset = <span class="number">2</span>,
@@ -1128,19 +1129,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ResponseType::Unspecified =&gt; <span class="string">&quot;RESPONSE_TYPE_UNSPECIFIED&quot;</span>,
-                ResponseType::Diff =&gt; <span class="string">&quot;DIFF&quot;</span>,
-                ResponseType::Reset =&gt; <span class="string">&quot;RESET&quot;</span>,
+                ResponseType::Unspecified =&gt; <span class="string">"RESPONSE_TYPE_UNSPECIFIED"</span>,
+                ResponseType::Diff =&gt; <span class="string">"DIFF"</span>,
+                ResponseType::Reset =&gt; <span class="string">"RESET"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RESPONSE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DIFF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Diff),
-                <span class="string">&quot;RESET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reset),
+                <span class="string">"RESPONSE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DIFF" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Diff),
+                <span class="string">"RESET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reset),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1151,18 +1152,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchUrisRequest {
     <span class="doccomment">/// Required. The URI to be checked for matches.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ThreatLists to search in. Multiple ThreatLists may be
     /// specified.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ThreatType&quot;</span>, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ThreatType"</span>, repeated, packed = <span class="string">"false"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>threat_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchUrisResponse {
     <span class="doccomment">/// The threat list matches. This might be empty if the URI is on no list.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>threat: ::core::option::Option&lt;search_uris_response::ThreatUri&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SearchUrisResponse`.
@@ -1172,11 +1173,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ThreatUri {
         <span class="doccomment">/// The ThreatList this threat belongs to.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::ThreatType&quot;</span>, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::ThreatType"</span>, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>threat_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
         <span class="doccomment">/// The cache lifetime for the returned match. Clients must not cache this
         /// response past this timestamp to avoid false positives.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     }
 }
@@ -1188,11 +1189,11 @@
     /// hash. For JSON requests, this field is base64-encoded.
     /// Note that if this parameter is provided by a URI, it must be encoded using
     /// the web safe base64 variant (RFC 4648).
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>hash_prefix: ::prost::bytes::Bytes,
     <span class="doccomment">/// Required. The ThreatLists to search in. Multiple ThreatLists may be
     /// specified.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ThreatType&quot;</span>, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ThreatType"</span>, repeated, packed = <span class="string">"false"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>threat_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1200,11 +1201,11 @@
 </span><span class="kw">pub struct </span>SearchHashesResponse {
     <span class="doccomment">/// The full hashes that matched the requested prefixes.
     /// The hash will be populated in the key.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>threats: ::prost::alloc::vec::Vec&lt;search_hashes_response::ThreatHash&gt;,
     <span class="doccomment">/// For requested entities that did not match the threat list, how long to
     /// cache the response until.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>negative_expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SearchHashesResponse`.
@@ -1215,15 +1216,15 @@
     </span><span class="kw">pub struct </span>ThreatHash {
         <span class="doccomment">/// The ThreatList this threat belongs to.
         /// This must contain at least one entry.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::ThreatType&quot;</span>, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::ThreatType"</span>, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>threat_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
         <span class="doccomment">/// A 32 byte SHA256 hash. This field is in binary format. For JSON
         /// requests, hashes are base64-encoded.
-        </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>hash: ::prost::bytes::Bytes,
         <span class="doccomment">/// The cache lifetime for the returned match. Clients must not cache this
         /// response past this timestamp to avoid false positives.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     }
 }
@@ -1234,12 +1235,12 @@
 </span><span class="kw">pub struct </span>ThreatEntryAdditions {
     <span class="doccomment">/// The raw SHA256-formatted entries.
     /// Repeated to allow returning sets of hashes with different prefix sizes.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>raw_hashes: ::prost::alloc::vec::Vec&lt;RawHashes&gt;,
     <span class="doccomment">/// The encoded 4-byte prefixes of SHA256-formatted entries, using a
     /// Golomb-Rice encoding. The hashes are converted to uint32, sorted in
     /// ascending order, then delta encoded and stored as encoded_data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>rice_hashes: ::core::option::Option&lt;RiceDeltaEncoding&gt;,
 }
 <span class="doccomment">/// Contains the set of entries to remove from a local database.
@@ -1247,13 +1248,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ThreatEntryRemovals {
     <span class="doccomment">/// The raw removal indices for a local list.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>raw_indices: ::core::option::Option&lt;RawIndices&gt;,
     <span class="doccomment">/// The encoded local, lexicographically-sorted list indices, using a
     /// Golomb-Rice encoding. Used for sending compressed removal indices. The
     /// removal indices (uint32) are sorted in ascending order, then delta encoded
     /// and stored as encoded_data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>rice_indices: ::core::option::Option&lt;RiceDeltaEncoding&gt;,
 }
 <span class="doccomment">/// A set of raw indices to remove from a local list.
@@ -1261,7 +1262,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RawIndices {
     <span class="doccomment">/// The indices to remove from a lexicographically-sorted local list.
-    </span><span class="attr">#[prost(int32, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>indices: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// The uncompressed threat entries in hash format.
@@ -1278,12 +1279,12 @@
     <span class="doccomment">/// The number of bytes for each prefix encoded below.  This field can be
     /// anywhere from 4 (shortest prefix) to 32 (full SHA256 hash).
     /// In practice this is almost always 4, except in exceptional circumstances.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>prefix_size: i32,
     <span class="doccomment">/// The hashes, in binary format, concatenated into one long string. Hashes are
     /// sorted in lexicographic order. For JSON API users, hashes are
     /// base64-encoded.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>raw_hashes: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// The Rice-Golomb encoded data. Used for sending compressed 4-byte hashes or
@@ -1292,21 +1293,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RiceDeltaEncoding {
     <span class="doccomment">/// The offset of the first entry in the encoded data, or, if only a single
-    /// integer was encoded, that single integer&#39;s value. If the field is empty or
+    /// integer was encoded, that single integer's value. If the field is empty or
     /// missing, assume zero.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>first_value: i64,
     <span class="doccomment">/// The Golomb-Rice parameter, which is a number between 2 and 28. This field
     /// is missing (that is, zero) if `num_entries` is zero.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>rice_parameter: i32,
     <span class="doccomment">/// The number of entries that are delta encoded in the encoded data. If only a
     /// single integer was encoded, this will be zero and the single value will be
     /// stored in `first_value`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>entry_count: i32,
     <span class="doccomment">/// The encoded deltas that are encoded using the Golomb-Rice coder.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>encoded_data: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Wraps a URI that might be displaying malicious content.
@@ -1315,28 +1316,28 @@
 </span><span class="kw">pub struct </span>Submission {
     <span class="doccomment">/// Required. The URI that is being reported for malicious content to be
     /// analyzed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. ThreatTypes found to be associated with the submitted URI
     /// after reviewing it. This might be empty if the URI was not added to any
     /// list.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ThreatType&quot;</span>, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ThreatType"</span>, repeated, packed = <span class="string">"false"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>threat_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// Context about the submission including the type of abuse found on the URI and
 /// supporting details.
-/// option (google.api.message_visibility).restriction = &quot;TRUSTED_TESTER&quot;;
+/// option (google.api.message_visibility).restriction = "TRUSTED_TESTER";
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ThreatInfo {
     <span class="doccomment">/// The type of abuse.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;threat_info::AbuseType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"threat_info::AbuseType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>abuse_type: i32,
     <span class="doccomment">/// Confidence that the URI is unsafe.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>threat_confidence: ::core::option::Option&lt;threat_info::Confidence&gt;,
     <span class="doccomment">/// Context about why the URI is unsafe.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>threat_justification: ::core::option::Option&lt;threat_info::ThreatJustification&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ThreatInfo`.
@@ -1345,7 +1346,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Confidence {
-        <span class="attr">#[prost(oneof = <span class="string">&quot;confidence::Value&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+        <span class="attr">#[prost(oneof = <span class="string">"confidence::Value"</span>, tags = <span class="string">"1, 2"</span>)]
         </span><span class="kw">pub </span>value: ::core::option::Option&lt;confidence::Value&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Confidence`.
@@ -1378,21 +1379,21 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    ConfidenceLevel::Unspecified =&gt; <span class="string">&quot;CONFIDENCE_LEVEL_UNSPECIFIED&quot;</span>,
-                    ConfidenceLevel::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
-                    ConfidenceLevel::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
-                    ConfidenceLevel::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
+                    ConfidenceLevel::Unspecified =&gt; <span class="string">"CONFIDENCE_LEVEL_UNSPECIFIED"</span>,
+                    ConfidenceLevel::Low =&gt; <span class="string">"LOW"</span>,
+                    ConfidenceLevel::Medium =&gt; <span class="string">"MEDIUM"</span>,
+                    ConfidenceLevel::High =&gt; <span class="string">"HIGH"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;CONFIDENCE_LEVEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
-                    <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-                    <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+                    <span class="string">"CONFIDENCE_LEVEL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"LOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+                    <span class="string">"MEDIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+                    <span class="string">"HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -1403,10 +1404,10 @@
             <span class="doccomment">/// A decimal representation of confidence in the range of 0
             /// to 1 where 0 indicates no confidence and 1 indicates
             /// complete confidence.
-            </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
             </span>Score(f32),
             <span class="doccomment">/// Enum representation of confidence.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ConfidenceLevel&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(enumeration = <span class="string">"ConfidenceLevel"</span>, tag = <span class="string">"2"</span>)]
             </span>Level(i32),
         }
     }
@@ -1416,13 +1417,13 @@
     </span><span class="kw">pub struct </span>ThreatJustification {
         <span class="doccomment">/// Labels associated with this URI that explain how it was classified.
         </span><span class="attr">#[prost(
-            enumeration = <span class="string">&quot;threat_justification::JustificationLabel&quot;</span>,
+            enumeration = <span class="string">"threat_justification::JustificationLabel"</span>,
             repeated,
-            tag = <span class="string">&quot;1&quot;
+            tag = <span class="string">"1"
         </span>)]
         </span><span class="kw">pub </span>labels: ::prost::alloc::vec::Vec&lt;i32&gt;,
         <span class="doccomment">/// Free-form context on why this URI is unsafe.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>comments: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `ThreatJustification`.
@@ -1455,21 +1456,21 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    JustificationLabel::Unspecified =&gt; <span class="string">&quot;JUSTIFICATION_LABEL_UNSPECIFIED&quot;</span>,
-                    JustificationLabel::ManualVerification =&gt; <span class="string">&quot;MANUAL_VERIFICATION&quot;</span>,
-                    JustificationLabel::UserReport =&gt; <span class="string">&quot;USER_REPORT&quot;</span>,
-                    JustificationLabel::AutomatedReport =&gt; <span class="string">&quot;AUTOMATED_REPORT&quot;</span>,
+                    JustificationLabel::Unspecified =&gt; <span class="string">"JUSTIFICATION_LABEL_UNSPECIFIED"</span>,
+                    JustificationLabel::ManualVerification =&gt; <span class="string">"MANUAL_VERIFICATION"</span>,
+                    JustificationLabel::UserReport =&gt; <span class="string">"USER_REPORT"</span>,
+                    JustificationLabel::AutomatedReport =&gt; <span class="string">"AUTOMATED_REPORT"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;JUSTIFICATION_LABEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;MANUAL_VERIFICATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ManualVerification),
-                    <span class="string">&quot;USER_REPORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserReport),
-                    <span class="string">&quot;AUTOMATED_REPORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AutomatedReport),
+                    <span class="string">"JUSTIFICATION_LABEL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"MANUAL_VERIFICATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ManualVerification),
+                    <span class="string">"USER_REPORT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserReport),
+                    <span class="string">"AUTOMATED_REPORT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AutomatedReport),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -1503,21 +1504,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AbuseType::Unspecified =&gt; <span class="string">&quot;ABUSE_TYPE_UNSPECIFIED&quot;</span>,
-                AbuseType::Malware =&gt; <span class="string">&quot;MALWARE&quot;</span>,
-                AbuseType::SocialEngineering =&gt; <span class="string">&quot;SOCIAL_ENGINEERING&quot;</span>,
-                AbuseType::UnwantedSoftware =&gt; <span class="string">&quot;UNWANTED_SOFTWARE&quot;</span>,
+                AbuseType::Unspecified =&gt; <span class="string">"ABUSE_TYPE_UNSPECIFIED"</span>,
+                AbuseType::Malware =&gt; <span class="string">"MALWARE"</span>,
+                AbuseType::SocialEngineering =&gt; <span class="string">"SOCIAL_ENGINEERING"</span>,
+                AbuseType::UnwantedSoftware =&gt; <span class="string">"UNWANTED_SOFTWARE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ABUSE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;MALWARE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Malware),
-                <span class="string">&quot;SOCIAL_ENGINEERING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SocialEngineering),
-                <span class="string">&quot;UNWANTED_SOFTWARE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnwantedSoftware),
+                <span class="string">"ABUSE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"MALWARE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Malware),
+                <span class="string">"SOCIAL_ENGINEERING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SocialEngineering),
+                <span class="string">"UNWANTED_SOFTWARE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnwantedSoftware),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1528,11 +1529,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ThreatDiscovery {
     <span class="doccomment">/// Platform on which the threat was discovered.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;threat_discovery::Platform&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"threat_discovery::Platform"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>platform: i32,
     <span class="doccomment">/// CLDR region code of the countries/regions the URI poses a threat ordered
-    /// from most impact to least impact. Example: &quot;US&quot; for United States.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    /// from most impact to least impact. Example: "US" for United States.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>region_codes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ThreatDiscovery`.
@@ -1567,23 +1568,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Platform::Unspecified =&gt; <span class="string">&quot;PLATFORM_UNSPECIFIED&quot;</span>,
-                Platform::Android =&gt; <span class="string">&quot;ANDROID&quot;</span>,
-                Platform::Ios =&gt; <span class="string">&quot;IOS&quot;</span>,
-                Platform::Macos =&gt; <span class="string">&quot;MACOS&quot;</span>,
-                Platform::Windows =&gt; <span class="string">&quot;WINDOWS&quot;</span>,
+                Platform::Unspecified =&gt; <span class="string">"PLATFORM_UNSPECIFIED"</span>,
+                Platform::Android =&gt; <span class="string">"ANDROID"</span>,
+                Platform::Ios =&gt; <span class="string">"IOS"</span>,
+                Platform::Macos =&gt; <span class="string">"MACOS"</span>,
+                Platform::Windows =&gt; <span class="string">"WINDOWS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PLATFORM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ANDROID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Android),
-                <span class="string">&quot;IOS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ios),
-                <span class="string">&quot;MACOS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Macos),
-                <span class="string">&quot;WINDOWS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Windows),
+                <span class="string">"PLATFORM_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ANDROID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Android),
+                <span class="string">"IOS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ios),
+                <span class="string">"MACOS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Macos),
+                <span class="string">"WINDOWS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Windows),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1594,11 +1595,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateSubmissionRequest {
     <span class="doccomment">/// Required. The name of the project that is making the submission. This
-    /// string is in the format &quot;projects/{project_number}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// string is in the format "projects/{project_number}".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The submission that contains the content of the phishing report.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>submission: ::core::option::Option&lt;Submission&gt;,
 }
 <span class="doccomment">/// Request to send a potentially malicious URI to WebRisk.
@@ -1606,32 +1607,32 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SubmitUriRequest {
     <span class="doccomment">/// Required. The name of the project that is making the submission. This
-    /// string is in the format &quot;projects/{project_number}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// string is in the format "projects/{project_number}".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The submission that contains the URI to be scanned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>submission: ::core::option::Option&lt;Submission&gt;,
     <span class="doccomment">/// Provides additional information about the submission.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>threat_info: ::core::option::Option&lt;ThreatInfo&gt;,
     <span class="doccomment">/// Provides additional information about how the submission was discovered.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>threat_discovery: ::core::option::Option&lt;ThreatDiscovery&gt;,
 }
 <span class="doccomment">/// Metadata for the Submit URI long-running operation.
-/// option (google.api.message_visibility).restriction = &quot;TRUSTED_TESTER&quot;;
+/// option (google.api.message_visibility).restriction = "TRUSTED_TESTER";
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SubmitUriMetadata {
     <span class="doccomment">/// The state of the operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;submit_uri_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"submit_uri_metadata::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Creation time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Latest update time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SubmitUriMetadata`.
@@ -1668,25 +1669,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Closed =&gt; <span class="string">&quot;CLOSED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Closed =&gt; <span class="string">"CLOSED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"CLOSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1714,25 +1715,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ThreatType::Unspecified =&gt; <span class="string">&quot;THREAT_TYPE_UNSPECIFIED&quot;</span>,
-            ThreatType::Malware =&gt; <span class="string">&quot;MALWARE&quot;</span>,
-            ThreatType::SocialEngineering =&gt; <span class="string">&quot;SOCIAL_ENGINEERING&quot;</span>,
-            ThreatType::UnwantedSoftware =&gt; <span class="string">&quot;UNWANTED_SOFTWARE&quot;</span>,
+            ThreatType::Unspecified =&gt; <span class="string">"THREAT_TYPE_UNSPECIFIED"</span>,
+            ThreatType::Malware =&gt; <span class="string">"MALWARE"</span>,
+            ThreatType::SocialEngineering =&gt; <span class="string">"SOCIAL_ENGINEERING"</span>,
+            ThreatType::UnwantedSoftware =&gt; <span class="string">"UNWANTED_SOFTWARE"</span>,
             ThreatType::SocialEngineeringExtendedCoverage =&gt; {
-                <span class="string">&quot;SOCIAL_ENGINEERING_EXTENDED_COVERAGE&quot;
+                <span class="string">"SOCIAL_ENGINEERING_EXTENDED_COVERAGE"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;THREAT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;MALWARE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Malware),
-            <span class="string">&quot;SOCIAL_ENGINEERING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SocialEngineering),
-            <span class="string">&quot;UNWANTED_SOFTWARE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnwantedSoftware),
-            <span class="string">&quot;SOCIAL_ENGINEERING_EXTENDED_COVERAGE&quot; </span>=&gt; {
+            <span class="string">"THREAT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"MALWARE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Malware),
+            <span class="string">"SOCIAL_ENGINEERING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SocialEngineering),
+            <span class="string">"UNWANTED_SOFTWARE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnwantedSoftware),
+            <span class="string">"SOCIAL_ENGINEERING_EXTENDED_COVERAGE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SocialEngineeringExtendedCoverage)
             }
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -1755,19 +1756,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            CompressionType::Unspecified =&gt; <span class="string">&quot;COMPRESSION_TYPE_UNSPECIFIED&quot;</span>,
-            CompressionType::Raw =&gt; <span class="string">&quot;RAW&quot;</span>,
-            CompressionType::Rice =&gt; <span class="string">&quot;RICE&quot;</span>,
+            CompressionType::Unspecified =&gt; <span class="string">"COMPRESSION_TYPE_UNSPECIFIED"</span>,
+            CompressionType::Raw =&gt; <span class="string">"RAW"</span>,
+            CompressionType::Rice =&gt; <span class="string">"RICE"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;COMPRESSION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;RAW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Raw),
-            <span class="string">&quot;RICE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rice),
+            <span class="string">"COMPRESSION_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"RAW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Raw),
+            <span class="string">"RICE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rice),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1787,7 +1788,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1867,19 +1868,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.webrisk.v1.WebRiskService/ComputeThreatListDiff&quot;</span>,
+                <span class="string">"/google.cloud.webrisk.v1.WebRiskService/ComputeThreatListDiff"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.webrisk.v1.WebRiskService&quot;</span>,
-                        <span class="string">&quot;ComputeThreatListDiff&quot;</span>,
+                        <span class="string">"google.cloud.webrisk.v1.WebRiskService"</span>,
+                        <span class="string">"ComputeThreatListDiff"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1902,19 +1903,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.webrisk.v1.WebRiskService/SearchUris&quot;</span>,
+                <span class="string">"/google.cloud.webrisk.v1.WebRiskService/SearchUris"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.webrisk.v1.WebRiskService&quot;</span>,
-                        <span class="string">&quot;SearchUris&quot;</span>,
+                        <span class="string">"google.cloud.webrisk.v1.WebRiskService"</span>,
+                        <span class="string">"SearchUris"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1937,26 +1938,26 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.webrisk.v1.WebRiskService/SearchHashes&quot;</span>,
+                <span class="string">"/google.cloud.webrisk.v1.WebRiskService/SearchHashes"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.webrisk.v1.WebRiskService&quot;</span>,
-                        <span class="string">&quot;SearchHashes&quot;</span>,
+                        <span class="string">"google.cloud.webrisk.v1.WebRiskService"</span>,
+                        <span class="string">"SearchHashes"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates a Submission of a URI suspected of containing phishing content to
         /// be reviewed. If the result verifies the existence of malicious phishing
-        /// content, the site will be added to the [Google&#39;s Social Engineering
+        /// content, the site will be added to the [Google's Social Engineering
         /// lists](https://support.google.com/webmasters/answer/6350487/) in order to
         /// protect users that could get exposed to this threat in the future. Only
         /// allowlisted projects can use this method during Early Access. Please reach
@@ -1971,19 +1972,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.webrisk.v1.WebRiskService/CreateSubmission&quot;</span>,
+                <span class="string">"/google.cloud.webrisk.v1.WebRiskService/CreateSubmission"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.webrisk.v1.WebRiskService&quot;</span>,
-                        <span class="string">&quot;CreateSubmission&quot;</span>,
+                        <span class="string">"google.cloud.webrisk.v1.WebRiskService"</span>,
+                        <span class="string">"CreateSubmission"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1993,7 +1994,7 @@
         /// is updated with its result. You can use the [Pub/Sub API]
         /// (https://cloud.google.com/pubsub) to receive notifications for the returned
         /// Operation. If the result verifies the existence of malicious content, the
-        /// site will be added to the [Google&#39;s Social Engineering lists]
+        /// site will be added to the [Google's Social Engineering lists]
         /// (https://support.google.com/webmasters/answer/6350487/) in order to
         /// protect users that could get exposed to this threat in the future. Only
         /// allowlisted projects can use this method during Early Access. Please reach
@@ -2011,19 +2012,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.webrisk.v1.WebRiskService/SubmitUri&quot;</span>,
+                <span class="string">"/google.cloud.webrisk.v1.WebRiskService/SubmitUri"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.webrisk.v1.WebRiskService&quot;</span>,
-                        <span class="string">&quot;SubmitUri&quot;</span>,
+                        <span class="string">"google.cloud.webrisk.v1.WebRiskService"</span>,
+                        <span class="string">"SubmitUri"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

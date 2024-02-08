@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/recaptchaenterprise/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/recaptchaenterprise/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1068,10 +1069,10 @@
 </span><span class="kw">pub struct </span>CreateAssessmentRequest {
     <span class="doccomment">/// Required. The name of the project in which the assessment will be created,
     /// in the format `projects/{project_number}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The assessment details.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>assessment: ::core::option::Option&lt;Assessment&gt;,
 }
 <span class="doccomment">/// Describes an event in the lifecycle of a payment transaction.
@@ -1079,21 +1080,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TransactionEvent {
     <span class="doccomment">/// Optional. The type of this transaction event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transaction_event::TransactionEventType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"transaction_event::TransactionEventType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>event_type: i32,
     <span class="doccomment">/// Optional. The reason or standardized code that corresponds with this
     /// transaction event, if one exists. For example, a CHARGEBACK event with code
     /// 6005.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The value that corresponds with this transaction event, if one
     /// exists. For example, a refund event where $5.00 was refunded. Currency is
     /// obtained from the original transaction data.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>value: f64,
     <span class="doccomment">/// Optional. Timestamp when this transaction event occurred; otherwise assumed
     /// to be the time of the API call.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TransactionEvent`.
@@ -1115,12 +1116,12 @@
         <span class="doccomment">/// Default, unspecified event type.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Indicates that the transaction is approved by the merchant. The
-        /// accompanying reasons can include terms such as &#39;INHOUSE&#39;, &#39;ACCERTIFY&#39;,
-        /// &#39;CYBERSOURCE&#39;, or &#39;MANUAL_REVIEW&#39;.
+        /// accompanying reasons can include terms such as 'INHOUSE', 'ACCERTIFY',
+        /// 'CYBERSOURCE', or 'MANUAL_REVIEW'.
         </span>MerchantApprove = <span class="number">1</span>,
         <span class="doccomment">/// Indicates that the transaction is denied and concluded due to risks
         /// detected by the merchant. The accompanying reasons can include terms such
-        /// as &#39;INHOUSE&#39;,  &#39;ACCERTIFY&#39;,  &#39;CYBERSOURCE&#39;, or &#39;MANUAL_REVIEW&#39;.
+        /// as 'INHOUSE',  'ACCERTIFY',  'CYBERSOURCE', or 'MANUAL_REVIEW'.
         </span>MerchantDeny = <span class="number">2</span>,
         <span class="doccomment">/// Indicates that the transaction is being evaluated by a human, due to
         /// suspicion or risk.
@@ -1128,8 +1129,8 @@
         <span class="doccomment">/// Indicates that the authorization attempt with the card issuer succeeded.
         </span>Authorization = <span class="number">4</span>,
         <span class="doccomment">/// Indicates that the authorization attempt with the card issuer failed.
-        /// The accompanying reasons can include Visa&#39;s &#39;54&#39; indicating that the card
-        /// is expired, or &#39;82&#39; indicating that the CVV is incorrect.
+        /// The accompanying reasons can include Visa's '54' indicating that the card
+        /// is expired, or '82' indicating that the CVV is incorrect.
         </span>AuthorizationDecline = <span class="number">5</span>,
         <span class="doccomment">/// Indicates that the transaction is completed because the funds were
         /// settled.
@@ -1138,7 +1139,7 @@
         /// were not settled.
         </span>PaymentCaptureDecline = <span class="number">7</span>,
         <span class="doccomment">/// Indicates that the transaction has been canceled. Specify the reason
-        /// for the cancellation. For example, &#39;INSUFFICIENT_INVENTORY&#39;.
+        /// for the cancellation. For example, 'INSUFFICIENT_INVENTORY'.
         </span>Cancel = <span class="number">8</span>,
         <span class="doccomment">/// Indicates that the merchant has received a chargeback inquiry due to
         /// fraud for the transaction, requesting additional information before a
@@ -1150,19 +1151,19 @@
         /// involving the payment network is started.
         </span>ChargebackAlert = <span class="number">10</span>,
         <span class="doccomment">/// Indicates that a fraud notification is issued for the transaction, sent
-        /// by the payment instrument&#39;s issuing bank because the transaction appears
+        /// by the payment instrument's issuing bank because the transaction appears
         /// to be fraudulent. We recommend including TC40 or SAFE data in the
         /// `reason` field for this event type. For partial chargebacks, we recommend
         /// that you include an amount in the `value` field.
         </span>FraudNotification = <span class="number">11</span>,
         <span class="doccomment">/// Indicates that the merchant is informed by the payment network that the
         /// transaction has entered the chargeback process due to fraud. Reason code
-        /// examples include Discover&#39;s &#39;6005&#39; and &#39;6041&#39;. For partial chargebacks,
+        /// examples include Discover's '6005' and '6041'. For partial chargebacks,
         /// we recommend that you include an amount in the `value` field.
         </span>Chargeback = <span class="number">12</span>,
         <span class="doccomment">/// Indicates that the transaction has entered the chargeback process due to
         /// fraud, and that the merchant has chosen to enter representment. Reason
-        /// examples include Discover&#39;s &#39;6005&#39; and &#39;6041&#39;. For partial chargebacks,
+        /// examples include Discover's '6005' and '6041'. For partial chargebacks,
         /// we recommend that you include an amount in the `value` field.
         </span>ChargebackRepresentment = <span class="number">13</span>,
         <span class="doccomment">/// Indicates that the transaction has had a fraud chargeback which was
@@ -1171,17 +1172,17 @@
         </span>ChargebackReverse = <span class="number">14</span>,
         <span class="doccomment">/// Indicates that the merchant has received a refund for a completed
         /// transaction. For partial refunds, we recommend that you include an amount
-        /// in the `value` field. Reason example: &#39;TAX_EXEMPT&#39; (partial refund of
+        /// in the `value` field. Reason example: 'TAX_EXEMPT' (partial refund of
         /// exempt tax)
         </span>RefundRequest = <span class="number">15</span>,
         <span class="doccomment">/// Indicates that the merchant has received a refund request for this
         /// transaction, but that they have declined it. For partial refunds, we
         /// recommend that you include an amount in the `value` field. Reason
-        /// example: &#39;TAX_EXEMPT&#39; (partial refund of exempt tax)
+        /// example: 'TAX_EXEMPT' (partial refund of exempt tax)
         </span>RefundDecline = <span class="number">16</span>,
         <span class="doccomment">/// Indicates that the completed transaction was refunded by the merchant.
         /// For partial refunds, we recommend that you include an amount in the
-        /// `value` field. Reason example: &#39;TAX_EXEMPT&#39; (partial refund of exempt
+        /// `value` field. Reason example: 'TAX_EXEMPT' (partial refund of exempt
         /// tax)
         </span>Refund = <span class="number">17</span>,
         <span class="doccomment">/// Indicates that the completed transaction was refunded by the merchant,
@@ -1194,53 +1195,53 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                TransactionEventType::Unspecified =&gt; <span class="string">&quot;TRANSACTION_EVENT_TYPE_UNSPECIFIED&quot;</span>,
-                TransactionEventType::MerchantApprove =&gt; <span class="string">&quot;MERCHANT_APPROVE&quot;</span>,
-                TransactionEventType::MerchantDeny =&gt; <span class="string">&quot;MERCHANT_DENY&quot;</span>,
-                TransactionEventType::ManualReview =&gt; <span class="string">&quot;MANUAL_REVIEW&quot;</span>,
-                TransactionEventType::Authorization =&gt; <span class="string">&quot;AUTHORIZATION&quot;</span>,
-                TransactionEventType::AuthorizationDecline =&gt; <span class="string">&quot;AUTHORIZATION_DECLINE&quot;</span>,
-                TransactionEventType::PaymentCapture =&gt; <span class="string">&quot;PAYMENT_CAPTURE&quot;</span>,
-                TransactionEventType::PaymentCaptureDecline =&gt; <span class="string">&quot;PAYMENT_CAPTURE_DECLINE&quot;</span>,
-                TransactionEventType::Cancel =&gt; <span class="string">&quot;CANCEL&quot;</span>,
-                TransactionEventType::ChargebackInquiry =&gt; <span class="string">&quot;CHARGEBACK_INQUIRY&quot;</span>,
-                TransactionEventType::ChargebackAlert =&gt; <span class="string">&quot;CHARGEBACK_ALERT&quot;</span>,
-                TransactionEventType::FraudNotification =&gt; <span class="string">&quot;FRAUD_NOTIFICATION&quot;</span>,
-                TransactionEventType::Chargeback =&gt; <span class="string">&quot;CHARGEBACK&quot;</span>,
+                TransactionEventType::Unspecified =&gt; <span class="string">"TRANSACTION_EVENT_TYPE_UNSPECIFIED"</span>,
+                TransactionEventType::MerchantApprove =&gt; <span class="string">"MERCHANT_APPROVE"</span>,
+                TransactionEventType::MerchantDeny =&gt; <span class="string">"MERCHANT_DENY"</span>,
+                TransactionEventType::ManualReview =&gt; <span class="string">"MANUAL_REVIEW"</span>,
+                TransactionEventType::Authorization =&gt; <span class="string">"AUTHORIZATION"</span>,
+                TransactionEventType::AuthorizationDecline =&gt; <span class="string">"AUTHORIZATION_DECLINE"</span>,
+                TransactionEventType::PaymentCapture =&gt; <span class="string">"PAYMENT_CAPTURE"</span>,
+                TransactionEventType::PaymentCaptureDecline =&gt; <span class="string">"PAYMENT_CAPTURE_DECLINE"</span>,
+                TransactionEventType::Cancel =&gt; <span class="string">"CANCEL"</span>,
+                TransactionEventType::ChargebackInquiry =&gt; <span class="string">"CHARGEBACK_INQUIRY"</span>,
+                TransactionEventType::ChargebackAlert =&gt; <span class="string">"CHARGEBACK_ALERT"</span>,
+                TransactionEventType::FraudNotification =&gt; <span class="string">"FRAUD_NOTIFICATION"</span>,
+                TransactionEventType::Chargeback =&gt; <span class="string">"CHARGEBACK"</span>,
                 TransactionEventType::ChargebackRepresentment =&gt; {
-                    <span class="string">&quot;CHARGEBACK_REPRESENTMENT&quot;
+                    <span class="string">"CHARGEBACK_REPRESENTMENT"
                 </span>}
-                TransactionEventType::ChargebackReverse =&gt; <span class="string">&quot;CHARGEBACK_REVERSE&quot;</span>,
-                TransactionEventType::RefundRequest =&gt; <span class="string">&quot;REFUND_REQUEST&quot;</span>,
-                TransactionEventType::RefundDecline =&gt; <span class="string">&quot;REFUND_DECLINE&quot;</span>,
-                TransactionEventType::Refund =&gt; <span class="string">&quot;REFUND&quot;</span>,
-                TransactionEventType::RefundReverse =&gt; <span class="string">&quot;REFUND_REVERSE&quot;</span>,
+                TransactionEventType::ChargebackReverse =&gt; <span class="string">"CHARGEBACK_REVERSE"</span>,
+                TransactionEventType::RefundRequest =&gt; <span class="string">"REFUND_REQUEST"</span>,
+                TransactionEventType::RefundDecline =&gt; <span class="string">"REFUND_DECLINE"</span>,
+                TransactionEventType::Refund =&gt; <span class="string">"REFUND"</span>,
+                TransactionEventType::RefundReverse =&gt; <span class="string">"REFUND_REVERSE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TRANSACTION_EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;MERCHANT_APPROVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MerchantApprove),
-                <span class="string">&quot;MERCHANT_DENY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MerchantDeny),
-                <span class="string">&quot;MANUAL_REVIEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ManualReview),
-                <span class="string">&quot;AUTHORIZATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Authorization),
-                <span class="string">&quot;AUTHORIZATION_DECLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthorizationDecline),
-                <span class="string">&quot;PAYMENT_CAPTURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaymentCapture),
-                <span class="string">&quot;PAYMENT_CAPTURE_DECLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaymentCaptureDecline),
-                <span class="string">&quot;CANCEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancel),
-                <span class="string">&quot;CHARGEBACK_INQUIRY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackInquiry),
-                <span class="string">&quot;CHARGEBACK_ALERT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackAlert),
-                <span class="string">&quot;FRAUD_NOTIFICATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FraudNotification),
-                <span class="string">&quot;CHARGEBACK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Chargeback),
-                <span class="string">&quot;CHARGEBACK_REPRESENTMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackRepresentment),
-                <span class="string">&quot;CHARGEBACK_REVERSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackReverse),
-                <span class="string">&quot;REFUND_REQUEST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RefundRequest),
-                <span class="string">&quot;REFUND_DECLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RefundDecline),
-                <span class="string">&quot;REFUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Refund),
-                <span class="string">&quot;REFUND_REVERSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RefundReverse),
+                <span class="string">"TRANSACTION_EVENT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"MERCHANT_APPROVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MerchantApprove),
+                <span class="string">"MERCHANT_DENY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MerchantDeny),
+                <span class="string">"MANUAL_REVIEW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ManualReview),
+                <span class="string">"AUTHORIZATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Authorization),
+                <span class="string">"AUTHORIZATION_DECLINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthorizationDecline),
+                <span class="string">"PAYMENT_CAPTURE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaymentCapture),
+                <span class="string">"PAYMENT_CAPTURE_DECLINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaymentCaptureDecline),
+                <span class="string">"CANCEL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancel),
+                <span class="string">"CHARGEBACK_INQUIRY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackInquiry),
+                <span class="string">"CHARGEBACK_ALERT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackAlert),
+                <span class="string">"FRAUD_NOTIFICATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FraudNotification),
+                <span class="string">"CHARGEBACK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Chargeback),
+                <span class="string">"CHARGEBACK_REPRESENTMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackRepresentment),
+                <span class="string">"CHARGEBACK_REVERSE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackReverse),
+                <span class="string">"REFUND_REQUEST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RefundRequest),
+                <span class="string">"REFUND_DECLINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RefundDecline),
+                <span class="string">"REFUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Refund),
+                <span class="string">"REFUND_REVERSE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RefundReverse),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1252,19 +1253,19 @@
 </span><span class="kw">pub struct </span>AnnotateAssessmentRequest {
     <span class="doccomment">/// Required. The resource name of the Assessment, in the format
     /// `projects/{project_number}/assessments/{assessment_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The annotation that will be assigned to the Event. This field can
     /// be left empty to provide reasons that apply to an event without concluding
     /// whether the event is legitimate or fraudulent.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;annotate_assessment_request::Annotation&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"annotate_assessment_request::Annotation"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>annotation: i32,
     <span class="doccomment">/// Optional. Reasons for the annotation that are assigned to the event.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;annotate_assessment_request::Reason&quot;</span>,
+        enumeration = <span class="string">"annotate_assessment_request::Reason"</span>,
         repeated,
-        packed = <span class="string">&quot;false&quot;</span>,
-        tag = <span class="string">&quot;3&quot;
+        packed = <span class="string">"false"</span>,
+        tag = <span class="string">"3"
     </span>)]
     </span><span class="kw">pub </span>reasons: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Optional. Unique stable hashed user identifier to apply to the assessment.
@@ -1272,11 +1273,11 @@
     /// `CreateAssessment`, for example, when the account identifier is not yet
     /// known in the initial request. It is recommended that the identifier is
     /// hashed using hmac-sha256 with stable secret.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>hashed_account_id: ::prost::bytes::Bytes,
     <span class="doccomment">/// Optional. If the assessment is part of a payment transaction, provide
     /// details on payment lifecycle events that occur in the transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>transaction_event: ::core::option::Option&lt;TransactionEvent&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AnnotateAssessmentRequest`.
@@ -1315,23 +1316,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Annotation::Unspecified =&gt; <span class="string">&quot;ANNOTATION_UNSPECIFIED&quot;</span>,
-                Annotation::Legitimate =&gt; <span class="string">&quot;LEGITIMATE&quot;</span>,
-                Annotation::Fraudulent =&gt; <span class="string">&quot;FRAUDULENT&quot;</span>,
-                Annotation::PasswordCorrect =&gt; <span class="string">&quot;PASSWORD_CORRECT&quot;</span>,
-                Annotation::PasswordIncorrect =&gt; <span class="string">&quot;PASSWORD_INCORRECT&quot;</span>,
+                Annotation::Unspecified =&gt; <span class="string">"ANNOTATION_UNSPECIFIED"</span>,
+                Annotation::Legitimate =&gt; <span class="string">"LEGITIMATE"</span>,
+                Annotation::Fraudulent =&gt; <span class="string">"FRAUDULENT"</span>,
+                Annotation::PasswordCorrect =&gt; <span class="string">"PASSWORD_CORRECT"</span>,
+                Annotation::PasswordIncorrect =&gt; <span class="string">"PASSWORD_INCORRECT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ANNOTATION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LEGITIMATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Legitimate),
-                <span class="string">&quot;FRAUDULENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Fraudulent),
-                <span class="string">&quot;PASSWORD_CORRECT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PasswordCorrect),
-                <span class="string">&quot;PASSWORD_INCORRECT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PasswordIncorrect),
+                <span class="string">"ANNOTATION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LEGITIMATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Legitimate),
+                <span class="string">"FRAUDULENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Fraudulent),
+                <span class="string">"PASSWORD_CORRECT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PasswordCorrect),
+                <span class="string">"PASSWORD_INCORRECT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PasswordIncorrect),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1357,7 +1358,7 @@
         /// CHARGEBACK_DISPUTE instead.
         </span>Chargeback = <span class="number">1</span>,
         <span class="doccomment">/// Indicates that the transaction had a chargeback issued related to an
-        /// alleged unauthorized transaction from the cardholder&#39;s perspective (for
+        /// alleged unauthorized transaction from the cardholder's perspective (for
         /// example, the card number was stolen).
         </span>ChargebackFraud = <span class="number">8</span>,
         <span class="doccomment">/// Indicates that the transaction had a chargeback issued related to the
@@ -1403,43 +1404,43 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Reason::Unspecified =&gt; <span class="string">&quot;REASON_UNSPECIFIED&quot;</span>,
-                Reason::Chargeback =&gt; <span class="string">&quot;CHARGEBACK&quot;</span>,
-                Reason::ChargebackFraud =&gt; <span class="string">&quot;CHARGEBACK_FRAUD&quot;</span>,
-                Reason::ChargebackDispute =&gt; <span class="string">&quot;CHARGEBACK_DISPUTE&quot;</span>,
-                Reason::Refund =&gt; <span class="string">&quot;REFUND&quot;</span>,
-                Reason::RefundFraud =&gt; <span class="string">&quot;REFUND_FRAUD&quot;</span>,
-                Reason::TransactionAccepted =&gt; <span class="string">&quot;TRANSACTION_ACCEPTED&quot;</span>,
-                Reason::TransactionDeclined =&gt; <span class="string">&quot;TRANSACTION_DECLINED&quot;</span>,
-                Reason::PaymentHeuristics =&gt; <span class="string">&quot;PAYMENT_HEURISTICS&quot;</span>,
-                Reason::InitiatedTwoFactor =&gt; <span class="string">&quot;INITIATED_TWO_FACTOR&quot;</span>,
-                Reason::PassedTwoFactor =&gt; <span class="string">&quot;PASSED_TWO_FACTOR&quot;</span>,
-                Reason::FailedTwoFactor =&gt; <span class="string">&quot;FAILED_TWO_FACTOR&quot;</span>,
-                Reason::CorrectPassword =&gt; <span class="string">&quot;CORRECT_PASSWORD&quot;</span>,
-                Reason::IncorrectPassword =&gt; <span class="string">&quot;INCORRECT_PASSWORD&quot;</span>,
-                Reason::SocialSpam =&gt; <span class="string">&quot;SOCIAL_SPAM&quot;</span>,
+                Reason::Unspecified =&gt; <span class="string">"REASON_UNSPECIFIED"</span>,
+                Reason::Chargeback =&gt; <span class="string">"CHARGEBACK"</span>,
+                Reason::ChargebackFraud =&gt; <span class="string">"CHARGEBACK_FRAUD"</span>,
+                Reason::ChargebackDispute =&gt; <span class="string">"CHARGEBACK_DISPUTE"</span>,
+                Reason::Refund =&gt; <span class="string">"REFUND"</span>,
+                Reason::RefundFraud =&gt; <span class="string">"REFUND_FRAUD"</span>,
+                Reason::TransactionAccepted =&gt; <span class="string">"TRANSACTION_ACCEPTED"</span>,
+                Reason::TransactionDeclined =&gt; <span class="string">"TRANSACTION_DECLINED"</span>,
+                Reason::PaymentHeuristics =&gt; <span class="string">"PAYMENT_HEURISTICS"</span>,
+                Reason::InitiatedTwoFactor =&gt; <span class="string">"INITIATED_TWO_FACTOR"</span>,
+                Reason::PassedTwoFactor =&gt; <span class="string">"PASSED_TWO_FACTOR"</span>,
+                Reason::FailedTwoFactor =&gt; <span class="string">"FAILED_TWO_FACTOR"</span>,
+                Reason::CorrectPassword =&gt; <span class="string">"CORRECT_PASSWORD"</span>,
+                Reason::IncorrectPassword =&gt; <span class="string">"INCORRECT_PASSWORD"</span>,
+                Reason::SocialSpam =&gt; <span class="string">"SOCIAL_SPAM"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CHARGEBACK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Chargeback),
-                <span class="string">&quot;CHARGEBACK_FRAUD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackFraud),
-                <span class="string">&quot;CHARGEBACK_DISPUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackDispute),
-                <span class="string">&quot;REFUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Refund),
-                <span class="string">&quot;REFUND_FRAUD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RefundFraud),
-                <span class="string">&quot;TRANSACTION_ACCEPTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransactionAccepted),
-                <span class="string">&quot;TRANSACTION_DECLINED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransactionDeclined),
-                <span class="string">&quot;PAYMENT_HEURISTICS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaymentHeuristics),
-                <span class="string">&quot;INITIATED_TWO_FACTOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InitiatedTwoFactor),
-                <span class="string">&quot;PASSED_TWO_FACTOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PassedTwoFactor),
-                <span class="string">&quot;FAILED_TWO_FACTOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailedTwoFactor),
-                <span class="string">&quot;CORRECT_PASSWORD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CorrectPassword),
-                <span class="string">&quot;INCORRECT_PASSWORD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IncorrectPassword),
-                <span class="string">&quot;SOCIAL_SPAM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SocialSpam),
+                <span class="string">"REASON_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CHARGEBACK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Chargeback),
+                <span class="string">"CHARGEBACK_FRAUD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackFraud),
+                <span class="string">"CHARGEBACK_DISPUTE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChargebackDispute),
+                <span class="string">"REFUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Refund),
+                <span class="string">"REFUND_FRAUD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RefundFraud),
+                <span class="string">"TRANSACTION_ACCEPTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransactionAccepted),
+                <span class="string">"TRANSACTION_DECLINED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransactionDeclined),
+                <span class="string">"PAYMENT_HEURISTICS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PaymentHeuristics),
+                <span class="string">"INITIATED_TWO_FACTOR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InitiatedTwoFactor),
+                <span class="string">"PASSED_TWO_FACTOR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PassedTwoFactor),
+                <span class="string">"FAILED_TWO_FACTOR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailedTwoFactor),
+                <span class="string">"CORRECT_PASSWORD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CorrectPassword),
+                <span class="string">"INCORRECT_PASSWORD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IncorrectPassword),
+                <span class="string">"SOCIAL_SPAM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SocialSpam),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1455,16 +1456,16 @@
 </span><span class="kw">pub struct </span>PasswordLeakVerification {
     <span class="doccomment">/// Optional. Scrypt hash of the username+password that the customer wants to
     /// verify against a known password leak.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>hashed_user_credentials: ::prost::bytes::Bytes,
-    <span class="doccomment">/// Output only. Whether or not the user&#39;s credentials are present in a known
+    <span class="doccomment">/// Output only. Whether or not the user's credentials are present in a known
     /// leak.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>credentials_leaked: bool,
     <span class="doccomment">/// Optional. The username part of the user credentials for which we want to
     /// trigger a leak check in canonicalized form. This is the same data used to
     /// create the hashed_user_credentials on the customer side.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>canonicalized_username: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A reCAPTCHA Enterprise assessment resource.
@@ -1473,39 +1474,39 @@
 </span><span class="kw">pub struct </span>Assessment {
     <span class="doccomment">/// Output only. The resource name for the Assessment in the format
     /// `projects/{project_number}/assessments/{assessment_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The event being assessed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>event: ::core::option::Option&lt;Event&gt;,
     <span class="doccomment">/// Output only. Legitimate event score from 0.0 to 1.0.
     /// (1.0 means very likely legitimate traffic while 0.0 means very likely
     /// non-legitimate traffic).
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>score: f32,
     <span class="doccomment">/// Output only. Properties of the provided event token.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>token_properties: ::core::option::Option&lt;TokenProperties&gt;,
     <span class="doccomment">/// Output only. Reasons contributing to the risk analysis verdict.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;assessment::ClassificationReason&quot;</span>,
+        enumeration = <span class="string">"assessment::ClassificationReason"</span>,
         repeated,
-        packed = <span class="string">&quot;false&quot;</span>,
-        tag = <span class="string">&quot;5&quot;
+        packed = <span class="string">"false"</span>,
+        tag = <span class="string">"5"
     </span>)]
     </span><span class="kw">pub </span>reasons: ::prost::alloc::vec::Vec&lt;i32&gt;,
-    <span class="doccomment">/// Information about the user&#39;s credentials used to check for leaks.
+    <span class="doccomment">/// Information about the user's credentials used to check for leaks.
     /// This feature is part of the Early Access Program (EAP). Exercise caution,
     /// and do not deploy integrations based on this feature in a production
     /// environment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>password_leak_verification: ::core::option::Option&lt;PasswordLeakVerification&gt;,
     <span class="doccomment">/// Assessment returned by account defender when a hashed_account_id is
     /// provided.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>account_defender_assessment: ::core::option::Option&lt;AccountDefenderAssessment&gt;,
     <span class="doccomment">/// Assessment returned by Fraud Prevention when TransactionData is provided.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>fraud_prevention_assessment: ::core::option::Option&lt;FraudPreventionAssessment&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Assessment`.
@@ -1548,31 +1549,31 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ClassificationReason::Unspecified =&gt; <span class="string">&quot;CLASSIFICATION_REASON_UNSPECIFIED&quot;</span>,
-                ClassificationReason::Automation =&gt; <span class="string">&quot;AUTOMATION&quot;</span>,
-                ClassificationReason::UnexpectedEnvironment =&gt; <span class="string">&quot;UNEXPECTED_ENVIRONMENT&quot;</span>,
-                ClassificationReason::TooMuchTraffic =&gt; <span class="string">&quot;TOO_MUCH_TRAFFIC&quot;</span>,
+                ClassificationReason::Unspecified =&gt; <span class="string">"CLASSIFICATION_REASON_UNSPECIFIED"</span>,
+                ClassificationReason::Automation =&gt; <span class="string">"AUTOMATION"</span>,
+                ClassificationReason::UnexpectedEnvironment =&gt; <span class="string">"UNEXPECTED_ENVIRONMENT"</span>,
+                ClassificationReason::TooMuchTraffic =&gt; <span class="string">"TOO_MUCH_TRAFFIC"</span>,
                 ClassificationReason::UnexpectedUsagePatterns =&gt; {
-                    <span class="string">&quot;UNEXPECTED_USAGE_PATTERNS&quot;
+                    <span class="string">"UNEXPECTED_USAGE_PATTERNS"
                 </span>}
-                ClassificationReason::LowConfidenceScore =&gt; <span class="string">&quot;LOW_CONFIDENCE_SCORE&quot;</span>,
-                ClassificationReason::SuspectedCarding =&gt; <span class="string">&quot;SUSPECTED_CARDING&quot;</span>,
-                ClassificationReason::SuspectedChargeback =&gt; <span class="string">&quot;SUSPECTED_CHARGEBACK&quot;</span>,
+                ClassificationReason::LowConfidenceScore =&gt; <span class="string">"LOW_CONFIDENCE_SCORE"</span>,
+                ClassificationReason::SuspectedCarding =&gt; <span class="string">"SUSPECTED_CARDING"</span>,
+                ClassificationReason::SuspectedChargeback =&gt; <span class="string">"SUSPECTED_CHARGEBACK"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CLASSIFICATION_REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AUTOMATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Automation),
-                <span class="string">&quot;UNEXPECTED_ENVIRONMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnexpectedEnvironment),
-                <span class="string">&quot;TOO_MUCH_TRAFFIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooMuchTraffic),
-                <span class="string">&quot;UNEXPECTED_USAGE_PATTERNS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnexpectedUsagePatterns),
-                <span class="string">&quot;LOW_CONFIDENCE_SCORE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LowConfidenceScore),
-                <span class="string">&quot;SUSPECTED_CARDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SuspectedCarding),
-                <span class="string">&quot;SUSPECTED_CHARGEBACK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SuspectedChargeback),
+                <span class="string">"CLASSIFICATION_REASON_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AUTOMATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Automation),
+                <span class="string">"UNEXPECTED_ENVIRONMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnexpectedEnvironment),
+                <span class="string">"TOO_MUCH_TRAFFIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooMuchTraffic),
+                <span class="string">"UNEXPECTED_USAGE_PATTERNS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnexpectedUsagePatterns),
+                <span class="string">"LOW_CONFIDENCE_SCORE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LowConfidenceScore),
+                <span class="string">"SUSPECTED_CARDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SuspectedCarding),
+                <span class="string">"SUSPECTED_CHARGEBACK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SuspectedChargeback),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1583,33 +1584,33 @@
 </span><span class="kw">pub struct </span>Event {
     <span class="doccomment">/// Optional. The user response token provided by the reCAPTCHA Enterprise
     /// client-side integration on your site.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The site key that was used to invoke reCAPTCHA Enterprise on your
     /// site and generate the token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>site_key: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The user agent present in the request from the user&#39;s device
+    <span class="doccomment">/// Optional. The user agent present in the request from the user's device
     /// related to this event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>user_agent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The IP address in the request from the user&#39;s device related to
+    <span class="doccomment">/// Optional. The IP address in the request from the user's device related to
     /// this event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>user_ip_address: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The expected action for this type of event. This should be the
     /// same action provided at token generation time on client-side platforms
     /// already integrated with recaptcha enterprise.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>expected_action: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Unique stable hashed user identifier for the request. The
     /// identifier must be hashed using hmac-sha256 with stable secret.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>hashed_account_id: ::prost::bytes::Bytes,
     <span class="doccomment">/// Optional. Data describing a payment transaction to be assessed. Sending
     /// this data enables reCAPTCHA Enterprise Fraud Prevention and the
     /// FraudPreventionAssessment component in the response.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>transaction_data: ::core::option::Option&lt;TransactionData&gt;,
 }
 <span class="doccomment">/// Transaction data associated with a payment protected by reCAPTCHA Enterprise.
@@ -1620,7 +1621,7 @@
     /// to reference this transaction in the future, for example, labeling a refund
     /// or chargeback event. Two attempts at the same transaction should use the
     /// same transaction id.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>transaction_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The payment method for the transaction. The allowed values are:
     ///
@@ -1631,41 +1632,41 @@
     /// processor-paypal)
     /// * custom-{name} (If an alternative method is used, for example,
     /// custom-crypto)
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>payment_method: ::prost::alloc::string::String,
     <span class="doccomment">/// The Bank Identification Number - generally the first 6 or 8 digits of the
     /// card.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>card_bin: ::prost::alloc::string::String,
     <span class="doccomment">/// The last four digits of the card.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>card_last_four: ::prost::alloc::string::String,
     <span class="doccomment">/// The currency code in ISO-4217 format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
     <span class="doccomment">/// The decimal value of the transaction in the specified currency.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>value: f64,
     <span class="doccomment">/// The value of shipping in the specified currency. 0 for free or no shipping.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>shipping_value: f64,
     <span class="doccomment">/// Destination address if this transaction involves shipping a physical item.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>shipping_address: ::core::option::Option&lt;transaction_data::Address&gt;,
     <span class="doccomment">/// Address associated with the payment method when applicable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>billing_address: ::core::option::Option&lt;transaction_data::Address&gt;,
     <span class="doccomment">/// Information about the user paying/initiating the transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>user: ::core::option::Option&lt;transaction_data::User&gt;,
     <span class="doccomment">/// Information about the user or users fulfilling the transaction.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>merchants: ::prost::alloc::vec::Vec&lt;transaction_data::User&gt;,
     <span class="doccomment">/// Items purchased in this transaction.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>items: ::prost::alloc::vec::Vec&lt;transaction_data::Item&gt;,
-    <span class="doccomment">/// Information about the payment gateway&#39;s response to the transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    <span class="doccomment">/// Information about the payment gateway's response to the transaction.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>gateway_info: ::core::option::Option&lt;transaction_data::GatewayInfo&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TransactionData`.
@@ -1674,52 +1675,52 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Address {
-        <span class="doccomment">/// The recipient name, potentially including information such as &quot;care of&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        <span class="doccomment">/// The recipient name, potentially including information such as "care of".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>recipient: ::prost::alloc::string::String,
         <span class="doccomment">/// The first lines of the address. The first line generally contains the
         /// street name and number, and further lines may include information such as
         /// an apartment number.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>address: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// The town/city of the address.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>locality: ::prost::alloc::string::String,
         <span class="doccomment">/// The state, province, or otherwise administrative area of the address.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>administrative_area: ::prost::alloc::string::String,
         <span class="doccomment">/// The CLDR country/region of the address.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
         <span class="doccomment">/// The postal or ZIP code of the address.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>postal_code: ::prost::alloc::string::String,
     }
-    <span class="doccomment">/// Details about a user&#39;s account involved in the transaction.
+    <span class="doccomment">/// Details about a user's account involved in the transaction.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>User {
         <span class="doccomment">/// Unique account identifier for this user. If using account defender,
         /// this should match the hashed_account_id field. Otherwise, a unique and
         /// persistent identifier for this account.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>account_id: ::prost::alloc::string::String,
-        <span class="doccomment">/// The epoch milliseconds of the user&#39;s account creation.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        <span class="doccomment">/// The epoch milliseconds of the user's account creation.
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>creation_ms: i64,
         <span class="doccomment">/// The email address of the user.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
         <span class="doccomment">/// Whether the email has been verified to be accessible by the user (OTP or
         /// similar).
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>email_verified: bool,
         <span class="doccomment">/// The phone number of the user, with country code.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>phone_number: ::prost::alloc::string::String,
         <span class="doccomment">/// Whether the phone number has been verified to be accessible by the user
         /// (OTP or similar).
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>phone_verified: bool,
     }
     <span class="doccomment">/// Line items being purchased in this transaction.
@@ -1727,18 +1728,18 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Item {
         <span class="doccomment">/// The full name of the item.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// The value per item that the user is paying, in the transaction currency,
         /// after discounts.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>value: f64,
         <span class="doccomment">/// The quantity of this item that is being purchased.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>quantity: i64,
         <span class="doccomment">/// When a merchant is specified, its corresponding account_id. Necessary to
         /// populate marketplace-style transactions.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>merchant_account_id: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Details about the transaction from the gateway.
@@ -1746,18 +1747,18 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>GatewayInfo {
         <span class="doccomment">/// Name of the gateway service (for example, stripe, square, paypal).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// Gateway response code describing the state of the transaction.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>gateway_response_code: ::prost::alloc::string::String,
         <span class="doccomment">/// AVS response code from the gateway
         /// (available only when reCAPTCHA Enterprise is called after authorization).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>avs_response_code: ::prost::alloc::string::String,
         <span class="doccomment">/// CVV response code from the gateway
         /// (available only when reCAPTCHA Enterprise is called after authorization).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>cvv_response_code: ::prost::alloc::string::String,
     }
 }
@@ -1769,19 +1770,19 @@
     /// a user failing to solve a challenge or a sitekey mismatch (i.e the sitekey
     /// used to generate the token was different than the one specified in the
     /// assessment).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>valid: bool,
     <span class="doccomment">/// Reason associated with the response when valid = false.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;token_properties::InvalidReason&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"token_properties::InvalidReason"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>invalid_reason: i32,
     <span class="doccomment">/// The timestamp corresponding to the generation of the token.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The hostname of the page on which the token was generated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>hostname: ::prost::alloc::string::String,
     <span class="doccomment">/// Action name provided at token generation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>action: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `TokenProperties`.
@@ -1826,29 +1827,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                InvalidReason::Unspecified =&gt; <span class="string">&quot;INVALID_REASON_UNSPECIFIED&quot;</span>,
-                InvalidReason::UnknownInvalidReason =&gt; <span class="string">&quot;UNKNOWN_INVALID_REASON&quot;</span>,
-                InvalidReason::Malformed =&gt; <span class="string">&quot;MALFORMED&quot;</span>,
-                InvalidReason::Expired =&gt; <span class="string">&quot;EXPIRED&quot;</span>,
-                InvalidReason::Dupe =&gt; <span class="string">&quot;DUPE&quot;</span>,
-                InvalidReason::SiteMismatch =&gt; <span class="string">&quot;SITE_MISMATCH&quot;</span>,
-                InvalidReason::Missing =&gt; <span class="string">&quot;MISSING&quot;</span>,
-                InvalidReason::BrowserError =&gt; <span class="string">&quot;BROWSER_ERROR&quot;</span>,
+                InvalidReason::Unspecified =&gt; <span class="string">"INVALID_REASON_UNSPECIFIED"</span>,
+                InvalidReason::UnknownInvalidReason =&gt; <span class="string">"UNKNOWN_INVALID_REASON"</span>,
+                InvalidReason::Malformed =&gt; <span class="string">"MALFORMED"</span>,
+                InvalidReason::Expired =&gt; <span class="string">"EXPIRED"</span>,
+                InvalidReason::Dupe =&gt; <span class="string">"DUPE"</span>,
+                InvalidReason::SiteMismatch =&gt; <span class="string">"SITE_MISMATCH"</span>,
+                InvalidReason::Missing =&gt; <span class="string">"MISSING"</span>,
+                InvalidReason::BrowserError =&gt; <span class="string">"BROWSER_ERROR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;INVALID_REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;UNKNOWN_INVALID_REASON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownInvalidReason),
-                <span class="string">&quot;MALFORMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Malformed),
-                <span class="string">&quot;EXPIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expired),
-                <span class="string">&quot;DUPE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dupe),
-                <span class="string">&quot;SITE_MISMATCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SiteMismatch),
-                <span class="string">&quot;MISSING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Missing),
-                <span class="string">&quot;BROWSER_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BrowserError),
+                <span class="string">"INVALID_REASON_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"UNKNOWN_INVALID_REASON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownInvalidReason),
+                <span class="string">"MALFORMED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Malformed),
+                <span class="string">"EXPIRED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expired),
+                <span class="string">"DUPE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dupe),
+                <span class="string">"SITE_MISMATCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SiteMismatch),
+                <span class="string">"MISSING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Missing),
+                <span class="string">"BROWSER_ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BrowserError),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1860,21 +1861,21 @@
 </span><span class="kw">pub struct </span>FraudPreventionAssessment {
     <span class="doccomment">/// Probability (0-1) of this transaction being fraudulent. Summarizes the
     /// combined risk of attack vectors below.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transaction_risk: f32,
     <span class="doccomment">/// Assessment of this transaction for risk of a stolen instrument.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>stolen_instrument_verdict: ::core::option::Option&lt;
         fraud_prevention_assessment::StolenInstrumentVerdict,
     &gt;,
     <span class="doccomment">/// Assessment of this transaction for risk of being part of a card testing
     /// attack.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>card_testing_verdict: ::core::option::Option&lt;
         fraud_prevention_assessment::CardTestingVerdict,
     &gt;,
     <span class="doccomment">/// Assessment of this transaction for behavioral trust.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>behavioral_trust_verdict: ::core::option::Option&lt;
         fraud_prevention_assessment::BehavioralTrustVerdict,
     &gt;,
@@ -1888,7 +1889,7 @@
     </span><span class="kw">pub struct </span>StolenInstrumentVerdict {
         <span class="doccomment">/// Probability (0-1) of this transaction being executed with a stolen
         /// instrument.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>risk: f32,
     }
     <span class="doccomment">/// Information about card testing fraud, where an adversary is testing
@@ -1898,7 +1899,7 @@
     </span><span class="kw">pub struct </span>CardTestingVerdict {
         <span class="doccomment">/// Probability (0-1) of this transaction attempt being part of a card
         /// testing attack.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>risk: f32,
     }
     <span class="doccomment">/// Information about behavioral trust of the transaction.
@@ -1907,7 +1908,7 @@
     </span><span class="kw">pub struct </span>BehavioralTrustVerdict {
         <span class="doccomment">/// Probability (0-1) of this transaction attempt being executed in a
         /// behaviorally trustworthy way.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>trust: f32,
     }
 }
@@ -1917,9 +1918,9 @@
 </span><span class="kw">pub struct </span>AccountDefenderAssessment {
     <span class="doccomment">/// Labels for this request.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;account_defender_assessment::AccountDefenderLabel&quot;</span>,
+        enumeration = <span class="string">"account_defender_assessment::AccountDefenderLabel"</span>,
         repeated,
-        tag = <span class="string">&quot;1&quot;
+        tag = <span class="string">"1"
     </span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
@@ -1959,29 +1960,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AccountDefenderLabel::Unspecified =&gt; <span class="string">&quot;ACCOUNT_DEFENDER_LABEL_UNSPECIFIED&quot;</span>,
-                AccountDefenderLabel::ProfileMatch =&gt; <span class="string">&quot;PROFILE_MATCH&quot;</span>,
+                AccountDefenderLabel::Unspecified =&gt; <span class="string">"ACCOUNT_DEFENDER_LABEL_UNSPECIFIED"</span>,
+                AccountDefenderLabel::ProfileMatch =&gt; <span class="string">"PROFILE_MATCH"</span>,
                 AccountDefenderLabel::SuspiciousLoginActivity =&gt; {
-                    <span class="string">&quot;SUSPICIOUS_LOGIN_ACTIVITY&quot;
+                    <span class="string">"SUSPICIOUS_LOGIN_ACTIVITY"
                 </span>}
                 AccountDefenderLabel::SuspiciousAccountCreation =&gt; {
-                    <span class="string">&quot;SUSPICIOUS_ACCOUNT_CREATION&quot;
+                    <span class="string">"SUSPICIOUS_ACCOUNT_CREATION"
                 </span>}
                 AccountDefenderLabel::RelatedAccountsNumberHigh =&gt; {
-                    <span class="string">&quot;RELATED_ACCOUNTS_NUMBER_HIGH&quot;
+                    <span class="string">"RELATED_ACCOUNTS_NUMBER_HIGH"
                 </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACCOUNT_DEFENDER_LABEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PROFILE_MATCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProfileMatch),
-                <span class="string">&quot;SUSPICIOUS_LOGIN_ACTIVITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SuspiciousLoginActivity),
-                <span class="string">&quot;SUSPICIOUS_ACCOUNT_CREATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SuspiciousAccountCreation),
-                <span class="string">&quot;RELATED_ACCOUNTS_NUMBER_HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RelatedAccountsNumberHigh),
+                <span class="string">"ACCOUNT_DEFENDER_LABEL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PROFILE_MATCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProfileMatch),
+                <span class="string">"SUSPICIOUS_LOGIN_ACTIVITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SuspiciousLoginActivity),
+                <span class="string">"SUSPICIOUS_ACCOUNT_CREATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SuspiciousAccountCreation),
+                <span class="string">"RELATED_ACCOUNTS_NUMBER_HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RelatedAccountsNumberHigh),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2001,7 +2002,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2075,19 +2076,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recaptchaenterprise.v1beta1.RecaptchaEnterpriseServiceV1Beta1/CreateAssessment&quot;</span>,
+                <span class="string">"/google.cloud.recaptchaenterprise.v1beta1.RecaptchaEnterpriseServiceV1Beta1/CreateAssessment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recaptchaenterprise.v1beta1.RecaptchaEnterpriseServiceV1Beta1&quot;</span>,
-                        <span class="string">&quot;CreateAssessment&quot;</span>,
+                        <span class="string">"google.cloud.recaptchaenterprise.v1beta1.RecaptchaEnterpriseServiceV1Beta1"</span>,
+                        <span class="string">"CreateAssessment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2107,19 +2108,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recaptchaenterprise.v1beta1.RecaptchaEnterpriseServiceV1Beta1/AnnotateAssessment&quot;</span>,
+                <span class="string">"/google.cloud.recaptchaenterprise.v1beta1.RecaptchaEnterpriseServiceV1Beta1/AnnotateAssessment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recaptchaenterprise.v1beta1.RecaptchaEnterpriseServiceV1Beta1&quot;</span>,
-                        <span class="string">&quot;AnnotateAssessment&quot;</span>,
+                        <span class="string">"google.cloud.recaptchaenterprise.v1beta1.RecaptchaEnterpriseServiceV1Beta1"</span>,
+                        <span class="string">"AnnotateAssessment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

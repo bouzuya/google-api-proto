@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/gkehub/configmanagement/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/gkehub/configmanagement/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -462,28 +463,28 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MembershipState {
     <span class="doccomment">/// The user-defined name for the cluster used by ClusterSelectors to group
-    /// clusters together. This should match Membership&#39;s membership_name,
+    /// clusters together. This should match Membership's membership_name,
     /// unless the user installed ACM on the cluster manually prior to enabling
     /// the ACM hub feature.
     /// Unique within a Anthos Config Management installation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cluster_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Membership configuration in the cluster. This represents the actual state
     /// in the cluster, while the MembershipSpec in the FeatureSpec represents
     /// the intended state
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>membership_spec: ::core::option::Option&lt;MembershipSpec&gt;,
-    <span class="doccomment">/// Current install status of ACM&#39;s Operator
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// Current install status of ACM's Operator
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>operator_state: ::core::option::Option&lt;OperatorState&gt;,
     <span class="doccomment">/// Current sync status
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>config_sync_state: ::core::option::Option&lt;ConfigSyncState&gt;,
     <span class="doccomment">/// PolicyController status
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>policy_controller_state: ::core::option::Option&lt;PolicyControllerState&gt;,
     <span class="doccomment">/// Hierarchy Controller status
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>hierarchy_controller_state: ::core::option::Option&lt;HierarchyControllerState&gt;,
 }
 <span class="doccomment">/// **Anthos Config Management**: Configuration for a single cluster.
@@ -492,16 +493,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MembershipSpec {
     <span class="doccomment">/// Config Sync configuration for the cluster.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>config_sync: ::core::option::Option&lt;ConfigSync&gt;,
     <span class="doccomment">/// Policy Controller configuration for the cluster.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>policy_controller: ::core::option::Option&lt;PolicyController&gt;,
     <span class="doccomment">/// Hierarchy Controller configuration for the cluster.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>hierarchy_controller: ::core::option::Option&lt;HierarchyControllerConfig&gt;,
     <span class="doccomment">/// Version of ACM installed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration for Config Sync
@@ -509,11 +510,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ConfigSync {
     <span class="doccomment">/// Git repo configuration for the cluster.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>git: ::core::option::Option&lt;GitConfig&gt;,
     <span class="doccomment">/// Specifies whether the Config Sync Repo is
     /// in “hierarchical” or “unstructured” mode.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>source_format: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Git repo configuration for a single cluster.
@@ -521,30 +522,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GitConfig {
     <span class="doccomment">/// The URL of the Git repository to use as the source of truth.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sync_repo: ::prost::alloc::string::String,
     <span class="doccomment">/// The branch of the repository to sync from. Default: master.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sync_branch: ::prost::alloc::string::String,
     <span class="doccomment">/// The path within the Git repository that represents the top level of the
     /// repo to sync. Default: the root directory of the repository.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>policy_dir: ::prost::alloc::string::String,
     <span class="doccomment">/// Period in seconds between consecutive syncs. Default: 15.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>sync_wait_secs: i64,
     <span class="doccomment">/// Git revision (tag or hash) to check out. Default HEAD.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>sync_rev: ::prost::alloc::string::String,
     <span class="doccomment">/// Type of secret configured for access to the Git repo.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>secret_type: ::prost::alloc::string::String,
     <span class="doccomment">/// URL for the HTTPS proxy to be used when communicating with the Git repo.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>https_proxy: ::prost::alloc::string::String,
     <span class="doccomment">/// The GCP Service Account Email used for auth when secret_type is
     /// gcpServiceAccount.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>gcp_service_account_email: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration for Policy Controller
@@ -554,25 +555,25 @@
     <span class="doccomment">/// Enables the installation of Policy Controller.
     /// If false, the rest of PolicyController fields take no
     /// effect.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enabled: bool,
     <span class="doccomment">/// Installs the default template library along with Policy Controller.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>template_library_installed: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// Sets the interval for Policy Controller Audit Scans (in seconds).
     /// When set to 0, this disables audit functionality altogether.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>audit_interval_seconds: ::core::option::Option&lt;i64&gt;,
     <span class="doccomment">/// The set of namespaces that are excluded from Policy Controller checks.
     /// Namespaces do not need to currently exist on the cluster.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>exemptable_namespaces: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Enables the ability to use Constraint Templates that reference to objects
     /// other than the object currently being evaluated.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>referential_rules_enabled: bool,
     <span class="doccomment">/// Logs all denies and dry run failures.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>log_denies_enabled: bool,
 }
 <span class="doccomment">/// Configuration for Hierarchy Controller
@@ -580,13 +581,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HierarchyControllerConfig {
     <span class="doccomment">/// Whether Hierarchy Controller is enabled in this cluster.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enabled: bool,
     <span class="doccomment">/// Whether pod tree labels are enabled in this cluster.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>enable_pod_tree_labels: bool,
     <span class="doccomment">/// Whether hierarchical resource quota is enabled in this cluster.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>enable_hierarchical_resource_quota: bool,
 }
 <span class="doccomment">/// Deployment state for Hierarchy Controller
@@ -594,10 +595,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HierarchyControllerDeploymentState {
     <span class="doccomment">/// The deployment state for open source HNC (e.g. v0.7.0-hc.0)
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeploymentState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>hnc: i32,
     <span class="doccomment">/// The deployment state for Hierarchy Controller extension (e.g. v0.7.0-hc.1)
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeploymentState"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>extension: i32,
 }
 <span class="doccomment">/// Version for Hierarchy Controller
@@ -605,10 +606,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HierarchyControllerVersion {
     <span class="doccomment">/// Version for open source HNC
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>hnc: ::prost::alloc::string::String,
     <span class="doccomment">/// Version for Hierarchy Controller extension
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>extension: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// State for Hierarchy Controller
@@ -616,24 +617,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HierarchyControllerState {
     <span class="doccomment">/// The version for Hierarchy Controller
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: ::core::option::Option&lt;HierarchyControllerVersion&gt;,
     <span class="doccomment">/// The deployment state for Hierarchy Controller
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state: ::core::option::Option&lt;HierarchyControllerDeploymentState&gt;,
 }
-<span class="doccomment">/// State information for an ACM&#39;s Operator
+<span class="doccomment">/// State information for an ACM's Operator
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperatorState {
     <span class="doccomment">/// The semenatic version number of the operator
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
-    <span class="doccomment">/// The state of the Operator&#39;s deployment
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The state of the Operator's deployment
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeploymentState"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>deployment_state: i32,
     <span class="doccomment">/// Install errors.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;InstallError&gt;,
 }
 <span class="doccomment">/// Errors pertaining to the installation of ACM
@@ -641,7 +642,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InstallError {
     <span class="doccomment">/// A string representing the user facing error message
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// State information for ConfigSync
@@ -649,96 +650,96 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ConfigSyncState {
     <span class="doccomment">/// The version of ConfigSync deployed
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: ::core::option::Option&lt;ConfigSyncVersion&gt;,
     <span class="doccomment">/// Information about the deployment of ConfigSync, including the version
     /// of the various Pods deployed
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>deployment_state: ::core::option::Option&lt;ConfigSyncDeploymentState&gt;,
-    <span class="doccomment">/// The state of ConfigSync&#39;s process to sync configs to a cluster
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The state of ConfigSync's process to sync configs to a cluster
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>sync_state: ::core::option::Option&lt;SyncState&gt;,
 }
-<span class="doccomment">/// Specific versioning information pertaining to ConfigSync&#39;s Pods
+<span class="doccomment">/// Specific versioning information pertaining to ConfigSync's Pods
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ConfigSyncVersion {
     <span class="doccomment">/// Version of the deployed importer pod
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>importer: ::prost::alloc::string::String,
     <span class="doccomment">/// Version of the deployed syncer pod
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>syncer: ::prost::alloc::string::String,
     <span class="doccomment">/// Version of the deployed git-sync pod
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>git_sync: ::prost::alloc::string::String,
     <span class="doccomment">/// Version of the deployed monitor pod
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>monitor: ::prost::alloc::string::String,
     <span class="doccomment">/// Version of the deployed reconciler-manager pod
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>reconciler_manager: ::prost::alloc::string::String,
     <span class="doccomment">/// Version of the deployed reconciler container in root-reconciler pod
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>root_reconciler: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The state of ConfigSync&#39;s deployment on a cluster
+<span class="doccomment">/// The state of ConfigSync's deployment on a cluster
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ConfigSyncDeploymentState {
     <span class="doccomment">/// Deployment state of the importer pod
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeploymentState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>importer: i32,
     <span class="doccomment">/// Deployment state of the syncer pod
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeploymentState"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>syncer: i32,
     <span class="doccomment">/// Deployment state of the git-sync pod
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeploymentState"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>git_sync: i32,
     <span class="doccomment">/// Deployment state of the monitor pod
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeploymentState"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>monitor: i32,
     <span class="doccomment">/// Deployment state of reconciler-manager pod
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentState&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeploymentState"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>reconciler_manager: i32,
     <span class="doccomment">/// Deployment state of root-reconciler
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentState&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeploymentState"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>root_reconciler: i32,
 }
-<span class="doccomment">/// State indicating an ACM&#39;s progress syncing configurations to a cluster
+<span class="doccomment">/// State indicating an ACM's progress syncing configurations to a cluster
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SyncState {
     <span class="doccomment">/// Token indicating the state of the repo.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Token indicating the state of the importer.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>import_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Token indicating the state of the syncer.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>sync_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated: use last_sync_time instead.
     /// Timestamp of when ACM last successfully synced the repo
     /// The time format is specified in &lt;https://golang.org/pkg/time/#Time.String&gt;
     </span><span class="attr">#[deprecated]
-    #[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    #[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>last_sync: ::prost::alloc::string::String,
     <span class="doccomment">/// Timestamp type of when ACM last successfully synced the repo
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>last_sync_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Sync status code
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;sync_state::SyncCode&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"sync_state::SyncCode"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// A list of errors resulting from problematic configs.
     /// This list will be truncated after 100 errors, although it is
     /// unlikely for that many errors to simultaneously exist.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;SyncError&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SyncState`.
 </span><span class="kw">pub mod </span>sync_state {
-    <span class="doccomment">/// An enum representing an ACM&#39;s status syncing configs to a cluster
+    <span class="doccomment">/// An enum representing an ACM's status syncing configs to a cluster
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -775,29 +776,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SyncCode::Unspecified =&gt; <span class="string">&quot;SYNC_CODE_UNSPECIFIED&quot;</span>,
-                SyncCode::Synced =&gt; <span class="string">&quot;SYNCED&quot;</span>,
-                SyncCode::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                SyncCode::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-                SyncCode::NotConfigured =&gt; <span class="string">&quot;NOT_CONFIGURED&quot;</span>,
-                SyncCode::NotInstalled =&gt; <span class="string">&quot;NOT_INSTALLED&quot;</span>,
-                SyncCode::Unauthorized =&gt; <span class="string">&quot;UNAUTHORIZED&quot;</span>,
-                SyncCode::Unreachable =&gt; <span class="string">&quot;UNREACHABLE&quot;</span>,
+                SyncCode::Unspecified =&gt; <span class="string">"SYNC_CODE_UNSPECIFIED"</span>,
+                SyncCode::Synced =&gt; <span class="string">"SYNCED"</span>,
+                SyncCode::Pending =&gt; <span class="string">"PENDING"</span>,
+                SyncCode::Error =&gt; <span class="string">"ERROR"</span>,
+                SyncCode::NotConfigured =&gt; <span class="string">"NOT_CONFIGURED"</span>,
+                SyncCode::NotInstalled =&gt; <span class="string">"NOT_INSTALLED"</span>,
+                SyncCode::Unauthorized =&gt; <span class="string">"UNAUTHORIZED"</span>,
+                SyncCode::Unreachable =&gt; <span class="string">"UNREACHABLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SYNC_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SYNCED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Synced),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="string">&quot;NOT_CONFIGURED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotConfigured),
-                <span class="string">&quot;NOT_INSTALLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotInstalled),
-                <span class="string">&quot;UNAUTHORIZED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unauthorized),
-                <span class="string">&quot;UNREACHABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unreachable),
+                <span class="string">"SYNC_CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SYNCED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Synced),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"NOT_CONFIGURED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotConfigured),
+                <span class="string">"NOT_INSTALLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotInstalled),
+                <span class="string">"UNAUTHORIZED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unauthorized),
+                <span class="string">"UNREACHABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unreachable),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -808,13 +809,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SyncError {
     <span class="doccomment">/// An ACM defined error code
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: ::prost::alloc::string::String,
     <span class="doccomment">/// A description of the error
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of config(s) associated with the error, if any
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>error_resources: ::prost::alloc::vec::Vec&lt;ErrorResource&gt;,
 }
 <span class="doccomment">/// Model for a config file in the git repo with an associated Sync error
@@ -822,30 +823,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ErrorResource {
     <span class="doccomment">/// Path in the git repo of the erroneous config
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source_path: ::prost::alloc::string::String,
     <span class="doccomment">/// Metadata name of the resource that is causing an error
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Namespace of the resource that is causing an error
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>resource_namespace: ::prost::alloc::string::String,
     <span class="doccomment">/// Group/version/kind of the resource that is causing an error
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>resource_gvk: ::core::option::Option&lt;GroupVersionKind&gt;,
 }
-<span class="doccomment">/// A Kubernetes object&#39;s GVK
+<span class="doccomment">/// A Kubernetes object's GVK
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GroupVersionKind {
     <span class="doccomment">/// Kubernetes Group
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>group: ::prost::alloc::string::String,
     <span class="doccomment">/// Kubernetes Version
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// Kubernetes Kind
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// State for PolicyControllerState.
@@ -853,10 +854,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PolicyControllerState {
     <span class="doccomment">/// The version of Gatekeeper Policy Controller deployed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: ::core::option::Option&lt;PolicyControllerVersion&gt;,
     <span class="doccomment">/// The state about the policy controller installation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>deployment_state: ::core::option::Option&lt;GatekeeperDeploymentState&gt;,
 }
 <span class="doccomment">/// The build version of Gatekeeper Policy Controller is using.
@@ -865,7 +866,7 @@
 </span><span class="kw">pub struct </span>PolicyControllerVersion {
     <span class="doccomment">/// The gatekeeper image tag that is composed of ACM version, git tag, build
     /// number.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// State of Policy Controller installation.
@@ -873,17 +874,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GatekeeperDeploymentState {
     <span class="doccomment">/// Status of gatekeeper-controller-manager pod.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeploymentState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gatekeeper_controller_manager_state: i32,
     <span class="doccomment">/// Status of gatekeeper-audit deployment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeploymentState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeploymentState"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gatekeeper_audit: i32,
 }
-<span class="doccomment">/// Enum representing the state of an ACM&#39;s deployment on a cluster
+<span class="doccomment">/// Enum representing the state of an ACM's deployment on a cluster
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>DeploymentState {
-    <span class="doccomment">/// Deployment&#39;s state cannot be determined
+    <span class="doccomment">/// Deployment's state cannot be determined
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// Deployment is not installed
     </span>NotInstalled = <span class="number">1</span>,
@@ -897,21 +898,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DeploymentState::Unspecified =&gt; <span class="string">&quot;DEPLOYMENT_STATE_UNSPECIFIED&quot;</span>,
-            DeploymentState::NotInstalled =&gt; <span class="string">&quot;NOT_INSTALLED&quot;</span>,
-            DeploymentState::Installed =&gt; <span class="string">&quot;INSTALLED&quot;</span>,
-            DeploymentState::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+            DeploymentState::Unspecified =&gt; <span class="string">"DEPLOYMENT_STATE_UNSPECIFIED"</span>,
+            DeploymentState::NotInstalled =&gt; <span class="string">"NOT_INSTALLED"</span>,
+            DeploymentState::Installed =&gt; <span class="string">"INSTALLED"</span>,
+            DeploymentState::Error =&gt; <span class="string">"ERROR"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;DEPLOYMENT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;NOT_INSTALLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotInstalled),
-            <span class="string">&quot;INSTALLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Installed),
-            <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+            <span class="string">"DEPLOYMENT_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"NOT_INSTALLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotInstalled),
+            <span class="string">"INSTALLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Installed),
+            <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }

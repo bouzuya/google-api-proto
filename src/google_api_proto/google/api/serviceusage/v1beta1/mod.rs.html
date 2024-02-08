@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/api/serviceusage/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/api/serviceusage/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1849,22 +1850,22 @@
     ///
     /// A valid name would be:
     /// - `projects/123/services/serviceusage.googleapis.com`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource name of the consumer.
     ///
     /// A valid name would be:
     /// - `projects/123`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The service configuration of the available service.
     /// Some fields may be filtered out of the configuration in responses to
     /// the `ListServices` method. These fields are present only in responses to
     /// the `GetService` method.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;ServiceConfig&gt;,
     <span class="doccomment">/// Whether or not the service has been enabled for use by the consumer.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// The configuration of the service.
@@ -1875,42 +1876,42 @@
     ///
     /// An example DNS address would be:
     /// `calendar.googleapis.com`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The product title for this service.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of API interfaces exported by this service. Contains only the names,
     /// versions, and method names of the interfaces.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>apis: ::prost::alloc::vec::Vec&lt;::prost_types::Api&gt;,
     <span class="doccomment">/// Additional API documentation. Contains only the summary and the
     /// documentation URL.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>documentation: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::Documentation&gt;,
     <span class="doccomment">/// Quota configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>quota: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::Quota&gt;,
     <span class="doccomment">/// Auth configuration. Contains only the OAuth rules.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>authentication: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::Authentication&gt;,
     <span class="doccomment">/// Configuration controlling usage of this service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>usage: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::Usage&gt;,
     <span class="doccomment">/// Configuration for network endpoints. Contains only the names and aliases
     /// of the endpoints.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>endpoints: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::Endpoint&gt;,
     <span class="doccomment">/// Defines the monitored resources used by this service. This is required
     /// by the [Service.monitoring][google.api.Service.monitoring] and
     /// [Service.logging][google.api.Service.logging] configurations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"25"</span>)]
     </span><span class="kw">pub </span>monitored_resources: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::MonitoredResourceDescriptor,
     &gt;,
     <span class="doccomment">/// Monitoring configuration.
-    /// This should not include the &#39;producer_destinations&#39; field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;28&quot;</span>)]
+    /// This should not include the 'producer_destinations' field.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"28"</span>)]
     </span><span class="kw">pub </span>monitoring: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::Monitoring&gt;,
 }
 <span class="doccomment">/// The operation metadata returned for the batchend services operation.
@@ -1919,7 +1920,7 @@
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// The full name of the resources that this operation is directly
     /// associated with.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Consumer quota settings for a quota metric.
@@ -1933,22 +1934,22 @@
     ///
     /// The resource name is intended to be opaque and should not be parsed for
     /// its component strings, since its representation could change in the future.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the metric.
     ///
     /// An example name would be:
     /// `compute.googleapis.com/cpus`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>metric: ::prost::alloc::string::String,
     <span class="doccomment">/// The display name of the metric.
     ///
     /// An example name would be:
     /// `CPUs`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The consumer quota for each quota limit defined on the metric.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>consumer_quota_limits: ::prost::alloc::vec::Vec&lt;ConsumerQuotaLimit&gt;,
     <span class="doccomment">/// The quota limits targeting the descendant containers of the
     /// consumer in request.
@@ -1959,10 +1960,10 @@
     ///
     /// The `quota_buckets` field of each descendant consumer quota limit will not
     /// be populated.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>descendant_consumer_quota_limits: ::prost::alloc::vec::Vec&lt;ConsumerQuotaLimit&gt;,
     <span class="doccomment">/// The units in which the metric value is reported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>unit: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Consumer quota settings for a quota limit.
@@ -1976,13 +1977,13 @@
     ///
     /// The resource name is intended to be opaque and should not be parsed for
     /// its component strings, since its representation could change in the future.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the parent metric of this limit.
     ///
     /// An example name would be:
     /// `compute.googleapis.com/cpus`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>metric: ::prost::alloc::string::String,
     <span class="doccomment">/// The limit unit.
     ///
@@ -1990,22 +1991,22 @@
     /// `1/{project}/{region}`
     /// Note that `{project}` and `{region}` are not placeholders in this example;
     /// the literal characters `{` and `}` occur in the string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>unit: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether this limit is precise or imprecise.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>is_precise: bool,
     <span class="doccomment">/// Whether admin overrides are allowed on this limit
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>allows_admin_overrides: bool,
     <span class="doccomment">/// Summary of the enforced quota buckets, organized by quota dimension,
     /// ordered from least specific to most specific (for example, the global
     /// default bucket, with no quota dimensions, will always appear first).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>quota_buckets: ::prost::alloc::vec::Vec&lt;QuotaBucket&gt;,
     <span class="doccomment">/// List of all supported locations.
     /// This field is present only if the limit has a {region} or {zone} dimension.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>supported_locations: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A quota bucket is a quota provisioning unit for a specific set of dimensions.
@@ -2014,23 +2015,23 @@
 </span><span class="kw">pub struct </span>QuotaBucket {
     <span class="doccomment">/// The effective limit of this quota bucket. Equal to default_limit if there
     /// are no overrides.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>effective_limit: i64,
     <span class="doccomment">/// The default limit of this quota bucket, as specified by the service
     /// configuration.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>default_limit: i64,
     <span class="doccomment">/// Producer override on this quota bucket.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>producer_override: ::core::option::Option&lt;QuotaOverride&gt;,
     <span class="doccomment">/// Consumer override on this quota bucket.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>consumer_override: ::core::option::Option&lt;QuotaOverride&gt;,
     <span class="doccomment">/// Admin override on this quota bucket.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>admin_override: ::core::option::Option&lt;QuotaOverride&gt;,
     <span class="doccomment">/// Producer policy inherited from the closet ancestor of the current consumer.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>producer_quota_policy: ::core::option::Option&lt;ProducerQuotaPolicy&gt;,
     <span class="doccomment">/// The dimensions of this quota bucket.
     ///
@@ -2043,7 +2044,7 @@
     /// For example, if the map has key `region` and value `us-east-1`, then the
     /// specified effective limit is only effective in that region, and the
     /// specified overrides apply only in that region.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>dimensions: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2062,11 +2063,11 @@
     ///
     /// The resource name is intended to be opaque and should not be parsed for
     /// its component strings, since its representation could change in the future.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The overriding quota limit value.
     /// Can be any nonnegative integer, or -1 (unlimited quota).
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>override_value: i64,
     <span class="doccomment">/// If this map is nonempty, then this override applies only to specific values
     /// for dimensions defined in the limit unit.
@@ -2077,7 +2078,7 @@
     ///
     /// This map has the following restrictions:
     ///
-    /// *   Keys that are not defined in the limit&#39;s unit are not valid keys.
+    /// *   Keys that are not defined in the limit's unit are not valid keys.
     ///      Any string appearing in `{brackets}` in the unit (besides `{project}`
     ///      or
     ///      `{user}`) is a defined key.
@@ -2090,7 +2091,7 @@
     /// *   If any valid key other than `region` or `zone` appears in the map, then
     ///      all valid keys other than `region` or `zone` must also appear in the
     ///      map.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>dimensions: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2099,7 +2100,7 @@
     ///
     /// An example name would be:
     /// `compute.googleapis.com/cpus`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>metric: ::prost::alloc::string::String,
     <span class="doccomment">/// The limit unit of the limit to which this override applies.
     ///
@@ -2107,12 +2108,12 @@
     /// `1/{project}/{region}`
     /// Note that `{project}` and `{region}` are not placeholders in this example;
     /// the literal characters `{` and `}` occur in the string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>unit: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource name of the ancestor that requested the override. For example:
     /// `organizations/12345` or `folders/67890`.
     /// Used by admin overrides only.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>admin_override_ancestor: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Import data embedded in the request message
@@ -2120,10 +2121,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OverrideInlineSource {
     <span class="doccomment">/// The overrides to create.
-    /// Each override must have a value for &#39;metric&#39; and &#39;unit&#39;, to specify
+    /// Each override must have a value for 'metric' and 'unit', to specify
     /// which metric and which limit the override should be applied to.
-    /// The &#39;name&#39; field of the override does not need to be set; it is ignored.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    /// The 'name' field of the override does not need to be set; it is ignored.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>overrides: ::prost::alloc::vec::Vec&lt;QuotaOverride&gt;,
 }
 <span class="doccomment">/// Quota policy created by service producer.
@@ -2135,11 +2136,11 @@
     ///
     /// Example names would be:
     /// `organizations/123/services/compute.googleapis.com/consumerQuotaMetrics/compute.googleapis.com%2Fcpus/limits/%2Fproject%2Fregion/producerQuotaPolicies/4a3f2c1d`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The quota policy value.
     /// Can be any nonnegative integer, or -1 (unlimited quota).
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>policy_value: i64,
     <span class="doccomment">///
     /// If this map is nonempty, then this policy applies only to specific values
@@ -2151,7 +2152,7 @@
     ///
     /// This map has the following restrictions:
     ///
-    /// *   Keys that are not defined in the limit&#39;s unit are not valid keys.
+    /// *   Keys that are not defined in the limit's unit are not valid keys.
     ///      Any string appearing in {brackets} in the unit (besides {project} or
     ///      {user}) is a defined key.
     /// *   `project` is not a valid key; the project is already specified in
@@ -2163,7 +2164,7 @@
     /// *   If any valid key other than `region` or `zone` appears in the map, then
     ///      all valid keys other than `region` or `zone` must also appear in the
     ///      map.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>dimensions: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2172,7 +2173,7 @@
     ///
     /// An example name would be:
     /// `compute.googleapis.com/cpus`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>metric: ::prost::alloc::string::String,
     <span class="doccomment">/// The limit unit of the limit to which this policy applies.
     ///
@@ -2180,11 +2181,11 @@
     /// `1/{project}/{region}`
     /// Note that `{project}` and `{region}` are not placeholders in this example;
     /// the literal characters `{` and `}` occur in the string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>unit: ::prost::alloc::string::String,
     <span class="doccomment">/// The cloud resource container at which the quota policy is created. The
     /// format is `{container_type}/{container_number}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>container: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Quota policy created by quota administrator.
@@ -2196,11 +2197,11 @@
     ///
     /// Example names would be:
     /// `organizations/123/services/compute.googleapis.com/consumerQuotaMetrics/compute.googleapis.com%2Fcpus/limits/%2Fproject%2Fregion/adminQuotaPolicies/4a3f2c1d`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The quota policy value.
     /// Can be any nonnegative integer, or -1 (unlimited quota).
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>policy_value: i64,
     <span class="doccomment">///
     /// If this map is nonempty, then this policy applies only to specific values
@@ -2215,7 +2216,7 @@
     /// *   If `region` appears as a key, its value must be a valid Cloud region.
     /// *   If `zone` appears as a key, its value must be a valid Cloud zone.
     /// *   Keys other than `region` or `zone` are not valid.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>dimensions: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2224,7 +2225,7 @@
     ///
     /// An example name would be:
     /// `compute.googleapis.com/cpus`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>metric: ::prost::alloc::string::String,
     <span class="doccomment">/// The limit unit of the limit to which this policy applies.
     ///
@@ -2232,11 +2233,11 @@
     /// `1/{project}/{region}`
     /// Note that `{project}` and `{region}` are not placeholders in this example;
     /// the literal characters `{` and `}` occur in the string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>unit: ::prost::alloc::string::String,
     <span class="doccomment">/// The cloud resource container at which the quota policy is created. The
     /// format is `{container_type}/{container_number}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>container: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Service identity for a service. This is the identity that service producer
@@ -2246,11 +2247,11 @@
 </span><span class="kw">pub struct </span>ServiceIdentity {
     <span class="doccomment">/// The email address of the service account that a service producer would use
     /// to access consumer resources.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
     <span class="doccomment">/// The unique and stable id of the service account.
     /// &lt;https://cloud.google.com/iam/reference/rest/v1/projects.serviceAccounts#ServiceAccount&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>unique_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Whether or not a service has been enabled for use by a consumer.
@@ -2272,19 +2273,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-            State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-            State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
+            State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+            State::Disabled =&gt; <span class="string">"DISABLED"</span>,
+            State::Enabled =&gt; <span class="string">"ENABLED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-            <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
+            <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+            <span class="string">"ENABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2312,19 +2313,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            QuotaView::Unspecified =&gt; <span class="string">&quot;QUOTA_VIEW_UNSPECIFIED&quot;</span>,
-            QuotaView::Basic =&gt; <span class="string">&quot;BASIC&quot;</span>,
-            QuotaView::Full =&gt; <span class="string">&quot;FULL&quot;</span>,
+            QuotaView::Unspecified =&gt; <span class="string">"QUOTA_VIEW_UNSPECIFIED"</span>,
+            QuotaView::Basic =&gt; <span class="string">"BASIC"</span>,
+            QuotaView::Full =&gt; <span class="string">"FULL"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;QUOTA_VIEW_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-            <span class="string">&quot;FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
+            <span class="string">"QUOTA_VIEW_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"BASIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+            <span class="string">"FULL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2335,10 +2336,10 @@
 </span><span class="kw">pub enum </span>QuotaSafetyCheck {
     <span class="doccomment">/// Unspecified quota safety check.
     </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Validates that a quota mutation would not cause the consumer&#39;s effective
-    /// limit to be lower than the consumer&#39;s quota usage.
+    <span class="doccomment">/// Validates that a quota mutation would not cause the consumer's effective
+    /// limit to be lower than the consumer's quota usage.
     </span>LimitDecreaseBelowUsage = <span class="number">1</span>,
-    <span class="doccomment">/// Validates that a quota mutation would not cause the consumer&#39;s effective
+    <span class="doccomment">/// Validates that a quota mutation would not cause the consumer's effective
     /// limit to decrease by more than 10 percent.
     </span>LimitDecreasePercentageTooHigh = <span class="number">2</span>,
 }
@@ -2347,21 +2348,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            QuotaSafetyCheck::Unspecified =&gt; <span class="string">&quot;QUOTA_SAFETY_CHECK_UNSPECIFIED&quot;</span>,
-            QuotaSafetyCheck::LimitDecreaseBelowUsage =&gt; <span class="string">&quot;LIMIT_DECREASE_BELOW_USAGE&quot;</span>,
+            QuotaSafetyCheck::Unspecified =&gt; <span class="string">"QUOTA_SAFETY_CHECK_UNSPECIFIED"</span>,
+            QuotaSafetyCheck::LimitDecreaseBelowUsage =&gt; <span class="string">"LIMIT_DECREASE_BELOW_USAGE"</span>,
             QuotaSafetyCheck::LimitDecreasePercentageTooHigh =&gt; {
-                <span class="string">&quot;LIMIT_DECREASE_PERCENTAGE_TOO_HIGH&quot;
+                <span class="string">"LIMIT_DECREASE_PERCENTAGE_TOO_HIGH"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;QUOTA_SAFETY_CHECK_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;LIMIT_DECREASE_BELOW_USAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LimitDecreaseBelowUsage),
-            <span class="string">&quot;LIMIT_DECREASE_PERCENTAGE_TOO_HIGH&quot; </span>=&gt; {
+            <span class="string">"QUOTA_SAFETY_CHECK_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"LIMIT_DECREASE_BELOW_USAGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LimitDecreaseBelowUsage),
+            <span class="string">"LIMIT_DECREASE_PERCENTAGE_TOO_HIGH" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::LimitDecreasePercentageTooHigh)
             }
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -2383,7 +2384,7 @@
     /// An example name would be:
     /// `projects/123/services/serviceusage.googleapis.com`
     /// where `123` is the project number (not project ID).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for the `DisableService` method.
@@ -2397,7 +2398,7 @@
     /// An example name would be:
     /// `projects/123/services/serviceusage.googleapis.com`
     /// where `123` is the project number (not project ID).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for the `GetService` method.
@@ -2409,7 +2410,7 @@
     /// An example name would be:
     /// `projects/123/services/serviceusage.googleapis.com`
     /// where `123` is the project number (not project ID).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for the `ListServices` method.
@@ -2421,20 +2422,20 @@
     /// An example name would be:
     /// `projects/123`
     /// where `123` is the project number (not project ID).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Requested size of the next page of data.
     /// Requested page size cannot exceed 200.
     ///   If not set, the default page size is 50.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token identifying which result to start with, which is returned by a
     /// previous list call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Only list services that conform to the given filter.
     /// The allowed filter strings are `state:ENABLED` and `state:DISABLED`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for the `ListServices` method.
@@ -2442,11 +2443,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListServicesResponse {
     <span class="doccomment">/// The available services for the requested project.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>services: ::prost::alloc::vec::Vec&lt;Service&gt;,
     <span class="doccomment">/// Token that can be passed to `ListServices` to resume a paginated
     /// query.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for the `BatchEnableServices` method.
@@ -2460,7 +2461,7 @@
     /// where `123` is the project number (not project ID).
     ///
     /// The `BatchEnableServices` method currently only supports projects.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The identifiers of the services to enable on the project.
     ///
@@ -2476,7 +2477,7 @@
     /// A single request can enable a maximum of 20 services at a time. If more
     /// than 20 services are specified, the request will fail, and no state changes
     /// will occur.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for ListConsumerQuotaMetrics
@@ -2489,17 +2490,17 @@
     /// `projects/123/services/serviceconsumermanagement.googleapis.com`
     /// `folders/345/services/serviceconsumermanagement.googleapis.com`
     /// `organizations/456/services/serviceconsumermanagement.googleapis.com`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Requested size of the next page of data.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token identifying which result to start with; returned by a previous list
     /// call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the level of detail for quota information in the response.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QuotaView&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"QuotaView"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>view: i32,
 }
 <span class="doccomment">/// Response message for ListConsumerQuotaMetrics
@@ -2507,11 +2508,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListConsumerQuotaMetricsResponse {
     <span class="doccomment">/// Quota settings for the consumer, organized by quota metric.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>metrics: ::prost::alloc::vec::Vec&lt;ConsumerQuotaMetric&gt;,
     <span class="doccomment">/// Token identifying which result to start with; returned by a previous list
     /// call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for GetConsumerQuotaMetric
@@ -2522,10 +2523,10 @@
     ///
     /// An example name would be:
     /// `projects/123/services/serviceusage.googleapis.com/quotas/metrics/serviceusage.googleapis.com%2Fmutate_requests`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the level of detail for quota information in the response.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QuotaView&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"QuotaView"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>view: i32,
 }
 <span class="doccomment">/// Request message for GetConsumerQuotaLimit
@@ -2536,10 +2537,10 @@
     ///
     /// Use the quota limit resource name returned by previous
     /// ListConsumerQuotaMetrics and GetConsumerQuotaMetric API calls.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the level of detail for quota information in the response.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QuotaView&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"QuotaView"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>view: i32,
 }
 <span class="doccomment">/// Request message for CreateAdminOverride.
@@ -2551,21 +2552,21 @@
     ///
     /// An example name would be:
     /// `projects/123/services/compute.googleapis.com/consumerQuotaMetrics/compute.googleapis.com%2Fcpus/limits/%2Fproject%2Fregion`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The admin override to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#override: ::core::option::Option&lt;QuotaOverride&gt;,
     <span class="doccomment">/// Whether to force the creation of the quota override.
-    /// Setting the force parameter to &#39;true&#39; ignores all quota safety checks that
+    /// Setting the force parameter to 'true' ignores all quota safety checks that
     /// would fail the request. QuotaSafetyCheck lists all such validations.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>force: bool,
     <span class="doccomment">/// The list of quota safety checks to ignore before the override mutation.
-    /// Unlike &#39;force&#39; field that ignores all the quota safety checks, the
-    /// &#39;force_only&#39; field ignores only the specified checks; other checks are
-    /// still enforced. The &#39;force&#39; and &#39;force_only&#39; fields cannot both be set.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QuotaSafetyCheck&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    /// Unlike 'force' field that ignores all the quota safety checks, the
+    /// 'force_only' field ignores only the specified checks; other checks are
+    /// still enforced. The 'force' and 'force_only' fields cannot both be set.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"QuotaSafetyCheck"</span>, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>force_only: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// Request message for UpdateAdminOverride.
@@ -2576,26 +2577,26 @@
     ///
     /// An example name would be:
     /// `projects/123/services/compute.googleapis.com/consumerQuotaMetrics/compute.googleapis.com%2Fcpus/limits/%2Fproject%2Fregion/adminOverrides/4a3f2c1d`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The new override.
     /// Only the override_value is updated; all other fields are ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#override: ::core::option::Option&lt;QuotaOverride&gt;,
     <span class="doccomment">/// Whether to force the update of the quota override.
-    /// Setting the force parameter to &#39;true&#39; ignores all quota safety checks that
+    /// Setting the force parameter to 'true' ignores all quota safety checks that
     /// would fail the request. QuotaSafetyCheck lists all such validations.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>force: bool,
     <span class="doccomment">/// Update only the specified fields of the override.
     /// If unset, all fields will be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// The list of quota safety checks to ignore before the override mutation.
-    /// Unlike &#39;force&#39; field that ignores all the quota safety checks, the
-    /// &#39;force_only&#39; field ignores only the specified checks; other checks are
-    /// still enforced. The &#39;force&#39; and &#39;force_only&#39; fields cannot both be set.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QuotaSafetyCheck&quot;</span>, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    /// Unlike 'force' field that ignores all the quota safety checks, the
+    /// 'force_only' field ignores only the specified checks; other checks are
+    /// still enforced. The 'force' and 'force_only' fields cannot both be set.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"QuotaSafetyCheck"</span>, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>force_only: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// Request message for DeleteAdminOverride.
@@ -2606,18 +2607,18 @@
     ///
     /// An example name would be:
     /// `projects/123/services/compute.googleapis.com/consumerQuotaMetrics/compute.googleapis.com%2Fcpus/limits/%2Fproject%2Fregion/adminOverrides/4a3f2c1d`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether to force the deletion of the quota override.
-    /// Setting the force parameter to &#39;true&#39; ignores all quota safety checks that
+    /// Setting the force parameter to 'true' ignores all quota safety checks that
     /// would fail the request. QuotaSafetyCheck lists all such validations.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>force: bool,
     <span class="doccomment">/// The list of quota safety checks to ignore before the override mutation.
-    /// Unlike &#39;force&#39; field that ignores all the quota safety checks, the
-    /// &#39;force_only&#39; field ignores only the specified checks; other checks are
-    /// still enforced. The &#39;force&#39; and &#39;force_only&#39; fields cannot both be set.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QuotaSafetyCheck&quot;</span>, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    /// Unlike 'force' field that ignores all the quota safety checks, the
+    /// 'force_only' field ignores only the specified checks; other checks are
+    /// still enforced. The 'force' and 'force_only' fields cannot both be set.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"QuotaSafetyCheck"</span>, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>force_only: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// Request message for ListAdminOverrides
@@ -2629,14 +2630,14 @@
     ///
     /// An example name would be:
     /// `projects/123/services/compute.googleapis.com/consumerQuotaMetrics/compute.googleapis.com%2Fcpus/limits/%2Fproject%2Fregion`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Requested size of the next page of data.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token identifying which result to start with; returned by a previous list
     /// call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListAdminOverrides.
@@ -2644,11 +2645,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAdminOverridesResponse {
     <span class="doccomment">/// Admin overrides on this limit.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>overrides: ::prost::alloc::vec::Vec&lt;QuotaOverride&gt;,
     <span class="doccomment">/// Token identifying which result to start with; returned by a previous list
     /// call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for BatchCreateAdminOverrides
@@ -2656,7 +2657,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCreateAdminOverridesResponse {
     <span class="doccomment">/// The overrides that were created.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>overrides: ::prost::alloc::vec::Vec&lt;QuotaOverride&gt;,
 }
 <span class="doccomment">/// Request message for ImportAdminOverrides
@@ -2667,21 +2668,21 @@
     ///
     /// An example name would be:
     /// `projects/123/services/compute.googleapis.com`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether to force the creation of the quota overrides.
-    /// Setting the force parameter to &#39;true&#39; ignores all quota safety checks that
+    /// Setting the force parameter to 'true' ignores all quota safety checks that
     /// would fail the request. QuotaSafetyCheck lists all such validations.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>force: bool,
     <span class="doccomment">/// The list of quota safety checks to ignore before the override mutation.
-    /// Unlike &#39;force&#39; field that ignores all the quota safety checks, the
-    /// &#39;force_only&#39; field ignores only the specified checks; other checks are
-    /// still enforced. The &#39;force&#39; and &#39;force_only&#39; fields cannot both be set.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QuotaSafetyCheck&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    /// Unlike 'force' field that ignores all the quota safety checks, the
+    /// 'force_only' field ignores only the specified checks; other checks are
+    /// still enforced. The 'force' and 'force_only' fields cannot both be set.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"QuotaSafetyCheck"</span>, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>force_only: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Source of import data
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_admin_overrides_request::Source&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"import_admin_overrides_request::Source"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_admin_overrides_request::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ImportAdminOverridesRequest`.
@@ -2691,7 +2692,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// The import data is specified in the request message itself
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>InlineSource(<span class="kw">super</span>::OverrideInlineSource),
     }
 }
@@ -2700,7 +2701,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportAdminOverridesResponse {
     <span class="doccomment">/// The overrides that were created from the imported data.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>overrides: ::prost::alloc::vec::Vec&lt;QuotaOverride&gt;,
 }
 <span class="doccomment">/// Metadata message that provides information such as progress,
@@ -2718,21 +2719,21 @@
     ///
     /// An example name would be:
     /// `projects/123/services/compute.googleapis.com/consumerQuotaMetrics/compute.googleapis.com%2Fcpus/limits/%2Fproject%2Fregion`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The override to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#override: ::core::option::Option&lt;QuotaOverride&gt;,
     <span class="doccomment">/// Whether to force the creation of the quota override.
-    /// Setting the force parameter to &#39;true&#39; ignores all quota safety checks that
+    /// Setting the force parameter to 'true' ignores all quota safety checks that
     /// would fail the request. QuotaSafetyCheck lists all such validations.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>force: bool,
     <span class="doccomment">/// The list of quota safety checks to ignore before the override mutation.
-    /// Unlike &#39;force&#39; field that ignores all the quota safety checks, the
-    /// &#39;force_only&#39; field ignores only the specified checks; other checks are
-    /// still enforced. The &#39;force&#39; and &#39;force_only&#39; fields cannot both be set.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QuotaSafetyCheck&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    /// Unlike 'force' field that ignores all the quota safety checks, the
+    /// 'force_only' field ignores only the specified checks; other checks are
+    /// still enforced. The 'force' and 'force_only' fields cannot both be set.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"QuotaSafetyCheck"</span>, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>force_only: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// Request message for UpdateConsumerOverride.
@@ -2743,26 +2744,26 @@
     ///
     /// An example name would be:
     /// `projects/123/services/compute.googleapis.com/consumerQuotaMetrics/compute.googleapis.com%2Fcpus/limits/%2Fproject%2Fregion/consumerOverrides/4a3f2c1d`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The new override.
     /// Only the override_value is updated; all other fields are ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#override: ::core::option::Option&lt;QuotaOverride&gt;,
     <span class="doccomment">/// Whether to force the update of the quota override.
-    /// Setting the force parameter to &#39;true&#39; ignores all quota safety checks that
+    /// Setting the force parameter to 'true' ignores all quota safety checks that
     /// would fail the request. QuotaSafetyCheck lists all such validations.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>force: bool,
     <span class="doccomment">/// Update only the specified fields of the override.
     /// If unset, all fields will be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// The list of quota safety checks to ignore before the override mutation.
-    /// Unlike &#39;force&#39; field that ignores all the quota safety checks, the
-    /// &#39;force_only&#39; field ignores only the specified checks; other checks are
-    /// still enforced. The &#39;force&#39; and &#39;force_only&#39; fields cannot both be set.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QuotaSafetyCheck&quot;</span>, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    /// Unlike 'force' field that ignores all the quota safety checks, the
+    /// 'force_only' field ignores only the specified checks; other checks are
+    /// still enforced. The 'force' and 'force_only' fields cannot both be set.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"QuotaSafetyCheck"</span>, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>force_only: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// Request message for DeleteConsumerOverride.
@@ -2773,18 +2774,18 @@
     ///
     /// An example name would be:
     /// `projects/123/services/compute.googleapis.com/consumerQuotaMetrics/compute.googleapis.com%2Fcpus/limits/%2Fproject%2Fregion/consumerOverrides/4a3f2c1d`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether to force the deletion of the quota override.
-    /// Setting the force parameter to &#39;true&#39; ignores all quota safety checks that
+    /// Setting the force parameter to 'true' ignores all quota safety checks that
     /// would fail the request. QuotaSafetyCheck lists all such validations.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>force: bool,
     <span class="doccomment">/// The list of quota safety checks to ignore before the override mutation.
-    /// Unlike &#39;force&#39; field that ignores all the quota safety checks, the
-    /// &#39;force_only&#39; field ignores only the specified checks; other checks are
-    /// still enforced. The &#39;force&#39; and &#39;force_only&#39; fields cannot both be set.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QuotaSafetyCheck&quot;</span>, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    /// Unlike 'force' field that ignores all the quota safety checks, the
+    /// 'force_only' field ignores only the specified checks; other checks are
+    /// still enforced. The 'force' and 'force_only' fields cannot both be set.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"QuotaSafetyCheck"</span>, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>force_only: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// Request message for ListConsumerOverrides
@@ -2796,14 +2797,14 @@
     ///
     /// An example name would be:
     /// `projects/123/services/compute.googleapis.com/consumerQuotaMetrics/compute.googleapis.com%2Fcpus/limits/%2Fproject%2Fregion`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Requested size of the next page of data.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token identifying which result to start with; returned by a previous list
     /// call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListConsumerOverrides.
@@ -2811,11 +2812,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListConsumerOverridesResponse {
     <span class="doccomment">/// Consumer overrides on this limit.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>overrides: ::prost::alloc::vec::Vec&lt;QuotaOverride&gt;,
     <span class="doccomment">/// Token identifying which result to start with; returned by a previous list
     /// call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for BatchCreateConsumerOverrides
@@ -2823,7 +2824,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCreateConsumerOverridesResponse {
     <span class="doccomment">/// The overrides that were created.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>overrides: ::prost::alloc::vec::Vec&lt;QuotaOverride&gt;,
 }
 <span class="doccomment">/// Request message for ImportConsumerOverrides
@@ -2834,21 +2835,21 @@
     ///
     /// An example name would be:
     /// `projects/123/services/compute.googleapis.com`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether to force the creation of the quota overrides.
-    /// Setting the force parameter to &#39;true&#39; ignores all quota safety checks that
+    /// Setting the force parameter to 'true' ignores all quota safety checks that
     /// would fail the request. QuotaSafetyCheck lists all such validations.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>force: bool,
     <span class="doccomment">/// The list of quota safety checks to ignore before the override mutation.
-    /// Unlike &#39;force&#39; field that ignores all the quota safety checks, the
-    /// &#39;force_only&#39; field ignores only the specified checks; other checks are
-    /// still enforced. The &#39;force&#39; and &#39;force_only&#39; fields cannot both be set.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;QuotaSafetyCheck&quot;</span>, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    /// Unlike 'force' field that ignores all the quota safety checks, the
+    /// 'force_only' field ignores only the specified checks; other checks are
+    /// still enforced. The 'force' and 'force_only' fields cannot both be set.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"QuotaSafetyCheck"</span>, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>force_only: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Source of import data
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_consumer_overrides_request::Source&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"import_consumer_overrides_request::Source"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_consumer_overrides_request::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ImportConsumerOverridesRequest`.
@@ -2858,7 +2859,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// The import data is specified in the request message itself
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>InlineSource(<span class="kw">super</span>::OverrideInlineSource),
     }
 }
@@ -2867,7 +2868,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportConsumerOverridesResponse {
     <span class="doccomment">/// The overrides that were created from the imported data.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>overrides: ::prost::alloc::vec::Vec&lt;QuotaOverride&gt;,
 }
 <span class="doccomment">/// Metadata message that provides information such as progress,
@@ -2881,7 +2882,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportAdminQuotaPoliciesResponse {
     <span class="doccomment">/// The policies that were created from the imported data.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>policies: ::prost::alloc::vec::Vec&lt;AdminQuotaPolicy&gt;,
 }
 <span class="doccomment">/// Metadata message that provides information such as progress,
@@ -2921,7 +2922,7 @@
     /// `projects/123/services/example.googleapis.com`
     /// `folders/123/services/example.googleapis.com`
     /// `organizations/123/services/example.googleapis.com`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for getting service identity.
@@ -2931,10 +2932,10 @@
     <span class="doccomment">/// Service identity that service producer can use to access consumer
     /// resources. If exists is true, it contains email and unique_id. If exists is
     /// false, it contains pre-constructed email and empty unique_id.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>identity: ::core::option::Option&lt;ServiceIdentity&gt;,
     <span class="doccomment">/// Service identity state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;get_service_identity_response::IdentityState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"get_service_identity_response::IdentityState"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `GetServiceIdentityResponse`.
@@ -2964,17 +2965,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                IdentityState::Unspecified =&gt; <span class="string">&quot;IDENTITY_STATE_UNSPECIFIED&quot;</span>,
-                IdentityState::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+                IdentityState::Unspecified =&gt; <span class="string">"IDENTITY_STATE_UNSPECIFIED"</span>,
+                IdentityState::Active =&gt; <span class="string">"ACTIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;IDENTITY_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"IDENTITY_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2998,7 +2999,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3075,19 +3076,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/EnableService&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/EnableService"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;EnableService&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"EnableService"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3114,19 +3115,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/DisableService&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/DisableService"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;DisableService&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"DisableService"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3142,19 +3143,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/GetService&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/GetService"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;GetService&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"GetService"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3179,19 +3180,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/ListServices&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/ListServices"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;ListServices&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"ListServices"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3214,19 +3215,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/BatchEnableServices&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/BatchEnableServices"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;BatchEnableServices&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"BatchEnableServices"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3249,19 +3250,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/ListConsumerQuotaMetrics&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/ListConsumerQuotaMetrics"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;ListConsumerQuotaMetrics&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"ListConsumerQuotaMetrics"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3280,19 +3281,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/GetConsumerQuotaMetric&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/GetConsumerQuotaMetric"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;GetConsumerQuotaMetric&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"GetConsumerQuotaMetric"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3311,19 +3312,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/GetConsumerQuotaLimit&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/GetConsumerQuotaLimit"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;GetConsumerQuotaLimit&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"GetConsumerQuotaLimit"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3347,19 +3348,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/CreateAdminOverride&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/CreateAdminOverride"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;CreateAdminOverride&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"CreateAdminOverride"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3378,19 +3379,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/UpdateAdminOverride&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/UpdateAdminOverride"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;UpdateAdminOverride&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"UpdateAdminOverride"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3409,19 +3410,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/DeleteAdminOverride&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/DeleteAdminOverride"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;DeleteAdminOverride&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"DeleteAdminOverride"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3440,19 +3441,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/ListAdminOverrides&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/ListAdminOverrides"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;ListAdminOverrides&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"ListAdminOverrides"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3473,19 +3474,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/ImportAdminOverrides&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/ImportAdminOverrides"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;ImportAdminOverrides&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"ImportAdminOverrides"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3508,19 +3509,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/CreateConsumerOverride&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/CreateConsumerOverride"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;CreateConsumerOverride&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"CreateConsumerOverride"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3539,19 +3540,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/UpdateConsumerOverride&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/UpdateConsumerOverride"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;UpdateConsumerOverride&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"UpdateConsumerOverride"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3570,19 +3571,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/DeleteConsumerOverride&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/DeleteConsumerOverride"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;DeleteConsumerOverride&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"DeleteConsumerOverride"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3601,19 +3602,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/ListConsumerOverrides&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/ListConsumerOverrides"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;ListConsumerOverrides&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"ListConsumerOverrides"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3634,19 +3635,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/ImportConsumerOverrides&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/ImportConsumerOverrides"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;ImportConsumerOverrides&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"ImportConsumerOverrides"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3665,19 +3666,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1beta1.ServiceUsage/GenerateServiceIdentity&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1beta1.ServiceUsage/GenerateServiceIdentity"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1beta1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;GenerateServiceIdentity&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1beta1.ServiceUsage"</span>,
+                        <span class="string">"GenerateServiceIdentity"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

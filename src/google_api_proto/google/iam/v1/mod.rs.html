@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/iam/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/iam/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -771,7 +772,7 @@
 <a href="#771" id="771">771</a>
 <a href="#772" id="772">772</a>
 <a href="#773" id="773">773</a>
-</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-iam-v1-logging&quot;</span>))]
+</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">"google-iam-v1-logging"</span>))]
 </span><span class="kw">pub mod </span>logging;
 <span class="doccomment">/// Encapsulates settings provided to GetIamPolicy.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -795,7 +796,7 @@
     /// To learn which resources support conditions in their IAM policies, see the
     /// [IAM
     /// documentation](&lt;https://cloud.google.com/iam/help/conditions/resource-policies&gt;).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>requested_policy_version: i32,
 }
 <span class="doccomment">/// An Identity and Access Management (IAM) policy, which specifies access
@@ -820,31 +821,31 @@
 ///
 /// ```
 ///      {
-///        &quot;bindings&quot;: [
+///        "bindings": [
 ///          {
-///            &quot;role&quot;: &quot;roles/resourcemanager.organizationAdmin&quot;,
-///            &quot;members&quot;: [
-///              &quot;user:mike@example.com&quot;,
-///              &quot;group:admins@example.com&quot;,
-///              &quot;domain:google.com&quot;,
-///              &quot;serviceAccount:my-project-id@appspot.gserviceaccount.com&quot;
+///            "role": "roles/resourcemanager.organizationAdmin",
+///            "members": [
+///              "user:mike@example.com",
+///              "group:admins@example.com",
+///              "domain:google.com",
+///              "serviceAccount:my-project-id@appspot.gserviceaccount.com"
 ///            ]
 ///          },
 ///          {
-///            &quot;role&quot;: &quot;roles/resourcemanager.organizationViewer&quot;,
-///            &quot;members&quot;: [
-///              &quot;user:eve@example.com&quot;
+///            "role": "roles/resourcemanager.organizationViewer",
+///            "members": [
+///              "user:eve@example.com"
 ///            ],
-///            &quot;condition&quot;: {
-///              &quot;title&quot;: &quot;expirable access&quot;,
-///              &quot;description&quot;: &quot;Does not grant access after Sep 2020&quot;,
-///              &quot;expression&quot;: &quot;request.time &lt;
-///              timestamp(&#39;2020-10-01T00:00:00.000Z&#39;)&quot;,
+///            "condition": {
+///              "title": "expirable access",
+///              "description": "Does not grant access after Sep 2020",
+///              "expression": "request.time &lt;
+///              timestamp('2020-10-01T00:00:00.000Z')",
 ///            }
 ///          }
 ///        ],
-///        &quot;etag&quot;: &quot;BwWWja0YfJA=&quot;,
-///        &quot;version&quot;: 3
+///        "etag": "BwWWja0YfJA=",
+///        "version": 3
 ///      }
 /// ```
 ///
@@ -864,7 +865,7 @@
 ///        condition:
 ///          title: expirable access
 ///          description: Does not grant access after Sep 2020
-///          expression: request.time &lt; timestamp(&#39;2020-10-01T00:00:00.000Z&#39;)
+///          expression: request.time &lt; timestamp('2020-10-01T00:00:00.000Z')
 ///      etag: BwWWja0YfJA=
 ///      version: 3
 /// ```
@@ -899,7 +900,7 @@
     /// To learn which resources support conditions in their IAM policies, see the
     /// [IAM
     /// documentation](&lt;https://cloud.google.com/iam/help/conditions/resource-policies&gt;).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: i32,
     <span class="doccomment">/// Associates a list of `members`, or principals, with a `role`. Optionally,
     /// may specify a `condition` that determines how and when the `bindings` are
@@ -911,10 +912,10 @@
     /// different roles to `user:alice@example.com`, and not to any other
     /// principal, then you can add another 1,450 principals to the `bindings` in
     /// the `Policy`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>bindings: ::prost::alloc::vec::Vec&lt;Binding&gt;,
     <span class="doccomment">/// Specifies cloud audit logging configuration for this policy.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>audit_configs: ::prost::alloc::vec::Vec&lt;AuditConfig&gt;,
     <span class="doccomment">/// `etag` is used for optimistic concurrency control as a way to help
     /// prevent simultaneous updates of a policy from overwriting each other.
@@ -928,7 +929,7 @@
     /// whenever you call `setIamPolicy`. If you omit this field, then IAM allows
     /// you to overwrite a version `3` policy with a version `1` policy, and all of
     /// the conditions in the version `3` policy are lost.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Associates `members`, or principals, with a `role`.
@@ -937,7 +938,7 @@
 </span><span class="kw">pub struct </span>Binding {
     <span class="doccomment">/// Role that is assigned to the list of `members`, or principals.
     /// For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>role: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the principals requesting access for a Google Cloud resource.
     /// `members` can have the following values:
@@ -983,7 +984,7 @@
     ///     users of that domain. For example, `google.com` or `example.com`.
     ///
     ///
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>members: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The condition that is associated with this binding.
     ///
@@ -997,7 +998,7 @@
     /// To learn which resources support conditions in their IAM policies, see the
     /// [IAM
     /// documentation](&lt;https://cloud.google.com/iam/help/conditions/resource-policies&gt;).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>condition: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::Expr&gt;,
 }
 <span class="doccomment">/// Specifies the audit configuration for a service.
@@ -1013,34 +1014,34 @@
 /// Example Policy with multiple AuditConfigs:
 ///
 ///      {
-///        &quot;audit_configs&quot;: [
+///        "audit_configs": [
 ///          {
-///            &quot;service&quot;: &quot;allServices&quot;,
-///            &quot;audit_log_configs&quot;: [
+///            "service": "allServices",
+///            "audit_log_configs": [
 ///              {
-///                &quot;log_type&quot;: &quot;DATA_READ&quot;,
-///                &quot;exempted_members&quot;: [
-///                  &quot;user:jose@example.com&quot;
+///                "log_type": "DATA_READ",
+///                "exempted_members": [
+///                  "user:jose@example.com"
 ///                ]
 ///              },
 ///              {
-///                &quot;log_type&quot;: &quot;DATA_WRITE&quot;
+///                "log_type": "DATA_WRITE"
 ///              },
 ///              {
-///                &quot;log_type&quot;: &quot;ADMIN_READ&quot;
+///                "log_type": "ADMIN_READ"
 ///              }
 ///            ]
 ///          },
 ///          {
-///            &quot;service&quot;: &quot;sampleservice.googleapis.com&quot;,
-///            &quot;audit_log_configs&quot;: [
+///            "service": "sampleservice.googleapis.com",
+///            "audit_log_configs": [
 ///              {
-///                &quot;log_type&quot;: &quot;DATA_READ&quot;
+///                "log_type": "DATA_READ"
 ///              },
 ///              {
-///                &quot;log_type&quot;: &quot;DATA_WRITE&quot;,
-///                &quot;exempted_members&quot;: [
-///                  &quot;user:aliya@example.com&quot;
+///                "log_type": "DATA_WRITE",
+///                "exempted_members": [
+///                  "user:aliya@example.com"
 ///                ]
 ///              }
 ///            ]
@@ -1057,42 +1058,42 @@
     <span class="doccomment">/// Specifies a service that will be enabled for audit logging.
     /// For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
     /// `allServices` is a special value that covers all services.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// The configuration for logging of each type of permission.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>audit_log_configs: ::prost::alloc::vec::Vec&lt;AuditLogConfig&gt;,
 }
 <span class="doccomment">/// Provides the configuration for logging a type of permissions.
 /// Example:
 ///
 ///      {
-///        &quot;audit_log_configs&quot;: [
+///        "audit_log_configs": [
 ///          {
-///            &quot;log_type&quot;: &quot;DATA_READ&quot;,
-///            &quot;exempted_members&quot;: [
-///              &quot;user:jose@example.com&quot;
+///            "log_type": "DATA_READ",
+///            "exempted_members": [
+///              "user:jose@example.com"
 ///            ]
 ///          },
 ///          {
-///            &quot;log_type&quot;: &quot;DATA_WRITE&quot;
+///            "log_type": "DATA_WRITE"
 ///          }
 ///        ]
 ///      }
 ///
-/// This enables &#39;DATA_READ&#39; and &#39;DATA_WRITE&#39; logging, while exempting
+/// This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
 /// jose@example.com from DATA_READ logging.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AuditLogConfig {
     <span class="doccomment">/// The log type that this config enables.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;audit_log_config::LogType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"audit_log_config::LogType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>log_type: i32,
     <span class="doccomment">/// Specifies the identities that do not cause logging for this type of
     /// permission.
     /// Follows the same format of
     /// [Binding.members][google.iam.v1.Binding.members].
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>exempted_members: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AuditLogConfig`.
@@ -1126,21 +1127,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                LogType::Unspecified =&gt; <span class="string">&quot;LOG_TYPE_UNSPECIFIED&quot;</span>,
-                LogType::AdminRead =&gt; <span class="string">&quot;ADMIN_READ&quot;</span>,
-                LogType::DataWrite =&gt; <span class="string">&quot;DATA_WRITE&quot;</span>,
-                LogType::DataRead =&gt; <span class="string">&quot;DATA_READ&quot;</span>,
+                LogType::Unspecified =&gt; <span class="string">"LOG_TYPE_UNSPECIFIED"</span>,
+                LogType::AdminRead =&gt; <span class="string">"ADMIN_READ"</span>,
+                LogType::DataWrite =&gt; <span class="string">"DATA_WRITE"</span>,
+                LogType::DataRead =&gt; <span class="string">"DATA_READ"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;LOG_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ADMIN_READ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdminRead),
-                <span class="string">&quot;DATA_WRITE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataWrite),
-                <span class="string">&quot;DATA_READ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataRead),
+                <span class="string">"LOG_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ADMIN_READ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdminRead),
+                <span class="string">"DATA_WRITE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataWrite),
+                <span class="string">"DATA_READ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataRead),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1151,10 +1152,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PolicyDelta {
     <span class="doccomment">/// The delta for Bindings between two policies.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>binding_deltas: ::prost::alloc::vec::Vec&lt;BindingDelta&gt;,
     <span class="doccomment">/// The delta for AuditConfigs between two policies.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>audit_config_deltas: ::prost::alloc::vec::Vec&lt;AuditConfigDelta&gt;,
 }
 <span class="doccomment">/// One delta entry for Binding. Each individual change (only one member in each
@@ -1164,20 +1165,20 @@
 </span><span class="kw">pub struct </span>BindingDelta {
     <span class="doccomment">/// The action that was performed on a Binding.
     /// Required
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;binding_delta::Action&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"binding_delta::Action"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>action: i32,
     <span class="doccomment">/// Role that is assigned to `members`.
     /// For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
     /// Required
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>role: ::prost::alloc::string::String,
     <span class="doccomment">/// A single identity requesting access for a Google Cloud resource.
     /// Follows the same format of Binding.members.
     /// Required
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>member: ::prost::alloc::string::String,
     <span class="doccomment">/// The condition that is associated with this binding.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>condition: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::Expr&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `BindingDelta`.
@@ -1208,19 +1209,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Action::Unspecified =&gt; <span class="string">&quot;ACTION_UNSPECIFIED&quot;</span>,
-                Action::Add =&gt; <span class="string">&quot;ADD&quot;</span>,
-                Action::Remove =&gt; <span class="string">&quot;REMOVE&quot;</span>,
+                Action::Unspecified =&gt; <span class="string">"ACTION_UNSPECIFIED"</span>,
+                Action::Add =&gt; <span class="string">"ADD"</span>,
+                Action::Remove =&gt; <span class="string">"REMOVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ADD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
-                <span class="string">&quot;REMOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Remove),
+                <span class="string">"ACTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ADD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
+                <span class="string">"REMOVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Remove),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1233,23 +1234,23 @@
 </span><span class="kw">pub struct </span>AuditConfigDelta {
     <span class="doccomment">/// The action that was performed on an audit configuration in a policy.
     /// Required
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;audit_config_delta::Action&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"audit_config_delta::Action"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>action: i32,
     <span class="doccomment">/// Specifies a service that was configured for Cloud Audit Logging.
     /// For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
     /// `allServices` is a special value that covers all services.
     /// Required
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
-    <span class="doccomment">/// A single identity that is exempted from &quot;data access&quot; audit
+    <span class="doccomment">/// A single identity that is exempted from "data access" audit
     /// logging for the `service` specified above.
     /// Follows the same format of Binding.members.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>exempted_member: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the log_type that was be enabled. ADMIN_ACTIVITY is always
     /// enabled, and cannot be configured.
     /// Required
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>log_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `AuditConfigDelta`.
@@ -1280,19 +1281,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Action::Unspecified =&gt; <span class="string">&quot;ACTION_UNSPECIFIED&quot;</span>,
-                Action::Add =&gt; <span class="string">&quot;ADD&quot;</span>,
-                Action::Remove =&gt; <span class="string">&quot;REMOVE&quot;</span>,
+                Action::Unspecified =&gt; <span class="string">"ACTION_UNSPECIFIED"</span>,
+                Action::Add =&gt; <span class="string">"ADD"</span>,
+                Action::Remove =&gt; <span class="string">"REMOVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ADD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
-                <span class="string">&quot;REMOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Remove),
+                <span class="string">"ACTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ADD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Add),
+                <span class="string">"REMOVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Remove),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1304,20 +1305,20 @@
 </span><span class="kw">pub struct </span>SetIamPolicyRequest {
     <span class="doccomment">/// REQUIRED: The resource for which the policy is being specified.
     /// See the operation documentation for the appropriate value for this field.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
     <span class="doccomment">/// REQUIRED: The complete policy to be applied to the `resource`. The size of
     /// the policy is limited to a few 10s of KB. An empty policy is a
     /// valid policy but certain Cloud Platform services (such as Projects)
     /// might reject them.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>policy: ::core::option::Option&lt;Policy&gt;,
     <span class="doccomment">/// OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
     /// the fields in the mask will be modified. If no mask is provided, the
     /// following default mask is used:
     ///
-    /// `paths: &quot;bindings, etag&quot;`
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// `paths: "bindings, etag"`
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for `GetIamPolicy` method.
@@ -1326,11 +1327,11 @@
 </span><span class="kw">pub struct </span>GetIamPolicyRequest {
     <span class="doccomment">/// REQUIRED: The resource for which the policy is being requested.
     /// See the operation documentation for the appropriate value for this field.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
     <span class="doccomment">/// OPTIONAL: A `GetPolicyOptions` object for specifying options to
     /// `GetIamPolicy`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>options: ::core::option::Option&lt;GetPolicyOptions&gt;,
 }
 <span class="doccomment">/// Request message for `TestIamPermissions` method.
@@ -1339,13 +1340,13 @@
 </span><span class="kw">pub struct </span>TestIamPermissionsRequest {
     <span class="doccomment">/// REQUIRED: The resource for which the policy detail is being requested.
     /// See the operation documentation for the appropriate value for this field.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
     <span class="doccomment">/// The set of permissions to check for the `resource`. Permissions with
-    /// wildcards (such as &#39;*&#39; or &#39;storage.*&#39;) are not allowed. For more
+    /// wildcards (such as '*' or 'storage.*') are not allowed. For more
     /// information see
     /// [IAM Overview](&lt;https://cloud.google.com/iam/docs/overview#permissions&gt;).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>permissions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Response message for `TestIamPermissions` method.
@@ -1354,7 +1355,7 @@
 </span><span class="kw">pub struct </span>TestIamPermissionsResponse {
     <span class="doccomment">/// A subset of `TestPermissionsRequest.permissions` that the caller is
     /// allowed.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>permissions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1396,7 +1397,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1471,16 +1472,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.v1.IAMPolicy/SetIamPolicy&quot;</span>,
+                <span class="string">"/google.iam.v1.IAMPolicy/SetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.v1.IAMPolicy&quot;</span>, <span class="string">&quot;SetIamPolicy&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.v1.IAMPolicy"</span>, <span class="string">"SetIamPolicy"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Gets the access control policy for a resource.
@@ -1496,16 +1497,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.v1.IAMPolicy/GetIamPolicy&quot;</span>,
+                <span class="string">"/google.iam.v1.IAMPolicy/GetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.v1.IAMPolicy&quot;</span>, <span class="string">&quot;GetIamPolicy&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.v1.IAMPolicy"</span>, <span class="string">"GetIamPolicy"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Returns permissions that a caller has on the specified resource.
@@ -1514,7 +1515,7 @@
         ///
         /// Note: This operation is designed to be used for building permission-aware
         /// UIs and command-line tools, not for authorization checking. This operation
-        /// may &quot;fail open&quot; without warning.
+        /// may "fail open" without warning.
         </span><span class="kw">pub async fn </span>test_iam_permissions(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::TestIamPermissionsRequest&gt;,
@@ -1528,17 +1529,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.v1.IAMPolicy/TestIamPermissions&quot;</span>,
+                <span class="string">"/google.iam.v1.IAMPolicy/TestIamPermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.v1.IAMPolicy&quot;</span>, <span class="string">&quot;TestIamPermissions&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.v1.IAMPolicy"</span>, <span class="string">"TestIamPermissions"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}

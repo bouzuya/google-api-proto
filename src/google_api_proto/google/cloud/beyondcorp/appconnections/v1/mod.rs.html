@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/beyondcorp/appconnections/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/beyondcorp/appconnections/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -750,28 +751,28 @@
 </span><span class="kw">pub struct </span>ListAppConnectionsRequest {
     <span class="doccomment">/// Required. The resource name of the AppConnection location using the form:
     /// `projects/{project_id}/locations/{location_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of items to return.
     /// If not specified, a default value of 50 will be used by the service.
     /// Regardless of the page_size value, the response may include a partial list
-    /// and a caller should only rely on response&#39;s
+    /// and a caller should only rely on response's
     /// [next_page_token][BeyondCorp.ListAppConnectionsResponse.next_page_token] to
     /// determine if there are more instances left to be queried.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. The next_page_token value returned from a previous
     /// ListAppConnectionsRequest, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A filter specifying constraints of a list operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Specifies the ordering of results. See
     /// [Sorting
     /// order](&lt;https://cloud.google.com/apis/design/design_patterns#sorting_order&gt;)
     /// for more information.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for BeyondCorp.ListAppConnections.
@@ -779,14 +780,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAppConnectionsResponse {
     <span class="doccomment">/// A list of BeyondCorp AppConnections in the project.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>app_connections: ::prost::alloc::vec::Vec&lt;AppConnection&gt;,
     <span class="doccomment">/// A token to retrieve the next page of results, or empty if there are no more
     /// results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for BeyondCorp.GetAppConnection.
@@ -795,7 +796,7 @@
 </span><span class="kw">pub struct </span>GetAppConnectionRequest {
     <span class="doccomment">/// Required. BeyondCorp AppConnection name using the form:
     /// `projects/{project_id}/locations/{location_id}/appConnections/{app_connection_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for BeyondCorp.CreateAppConnection.
@@ -804,16 +805,16 @@
 </span><span class="kw">pub struct </span>CreateAppConnectionRequest {
     <span class="doccomment">/// Required. The resource project name of the AppConnection location using the
     /// form: `projects/{project_id}/locations/{location_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. User-settable AppConnection resource ID.
     ///   * Must start with a letter.
     ///   * Must contain between 4-63 characters from `/[a-z][0-9]-/`.
     ///   * Must end with a number or a letter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>app_connection_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A BeyondCorp AppConnection resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>app_connection: ::core::option::Option&lt;AppConnection&gt;,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -828,11 +829,11 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, validates request by executing a dry-run which would not
     /// alter the resource in any way.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Request message for BeyondCorp.UpdateAppConnection.
@@ -846,11 +847,11 @@
     /// * `display_name`
     /// * `application_endpoint`
     /// * `connectors`
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. AppConnection message with updated fields. Only supported fields
     /// specified in update_mask are updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>app_connection: ::core::option::Option&lt;AppConnection&gt;,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -865,14 +866,14 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, validates request by executing a dry-run which would not
     /// alter the resource in any way.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
     <span class="doccomment">/// Optional. If set as true, will create the resource if it is not found.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
 <span class="doccomment">/// Request message for BeyondCorp.DeleteAppConnection.
@@ -881,7 +882,7 @@
 </span><span class="kw">pub struct </span>DeleteAppConnectionRequest {
     <span class="doccomment">/// Required. BeyondCorp Connector name using the form:
     /// `projects/{project_id}/locations/{location_id}/appConnections/{app_connection_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -896,11 +897,11 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, validates request by executing a dry-run which would not
     /// alter the resource in any way.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Request message for BeyondCorp.ResolveAppConnections.
@@ -909,24 +910,24 @@
 </span><span class="kw">pub struct </span>ResolveAppConnectionsRequest {
     <span class="doccomment">/// Required. The resource name of the AppConnection location using the form:
     /// `projects/{project_id}/locations/{location_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. BeyondCorp Connector name of the connector associated with those
     /// AppConnections using the form:
     /// `projects/{project_id}/locations/{location_id}/appConnectors/{app_connector_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>app_connector_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of items to return.
     /// If not specified, a default value of 50 will be used by the service.
     /// Regardless of the page_size value, the response may include a partial list
-    /// and a caller should only rely on response&#39;s
+    /// and a caller should only rely on response's
     /// [next_page_token][BeyondCorp.ResolveAppConnectionsResponse.next_page_token]
     /// to determine if there are more instances left to be queried.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. The next_page_token value returned from a previous
     /// ResolveAppConnectionsResponse, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for BeyondCorp.ResolveAppConnections.
@@ -934,16 +935,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResolveAppConnectionsResponse {
     <span class="doccomment">/// A list of BeyondCorp AppConnections with details in the project.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>app_connection_details: ::prost::alloc::vec::Vec&lt;
         resolve_app_connections_response::AppConnectionDetails,
     &gt;,
     <span class="doccomment">/// A token to retrieve the next page of results, or empty if there are no more
     /// results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ResolveAppConnectionsResponse`.
@@ -953,11 +954,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AppConnectionDetails {
         <span class="doccomment">/// A BeyondCorp AppConnection in the project.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>app_connection: ::core::option::Option&lt;<span class="kw">super</span>::AppConnection&gt;,
         <span class="doccomment">/// If type=GCP_REGIONAL_MIG, contains most recent VM instances, like
         /// `&lt;https://www.googleapis.com/compute/v1/projects/{project_id}/zones/{zone_id}/instances/{instance_id}`.&gt;
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>recent_mig_vms: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
 }
@@ -970,46 +971,46 @@
 </span><span class="kw">pub struct </span>AppConnection {
     <span class="doccomment">/// Required. Unique resource name of the AppConnection.
     /// The name is ignored when creating a AppConnection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Timestamp when the resource was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Timestamp when the resource was last modified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Resource labels to represent user provided metadata.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Optional. An arbitrary user-provided name for the AppConnection. Cannot
     /// exceed 64 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A unique identifier for the instance generated by the
     /// system.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The type of network connectivity used by the AppConnection.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;app_connection::Type&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"app_connection::Type"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Required. Address of the remote application endpoint for the BeyondCorp
     /// AppConnection.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>application_endpoint: ::core::option::Option&lt;
         app_connection::ApplicationEndpoint,
     &gt;,
     <span class="doccomment">/// Optional. List of \[google.cloud.beyondcorp.v1main.Connector.name\] that are
     /// authorised to be associated with this AppConnection.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>connectors: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. The current state of the AppConnection.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;app_connection::State&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"app_connection::State"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Optional. Gateway used by the AppConnection.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>gateway: ::core::option::Option&lt;app_connection::Gateway&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AppConnection`.
@@ -1019,10 +1020,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ApplicationEndpoint {
         <span class="doccomment">/// Required. Hostname or IP address of the remote application endpoint.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>host: ::prost::alloc::string::String,
         <span class="doccomment">/// Required. Port of the remote application endpoint.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>port: i32,
     }
     <span class="doccomment">/// Gateway represents a user facing component that serves as an entrance to
@@ -1031,18 +1032,18 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Gateway {
         <span class="doccomment">/// Required. The type of hosting used by the gateway.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;gateway::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"gateway::Type"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>r#type: i32,
         <span class="doccomment">/// Output only. Server-defined URI for this resource.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. Ingress port reserved on the gateways for this
         /// AppConnection, if not specified or zero, the default port is 19443.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>ingress_port: i32,
         <span class="doccomment">/// Required. AppGateway name in following format:
         /// `projects/{project_id}/locations/{location_id}/appgateways/{gateway_id}`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>app_gateway: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Nested message and enum types in `Gateway`.
@@ -1071,17 +1072,17 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                    Type::GcpRegionalMig =&gt; <span class="string">&quot;GCP_REGIONAL_MIG&quot;</span>,
+                    Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                    Type::GcpRegionalMig =&gt; <span class="string">"GCP_REGIONAL_MIG"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;GCP_REGIONAL_MIG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GcpRegionalMig),
+                    <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"GCP_REGIONAL_MIG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GcpRegionalMig),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -1113,17 +1114,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::TcpProxy =&gt; <span class="string">&quot;TCP_PROXY&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::TcpProxy =&gt; <span class="string">"TCP_PROXY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;TCP_PROXY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TcpProxy),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"TCP_PROXY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TcpProxy),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1148,7 +1149,7 @@
         </span>Creating = <span class="number">1</span>,
         <span class="doccomment">/// AppConnection has been created.
         </span>Created = <span class="number">2</span>,
-        <span class="doccomment">/// AppConnection&#39;s configuration is being updated.
+        <span class="doccomment">/// AppConnection's configuration is being updated.
         </span>Updating = <span class="number">3</span>,
         <span class="doccomment">/// AppConnection is being deleted.
         </span>Deleting = <span class="number">4</span>,
@@ -1161,25 +1162,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Created =&gt; <span class="string">&quot;CREATED&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Down =&gt; <span class="string">&quot;DOWN&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Created =&gt; <span class="string">"CREATED"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Down =&gt; <span class="string">"DOWN"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;CREATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Created),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;DOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Down),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"CREATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Created),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"DOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Down),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1190,29 +1191,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AppConnectionOperationMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
     /// have [Operation.error][] value with a
     /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1242,7 +1243,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1317,19 +1318,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/ListAppConnections&quot;</span>,
+                <span class="string">"/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/ListAppConnections"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.beyondcorp.appconnections.v1.AppConnectionsService&quot;</span>,
-                        <span class="string">&quot;ListAppConnections&quot;</span>,
+                        <span class="string">"google.cloud.beyondcorp.appconnections.v1.AppConnectionsService"</span>,
+                        <span class="string">"ListAppConnections"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1345,19 +1346,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/GetAppConnection&quot;</span>,
+                <span class="string">"/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/GetAppConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.beyondcorp.appconnections.v1.AppConnectionsService&quot;</span>,
-                        <span class="string">&quot;GetAppConnection&quot;</span>,
+                        <span class="string">"google.cloud.beyondcorp.appconnections.v1.AppConnectionsService"</span>,
+                        <span class="string">"GetAppConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1376,19 +1377,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/CreateAppConnection&quot;</span>,
+                <span class="string">"/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/CreateAppConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.beyondcorp.appconnections.v1.AppConnectionsService&quot;</span>,
-                        <span class="string">&quot;CreateAppConnection&quot;</span>,
+                        <span class="string">"google.cloud.beyondcorp.appconnections.v1.AppConnectionsService"</span>,
+                        <span class="string">"CreateAppConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1407,19 +1408,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/UpdateAppConnection&quot;</span>,
+                <span class="string">"/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/UpdateAppConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.beyondcorp.appconnections.v1.AppConnectionsService&quot;</span>,
-                        <span class="string">&quot;UpdateAppConnection&quot;</span>,
+                        <span class="string">"google.cloud.beyondcorp.appconnections.v1.AppConnectionsService"</span>,
+                        <span class="string">"UpdateAppConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1438,19 +1439,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/DeleteAppConnection&quot;</span>,
+                <span class="string">"/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/DeleteAppConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.beyondcorp.appconnections.v1.AppConnectionsService&quot;</span>,
-                        <span class="string">&quot;DeleteAppConnection&quot;</span>,
+                        <span class="string">"google.cloud.beyondcorp.appconnections.v1.AppConnectionsService"</span>,
+                        <span class="string">"DeleteAppConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1471,19 +1472,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/ResolveAppConnections&quot;</span>,
+                <span class="string">"/google.cloud.beyondcorp.appconnections.v1.AppConnectionsService/ResolveAppConnections"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.beyondcorp.appconnections.v1.AppConnectionsService&quot;</span>,
-                        <span class="string">&quot;ResolveAppConnections&quot;</span>,
+                        <span class="string">"google.cloud.beyondcorp.appconnections.v1.AppConnectionsService"</span>,
+                        <span class="string">"ResolveAppConnections"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

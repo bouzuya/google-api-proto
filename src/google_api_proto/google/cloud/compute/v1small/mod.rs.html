@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/compute/v1small/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/compute/v1small/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1289,42 +1290,42 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Address {
     <span class="doccomment">/// The static IP address represented by this resource.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;462920692&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"462920692"</span>)]
     </span><span class="kw">pub </span>address: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The type of address to reserve, either INTERNAL or EXTERNAL. If unspecified, defaults to EXTERNAL.
     /// Check the AddressType enum for the list of possible values.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;264307877&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"264307877"</span>)]
     </span><span class="kw">pub </span>address_type: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Creation timestamp in RFC3339 text format.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;30525366&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"30525366"</span>)]
     </span><span class="kw">pub </span>creation_timestamp: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// An optional description of this resource. Provide this field when you create the resource.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;422937596&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"422937596"</span>)]
     </span><span class="kw">pub </span>description: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] The unique identifier for the resource. This identifier is defined by the server.
-    </span><span class="attr">#[prost(uint64, optional, tag = <span class="string">&quot;3355&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, optional, tag = <span class="string">"3355"</span>)]
     </span><span class="kw">pub </span>id: ::core::option::Option&lt;u64&gt;,
     <span class="doccomment">/// The IP version that will be used by this address. Valid options are IPV4 or IPV6. This can only be specified for a global address.
     /// Check the IpVersion enum for the list of possible values.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;294959552&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"294959552"</span>)]
     </span><span class="kw">pub </span>ip_version: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Type of the resource. Always compute#address for addresses.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3292052&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3292052"</span>)]
     </span><span class="kw">pub </span>kind: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z](\[-a-z0-9\]*[a-z0-9])?`. The first character must be a lowercase letter, and all following characters (except for the last character) must be a dash, lowercase letter, or digit. The last character must be a lowercase letter or digit.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3373707&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3373707"</span>)]
     </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The URL of the network in which to reserve the address. This field can only be used with INTERNAL type with the VPC_PEERING purpose.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;232872494&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"232872494"</span>)]
     </span><span class="kw">pub </span>network: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// This signifies the networking tier used for configuring this address and can only take the following values: PREMIUM or STANDARD. Global forwarding rules can only be Premium Tier. Regional forwarding rules can be either Premium or Standard Tier. Standard Tier addresses applied to regional forwarding rules can be used with any external load balancer. Regional forwarding rules in Premium Tier can only be used with a network load balancer.
     ///
     /// If this field is not specified, it is assumed to be PREMIUM.
     /// Check the NetworkTier enum for the list of possible values.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;517397843&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"517397843"</span>)]
     </span><span class="kw">pub </span>network_tier: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The prefix length if the resource reprensents an IP range.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;453565747&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"453565747"</span>)]
     </span><span class="kw">pub </span>prefix_length: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// The purpose of this resource, which can be one of the following values:
     /// - `GCE_ENDPOINT` for addresses that are used by VM instances, alias IP ranges, internal load balancers, and similar resources.
@@ -1332,23 +1333,23 @@
     /// - `VPC_PEERING` for addresses that are reserved for VPC peer networks.
     /// - `NAT_AUTO` for addresses that are external IP addresses automatically reserved for Cloud NAT.
     /// Check the Purpose enum for the list of possible values.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;316407070&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"316407070"</span>)]
     </span><span class="kw">pub </span>purpose: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] The URL of the region where the regional address resides. This field is not applicable to global addresses. You must specify this field as part of the HTTP request URL.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;138946292&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"138946292"</span>)]
     </span><span class="kw">pub </span>region: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Server-defined URL for the resource.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;456214797&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"456214797"</span>)]
     </span><span class="kw">pub </span>self_link: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] The status of the address, which can be one of RESERVING, RESERVED, or IN_USE. An address that is RESERVING is currently in the process of being reserved. A RESERVED address is currently reserved and available to use. An IN_USE address is currently being used by another resource and is not available.
     /// Check the Status enum for the list of possible values.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;181260274&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"181260274"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// The URL of the subnetwork in which to reserve the address. If an IP address is specified, it must be within the subnetwork&#39;s IP range. This field can only be used with INTERNAL type with a GCE_ENDPOINT or DNS_RESOLVER purpose.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;307827694&quot;</span>)]
+    <span class="doccomment">/// The URL of the subnetwork in which to reserve the address. If an IP address is specified, it must be within the subnetwork's IP range. This field can only be used with INTERNAL type with a GCE_ENDPOINT or DNS_RESOLVER purpose.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"307827694"</span>)]
     </span><span class="kw">pub </span>subnetwork: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] The URLs of the resources that are using this address.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;111578632&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"111578632"</span>)]
     </span><span class="kw">pub </span>users: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Address`.
@@ -1378,21 +1379,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AddressType::UndefinedAddressType =&gt; <span class="string">&quot;UNDEFINED_ADDRESS_TYPE&quot;</span>,
-                AddressType::External =&gt; <span class="string">&quot;EXTERNAL&quot;</span>,
-                AddressType::Internal =&gt; <span class="string">&quot;INTERNAL&quot;</span>,
-                AddressType::UnspecifiedType =&gt; <span class="string">&quot;UNSPECIFIED_TYPE&quot;</span>,
+                AddressType::UndefinedAddressType =&gt; <span class="string">"UNDEFINED_ADDRESS_TYPE"</span>,
+                AddressType::External =&gt; <span class="string">"EXTERNAL"</span>,
+                AddressType::Internal =&gt; <span class="string">"INTERNAL"</span>,
+                AddressType::UnspecifiedType =&gt; <span class="string">"UNSPECIFIED_TYPE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNDEFINED_ADDRESS_TYPE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedAddressType),
-                <span class="string">&quot;EXTERNAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::External),
-                <span class="string">&quot;INTERNAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Internal),
-                <span class="string">&quot;UNSPECIFIED_TYPE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnspecifiedType),
+                <span class="string">"UNDEFINED_ADDRESS_TYPE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedAddressType),
+                <span class="string">"EXTERNAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::External),
+                <span class="string">"INTERNAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Internal),
+                <span class="string">"UNSPECIFIED_TYPE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnspecifiedType),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1422,21 +1423,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                IpVersion::UndefinedIpVersion =&gt; <span class="string">&quot;UNDEFINED_IP_VERSION&quot;</span>,
-                IpVersion::Ipv4 =&gt; <span class="string">&quot;IPV4&quot;</span>,
-                IpVersion::Ipv6 =&gt; <span class="string">&quot;IPV6&quot;</span>,
-                IpVersion::UnspecifiedVersion =&gt; <span class="string">&quot;UNSPECIFIED_VERSION&quot;</span>,
+                IpVersion::UndefinedIpVersion =&gt; <span class="string">"UNDEFINED_IP_VERSION"</span>,
+                IpVersion::Ipv4 =&gt; <span class="string">"IPV4"</span>,
+                IpVersion::Ipv6 =&gt; <span class="string">"IPV6"</span>,
+                IpVersion::UnspecifiedVersion =&gt; <span class="string">"UNSPECIFIED_VERSION"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNDEFINED_IP_VERSION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedIpVersion),
-                <span class="string">&quot;IPV4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ipv4),
-                <span class="string">&quot;IPV6&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ipv6),
-                <span class="string">&quot;UNSPECIFIED_VERSION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnspecifiedVersion),
+                <span class="string">"UNDEFINED_IP_VERSION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedIpVersion),
+                <span class="string">"IPV4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ipv4),
+                <span class="string">"IPV6" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ipv6),
+                <span class="string">"UNSPECIFIED_VERSION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnspecifiedVersion),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1467,19 +1468,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                NetworkTier::UndefinedNetworkTier =&gt; <span class="string">&quot;UNDEFINED_NETWORK_TIER&quot;</span>,
-                NetworkTier::Premium =&gt; <span class="string">&quot;PREMIUM&quot;</span>,
-                NetworkTier::Standard =&gt; <span class="string">&quot;STANDARD&quot;</span>,
+                NetworkTier::UndefinedNetworkTier =&gt; <span class="string">"UNDEFINED_NETWORK_TIER"</span>,
+                NetworkTier::Premium =&gt; <span class="string">"PREMIUM"</span>,
+                NetworkTier::Standard =&gt; <span class="string">"STANDARD"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNDEFINED_NETWORK_TIER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedNetworkTier),
-                <span class="string">&quot;PREMIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Premium),
-                <span class="string">&quot;STANDARD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
+                <span class="string">"UNDEFINED_NETWORK_TIER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedNetworkTier),
+                <span class="string">"PREMIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Premium),
+                <span class="string">"STANDARD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1514,23 +1515,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Purpose::UndefinedPurpose =&gt; <span class="string">&quot;UNDEFINED_PURPOSE&quot;</span>,
-                Purpose::DnsResolver =&gt; <span class="string">&quot;DNS_RESOLVER&quot;</span>,
-                Purpose::GceEndpoint =&gt; <span class="string">&quot;GCE_ENDPOINT&quot;</span>,
-                Purpose::NatAuto =&gt; <span class="string">&quot;NAT_AUTO&quot;</span>,
-                Purpose::VpcPeering =&gt; <span class="string">&quot;VPC_PEERING&quot;</span>,
+                Purpose::UndefinedPurpose =&gt; <span class="string">"UNDEFINED_PURPOSE"</span>,
+                Purpose::DnsResolver =&gt; <span class="string">"DNS_RESOLVER"</span>,
+                Purpose::GceEndpoint =&gt; <span class="string">"GCE_ENDPOINT"</span>,
+                Purpose::NatAuto =&gt; <span class="string">"NAT_AUTO"</span>,
+                Purpose::VpcPeering =&gt; <span class="string">"VPC_PEERING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNDEFINED_PURPOSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedPurpose),
-                <span class="string">&quot;DNS_RESOLVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DnsResolver),
-                <span class="string">&quot;GCE_ENDPOINT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GceEndpoint),
-                <span class="string">&quot;NAT_AUTO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NatAuto),
-                <span class="string">&quot;VPC_PEERING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcPeering),
+                <span class="string">"UNDEFINED_PURPOSE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedPurpose),
+                <span class="string">"DNS_RESOLVER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DnsResolver),
+                <span class="string">"GCE_ENDPOINT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GceEndpoint),
+                <span class="string">"NAT_AUTO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NatAuto),
+                <span class="string">"VPC_PEERING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcPeering),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1560,21 +1561,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Status::UndefinedStatus =&gt; <span class="string">&quot;UNDEFINED_STATUS&quot;</span>,
-                Status::InUse =&gt; <span class="string">&quot;IN_USE&quot;</span>,
-                Status::Reserved =&gt; <span class="string">&quot;RESERVED&quot;</span>,
-                Status::Reserving =&gt; <span class="string">&quot;RESERVING&quot;</span>,
+                Status::UndefinedStatus =&gt; <span class="string">"UNDEFINED_STATUS"</span>,
+                Status::InUse =&gt; <span class="string">"IN_USE"</span>,
+                Status::Reserved =&gt; <span class="string">"RESERVED"</span>,
+                Status::Reserving =&gt; <span class="string">"RESERVING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNDEFINED_STATUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedStatus),
-                <span class="string">&quot;IN_USE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InUse),
-                <span class="string">&quot;RESERVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reserved),
-                <span class="string">&quot;RESERVING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reserving),
+                <span class="string">"UNDEFINED_STATUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedStatus),
+                <span class="string">"IN_USE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InUse),
+                <span class="string">"RESERVED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reserved),
+                <span class="string">"RESERVING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reserving),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1585,25 +1586,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AddressAggregatedList {
     <span class="doccomment">/// \[Output Only\] Unique identifier for the resource; defined by the server.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3355&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3355"</span>)]
     </span><span class="kw">pub </span>id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A list of AddressesScopedList resources.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;100526016&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"100526016"</span>)]
     </span><span class="kw">pub </span>items: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         AddressesScopedList,
     &gt;,
     <span class="doccomment">/// \[Output Only\] Type of resource. Always compute#addressAggregatedList for aggregated lists of addresses.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3292052&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3292052"</span>)]
     </span><span class="kw">pub </span>kind: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;79797525&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"79797525"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Server-defined URL for this resource.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;456214797&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"456214797"</span>)]
     </span><span class="kw">pub </span>self_link: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Informational warning message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;50704284&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"50704284"</span>)]
     </span><span class="kw">pub </span>warning: ::core::option::Option&lt;Warning&gt;,
 }
 <span class="doccomment">/// Contains a list of addresses.
@@ -1611,22 +1612,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AddressList {
     <span class="doccomment">/// \[Output Only\] Unique identifier for the resource; defined by the server.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3355&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3355"</span>)]
     </span><span class="kw">pub </span>id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A list of Address resources.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;100526016&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"100526016"</span>)]
     </span><span class="kw">pub </span>items: ::prost::alloc::vec::Vec&lt;Address&gt;,
     <span class="doccomment">/// \[Output Only\] Type of resource. Always compute#addressList for lists of addresses.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3292052&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3292052"</span>)]
     </span><span class="kw">pub </span>kind: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] This token allows you to get the next page of results for list requests. If the number of results is larger than maxResults, use the nextPageToken as a value for the query parameter pageToken in the next list request. Subsequent list requests will have their own nextPageToken to continue paging through the results.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;79797525&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"79797525"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Server-defined URL for this resource.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;456214797&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"456214797"</span>)]
     </span><span class="kw">pub </span>self_link: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Informational warning message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;50704284&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"50704284"</span>)]
     </span><span class="kw">pub </span>warning: ::core::option::Option&lt;Warning&gt;,
 }
 <span class="doccomment">///
@@ -1634,10 +1635,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AddressesScopedList {
     <span class="doccomment">/// \[Output Only\] A list of addresses contained in this scope.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;337673122&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"337673122"</span>)]
     </span><span class="kw">pub </span>addresses: ::prost::alloc::vec::Vec&lt;Address&gt;,
     <span class="doccomment">/// \[Output Only\] Informational warning which replaces the list of addresses when the list is empty.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;50704284&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"50704284"</span>)]
     </span><span class="kw">pub </span>warning: ::core::option::Option&lt;Warning&gt;,
 }
 <span class="doccomment">/// A request message for Addresses.AggregatedList. See the method description for details.
@@ -1650,27 +1651,27 @@
     ///
     /// You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
     ///
-    /// To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true) (cpuPlatform = &quot;Intel Skylake&quot;) ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform = &quot;Intel Skylake&quot;) OR (cpuPlatform = &quot;Intel Broadwell&quot;) AND (scheduling.automaticRestart = true) ```
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;336120696&quot;</span>)]
+    /// To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ```
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"336120696"</span>)]
     </span><span class="kw">pub </span>filter: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Indicates whether every visible scope for each scope type (zone, region, global) should be included in the response. For new resource types added after this field, the flag has no effect as new resource types will always include every visible scope for each scope type in response. For resource types which predate this field, if this flag is omitted or false, only scopes of the scope types where the resource type is expected to be found will be included.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;391327988&quot;</span>)]
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">"391327988"</span>)]
     </span><span class="kw">pub </span>include_all_scopes: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns a `nextPageToken` that can be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive. (Default: `500`)
-    </span><span class="attr">#[prost(uint32, optional, tag = <span class="string">&quot;54715419&quot;</span>)]
+    </span><span class="attr">#[prost(uint32, optional, tag = <span class="string">"54715419"</span>)]
     </span><span class="kw">pub </span>max_results: ::core::option::Option&lt;u32&gt;,
     <span class="doccomment">/// Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
     ///
-    /// You can also sort results in descending order based on the creation timestamp using `orderBy=&quot;creationTimestamp desc&quot;`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first.
+    /// You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first.
     ///
     /// Currently, only sorting by `name` or `creationTimestamp desc` is supported.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;160562920&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"160562920"</span>)]
     </span><span class="kw">pub </span>order_by: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Specifies a page token to use. Set `pageToken` to the `nextPageToken` returned by a previous list request to get the next page of results.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;19994697&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"19994697"</span>)]
     </span><span class="kw">pub </span>page_token: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Project ID for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;227560217&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"227560217"</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
 }
 <span class="doccomment">///
@@ -1678,10 +1679,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Data {
     <span class="doccomment">/// \[Output Only\] A key that provides more detail on the warning being returned. For example, for warnings where there are no results in a list request for a particular zone, this key might be scope and the key value might be the zone name. Other examples might be a key indicating a deprecated resource and a suggested replacement, or a warning about invalid network settings (for example, if an instance attempts to perform IP forwarding but is not enabled for IP forwarding).
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;106079&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"106079"</span>)]
     </span><span class="kw">pub </span>key: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] A warning data value corresponding to the key.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;111972721&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"111972721"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A request message for Addresses.Delete. See the method description for details.
@@ -1689,20 +1690,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteAddressRequest {
     <span class="doccomment">/// Name of the address resource to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;462920692&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"462920692"</span>)]
     </span><span class="kw">pub </span>address: ::prost::alloc::string::String,
     <span class="doccomment">/// Project ID for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;227560217&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"227560217"</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the region for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;138946292&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"138946292"</span>)]
     </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
     <span class="doccomment">/// An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
     ///
     /// For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;37109963&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"37109963"</span>)]
     </span><span class="kw">pub </span>request_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// \[Output Only\] If errors are generated during processing of the operation, this field will be populated.
@@ -1710,7 +1711,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Error {
     <span class="doccomment">/// \[Output Only\] The array of errors encountered while processing this operation.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;315977579&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"315977579"</span>)]
     </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;Errors&gt;,
 }
 <span class="doccomment">///
@@ -1718,13 +1719,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Errors {
     <span class="doccomment">/// \[Output Only\] The error type identifier for this error.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3059181&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3059181"</span>)]
     </span><span class="kw">pub </span>code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Indicates the field in the request that caused the error. This property is optional.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;290430901&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"290430901"</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] An optional, human-readable error message.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;418054151&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"418054151"</span>)]
     </span><span class="kw">pub </span>message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A request message for RegionOperations.Get. See the method description for details.
@@ -1732,13 +1733,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetRegionOperationRequest {
     <span class="doccomment">/// Name of the Operations resource to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;52090215&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"52090215"</span>)]
     </span><span class="kw">pub </span>operation: ::prost::alloc::string::String,
     <span class="doccomment">/// Project ID for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;227560217&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"227560217"</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the region for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;138946292&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"138946292"</span>)]
     </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request message for Addresses.Insert. See the method description for details.
@@ -1746,20 +1747,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InsertAddressRequest {
     <span class="doccomment">/// The body resource for this request
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;483888121&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"483888121"</span>)]
     </span><span class="kw">pub </span>address_resource: ::core::option::Option&lt;Address&gt;,
     <span class="doccomment">/// Project ID for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;227560217&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"227560217"</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the region for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;138946292&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"138946292"</span>)]
     </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
     <span class="doccomment">/// An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed.
     ///
     /// For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments.
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;37109963&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"37109963"</span>)]
     </span><span class="kw">pub </span>request_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A request message for Addresses.List. See the method description for details.
@@ -1772,27 +1773,27 @@
     ///
     /// You can also filter nested fields. For example, you could specify scheduling.automaticRestart = false to include instances only if they are not scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels.
     ///
-    /// To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform = &quot;Intel Skylake&quot;). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example, (cpuPlatform = &quot;Intel Skylake&quot;) OR (cpuPlatform = &quot;Intel Broadwell&quot;) AND (scheduling.automaticRestart = true).
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;336120696&quot;</span>)]
+    /// To filter on multiple expressions, provide each separate expression within parentheses. For example, (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake"). By default, each expression is an AND expression. However, you can include AND and OR expressions explicitly. For example, (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true).
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"336120696"</span>)]
     </span><span class="kw">pub </span>filter: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The maximum number of results per page that should be returned. If the number of available results is larger than maxResults, Compute Engine returns a nextPageToken that can be used to get the next page of results in subsequent list requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
-    </span><span class="attr">#[prost(uint32, optional, tag = <span class="string">&quot;54715419&quot;</span>)]
+    </span><span class="attr">#[prost(uint32, optional, tag = <span class="string">"54715419"</span>)]
     </span><span class="kw">pub </span>max_results: ::core::option::Option&lt;u32&gt;,
     <span class="doccomment">/// Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name.
     ///
-    /// You can also sort results in descending order based on the creation timestamp using orderBy=&quot;creationTimestamp desc&quot;. This sorts results based on the creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first.
+    /// You can also sort results in descending order based on the creation timestamp using orderBy="creationTimestamp desc". This sorts results based on the creationTimestamp field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first.
     ///
     /// Currently, only sorting by name or creationTimestamp desc is supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;160562920&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"160562920"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies a page token to use. Set pageToken to the nextPageToken returned by a previous list request to get the next page of results.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;19994697&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"19994697"</span>)]
     </span><span class="kw">pub </span>page_token: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Project ID for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;227560217&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"227560217"</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the region for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;138946292&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"138946292"</span>)]
     </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents an Operation resource.
@@ -1813,73 +1814,73 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Operation {
     <span class="doccomment">/// \[Output Only\] The value of `requestId` if you provided it in the request. Not present otherwise.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;297240295&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"297240295"</span>)]
     </span><span class="kw">pub </span>client_operation_id: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Deprecated\] This field is deprecated.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;30525366&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"30525366"</span>)]
     </span><span class="kw">pub </span>creation_timestamp: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] A textual description of the operation, which is set when the operation is created.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;422937596&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"422937596"</span>)]
     </span><span class="kw">pub </span>description: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] The time that this operation was completed. This value is in RFC3339 text format.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;114938801&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"114938801"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] If errors are generated during processing of the operation, this field will be populated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;96784904&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"96784904"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;Error&gt;,
     <span class="doccomment">/// \[Output Only\] If the operation fails, this field contains the HTTP error message that was returned, such as NOT FOUND.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;202521945&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"202521945"</span>)]
     </span><span class="kw">pub </span>http_error_message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] If the operation fails, this field contains the HTTP error status code that was returned. For example, a 404 means the resource was not found.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;312345196&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"312345196"</span>)]
     </span><span class="kw">pub </span>http_error_status_code: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// \[Output Only\] The unique identifier for the operation. This identifier is defined by the server.
-    </span><span class="attr">#[prost(uint64, optional, tag = <span class="string">&quot;3355&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, optional, tag = <span class="string">"3355"</span>)]
     </span><span class="kw">pub </span>id: ::core::option::Option&lt;u64&gt;,
     <span class="doccomment">/// \[Output Only\] The time that this operation was requested. This value is in RFC3339 text format.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;433722515&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"433722515"</span>)]
     </span><span class="kw">pub </span>insert_time: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Type of the resource. Always compute#operation for Operation resources.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3292052&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3292052"</span>)]
     </span><span class="kw">pub </span>kind: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Name of the operation.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3373707&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3373707"</span>)]
     </span><span class="kw">pub </span>name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] The type of operation, such as insert, update, or delete, and so on.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;177650450&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"177650450"</span>)]
     </span><span class="kw">pub </span>operation_type: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] An optional progress indicator that ranges from 0 to 100. There is no requirement that this be linear or support any granularity of operations. This should not be used to guess when the operation will be complete. This number should monotonically increase as the operation progresses.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;72663597&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"72663597"</span>)]
     </span><span class="kw">pub </span>progress: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// \[Output Only\] The URL of the region where the operation resides. Only applicable when performing regional operations.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;138946292&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"138946292"</span>)]
     </span><span class="kw">pub </span>region: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Server-defined URL for the resource.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;456214797&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"456214797"</span>)]
     </span><span class="kw">pub </span>self_link: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] The time that this operation was started by the server. This value is in RFC3339 text format.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;37467274&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"37467274"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] The status of the operation, which can be one of the following: PENDING, RUNNING, or DONE.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation::Status&quot;</span>, optional, tag = <span class="string">&quot;181260274&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"operation::Status"</span>, optional, tag = <span class="string">"181260274"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// \[Output Only\] An optional textual description of the current status of the operation.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;297428154&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"297428154"</span>)]
     </span><span class="kw">pub </span>status_message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] The unique target ID, which identifies a specific incarnation of the target resource.
-    </span><span class="attr">#[prost(uint64, optional, tag = <span class="string">&quot;258165385&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, optional, tag = <span class="string">"258165385"</span>)]
     </span><span class="kw">pub </span>target_id: ::core::option::Option&lt;u64&gt;,
     <span class="doccomment">/// \[Output Only\] The URL of the resource that the operation modifies. For operations related to creating a snapshot, this points to the persistent disk that the snapshot was created from.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;62671336&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"62671336"</span>)]
     </span><span class="kw">pub </span>target_link: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] User who requested the operation, for example: user@example.com.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3599307&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3599307"</span>)]
     </span><span class="kw">pub </span>user: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] If warning messages are generated during processing of the operation, this field will be populated.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;498091095&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"498091095"</span>)]
     </span><span class="kw">pub </span>warnings: ::prost::alloc::vec::Vec&lt;Warnings&gt;,
     <span class="doccomment">/// \[Output Only\] The URL of the zone where the operation resides. Only applicable when performing per-zone operations.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3744684&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3744684"</span>)]
     </span><span class="kw">pub </span>zone: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Operation`.
@@ -1909,21 +1910,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Status::UndefinedStatus =&gt; <span class="string">&quot;UNDEFINED_STATUS&quot;</span>,
-                Status::Done =&gt; <span class="string">&quot;DONE&quot;</span>,
-                Status::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                Status::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
+                Status::UndefinedStatus =&gt; <span class="string">"UNDEFINED_STATUS"</span>,
+                Status::Done =&gt; <span class="string">"DONE"</span>,
+                Status::Pending =&gt; <span class="string">"PENDING"</span>,
+                Status::Running =&gt; <span class="string">"RUNNING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNDEFINED_STATUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedStatus),
-                <span class="string">&quot;DONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Done),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"UNDEFINED_STATUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedStatus),
+                <span class="string">"DONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Done),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1934,13 +1935,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>WaitRegionOperationRequest {
     <span class="doccomment">/// Name of the Operations resource to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;52090215&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"52090215"</span>)]
     </span><span class="kw">pub </span>operation: ::prost::alloc::string::String,
     <span class="doccomment">/// Project ID for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;227560217&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"227560217"</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the region for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;138946292&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"138946292"</span>)]
     </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// \[Output Only\] Informational warning message.
@@ -1949,14 +1950,14 @@
 </span><span class="kw">pub struct </span>Warning {
     <span class="doccomment">/// \[Output Only\] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
     /// Check the Code enum for the list of possible values.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3059181&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3059181"</span>)]
     </span><span class="kw">pub </span>code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Metadata about this warning in key: value format. For example:
-    /// &quot;data&quot;: [ { &quot;key&quot;: &quot;scope&quot;, &quot;value&quot;: &quot;zones/us-east1-d&quot; }
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3076010&quot;</span>)]
+    /// "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3076010"</span>)]
     </span><span class="kw">pub </span>data: ::prost::alloc::vec::Vec&lt;Data&gt;,
     <span class="doccomment">/// \[Output Only\] A human-readable description of the warning code.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;418054151&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"418054151"</span>)]
     </span><span class="kw">pub </span>message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Warning`.
@@ -2006,73 +2007,73 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Code::UndefinedCode =&gt; <span class="string">&quot;UNDEFINED_CODE&quot;</span>,
-                Code::CleanupFailed =&gt; <span class="string">&quot;CLEANUP_FAILED&quot;</span>,
-                Code::DeprecatedResourceUsed =&gt; <span class="string">&quot;DEPRECATED_RESOURCE_USED&quot;</span>,
-                Code::DeprecatedTypeUsed =&gt; <span class="string">&quot;DEPRECATED_TYPE_USED&quot;</span>,
-                Code::DiskSizeLargerThanImageSize =&gt; <span class="string">&quot;DISK_SIZE_LARGER_THAN_IMAGE_SIZE&quot;</span>,
-                Code::ExperimentalTypeUsed =&gt; <span class="string">&quot;EXPERIMENTAL_TYPE_USED&quot;</span>,
-                Code::ExternalApiWarning =&gt; <span class="string">&quot;EXTERNAL_API_WARNING&quot;</span>,
-                Code::FieldValueOverriden =&gt; <span class="string">&quot;FIELD_VALUE_OVERRIDEN&quot;</span>,
-                Code::InjectedKernelsDeprecated =&gt; <span class="string">&quot;INJECTED_KERNELS_DEPRECATED&quot;</span>,
-                Code::MissingTypeDependency =&gt; <span class="string">&quot;MISSING_TYPE_DEPENDENCY&quot;</span>,
-                Code::NextHopAddressNotAssigned =&gt; <span class="string">&quot;NEXT_HOP_ADDRESS_NOT_ASSIGNED&quot;</span>,
-                Code::NextHopCannotIpForward =&gt; <span class="string">&quot;NEXT_HOP_CANNOT_IP_FORWARD&quot;</span>,
-                Code::NextHopInstanceNotFound =&gt; <span class="string">&quot;NEXT_HOP_INSTANCE_NOT_FOUND&quot;</span>,
-                Code::NextHopInstanceNotOnNetwork =&gt; <span class="string">&quot;NEXT_HOP_INSTANCE_NOT_ON_NETWORK&quot;</span>,
-                Code::NextHopNotRunning =&gt; <span class="string">&quot;NEXT_HOP_NOT_RUNNING&quot;</span>,
-                Code::NotCriticalError =&gt; <span class="string">&quot;NOT_CRITICAL_ERROR&quot;</span>,
-                Code::NoResultsOnPage =&gt; <span class="string">&quot;NO_RESULTS_ON_PAGE&quot;</span>,
-                Code::RequiredTosAgreement =&gt; <span class="string">&quot;REQUIRED_TOS_AGREEMENT&quot;</span>,
+                Code::UndefinedCode =&gt; <span class="string">"UNDEFINED_CODE"</span>,
+                Code::CleanupFailed =&gt; <span class="string">"CLEANUP_FAILED"</span>,
+                Code::DeprecatedResourceUsed =&gt; <span class="string">"DEPRECATED_RESOURCE_USED"</span>,
+                Code::DeprecatedTypeUsed =&gt; <span class="string">"DEPRECATED_TYPE_USED"</span>,
+                Code::DiskSizeLargerThanImageSize =&gt; <span class="string">"DISK_SIZE_LARGER_THAN_IMAGE_SIZE"</span>,
+                Code::ExperimentalTypeUsed =&gt; <span class="string">"EXPERIMENTAL_TYPE_USED"</span>,
+                Code::ExternalApiWarning =&gt; <span class="string">"EXTERNAL_API_WARNING"</span>,
+                Code::FieldValueOverriden =&gt; <span class="string">"FIELD_VALUE_OVERRIDEN"</span>,
+                Code::InjectedKernelsDeprecated =&gt; <span class="string">"INJECTED_KERNELS_DEPRECATED"</span>,
+                Code::MissingTypeDependency =&gt; <span class="string">"MISSING_TYPE_DEPENDENCY"</span>,
+                Code::NextHopAddressNotAssigned =&gt; <span class="string">"NEXT_HOP_ADDRESS_NOT_ASSIGNED"</span>,
+                Code::NextHopCannotIpForward =&gt; <span class="string">"NEXT_HOP_CANNOT_IP_FORWARD"</span>,
+                Code::NextHopInstanceNotFound =&gt; <span class="string">"NEXT_HOP_INSTANCE_NOT_FOUND"</span>,
+                Code::NextHopInstanceNotOnNetwork =&gt; <span class="string">"NEXT_HOP_INSTANCE_NOT_ON_NETWORK"</span>,
+                Code::NextHopNotRunning =&gt; <span class="string">"NEXT_HOP_NOT_RUNNING"</span>,
+                Code::NotCriticalError =&gt; <span class="string">"NOT_CRITICAL_ERROR"</span>,
+                Code::NoResultsOnPage =&gt; <span class="string">"NO_RESULTS_ON_PAGE"</span>,
+                Code::RequiredTosAgreement =&gt; <span class="string">"REQUIRED_TOS_AGREEMENT"</span>,
                 Code::ResourceInUseByOtherResourceWarning =&gt; {
-                    <span class="string">&quot;RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING&quot;
+                    <span class="string">"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
                 </span>}
-                Code::ResourceNotDeleted =&gt; <span class="string">&quot;RESOURCE_NOT_DELETED&quot;</span>,
-                Code::SchemaValidationIgnored =&gt; <span class="string">&quot;SCHEMA_VALIDATION_IGNORED&quot;</span>,
+                Code::ResourceNotDeleted =&gt; <span class="string">"RESOURCE_NOT_DELETED"</span>,
+                Code::SchemaValidationIgnored =&gt; <span class="string">"SCHEMA_VALIDATION_IGNORED"</span>,
                 Code::SingleInstancePropertyTemplate =&gt; {
-                    <span class="string">&quot;SINGLE_INSTANCE_PROPERTY_TEMPLATE&quot;
+                    <span class="string">"SINGLE_INSTANCE_PROPERTY_TEMPLATE"
                 </span>}
-                Code::UndeclaredProperties =&gt; <span class="string">&quot;UNDECLARED_PROPERTIES&quot;</span>,
-                Code::Unreachable =&gt; <span class="string">&quot;UNREACHABLE&quot;</span>,
+                Code::UndeclaredProperties =&gt; <span class="string">"UNDECLARED_PROPERTIES"</span>,
+                Code::Unreachable =&gt; <span class="string">"UNREACHABLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNDEFINED_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedCode),
-                <span class="string">&quot;CLEANUP_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CleanupFailed),
-                <span class="string">&quot;DEPRECATED_RESOURCE_USED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeprecatedResourceUsed),
-                <span class="string">&quot;DEPRECATED_TYPE_USED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeprecatedTypeUsed),
-                <span class="string">&quot;DISK_SIZE_LARGER_THAN_IMAGE_SIZE&quot; </span>=&gt; {
+                <span class="string">"UNDEFINED_CODE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedCode),
+                <span class="string">"CLEANUP_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CleanupFailed),
+                <span class="string">"DEPRECATED_RESOURCE_USED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeprecatedResourceUsed),
+                <span class="string">"DEPRECATED_TYPE_USED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeprecatedTypeUsed),
+                <span class="string">"DISK_SIZE_LARGER_THAN_IMAGE_SIZE" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::DiskSizeLargerThanImageSize)
                 }
-                <span class="string">&quot;EXPERIMENTAL_TYPE_USED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExperimentalTypeUsed),
-                <span class="string">&quot;EXTERNAL_API_WARNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExternalApiWarning),
-                <span class="string">&quot;FIELD_VALUE_OVERRIDEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FieldValueOverriden),
-                <span class="string">&quot;INJECTED_KERNELS_DEPRECATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InjectedKernelsDeprecated),
-                <span class="string">&quot;MISSING_TYPE_DEPENDENCY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MissingTypeDependency),
-                <span class="string">&quot;NEXT_HOP_ADDRESS_NOT_ASSIGNED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopAddressNotAssigned),
-                <span class="string">&quot;NEXT_HOP_CANNOT_IP_FORWARD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopCannotIpForward),
-                <span class="string">&quot;NEXT_HOP_INSTANCE_NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopInstanceNotFound),
-                <span class="string">&quot;NEXT_HOP_INSTANCE_NOT_ON_NETWORK&quot; </span>=&gt; {
+                <span class="string">"EXPERIMENTAL_TYPE_USED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExperimentalTypeUsed),
+                <span class="string">"EXTERNAL_API_WARNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExternalApiWarning),
+                <span class="string">"FIELD_VALUE_OVERRIDEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FieldValueOverriden),
+                <span class="string">"INJECTED_KERNELS_DEPRECATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InjectedKernelsDeprecated),
+                <span class="string">"MISSING_TYPE_DEPENDENCY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MissingTypeDependency),
+                <span class="string">"NEXT_HOP_ADDRESS_NOT_ASSIGNED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopAddressNotAssigned),
+                <span class="string">"NEXT_HOP_CANNOT_IP_FORWARD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopCannotIpForward),
+                <span class="string">"NEXT_HOP_INSTANCE_NOT_FOUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopInstanceNotFound),
+                <span class="string">"NEXT_HOP_INSTANCE_NOT_ON_NETWORK" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopInstanceNotOnNetwork)
                 }
-                <span class="string">&quot;NEXT_HOP_NOT_RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopNotRunning),
-                <span class="string">&quot;NOT_CRITICAL_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotCriticalError),
-                <span class="string">&quot;NO_RESULTS_ON_PAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoResultsOnPage),
-                <span class="string">&quot;REQUIRED_TOS_AGREEMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredTosAgreement),
-                <span class="string">&quot;RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING&quot; </span>=&gt; {
+                <span class="string">"NEXT_HOP_NOT_RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopNotRunning),
+                <span class="string">"NOT_CRITICAL_ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotCriticalError),
+                <span class="string">"NO_RESULTS_ON_PAGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoResultsOnPage),
+                <span class="string">"REQUIRED_TOS_AGREEMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredTosAgreement),
+                <span class="string">"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceInUseByOtherResourceWarning)
                 }
-                <span class="string">&quot;RESOURCE_NOT_DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceNotDeleted),
-                <span class="string">&quot;SCHEMA_VALIDATION_IGNORED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SchemaValidationIgnored),
-                <span class="string">&quot;SINGLE_INSTANCE_PROPERTY_TEMPLATE&quot; </span>=&gt; {
+                <span class="string">"RESOURCE_NOT_DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceNotDeleted),
+                <span class="string">"SCHEMA_VALIDATION_IGNORED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SchemaValidationIgnored),
+                <span class="string">"SINGLE_INSTANCE_PROPERTY_TEMPLATE" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::SingleInstancePropertyTemplate)
                 }
-                <span class="string">&quot;UNDECLARED_PROPERTIES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndeclaredProperties),
-                <span class="string">&quot;UNREACHABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unreachable),
+                <span class="string">"UNDECLARED_PROPERTIES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndeclaredProperties),
+                <span class="string">"UNREACHABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unreachable),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2084,14 +2085,14 @@
 </span><span class="kw">pub struct </span>Warnings {
     <span class="doccomment">/// \[Output Only\] A warning code, if applicable. For example, Compute Engine returns NO_RESULTS_ON_PAGE if there are no results in the response.
     /// Check the Code enum for the list of possible values.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3059181&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3059181"</span>)]
     </span><span class="kw">pub </span>code: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// \[Output Only\] Metadata about this warning in key: value format. For example:
-    /// &quot;data&quot;: [ { &quot;key&quot;: &quot;scope&quot;, &quot;value&quot;: &quot;zones/us-east1-d&quot; }
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3076010&quot;</span>)]
+    /// "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3076010"</span>)]
     </span><span class="kw">pub </span>data: ::prost::alloc::vec::Vec&lt;Data&gt;,
     <span class="doccomment">/// \[Output Only\] A human-readable description of the warning code.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;418054151&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"418054151"</span>)]
     </span><span class="kw">pub </span>message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Warnings`.
@@ -2141,73 +2142,73 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Code::UndefinedCode =&gt; <span class="string">&quot;UNDEFINED_CODE&quot;</span>,
-                Code::CleanupFailed =&gt; <span class="string">&quot;CLEANUP_FAILED&quot;</span>,
-                Code::DeprecatedResourceUsed =&gt; <span class="string">&quot;DEPRECATED_RESOURCE_USED&quot;</span>,
-                Code::DeprecatedTypeUsed =&gt; <span class="string">&quot;DEPRECATED_TYPE_USED&quot;</span>,
-                Code::DiskSizeLargerThanImageSize =&gt; <span class="string">&quot;DISK_SIZE_LARGER_THAN_IMAGE_SIZE&quot;</span>,
-                Code::ExperimentalTypeUsed =&gt; <span class="string">&quot;EXPERIMENTAL_TYPE_USED&quot;</span>,
-                Code::ExternalApiWarning =&gt; <span class="string">&quot;EXTERNAL_API_WARNING&quot;</span>,
-                Code::FieldValueOverriden =&gt; <span class="string">&quot;FIELD_VALUE_OVERRIDEN&quot;</span>,
-                Code::InjectedKernelsDeprecated =&gt; <span class="string">&quot;INJECTED_KERNELS_DEPRECATED&quot;</span>,
-                Code::MissingTypeDependency =&gt; <span class="string">&quot;MISSING_TYPE_DEPENDENCY&quot;</span>,
-                Code::NextHopAddressNotAssigned =&gt; <span class="string">&quot;NEXT_HOP_ADDRESS_NOT_ASSIGNED&quot;</span>,
-                Code::NextHopCannotIpForward =&gt; <span class="string">&quot;NEXT_HOP_CANNOT_IP_FORWARD&quot;</span>,
-                Code::NextHopInstanceNotFound =&gt; <span class="string">&quot;NEXT_HOP_INSTANCE_NOT_FOUND&quot;</span>,
-                Code::NextHopInstanceNotOnNetwork =&gt; <span class="string">&quot;NEXT_HOP_INSTANCE_NOT_ON_NETWORK&quot;</span>,
-                Code::NextHopNotRunning =&gt; <span class="string">&quot;NEXT_HOP_NOT_RUNNING&quot;</span>,
-                Code::NotCriticalError =&gt; <span class="string">&quot;NOT_CRITICAL_ERROR&quot;</span>,
-                Code::NoResultsOnPage =&gt; <span class="string">&quot;NO_RESULTS_ON_PAGE&quot;</span>,
-                Code::RequiredTosAgreement =&gt; <span class="string">&quot;REQUIRED_TOS_AGREEMENT&quot;</span>,
+                Code::UndefinedCode =&gt; <span class="string">"UNDEFINED_CODE"</span>,
+                Code::CleanupFailed =&gt; <span class="string">"CLEANUP_FAILED"</span>,
+                Code::DeprecatedResourceUsed =&gt; <span class="string">"DEPRECATED_RESOURCE_USED"</span>,
+                Code::DeprecatedTypeUsed =&gt; <span class="string">"DEPRECATED_TYPE_USED"</span>,
+                Code::DiskSizeLargerThanImageSize =&gt; <span class="string">"DISK_SIZE_LARGER_THAN_IMAGE_SIZE"</span>,
+                Code::ExperimentalTypeUsed =&gt; <span class="string">"EXPERIMENTAL_TYPE_USED"</span>,
+                Code::ExternalApiWarning =&gt; <span class="string">"EXTERNAL_API_WARNING"</span>,
+                Code::FieldValueOverriden =&gt; <span class="string">"FIELD_VALUE_OVERRIDEN"</span>,
+                Code::InjectedKernelsDeprecated =&gt; <span class="string">"INJECTED_KERNELS_DEPRECATED"</span>,
+                Code::MissingTypeDependency =&gt; <span class="string">"MISSING_TYPE_DEPENDENCY"</span>,
+                Code::NextHopAddressNotAssigned =&gt; <span class="string">"NEXT_HOP_ADDRESS_NOT_ASSIGNED"</span>,
+                Code::NextHopCannotIpForward =&gt; <span class="string">"NEXT_HOP_CANNOT_IP_FORWARD"</span>,
+                Code::NextHopInstanceNotFound =&gt; <span class="string">"NEXT_HOP_INSTANCE_NOT_FOUND"</span>,
+                Code::NextHopInstanceNotOnNetwork =&gt; <span class="string">"NEXT_HOP_INSTANCE_NOT_ON_NETWORK"</span>,
+                Code::NextHopNotRunning =&gt; <span class="string">"NEXT_HOP_NOT_RUNNING"</span>,
+                Code::NotCriticalError =&gt; <span class="string">"NOT_CRITICAL_ERROR"</span>,
+                Code::NoResultsOnPage =&gt; <span class="string">"NO_RESULTS_ON_PAGE"</span>,
+                Code::RequiredTosAgreement =&gt; <span class="string">"REQUIRED_TOS_AGREEMENT"</span>,
                 Code::ResourceInUseByOtherResourceWarning =&gt; {
-                    <span class="string">&quot;RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING&quot;
+                    <span class="string">"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
                 </span>}
-                Code::ResourceNotDeleted =&gt; <span class="string">&quot;RESOURCE_NOT_DELETED&quot;</span>,
-                Code::SchemaValidationIgnored =&gt; <span class="string">&quot;SCHEMA_VALIDATION_IGNORED&quot;</span>,
+                Code::ResourceNotDeleted =&gt; <span class="string">"RESOURCE_NOT_DELETED"</span>,
+                Code::SchemaValidationIgnored =&gt; <span class="string">"SCHEMA_VALIDATION_IGNORED"</span>,
                 Code::SingleInstancePropertyTemplate =&gt; {
-                    <span class="string">&quot;SINGLE_INSTANCE_PROPERTY_TEMPLATE&quot;
+                    <span class="string">"SINGLE_INSTANCE_PROPERTY_TEMPLATE"
                 </span>}
-                Code::UndeclaredProperties =&gt; <span class="string">&quot;UNDECLARED_PROPERTIES&quot;</span>,
-                Code::Unreachable =&gt; <span class="string">&quot;UNREACHABLE&quot;</span>,
+                Code::UndeclaredProperties =&gt; <span class="string">"UNDECLARED_PROPERTIES"</span>,
+                Code::Unreachable =&gt; <span class="string">"UNREACHABLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNDEFINED_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedCode),
-                <span class="string">&quot;CLEANUP_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CleanupFailed),
-                <span class="string">&quot;DEPRECATED_RESOURCE_USED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeprecatedResourceUsed),
-                <span class="string">&quot;DEPRECATED_TYPE_USED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeprecatedTypeUsed),
-                <span class="string">&quot;DISK_SIZE_LARGER_THAN_IMAGE_SIZE&quot; </span>=&gt; {
+                <span class="string">"UNDEFINED_CODE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndefinedCode),
+                <span class="string">"CLEANUP_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CleanupFailed),
+                <span class="string">"DEPRECATED_RESOURCE_USED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeprecatedResourceUsed),
+                <span class="string">"DEPRECATED_TYPE_USED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeprecatedTypeUsed),
+                <span class="string">"DISK_SIZE_LARGER_THAN_IMAGE_SIZE" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::DiskSizeLargerThanImageSize)
                 }
-                <span class="string">&quot;EXPERIMENTAL_TYPE_USED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExperimentalTypeUsed),
-                <span class="string">&quot;EXTERNAL_API_WARNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExternalApiWarning),
-                <span class="string">&quot;FIELD_VALUE_OVERRIDEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FieldValueOverriden),
-                <span class="string">&quot;INJECTED_KERNELS_DEPRECATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InjectedKernelsDeprecated),
-                <span class="string">&quot;MISSING_TYPE_DEPENDENCY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MissingTypeDependency),
-                <span class="string">&quot;NEXT_HOP_ADDRESS_NOT_ASSIGNED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopAddressNotAssigned),
-                <span class="string">&quot;NEXT_HOP_CANNOT_IP_FORWARD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopCannotIpForward),
-                <span class="string">&quot;NEXT_HOP_INSTANCE_NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopInstanceNotFound),
-                <span class="string">&quot;NEXT_HOP_INSTANCE_NOT_ON_NETWORK&quot; </span>=&gt; {
+                <span class="string">"EXPERIMENTAL_TYPE_USED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExperimentalTypeUsed),
+                <span class="string">"EXTERNAL_API_WARNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExternalApiWarning),
+                <span class="string">"FIELD_VALUE_OVERRIDEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FieldValueOverriden),
+                <span class="string">"INJECTED_KERNELS_DEPRECATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InjectedKernelsDeprecated),
+                <span class="string">"MISSING_TYPE_DEPENDENCY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MissingTypeDependency),
+                <span class="string">"NEXT_HOP_ADDRESS_NOT_ASSIGNED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopAddressNotAssigned),
+                <span class="string">"NEXT_HOP_CANNOT_IP_FORWARD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopCannotIpForward),
+                <span class="string">"NEXT_HOP_INSTANCE_NOT_FOUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopInstanceNotFound),
+                <span class="string">"NEXT_HOP_INSTANCE_NOT_ON_NETWORK" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopInstanceNotOnNetwork)
                 }
-                <span class="string">&quot;NEXT_HOP_NOT_RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopNotRunning),
-                <span class="string">&quot;NOT_CRITICAL_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotCriticalError),
-                <span class="string">&quot;NO_RESULTS_ON_PAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoResultsOnPage),
-                <span class="string">&quot;REQUIRED_TOS_AGREEMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredTosAgreement),
-                <span class="string">&quot;RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING&quot; </span>=&gt; {
+                <span class="string">"NEXT_HOP_NOT_RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextHopNotRunning),
+                <span class="string">"NOT_CRITICAL_ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotCriticalError),
+                <span class="string">"NO_RESULTS_ON_PAGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoResultsOnPage),
+                <span class="string">"REQUIRED_TOS_AGREEMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredTosAgreement),
+                <span class="string">"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceInUseByOtherResourceWarning)
                 }
-                <span class="string">&quot;RESOURCE_NOT_DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceNotDeleted),
-                <span class="string">&quot;SCHEMA_VALIDATION_IGNORED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SchemaValidationIgnored),
-                <span class="string">&quot;SINGLE_INSTANCE_PROPERTY_TEMPLATE&quot; </span>=&gt; {
+                <span class="string">"RESOURCE_NOT_DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceNotDeleted),
+                <span class="string">"SCHEMA_VALIDATION_IGNORED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SchemaValidationIgnored),
+                <span class="string">"SINGLE_INSTANCE_PROPERTY_TEMPLATE" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::SingleInstancePropertyTemplate)
                 }
-                <span class="string">&quot;UNDECLARED_PROPERTIES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndeclaredProperties),
-                <span class="string">&quot;UNREACHABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unreachable),
+                <span class="string">"UNDECLARED_PROPERTIES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UndeclaredProperties),
+                <span class="string">"UNREACHABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unreachable),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2230,7 +2231,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2305,19 +2306,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.compute.v1small.Addresses/AggregatedList&quot;</span>,
+                <span class="string">"/google.cloud.compute.v1small.Addresses/AggregatedList"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.compute.v1small.Addresses&quot;</span>,
-                        <span class="string">&quot;AggregatedList&quot;</span>,
+                        <span class="string">"google.cloud.compute.v1small.Addresses"</span>,
+                        <span class="string">"AggregatedList"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2333,17 +2334,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.compute.v1small.Addresses/Delete&quot;</span>,
+                <span class="string">"/google.cloud.compute.v1small.Addresses/Delete"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.compute.v1small.Addresses&quot;</span>, <span class="string">&quot;Delete&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.compute.v1small.Addresses"</span>, <span class="string">"Delete"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2358,17 +2359,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.compute.v1small.Addresses/Insert&quot;</span>,
+                <span class="string">"/google.cloud.compute.v1small.Addresses/Insert"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.compute.v1small.Addresses&quot;</span>, <span class="string">&quot;Insert&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.compute.v1small.Addresses"</span>, <span class="string">"Insert"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2383,17 +2384,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.compute.v1small.Addresses/List&quot;</span>,
+                <span class="string">"/google.cloud.compute.v1small.Addresses/List"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.compute.v1small.Addresses&quot;</span>, <span class="string">&quot;List&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.compute.v1small.Addresses"</span>, <span class="string">"List"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2413,7 +2414,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2485,19 +2486,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.compute.v1small.RegionOperations/Get&quot;</span>,
+                <span class="string">"/google.cloud.compute.v1small.RegionOperations/Get"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.compute.v1small.RegionOperations&quot;</span>,
-                        <span class="string">&quot;Get&quot;</span>,
+                        <span class="string">"google.cloud.compute.v1small.RegionOperations"</span>,
+                        <span class="string">"Get"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2517,19 +2518,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.compute.v1small.RegionOperations/Wait&quot;</span>,
+                <span class="string">"/google.cloud.compute.v1small.RegionOperations/Wait"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.compute.v1small.RegionOperations&quot;</span>,
-                        <span class="string">&quot;Wait&quot;</span>,
+                        <span class="string">"google.cloud.compute.v1small.RegionOperations"</span>,
+                        <span class="string">"Wait"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

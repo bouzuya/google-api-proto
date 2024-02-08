@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/gsuiteaddons/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/gsuiteaddons/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -590,7 +591,7 @@
     /// authorization information.
     ///
     /// Example: `projects/my_project/authorization`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The authorization information used when invoking deployment endpoints.
@@ -599,15 +600,15 @@
 </span><span class="kw">pub struct </span>Authorization {
     <span class="doccomment">/// The canonical full name of this resource.
     /// Example:  `projects/123/authorization`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The email address of the service account used to authenticate requests to
     /// add-on callback endpoints.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service_account_email: ::prost::alloc::string::String,
     <span class="doccomment">/// The OAuth client ID used to obtain OAuth access tokens for a user on the
-    /// add-on&#39;s behalf.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// add-on's behalf.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>oauth_client_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message to create a deployment.
@@ -617,14 +618,14 @@
     <span class="doccomment">/// Required. Name of the project in which to create the deployment.
     ///
     /// Example: `projects/my_project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The id to use for this deployment.  The full name of the created
     /// resource will be `projects/&lt;project_number&gt;/deployments/&lt;deployment_id&gt;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>deployment_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The deployment to create (deployment.name cannot be set).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>deployment: ::core::option::Option&lt;Deployment&gt;,
 }
 <span class="doccomment">/// Request message to create or replace a deployment.
@@ -632,7 +633,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReplaceDeploymentRequest {
     <span class="doccomment">/// Required. The deployment to create or replace.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>deployment: ::core::option::Option&lt;Deployment&gt;,
 }
 <span class="doccomment">/// Request message to get a deployment.
@@ -642,7 +643,7 @@
     <span class="doccomment">/// Required. The full resource name of the deployment to get.
     ///
     /// Example:  `projects/my_project/deployments/my_deployment`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message to list deployments for a project.
@@ -652,20 +653,20 @@
     <span class="doccomment">/// Required. Name of the project in which to create the deployment.
     ///
     /// Example: `projects/my_project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of deployments to return. The service may return fewer
     /// than this value.
     /// If unspecified, at most 1000 deployments will be returned.
     /// The maximum value is 1000; values above 1000 will be coerced to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListDeployments` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListDeployments` must
     /// match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message to list deployments.
@@ -673,11 +674,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDeploymentsResponse {
     <span class="doccomment">/// The list of deployments for the given project.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>deployments: ::prost::alloc::vec::Vec&lt;Deployment&gt;,
     <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message to delete a deployment.
@@ -687,11 +688,11 @@
     <span class="doccomment">/// Required. The full resource name of the deployment to delete.
     ///
     /// Example:  `projects/my_project/deployments/my_deployment`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The etag of the deployment to delete.
-    /// If this is provided, it must match the server&#39;s etag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// If this is provided, it must match the server's etag.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message to install a developer mode deployment.
@@ -701,7 +702,7 @@
     <span class="doccomment">/// Required. The full resource name of the deployment to install.
     ///
     /// Example:  `projects/my_project/deployments/my_deployment`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message to uninstall a developer mode deployment.
@@ -711,7 +712,7 @@
     <span class="doccomment">/// Required. The full resource name of the deployment to install.
     ///
     /// Example:  `projects/my_project/deployments/my_deployment`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message to get the install status of a developer mode deployment.
@@ -721,7 +722,7 @@
     <span class="doccomment">/// Required. The full resource name of the deployment.
     ///
     /// Example:  `projects/my_project/deployments/my_deployment/installStatus`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Developer mode install status of a deployment
@@ -731,10 +732,10 @@
     <span class="doccomment">/// The canonical full resource name of the deployment install status.
     ///
     /// Example:  `projects/123/deployments/my_deployment/installStatus`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// True if the deployment is installed for the user
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>installed: ::core::option::Option&lt;bool&gt;,
 }
 <span class="doccomment">/// A Google Workspace Add-on deployment
@@ -743,19 +744,19 @@
 </span><span class="kw">pub struct </span>Deployment {
     <span class="doccomment">/// The deployment resource name.
     /// Example:  projects/123/deployments/my_deployment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The list of Google OAuth scopes for which to request consent from the end
     /// user before executing an add-on endpoint.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>oauth_scopes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The Google Workspace Add-on configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>add_ons: ::core::option::Option&lt;AddOns&gt;,
     <span class="doccomment">/// This value is computed by the server based on the version of the
     /// deployment in storage, and may be sent on update and delete requests to
     /// ensure the client has an up-to-date value before proceeding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A Google Workspace Add-on configuration.
@@ -763,42 +764,42 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AddOns {
     <span class="doccomment">/// Configuration that is common across all Google Workspace Add-ons.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>common: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::apps::script::r#type::CommonAddOnManifest,
     &gt;,
     <span class="doccomment">/// Gmail add-on configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gmail: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::apps::script::r#type::gmail::GmailAddOnManifest,
     &gt;,
     <span class="doccomment">/// Drive add-on configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>drive: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::apps::script::r#type::drive::DriveAddOnManifest,
     &gt;,
     <span class="doccomment">/// Calendar add-on configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>calendar: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::apps::script::r#type::calendar::CalendarAddOnManifest,
     &gt;,
     <span class="doccomment">/// Docs add-on configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>docs: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::apps::script::r#type::docs::DocsAddOnManifest,
     &gt;,
     <span class="doccomment">/// Sheets add-on configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>sheets: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::apps::script::r#type::sheets::SheetsAddOnManifest,
     &gt;,
     <span class="doccomment">/// Slides add-on configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>slides: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::apps::script::r#type::slides::SlidesAddOnManifest,
     &gt;,
     <span class="doccomment">/// Options for sending requests to add-on HTTP endpoints
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>http_options: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::apps::script::r#type::HttpOptions,
     &gt;,
@@ -844,7 +845,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -916,19 +917,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gsuiteaddons.v1.GSuiteAddOns/GetAuthorization&quot;</span>,
+                <span class="string">"/google.cloud.gsuiteaddons.v1.GSuiteAddOns/GetAuthorization"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gsuiteaddons.v1.GSuiteAddOns&quot;</span>,
-                        <span class="string">&quot;GetAuthorization&quot;</span>,
+                        <span class="string">"google.cloud.gsuiteaddons.v1.GSuiteAddOns"</span>,
+                        <span class="string">"GetAuthorization"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -944,19 +945,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gsuiteaddons.v1.GSuiteAddOns/CreateDeployment&quot;</span>,
+                <span class="string">"/google.cloud.gsuiteaddons.v1.GSuiteAddOns/CreateDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gsuiteaddons.v1.GSuiteAddOns&quot;</span>,
-                        <span class="string">&quot;CreateDeployment&quot;</span>,
+                        <span class="string">"google.cloud.gsuiteaddons.v1.GSuiteAddOns"</span>,
+                        <span class="string">"CreateDeployment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -972,19 +973,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gsuiteaddons.v1.GSuiteAddOns/ReplaceDeployment&quot;</span>,
+                <span class="string">"/google.cloud.gsuiteaddons.v1.GSuiteAddOns/ReplaceDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gsuiteaddons.v1.GSuiteAddOns&quot;</span>,
-                        <span class="string">&quot;ReplaceDeployment&quot;</span>,
+                        <span class="string">"google.cloud.gsuiteaddons.v1.GSuiteAddOns"</span>,
+                        <span class="string">"ReplaceDeployment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1000,19 +1001,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gsuiteaddons.v1.GSuiteAddOns/GetDeployment&quot;</span>,
+                <span class="string">"/google.cloud.gsuiteaddons.v1.GSuiteAddOns/GetDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gsuiteaddons.v1.GSuiteAddOns&quot;</span>,
-                        <span class="string">&quot;GetDeployment&quot;</span>,
+                        <span class="string">"google.cloud.gsuiteaddons.v1.GSuiteAddOns"</span>,
+                        <span class="string">"GetDeployment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1031,19 +1032,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gsuiteaddons.v1.GSuiteAddOns/ListDeployments&quot;</span>,
+                <span class="string">"/google.cloud.gsuiteaddons.v1.GSuiteAddOns/ListDeployments"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gsuiteaddons.v1.GSuiteAddOns&quot;</span>,
-                        <span class="string">&quot;ListDeployments&quot;</span>,
+                        <span class="string">"google.cloud.gsuiteaddons.v1.GSuiteAddOns"</span>,
+                        <span class="string">"ListDeployments"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1059,19 +1060,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gsuiteaddons.v1.GSuiteAddOns/DeleteDeployment&quot;</span>,
+                <span class="string">"/google.cloud.gsuiteaddons.v1.GSuiteAddOns/DeleteDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gsuiteaddons.v1.GSuiteAddOns&quot;</span>,
-                        <span class="string">&quot;DeleteDeployment&quot;</span>,
+                        <span class="string">"google.cloud.gsuiteaddons.v1.GSuiteAddOns"</span>,
+                        <span class="string">"DeleteDeployment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1089,19 +1090,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gsuiteaddons.v1.GSuiteAddOns/InstallDeployment&quot;</span>,
+                <span class="string">"/google.cloud.gsuiteaddons.v1.GSuiteAddOns/InstallDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gsuiteaddons.v1.GSuiteAddOns&quot;</span>,
-                        <span class="string">&quot;InstallDeployment&quot;</span>,
+                        <span class="string">"google.cloud.gsuiteaddons.v1.GSuiteAddOns"</span>,
+                        <span class="string">"InstallDeployment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1119,19 +1120,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gsuiteaddons.v1.GSuiteAddOns/UninstallDeployment&quot;</span>,
+                <span class="string">"/google.cloud.gsuiteaddons.v1.GSuiteAddOns/UninstallDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gsuiteaddons.v1.GSuiteAddOns&quot;</span>,
-                        <span class="string">&quot;UninstallDeployment&quot;</span>,
+                        <span class="string">"google.cloud.gsuiteaddons.v1.GSuiteAddOns"</span>,
+                        <span class="string">"UninstallDeployment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1147,19 +1148,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gsuiteaddons.v1.GSuiteAddOns/GetInstallStatus&quot;</span>,
+                <span class="string">"/google.cloud.gsuiteaddons.v1.GSuiteAddOns/GetInstallStatus"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gsuiteaddons.v1.GSuiteAddOns&quot;</span>,
-                        <span class="string">&quot;GetInstallStatus&quot;</span>,
+                        <span class="string">"google.cloud.gsuiteaddons.v1.GSuiteAddOns"</span>,
+                        <span class="string">"GetInstallStatus"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/osconfig/logging/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/osconfig/logging/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -150,29 +151,29 @@
 </span><span class="kw">pub struct </span>PatchJobCompletedLog {
     <span class="doccomment">/// The patch job name. For example:
     /// projects/PROJECT_ID/patchJobs/PATCH_JOB_ID
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>patch_job: ::prost::alloc::string::String,
     <span class="doccomment">/// The current state of the PatchJob.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;patch_job_completed_log::State&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"patch_job_completed_log::State"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Summary of instance details.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>instance_details_summary: ::core::option::Option&lt;
         patch_job_completed_log::InstanceDetailsSummary,
     &gt;,
     <span class="doccomment">/// If this patch job is a dry run, the agent will report that it has
     /// finished without running any updates on the VM.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>dry_run: bool,
     <span class="doccomment">/// If this patch job failed, this message will provide information about the
     /// failure.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Time this PatchJob was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Last time this PatchJob was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PatchJobCompletedLog`.
@@ -185,46 +186,46 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>InstanceDetailsSummary {
         <span class="doccomment">/// Number of instances pending patch job.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>instances_pending: i64,
         <span class="doccomment">/// Number of instances that are inactive.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>instances_inactive: i64,
         <span class="doccomment">/// Number of instances notified about patch job.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>instances_notified: i64,
         <span class="doccomment">/// Number of instances that have started.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>instances_started: i64,
         <span class="doccomment">/// Number of instances that are downloading patches.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>instances_downloading_patches: i64,
         <span class="doccomment">/// Number of instances that are applying patches.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>instances_applying_patches: i64,
         <span class="doccomment">/// Number of instances rebooting.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>instances_rebooting: i64,
         <span class="doccomment">/// Number of instances that have completed successfully.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>instances_succeeded: i64,
         <span class="doccomment">/// Number of instances that require reboot.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"9"</span>)]
         </span><span class="kw">pub </span>instances_succeeded_reboot_required: i64,
         <span class="doccomment">/// Number of instances that failed.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"10"</span>)]
         </span><span class="kw">pub </span>instances_failed: i64,
         <span class="doccomment">/// Number of instances that have acked and will start shortly.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"11"</span>)]
         </span><span class="kw">pub </span>instances_acked: i64,
         <span class="doccomment">/// Number of instances that exceeded the time out while applying the patch.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"12"</span>)]
         </span><span class="kw">pub </span>instances_timed_out: i64,
         <span class="doccomment">/// Number of instances that are running the pre-patch step.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"13"</span>)]
         </span><span class="kw">pub </span>instances_running_pre_patch_step: i64,
         <span class="doccomment">/// Number of instances that are running the post-patch step.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;14&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"14"</span>)]
         </span><span class="kw">pub </span>instances_running_post_patch_step: i64,
     }
     <span class="doccomment">/// Enumeration of the various states a patch job passes through as it
@@ -264,29 +265,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
-                State::InstanceLookup =&gt; <span class="string">&quot;INSTANCE_LOOKUP&quot;</span>,
-                State::Patching =&gt; <span class="string">&quot;PATCHING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::CompletedWithErrors =&gt; <span class="string">&quot;COMPLETED_WITH_ERRORS&quot;</span>,
-                State::Canceled =&gt; <span class="string">&quot;CANCELED&quot;</span>,
-                State::TimedOut =&gt; <span class="string">&quot;TIMED_OUT&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Started =&gt; <span class="string">"STARTED"</span>,
+                State::InstanceLookup =&gt; <span class="string">"INSTANCE_LOOKUP"</span>,
+                State::Patching =&gt; <span class="string">"PATCHING"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::CompletedWithErrors =&gt; <span class="string">"COMPLETED_WITH_ERRORS"</span>,
+                State::Canceled =&gt; <span class="string">"CANCELED"</span>,
+                State::TimedOut =&gt; <span class="string">"TIMED_OUT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
-                <span class="string">&quot;INSTANCE_LOOKUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InstanceLookup),
-                <span class="string">&quot;PATCHING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Patching),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;COMPLETED_WITH_ERRORS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CompletedWithErrors),
-                <span class="string">&quot;CANCELED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Canceled),
-                <span class="string">&quot;TIMED_OUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimedOut),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STARTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
+                <span class="string">"INSTANCE_LOOKUP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InstanceLookup),
+                <span class="string">"PATCHING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Patching),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"COMPLETED_WITH_ERRORS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CompletedWithErrors),
+                <span class="string">"CANCELED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Canceled),
+                <span class="string">"TIMED_OUT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimedOut),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }

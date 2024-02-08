@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/securitycenter/v1p1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/securitycenter/v1p1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2573,9 +2574,9 @@
     <span class="doccomment">/// The relative resource name of the SecurityMarks. See:
     /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
     /// Examples:
-    /// &quot;organizations/{organization_id}/assets/{asset_id}/securityMarks&quot;
-    /// &quot;organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+    /// "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Mutable user specified security marks belonging to the parent resource.
     /// Constraints are as follows:
@@ -2585,20 +2586,20 @@
     ///    * Keys must be letters, numbers, underscores, or dashes
     ///    * Values have leading and trailing whitespace trimmed, remaining
     ///      characters must be between 1 - 4096 characters (inclusive)
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>marks: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// The canonical name of the marks.
     /// Examples:
-    /// &quot;organizations/{organization_id}/assets/{asset_id}/securityMarks&quot;
-    /// &quot;folders/{folder_id}/assets/{asset_id}/securityMarks&quot;
-    /// &quot;projects/{project_number}/assets/{asset_id}/securityMarks&quot;
-    /// &quot;organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks&quot;
-    /// &quot;folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks&quot;
-    /// &quot;projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+    /// "folders/{folder_id}/assets/{asset_id}/securityMarks"
+    /// "projects/{project_number}/assets/{asset_id}/securityMarks"
+    /// "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+    /// "folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+    /// "projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>canonical_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message that contains the resource name and display name of a folder
@@ -2608,10 +2609,10 @@
 </span><span class="kw">pub struct </span>Folder {
     <span class="doccomment">/// Full resource name of this folder. See:
     /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource_folder: ::prost::alloc::string::String,
     <span class="doccomment">/// The user defined display name for this folder.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_folder_display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Information related to the Google Cloud resource.
@@ -2620,24 +2621,24 @@
 </span><span class="kw">pub struct </span>Resource {
     <span class="doccomment">/// The full resource name of the resource. See:
     /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The full resource name of project that the resource belongs to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
     <span class="doccomment">/// The human readable name of project that the resource belongs to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>project_display_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The full resource name of resource&#39;s parent.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// The full resource name of resource's parent.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// The human readable name of resource&#39;s parent.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// The human readable name of resource's parent.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>parent_display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Contains a Folder message for each folder in the assets ancestry.
     /// The first folder is the deepest nested folder, and the last folder is the
     /// folder directly under the Organization.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>folders: ::prost::alloc::vec::Vec&lt;Folder&gt;,
 }
 <span class="doccomment">/// Security Command Center finding.
@@ -2652,15 +2653,15 @@
     <span class="doccomment">/// The relative resource name of this finding. See:
     /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
     /// Example:
-    /// &quot;organizations/{organization_id}/sources/{source_id}/findings/{finding_id}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The relative resource name of the source the finding belongs to. See:
     /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
     /// This field is immutable after creation time.
     /// For example:
-    /// &quot;organizations/{organization_id}/sources/{source_id}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// "organizations/{organization_id}/sources/{source_id}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// For findings on Google Cloud resources, the full resource
     /// name of the Google Cloud resource this finding is for. See:
@@ -2668,26 +2669,26 @@
     /// When the finding is for a non-Google Cloud resource, the resourceName can
     /// be a customer or partner defined string. This field is immutable after
     /// creation time.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The state of the finding.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;finding::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"finding::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// The additional taxonomy group within findings from a given source.
     /// This field is immutable after creation time.
-    /// Example: &quot;XSS_FLASH_INJECTION&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    /// Example: "XSS_FLASH_INJECTION"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>category: ::prost::alloc::string::String,
     <span class="doccomment">/// The URI that, if available, points to a web page outside of Security
     /// Command Center where additional information about the finding can be found.
     /// This field is guaranteed to be either empty or a well formed URL.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>external_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Source specific properties. These properties are managed by the source
     /// that writes the finding. The key names in the source_properties map must be
     /// between 1 and 255 characters, and must start with a letter and contain
     /// alphanumeric characters or underscores only.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>source_properties: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost_types::Value,
@@ -2695,7 +2696,7 @@
     <span class="doccomment">/// Output only. User specified security marks. These marks are entirely
     /// managed by the user and come from the SecurityMarks resource that belongs
     /// to the finding.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>security_marks: ::core::option::Option&lt;SecurityMarks&gt;,
     <span class="doccomment">/// The time at which the event took place, or when an update to the finding
     /// occurred. For example, if the finding represents an open firewall it would
@@ -2703,22 +2704,22 @@
     /// accuracy is determined by the detector. If the finding were to be resolved
     /// afterward, this time would reflect when the finding was resolved. Must not
     /// be set to a value greater than the current timestamp.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time at which the finding was created in Security Command Center.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The severity of the finding. This field is managed by the source that
     /// writes the finding.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;finding::Severity&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"finding::Severity"</span>, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>severity: i32,
-    <span class="doccomment">/// The canonical name of the finding. It&#39;s either
-    /// &quot;organizations/{organization_id}/sources/{source_id}/findings/{finding_id}&quot;,
-    /// &quot;folders/{folder_id}/sources/{source_id}/findings/{finding_id}&quot; or
-    /// &quot;projects/{project_number}/sources/{source_id}/findings/{finding_id}&quot;,
+    <span class="doccomment">/// The canonical name of the finding. It's either
+    /// "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+    /// "folders/{folder_id}/sources/{source_id}/findings/{finding_id}" or
+    /// "projects/{project_number}/sources/{source_id}/findings/{finding_id}",
     /// depending on the closest CRM ancestor of the resource associated with the
     /// finding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>canonical_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `Finding`.
@@ -2750,19 +2751,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Inactive =&gt; <span class="string">&quot;INACTIVE&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Inactive =&gt; <span class="string">"INACTIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"INACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2798,40 +2799,40 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Severity::Unspecified =&gt; <span class="string">&quot;SEVERITY_UNSPECIFIED&quot;</span>,
-                Severity::Critical =&gt; <span class="string">&quot;CRITICAL&quot;</span>,
-                Severity::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
-                Severity::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
-                Severity::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
+                Severity::Unspecified =&gt; <span class="string">"SEVERITY_UNSPECIFIED"</span>,
+                Severity::Critical =&gt; <span class="string">"CRITICAL"</span>,
+                Severity::High =&gt; <span class="string">"HIGH"</span>,
+                Severity::Medium =&gt; <span class="string">"MEDIUM"</span>,
+                Severity::Low =&gt; <span class="string">"LOW"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SEVERITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CRITICAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
-                <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
-                <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-                <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+                <span class="string">"SEVERITY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CRITICAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
+                <span class="string">"HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+                <span class="string">"MEDIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+                <span class="string">"LOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
 }
-<span class="doccomment">/// Security Command Center&#39;s Notification
+<span class="doccomment">/// Security Command Center's Notification
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>NotificationMessage {
     <span class="doccomment">/// Name of the notification config that generated current notification.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>notification_config_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The Cloud resource tied to the notification.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Resource&gt;,
     <span class="doccomment">/// Notification Event.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;notification_message::Event&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"notification_message::Event"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>event: ::core::option::Option&lt;notification_message::Event&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `NotificationMessage`.
@@ -2840,9 +2841,9 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Event {
-        <span class="doccomment">/// If it&#39;s a Finding based notification config, this field will be
+        <span class="doccomment">/// If it's a Finding based notification config, this field will be
         /// populated.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Finding(<span class="kw">super</span>::Finding),
     }
 }
@@ -2851,10 +2852,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RunAssetDiscoveryResponse {
     <span class="doccomment">/// The state of an asset discovery run.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;run_asset_discovery_response::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"run_asset_discovery_response::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// The duration between asset discovery run start and end
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RunAssetDiscoveryResponse`.
@@ -2888,21 +2889,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
-                State::Superseded =&gt; <span class="string">&quot;SUPERSEDED&quot;</span>,
-                State::Terminated =&gt; <span class="string">&quot;TERMINATED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Completed =&gt; <span class="string">"COMPLETED"</span>,
+                State::Superseded =&gt; <span class="string">"SUPERSEDED"</span>,
+                State::Terminated =&gt; <span class="string">"TERMINATED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
-                <span class="string">&quot;SUPERSEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Superseded),
-                <span class="string">&quot;TERMINATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Terminated),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"COMPLETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
+                <span class="string">"SUPERSEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Superseded),
+                <span class="string">"TERMINATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Terminated),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2913,7 +2914,7 @@
 ///
 /// The Asset is a Security Command Center resource that captures information
 /// about a single Google Cloud resource. All modifications to an Asset are only
-/// within the context of Security Command Center and don&#39;t affect the referenced
+/// within the context of Security Command Center and don't affect the referenced
 /// Google Cloud resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2921,44 +2922,44 @@
     <span class="doccomment">/// The relative resource name of this asset. See:
     /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
     /// Example:
-    /// &quot;organizations/{organization_id}/assets/{asset_id}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/{organization_id}/assets/{asset_id}".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Security Command Center managed properties. These properties are managed by
     /// Security Command Center and cannot be modified by the user.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>security_center_properties: ::core::option::Option&lt;
         asset::SecurityCenterProperties,
     &gt;,
     <span class="doccomment">/// Resource managed properties. These properties are managed and defined by
     /// the Google Cloud resource and cannot be modified by the user.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>resource_properties: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost_types::Value,
     &gt;,
     <span class="doccomment">/// User specified security marks. These marks are entirely managed by the user
     /// and come from the SecurityMarks resource that belongs to the asset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>security_marks: ::core::option::Option&lt;SecurityMarks&gt;,
     <span class="doccomment">/// The time at which the asset was created in Security Command Center.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time at which the asset was last updated or added in Cloud SCC.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Cloud IAM Policy information associated with the Google Cloud resource
     /// described by the Security Command Center asset. This information is managed
     /// and defined by the Google Cloud resource and cannot be modified by the
     /// user.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>iam_policy: ::core::option::Option&lt;asset::IamPolicy&gt;,
-    <span class="doccomment">/// The canonical name of the resource. It&#39;s either
-    /// &quot;organizations/{organization_id}/assets/{asset_id}&quot;,
-    /// &quot;folders/{folder_id}/assets/{asset_id}&quot; or
-    /// &quot;projects/{project_number}/assets/{asset_id}&quot;, depending on the closest CRM
+    <span class="doccomment">/// The canonical name of the resource. It's either
+    /// "organizations/{organization_id}/assets/{asset_id}",
+    /// "folders/{folder_id}/assets/{asset_id}" or
+    /// "projects/{project_number}/assets/{asset_id}", depending on the closest CRM
     /// ancestor of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>canonical_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `Asset`.
@@ -2971,38 +2972,38 @@
         <span class="doccomment">/// The full resource name of the Google Cloud resource this asset
         /// represents. This field is immutable after create time. See:
         /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
         <span class="doccomment">/// The type of the Google Cloud resource. Examples include: APPLICATION,
         /// PROJECT, and ORGANIZATION. This is a case insensitive field defined by
         /// Security Command Center and/or the producer of the resource and is
         /// immutable after create time.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
         <span class="doccomment">/// The full resource name of the immediate parent of the resource. See:
         /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>resource_parent: ::prost::alloc::string::String,
         <span class="doccomment">/// The full resource name of the project the resource belongs to. See:
         /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>resource_project: ::prost::alloc::string::String,
         <span class="doccomment">/// Owners of the Google Cloud resource.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>resource_owners: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// The user defined display name for this resource.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>resource_display_name: ::prost::alloc::string::String,
         <span class="doccomment">/// The user defined display name for the parent of this resource.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>resource_parent_display_name: ::prost::alloc::string::String,
         <span class="doccomment">/// The user defined display name for the project of this resource.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>resource_project_display_name: ::prost::alloc::string::String,
         <span class="doccomment">/// Contains a Folder message for each folder in the assets ancestry.
         /// The first folder is the deepest nested folder, and the last folder is the
         /// folder directly under the Organization.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
         </span><span class="kw">pub </span>folders: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::Folder&gt;,
     }
     <span class="doccomment">/// Cloud IAM Policy information associated with the Google Cloud resource
@@ -3015,7 +3016,7 @@
         <span class="doccomment">/// The JSON representation of the Policy associated with the asset.
         /// See &lt;https://cloud.google.com/iam/docs/reference/rest/v1/Policy&gt; for
         /// format details.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>policy_blob: ::prost::alloc::string::String,
     }
 }
@@ -3030,25 +3031,25 @@
     <span class="doccomment">/// The relative resource name of this notification config. See:
     /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
     /// Example:
-    /// &quot;organizations/{organization_id}/notificationConfigs/notify_public_bucket&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/{organization_id}/notificationConfigs/notify_public_bucket".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The description of the notification config (max of 1024 characters).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of events the config is for, e.g. FINDING.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;notification_config::EventType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"notification_config::EventType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>event_type: i32,
     <span class="doccomment">/// The Pub/Sub topic to send notifications to. Its format is
-    /// &quot;projects/\[project_id\]/topics/\[topic\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// "projects/\[project_id\]/topics/\[topic\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>pubsub_topic: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The service account that needs &quot;pubsub.topics.publish&quot;
+    <span class="doccomment">/// Output only. The service account that needs "pubsub.topics.publish"
     /// permission to publish to the Pub/Sub topic.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
     <span class="doccomment">/// The config for triggering notifications.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;notification_config::NotifyConfig&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"notification_config::NotifyConfig"</span>, tags = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>notify_config: ::core::option::Option&lt;notification_config::NotifyConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `NotificationConfig`.
@@ -3079,7 +3080,7 @@
         /// * string literals in quotes.
         /// * integer literals without quotes.
         /// * boolean literals `true` and `false` without quotes.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// The type of events.
@@ -3106,17 +3107,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EventType::Unspecified =&gt; <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot;</span>,
-                EventType::Finding =&gt; <span class="string">&quot;FINDING&quot;</span>,
+                EventType::Unspecified =&gt; <span class="string">"EVENT_TYPE_UNSPECIFIED"</span>,
+                EventType::Finding =&gt; <span class="string">"FINDING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;FINDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finding),
+                <span class="string">"EVENT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"FINDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finding),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3126,7 +3127,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>NotifyConfig {
         <span class="doccomment">/// The config for triggering streaming-based notifications.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>StreamingConfig(StreamingConfig),
     }
 }
@@ -3138,17 +3139,17 @@
     <span class="doccomment">/// The relative resource name of the settings. See:
     /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
     /// Example:
-    /// &quot;organizations/{organization_id}/organizationSettings&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/{organization_id}/organizationSettings".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A flag that indicates if Asset Discovery should be enabled. If the flag is
     /// set to `true`, then discovery of assets will occur. If it is set to `false,
     /// all historical assets will remain, but discovery of future assets will not
     /// occur.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>enable_asset_discovery: bool,
     <span class="doccomment">/// The configuration used for Asset Discovery runs.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>asset_discovery_config: ::core::option::Option&lt;
         organization_settings::AssetDiscoveryConfig,
     &gt;,
@@ -3160,14 +3161,14 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AssetDiscoveryConfig {
         <span class="doccomment">/// The project ids to use for filtering asset discovery.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>project_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// The mode to use for filtering asset discovery.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;asset_discovery_config::InclusionMode&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"asset_discovery_config::InclusionMode"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>inclusion_mode: i32,
         <span class="doccomment">/// The folder ids to use for filtering asset discovery.
         /// It consists of only digits, e.g., 756619654966.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>folder_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `AssetDiscoveryConfig`.
@@ -3176,7 +3177,7 @@
         /// Asset discovery can be limited by explicitly identifying projects to be
         /// included or excluded. If INCLUDE_ONLY is set, then only those projects
         /// within the organization and their children are discovered during asset
-        /// discovery. If EXCLUDE is set, then projects that don&#39;t match those
+        /// discovery. If EXCLUDE is set, then projects that don't match those
         /// projects are discovered during asset discovery. If neither are set, then
         /// all projects within the organization are discovered during asset
         /// discovery.
@@ -3208,19 +3209,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    InclusionMode::Unspecified =&gt; <span class="string">&quot;INCLUSION_MODE_UNSPECIFIED&quot;</span>,
-                    InclusionMode::IncludeOnly =&gt; <span class="string">&quot;INCLUDE_ONLY&quot;</span>,
-                    InclusionMode::Exclude =&gt; <span class="string">&quot;EXCLUDE&quot;</span>,
+                    InclusionMode::Unspecified =&gt; <span class="string">"INCLUSION_MODE_UNSPECIFIED"</span>,
+                    InclusionMode::IncludeOnly =&gt; <span class="string">"INCLUDE_ONLY"</span>,
+                    InclusionMode::Exclude =&gt; <span class="string">"EXCLUDE"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;INCLUSION_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;INCLUDE_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IncludeOnly),
-                    <span class="string">&quot;EXCLUDE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Exclude),
+                    <span class="string">"INCLUSION_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"INCLUDE_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IncludeOnly),
+                    <span class="string">"EXCLUDE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Exclude),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -3236,79 +3237,79 @@
     <span class="doccomment">/// The relative resource name of this source. See:
     /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
     /// Example:
-    /// &quot;organizations/{organization_id}/sources/{source_id}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/{organization_id}/sources/{source_id}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The source&#39;s display name.
-    /// A source&#39;s display name must be unique amongst its siblings, for example,
-    /// two sources with the same parent can&#39;t share the same display name.
+    <span class="doccomment">/// The source's display name.
+    /// A source's display name must be unique amongst its siblings, for example,
+    /// two sources with the same parent can't share the same display name.
     /// The display name must have a length between 1 and 64 characters
     /// (inclusive).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The description of the source (max of 1024 characters).
     /// Example:
-    /// &quot;Web Security Scanner is a web security scanner for common
+    /// "Web Security Scanner is a web security scanner for common
     /// vulnerabilities in App Engine applications. It can automatically
     /// scan and detect four common vulnerabilities, including cross-site-scripting
     /// (XSS), Flash injection, mixed content (HTTP in HTTPS), and
-    /// outdated/insecure libraries.&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// outdated/insecure libraries."
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
-    <span class="doccomment">/// The canonical name of the finding. It&#39;s either
-    /// &quot;organizations/{organization_id}/sources/{source_id}&quot;,
-    /// &quot;folders/{folder_id}/sources/{source_id}&quot; or
-    /// &quot;projects/{project_number}/sources/{source_id}&quot;,
+    <span class="doccomment">/// The canonical name of the finding. It's either
+    /// "organizations/{organization_id}/sources/{source_id}",
+    /// "folders/{folder_id}/sources/{source_id}" or
+    /// "projects/{project_number}/sources/{source_id}",
     /// depending on the closest CRM ancestor of the resource associated with the
     /// finding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>canonical_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for creating a finding.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateFindingRequest {
-    <span class="doccomment">/// Required. Resource name of the new finding&#39;s parent. Its format should be
-    /// &quot;organizations/\[organization_id\]/sources/\[source_id\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. Resource name of the new finding's parent. Its format should be
+    /// "organizations/\[organization_id\]/sources/\[source_id\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Unique identifier provided by the client within the parent scope.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>finding_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Finding being created. The name and security_marks will be ignored as
     /// they are both output only fields on this resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>finding: ::core::option::Option&lt;Finding&gt;,
 }
 <span class="doccomment">/// Request message for creating a notification config.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateNotificationConfigRequest {
-    <span class="doccomment">/// Required. Resource name of the new notification config&#39;s parent. Its format is
-    /// &quot;organizations/\[organization_id\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. Resource name of the new notification config's parent. Its format is
+    /// "organizations/\[organization_id\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Unique identifier provided by the client within the parent scope.
     /// It must be between 1 and 128 characters, and contains alphanumeric
     /// characters, underscores or hyphens only.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>config_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The notification config being created. The name and the service account
     /// will be ignored as they are both output only fields on this resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>notification_config: ::core::option::Option&lt;NotificationConfig&gt;,
 }
 <span class="doccomment">/// Request message for creating a source.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateSourceRequest {
-    <span class="doccomment">/// Required. Resource name of the new source&#39;s parent. Its format should be
-    /// &quot;organizations/\[organization_id\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. Resource name of the new source's parent. Its format should be
+    /// "organizations/\[organization_id\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Source being created, only the display_name and description will be
     /// used. All other fields will be ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;Source&gt;,
 }
 <span class="doccomment">/// Request message for deleting a notification config.
@@ -3316,8 +3317,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteNotificationConfigRequest {
     <span class="doccomment">/// Required. Name of the notification config to delete. Its format is
-    /// &quot;organizations/\[organization_id\]/notificationConfigs/\[config_id\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/\[organization_id\]/notificationConfigs/\[config_id\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for getting a notification config.
@@ -3325,8 +3326,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetNotificationConfigRequest {
     <span class="doccomment">/// Required. Name of the notification config to get. Its format is
-    /// &quot;organizations/\[organization_id\]/notificationConfigs/\[config_id\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/\[organization_id\]/notificationConfigs/\[config_id\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for getting organization settings.
@@ -3334,8 +3335,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetOrganizationSettingsRequest {
     <span class="doccomment">/// Required. Name of the organization to get organization settings for. Its format is
-    /// &quot;organizations/\[organization_id\]/organizationSettings&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/\[organization_id\]/organizationSettings".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for getting a source.
@@ -3343,8 +3344,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetSourceRequest {
     <span class="doccomment">/// Required. Relative resource name of the source. Its format is
-    /// &quot;organizations/\[organization_id\]/source/\[source_id\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/\[organization_id\]/source/\[source_id\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for grouping by assets.
@@ -3352,9 +3353,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GroupAssetsRequest {
     <span class="doccomment">/// Required. Name of the organization to groupBy. Its format is
-    /// &quot;organizations/\[organization_id\], folders/\[folder_id\], or
-    /// projects/\[project_id\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/\[organization_id\], folders/\[folder_id\], or
+    /// projects/\[project_id\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Expression that defines the filter to apply across assets.
     /// The expression is a list of zero or more restrictions combined via logical
@@ -3389,14 +3390,14 @@
     ///
     ///    Usage: This should be milliseconds since epoch or an RFC3339 string.
     ///    Examples:
-    ///      `update_time = &quot;2019-06-10T16:07:18-07:00&quot;`
+    ///      `update_time = "2019-06-10T16:07:18-07:00"`
     ///      `update_time = 1560208038000`
     ///
     /// * create_time: `=`, `&gt;`, `&lt;`, `&gt;=`, `&lt;=`
     ///
     ///    Usage: This should be milliseconds since epoch or an RFC3339 string.
     ///    Examples:
-    ///      `create_time = &quot;2019-06-10T16:07:18-07:00&quot;`
+    ///      `create_time = "2019-06-10T16:07:18-07:00"`
     ///      `create_time = 1560208038000`
     ///
     /// * iam_policy.policy_blob: `=`, `:`
@@ -3414,16 +3415,16 @@
     /// For example, `resource_properties.size = 100` is a valid filter string.
     ///
     /// Use a partial match on the empty string to filter based on a property
-    /// existing: `resource_properties.my_property : &quot;&quot;`
+    /// existing: `resource_properties.my_property : ""`
     ///
     /// Use a negated partial match on the empty string to filter based on a
-    /// property not existing: `-resource_properties.my_property : &quot;&quot;`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// property not existing: `-resource_properties.my_property : ""`
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Expression that defines what assets fields to use for grouping. The string
     /// value should follow SQL syntax: comma separated list of fields. For
     /// example:
-    /// &quot;security_center_properties.resource_project,security_center_properties.project&quot;.
+    /// "security_center_properties.resource_project,security_center_properties.project".
     ///
     /// The following fields are supported when compare_duration is not set:
     ///
@@ -3438,51 +3439,51 @@
     /// * security_center_properties.resource_type
     /// * security_center_properties.resource_project_display_name
     /// * security_center_properties.resource_parent_display_name
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>group_by: ::prost::alloc::string::String,
-    <span class="doccomment">/// When compare_duration is set, the GroupResult&#39;s &quot;state_change&quot; property is
+    <span class="doccomment">/// When compare_duration is set, the GroupResult's "state_change" property is
     /// updated to indicate whether the asset was added, removed, or remained
     /// present during the compare_duration period of time that precedes the
     /// read_time. This is the time between (read_time - compare_duration) and
     /// read_time.
     ///
     /// The state change value is derived based on the presence of the asset at the
-    /// two points in time. Intermediate state changes between the two times don&#39;t
-    /// affect the result. For example, the results aren&#39;t affected if the asset is
+    /// two points in time. Intermediate state changes between the two times don't
+    /// affect the result. For example, the results aren't affected if the asset is
     /// removed and re-created again.
     ///
-    /// Possible &quot;state_change&quot; values when compare_duration is specified:
+    /// Possible "state_change" values when compare_duration is specified:
     ///
-    /// * &quot;ADDED&quot;:   indicates that the asset was not present at the start of
+    /// * "ADDED":   indicates that the asset was not present at the start of
     ///                 compare_duration, but present at reference_time.
-    /// * &quot;REMOVED&quot;: indicates that the asset was present at the start of
+    /// * "REMOVED": indicates that the asset was present at the start of
     ///                 compare_duration, but not present at reference_time.
-    /// * &quot;ACTIVE&quot;:  indicates that the asset was present at both the
+    /// * "ACTIVE":  indicates that the asset was present at both the
     ///                 start and the end of the time period defined by
     ///                 compare_duration and reference_time.
     ///
     /// If compare_duration is not specified, then the only possible state_change
-    /// is &quot;UNUSED&quot;, which will be the state_change set for all assets present at
+    /// is "UNUSED", which will be the state_change set for all assets present at
     /// read_time.
     ///
     /// If this field is set then `state_change` must be a specified field in
     /// `group_by`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>compare_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Time used as a reference point when filtering assets. The filter is limited
     /// to assets existing at the supplied time and their values are those at that
-    /// specific time. Absence of this field will default to the API&#39;s version of
+    /// specific time. Absence of this field will default to the API's version of
     /// NOW.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The value returned by the last `GroupAssetsResponse`; indicates
     /// that this is a continuation of a prior `GroupAssets` call, and that the
     /// system should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return in a single response. Default is
     /// 10, minimum is 1, maximum is 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// Response message for grouping by assets.
@@ -3492,17 +3493,17 @@
     <span class="doccomment">/// Group results. There exists an element for each existing unique
     /// combination of property/values. The element contains a count for the number
     /// of times those specific property/values appear.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>group_by_results: ::prost::alloc::vec::Vec&lt;GroupResult&gt;,
     <span class="doccomment">/// Time used for executing the groupBy request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The total number of results matching the query.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>total_size: i32,
 }
 <span class="doccomment">/// Request message for grouping by findings.
@@ -3510,13 +3511,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GroupFindingsRequest {
     <span class="doccomment">/// Required. Name of the source to groupBy. Its format is
-    /// &quot;organizations/\[organization_id\]/sources/\[source_id\]&quot;,
+    /// "organizations/\[organization_id\]/sources/\[source_id\]",
     /// folders/\[folder_id\]/sources/\[source_id\], or
     /// projects/\[project_id\]/sources/\[source_id\]. To groupBy across all sources
     /// provide a source_id of `-`. For example:
     /// organizations/{organization_id}/sources/-, folders/{folder_id}/sources/-,
     /// or projects/{project_id}/sources/-
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Expression that defines the filter to apply across findings.
     /// The expression is a list of one or more restrictions combined via logical
@@ -3555,7 +3556,7 @@
     ///
     ///    Usage: This should be milliseconds since epoch or an RFC3339 string.
     ///    Examples:
-    ///      `event_time = &quot;2019-06-10T16:07:18-07:00&quot;`
+    ///      `event_time = "2019-06-10T16:07:18-07:00"`
     ///      `event_time = 1560208038000`
     ///
     /// * security_marks.marks: `=`, `:`
@@ -3564,15 +3565,15 @@
     /// For example, `source_properties.size = 100` is a valid filter string.
     ///
     /// Use a partial match on the empty string to filter based on a property
-    /// existing: `source_properties.my_property : &quot;&quot;`
+    /// existing: `source_properties.my_property : ""`
     ///
     /// Use a negated partial match on the empty string to filter based on a
-    /// property not existing: `-source_properties.my_property : &quot;&quot;`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// property not existing: `-source_properties.my_property : ""`
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Expression that defines what assets fields to use for grouping (including
     /// `state_change`). The string value should follow SQL syntax: comma separated
-    /// list of fields. For example: &quot;parent,resource_name&quot;.
+    /// list of fields. For example: "parent,resource_name".
     ///
     /// The following fields are supported:
     ///
@@ -3585,56 +3586,56 @@
     /// The following fields are supported when compare_duration is set:
     ///
     /// * state_change
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>group_by: ::prost::alloc::string::String,
     <span class="doccomment">/// Time used as a reference point when filtering findings. The filter is
     /// limited to findings existing at the supplied time and their values are
     /// those at that specific time. Absence of this field will default to the
-    /// API&#39;s version of NOW.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    /// API's version of NOW.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// When compare_duration is set, the GroupResult&#39;s &quot;state_change&quot; attribute is
+    <span class="doccomment">/// When compare_duration is set, the GroupResult's "state_change" attribute is
     /// updated to indicate whether the finding had its state changed, the
-    /// finding&#39;s state remained unchanged, or if the finding was added during the
+    /// finding's state remained unchanged, or if the finding was added during the
     /// compare_duration period of time that precedes the read_time. This is the
     /// time between (read_time - compare_duration) and read_time.
     ///
     /// The state_change value is derived based on the presence and state of the
     /// finding at the two points in time. Intermediate state changes between the
-    /// two times don&#39;t affect the result. For example, the results aren&#39;t affected
+    /// two times don't affect the result. For example, the results aren't affected
     /// if the finding is made inactive and then active again.
     ///
-    /// Possible &quot;state_change&quot; values when compare_duration is specified:
+    /// Possible "state_change" values when compare_duration is specified:
     ///
-    /// * &quot;CHANGED&quot;:   indicates that the finding was present and matched the given
+    /// * "CHANGED":   indicates that the finding was present and matched the given
     ///                   filter at the start of compare_duration, but changed its
     ///                   state at read_time.
-    /// * &quot;UNCHANGED&quot;: indicates that the finding was present and matched the given
+    /// * "UNCHANGED": indicates that the finding was present and matched the given
     ///                   filter at the start of compare_duration and did not change
     ///                   state at read_time.
-    /// * &quot;ADDED&quot;:     indicates that the finding did not match the given filter or
+    /// * "ADDED":     indicates that the finding did not match the given filter or
     ///                   was not present at the start of compare_duration, but was
     ///                   present at read_time.
-    /// * &quot;REMOVED&quot;:   indicates that the finding was present and matched the
+    /// * "REMOVED":   indicates that the finding was present and matched the
     ///                   filter at the start of compare_duration, but did not match
     ///                   the filter at read_time.
     ///
     /// If compare_duration is not specified, then the only possible state_change
-    /// is &quot;UNUSED&quot;,  which will be the state_change set for all findings present
+    /// is "UNUSED",  which will be the state_change set for all findings present
     /// at read_time.
     ///
     /// If this field is set then `state_change` must be a specified field in
     /// `group_by`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>compare_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The value returned by the last `GroupFindingsResponse`; indicates
     /// that this is a continuation of a prior `GroupFindings` call, and
     /// that the system should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return in a single response. Default is
     /// 10, minimum is 1, maximum is 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// Response message for group by findings.
@@ -3644,17 +3645,17 @@
     <span class="doccomment">/// Group results. There exists an element for each existing unique
     /// combination of property/values. The element contains a count for the number
     /// of times those specific property/values appear.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>group_by_results: ::prost::alloc::vec::Vec&lt;GroupResult&gt;,
     <span class="doccomment">/// Time used for executing the groupBy request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The total number of results matching the query.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>total_size: i32,
 }
 <span class="doccomment">/// Result containing the properties and count of a groupBy request.
@@ -3662,13 +3663,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GroupResult {
     <span class="doccomment">/// Properties matching the groupBy fields in the request.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>properties: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost_types::Value,
     &gt;,
     <span class="doccomment">/// Total count of resources for the given properties.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>count: i64,
 }
 <span class="doccomment">/// Request message for listing notification configs.
@@ -3676,17 +3677,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListNotificationConfigsRequest {
     <span class="doccomment">/// Required. Name of the organization to list notification configs.
-    /// Its format is &quot;organizations/\[organization_id\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Its format is "organizations/\[organization_id\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The value returned by the last `ListNotificationConfigsResponse`; indicates
     /// that this is a continuation of a prior `ListNotificationConfigs` call, and
     /// that the system should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return in a single response. Default is
     /// 10, minimum is 1, maximum is 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// Response message for listing notification configs.
@@ -3694,11 +3695,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListNotificationConfigsResponse {
     <span class="doccomment">/// Notification configs belonging to the requested parent.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>notification_configs: ::prost::alloc::vec::Vec&lt;NotificationConfig&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for listing sources.
@@ -3706,18 +3707,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSourcesRequest {
     <span class="doccomment">/// Required. Resource name of the parent of sources to list. Its format should be
-    /// &quot;organizations/\[organization_id\], folders/\[folder_id\], or
-    /// projects/\[project_id\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/\[organization_id\], folders/\[folder_id\], or
+    /// projects/\[project_id\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The value returned by the last `ListSourcesResponse`; indicates
     /// that this is a continuation of a prior `ListSources` call, and
     /// that the system should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return in a single response. Default is
     /// 10, minimum is 1, maximum is 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// Response message for listing sources.
@@ -3725,11 +3726,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSourcesResponse {
     <span class="doccomment">/// Sources belonging to the requested parent.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sources: ::prost::alloc::vec::Vec&lt;Source&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for listing assets.
@@ -3737,9 +3738,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAssetsRequest {
     <span class="doccomment">/// Required. Name of the organization assets should belong to. Its format is
-    /// &quot;organizations/\[organization_id\], folders/\[folder_id\], or
-    /// projects/\[project_id\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/\[organization_id\], folders/\[folder_id\], or
+    /// projects/\[project_id\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Expression that defines the filter to apply across assets.
     /// The expression is a list of zero or more restrictions combined via logical
@@ -3774,14 +3775,14 @@
     ///
     ///    Usage: This should be milliseconds since epoch or an RFC3339 string.
     ///    Examples:
-    ///      `update_time = &quot;2019-06-10T16:07:18-07:00&quot;`
+    ///      `update_time = "2019-06-10T16:07:18-07:00"`
     ///      `update_time = 1560208038000`
     ///
     /// * create_time: `=`, `&gt;`, `&lt;`, `&gt;=`, `&lt;=`
     ///
     ///    Usage: This should be milliseconds since epoch or an RFC3339 string.
     ///    Examples:
-    ///      `create_time = &quot;2019-06-10T16:07:18-07:00&quot;`
+    ///      `create_time = "2019-06-10T16:07:18-07:00"`
     ///      `create_time = 1560208038000`
     ///
     /// * iam_policy.policy_blob: `=`, `:`
@@ -3799,20 +3800,20 @@
     /// For example, `resource_properties.size = 100` is a valid filter string.
     ///
     /// Use a partial match on the empty string to filter based on a property
-    /// existing: `resource_properties.my_property : &quot;&quot;`
+    /// existing: `resource_properties.my_property : ""`
     ///
     /// Use a negated partial match on the empty string to filter based on a
-    /// property not existing: `-resource_properties.my_property : &quot;&quot;`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// property not existing: `-resource_properties.my_property : ""`
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Expression that defines what fields and order to use for sorting. The
     /// string value should follow SQL syntax: comma separated list of fields. For
-    /// example: &quot;name,resource_properties.a_property&quot;. The default sorting order
-    /// is ascending. To specify descending order for a field, a suffix &quot; desc&quot;
-    /// should be appended to the field name. For example: &quot;name
-    /// desc,resource_properties.a_property&quot;. Redundant space characters in the
-    /// syntax are insignificant. &quot;name desc,resource_properties.a_property&quot; and &quot;
-    /// name     desc  ,   resource_properties.a_property  &quot; are equivalent.
+    /// example: "name,resource_properties.a_property". The default sorting order
+    /// is ascending. To specify descending order for a field, a suffix " desc"
+    /// should be appended to the field name. For example: "name
+    /// desc,resource_properties.a_property". Redundant space characters in the
+    /// syntax are insignificant. "name desc,resource_properties.a_property" and "
+    /// name     desc  ,   resource_properties.a_property  " are equivalent.
     ///
     /// The following fields are supported:
     /// name
@@ -3826,53 +3827,53 @@
     /// security_center_properties.resource_project
     /// security_center_properties.resource_project_display_name
     /// security_center_properties.resource_type
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// Time used as a reference point when filtering assets. The filter is limited
     /// to assets existing at the supplied time and their values are those at that
-    /// specific time. Absence of this field will default to the API&#39;s version of
+    /// specific time. Absence of this field will default to the API's version of
     /// NOW.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// When compare_duration is set, the ListAssetsResult&#39;s &quot;state_change&quot;
+    <span class="doccomment">/// When compare_duration is set, the ListAssetsResult's "state_change"
     /// attribute is updated to indicate whether the asset was added, removed, or
     /// remained present during the compare_duration period of time that precedes
     /// the read_time. This is the time between (read_time - compare_duration) and
     /// read_time.
     ///
     /// The state_change value is derived based on the presence of the asset at the
-    /// two points in time. Intermediate state changes between the two times don&#39;t
-    /// affect the result. For example, the results aren&#39;t affected if the asset is
+    /// two points in time. Intermediate state changes between the two times don't
+    /// affect the result. For example, the results aren't affected if the asset is
     /// removed and re-created again.
     ///
-    /// Possible &quot;state_change&quot; values when compare_duration is specified:
+    /// Possible "state_change" values when compare_duration is specified:
     ///
-    /// * &quot;ADDED&quot;:   indicates that the asset was not present at the start of
+    /// * "ADDED":   indicates that the asset was not present at the start of
     ///                 compare_duration, but present at read_time.
-    /// * &quot;REMOVED&quot;: indicates that the asset was present at the start of
+    /// * "REMOVED": indicates that the asset was present at the start of
     ///                 compare_duration, but not present at read_time.
-    /// * &quot;ACTIVE&quot;:  indicates that the asset was present at both the
+    /// * "ACTIVE":  indicates that the asset was present at both the
     ///                 start and the end of the time period defined by
     ///                 compare_duration and read_time.
     ///
     /// If compare_duration is not specified, then the only possible state_change
-    /// is &quot;UNUSED&quot;,  which will be the state_change set for all assets present at
+    /// is "UNUSED",  which will be the state_change set for all assets present at
     /// read_time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>compare_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// A field mask to specify the ListAssetsResult fields to be listed in the
     /// response.
     /// An empty field mask will list all fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>field_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// The value returned by the last `ListAssetsResponse`; indicates
     /// that this is a continuation of a prior `ListAssets` call, and
     /// that the system should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return in a single response. Default is
     /// 10, minimum is 1, maximum is 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// Response message for listing assets.
@@ -3880,19 +3881,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAssetsResponse {
     <span class="doccomment">/// Assets matching the list request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>list_assets_results: ::prost::alloc::vec::Vec&lt;
         list_assets_response::ListAssetsResult,
     &gt;,
     <span class="doccomment">/// Time used for executing the list request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The total number of assets matching the query.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>total_size: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ListAssetsResponse`.
@@ -3902,10 +3903,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ListAssetsResult {
         <span class="doccomment">/// Asset matching the search request.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>asset: ::core::option::Option&lt;<span class="kw">super</span>::Asset&gt;,
         <span class="doccomment">/// State change of the asset between the points in time.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;list_assets_result::StateChange&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"list_assets_result::StateChange"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>state_change: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `ListAssetsResult`.
@@ -3943,21 +3944,21 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    StateChange::Unused =&gt; <span class="string">&quot;UNUSED&quot;</span>,
-                    StateChange::Added =&gt; <span class="string">&quot;ADDED&quot;</span>,
-                    StateChange::Removed =&gt; <span class="string">&quot;REMOVED&quot;</span>,
-                    StateChange::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+                    StateChange::Unused =&gt; <span class="string">"UNUSED"</span>,
+                    StateChange::Added =&gt; <span class="string">"ADDED"</span>,
+                    StateChange::Removed =&gt; <span class="string">"REMOVED"</span>,
+                    StateChange::Active =&gt; <span class="string">"ACTIVE"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;UNUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unused),
-                    <span class="string">&quot;ADDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Added),
-                    <span class="string">&quot;REMOVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Removed),
-                    <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                    <span class="string">"UNUSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unused),
+                    <span class="string">"ADDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Added),
+                    <span class="string">"REMOVED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Removed),
+                    <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -3969,13 +3970,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFindingsRequest {
     <span class="doccomment">/// Required. Name of the source the findings belong to. Its format is
-    /// &quot;organizations/\[organization_id\]/sources/\[source_id\],
+    /// "organizations/\[organization_id\]/sources/\[source_id\],
     /// folders/\[folder_id\]/sources/\[source_id\], or
-    /// projects/\[project_id\]/sources/\[source_id\]&quot;. To list across all sources
+    /// projects/\[project_id\]/sources/\[source_id\]". To list across all sources
     /// provide a source_id of `-`. For example:
     /// organizations/{organization_id}/sources/-, folders/{folder_id}/sources/- or
     /// projects/{projects_id}/sources/-
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Expression that defines the filter to apply across findings.
     /// The expression is a list of one or more restrictions combined via logical
@@ -4014,7 +4015,7 @@
     ///
     ///    Usage: This should be milliseconds since epoch or an RFC3339 string.
     ///    Examples:
-    ///      `event_time = &quot;2019-06-10T16:07:18-07:00&quot;`
+    ///      `event_time = "2019-06-10T16:07:18-07:00"`
     ///      `event_time = 1560208038000`
     ///
     /// security_marks.marks: `=`, `:`
@@ -4023,20 +4024,20 @@
     /// For example, `source_properties.size = 100` is a valid filter string.
     ///
     /// Use a partial match on the empty string to filter based on a property
-    /// existing: `source_properties.my_property : &quot;&quot;`
+    /// existing: `source_properties.my_property : ""`
     ///
     /// Use a negated partial match on the empty string to filter based on a
-    /// property not existing: `-source_properties.my_property : &quot;&quot;`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// property not existing: `-source_properties.my_property : ""`
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Expression that defines what fields and order to use for sorting. The
     /// string value should follow SQL syntax: comma separated list of fields. For
-    /// example: &quot;name,resource_properties.a_property&quot;. The default sorting order
-    /// is ascending. To specify descending order for a field, a suffix &quot; desc&quot;
-    /// should be appended to the field name. For example: &quot;name
-    /// desc,source_properties.a_property&quot;. Redundant space characters in the
-    /// syntax are insignificant. &quot;name desc,source_properties.a_property&quot; and &quot;
-    /// name     desc  ,   source_properties.a_property  &quot; are equivalent.
+    /// example: "name,resource_properties.a_property". The default sorting order
+    /// is ascending. To specify descending order for a field, a suffix " desc"
+    /// should be appended to the field name. For example: "name
+    /// desc,source_properties.a_property". Redundant space characters in the
+    /// syntax are insignificant. "name desc,source_properties.a_property" and "
+    /// name     desc  ,   source_properties.a_property  " are equivalent.
     ///
     /// The following fields are supported:
     /// name
@@ -4047,58 +4048,58 @@
     /// event_time
     /// source_properties
     /// security_marks.marks
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// Time used as a reference point when filtering findings. The filter is
     /// limited to findings existing at the supplied time and their values are
     /// those at that specific time. Absence of this field will default to the
-    /// API&#39;s version of NOW.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    /// API's version of NOW.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// When compare_duration is set, the ListFindingsResult&#39;s &quot;state_change&quot;
+    <span class="doccomment">/// When compare_duration is set, the ListFindingsResult's "state_change"
     /// attribute is updated to indicate whether the finding had its state changed,
-    /// the finding&#39;s state remained unchanged, or if the finding was added in any
+    /// the finding's state remained unchanged, or if the finding was added in any
     /// state during the compare_duration period of time that precedes the
     /// read_time. This is the time between (read_time - compare_duration) and
     /// read_time.
     ///
     /// The state_change value is derived based on the presence and state of the
     /// finding at the two points in time. Intermediate state changes between the
-    /// two times don&#39;t affect the result. For example, the results aren&#39;t affected
+    /// two times don't affect the result. For example, the results aren't affected
     /// if the finding is made inactive and then active again.
     ///
-    /// Possible &quot;state_change&quot; values when compare_duration is specified:
+    /// Possible "state_change" values when compare_duration is specified:
     ///
-    /// * &quot;CHANGED&quot;:   indicates that the finding was present and matched the given
+    /// * "CHANGED":   indicates that the finding was present and matched the given
     ///                   filter at the start of compare_duration, but changed its
     ///                   state at read_time.
-    /// * &quot;UNCHANGED&quot;: indicates that the finding was present and matched the given
+    /// * "UNCHANGED": indicates that the finding was present and matched the given
     ///                   filter at the start of compare_duration and did not change
     ///                   state at read_time.
-    /// * &quot;ADDED&quot;:     indicates that the finding did not match the given filter or
+    /// * "ADDED":     indicates that the finding did not match the given filter or
     ///                   was not present at the start of compare_duration, but was
     ///                   present at read_time.
-    /// * &quot;REMOVED&quot;:   indicates that the finding was present and matched the
+    /// * "REMOVED":   indicates that the finding was present and matched the
     ///                   filter at the start of compare_duration, but did not match
     ///                   the filter at read_time.
     ///
     /// If compare_duration is not specified, then the only possible state_change
-    /// is &quot;UNUSED&quot;, which will be the state_change set for all findings present at
+    /// is "UNUSED", which will be the state_change set for all findings present at
     /// read_time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>compare_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// A field mask to specify the Finding fields to be listed in the response.
     /// An empty field mask will list all fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>field_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// The value returned by the last `ListFindingsResponse`; indicates
     /// that this is a continuation of a prior `ListFindings` call, and
     /// that the system should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return in a single response. Default is
     /// 10, minimum is 1, maximum is 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// Response message for listing findings.
@@ -4106,19 +4107,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFindingsResponse {
     <span class="doccomment">/// Findings matching the list request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>list_findings_results: ::prost::alloc::vec::Vec&lt;
         list_findings_response::ListFindingsResult,
     &gt;,
     <span class="doccomment">/// Time used for executing the list request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>read_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The total number of findings matching the query.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>total_size: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ListFindingsResponse`.
@@ -4128,13 +4129,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ListFindingsResult {
         <span class="doccomment">/// Finding matching the search request.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>finding: ::core::option::Option&lt;<span class="kw">super</span>::Finding&gt;,
         <span class="doccomment">/// State change of the finding between the points in time.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;list_findings_result::StateChange&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"list_findings_result::StateChange"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>state_change: i32,
         <span class="doccomment">/// Output only. Resource that is associated with this finding.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>resource: ::core::option::Option&lt;list_findings_result::Resource&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `ListFindingsResult`.
@@ -4146,24 +4147,24 @@
         </span><span class="kw">pub struct </span>Resource {
             <span class="doccomment">/// The full resource name of the resource. See:
             /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
             <span class="doccomment">/// The full resource name of project that the resource belongs to.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>project_name: ::prost::alloc::string::String,
             <span class="doccomment">/// The human readable name of project that the resource belongs to.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>project_display_name: ::prost::alloc::string::String,
-            <span class="doccomment">/// The full resource name of resource&#39;s parent.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+            <span class="doccomment">/// The full resource name of resource's parent.
+            </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
             </span><span class="kw">pub </span>parent_name: ::prost::alloc::string::String,
-            <span class="doccomment">/// The human readable name of resource&#39;s parent.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+            <span class="doccomment">/// The human readable name of resource's parent.
+            </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
             </span><span class="kw">pub </span>parent_display_name: ::prost::alloc::string::String,
             <span class="doccomment">/// Contains a Folder message for each folder in the assets ancestry.
             /// The first folder is the deepest nested folder, and the last folder is
             /// the folder directly under the Organization.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
             </span><span class="kw">pub </span>folders: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::Folder&gt;,
         }
         <span class="doccomment">/// The change in state of the finding.
@@ -4206,44 +4207,44 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    StateChange::Unused =&gt; <span class="string">&quot;UNUSED&quot;</span>,
-                    StateChange::Changed =&gt; <span class="string">&quot;CHANGED&quot;</span>,
-                    StateChange::Unchanged =&gt; <span class="string">&quot;UNCHANGED&quot;</span>,
-                    StateChange::Added =&gt; <span class="string">&quot;ADDED&quot;</span>,
-                    StateChange::Removed =&gt; <span class="string">&quot;REMOVED&quot;</span>,
+                    StateChange::Unused =&gt; <span class="string">"UNUSED"</span>,
+                    StateChange::Changed =&gt; <span class="string">"CHANGED"</span>,
+                    StateChange::Unchanged =&gt; <span class="string">"UNCHANGED"</span>,
+                    StateChange::Added =&gt; <span class="string">"ADDED"</span>,
+                    StateChange::Removed =&gt; <span class="string">"REMOVED"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;UNUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unused),
-                    <span class="string">&quot;CHANGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Changed),
-                    <span class="string">&quot;UNCHANGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unchanged),
-                    <span class="string">&quot;ADDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Added),
-                    <span class="string">&quot;REMOVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Removed),
+                    <span class="string">"UNUSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unused),
+                    <span class="string">"CHANGED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Changed),
+                    <span class="string">"UNCHANGED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unchanged),
+                    <span class="string">"ADDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Added),
+                    <span class="string">"REMOVED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Removed),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
         }
     }
 }
-<span class="doccomment">/// Request message for updating a finding&#39;s state.
+<span class="doccomment">/// Request message for updating a finding's state.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SetFindingStateRequest {
     <span class="doccomment">/// Required. The relative resource name of the finding. See:
     /// &lt;https://cloud.google.com/apis/design/resource_names#relative_resource_name&gt;
     /// Example:
-    /// &quot;organizations/{organization_id}/sources/{source_id}/finding/{finding_id}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/{organization_id}/sources/{source_id}/finding/{finding_id}".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The desired State of the finding.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;finding::State&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"finding::State"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Required. The time at which the updated state takes effect.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request message for running asset discovery for an organization.
@@ -4251,8 +4252,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RunAssetDiscoveryRequest {
     <span class="doccomment">/// Required. Name of the organization to run asset discovery for. Its format is
-    /// &quot;organizations/\[organization_id\]&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/\[organization_id\]".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for updating or creating a finding.
@@ -4265,16 +4266,16 @@
     /// In the case of creation, the finding id portion of the name must be
     /// alphanumeric and less than or equal to 32 characters and greater than 0
     /// characters in length.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>finding: ::core::option::Option&lt;Finding&gt;,
     <span class="doccomment">/// The FieldMask to use when updating the finding resource. This field should
     /// not be specified when creating a finding.
     ///
     /// When updating a finding, an empty mask is treated as updating all mutable
     /// fields and replacing source_properties.  Individual source_properties can
-    /// be added/updated by using &quot;source_properties.&lt;property key&gt;&quot; in the field
+    /// be added/updated by using "source_properties.&lt;property key&gt;" in the field
     /// mask.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for updating a notification config.
@@ -4282,25 +4283,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateNotificationConfigRequest {
     <span class="doccomment">/// Required. The notification config to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>notification_config: ::core::option::Option&lt;NotificationConfig&gt;,
     <span class="doccomment">/// The FieldMask to use when updating the notification config.
     ///
     /// If empty all mutable fields will be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
-<span class="doccomment">/// Request message for updating an organization&#39;s settings.
+<span class="doccomment">/// Request message for updating an organization's settings.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateOrganizationSettingsRequest {
     <span class="doccomment">/// Required. The organization settings resource to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>organization_settings: ::core::option::Option&lt;OrganizationSettings&gt;,
     <span class="doccomment">/// The FieldMask to use when updating the settings resource.
     ///
     /// If empty all mutable fields will be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for updating a source.
@@ -4308,12 +4309,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateSourceRequest {
     <span class="doccomment">/// Required. The source resource to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;Source&gt;,
     <span class="doccomment">/// The FieldMask to use when updating the source resource.
     ///
     /// If empty all mutable fields will be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for updating a SecurityMarks resource.
@@ -4321,19 +4322,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateSecurityMarksRequest {
     <span class="doccomment">/// Required. The security marks resource to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>security_marks: ::core::option::Option&lt;SecurityMarks&gt;,
     <span class="doccomment">/// The FieldMask to use when updating the security marks resource.
     ///
     /// The field mask must not contain duplicate fields.
-    /// If empty or set to &quot;marks&quot;, all marks will be replaced.  Individual
-    /// marks can be updated using &quot;marks.&lt;mark_key&gt;&quot;.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// If empty or set to "marks", all marks will be replaced.  Individual
+    /// marks can be updated using "marks.&lt;mark_key&gt;".
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// The time at which the updated SecurityMarks take effect.
     /// If not set uses current server time.  Updates will be applied to the
     /// SecurityMarks that are active immediately preceding this time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -4350,7 +4351,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4422,19 +4423,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/CreateSource&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/CreateSource"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;CreateSource&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"CreateSource"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4451,19 +4452,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/CreateFinding&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/CreateFinding"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;CreateFinding&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"CreateFinding"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4482,19 +4483,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/CreateNotificationConfig&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/CreateNotificationConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;CreateNotificationConfig&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"CreateNotificationConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4510,19 +4511,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/DeleteNotificationConfig&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/DeleteNotificationConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;DeleteNotificationConfig&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"DeleteNotificationConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4543,19 +4544,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;GetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"GetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4574,19 +4575,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GetNotificationConfig&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GetNotificationConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;GetNotificationConfig&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"GetNotificationConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4605,19 +4606,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GetOrganizationSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GetOrganizationSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;GetOrganizationSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"GetOrganizationSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4633,24 +4634,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GetSource&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GetSource"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;GetSource&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"GetSource"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Filters an organization&#39;s assets and  groups them by their specified
+        <span class="doccomment">/// Filters an organization's assets and  groups them by their specified
         /// properties.
         </span><span class="kw">pub async fn </span>group_assets(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -4665,24 +4666,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GroupAssets&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GroupAssets"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;GroupAssets&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"GroupAssets"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Filters an organization or source&#39;s findings and  groups them by their
+        <span class="doccomment">/// Filters an organization or source's findings and  groups them by their
         /// specified properties.
         ///
         /// To group across all sources provide a `-` as the source id.
@@ -4702,24 +4703,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GroupFindings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/GroupFindings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;GroupFindings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"GroupFindings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Lists an organization&#39;s assets.
+        <span class="doccomment">/// Lists an organization's assets.
         </span><span class="kw">pub async fn </span>list_assets(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListAssetsRequest&gt;,
@@ -4733,24 +4734,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/ListAssets&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/ListAssets"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;ListAssets&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"ListAssets"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Lists an organization or source&#39;s findings.
+        <span class="doccomment">/// Lists an organization or source's findings.
         ///
         /// To list across all sources provide a `-` as the source id.
         /// Example: /v1p1beta1/organizations/{organization_id}/sources/-/findings
@@ -4767,19 +4768,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/ListFindings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/ListFindings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;ListFindings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"ListFindings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4798,19 +4799,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/ListNotificationConfigs&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/ListNotificationConfigs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;ListNotificationConfigs&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"ListNotificationConfigs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4829,19 +4830,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/ListSources&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/ListSources"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;ListSources&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"ListSources"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4865,19 +4866,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/RunAssetDiscovery&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/RunAssetDiscovery"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;RunAssetDiscovery&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"RunAssetDiscovery"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4893,19 +4894,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/SetFindingState&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/SetFindingState"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;SetFindingState&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"SetFindingState"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4926,19 +4927,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/SetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/SetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;SetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"SetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4961,19 +4962,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/TestIamPermissions&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/TestIamPermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;TestIamPermissions&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"TestIamPermissions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4990,19 +4991,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/UpdateFinding&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/UpdateFinding"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;UpdateFinding&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"UpdateFinding"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5022,24 +5023,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/UpdateNotificationConfig&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/UpdateNotificationConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;UpdateNotificationConfig&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"UpdateNotificationConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Updates an organization&#39;s settings.
+        <span class="doccomment">/// Updates an organization's settings.
         </span><span class="kw">pub async fn </span>update_organization_settings(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UpdateOrganizationSettingsRequest&gt;,
@@ -5053,19 +5054,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/UpdateOrganizationSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/UpdateOrganizationSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;UpdateOrganizationSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"UpdateOrganizationSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5081,19 +5082,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/UpdateSource&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/UpdateSource"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;UpdateSource&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"UpdateSource"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5109,19 +5110,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.v1p1beta1.SecurityCenter/UpdateSecurityMarks&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.v1p1beta1.SecurityCenter/UpdateSecurityMarks"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.v1p1beta1.SecurityCenter&quot;</span>,
-                        <span class="string">&quot;UpdateSecurityMarks&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.v1p1beta1.SecurityCenter"</span>,
+                        <span class="string">"UpdateSecurityMarks"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

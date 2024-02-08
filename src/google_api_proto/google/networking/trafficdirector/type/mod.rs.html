@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/networking/trafficdirector/type/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/networking/trafficdirector/type/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -154,7 +155,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TrafficDirectorLogEntry {
     <span class="doccomment">/// An ID of xDS-client connecting to the Traffic Director.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>node_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The string representation of IPv4 or IPv6 address of xDS-client
     /// connecting to the Traffic Director.
@@ -162,19 +163,19 @@
     /// by a period. Size of a string is between 7-15 characters. Example: 1.2.3.4
     /// IPv6 address must be in one of the formats defined in RFC4291. Size of a
     /// string is between 7-39 characters. Example: 2001:DB8:0:0:8:800:200C:417A
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>node_ip: ::prost::alloc::string::String,
     <span class="doccomment">/// A free text describing details of the event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Type of xDS-client connecting to Traffic Director
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;traffic_director_log_entry::ClientType&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"traffic_director_log_entry::ClientType"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>client_type: i32,
     <span class="doccomment">/// The version of xDS-client connecting to Traffic Director.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>client_version: ::prost::alloc::string::String,
     <span class="doccomment">/// The xDS API version used by xDS clients connecting to Traffic Director.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;traffic_director_log_entry::TransportApiVersion&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"traffic_director_log_entry::TransportApiVersion"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>transport_api_version: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `TrafficDirectorLogEntry`.
@@ -221,35 +222,35 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ClientType::Unspecified =&gt; <span class="string">&quot;CLIENT_TYPE_UNSPECIFIED&quot;</span>,
-                ClientType::Envoy =&gt; <span class="string">&quot;ENVOY&quot;</span>,
-                ClientType::GrpcJava =&gt; <span class="string">&quot;GRPC_JAVA&quot;</span>,
-                ClientType::GrpcCpp =&gt; <span class="string">&quot;GRPC_CPP&quot;</span>,
-                ClientType::GrpcPython =&gt; <span class="string">&quot;GRPC_PYTHON&quot;</span>,
-                ClientType::GrpcGo =&gt; <span class="string">&quot;GRPC_GO&quot;</span>,
-                ClientType::GrpcRuby =&gt; <span class="string">&quot;GRPC_RUBY&quot;</span>,
-                ClientType::GrpcPhp =&gt; <span class="string">&quot;GRPC_PHP&quot;</span>,
-                ClientType::GrpcNode =&gt; <span class="string">&quot;GRPC_NODE&quot;</span>,
-                ClientType::GrpcCsharp =&gt; <span class="string">&quot;GRPC_CSHARP&quot;</span>,
-                ClientType::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
+                ClientType::Unspecified =&gt; <span class="string">"CLIENT_TYPE_UNSPECIFIED"</span>,
+                ClientType::Envoy =&gt; <span class="string">"ENVOY"</span>,
+                ClientType::GrpcJava =&gt; <span class="string">"GRPC_JAVA"</span>,
+                ClientType::GrpcCpp =&gt; <span class="string">"GRPC_CPP"</span>,
+                ClientType::GrpcPython =&gt; <span class="string">"GRPC_PYTHON"</span>,
+                ClientType::GrpcGo =&gt; <span class="string">"GRPC_GO"</span>,
+                ClientType::GrpcRuby =&gt; <span class="string">"GRPC_RUBY"</span>,
+                ClientType::GrpcPhp =&gt; <span class="string">"GRPC_PHP"</span>,
+                ClientType::GrpcNode =&gt; <span class="string">"GRPC_NODE"</span>,
+                ClientType::GrpcCsharp =&gt; <span class="string">"GRPC_CSHARP"</span>,
+                ClientType::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CLIENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENVOY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Envoy),
-                <span class="string">&quot;GRPC_JAVA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcJava),
-                <span class="string">&quot;GRPC_CPP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcCpp),
-                <span class="string">&quot;GRPC_PYTHON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcPython),
-                <span class="string">&quot;GRPC_GO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcGo),
-                <span class="string">&quot;GRPC_RUBY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcRuby),
-                <span class="string">&quot;GRPC_PHP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcPhp),
-                <span class="string">&quot;GRPC_NODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcNode),
-                <span class="string">&quot;GRPC_CSHARP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcCsharp),
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"CLIENT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ENVOY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Envoy),
+                <span class="string">"GRPC_JAVA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcJava),
+                <span class="string">"GRPC_CPP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcCpp),
+                <span class="string">"GRPC_PYTHON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcPython),
+                <span class="string">"GRPC_GO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcGo),
+                <span class="string">"GRPC_RUBY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcRuby),
+                <span class="string">"GRPC_PHP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcPhp),
+                <span class="string">"GRPC_NODE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcNode),
+                <span class="string">"GRPC_CSHARP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GrpcCsharp),
+                <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -280,19 +281,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                TransportApiVersion::Unspecified =&gt; <span class="string">&quot;TRANSPORT_API_VERSION_UNSPECIFIED&quot;</span>,
-                TransportApiVersion::V2 =&gt; <span class="string">&quot;V2&quot;</span>,
-                TransportApiVersion::V3 =&gt; <span class="string">&quot;V3&quot;</span>,
+                TransportApiVersion::Unspecified =&gt; <span class="string">"TRANSPORT_API_VERSION_UNSPECIFIED"</span>,
+                TransportApiVersion::V2 =&gt; <span class="string">"V2"</span>,
+                TransportApiVersion::V3 =&gt; <span class="string">"V3"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TRANSPORT_API_VERSION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;V2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2),
-                <span class="string">&quot;V3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V3),
+                <span class="string">"TRANSPORT_API_VERSION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"V2" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2),
+                <span class="string">"V3" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V3),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }

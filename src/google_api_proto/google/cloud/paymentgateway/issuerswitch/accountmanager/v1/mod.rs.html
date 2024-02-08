@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/paymentgateway/issuerswitch/accountmanager/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../../" data-static-root-path="../../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../../src-files.js"></script><script defer src="../../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/paymentgateway/issuerswitch/accountmanager/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../../" data-static-root-path="../../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../../src-files.js"></script><script defer src="../../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1070,27 +1071,27 @@
     <span class="doccomment">/// The name of the transaction. This uniquely identifies the
     /// transaction. Format of name is
     /// projects/{project}/accountManagers/{account_manager}/transactions/{transaction}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The account ID for which the transaction was processed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>account_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Information about the transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>info: ::core::option::Option&lt;AccountManagerTransactionInfo&gt;,
     <span class="doccomment">/// The payer in the transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>payer: ::core::option::Option&lt;AccountManagerSettlementParticipant&gt;,
     <span class="doccomment">/// The payee in the transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>payee: ::core::option::Option&lt;AccountManagerSettlementParticipant&gt;,
     <span class="doccomment">/// Reconciliation information for the transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>reconciliation_info: ::core::option::Option&lt;
         AccountManagerTransactionReconciliationInfo,
     &gt;,
     <span class="doccomment">/// The amount for payment settlement in the transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>amount: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
 }
 <span class="doccomment">/// Information about a transaction processed by the account manager.
@@ -1099,22 +1100,22 @@
 </span><span class="kw">pub struct </span>AccountManagerTransactionInfo {
     <span class="doccomment">/// An identifier that is mandatorily present in every transaction processed
     /// via account manager.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// The transaction type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AccountManagerTransactionType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"AccountManagerTransactionType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>transaction_type: i32,
-    <span class="doccomment">/// Output only. The transaction&#39;s state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;account_manager_transaction_info::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// Output only. The transaction's state.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"account_manager_transaction_info::State"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Metadata about the transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;
         account_manager_transaction_info::AccountManagerTransactionMetadata,
     &gt;,
     <span class="doccomment">/// Output only. Any error details for the current transaction, if the state is
     /// `FAILED`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>error_details: ::core::option::Option&lt;
         account_manager_transaction_info::AccountManagerTransactionErrorDetails,
     &gt;,
@@ -1126,24 +1127,24 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AccountManagerTransactionMetadata {
         <span class="doccomment">/// The time at which the transaction took place.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>transaction_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// Output only. The time at which the transaction resource was created by
         /// the account manager.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// Output only. The time at which the transaction resource was last updated
         /// by the account manager.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// Retrieval reference number (RRN) for the transaction.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>retrieval_reference_number: ::prost::alloc::string::String,
         <span class="doccomment">/// The initiation mode of this transaction.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>initiation_mode: ::prost::alloc::string::String,
         <span class="doccomment">/// The purpose code of this transaction.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>purpose_code: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// All details about any error in the processing of a transaction.
@@ -1151,10 +1152,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AccountManagerTransactionErrorDetails {
         <span class="doccomment">/// Output only. Error code of the failed transaction.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>error_code: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. Error description for the failed transaction.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Specifies the current state of the transaction.
@@ -1183,19 +1184,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1208,11 +1209,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AccountManagerSettlementParticipant {
     <span class="doccomment">/// The participant information.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>participant: ::core::option::Option&lt;AccountManagerParticipant&gt;,
     <span class="doccomment">/// Information about a merchant who is a participant in the payment. This
     /// field will be specified only if the participant is a merchant.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>merchant_info: ::core::option::Option&lt;AccountManagerMerchantInfo&gt;,
 }
 <span class="doccomment">/// A participant in a transaction processed by the account manager.
@@ -1221,13 +1222,13 @@
 </span><span class="kw">pub struct </span>AccountManagerParticipant {
     <span class="doccomment">/// The payment address of the participant. In the UPI system, this will be the
     /// virtual payment address (VPA) of the participant.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>payment_address: ::prost::alloc::string::String,
     <span class="doccomment">/// The persona of the participant.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;account_manager_participant::Persona&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"account_manager_participant::Persona"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>persona: i32,
     <span class="doccomment">/// Unique identification of an account.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>account: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::v1::AccountReference&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AccountManagerParticipant`.
@@ -1258,19 +1259,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Persona::Unspecified =&gt; <span class="string">&quot;PERSONA_UNSPECIFIED&quot;</span>,
-                Persona::Entity =&gt; <span class="string">&quot;ENTITY&quot;</span>,
-                Persona::Person =&gt; <span class="string">&quot;PERSON&quot;</span>,
+                Persona::Unspecified =&gt; <span class="string">"PERSONA_UNSPECIFIED"</span>,
+                Persona::Entity =&gt; <span class="string">"ENTITY"</span>,
+                Persona::Person =&gt; <span class="string">"PERSON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PERSONA_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENTITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Entity),
-                <span class="string">&quot;PERSON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Person),
+                <span class="string">"PERSONA_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ENTITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Entity),
+                <span class="string">"PERSON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Person),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1282,10 +1283,10 @@
 </span><span class="kw">pub struct </span>AccountManagerMerchantInfo {
     <span class="doccomment">/// Merchant Category Code (MCC) as specified by UPI. This is a four-digit
     /// number listed in ISO 18245 for retail financial services.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>category_code: ::prost::alloc::string::String,
     <span class="doccomment">/// ID of the merchant.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Reconciliation information for a transaction processed by account manager.
@@ -1294,12 +1295,12 @@
 </span><span class="kw">pub struct </span>AccountManagerTransactionReconciliationInfo {
     <span class="doccomment">/// Output only. State of reconciliation.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;account_manager_transaction_reconciliation_info::ReconciliationState&quot;</span>,
-        tag = <span class="string">&quot;1&quot;
+        enumeration = <span class="string">"account_manager_transaction_reconciliation_info::ReconciliationState"</span>,
+        tag = <span class="string">"1"
     </span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Time at which reconciliation was performed for the transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>reconciliation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AccountManagerTransactionReconciliationInfo`.
@@ -1330,19 +1331,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ReconciliationState::Unspecified =&gt; <span class="string">&quot;RECONCILIATION_STATE_UNSPECIFIED&quot;</span>,
-                ReconciliationState::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                ReconciliationState::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                ReconciliationState::Unspecified =&gt; <span class="string">"RECONCILIATION_STATE_UNSPECIFIED"</span>,
+                ReconciliationState::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                ReconciliationState::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RECONCILIATION_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"RECONCILIATION_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1354,7 +1355,7 @@
 </span><span class="kw">pub struct </span>ExportAccountManagerTransactionsRequest {
     <span class="doccomment">/// Required. The parent resource for the transactions. The format is
     /// `projects/{project}/accountManagers/{account_manager}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Transaction type of an account manager transaction. The possible
     /// values for transaction type are
@@ -1366,13 +1367,13 @@
     ///
     /// If no transaction type is specified, records of all the above transaction
     /// types will be exported.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AccountManagerTransactionType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"AccountManagerTransactionType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>transaction_type: i32,
     <span class="doccomment">/// Optional. The start time for the query.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. The end time for the query.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request for the `ListAccountManagerTransactions` method. Callers can request
@@ -1383,7 +1384,7 @@
 </span><span class="kw">pub struct </span>ListAccountManagerTransactionsRequest {
     <span class="doccomment">/// Required. The parent resource. The format is
     /// `projects/{project}/accountManagers/{account_manager}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of transactions to return. The service may
     /// return fewer than this value. If unspecified or if the specified value is
@@ -1391,7 +1392,7 @@
     /// 1000; values above 1000 will be coerced to 1000. While paginating, you can
     /// specify a new page size parameter for each page of transactions to be
     /// listed.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A page token, received from a previous
     /// `ListAccountManagerTransactions` call. Specify this parameter to retrieve
@@ -1402,7 +1403,7 @@
     /// `ListAccountManagerTransactions` method that returned the page token will
     /// be reused for all further calls where the page token parameter is
     /// specified.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. An expression that filters the list of transactions.
     ///
@@ -1433,13 +1434,13 @@
     /// Here are a few examples:
     ///
     ///    * `rrn = 123456789123` - The RRN is _123456789123_.
-    ///    * `(accountID = 12345678) AND (transactionTime &lt; &quot;2021-08-15T14:50:00Z&quot;)`
+    ///    * `(accountID = 12345678) AND (transactionTime &lt; "2021-08-15T14:50:00Z")`
     ///    - The accountID is 12345678 and the transaction was received
     ///    before _2021-08-15 14:50:00 UTC_.
-    ///    * `transactionTime &gt; &quot;2021-08-15T14:50:00Z&quot; AND transactionTime &lt;
-    ///    &quot;2021-08-16T14:50:00Z&quot;` - The transaction was received between
+    ///    * `transactionTime &gt; "2021-08-15T14:50:00Z" AND transactionTime &lt;
+    ///    "2021-08-16T14:50:00Z"` - The transaction was received between
     ///    _2021-08-15 14:50:00 UTC_ and _2021-08-16 14:50:00 UTC_.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for the `ListAccountManagerTransactions` method.
@@ -1447,14 +1448,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAccountManagerTransactionsResponse {
     <span class="doccomment">/// List of account manager transactions satisfying the filtered request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>account_manager_transactions: ::prost::alloc::vec::Vec&lt;
         AccountManagerTransaction,
     &gt;,
     <span class="doccomment">/// Pass this token in the ListAccountManagerTransactionsRequest to continue to
     /// list results. If all results have been returned, this field is an empty
     /// string or not present in the response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Reconciliation request for an account manager transaction.
@@ -1462,7 +1463,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReconcileAccountManagerTransactionsRequest {
     <span class="doccomment">/// Required. The transaction that will be reconciled.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;AccountManagerTransaction&gt;,
 }
 <span class="doccomment">/// Request for the `BatchReconcileAccountManagerTransactions` method.
@@ -1471,11 +1472,11 @@
 </span><span class="kw">pub struct </span>BatchReconcileAccountManagerTransactionsRequest {
     <span class="doccomment">/// Required. The parent resource. The format is
     /// `projects/{project}/accountManagers/{account_manager}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The request message specifying the transaction to reconcile.
     /// A maximum of 200 transactions can be reconciled in a batch.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>requests: ::prost::alloc::vec::Vec&lt;ReconcileAccountManagerTransactionsRequest&gt;,
 }
 <span class="doccomment">/// Response for the `BatchReconcileAccountManagerTransactions` method.
@@ -1483,7 +1484,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchReconcileAccountManagerTransactionsResponse {
     <span class="doccomment">/// List of transactions reconciled.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>account_manager_transactions: ::prost::alloc::vec::Vec&lt;
         AccountManagerTransaction,
     &gt;,
@@ -1509,25 +1510,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             AccountManagerTransactionType::Unspecified =&gt; {
-                <span class="string">&quot;ACCOUNT_MANAGER_TRANSACTION_TYPE_UNSPECIFIED&quot;
+                <span class="string">"ACCOUNT_MANAGER_TRANSACTION_TYPE_UNSPECIFIED"
             </span>}
-            AccountManagerTransactionType::Credit =&gt; <span class="string">&quot;CREDIT&quot;</span>,
-            AccountManagerTransactionType::CreditReversal =&gt; <span class="string">&quot;CREDIT_REVERSAL&quot;</span>,
-            AccountManagerTransactionType::Debit =&gt; <span class="string">&quot;DEBIT&quot;</span>,
-            AccountManagerTransactionType::DebitReversal =&gt; <span class="string">&quot;DEBIT_REVERSAL&quot;</span>,
+            AccountManagerTransactionType::Credit =&gt; <span class="string">"CREDIT"</span>,
+            AccountManagerTransactionType::CreditReversal =&gt; <span class="string">"CREDIT_REVERSAL"</span>,
+            AccountManagerTransactionType::Debit =&gt; <span class="string">"DEBIT"</span>,
+            AccountManagerTransactionType::DebitReversal =&gt; <span class="string">"DEBIT_REVERSAL"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;ACCOUNT_MANAGER_TRANSACTION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;CREDIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Credit),
-            <span class="string">&quot;CREDIT_REVERSAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreditReversal),
-            <span class="string">&quot;DEBIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Debit),
-            <span class="string">&quot;DEBIT_REVERSAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DebitReversal),
+            <span class="string">"ACCOUNT_MANAGER_TRANSACTION_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"CREDIT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Credit),
+            <span class="string">"CREDIT_REVERSAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreditReversal),
+            <span class="string">"DEBIT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Debit),
+            <span class="string">"DEBIT_REVERSAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DebitReversal),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1546,7 +1547,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1659,11 +1660,11 @@
         /// 1. `PayerIFSC`
         ///     * **Min Length** - 11 characters
         ///     * **Max Length** - 11 characters
-        ///     * **Description** - IFSC of the payer&#39;s bank account.
+        ///     * **Description** - IFSC of the payer's bank account.
         /// 1. `PayerAccountNumber`
         ///     * **Min Length** - 1 characters
         ///     * **Max Length** - 30 characters
-        ///     * **Description** - Payer&#39;s bank account number.
+        ///     * **Description** - Payer's bank account number.
         /// 1. `PayeeVPA`
         ///     * **Min Length** - 3 characters
         ///     * **Max Length** - 255 characters
@@ -1671,20 +1672,20 @@
         /// 1. `PayeeIFSC`
         ///     * **Min Length** - 11 characters
         ///     * **Max Length** - 11 characters
-        ///     * **Description** - IFSC of the payee&#39;s bank account.
+        ///     * **Description** - IFSC of the payee's bank account.
         /// 1. `PayeeAccountNumber`
         ///     * **Min Length** - 1 characters
         ///     * **Max Length** - 30 characters
-        ///     * **Description** - Payee&#39;s bank account number.
+        ///     * **Description** - Payee's bank account number.
         /// 1. `PayeeMCC`
         ///     * **Min Length** - 4 characters
         ///     * **Max Length** - 4 characters
-        ///     * **Description** - Payee&#39;s Merchant Category Code (MCC), only if the
+        ///     * **Description** - Payee's Merchant Category Code (MCC), only if the
         ///     payee is a merchant.
         /// 1. `PayeeMerchantID`
         ///     * **Min Length** - 4 characters
         ///     * **Max Length** - 4 characters
-        ///     * **Description** - Payee&#39;s merchant ID, only if the payee is a
+        ///     * **Description** - Payee's merchant ID, only if the payee is a
         ///     merchant.
         /// 1. `Currency`
         ///     * **Min Length** - 3 characters
@@ -1725,19 +1726,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions/ExportAccountManagerTransactions&quot;</span>,
+                <span class="string">"/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions/ExportAccountManagerTransactions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions&quot;</span>,
-                        <span class="string">&quot;ExportAccountManagerTransactions&quot;</span>,
+                        <span class="string">"google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions"</span>,
+                        <span class="string">"ExportAccountManagerTransactions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1758,19 +1759,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions/ListAccountManagerTransactions&quot;</span>,
+                <span class="string">"/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions/ListAccountManagerTransactions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions&quot;</span>,
-                        <span class="string">&quot;ListAccountManagerTransactions&quot;</span>,
+                        <span class="string">"google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions"</span>,
+                        <span class="string">"ListAccountManagerTransactions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1792,19 +1793,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions/BatchReconcileAccountManagerTransactions&quot;</span>,
+                <span class="string">"/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions/BatchReconcileAccountManagerTransactions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions&quot;</span>,
-                        <span class="string">&quot;BatchReconcileAccountManagerTransactions&quot;</span>,
+                        <span class="string">"google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions"</span>,
+                        <span class="string">"BatchReconcileAccountManagerTransactions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1820,32 +1821,32 @@
     /// projects/{project}/accountManagers/{account_manager}/accounts/{account}
     /// When account manager is used for managing UPI Lite transactions,
     /// `{account}` is the Lite Reference Number (LRN).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The associated bank account information.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>account_reference: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::v1::AccountReference&gt;,
     <span class="doccomment">/// Output only. State of the account.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;managed_account::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"managed_account::State"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Required. Current balance of the account.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>balance: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money,
     &gt;,
     <span class="doccomment">/// Output only. State of the last reconciliation done on the account.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;managed_account::AccountReconciliationState&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"managed_account::AccountReconciliationState"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>last_reconciliation_state: i32,
     <span class="doccomment">/// Output only. Time at which last reconciliation was done on the account.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>last_reconciliation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time at which the account was created by the account
     /// manager.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time at which the account was last updated by the account
     /// manager.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ManagedAccount`.
@@ -1876,19 +1877,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Deactivated =&gt; <span class="string">&quot;DEACTIVATED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Deactivated =&gt; <span class="string">"DEACTIVATED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;DEACTIVATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deactivated),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"DEACTIVATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deactivated),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1919,21 +1920,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
                 AccountReconciliationState::Unspecified =&gt; {
-                    <span class="string">&quot;ACCOUNT_RECONCILIATION_STATE_UNSPECIFIED&quot;
+                    <span class="string">"ACCOUNT_RECONCILIATION_STATE_UNSPECIFIED"
                 </span>}
-                AccountReconciliationState::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                AccountReconciliationState::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                AccountReconciliationState::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                AccountReconciliationState::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACCOUNT_RECONCILIATION_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"ACCOUNT_RECONCILIATION_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1944,16 +1945,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReconcileManagedAccountBalanceRequest {
     <span class="doccomment">/// Required. Account that needs to be reconciled.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>account: ::core::option::Option&lt;ManagedAccount&gt;,
     <span class="doccomment">/// Required. Expected balance amount for the account.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>expected_balance: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money,
     &gt;,
     <span class="doccomment">/// Required. Timestamp to be taken as reference for reconciling the balance
     /// amount.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>reference_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request for the `BatchReconcileManagedAccountBalance` method.
@@ -1962,11 +1963,11 @@
 </span><span class="kw">pub struct </span>BatchReconcileManagedAccountBalanceRequest {
     <span class="doccomment">/// Required. The parent resource. The format is
     /// `projects/{project}/accountManagers/{account_manager}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The request message specifying the accounts to reconcile.
     /// A maximum of 200 account balances can be reconciled in a batch.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>requests: ::prost::alloc::vec::Vec&lt;ReconcileManagedAccountBalanceRequest&gt;,
 }
 <span class="doccomment">/// Response for the `BatchReconcileManagedAccountBalance` method.
@@ -1974,7 +1975,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchReconcileManagedAccountBalanceResponse {
     <span class="doccomment">/// Accounts whose balances were reconciled.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>accounts: ::prost::alloc::vec::Vec&lt;ManagedAccount&gt;,
 }
 <span class="doccomment">/// Request for the `GetManagedAccount` method.
@@ -1986,7 +1987,7 @@
     /// `projects/{project}/accountManagers/{account_manager}/accounts/{account}`
     /// When account manager is used for managing UPI Lite transactions, {account}
     /// should be the Lite Reference Number (LRN).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2004,7 +2005,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2081,19 +2082,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts/BatchReconcileManagedAccountBalance&quot;</span>,
+                <span class="string">"/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts/BatchReconcileManagedAccountBalance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts&quot;</span>,
-                        <span class="string">&quot;BatchReconcileManagedAccountBalance&quot;</span>,
+                        <span class="string">"google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts"</span>,
+                        <span class="string">"BatchReconcileManagedAccountBalance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2109,19 +2110,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts/GetManagedAccount&quot;</span>,
+                <span class="string">"/google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts/GetManagedAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts&quot;</span>,
-                        <span class="string">&quot;GetManagedAccount&quot;</span>,
+                        <span class="string">"google.cloud.paymentgateway.issuerswitch.accountmanager.v1.ManagedAccounts"</span>,
+                        <span class="string">"GetManagedAccount"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/scheduler/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/scheduler/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1185,27 +1186,27 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HttpTarget {
     <span class="doccomment">/// Required. The full URI path that the request will be sent to. This string
-    /// must begin with either &quot;&lt;http://&quot;&gt; or &quot;&lt;https://&quot;.&gt; Some examples of
+    /// must begin with either "&lt;http://"&gt; or "&lt;https://".&gt; Some examples of
     /// valid values for [uri][google.cloud.scheduler.v1beta1.HttpTarget.uri] are:
     /// `&lt;http://acme.com`&gt; and `&lt;https://acme.com/sales:8080`.&gt; Cloud Scheduler will
     /// encode some characters for safety and compatibility. The maximum allowed
     /// URL length is 2083 characters after encoding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Which HTTP method to use for the request.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HttpMethod&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HttpMethod"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>http_method: i32,
-    <span class="doccomment">/// The user can specify HTTP request headers to send with the job&#39;s
+    <span class="doccomment">/// The user can specify HTTP request headers to send with the job's
     /// HTTP request. This map contains the header field names and
     /// values. Repeated headers are not supported, but a header value can
     /// contain commas. These headers represent a subset of the headers
-    /// that will accompany the job&#39;s HTTP request. Some HTTP request
+    /// that will accompany the job's HTTP request. Some HTTP request
     /// headers will be ignored or replaced. A partial list of headers that
     /// will be ignored or replaced is below:
     /// - Host: This will be computed by Cloud Scheduler and derived from
     /// [uri][google.cloud.scheduler.v1beta1.HttpTarget.uri].
     /// * `Content-Length`: This will be computed by Cloud Scheduler.
-    /// * `User-Agent`: This will be set to `&quot;Google-Cloud-Scheduler&quot;`.
+    /// * `User-Agent`: This will be set to `"Google-Cloud-Scheduler"`.
     /// * `X-Google-*`: Google internal use only.
     /// * `X-AppEngine-*`: Google internal use only.
     /// * `X-CloudScheduler`: This header will be set to true.
@@ -1215,7 +1216,7 @@
     /// offset of UTC parsed according to RFC3339.
     ///
     /// The total size of headers must be less than 80KB.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>headers: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1223,14 +1224,14 @@
     <span class="doccomment">/// HTTP request body. A request body is allowed only if the HTTP
     /// method is POST, PUT, or PATCH. It is an error to set body on a job with an
     /// incompatible [HttpMethod][google.cloud.scheduler.v1beta1.HttpMethod].
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>body: ::prost::bytes::Bytes,
     <span class="doccomment">/// The mode for generating an `Authorization` header for HTTP requests.
     ///
     /// If specified, all `Authorization` headers in the
     /// [HttpTarget.headers][google.cloud.scheduler.v1beta1.HttpTarget.headers]
     /// field will be overridden.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;http_target::AuthorizationHeader&quot;</span>, tags = <span class="string">&quot;5, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"http_target::AuthorizationHeader"</span>, tags = <span class="string">"5, 6"</span>)]
     </span><span class="kw">pub </span>authorization_header: ::core::option::Option&lt;http_target::AuthorizationHeader&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `HttpTarget`.
@@ -1250,7 +1251,7 @@
         ///
         /// This type of authorization should generally only be used when calling
         /// Google APIs hosted on *.googleapis.com.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>OauthToken(<span class="kw">super</span>::OAuthToken),
         <span class="doccomment">/// If specified, an
         /// [OIDC](&lt;https://developers.google.com/identity/protocols/OpenIDConnect&gt;)
@@ -1260,7 +1261,7 @@
         /// This type of authorization can be used for many scenarios, including
         /// calling Cloud Run, or endpoints where you intend to validate the token
         /// yourself.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>OidcToken(<span class="kw">super</span>::OidcToken),
     }
 }
@@ -1278,18 +1279,18 @@
 </span><span class="kw">pub struct </span>AppEngineHttpTarget {
     <span class="doccomment">/// The HTTP method to use for the request. PATCH and OPTIONS are not
     /// permitted.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HttpMethod&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HttpMethod"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>http_method: i32,
     <span class="doccomment">/// App Engine Routing setting for the job.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>app_engine_routing: ::core::option::Option&lt;AppEngineRouting&gt;,
     <span class="doccomment">/// The relative URI.
     ///
-    /// The relative URL must begin with &quot;/&quot; and must be a valid HTTP relative URL.
+    /// The relative URL must begin with "/" and must be a valid HTTP relative URL.
     /// It can contain a path, query string arguments, and `#` fragments.
-    /// If the relative URL is empty, then the root path &quot;/&quot; will be used.
+    /// If the relative URL is empty, then the root path "/" will be used.
     /// No spaces are allowed, and the maximum length allowed is 2083 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>relative_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// HTTP request headers.
     ///
@@ -1299,9 +1300,9 @@
     /// Cloud Scheduler sets some headers to default values:
     ///
     /// * `User-Agent`: By default, this header is
-    ///    `&quot;AppEngine-Google; (+&lt;http://code.google.com/appengine&gt;)&quot;`.
+    ///    `"AppEngine-Google; (+&lt;http://code.google.com/appengine&gt;)"`.
     ///    This header can be modified, but Cloud Scheduler will append
-    ///    `&quot;AppEngine-Google; (+&lt;http://code.google.com/appengine&gt;)&quot;` to the
+    ///    `"AppEngine-Google; (+&lt;http://code.google.com/appengine&gt;)"` to the
     ///    modified `User-Agent`.
     /// * `X-CloudScheduler`: This header will be set to true.
     /// * `X-CloudScheduler-JobName`: This header will contain the job name.
@@ -1314,10 +1315,10 @@
     /// Scheduler sets the following headers:
     ///
     /// * `Content-Type`: By default, the `Content-Type` header is set to
-    ///    `&quot;application/octet-stream&quot;`. The default can be overridden by explictly
+    ///    `"application/octet-stream"`. The default can be overridden by explictly
     ///    setting `Content-Type` to a particular media type when the job is
     ///    created.
-    ///    For example, `Content-Type` can be set to `&quot;application/json&quot;`.
+    ///    For example, `Content-Type` can be set to `"application/json"`.
     /// * `Content-Length`: This is computed by Cloud Scheduler. This value is
     ///    output only. It cannot be changed.
     ///
@@ -1328,7 +1329,7 @@
     ///
     /// In addition, some App Engine headers, which contain
     /// job-specific information, are also be sent to the job handler.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>headers: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1339,7 +1340,7 @@
     /// POST or PUT. It will result in invalid argument error to set a body on a
     /// job with an incompatible
     /// [HttpMethod][google.cloud.scheduler.v1beta1.HttpMethod].
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>body: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Pub/Sub target. The job will be delivered by publishing a message to
@@ -1349,24 +1350,24 @@
 </span><span class="kw">pub struct </span>PubsubTarget {
     <span class="doccomment">/// Required. The name of the Cloud Pub/Sub topic to which messages will
     /// be published when a job is delivered. The topic name must be in the
-    /// same format as required by Pub/Sub&#39;s
+    /// same format as required by Pub/Sub's
     /// [PublishRequest.name](&lt;https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#publishrequest&gt;),
     /// for example `projects/PROJECT_ID/topics/TOPIC_ID`.
     ///
     /// The topic must be in the same project as the Cloud Scheduler job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>topic_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The message payload for PubsubMessage.
     ///
     /// Pubsub message must contain either non-empty data, or at least one
     /// attribute.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>data: ::prost::bytes::Bytes,
     <span class="doccomment">/// Attributes for PubsubMessage.
     ///
     /// Pubsub message must contain either non-empty data, or at least one
     /// attribute.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>attributes: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1390,13 +1391,13 @@
     ///
     /// By default, the job is sent to the service which is the default
     /// service when the job is attempted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// App version.
     ///
     /// By default, the job is sent to the version which is the default
     /// version when the job is attempted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// App instance.
     ///
@@ -1411,7 +1412,7 @@
     /// routing](&lt;https://cloud.google.com/appengine/docs/standard/python/how-requests-are-routed&gt;)
     /// and [App Engine Flex request
     /// routing](&lt;https://cloud.google.com/appengine/docs/flexible/python/how-requests-are-routed&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The host that the job is sent to.
     ///
@@ -1422,17 +1423,17 @@
     ///
     ///
     /// * `host = \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[service\] + &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[version\] + &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[version_dot_service\]+ &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[instance\] + &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[instance_dot_service\] + &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[instance_dot_version\] + &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[instance_dot_version_dot_service\] + &#39;.&#39; + \[application_domain_name\]`
+    ///    `| \[service\] + '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[version\] + '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[version_dot_service\]+ '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[instance\] + '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[instance_dot_service\] + '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[instance_dot_version\] + '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[instance_dot_version_dot_service\] + '.' + \[application_domain_name\]`
     ///
     /// * `application_domain_name` = The domain name of the app, for
     ///    example &lt;app-id&gt;.appspot.com, which is associated with the
-    ///    job&#39;s project ID.
+    ///    job's project ID.
     ///
     /// * `service =`
     /// [service][google.cloud.scheduler.v1beta1.AppEngineRouting.service]
@@ -1441,7 +1442,7 @@
     /// [version][google.cloud.scheduler.v1beta1.AppEngineRouting.version]
     ///
     /// * `version_dot_service =`
-    ///    [version][google.cloud.scheduler.v1beta1.AppEngineRouting.version] `+ &#39;.&#39;
+    ///    [version][google.cloud.scheduler.v1beta1.AppEngineRouting.version] `+ '.'
     ///    +` [service][google.cloud.scheduler.v1beta1.AppEngineRouting.service]
     ///
     /// * `instance =`
@@ -1449,16 +1450,16 @@
     ///
     /// * `instance_dot_service =`
     ///    [instance][google.cloud.scheduler.v1beta1.AppEngineRouting.instance] `+
-    ///    &#39;.&#39; +` [service][google.cloud.scheduler.v1beta1.AppEngineRouting.service]
+    ///    '.' +` [service][google.cloud.scheduler.v1beta1.AppEngineRouting.service]
     ///
     /// * `instance_dot_version =`
     ///    [instance][google.cloud.scheduler.v1beta1.AppEngineRouting.instance] `+
-    ///    &#39;.&#39; +` [version][google.cloud.scheduler.v1beta1.AppEngineRouting.version]
+    ///    '.' +` [version][google.cloud.scheduler.v1beta1.AppEngineRouting.version]
     ///
     /// * `instance_dot_version_dot_service =`
     ///    [instance][google.cloud.scheduler.v1beta1.AppEngineRouting.instance] `+
-    ///    &#39;.&#39; +` [version][google.cloud.scheduler.v1beta1.AppEngineRouting.version]
-    ///    `+ &#39;.&#39; +`
+    ///    '.' +` [version][google.cloud.scheduler.v1beta1.AppEngineRouting.version]
+    ///    `+ '.' +`
     ///    [service][google.cloud.scheduler.v1beta1.AppEngineRouting.service]
     ///
     ///
@@ -1479,7 +1480,7 @@
     /// [instance][google.cloud.scheduler.v1beta1.AppEngineRouting.instance] is
     /// invalid, then the job will be sent to the default version of the default
     /// service when the job is attempted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>host: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Contains information needed for generating an
@@ -1493,12 +1494,12 @@
     /// to be used for generating OAuth token.
     /// The service account must be within the same project as the job. The caller
     /// must have iam.serviceAccounts.actAs permission for the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_account_email: ::prost::alloc::string::String,
     <span class="doccomment">/// OAuth scope to be used for generating OAuth access token.
-    /// If not specified, &quot;&lt;https://www.googleapis.com/auth/cloud-platform&quot;&gt;
+    /// If not specified, "&lt;https://www.googleapis.com/auth/cloud-platform"&gt;
     /// will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>scope: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Contains information needed for generating an
@@ -1514,11 +1515,11 @@
     /// to be used for generating OIDC token.
     /// The service account must be within the same project as the job. The caller
     /// must have iam.serviceAccounts.actAs permission for the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_account_email: ::prost::alloc::string::String,
     <span class="doccomment">/// Audience to be used when generating OIDC token. If not specified, the URI
     /// specified in target will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>audience: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The HTTP method used to execute the job.
@@ -1547,29 +1548,29 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            HttpMethod::Unspecified =&gt; <span class="string">&quot;HTTP_METHOD_UNSPECIFIED&quot;</span>,
-            HttpMethod::Post =&gt; <span class="string">&quot;POST&quot;</span>,
-            HttpMethod::Get =&gt; <span class="string">&quot;GET&quot;</span>,
-            HttpMethod::Head =&gt; <span class="string">&quot;HEAD&quot;</span>,
-            HttpMethod::Put =&gt; <span class="string">&quot;PUT&quot;</span>,
-            HttpMethod::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
-            HttpMethod::Patch =&gt; <span class="string">&quot;PATCH&quot;</span>,
-            HttpMethod::Options =&gt; <span class="string">&quot;OPTIONS&quot;</span>,
+            HttpMethod::Unspecified =&gt; <span class="string">"HTTP_METHOD_UNSPECIFIED"</span>,
+            HttpMethod::Post =&gt; <span class="string">"POST"</span>,
+            HttpMethod::Get =&gt; <span class="string">"GET"</span>,
+            HttpMethod::Head =&gt; <span class="string">"HEAD"</span>,
+            HttpMethod::Put =&gt; <span class="string">"PUT"</span>,
+            HttpMethod::Delete =&gt; <span class="string">"DELETE"</span>,
+            HttpMethod::Patch =&gt; <span class="string">"PATCH"</span>,
+            HttpMethod::Options =&gt; <span class="string">"OPTIONS"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;HTTP_METHOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;POST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Post),
-            <span class="string">&quot;GET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Get),
-            <span class="string">&quot;HEAD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Head),
-            <span class="string">&quot;PUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Put),
-            <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
-            <span class="string">&quot;PATCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Patch),
-            <span class="string">&quot;OPTIONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Options),
+            <span class="string">"HTTP_METHOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"POST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Post),
+            <span class="string">"GET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Get),
+            <span class="string">"HEAD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Head),
+            <span class="string">"PUT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Put),
+            <span class="string">"DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+            <span class="string">"PATCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Patch),
+            <span class="string">"OPTIONS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Options),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1591,13 +1592,13 @@
     ///     For more information, see
     ///     [Identifying
     ///     projects](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects&gt;)
-    /// * `LOCATION_ID` is the canonical ID for the job&#39;s location.
+    /// * `LOCATION_ID` is the canonical ID for the job's location.
     ///     The list of available locations can be obtained by calling
     ///     [ListLocations][google.cloud.location.Locations.ListLocations].
     ///     For more information, see &lt;https://cloud.google.com/about/locations/.&gt;
     /// * `JOB_ID` can contain only letters (\[A-Za-z\]), numbers (\[0-9\]),
     ///     hyphens (-), or underscores (_). The maximum length is 500 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optionally caller-specified in
     /// [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
@@ -1605,7 +1606,7 @@
     ///
     /// A human-readable description for the job. This string must not contain
     /// more than 500 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Required, except when used with
     /// [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
@@ -1632,7 +1633,7 @@
     /// [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
     /// times, with exponential backoff, until the next scheduled start
     /// time.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>schedule: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the time zone to be used in interpreting
     /// [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this
@@ -1641,30 +1642,30 @@
     ///
     /// Note that some time zones include a provision for
     /// daylight savings time. The rules for daylight saving time are
-    /// determined by the chosen tz. For UTC use the string &quot;utc&quot;. If a
+    /// determined by the chosen tz. For UTC use the string "utc". If a
     /// time zone is not specified, the default will be in UTC (also known
     /// as GMT).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The creation time of the job.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>user_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. State of the job.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;job::State&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"job::State"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The response from the target for the last attempted execution.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Output only. The next time the job is scheduled. Note that this may be a
     /// retry of a previously failed attempt or the next execution time
     /// according to the schedule.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>schedule_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the last job attempt started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>last_attempt_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Settings that determine the retry behavior.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>retry_config: ::core::option::Option&lt;RetryConfig&gt;,
     <span class="doccomment">/// The deadline for job attempts. If the request handler does not respond by
     /// this deadline then the request is cancelled and the attempt is marked as a
@@ -1688,19 +1689,19 @@
     ///
     /// * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
     /// this field is ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>attempt_deadline: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Immutable. This field is used to manage the legacy App Engine Cron jobs
     /// using the Cloud Scheduler API. If the field is set to true, the job will be
     /// considered a legacy job. Note that App Engine Cron jobs have fewer
     /// features than Cloud Scheduler jobs, e.g., are only limited to App Engine
     /// targets.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>legacy_app_engine_cron: bool,
     <span class="doccomment">/// Required.
     ///
     /// Delivery settings containing destination and parameters.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;job::Target&quot;</span>, tags = <span class="string">&quot;4, 5, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"job::Target"</span>, tags = <span class="string">"4, 5, 6"</span>)]
     </span><span class="kw">pub </span>target: ::core::option::Option&lt;job::Target&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Job`.
@@ -1742,23 +1743,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
-                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
-                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                State::UpdateFailed =&gt; <span class="string">&quot;UPDATE_FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Enabled =&gt; <span class="string">"ENABLED"</span>,
+                State::Paused =&gt; <span class="string">"PAUSED"</span>,
+                State::Disabled =&gt; <span class="string">"DISABLED"</span>,
+                State::UpdateFailed =&gt; <span class="string">"UPDATE_FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
-                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;UPDATE_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UpdateFailed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ENABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
+                <span class="string">"PAUSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
+                <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">"UPDATE_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UpdateFailed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1770,13 +1771,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Target {
         <span class="doccomment">/// Pub/Sub target.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>PubsubTarget(<span class="kw">super</span>::PubsubTarget),
         <span class="doccomment">/// App Engine HTTP target.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>AppEngineHttpTarget(<span class="kw">super</span>::AppEngineHttpTarget),
         <span class="doccomment">/// HTTP target.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>HttpTarget(<span class="kw">super</span>::HttpTarget),
     }
 }
@@ -1805,7 +1806,7 @@
     /// whichever comes first.
     ///
     /// Values greater than 5 and negative values are not allowed.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>retry_count: i32,
     <span class="doccomment">/// The time limit for retrying a failed job, measured from time when an
     /// execution was first attempted. If specified with
@@ -1814,23 +1815,23 @@
     ///
     /// The default value for max_retry_duration is zero, which means retry
     /// duration is unlimited.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>max_retry_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The minimum amount of time to wait before retrying a job after
     /// it fails.
     ///
     /// The default value of this field is 5 seconds.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>min_backoff_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The maximum amount of time to wait before retrying a job after
     /// it fails.
     ///
     /// The default value of this field is 1 hour.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>max_backoff_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The time between retries will double `max_doublings` times.
     ///
-    /// A job&#39;s retry interval starts at
+    /// A job's retry interval starts at
     /// [min_backoff_duration][google.cloud.scheduler.v1beta1.RetryConfig.min_backoff_duration],
     /// then doubles `max_doublings` times, then increases linearly, and finally
     /// retries at intervals of
@@ -1852,7 +1853,7 @@
     /// 300s, 300s, ....
     ///
     /// The default value of this field is 5.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>max_doublings: i32,
 }
 <span class="doccomment">/// Request message for listing jobs using
@@ -1862,17 +1863,17 @@
 </span><span class="kw">pub struct </span>ListJobsRequest {
     <span class="doccomment">/// Required. The location name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// `filter` can be used to specify a subset of jobs.
     ///
-    /// If `filter` equals `target_config=&quot;HttpConfig&quot;`, then the http
+    /// If `filter` equals `target_config="HttpConfig"`, then the http
     /// target jobs are retrieved. If `filter` equals
-    /// `target_config=&quot;PubSubConfig&quot;`, then the Pub/Sub target jobs are
+    /// `target_config="PubSubConfig"`, then the Pub/Sub target jobs are
     /// retrieved. If `filter` equals `labels.foo=value1
     /// labels.foo=value2` then only jobs which are labeled with
     /// foo=value1 AND foo=value2 will be returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Requested page size.
     ///
@@ -1880,7 +1881,7 @@
     /// be the maximum. Fewer jobs than requested might be returned,
     /// even if more jobs exist; use next_page_token to determine if more
     /// jobs exist.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A token identifying a page of results the server will return. To
     /// request the first page results, page_token must be empty. To
@@ -1892,12 +1893,12 @@
     /// [filter][google.cloud.scheduler.v1beta1.ListJobsRequest.filter] or
     /// [order_by][google.cloud.scheduler.v1beta1.ListJobsRequest.order_by] while
     /// iterating through pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// This field is used to manage the legacy App Engine Cron jobs using the
     /// Cloud Scheduler API. If the field is set to true, the jobs in the __cron
     /// queue will be listed instead.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>legacy_app_engine_cron: bool,
 }
 <span class="doccomment">/// Response message for listing jobs using
@@ -1906,7 +1907,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListJobsResponse {
     <span class="doccomment">/// The list of jobs.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>jobs: ::prost::alloc::vec::Vec&lt;Job&gt;,
     <span class="doccomment">/// A token to retrieve next page of results. Pass this value in the
     /// [page_token][google.cloud.scheduler.v1beta1.ListJobsRequest.page_token]
@@ -1916,7 +1917,7 @@
     /// are no more results through which to paginate.
     ///
     /// The page token is valid for only 2 hours.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1926,7 +1927,7 @@
 </span><span class="kw">pub struct </span>GetJobRequest {
     <span class="doccomment">/// Required. The job name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1936,7 +1937,7 @@
 </span><span class="kw">pub struct </span>CreateJobRequest {
     <span class="doccomment">/// Required. The location name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The job to add. The user can optionally specify a name for the
     /// job in [name][google.cloud.scheduler.v1beta1.Job.name].
@@ -1944,7 +1945,7 @@
     /// existing job. If a name is not specified then the system will
     /// generate a random unique name that will be returned
     /// ([name][google.cloud.scheduler.v1beta1.Job.name]) in the response.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>job: ::core::option::Option&lt;Job&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -1957,10 +1958,10 @@
     ///
     /// Output only fields cannot be modified using UpdateJob.
     /// Any value specified for an output only field will be ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>job: ::core::option::Option&lt;Job&gt;,
     <span class="doccomment">/// A  mask used to specify which fields of the job are being updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for deleting a job using
@@ -1970,12 +1971,12 @@
 </span><span class="kw">pub struct </span>DeleteJobRequest {
     <span class="doccomment">/// Required. The job name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// This field is used to manage the legacy App Engine Cron jobs using the
     /// Cloud Scheduler API. If the field is set to true, the job in the __cron
     /// queue with the corresponding name will be deleted instead.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>legacy_app_engine_cron: bool,
 }
 <span class="doccomment">/// Request message for
@@ -1985,7 +1986,7 @@
 </span><span class="kw">pub struct </span>PauseJobRequest {
     <span class="doccomment">/// Required. The job name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1995,7 +1996,7 @@
 </span><span class="kw">pub struct </span>ResumeJobRequest {
     <span class="doccomment">/// Required. The job name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for forcing a job to run now using
@@ -2005,12 +2006,12 @@
 </span><span class="kw">pub struct </span>RunJobRequest {
     <span class="doccomment">/// Required. The job name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// This field is used to manage the legacy App Engine Cron jobs using the
     /// Cloud Scheduler API. If the field is set to true, the job in the __cron
     /// queue with the corresponding name will be forced to run instead.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>legacy_app_engine_cron: bool,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2028,7 +2029,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2103,19 +2104,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.scheduler.v1beta1.CloudScheduler/ListJobs&quot;</span>,
+                <span class="string">"/google.cloud.scheduler.v1beta1.CloudScheduler/ListJobs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.scheduler.v1beta1.CloudScheduler&quot;</span>,
-                        <span class="string">&quot;ListJobs&quot;</span>,
+                        <span class="string">"google.cloud.scheduler.v1beta1.CloudScheduler"</span>,
+                        <span class="string">"ListJobs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2131,19 +2132,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.scheduler.v1beta1.CloudScheduler/GetJob&quot;</span>,
+                <span class="string">"/google.cloud.scheduler.v1beta1.CloudScheduler/GetJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.scheduler.v1beta1.CloudScheduler&quot;</span>,
-                        <span class="string">&quot;GetJob&quot;</span>,
+                        <span class="string">"google.cloud.scheduler.v1beta1.CloudScheduler"</span>,
+                        <span class="string">"GetJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2159,19 +2160,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.scheduler.v1beta1.CloudScheduler/CreateJob&quot;</span>,
+                <span class="string">"/google.cloud.scheduler.v1beta1.CloudScheduler/CreateJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.scheduler.v1beta1.CloudScheduler&quot;</span>,
-                        <span class="string">&quot;CreateJob&quot;</span>,
+                        <span class="string">"google.cloud.scheduler.v1beta1.CloudScheduler"</span>,
+                        <span class="string">"CreateJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2196,19 +2197,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.scheduler.v1beta1.CloudScheduler/UpdateJob&quot;</span>,
+                <span class="string">"/google.cloud.scheduler.v1beta1.CloudScheduler/UpdateJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.scheduler.v1beta1.CloudScheduler&quot;</span>,
-                        <span class="string">&quot;UpdateJob&quot;</span>,
+                        <span class="string">"google.cloud.scheduler.v1beta1.CloudScheduler"</span>,
+                        <span class="string">"UpdateJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2224,19 +2225,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.scheduler.v1beta1.CloudScheduler/DeleteJob&quot;</span>,
+                <span class="string">"/google.cloud.scheduler.v1beta1.CloudScheduler/DeleteJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.scheduler.v1beta1.CloudScheduler&quot;</span>,
-                        <span class="string">&quot;DeleteJob&quot;</span>,
+                        <span class="string">"google.cloud.scheduler.v1beta1.CloudScheduler"</span>,
+                        <span class="string">"DeleteJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2262,19 +2263,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.scheduler.v1beta1.CloudScheduler/PauseJob&quot;</span>,
+                <span class="string">"/google.cloud.scheduler.v1beta1.CloudScheduler/PauseJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.scheduler.v1beta1.CloudScheduler&quot;</span>,
-                        <span class="string">&quot;PauseJob&quot;</span>,
+                        <span class="string">"google.cloud.scheduler.v1beta1.CloudScheduler"</span>,
+                        <span class="string">"PauseJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2300,19 +2301,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.scheduler.v1beta1.CloudScheduler/ResumeJob&quot;</span>,
+                <span class="string">"/google.cloud.scheduler.v1beta1.CloudScheduler/ResumeJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.scheduler.v1beta1.CloudScheduler&quot;</span>,
-                        <span class="string">&quot;ResumeJob&quot;</span>,
+                        <span class="string">"google.cloud.scheduler.v1beta1.CloudScheduler"</span>,
+                        <span class="string">"ResumeJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2331,19 +2332,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.scheduler.v1beta1.CloudScheduler/RunJob&quot;</span>,
+                <span class="string">"/google.cloud.scheduler.v1beta1.CloudScheduler/RunJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.scheduler.v1beta1.CloudScheduler&quot;</span>,
-                        <span class="string">&quot;RunJob&quot;</span>,
+                        <span class="string">"google.cloud.scheduler.v1beta1.CloudScheduler"</span>,
+                        <span class="string">"RunJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/language/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/language/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -837,7 +838,7 @@
 </span><span class="kw">pub struct </span>Document {
     <span class="doccomment">/// Required. If the type is not set or is `TYPE_UNSPECIFIED`,
     /// returns an `INVALID_ARGUMENT` error.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;document::Type&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"document::Type"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Optional. The language of the document (if not specified, the language is
     /// automatically detected). Both ISO and BCP-47 language codes are
@@ -847,11 +848,11 @@
     /// currently supported languages for each API method. If the language (either
     /// specified by the caller or automatically detected) is not supported by the
     /// called API method, an `INVALID_ARGUMENT` error is returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// The source of the document: a string containing the content or a
     /// Google Cloud Storage URI.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;document::Source&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"document::Source"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;document::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Document`.
@@ -882,19 +883,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::PlainText =&gt; <span class="string">&quot;PLAIN_TEXT&quot;</span>,
-                Type::Html =&gt; <span class="string">&quot;HTML&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::PlainText =&gt; <span class="string">"PLAIN_TEXT"</span>,
+                Type::Html =&gt; <span class="string">"HTML"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PLAIN_TEXT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PlainText),
-                <span class="string">&quot;HTML&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Html),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PLAIN_TEXT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PlainText),
+                <span class="string">"HTML" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Html),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -906,13 +907,13 @@
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// The content of the input in string format.
         /// Cloud audit logging exempt since it is based on user data.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>Content(::prost::alloc::string::String),
         <span class="doccomment">/// The Google Cloud Storage URI where the file content is located.
         /// This URI must be of the form: gs://bucket_name/object_name. For more
         /// details, see &lt;https://cloud.google.com/storage/docs/reference-uris.&gt;
         /// NOTE: Cloud Storage object versioning is not supported.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>GcsContentUri(::prost::alloc::string::String),
     }
 }
@@ -921,12 +922,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Sentence {
     <span class="doccomment">/// The sentence text.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>text: ::core::option::Option&lt;TextSpan&gt;,
     <span class="doccomment">/// For calls to [AnalyzeSentiment][] or if
     /// [AnnotateTextRequest.Features.extract_document_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_document_sentiment]
     /// is set to true, this field will contain the sentiment for the sentence.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sentiment: ::core::option::Option&lt;Sentiment&gt;,
 }
 <span class="doccomment">/// Represents a phrase in the text that is a known entity, such as
@@ -936,30 +937,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Entity {
     <span class="doccomment">/// The representative name for the entity.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The entity type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;entity::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"entity::Type"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Metadata associated with the entity.
     ///
     /// For most entity types, the metadata is a Wikipedia URL (`wikipedia_url`)
     /// and Knowledge Graph MID (`mid`), if they are available. For the metadata
     /// associated with other entity types, see the Type table below.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// The mentions of this entity in the input document. The API currently
     /// supports proper noun mentions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>mentions: ::prost::alloc::vec::Vec&lt;EntityMention&gt;,
     <span class="doccomment">/// For calls to [AnalyzeEntitySentiment][] or if
     /// [AnnotateTextRequest.Features.extract_entity_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entity_sentiment]
     /// is set to true, this field will contain the aggregate sentiment expressed
     /// for this entity in the provided document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>sentiment: ::core::option::Option&lt;Sentiment&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Entity`.
@@ -1047,39 +1048,39 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                Type::Person =&gt; <span class="string">&quot;PERSON&quot;</span>,
-                Type::Location =&gt; <span class="string">&quot;LOCATION&quot;</span>,
-                Type::Organization =&gt; <span class="string">&quot;ORGANIZATION&quot;</span>,
-                Type::Event =&gt; <span class="string">&quot;EVENT&quot;</span>,
-                Type::WorkOfArt =&gt; <span class="string">&quot;WORK_OF_ART&quot;</span>,
-                Type::ConsumerGood =&gt; <span class="string">&quot;CONSUMER_GOOD&quot;</span>,
-                Type::Other =&gt; <span class="string">&quot;OTHER&quot;</span>,
-                Type::PhoneNumber =&gt; <span class="string">&quot;PHONE_NUMBER&quot;</span>,
-                Type::Address =&gt; <span class="string">&quot;ADDRESS&quot;</span>,
-                Type::Date =&gt; <span class="string">&quot;DATE&quot;</span>,
-                Type::Number =&gt; <span class="string">&quot;NUMBER&quot;</span>,
-                Type::Price =&gt; <span class="string">&quot;PRICE&quot;</span>,
+                Type::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
+                Type::Person =&gt; <span class="string">"PERSON"</span>,
+                Type::Location =&gt; <span class="string">"LOCATION"</span>,
+                Type::Organization =&gt; <span class="string">"ORGANIZATION"</span>,
+                Type::Event =&gt; <span class="string">"EVENT"</span>,
+                Type::WorkOfArt =&gt; <span class="string">"WORK_OF_ART"</span>,
+                Type::ConsumerGood =&gt; <span class="string">"CONSUMER_GOOD"</span>,
+                Type::Other =&gt; <span class="string">"OTHER"</span>,
+                Type::PhoneNumber =&gt; <span class="string">"PHONE_NUMBER"</span>,
+                Type::Address =&gt; <span class="string">"ADDRESS"</span>,
+                Type::Date =&gt; <span class="string">"DATE"</span>,
+                Type::Number =&gt; <span class="string">"NUMBER"</span>,
+                Type::Price =&gt; <span class="string">"PRICE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;PERSON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Person),
-                <span class="string">&quot;LOCATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Location),
-                <span class="string">&quot;ORGANIZATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organization),
-                <span class="string">&quot;EVENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Event),
-                <span class="string">&quot;WORK_OF_ART&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WorkOfArt),
-                <span class="string">&quot;CONSUMER_GOOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConsumerGood),
-                <span class="string">&quot;OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
-                <span class="string">&quot;PHONE_NUMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PhoneNumber),
-                <span class="string">&quot;ADDRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Address),
-                <span class="string">&quot;DATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
-                <span class="string">&quot;NUMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
-                <span class="string">&quot;PRICE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Price),
+                <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"PERSON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Person),
+                <span class="string">"LOCATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Location),
+                <span class="string">"ORGANIZATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organization),
+                <span class="string">"EVENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Event),
+                <span class="string">"WORK_OF_ART" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WorkOfArt),
+                <span class="string">"CONSUMER_GOOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConsumerGood),
+                <span class="string">"OTHER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
+                <span class="string">"PHONE_NUMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PhoneNumber),
+                <span class="string">"ADDRESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Address),
+                <span class="string">"DATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
+                <span class="string">"NUMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
+                <span class="string">"PRICE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Price),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1093,11 +1094,11 @@
     <span class="doccomment">/// A non-negative number in the [0, +inf) range, which represents
     /// the absolute magnitude of sentiment regardless of score (positive or
     /// negative).
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>magnitude: f32,
     <span class="doccomment">/// Sentiment score between -1.0 (negative sentiment) and 1.0
     /// (positive sentiment).
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>score: f32,
 }
 <span class="doccomment">/// Represents a mention for an entity in the text. Currently, proper noun
@@ -1106,22 +1107,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EntityMention {
     <span class="doccomment">/// The mention text.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>text: ::core::option::Option&lt;TextSpan&gt;,
     <span class="doccomment">/// The type of the entity mention.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;entity_mention::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"entity_mention::Type"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// For calls to [AnalyzeEntitySentiment][] or if
     /// [AnnotateTextRequest.Features.extract_entity_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entity_sentiment]
     /// is set to true, this field will contain the sentiment expressed for this
     /// mention of the entity in the provided document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>sentiment: ::core::option::Option&lt;Sentiment&gt;,
     <span class="doccomment">/// Probability score associated with the entity.
     ///
     /// The score shows the probability of the entity mention being the entity
     /// type. The score is in (0, 1] range.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>probability: f32,
 }
 <span class="doccomment">/// Nested message and enum types in `EntityMention`.
@@ -1152,19 +1153,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unknown =&gt; <span class="string">&quot;TYPE_UNKNOWN&quot;</span>,
-                Type::Proper =&gt; <span class="string">&quot;PROPER&quot;</span>,
-                Type::Common =&gt; <span class="string">&quot;COMMON&quot;</span>,
+                Type::Unknown =&gt; <span class="string">"TYPE_UNKNOWN"</span>,
+                Type::Proper =&gt; <span class="string">"PROPER"</span>,
+                Type::Common =&gt; <span class="string">"COMMON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;PROPER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Proper),
-                <span class="string">&quot;COMMON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Common),
+                <span class="string">"TYPE_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"PROPER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Proper),
+                <span class="string">"COMMON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Common),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1175,13 +1176,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TextSpan {
     <span class="doccomment">/// The content of the text span, which is a substring of the document.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
     <span class="doccomment">/// The API calculates the beginning offset of the content in the original
     /// document according to the
     /// [EncodingType][google.cloud.language.v2.EncodingType] specified in the API
     /// request.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>begin_offset: i32,
 }
 <span class="doccomment">/// Represents a category returned from the text classifier.
@@ -1189,11 +1190,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ClassificationCategory {
     <span class="doccomment">/// The name of the category representing the document.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The classifier&#39;s confidence of the category. Number represents how certain
+    <span class="doccomment">/// The classifier's confidence of the category. Number represents how certain
     /// the classifier is that this category represents the given text.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>confidence: f32,
 }
 <span class="doccomment">/// The sentiment analysis request message.
@@ -1201,10 +1202,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeSentimentRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
     <span class="doccomment">/// The encoding type used by the API to calculate sentence offsets.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;EncodingType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"EncodingType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>encoding_type: i32,
 }
 <span class="doccomment">/// The sentiment analysis response message.
@@ -1212,20 +1213,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeSentimentResponse {
     <span class="doccomment">/// The overall sentiment of the input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document_sentiment: ::core::option::Option&lt;Sentiment&gt;,
     <span class="doccomment">/// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
     /// See [Document.language][] field for more details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// The sentiment for all the sentences in the document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>sentences: ::prost::alloc::vec::Vec&lt;Sentence&gt;,
     <span class="doccomment">/// Whether the language is officially supported. The API may still return a
     /// response when the language is not supported, but it is on a best effort
     /// basis.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>language_supported: bool,
 }
 <span class="doccomment">/// The entity analysis request message.
@@ -1233,10 +1234,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeEntitiesRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
     <span class="doccomment">/// The encoding type used by the API to calculate offsets.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;EncodingType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"EncodingType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>encoding_type: i32,
 }
 <span class="doccomment">/// The entity analysis response message.
@@ -1244,17 +1245,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeEntitiesResponse {
     <span class="doccomment">/// The recognized entities in the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>entities: ::prost::alloc::vec::Vec&lt;Entity&gt;,
     <span class="doccomment">/// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
     /// See [Document.language][] field for more details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether the language is officially supported. The API may still return a
     /// response when the language is not supported, but it is on a best effort
     /// basis.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>language_supported: bool,
 }
 <span class="doccomment">/// The document classification request message.
@@ -1262,7 +1263,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ClassifyTextRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
 }
 <span class="doccomment">/// The document classification response message.
@@ -1270,17 +1271,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ClassifyTextResponse {
     <span class="doccomment">/// Categories representing the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>categories: ::prost::alloc::vec::Vec&lt;ClassificationCategory&gt;,
     <span class="doccomment">/// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
     /// See [Document.language][] field for more details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether the language is officially supported. The API may still return a
     /// response when the language is not supported, but it is on a best effort
     /// basis.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>language_supported: bool,
 }
 <span class="doccomment">/// The document moderation request message.
@@ -1288,7 +1289,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ModerateTextRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
 }
 <span class="doccomment">/// The document moderation response message.
@@ -1296,17 +1297,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ModerateTextResponse {
     <span class="doccomment">/// Harmful and sensitive categories representing the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>moderation_categories: ::prost::alloc::vec::Vec&lt;ClassificationCategory&gt;,
     <span class="doccomment">/// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
     /// See [Document.language][] field for more details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether the language is officially supported. The API may still return a
     /// response when the language is not supported, but it is on a best effort
     /// basis.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>language_supported: bool,
 }
 <span class="doccomment">/// The request message for the text annotation API, which can perform multiple
@@ -1315,13 +1316,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnnotateTextRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
     <span class="doccomment">/// Required. The enabled features.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>features: ::core::option::Option&lt;annotate_text_request::Features&gt;,
     <span class="doccomment">/// The encoding type used by the API to calculate offsets.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;EncodingType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"EncodingType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>encoding_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `AnnotateTextRequest`.
@@ -1332,16 +1333,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Features {
         <span class="doccomment">/// Optional. Extract entities.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>extract_entities: bool,
         <span class="doccomment">/// Optional. Extract document-level sentiment.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>extract_document_sentiment: bool,
         <span class="doccomment">/// Optional. Classify the full document into categories.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>classify_text: bool,
         <span class="doccomment">/// Optional. Moderate the document for harmful and sensitive categories.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>moderate_text: bool,
     }
 }
@@ -1351,34 +1352,34 @@
 </span><span class="kw">pub struct </span>AnnotateTextResponse {
     <span class="doccomment">/// Sentences in the input document. Populated if the user enables
     /// [AnnotateTextRequest.Features.extract_document_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_document_sentiment].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sentences: ::prost::alloc::vec::Vec&lt;Sentence&gt;,
     <span class="doccomment">/// Entities, along with their semantic information, in the input document.
     /// Populated if the user enables
     /// [AnnotateTextRequest.Features.extract_entities][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entities]
     /// or
     /// [AnnotateTextRequest.Features.extract_entity_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_entity_sentiment].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>entities: ::prost::alloc::vec::Vec&lt;Entity&gt;,
     <span class="doccomment">/// The overall sentiment for the document. Populated if the user enables
     /// [AnnotateTextRequest.Features.extract_document_sentiment][google.cloud.language.v2.AnnotateTextRequest.Features.extract_document_sentiment].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>document_sentiment: ::core::option::Option&lt;Sentiment&gt;,
     <span class="doccomment">/// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
     /// See [Document.language][] field for more details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Categories identified in the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>categories: ::prost::alloc::vec::Vec&lt;ClassificationCategory&gt;,
     <span class="doccomment">/// Harmful and sensitive categories identified in the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>moderation_categories: ::prost::alloc::vec::Vec&lt;ClassificationCategory&gt;,
     <span class="doccomment">/// Whether the language is officially supported by all requested features.
     /// The API may still return a response when the language is not supported, but
     /// it is on a best effort basis.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>language_supported: bool,
 }
 <span class="doccomment">/// Represents the text encoding that the caller uses to process the output.
@@ -1410,21 +1411,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            EncodingType::None =&gt; <span class="string">&quot;NONE&quot;</span>,
-            EncodingType::Utf8 =&gt; <span class="string">&quot;UTF8&quot;</span>,
-            EncodingType::Utf16 =&gt; <span class="string">&quot;UTF16&quot;</span>,
-            EncodingType::Utf32 =&gt; <span class="string">&quot;UTF32&quot;</span>,
+            EncodingType::None =&gt; <span class="string">"NONE"</span>,
+            EncodingType::Utf8 =&gt; <span class="string">"UTF8"</span>,
+            EncodingType::Utf16 =&gt; <span class="string">"UTF16"</span>,
+            EncodingType::Utf32 =&gt; <span class="string">"UTF32"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
-            <span class="string">&quot;UTF8&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf8),
-            <span class="string">&quot;UTF16&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf16),
-            <span class="string">&quot;UTF32&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf32),
+            <span class="string">"NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+            <span class="string">"UTF8" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf8),
+            <span class="string">"UTF16" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf16),
+            <span class="string">"UTF32" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf32),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1444,7 +1445,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1519,19 +1520,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v2.LanguageService/AnalyzeSentiment&quot;</span>,
+                <span class="string">"/google.cloud.language.v2.LanguageService/AnalyzeSentiment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v2.LanguageService&quot;</span>,
-                        <span class="string">&quot;AnalyzeSentiment&quot;</span>,
+                        <span class="string">"google.cloud.language.v2.LanguageService"</span>,
+                        <span class="string">"AnalyzeSentiment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1552,19 +1553,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v2.LanguageService/AnalyzeEntities&quot;</span>,
+                <span class="string">"/google.cloud.language.v2.LanguageService/AnalyzeEntities"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v2.LanguageService&quot;</span>,
-                        <span class="string">&quot;AnalyzeEntities&quot;</span>,
+                        <span class="string">"google.cloud.language.v2.LanguageService"</span>,
+                        <span class="string">"AnalyzeEntities"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1583,19 +1584,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v2.LanguageService/ClassifyText&quot;</span>,
+                <span class="string">"/google.cloud.language.v2.LanguageService/ClassifyText"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v2.LanguageService&quot;</span>,
-                        <span class="string">&quot;ClassifyText&quot;</span>,
+                        <span class="string">"google.cloud.language.v2.LanguageService"</span>,
+                        <span class="string">"ClassifyText"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1614,19 +1615,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v2.LanguageService/ModerateText&quot;</span>,
+                <span class="string">"/google.cloud.language.v2.LanguageService/ModerateText"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v2.LanguageService&quot;</span>,
-                        <span class="string">&quot;ModerateText&quot;</span>,
+                        <span class="string">"google.cloud.language.v2.LanguageService"</span>,
+                        <span class="string">"ModerateText"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1645,19 +1646,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v2.LanguageService/AnnotateText&quot;</span>,
+                <span class="string">"/google.cloud.language.v2.LanguageService/AnnotateText"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v2.LanguageService&quot;</span>,
-                        <span class="string">&quot;AnnotateText&quot;</span>,
+                        <span class="string">"google.cloud.language.v2.LanguageService"</span>,
+                        <span class="string">"AnnotateText"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/genomics/v1alpha2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/genomics/v1alpha2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -957,16 +958,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ComputeEngine {
     <span class="doccomment">/// The instance on which the operation is running.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The availability zone in which the instance resides.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>zone: ::prost::alloc::string::String,
     <span class="doccomment">/// The machine type of the instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
     <span class="doccomment">/// The names of the disks that were created for this pipeline.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>disk_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Runtime metadata that will be populated in the
@@ -976,7 +977,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RuntimeMetadata {
     <span class="doccomment">/// Execution information specific to Google Compute Engine.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>compute_engine: ::core::option::Option&lt;ComputeEngine&gt;,
 }
 <span class="doccomment">/// The pipeline object. Represents a transformation from a set of input
@@ -990,20 +991,20 @@
 </span><span class="kw">pub struct </span>Pipeline {
     <span class="doccomment">/// Required. The project in which to create the pipeline. The caller must have
     /// WRITE access.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A user specified pipeline name that does not have to be unique.
     /// This name can be used for filtering Pipelines in ListPipelines.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// User-specified description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Input parameters of the pipeline.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>input_parameters: ::prost::alloc::vec::Vec&lt;PipelineParameter&gt;,
     <span class="doccomment">/// Output parameters of the pipeline.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>output_parameters: ::prost::alloc::vec::Vec&lt;PipelineParameter&gt;,
     <span class="doccomment">/// Required. Specifies resource requirements for the pipeline run.
     /// Required fields:
@@ -1013,17 +1014,17 @@
     ///
     /// *
     /// [minimumRamGb][google.genomics.v1alpha2.PipelineResources.minimum_ram_gb]
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>resources: ::core::option::Option&lt;PipelineResources&gt;,
     <span class="doccomment">/// Unique pipeline id that is generated by the service when CreatePipeline
     /// is called. Cannot be specified in the Pipeline used in the
     /// CreatePipelineRequest, and will be populated in the response to
     /// CreatePipeline and all subsequent Get and List calls. Indicates that the
     /// service has registered this pipeline.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>pipeline_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The executor indicates in which environment the pipeline runs.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;pipeline::Executor&quot;</span>, tags = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"pipeline::Executor"</span>, tags = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>executor: ::core::option::Option&lt;pipeline::Executor&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Pipeline`.
@@ -1033,7 +1034,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Executor {
         <span class="doccomment">/// Specifies the docker run information.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>Docker(<span class="kw">super</span>::DockerExecutor),
     }
 }
@@ -1043,7 +1044,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreatePipelineRequest {
     <span class="doccomment">/// The pipeline to create. Should not have `pipelineId` populated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>pipeline: ::core::option::Option&lt;Pipeline&gt;,
 }
 <span class="doccomment">/// The pipeline run arguments.
@@ -1053,13 +1054,13 @@
     <span class="doccomment">/// Required. The project in which to run the pipeline. The caller must have
     /// WRITER access to all Google Cloud services and resources (e.g. Google
     /// Compute Engine) will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Pipeline input arguments; keys are defined in the pipeline documentation.
     /// All input parameters that do not have default values  must be specified.
     /// If parameters with defaults are specified here, the defaults will be
     /// overridden.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>inputs: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1068,7 +1069,7 @@
     /// documentation.  All output parameters of without default values
     /// must be specified.  If parameters with defaults are specified
     /// here, the defaults will be overridden.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>outputs: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1076,23 +1077,23 @@
     <span class="doccomment">/// The Google Cloud Service Account that will be used to access data and
     /// services. By default, the compute service account associated with
     /// `projectId` is used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>service_account: ::core::option::Option&lt;ServiceAccount&gt;,
     <span class="doccomment">/// This field is deprecated. Use `labels` instead. Client-specified pipeline
     /// operation identifier.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>client_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies resource requirements/overrides for the pipeline run.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>resources: ::core::option::Option&lt;PipelineResources&gt;,
     <span class="doccomment">/// Required. Logging options. Used by the service to communicate results
     /// to the user.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>logging: ::core::option::Option&lt;LoggingOptions&gt;,
     <span class="doccomment">/// How long to keep the VM up after a failure (for example docker command
     /// failed, copying input or output files failed, etc). While the VM is up, one
     /// can ssh into the VM to debug. Default is 0; maximum allowed value is 1 day.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>keep_vm_alive_on_failure_duration: ::core::option::Option&lt;
         ::prost_types::Duration,
     &gt;,
@@ -1108,7 +1109,7 @@
     /// character must be a lowercase letter, and all following characters must be
     /// a dash, lowercase letter, or digit, except the last character, which cannot
     /// be a dash.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1125,9 +1126,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RunPipelineRequest {
     <span class="doccomment">/// The arguments to use when running this pipeline.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>pipeline_args: ::core::option::Option&lt;RunPipelineArgs&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;run_pipeline_request::Pipeline&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"run_pipeline_request::Pipeline"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>pipeline: ::core::option::Option&lt;run_pipeline_request::Pipeline&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RunPipelineRequest`.
@@ -1136,10 +1137,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Pipeline {
         <span class="doccomment">/// The already created pipeline to run.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>PipelineId(::prost::alloc::string::String),
         <span class="doccomment">/// A new pipeline object to run once and then delete.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>EphemeralPipeline(<span class="kw">super</span>::Pipeline),
     }
 }
@@ -1149,7 +1150,7 @@
 </span><span class="kw">pub struct </span>GetPipelineRequest {
     <span class="doccomment">/// Caller must have READ access to the project in which this pipeline
     /// is defined.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>pipeline_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to list pipelines in a given project. Pipelines can be
@@ -1163,20 +1164,20 @@
 </span><span class="kw">pub struct </span>ListPipelinesRequest {
     <span class="doccomment">/// Required. The name of the project to search for pipelines. Caller
     /// must have READ access to this project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Pipelines with names that match this prefix should be
     /// returned.  If unspecified, all pipelines in the project, up to
     /// `pageSize`, will be returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name_prefix: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of pipelines to return at once. Defaults to 256, and max
     /// is 2048.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token to use to indicate where to start getting results.
     /// If unspecified, returns the first page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response of ListPipelines. Contains at most `pageSize`
@@ -1188,10 +1189,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPipelinesResponse {
     <span class="doccomment">/// The matched pipelines.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>pipelines: ::prost::alloc::vec::Vec&lt;Pipeline&gt;,
     <span class="doccomment">/// The token to use to get the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to delete a saved pipeline by ID.
@@ -1200,7 +1201,7 @@
 </span><span class="kw">pub struct </span>DeletePipelineRequest {
     <span class="doccomment">/// Caller must have WRITE access to the project in which this pipeline
     /// is defined.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>pipeline_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to get controller configuation.  Should only be used
@@ -1209,9 +1210,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetControllerConfigRequest {
     <span class="doccomment">/// The operation to retrieve controller configuration for.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
-    <span class="attr">#[prost(uint64, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="attr">#[prost(uint64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>validation_token: u64,
 }
 <span class="doccomment">/// Stores the information that the controller will fetch from the
@@ -1220,30 +1221,30 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ControllerConfig {
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>image: ::prost::alloc::string::String,
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>cmd: ::prost::alloc::string::String,
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>gcs_log_path: ::prost::alloc::string::String,
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
-    <span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>vars: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    <span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>disks: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    <span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>gcs_sources: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         controller_config::RepeatedString,
     &gt;,
-    <span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    <span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>gcs_sinks: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         controller_config::RepeatedString,
@@ -1254,7 +1255,7 @@
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>RepeatedString {
-        <span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        <span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
 }
@@ -1264,10 +1265,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimestampEvent {
     <span class="doccomment">/// String indicating the type of event
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// The time this event occured.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request to set operation status. Should only be used by VMs
@@ -1275,15 +1276,15 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SetOperationStatusRequest {
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
-    <span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>timestamp_events: ::prost::alloc::vec::Vec&lt;TimestampEvent&gt;,
-    <span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::rpc::Code&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="attr">#[prost(enumeration = <span class="string">"super::super::rpc::Code"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>error_code: i32,
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
-    <span class="attr">#[prost(uint64, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="attr">#[prost(uint64, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>validation_token: u64,
 }
 <span class="doccomment">/// A Google Cloud Service Account.
@@ -1292,7 +1293,7 @@
 </span><span class="kw">pub struct </span>ServiceAccount {
     <span class="doccomment">/// Email address of the service account. Defaults to `default`,
     /// which uses the compute service account associated with the project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
     <span class="doccomment">/// List of scopes to be enabled for this service account on the VM.
     /// The following scopes are automatically included:
@@ -1302,7 +1303,7 @@
     /// * &lt;https://www.googleapis.com/auth/genomics&gt;
     /// * &lt;https://www.googleapis.com/auth/logging.write&gt;
     /// * &lt;https://www.googleapis.com/auth/monitoring.write&gt;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>scopes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The logging options for the pipeline run.
@@ -1317,7 +1318,7 @@
     /// used, and the user must ensure that logs are not
     /// overwritten. Stdout and stderr logs from the run are also
     /// generated and output as `-stdout.log` and `-stderr.log`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gcs_path: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The system resources for the pipeline run.
@@ -1325,25 +1326,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PipelineResources {
     <span class="doccomment">/// The minimum number of cores to use. Defaults to 1.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>minimum_cpu_cores: i32,
     <span class="doccomment">/// Whether to use preemptible VMs. Defaults to `false`. In order to use this,
     /// must be true for both create time and run time. Cannot be true at run time
     /// if false at create time.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>preemptible: bool,
     <span class="doccomment">/// The minimum amount of RAM to use. Defaults to 3.75 (GB)
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>minimum_ram_gb: f64,
     <span class="doccomment">/// Disks to attach.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>disks: ::prost::alloc::vec::Vec&lt;pipeline_resources::Disk&gt;,
     <span class="doccomment">/// List of Google Compute Engine availability zones to which resource
     /// creation will restricted. If empty, any zone may be chosen.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>zones: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The size of the boot disk. Defaults to 10 (GB).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>boot_disk_size_gb: i32,
     <span class="doccomment">/// Whether to assign an external IP to the instance. This is an experimental
     /// feature that may go away. Defaults to false.
@@ -1352,11 +1353,11 @@
     /// In order to use this, must be true for both create time and run time.
     /// Cannot be true at run time if false at create time. If you need to ssh into
     /// a private IP VM for debugging, you can ssh to a public VM and then ssh into
-    /// the private VM&#39;s Internal IP.  If noAddress is set, this pipeline run may
+    /// the private VM's Internal IP.  If noAddress is set, this pipeline run may
     /// only load docker images from Google Container Registry and not Docker Hub.
     /// ** Note: To use this option, your project must be in Google Access for
     /// Private IPs Early Access Program.**
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>no_address: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `PipelineResources`.
@@ -1367,26 +1368,26 @@
     </span><span class="kw">pub struct </span>Disk {
         <span class="doccomment">/// Required. The name of the disk that can be used in the pipeline
         /// parameters. Must be 1 - 63 characters.
-        /// The name &quot;boot&quot; is reserved for system use.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// The name "boot" is reserved for system use.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// Required. The type of the disk to create.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;disk::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"disk::Type"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>r#type: i32,
         <span class="doccomment">/// The size of the disk. Defaults to 500 (GB).
         /// This field is not applicable for local SSD.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>size_gb: i32,
         <span class="doccomment">/// The full or partial URL of the persistent disk to attach. See
         /// &lt;https://cloud.google.com/compute/docs/reference/latest/instances#resource&gt;
         /// and
         /// &lt;https://cloud.google.com/compute/docs/disks/persistent-disks#snapshots&gt;
         /// for more details.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>source: ::prost::alloc::string::String,
         <span class="doccomment">/// Deprecated. Disks created by the Pipelines API will be deleted at the end
         /// of the pipeline run, regardless of what this field is set to.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>auto_delete: bool,
         <span class="doccomment">/// Required at create time and cannot be overridden at run time.
         /// Specifies the path in the docker container where files on
@@ -1394,7 +1395,7 @@
         /// is `/mnt/disk`, and the parameter has `localPath`
         /// `inputs/file.txt`, the docker container can access the data at
         /// `/mnt/disk/inputs/file.txt`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>mount_point: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Nested message and enum types in `Disk`.
@@ -1430,21 +1431,21 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                    Type::PersistentHdd =&gt; <span class="string">&quot;PERSISTENT_HDD&quot;</span>,
-                    Type::PersistentSsd =&gt; <span class="string">&quot;PERSISTENT_SSD&quot;</span>,
-                    Type::LocalSsd =&gt; <span class="string">&quot;LOCAL_SSD&quot;</span>,
+                    Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                    Type::PersistentHdd =&gt; <span class="string">"PERSISTENT_HDD"</span>,
+                    Type::PersistentSsd =&gt; <span class="string">"PERSISTENT_SSD"</span>,
+                    Type::LocalSsd =&gt; <span class="string">"LOCAL_SSD"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;PERSISTENT_HDD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PersistentHdd),
-                    <span class="string">&quot;PERSISTENT_SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PersistentSsd),
-                    <span class="string">&quot;LOCAL_SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocalSsd),
+                    <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"PERSISTENT_HDD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PersistentHdd),
+                    <span class="string">"PERSISTENT_SSD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PersistentSsd),
+                    <span class="string">"LOCAL_SSD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocalSsd),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -1452,7 +1453,7 @@
     }
 }
 <span class="doccomment">/// Parameters facilitate setting and delivering data into the
-/// pipeline&#39;s execution environment. They are defined at create time,
+/// pipeline's execution environment. They are defined at create time,
 /// with optional defaults, and can be overridden at run time.
 ///
 /// If `localCopy` is unset, then the parameter specifies a string that
@@ -1466,7 +1467,7 @@
 /// source or sink, both in Google Cloud Storage and on the Docker container
 /// where the pipeline computation is run. The [service account associated with
 /// the Pipeline][google.genomics.v1alpha2.RunPipelineArgs.service_account] (by
-/// default the project&#39;s Compute Engine service account) must have access to the
+/// default the project's Compute Engine service account) must have access to the
 /// Google Cloud Storage paths.
 ///
 /// At run time, the Google Cloud Storage paths can be overridden if a default
@@ -1479,13 +1480,13 @@
 /// in the `inputParameters` list:
 ///
 /// ```
-/// {name: &quot;input_file&quot;, localCopy: {path: &quot;file.txt&quot;, disk: &quot;pd1&quot;}}
+/// {name: "input_file", localCopy: {path: "file.txt", disk: "pd1"}}
 /// ```
 ///
 /// where `disk` is defined in the `PipelineResources` object as:
 ///
 /// ```
-/// {name: &quot;pd1&quot;, mountPoint: &quot;/mnt/disk/&quot;}
+/// {name: "pd1", mountPoint: "/mnt/disk/"}
 /// ```
 ///
 /// We create a disk named `pd1`, mount it on the host VM, and map
@@ -1494,7 +1495,7 @@
 /// map, such as:
 ///
 /// ```
-///    inputs\[&quot;input_file&quot;\] = &quot;gs://my-bucket/bar.txt&quot;
+///    inputs\["input_file"\] = "gs://my-bucket/bar.txt"
 /// ```
 ///
 /// This would generate the following gsutil call:
@@ -1536,7 +1537,7 @@
 ///      &lt;/tr&gt;
 ///      &lt;tr&gt;
 ///        &lt;td&gt;glob&lt;/td&gt;
-///        &lt;td&gt;directory - directory will be created if it doesn&#39;t exist&lt;/td&gt;&lt;/tr&gt;
+///        &lt;td&gt;directory - directory will be created if it doesn't exist&lt;/td&gt;&lt;/tr&gt;
 ///    &lt;/tbody&gt;
 /// &lt;/table&gt;
 ///
@@ -1547,21 +1548,21 @@
 </span><span class="kw">pub struct </span>PipelineParameter {
     <span class="doccomment">/// Required. Name of the parameter - the pipeline runner uses this string
     /// as the key to the input and output maps in RunPipeline.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Human-readable description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// The default value for this parameter. Can be overridden at runtime.
     /// If `localCopy` is present, then this must be a Google Cloud Storage path
     /// beginning with `gs://`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>default_value: ::prost::alloc::string::String,
     <span class="doccomment">/// If present, this parameter is marked for copying to and from the VM.
     /// `LocalCopy` indicates where on the VM the file should be. The value
     /// given to this parameter (either at runtime or using `defaultValue`)
     /// must be the remote path where the file should be.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>local_copy: ::core::option::Option&lt;pipeline_parameter::LocalCopy&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PipelineParameter`.
@@ -1570,16 +1571,16 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>LocalCopy {
-        <span class="doccomment">/// Required. The path within the user&#39;s docker container where
+        <span class="doccomment">/// Required. The path within the user's docker container where
         /// this input should be localized to and from, relative to the specified
-        /// disk&#39;s mount point. For example: file.txt,
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// disk's mount point. For example: file.txt,
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
         <span class="doccomment">/// Required. The name of the disk where this parameter is
         /// located. Can be the name of one of the disks specified in the
-        /// Resources field, or &quot;boot&quot;, which represents the Docker
-        /// instance&#39;s boot disk and has a mount point of `/`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        /// Resources field, or "boot", which represents the Docker
+        /// instance's boot disk and has a mount point of `/`.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>disk: ::prost::alloc::string::String,
     }
 }
@@ -1589,17 +1590,17 @@
 </span><span class="kw">pub struct </span>DockerExecutor {
     <span class="doccomment">/// Required. Image name from either Docker Hub or Google Container Registry.
     /// Users that run pipelines must have READ access to the image.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>image_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The command or newline delimited script to run. The command
     /// string will be executed within a bash shell.
     ///
     /// If the command exits with a non-zero exit code, output parameter
-    /// de-localization will be skipped and the pipeline operation&#39;s
+    /// de-localization will be skipped and the pipeline operation's
     /// [`error`][google.longrunning.Operation.error] field will be populated.
     ///
     /// Maximum command string length is 16384.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>cmd: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1616,7 +1617,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1693,19 +1694,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.genomics.v1alpha2.PipelinesV1Alpha2/CreatePipeline&quot;</span>,
+                <span class="string">"/google.genomics.v1alpha2.PipelinesV1Alpha2/CreatePipeline"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.genomics.v1alpha2.PipelinesV1Alpha2&quot;</span>,
-                        <span class="string">&quot;CreatePipeline&quot;</span>,
+                        <span class="string">"google.genomics.v1alpha2.PipelinesV1Alpha2"</span>,
+                        <span class="string">"CreatePipeline"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1730,19 +1731,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.genomics.v1alpha2.PipelinesV1Alpha2/RunPipeline&quot;</span>,
+                <span class="string">"/google.genomics.v1alpha2.PipelinesV1Alpha2/RunPipeline"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.genomics.v1alpha2.PipelinesV1Alpha2&quot;</span>,
-                        <span class="string">&quot;RunPipeline&quot;</span>,
+                        <span class="string">"google.genomics.v1alpha2.PipelinesV1Alpha2"</span>,
+                        <span class="string">"RunPipeline"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1760,19 +1761,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.genomics.v1alpha2.PipelinesV1Alpha2/GetPipeline&quot;</span>,
+                <span class="string">"/google.genomics.v1alpha2.PipelinesV1Alpha2/GetPipeline"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.genomics.v1alpha2.PipelinesV1Alpha2&quot;</span>,
-                        <span class="string">&quot;GetPipeline&quot;</span>,
+                        <span class="string">"google.genomics.v1alpha2.PipelinesV1Alpha2"</span>,
+                        <span class="string">"GetPipeline"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1793,19 +1794,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.genomics.v1alpha2.PipelinesV1Alpha2/ListPipelines&quot;</span>,
+                <span class="string">"/google.genomics.v1alpha2.PipelinesV1Alpha2/ListPipelines"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.genomics.v1alpha2.PipelinesV1Alpha2&quot;</span>,
-                        <span class="string">&quot;ListPipelines&quot;</span>,
+                        <span class="string">"google.genomics.v1alpha2.PipelinesV1Alpha2"</span>,
+                        <span class="string">"ListPipelines"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1823,19 +1824,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.genomics.v1alpha2.PipelinesV1Alpha2/DeletePipeline&quot;</span>,
+                <span class="string">"/google.genomics.v1alpha2.PipelinesV1Alpha2/DeletePipeline"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.genomics.v1alpha2.PipelinesV1Alpha2&quot;</span>,
-                        <span class="string">&quot;DeletePipeline&quot;</span>,
+                        <span class="string">"google.genomics.v1alpha2.PipelinesV1Alpha2"</span>,
+                        <span class="string">"DeletePipeline"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1855,19 +1856,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.genomics.v1alpha2.PipelinesV1Alpha2/GetControllerConfig&quot;</span>,
+                <span class="string">"/google.genomics.v1alpha2.PipelinesV1Alpha2/GetControllerConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.genomics.v1alpha2.PipelinesV1Alpha2&quot;</span>,
-                        <span class="string">&quot;GetControllerConfig&quot;</span>,
+                        <span class="string">"google.genomics.v1alpha2.PipelinesV1Alpha2"</span>,
+                        <span class="string">"GetControllerConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1885,19 +1886,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.genomics.v1alpha2.PipelinesV1Alpha2/SetOperationStatus&quot;</span>,
+                <span class="string">"/google.genomics.v1alpha2.PipelinesV1Alpha2/SetOperationStatus"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.genomics.v1alpha2.PipelinesV1Alpha2&quot;</span>,
-                        <span class="string">&quot;SetOperationStatus&quot;</span>,
+                        <span class="string">"google.genomics.v1alpha2.PipelinesV1Alpha2"</span>,
+                        <span class="string">"SetOperationStatus"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

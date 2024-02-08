@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/datapolicies/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/datapolicies/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -583,22 +584,22 @@
 </span><span class="kw">pub struct </span>CreateDataPolicyRequest {
     <span class="doccomment">/// Required. Resource name of the project that the data policy will belong to. The
     /// format is `projects/{project_number}/locations/{location_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The data policy to create. The `name` field does not need to be
     /// provided for the data policy creation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data_policy: ::core::option::Option&lt;DataPolicy&gt;,
 }
 <span class="doccomment">/// Response message for the UpdateDataPolicy method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateDataPolicyRequest {
-    <span class="doccomment">/// Required. Update the data policy&#39;s metadata.
+    <span class="doccomment">/// Required. Update the data policy's metadata.
     ///
     /// The target data policy is determined by the `name` field.
     /// Other fields are updated to the specified values based on the field masks.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>data_policy: ::core::option::Option&lt;DataPolicy&gt;,
     <span class="doccomment">/// The update mask applies to the resource. For the `FieldMask` definition,
     /// see
@@ -606,7 +607,7 @@
     /// If not set, defaults to all of the fields that are allowed to update.
     ///
     /// Updates to the `name` and `dataPolicyId` fields are not allowed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for the DeleteDataPolicy method.
@@ -615,7 +616,7 @@
 </span><span class="kw">pub struct </span>DeleteDataPolicyRequest {
     <span class="doccomment">/// Required. Resource name of the data policy to delete. Format is
     /// `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for the GetDataPolicy method.
@@ -624,7 +625,7 @@
 </span><span class="kw">pub struct </span>GetDataPolicyRequest {
     <span class="doccomment">/// Required. Resource name of the requested data policy. Format is
     /// `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for the ListDataPolicies method.
@@ -633,16 +634,16 @@
 </span><span class="kw">pub struct </span>ListDataPoliciesRequest {
     <span class="doccomment">/// Required. Resource name of the project for which to list data policies. Format is
     /// `projects/{project_number}/locations/{location_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of data policies to return. Must be a value between 1
     /// and 1000.
     /// If not set, defaults to 50.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The `nextPageToken` value returned from a previous list request, if any. If
     /// not set, defaults to an empty string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for the ListDataPolicies method.
@@ -650,11 +651,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDataPoliciesResponse {
     <span class="doccomment">/// Data policies that belong to the requested project.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>data_policies: ::prost::alloc::vec::Vec&lt;DataPolicy&gt;,
     <span class="doccomment">/// Token used to retrieve the next page of results, or empty if there are no
     /// more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the label-policy binding.
@@ -663,21 +664,21 @@
 </span><span class="kw">pub struct </span>DataPolicy {
     <span class="doccomment">/// Output only. Resource name of this data policy, in the format of
     /// `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Type of data policy.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;data_policy::DataPolicyType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"data_policy::DataPolicyType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data_policy_type: i32,
     <span class="doccomment">/// User-assigned (human readable) ID of the data policy that needs to be
     /// unique within a project. Used as {data_policy_id} in part of the resource
     /// name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>data_policy_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Label that is bound to this data policy.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;data_policy::MatchingLabel&quot;</span>, tags = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"data_policy::MatchingLabel"</span>, tags = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>matching_label: ::core::option::Option&lt;data_policy::MatchingLabel&gt;,
     <span class="doccomment">/// The policy that is bound to this data policy.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;data_policy::Policy&quot;</span>, tags = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"data_policy::Policy"</span>, tags = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>policy: ::core::option::Option&lt;data_policy::Policy&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DataPolicy`.
@@ -709,21 +710,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DataPolicyType::Unspecified =&gt; <span class="string">&quot;DATA_POLICY_TYPE_UNSPECIFIED&quot;</span>,
+                DataPolicyType::Unspecified =&gt; <span class="string">"DATA_POLICY_TYPE_UNSPECIFIED"</span>,
                 DataPolicyType::ColumnLevelSecurityPolicy =&gt; {
-                    <span class="string">&quot;COLUMN_LEVEL_SECURITY_POLICY&quot;
+                    <span class="string">"COLUMN_LEVEL_SECURITY_POLICY"
                 </span>}
-                DataPolicyType::DataMaskingPolicy =&gt; <span class="string">&quot;DATA_MASKING_POLICY&quot;</span>,
+                DataPolicyType::DataMaskingPolicy =&gt; <span class="string">"DATA_MASKING_POLICY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DATA_POLICY_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;COLUMN_LEVEL_SECURITY_POLICY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ColumnLevelSecurityPolicy),
-                <span class="string">&quot;DATA_MASKING_POLICY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataMaskingPolicy),
+                <span class="string">"DATA_POLICY_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"COLUMN_LEVEL_SECURITY_POLICY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ColumnLevelSecurityPolicy),
+                <span class="string">"DATA_MASKING_POLICY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataMaskingPolicy),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -734,7 +735,7 @@
     </span><span class="kw">pub enum </span>MatchingLabel {
         <span class="doccomment">/// Policy tag resource name, in the format of
         /// `projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{policyTag_id}`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span>PolicyTag(::prost::alloc::string::String),
     }
     <span class="doccomment">/// The policy that is bound to this data policy.
@@ -742,7 +743,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Policy {
         <span class="doccomment">/// The data masking policy that specifies the data masking rule to use.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>DataMaskingPolicy(<span class="kw">super</span>::DataMaskingPolicy),
     }
 }
@@ -751,7 +752,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DataMaskingPolicy {
     <span class="doccomment">/// A masking expression to bind to the data masking rule.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;data_masking_policy::MaskingExpression&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"data_masking_policy::MaskingExpression"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>masking_expression: ::core::option::Option&lt;
         data_masking_policy::MaskingExpression,
     &gt;,
@@ -783,8 +784,8 @@
         <span class="doccomment">/// Masking expression to replace data with their default masking values.
         /// The default masking values for each type listed as below:
         ///
-        /// * STRING: &quot;&quot;
-        /// * BYTES: b&#39;&#39;
+        /// * STRING: ""
+        /// * BYTES: b''
         /// * INTEGER: 0
         /// * FLOAT: 0.0
         /// * NUMERIC: 0
@@ -805,21 +806,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                PredefinedExpression::Unspecified =&gt; <span class="string">&quot;PREDEFINED_EXPRESSION_UNSPECIFIED&quot;</span>,
-                PredefinedExpression::Sha256 =&gt; <span class="string">&quot;SHA256&quot;</span>,
-                PredefinedExpression::AlwaysNull =&gt; <span class="string">&quot;ALWAYS_NULL&quot;</span>,
-                PredefinedExpression::DefaultMaskingValue =&gt; <span class="string">&quot;DEFAULT_MASKING_VALUE&quot;</span>,
+                PredefinedExpression::Unspecified =&gt; <span class="string">"PREDEFINED_EXPRESSION_UNSPECIFIED"</span>,
+                PredefinedExpression::Sha256 =&gt; <span class="string">"SHA256"</span>,
+                PredefinedExpression::AlwaysNull =&gt; <span class="string">"ALWAYS_NULL"</span>,
+                PredefinedExpression::DefaultMaskingValue =&gt; <span class="string">"DEFAULT_MASKING_VALUE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PREDEFINED_EXPRESSION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha256),
-                <span class="string">&quot;ALWAYS_NULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlwaysNull),
-                <span class="string">&quot;DEFAULT_MASKING_VALUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DefaultMaskingValue),
+                <span class="string">"PREDEFINED_EXPRESSION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha256),
+                <span class="string">"ALWAYS_NULL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlwaysNull),
+                <span class="string">"DEFAULT_MASKING_VALUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DefaultMaskingValue),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -829,7 +830,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>MaskingExpression {
         <span class="doccomment">/// A predefined masking expression.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;PredefinedExpression&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"PredefinedExpression"</span>, tag = <span class="string">"1"</span>)]
         </span>PredefinedExpression(i32),
     }
 }
@@ -847,7 +848,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -920,19 +921,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/CreateDataPolicy&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/CreateDataPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService&quot;</span>,
-                        <span class="string">&quot;CreateDataPolicy&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService"</span>,
+                        <span class="string">"CreateDataPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -949,19 +950,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/UpdateDataPolicy&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/UpdateDataPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService&quot;</span>,
-                        <span class="string">&quot;UpdateDataPolicy&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService"</span>,
+                        <span class="string">"UpdateDataPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -977,19 +978,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/DeleteDataPolicy&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/DeleteDataPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService&quot;</span>,
-                        <span class="string">&quot;DeleteDataPolicy&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService"</span>,
+                        <span class="string">"DeleteDataPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1005,19 +1006,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/GetDataPolicy&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/GetDataPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService&quot;</span>,
-                        <span class="string">&quot;GetDataPolicy&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService"</span>,
+                        <span class="string">"GetDataPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1036,19 +1037,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/ListDataPolicies&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/ListDataPolicies"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService&quot;</span>,
-                        <span class="string">&quot;ListDataPolicies&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService"</span>,
+                        <span class="string">"ListDataPolicies"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1069,19 +1070,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/GetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/GetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService&quot;</span>,
-                        <span class="string">&quot;GetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService"</span>,
+                        <span class="string">"GetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1102,24 +1103,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/SetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/SetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService&quot;</span>,
-                        <span class="string">&quot;SetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService"</span>,
+                        <span class="string">"SetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Returns the caller&#39;s permission on the specified data policy resource.
+        <span class="doccomment">/// Returns the caller's permission on the specified data policy resource.
         </span><span class="kw">pub async fn </span>test_iam_permissions(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;
@@ -1137,19 +1138,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/TestIamPermissions&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService/TestIamPermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService&quot;</span>,
-                        <span class="string">&quot;TestIamPermissions&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datapolicies.v1beta1.DataPolicyService"</span>,
+                        <span class="string">"TestIamPermissions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

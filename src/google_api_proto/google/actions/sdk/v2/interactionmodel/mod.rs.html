@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/actions/sdk/v2/interactionmodel/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/actions/sdk/v2/interactionmodel/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -360,9 +361,9 @@
 <a href="#360" id="360">360</a>
 <a href="#361" id="361">361</a>
 <a href="#362" id="362">362</a>
-</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-actions-sdk-v2-interactionmodel-prompt&quot;</span>))]
+</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">"google-actions-sdk-v2-interactionmodel-prompt"</span>))]
 </span><span class="kw">pub mod </span>prompt;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-actions-sdk-v2-interactionmodel-type&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-actions-sdk-v2-interactionmodel-type"</span>))]
 </span><span class="kw">pub mod </span>r#type;
 <span class="doccomment">/// Entity sets describe the pre-defined set of entities that the values of
 /// built-in intent parameters can come from. Entity sets can be referenced from
@@ -371,7 +372,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EntitySet {
     <span class="doccomment">/// Required. The list of entities this entity set supports.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>entities: ::prost::alloc::vec::Vec&lt;entity_set::Entity&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `EntitySet`.
@@ -384,7 +385,7 @@
         /// For a list of built-in-intent parameters and their supported entities,
         /// see
         /// &lt;https://developers.google.com/assistant/conversational/build/built-in-intents&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     }
 }
@@ -394,10 +395,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EventHandler {
     <span class="doccomment">/// Name of the webhook handler to call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>webhook_handler: ::prost::alloc::string::String,
     <span class="doccomment">/// Prompts can either be inlined or referenced by name.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;event_handler::Prompt&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"event_handler::Prompt"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>prompt: ::core::option::Option&lt;event_handler::Prompt&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `EventHandler`.
@@ -408,10 +409,10 @@
     </span><span class="kw">pub enum </span>Prompt {
         <span class="doccomment">/// Inlined static prompt. Can contain references to string resources in
         /// bundles.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>StaticPrompt(<span class="kw">super</span>::prompt::StaticPrompt),
         <span class="doccomment">/// Name of the static prompt to invoke.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>StaticPromptName(::prost::alloc::string::String),
     }
 }
@@ -420,7 +421,7 @@
 /// Intent names must be unique within an Actions project.
 ///
 /// Global intents can be matched anytime during a session, allowing users to
-/// access common flows like  &quot;get help&quot; or &quot;go back home.&quot; They can also be
+/// access common flows like  "get help" or "go back home." They can also be
 /// used to deep link users into specific flows when they invoke an Action.
 ///
 /// Note, the intent name is specified in the name of the file.
@@ -429,25 +430,25 @@
 </span><span class="kw">pub struct </span>GlobalIntentEvent {
     <span class="doccomment">/// Optional. Destination scene which the conversation should jump to. The state of the
     /// current scene is destroyed on the transition.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transition_to_scene: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Event handler which is triggered when the intent is matched. Should execute
     /// before transitioning to the destination scene. Useful to generate Prompts
     /// in response to events.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>handler: ::core::option::Option&lt;EventHandler&gt;,
 }
 <span class="doccomment">/// Intents map open-ended user input to structured objects. Spoken
-/// phrases are matched to intents with Google&#39;s Natural Language Understanding
+/// phrases are matched to intents with Google's Natural Language Understanding
 /// (NLU). Intent matches can trigger events in your conversation design to
-/// progress the user&#39;s conversation.
+/// progress the user's conversation.
 /// The intent name is specified in the name of the file.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Intent {
     <span class="doccomment">/// The list of parameters within the training phrases. All parameters must be
     /// defined here to be used in the training phrase.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parameters: ::prost::alloc::vec::Vec&lt;intent::IntentParameter&gt;,
     <span class="doccomment">/// Training phrases allow Google’s NLU to automatically match intents with
     /// user input. The more unique phrases that are provided, the better chance
@@ -455,14 +456,14 @@
     /// The following is the format of training phrase part which are annotated.
     /// Note that `auto` field is optional and the default behavior when `auto` is
     /// not specified is equivalent to `auto=false`.
-    /// `($&lt;paramName&gt; &#39;&lt;sample text&gt;&#39; auto=&lt;true or false&gt;)`
+    /// `($&lt;paramName&gt; '&lt;sample text&gt;' auto=&lt;true or false&gt;)`
     /// `auto = true` means the part was auto annotated by NLU.
     /// `auto = false` means the part was annotated by the user. This is the
     ///      default when auto is not specified.
     /// Example:
-    /// &quot;Book a flight from ($source &#39;San Francisco&#39; auto=false) to ($dest
-    /// &#39;Vancouver&#39;)&quot;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    /// "Book a flight from ($source 'San Francisco' auto=false) to ($dest
+    /// 'Vancouver')"
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>training_phrases: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Intent`.
@@ -474,10 +475,10 @@
         <span class="doccomment">/// Required. Unique name of the intent parameter. Can be used in conditions and
         /// responses to reference intent parameters extracted by NLU with
         /// $intent.params.\[name\].resolved
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// The type of the intent parameter.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;intent_parameter::ParameterType&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"intent_parameter::ParameterType"</span>, tags = <span class="string">"2, 3"</span>)]
         </span><span class="kw">pub </span>parameter_type: ::core::option::Option&lt;intent_parameter::ParameterType&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `IntentParameter`.
@@ -487,7 +488,7 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>EntitySetReferences {
             <span class="doccomment">/// Required. Entity set references for an intent parameter.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>entity_set_references: ::prost::alloc::vec::Vec&lt;
                 entity_set_references::EntitySetReference,
             &gt;,
@@ -501,7 +502,7 @@
                 <span class="doccomment">/// Required. Identifies the specific collection of entities to be considered for a
                 /// given parameter. The corresponding entity set definition should be
                 /// present in the custom/entitySets/ directory.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>entity_set: ::prost::alloc::string::String,
             }
         }
@@ -511,12 +512,12 @@
         </span><span class="kw">pub enum </span>ParameterType {
             <span class="doccomment">/// Optional. Declares the data type of this parameter.
             /// This should not be set for built-in intents.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>Type(<span class="kw">super</span>::<span class="kw">super</span>::r#type::ClassReference),
             <span class="doccomment">/// Optional. References to the sets of allowed entities for this intent parameter.
             /// Only valid for parameters of a built-in intent. These
-            /// references point to entity sets in the &#39;custom/entitySets&#39; directory.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+            /// references point to entity sets in the 'custom/entitySets' directory.
+            </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
             </span>EntitySetReferences(EntitySetReferences),
         }
     }
@@ -532,25 +533,25 @@
     ///    `$user` - To reference data in user storage.
     /// The following boolean operators are supported (with examples):
     ///    `&amp;&amp;` - `session.params.counter &gt; 0 &amp;&amp; session.params.counter &lt; 100`
-    ///    `||` - `session.params.foo == &quot;John&quot; || session.params.counter == &quot;Adam&quot;`
+    ///    `||` - `session.params.foo == "John" || session.params.counter == "Adam"`
     ///    `!`  - `!(session.params.counter == 5)`
     /// The following comparisons are supported:
     ///    `==`, `!=`, `&lt;`, `&gt;`, `&lt;=`, `&gt;=`
     /// The following list and string operators are supported (with examples):
-    ///    `in`        - &quot;Watermelon&quot; in `session.params.fruitList`
+    ///    `in`        - "Watermelon" in `session.params.fruitList`
     ///    `size`      - `size(session.params.fruitList) &gt; 2`
-    ///    `substring` - `session.params.fullName.contains(&quot;John&quot;)`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    ///    `substring` - `session.params.fullName.contains("John")`
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>condition: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Destination scene which the conversation should jump to when the associated
     /// condition is evaluated to true. The state of the current scene is destroyed
     /// on the transition.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>transition_to_scene: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Event handler which is triggered when the associated condition is evaluated
     /// to `true`. Should execute before transitioning to the destination scene.
     /// Useful to generate Prompts in response to events.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>handler: ::core::option::Option&lt;EventHandler&gt;,
 }
 <span class="doccomment">/// Registers Events which trigger as the result of an intent match.
@@ -558,16 +559,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>IntentEvent {
     <span class="doccomment">/// Required. Intent triggering the event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>intent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Destination scene which the conversation should jump to. The state of the
     /// current scene is destroyed on the transition.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>transition_to_scene: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Event handler which is triggered when the intent is matched. Should execute
     /// before transitioning to the destination scene. Useful to generate prompts
     /// in response to events.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>handler: ::core::option::Option&lt;EventHandler&gt;,
 }
 <span class="doccomment">/// Configuration for a slot. Slots are single units of data that can be filled
@@ -577,21 +578,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Slot {
     <span class="doccomment">/// Required. Name of the slot.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Declares the data type of this slot.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;r#type::ClassReference&gt;,
     <span class="doccomment">/// Optional. Indicates whether the slot is required to be filled before
     /// advancing. Required slots that are not filled will trigger a customizable
     /// prompt to the user.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>required: bool,
     <span class="doccomment">/// Optional. Registers Prompts for different stages of slot filling.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>prompt_settings: ::core::option::Option&lt;slot::PromptSettings&gt;,
     <span class="doccomment">/// Optional. Commit behavior associated with the slot.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>commit_behavior: ::core::option::Option&lt;slot::CommitBehavior&gt;,
     <span class="doccomment">/// Optional. Additional configuration associated with the slot which is
     /// used for filling the slot. The format of the config is specific to the
@@ -605,18 +606,18 @@
     ///   session parameter `userSelectedSkuId`:
     ///
     ///     {
-    ///       &quot;@type&quot;: &quot;type.googleapis.com/
-    ///                   google.actions.transactions.v3.CompletePurchaseValueSpec&quot;,
-    ///       &quot;skuId&quot;: {
-    ///         &quot;skuType&quot;: &quot;SKU_TYPE_IN_APP&quot;,
-    ///         &quot;id&quot;: &quot;$session.params.userSelectedSkuId&quot;,
-    ///         &quot;packageName&quot;: &quot;com.example.company&quot;
+    ///       "@type": "type.googleapis.com/
+    ///                   google.actions.transactions.v3.CompletePurchaseValueSpec",
+    ///       "skuId": {
+    ///         "skuType": "SKU_TYPE_IN_APP",
+    ///         "id": "$session.params.userSelectedSkuId",
+    ///         "packageName": "com.example.company"
     ///       }
     ///     }
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// Optional. Configuration to populate a default value for this slot.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>default_value: ::core::option::Option&lt;slot::DefaultValue&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Slot`.
@@ -625,35 +626,35 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PromptSettings {
-        <span class="doccomment">/// Prompt for the slot value itself. Example: &quot;What size did you want?&quot;
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        <span class="doccomment">/// Prompt for the slot value itself. Example: "What size did you want?"
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>initial_prompt: ::core::option::Option&lt;<span class="kw">super</span>::EventHandler&gt;,
-        <span class="doccomment">/// Prompt to give when the user&#39;s input does not match the expected
-        /// value type for the slot for the first time. Example: &quot;Sorry, I
-        /// didn&#39;t get that.&quot;
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        <span class="doccomment">/// Prompt to give when the user's input does not match the expected
+        /// value type for the slot for the first time. Example: "Sorry, I
+        /// didn't get that."
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>no_match_prompt1: ::core::option::Option&lt;<span class="kw">super</span>::EventHandler&gt;,
-        <span class="doccomment">/// Prompt to give when the user&#39;s input does not match the expected
-        /// value type for the slot for the second time. Example: &quot;Sorry, I
-        /// didn&#39;t get that.&quot;
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        <span class="doccomment">/// Prompt to give when the user's input does not match the expected
+        /// value type for the slot for the second time. Example: "Sorry, I
+        /// didn't get that."
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>no_match_prompt2: ::core::option::Option&lt;<span class="kw">super</span>::EventHandler&gt;,
-        <span class="doccomment">/// Prompt to give when the user&#39;s input does not match the expected
-        /// value type for the slot for the last time. Example: &quot;Sorry, I
-        /// didn&#39;t get that.&quot;
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        <span class="doccomment">/// Prompt to give when the user's input does not match the expected
+        /// value type for the slot for the last time. Example: "Sorry, I
+        /// didn't get that."
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>no_match_final_prompt: ::core::option::Option&lt;<span class="kw">super</span>::EventHandler&gt;,
         <span class="doccomment">/// Prompt to give when the user does not provide an input for the first
-        /// time. Example: &quot;Sorry, I didn&#39;t get that.&quot;
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+        /// time. Example: "Sorry, I didn't get that."
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>no_input_prompt1: ::core::option::Option&lt;<span class="kw">super</span>::EventHandler&gt;,
         <span class="doccomment">/// Prompt to give when the user does not provide an input for the second
-        /// time. Example: &quot;Sorry, I didn&#39;t get that.&quot;
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+        /// time. Example: "Sorry, I didn't get that."
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>no_input_prompt2: ::core::option::Option&lt;<span class="kw">super</span>::EventHandler&gt;,
         <span class="doccomment">/// Prompt to give when the user does not provide an input for the last
-        /// time. Example: &quot;Sorry, I didn&#39;t get that.&quot;
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+        /// time. Example: "Sorry, I didn't get that."
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>no_input_final_prompt: ::core::option::Option&lt;<span class="kw">super</span>::EventHandler&gt;,
     }
     <span class="doccomment">/// Message describing the commit behavior associated with the slot after it
@@ -662,11 +663,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>CommitBehavior {
         <span class="doccomment">/// The session parameter to write the slot value after it is filled. Note
-        /// that nested paths are not currently supported. &quot;$$&quot; is used to write the
+        /// that nested paths are not currently supported. "$$" is used to write the
         /// slot value to a session parameter with same name as the slot.
-        /// Eg: write_session_param = &quot;fruit&quot; corresponds to &quot;$session.params.fruit&quot;.
-        /// write_session_param = &quot;ticket&quot; corresponds to &quot;$session.params.ticket&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// Eg: write_session_param = "fruit" corresponds to "$session.params.fruit".
+        /// write_session_param = "ticket" corresponds to "$session.params.ticket".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>write_session_param: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Configuration to populate a default value for this slot.
@@ -676,14 +677,14 @@
         <span class="doccomment">/// Optional. The session parameter to be used to initialize the slot value, if it has
         /// a non-empty value. The type of the value must match the type of the slot.
         /// Note that nested paths are not currently supported.
-        /// Eg: `session_param = &quot;fruit&quot;` corresponds to `$session.params.fruit`.
-        /// `session_param = &quot;ticket&quot;` corresponds to `$session.params.ticket`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// Eg: `session_param = "fruit"` corresponds to `$session.params.fruit`.
+        /// `session_param = "ticket"` corresponds to `$session.params.ticket`.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>session_param: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. Constant default value for the slot. This will only be used if a value
         /// for this slot was not populated through the `session_param`. The
         /// type for this value must match the type of the slot.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>constant: ::core::option::Option&lt;::prost_types::Value&gt;,
     }
 }
@@ -695,7 +696,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Scene {
     <span class="doccomment">/// Handler to invoke when transitioning into this scene.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>on_enter: ::core::option::Option&lt;EventHandler&gt;,
     <span class="doccomment">/// The list of events that trigger based on intents. These events can
     /// be triggered at any time after the on_load Handler has been called.
@@ -703,23 +704,23 @@
     /// this scene and will take precedence over any globally defined events that
     /// have the same intents or their triggering phrases. Intent names must be
     /// unique within a scene.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>intent_events: ::prost::alloc::vec::Vec&lt;IntentEvent&gt;,
     <span class="doccomment">/// The list of events to trigger based on conditional statements. These are
     /// evaluated after the form has been filled or immediately after on_load if
     /// this scene does not have a form (evaluation is only done once). Only the
     /// first matching event will be triggered.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>conditional_events: ::prost::alloc::vec::Vec&lt;ConditionalEvent&gt;,
     <span class="doccomment">/// Ordered list of slots. Each slot defines the type of data
     /// that it will resolve and configuration to customize the experience of this
     /// resolution (e.g. prompts).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>slots: ::prost::alloc::vec::Vec&lt;Slot&gt;,
     <span class="doccomment">/// Handler called when there is a change in state of a slot not
     /// caused by updates within another Handler. This allows slots to be
     /// invalidated, the scene invalidated or other changes to scene state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>on_slot_updated: ::core::option::Option&lt;EventHandler&gt;,
 }
 </code></pre></div></section></main></body></html>

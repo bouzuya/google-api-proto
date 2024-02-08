@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/secretmanager/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/secretmanager/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1301,17 +1302,17 @@
     <span class="doccomment">/// Output only. The resource name of the
     /// [Secret][google.cloud.secretmanager.v1.Secret] in the format
     /// `projects/*/secrets/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Immutable. The replication policy of the secret data attached to
     /// the [Secret][google.cloud.secretmanager.v1.Secret].
     ///
     /// The replication policy cannot be changed after the Secret has been created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>replication: ::core::option::Option&lt;Replication&gt;,
     <span class="doccomment">/// Output only. The time at which the
     /// [Secret][google.cloud.secretmanager.v1.Secret] was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The labels assigned to this Secret.
     ///
@@ -1324,36 +1325,36 @@
     /// regular expression: `\[\p{Ll}\p{Lo}\p{N}_-\]{0,63}`
     ///
     /// No more than 64 labels can be assigned to a given resource.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Optional. A list of up to 10 Pub/Sub topics to which messages are published
     /// when control plane operations are called on the secret or its versions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>topics: ::prost::alloc::vec::Vec&lt;Topic&gt;,
     <span class="doccomment">/// Optional. Etag of the currently stored
     /// [Secret][google.cloud.secretmanager.v1.Secret].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Rotation policy attached to the
     /// [Secret][google.cloud.secretmanager.v1.Secret]. May be excluded if there is
     /// no rotation policy.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>rotation: ::core::option::Option&lt;Rotation&gt;,
     <span class="doccomment">/// Optional. Mapping from version alias to version name.
     ///
     /// A version alias is a string with a maximum length of 63 characters and can
     /// contain uppercase and lowercase letters, numerals, and the hyphen (`-`)
-    /// and underscore (&#39;_&#39;) characters. An alias string must start with a
-    /// letter and cannot be the string &#39;latest&#39; or &#39;NEW&#39;.
+    /// and underscore ('_') characters. An alias string must start with a
+    /// letter and cannot be the string 'latest' or 'NEW'.
     /// No more than 50 aliases can be assigned to a given secret.
     ///
     /// Version-Alias pairs will be viewable via GetSecret and modifiable via
     /// UpdateSecret. At launch access by alias will only be supported on
     /// GetSecretVersion and AccessSecretVersion.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, int64&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, int64"</span>, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>version_aliases: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         i64,
@@ -1370,7 +1371,7 @@
     /// alphanumerics in between these symbols.
     ///
     /// The total size of annotation keys and values must be less than 16KiB.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1386,7 +1387,7 @@
     /// Conditions](&lt;https://cloud.google.com/secret-manager/docs/access-control#conditions&gt;)
     /// is recommended for granting time-based permissions because the operation
     /// can be reversed.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;secret::Expiration&quot;</span>, tags = <span class="string">&quot;6, 7&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"secret::Expiration"</span>, tags = <span class="string">"6, 7"</span>)]
     </span><span class="kw">pub </span>expiration: ::core::option::Option&lt;secret::Expiration&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Secret`.
@@ -1408,11 +1409,11 @@
         <span class="doccomment">/// Optional. Timestamp in UTC when the
         /// [Secret][google.cloud.secretmanager.v1.Secret] is scheduled to expire.
         /// This is always provided on output, regardless of what was sent on input.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>ExpireTime(::prost_types::Timestamp),
         <span class="doccomment">/// Input only. The TTL for the
         /// [Secret][google.cloud.secretmanager.v1.Secret].
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>Ttl(::prost_types::Duration),
     }
 }
@@ -1427,30 +1428,30 @@
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] IDs in a
     /// [Secret][google.cloud.secretmanager.v1.Secret] start at 1 and are
     /// incremented for each subsequent version of the secret.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time at which the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time this
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] was destroyed.
     /// Only present if [state][google.cloud.secretmanager.v1.SecretVersion.state]
     /// is
     /// [DESTROYED][google.cloud.secretmanager.v1.SecretVersion.State.DESTROYED].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>destroy_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The current state of the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;secret_version::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"secret_version::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// The replication status of the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>replication_status: ::core::option::Option&lt;ReplicationStatus&gt;,
     <span class="doccomment">/// Output only. Etag of the currently stored
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. True if payload checksum specified in
     /// [SecretPayload][google.cloud.secretmanager.v1.SecretPayload] object has
@@ -1458,7 +1459,7 @@
     /// [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
     /// on
     /// [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion].
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>client_specified_payload_checksum: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `SecretVersion`.
@@ -1500,21 +1501,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
-                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                State::Destroyed =&gt; <span class="string">&quot;DESTROYED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Enabled =&gt; <span class="string">"ENABLED"</span>,
+                State::Disabled =&gt; <span class="string">"DISABLED"</span>,
+                State::Destroyed =&gt; <span class="string">"DESTROYED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;DESTROYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Destroyed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ENABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
+                <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">"DESTROYED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Destroyed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1525,7 +1526,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Replication {
     <span class="doccomment">/// The replication policy for this secret.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;replication::Replication&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"replication::Replication"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>replication: ::core::option::Option&lt;replication::Replication&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Replication`.
@@ -1545,7 +1546,7 @@
         /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
         /// afterwards. They do not apply retroactively to existing
         /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>customer_managed_encryption: ::core::option::Option&lt;
             <span class="kw">super</span>::CustomerManagedEncryption,
         &gt;,
@@ -1560,7 +1561,7 @@
         /// [Secret][google.cloud.secretmanager.v1.Secret].
         ///
         /// Cannot be empty.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>replicas: ::prost::alloc::vec::Vec&lt;user_managed::Replica&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `UserManaged`.
@@ -1571,8 +1572,8 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>Replica {
             <span class="doccomment">/// The canonical IDs of the location to replicate data.
-            /// For example: `&quot;us-east1&quot;`.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            /// For example: `"us-east1"`.
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
             <span class="doccomment">/// Optional. The customer-managed encryption configuration of the
             /// [User-Managed Replica][Replication.UserManaged.Replica]. If no
@@ -1583,7 +1584,7 @@
             /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] added
             /// afterwards. They do not apply retroactively to existing
             /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>customer_managed_encryption: ::core::option::Option&lt;
                 <span class="kw">super</span>::<span class="kw">super</span>::CustomerManagedEncryption,
             &gt;,
@@ -1595,11 +1596,11 @@
     </span><span class="kw">pub enum </span>Replication {
         <span class="doccomment">/// The [Secret][google.cloud.secretmanager.v1.Secret] will automatically be
         /// replicated without any restrictions.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Automatic(Automatic),
         <span class="doccomment">/// The [Secret][google.cloud.secretmanager.v1.Secret] will only be
         /// replicated into the locations specified.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>UserManaged(UserManaged),
     }
 }
@@ -1621,7 +1622,7 @@
     /// replication policy type, Cloud KMS CryptoKeys must reside in `global`.
     ///
     /// The expected format is `projects/*/locations/*/keyRings/*/cryptoKeys/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The replication status of a
@@ -1631,7 +1632,7 @@
 </span><span class="kw">pub struct </span>ReplicationStatus {
     <span class="doccomment">/// The replication status of the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;replication_status::ReplicationStatus&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"replication_status::ReplicationStatus"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>replication_status: ::core::option::Option&lt;
         replication_status::ReplicationStatus,
     &gt;,
@@ -1650,7 +1651,7 @@
         <span class="doccomment">/// Output only. The customer-managed encryption status of the
         /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
         /// populated if customer-managed encryption is used.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>customer_managed_encryption: ::core::option::Option&lt;
             <span class="kw">super</span>::CustomerManagedEncryptionStatus,
         &gt;,
@@ -1666,7 +1667,7 @@
     </span><span class="kw">pub struct </span>UserManagedStatus {
         <span class="doccomment">/// Output only. The list of replica statuses for the
         /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>replicas: ::prost::alloc::vec::Vec&lt;user_managed_status::ReplicaStatus&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `UserManagedStatus`.
@@ -1677,13 +1678,13 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>ReplicaStatus {
             <span class="doccomment">/// Output only. The canonical ID of the replica location.
-            /// For example: `&quot;us-east1&quot;`.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            /// For example: `"us-east1"`.
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
             <span class="doccomment">/// Output only. The customer-managed encryption status of the
             /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
             /// populated if customer-managed encryption is used.
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>customer_managed_encryption: ::core::option::Option&lt;
                 <span class="kw">super</span>::<span class="kw">super</span>::CustomerManagedEncryptionStatus,
             &gt;,
@@ -1701,7 +1702,7 @@
         /// Only populated if the parent
         /// [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
         /// replication policy.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Automatic(AutomaticStatus),
         <span class="doccomment">/// Describes the replication status of a
         /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
@@ -1710,7 +1711,7 @@
         /// Only populated if the parent
         /// [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
         /// replication policy.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>UserManaged(UserManagedStatus),
     }
 }
@@ -1721,7 +1722,7 @@
     <span class="doccomment">/// Required. The resource name of the Cloud KMS CryptoKeyVersion used to
     /// encrypt the secret payload, in the following format:
     /// `projects/*/locations/*/keyRings/*/cryptoKeys/*/versions/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>kms_key_version_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A Pub/Sub topic which Secret Manager will publish to when control plane
@@ -1733,7 +1734,7 @@
     /// in the following format: `projects/*/topics/*`. For publication to succeed,
     /// the Secret Manager P4SA must have `pubsub.publisher` permissions on the
     /// topic.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The rotation time and period for a
@@ -1753,7 +1754,7 @@
     /// MUST  be set if
     /// [rotation_period][google.cloud.secretmanager.v1.Rotation.rotation_period]
     /// is set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>next_rotation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Input only. The Duration between rotation notifications. Must be in seconds
     /// and at least 3600s (1h) and at most 3153600000s (100 years).
@@ -1766,7 +1767,7 @@
     /// [next_rotation_time][google.cloud.secretmanager.v1.Rotation.next_rotation_time]
     /// will be advanced by this period when the service automatically sends
     /// rotation notifications.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>rotation_period: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// A secret payload resource in the Secret Manager API. This contains the
@@ -1776,7 +1777,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SecretPayload {
     <span class="doccomment">/// The secret data. Must be no larger than 64KiB.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>data: ::prost::bytes::Bytes,
     <span class="doccomment">/// Optional. If specified,
     /// [SecretManagerService][google.cloud.secretmanager.v1.SecretManagerService]
@@ -1794,7 +1795,7 @@
     /// The CRC32C value is encoded as a Int64 for compatibility, and can be
     /// safely downconverted to uint32 in languages that support this type.
     /// &lt;https://cloud.google.com/apis/design/design_patterns#integer_types&gt;
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data_crc32c: ::core::option::Option&lt;i64&gt;,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.ListSecrets][google.cloud.secretmanager.v1.SecretManagerService.ListSecrets].
@@ -1803,23 +1804,23 @@
 </span><span class="kw">pub struct </span>ListSecretsRequest {
     <span class="doccomment">/// Required. The resource name of the project associated with the
     /// [Secrets][google.cloud.secretmanager.v1.Secret], in the format `projects/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of results to be returned in a single page. If
     /// set to 0, the server decides the number of results to return. If the
     /// number is greater than 25000, it is capped at 25000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. Pagination token, returned earlier via
     /// [ListSecretsResponse.next_page_token][google.cloud.secretmanager.v1.ListSecretsResponse.next_page_token].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Filter string, adhering to the rules in
     /// [List-operation
     /// filtering](&lt;https://cloud.google.com/secret-manager/docs/filtering&gt;). List
     /// only secrets matching the filter. If filter is empty, all secrets are
     /// listed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for [SecretManagerService.ListSecrets][google.cloud.secretmanager.v1.SecretManagerService.ListSecrets].
@@ -1828,14 +1829,14 @@
 </span><span class="kw">pub struct </span>ListSecretsResponse {
     <span class="doccomment">/// The list of [Secrets][google.cloud.secretmanager.v1.Secret] sorted in reverse by create_time (newest
     /// first).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>secrets: ::prost::alloc::vec::Vec&lt;Secret&gt;,
     <span class="doccomment">/// A token to retrieve the next page of results. Pass this value in
     /// [ListSecretsRequest.page_token][google.cloud.secretmanager.v1.ListSecretsRequest.page_token] to retrieve the next page.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The total number of [Secrets][google.cloud.secretmanager.v1.Secret].
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>total_size: i32,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.CreateSecret][google.cloud.secretmanager.v1.SecretManagerService.CreateSecret].
@@ -1844,17 +1845,17 @@
 </span><span class="kw">pub struct </span>CreateSecretRequest {
     <span class="doccomment">/// Required. The resource name of the project to associate with the
     /// [Secret][google.cloud.secretmanager.v1.Secret], in the format `projects/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. This must be unique within the project.
     ///
     /// A secret ID is a string with a maximum length of 255 characters and can
     /// contain uppercase and lowercase letters, numerals, and the hyphen (`-`) and
     /// underscore (`_`) characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>secret_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A [Secret][google.cloud.secretmanager.v1.Secret] with initial field values.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>secret: ::core::option::Option&lt;Secret&gt;,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.AddSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AddSecretVersion].
@@ -1863,10 +1864,10 @@
 </span><span class="kw">pub struct </span>AddSecretVersionRequest {
     <span class="doccomment">/// Required. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] to associate with the
     /// [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format `projects/*/secrets/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The secret payload of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>payload: ::core::option::Option&lt;SecretPayload&gt;,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.GetSecret][google.cloud.secretmanager.v1.SecretManagerService.GetSecret].
@@ -1874,7 +1875,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetSecretRequest {
     <span class="doccomment">/// Required. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret], in the format `projects/*/secrets/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.ListSecretVersions][google.cloud.secretmanager.v1.SecretManagerService.ListSecretVersions].
@@ -1884,23 +1885,23 @@
     <span class="doccomment">/// Required. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] associated with the
     /// [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] to list, in the format
     /// `projects/*/secrets/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of results to be returned in a single page. If
     /// set to 0, the server decides the number of results to return. If the
     /// number is greater than 25000, it is capped at 25000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. Pagination token, returned earlier via
     /// ListSecretVersionsResponse.next_page_token][].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Filter string, adhering to the rules in
     /// [List-operation
     /// filtering](&lt;https://cloud.google.com/secret-manager/docs/filtering&gt;). List
     /// only secret versions matching the filter. If filter is empty, all secret
     /// versions are listed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for [SecretManagerService.ListSecretVersions][google.cloud.secretmanager.v1.SecretManagerService.ListSecretVersions].
@@ -1909,14 +1910,14 @@
 </span><span class="kw">pub struct </span>ListSecretVersionsResponse {
     <span class="doccomment">/// The list of [SecretVersions][google.cloud.secretmanager.v1.SecretVersion] sorted in reverse by
     /// create_time (newest first).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>versions: ::prost::alloc::vec::Vec&lt;SecretVersion&gt;,
     <span class="doccomment">/// A token to retrieve the next page of results. Pass this value in
     /// [ListSecretVersionsRequest.page_token][google.cloud.secretmanager.v1.ListSecretVersionsRequest.page_token] to retrieve the next page.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The total number of [SecretVersions][google.cloud.secretmanager.v1.SecretVersion].
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>total_size: i32,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.GetSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.GetSecretVersion].
@@ -1928,7 +1929,7 @@
     ///
     /// `projects/*/secrets/*/versions/latest` is an alias to the most recently
     /// created [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.UpdateSecret][google.cloud.secretmanager.v1.SecretManagerService.UpdateSecret].
@@ -1936,10 +1937,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateSecretRequest {
     <span class="doccomment">/// Required. [Secret][google.cloud.secretmanager.v1.Secret] with updated field values.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>secret: ::core::option::Option&lt;Secret&gt;,
     <span class="doccomment">/// Required. Specifies the fields to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion].
@@ -1951,7 +1952,7 @@
     ///
     /// `projects/*/secrets/*/versions/latest` is an alias to the most recently
     /// created [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for [SecretManagerService.AccessSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion].
@@ -1960,10 +1961,10 @@
 </span><span class="kw">pub struct </span>AccessSecretVersionResponse {
     <span class="doccomment">/// The resource name of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] in the format
     /// `projects/*/secrets/*/versions/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Secret payload
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>payload: ::core::option::Option&lt;SecretPayload&gt;,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.DeleteSecret][google.cloud.secretmanager.v1.SecretManagerService.DeleteSecret].
@@ -1972,12 +1973,12 @@
 </span><span class="kw">pub struct </span>DeleteSecretRequest {
     <span class="doccomment">/// Required. The resource name of the [Secret][google.cloud.secretmanager.v1.Secret] to delete in the format
     /// `projects/*/secrets/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Etag of the [Secret][google.cloud.secretmanager.v1.Secret]. The request succeeds if it matches
     /// the etag of the currently stored secret object. If the etag is omitted,
     /// the request succeeds.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.DisableSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.DisableSecretVersion].
@@ -1986,12 +1987,12 @@
 </span><span class="kw">pub struct </span>DisableSecretVersionRequest {
     <span class="doccomment">/// Required. The resource name of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to disable in the format
     /// `projects/*/secrets/*/versions/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Etag of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. The request succeeds if it matches
     /// the etag of the currently stored secret version object. If the etag is
     /// omitted, the request succeeds.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.EnableSecretVersion][google.cloud.secretmanager.v1.SecretManagerService.EnableSecretVersion].
@@ -2000,12 +2001,12 @@
 </span><span class="kw">pub struct </span>EnableSecretVersionRequest {
     <span class="doccomment">/// Required. The resource name of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to enable in the format
     /// `projects/*/secrets/*/versions/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Etag of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. The request succeeds if it matches
     /// the etag of the currently stored secret version object. If the etag is
     /// omitted, the request succeeds.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for [SecretManagerService.DestroySecretVersion][google.cloud.secretmanager.v1.SecretManagerService.DestroySecretVersion].
@@ -2014,12 +2015,12 @@
 </span><span class="kw">pub struct </span>DestroySecretVersionRequest {
     <span class="doccomment">/// Required. The resource name of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] to destroy in the format
     /// `projects/*/secrets/*/versions/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Etag of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. The request succeeds if it matches
     /// the etag of the currently stored secret version object. If the etag is
     /// omitted, the request succeeds.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2042,7 +2043,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2117,19 +2118,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/ListSecrets&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/ListSecrets"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;ListSecrets&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"ListSecrets"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2145,19 +2146,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/CreateSecret&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/CreateSecret"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;CreateSecret&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"CreateSecret"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2174,19 +2175,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/AddSecretVersion&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/AddSecretVersion"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;AddSecretVersion&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"AddSecretVersion"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2202,19 +2203,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/GetSecret&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/GetSecret"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;GetSecret&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"GetSecret"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2230,19 +2231,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/UpdateSecret&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/UpdateSecret"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;UpdateSecret&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"UpdateSecret"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2258,19 +2259,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/DeleteSecret&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/DeleteSecret"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;DeleteSecret&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"DeleteSecret"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2290,19 +2291,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/ListSecretVersions&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/ListSecretVersions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;ListSecretVersions&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"ListSecretVersions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2321,19 +2322,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/GetSecretVersion&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/GetSecretVersion"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;GetSecretVersion&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"GetSecretVersion"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2355,19 +2356,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/AccessSecretVersion&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/AccessSecretVersion"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;AccessSecretVersion&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"AccessSecretVersion"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2386,19 +2387,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/DisableSecretVersion&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/DisableSecretVersion"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;DisableSecretVersion&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"DisableSecretVersion"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2417,19 +2418,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/EnableSecretVersion&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/EnableSecretVersion"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;EnableSecretVersion&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"EnableSecretVersion"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2449,19 +2450,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/DestroySecretVersion&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/DestroySecretVersion"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;DestroySecretVersion&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"DestroySecretVersion"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2486,19 +2487,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/SetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/SetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;SetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"SetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2520,19 +2521,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/GetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/GetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;GetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"GetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2543,7 +2544,7 @@
         ///
         /// Note: This operation is designed to be used for building permission-aware
         /// UIs and command-line tools, not for authorization checking. This operation
-        /// may &quot;fail open&quot; without warning.
+        /// may "fail open" without warning.
         </span><span class="kw">pub async fn </span>test_iam_permissions(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;
@@ -2561,19 +2562,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.secretmanager.v1.SecretManagerService/TestIamPermissions&quot;</span>,
+                <span class="string">"/google.cloud.secretmanager.v1.SecretManagerService/TestIamPermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.secretmanager.v1.SecretManagerService&quot;</span>,
-                        <span class="string">&quot;TestIamPermissions&quot;</span>,
+                        <span class="string">"google.cloud.secretmanager.v1.SecretManagerService"</span>,
+                        <span class="string">"TestIamPermissions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

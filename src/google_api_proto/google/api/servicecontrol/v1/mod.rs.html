@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/api/servicecontrol/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/api/servicecontrol/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1500,23 +1501,23 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Distribution {
     <span class="doccomment">/// The total number of samples in the distribution. Must be &gt;= 0.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>count: i64,
     <span class="doccomment">/// The arithmetic mean of the samples in the distribution. If `count` is
     /// zero then this field must be zero.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>mean: f64,
     <span class="doccomment">/// The minimum of the population of values. Ignored if `count` is zero.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>minimum: f64,
     <span class="doccomment">/// The maximum of the population of values. Ignored if `count` is zero.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>maximum: f64,
     <span class="doccomment">/// The sum of squared deviations from the mean:
     ///    Sum[i=1..count]((x_i - mean)^2)
     /// where each x_i is a sample values. If `count` is zero then this field
     /// must be zero, otherwise validation of the request fails.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>sum_of_squared_deviation: f64,
     <span class="doccomment">/// The number of samples in each histogram bucket. `bucket_counts` are
     /// optional. If present, they must sum to the `count` value.
@@ -1529,21 +1530,21 @@
     /// below for more details.
     ///
     /// Any suffix of trailing zeros may be omitted.
-    </span><span class="attr">#[prost(int64, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>bucket_counts: ::prost::alloc::vec::Vec&lt;i64&gt;,
     <span class="doccomment">/// Example points. Must be in increasing order of `value` field.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>exemplars: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::distribution::Exemplar&gt;,
     <span class="doccomment">/// Defines the buckets in the histogram. `bucket_option` and `bucket_counts`
     /// must be both set, or both unset.
     ///
     /// Buckets are numbered in the range of \[0, N\], with a total of N+1 buckets.
     /// There must be at least two buckets (a single-bucket histogram gives
-    /// no information that isn&#39;t already provided by `count`).
+    /// no information that isn't already provided by `count`).
     ///
     /// The first bucket is the underflow bucket which has a lower bound
     /// of -inf. The last bucket is the overflow bucket which has an
-    /// upper bound of +inf. All other buckets (if any) are called &quot;finite&quot;
+    /// upper bound of +inf. All other buckets (if any) are called "finite"
     /// buckets because they have finite lower and upper bounds. As described
     /// below, there are three ways to define the finite buckets.
     ///
@@ -1557,7 +1558,7 @@
     /// lower bound of the smallest finite bucket; the lower bound of the
     /// overflow bucket is equal to the upper bound of the largest finite
     /// bucket.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;distribution::BucketOption&quot;</span>, tags = <span class="string">&quot;7, 8, 9&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"distribution::BucketOption"</span>, tags = <span class="string">"7, 8, 9"</span>)]
     </span><span class="kw">pub </span>bucket_option: ::core::option::Option&lt;distribution::BucketOption&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Distribution`.
@@ -1569,18 +1570,18 @@
         <span class="doccomment">/// The number of finite buckets. With the underflow and overflow buckets,
         /// the total number of buckets is `num_finite_buckets` + 2.
         /// See comments on `bucket_options` for details.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>num_finite_buckets: i32,
-        <span class="doccomment">/// The i&#39;th linear bucket covers the interval
+        <span class="doccomment">/// The i'th linear bucket covers the interval
         ///    [offset + (i-1) * width, offset + i * width)
         /// where i ranges from 1 to num_finite_buckets, inclusive.
         /// Must be strictly positive.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>width: f64,
-        <span class="doccomment">/// The i&#39;th linear bucket covers the interval
+        <span class="doccomment">/// The i'th linear bucket covers the interval
         ///    [offset + (i-1) * width, offset + i * width)
         /// where i ranges from 1 to num_finite_buckets, inclusive.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>offset: f64,
     }
     <span class="doccomment">/// Describing buckets with exponentially growing width.
@@ -1590,33 +1591,33 @@
         <span class="doccomment">/// The number of finite buckets. With the underflow and overflow buckets,
         /// the total number of buckets is `num_finite_buckets` + 2.
         /// See comments on `bucket_options` for details.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>num_finite_buckets: i32,
-        <span class="doccomment">/// The i&#39;th exponential bucket covers the interval
+        <span class="doccomment">/// The i'th exponential bucket covers the interval
         ///    [scale * growth_factor^(i-1), scale * growth_factor^i)
         /// where i ranges from 1 to num_finite_buckets inclusive.
         /// Must be larger than 1.0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>growth_factor: f64,
-        <span class="doccomment">/// The i&#39;th exponential bucket covers the interval
+        <span class="doccomment">/// The i'th exponential bucket covers the interval
         ///    [scale * growth_factor^(i-1), scale * growth_factor^i)
         /// where i ranges from 1 to num_finite_buckets inclusive.
         /// Must be &gt; 0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>scale: f64,
     }
     <span class="doccomment">/// Describing buckets with arbitrary user-provided width.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ExplicitBuckets {
-        <span class="doccomment">/// &#39;bound&#39; is a list of strictly increasing boundaries between
+        <span class="doccomment">/// 'bound' is a list of strictly increasing boundaries between
         /// buckets. Note that a list of length N-1 defines N buckets because
         /// of fenceposting. See comments on `bucket_options` for details.
         ///
-        /// The i&#39;th finite bucket covers the interval
+        /// The i'th finite bucket covers the interval
         ///    \[bound[i-1\], bound\[i\])
         /// where i ranges from 1 to bound_size() - 1. Note that there are no
-        /// finite buckets at all if &#39;bound&#39; only contains a single element; in
+        /// finite buckets at all if 'bound' only contains a single element; in
         /// that special case the single bound defines the boundary between the
         /// underflow and overflow buckets.
         ///
@@ -1624,7 +1625,7 @@
         ///   i == 0 (underflow)              -inf           bound\[i\]
         ///   0 &lt; i &lt; bound_size()            bound\[i-1\]     bound\[i\]
         ///   i == bound_size() (overflow)    bound\[i-1\]     +inf
-        </span><span class="attr">#[prost(double, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(double, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>bounds: ::prost::alloc::vec::Vec&lt;f64&gt;,
     }
     <span class="doccomment">/// Defines the buckets in the histogram. `bucket_option` and `bucket_counts`
@@ -1632,11 +1633,11 @@
     ///
     /// Buckets are numbered in the range of \[0, N\], with a total of N+1 buckets.
     /// There must be at least two buckets (a single-bucket histogram gives
-    /// no information that isn&#39;t already provided by `count`).
+    /// no information that isn't already provided by `count`).
     ///
     /// The first bucket is the underflow bucket which has a lower bound
     /// of -inf. The last bucket is the overflow bucket which has an
-    /// upper bound of +inf. All other buckets (if any) are called &quot;finite&quot;
+    /// upper bound of +inf. All other buckets (if any) are called "finite"
     /// buckets because they have finite lower and upper bounds. As described
     /// below, there are three ways to define the finite buckets.
     ///
@@ -1654,13 +1655,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>BucketOption {
         <span class="doccomment">/// Buckets with constant width.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>LinearBuckets(LinearBuckets),
         <span class="doccomment">/// Buckets with exponentially growing width.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>ExponentialBuckets(ExponentialBuckets),
         <span class="doccomment">/// Buckets with arbitrary user-provided width.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>ExplicitBuckets(ExplicitBuckets),
     }
 }
@@ -1672,27 +1673,27 @@
     /// See comments on [google.api.servicecontrol.v1.Operation.labels][google.api.servicecontrol.v1.Operation.labels] for
     /// the overriding relationship.
     /// Note that this map must not contain monitored resource labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="doccomment">/// The start of the time period over which this metric value&#39;s measurement
+    <span class="doccomment">/// The start of the time period over which this metric value's measurement
     /// applies. The time period has different semantics for different metric
     /// types (cumulative, delta, and gauge). See the metric definition
     /// documentation in the service configuration for details. If not specified,
     /// [google.api.servicecontrol.v1.Operation.start_time][google.api.servicecontrol.v1.Operation.start_time] will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The end of the time period over which this metric value&#39;s measurement
+    <span class="doccomment">/// The end of the time period over which this metric value's measurement
     /// applies.  If not specified,
     /// [google.api.servicecontrol.v1.Operation.end_time][google.api.servicecontrol.v1.Operation.end_time] will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The value. The type of value used in the request must
     /// agree with the metric definition in the service configuration, otherwise
     /// the MetricValue is rejected.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;metric_value::Value&quot;</span>, tags = <span class="string">&quot;4, 5, 6, 7, 8&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"metric_value::Value"</span>, tags = <span class="string">"4, 5, 6, 7, 8"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;metric_value::Value&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MetricValue`.
@@ -1704,19 +1705,19 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Value {
         <span class="doccomment">/// A boolean value.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
         </span>BoolValue(bool),
         <span class="doccomment">/// A signed 64-bit integer value.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
         </span>Int64Value(i64),
         <span class="doccomment">/// A double precision floating point value.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"6"</span>)]
         </span>DoubleValue(f64),
         <span class="doccomment">/// A text string value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
         </span>StringValue(::prost::alloc::string::String),
         <span class="doccomment">/// A distribution value.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>DistributionValue(<span class="kw">super</span>::Distribution),
     }
 }
@@ -1727,10 +1728,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MetricValueSet {
     <span class="doccomment">/// The metric name defined in the service configuration.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>metric_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The values in this metric.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>metric_values: ::prost::alloc::vec::Vec&lt;MetricValue&gt;,
 }
 <span class="doccomment">/// Request message for the AllocateQuota method.
@@ -1738,18 +1739,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AllocateQuotaRequest {
     <span class="doccomment">/// Name of the service as specified in the service configuration. For example,
-    /// `&quot;pubsub.googleapis.com&quot;`.
+    /// `"pubsub.googleapis.com"`.
     ///
     /// See [google.api.Service][google.api.Service] for the definition of a service name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Operation that describes the quota allocation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>allocate_operation: ::core::option::Option&lt;QuotaOperation&gt;,
     <span class="doccomment">/// Specifies which version of service configuration should be used to process
     /// the request. If unspecified or no matching version can be found, the latest
     /// one will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>service_config_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents information regarding a quota operation.
@@ -1765,7 +1766,7 @@
     /// operations can be accessed fast in storage. For this reason, the
     /// recommended token for services that intend to operate at a high QPS is
     /// Unix time in nanos + UUID
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Fully qualified name of the API method for which this quota operation is
     /// requested. This name is used for matching quota rules or metric rules and
@@ -1778,7 +1779,7 @@
     ///
     /// Example of an RPC method name:
     ///      google.example.library.v1.LibraryService.CreateShelf
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>method_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Identity of the consumer for whom this quota operation is being performed.
     ///
@@ -1786,10 +1787,10 @@
     ///    project:&lt;project_id&gt;,
     ///    project_number:&lt;project_number&gt;,
     ///    api_key:&lt;api_key&gt;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>consumer_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Labels describing the operation.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1806,10 +1807,10 @@
     /// an invalid argument error.
     ///
     /// This field is mutually exclusive with method_name.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>quota_metrics: ::prost::alloc::vec::Vec&lt;MetricValueSet&gt;,
     <span class="doccomment">/// Quota mode for this operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;quota_operation::QuotaMode&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"quota_operation::QuotaMode"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>quota_mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `QuotaOperation`.
@@ -1868,25 +1869,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                QuotaMode::Unspecified =&gt; <span class="string">&quot;UNSPECIFIED&quot;</span>,
-                QuotaMode::Normal =&gt; <span class="string">&quot;NORMAL&quot;</span>,
-                QuotaMode::BestEffort =&gt; <span class="string">&quot;BEST_EFFORT&quot;</span>,
-                QuotaMode::CheckOnly =&gt; <span class="string">&quot;CHECK_ONLY&quot;</span>,
-                QuotaMode::QueryOnly =&gt; <span class="string">&quot;QUERY_ONLY&quot;</span>,
-                QuotaMode::AdjustOnly =&gt; <span class="string">&quot;ADJUST_ONLY&quot;</span>,
+                QuotaMode::Unspecified =&gt; <span class="string">"UNSPECIFIED"</span>,
+                QuotaMode::Normal =&gt; <span class="string">"NORMAL"</span>,
+                QuotaMode::BestEffort =&gt; <span class="string">"BEST_EFFORT"</span>,
+                QuotaMode::CheckOnly =&gt; <span class="string">"CHECK_ONLY"</span>,
+                QuotaMode::QueryOnly =&gt; <span class="string">"QUERY_ONLY"</span>,
+                QuotaMode::AdjustOnly =&gt; <span class="string">"ADJUST_ONLY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NORMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
-                <span class="string">&quot;BEST_EFFORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BestEffort),
-                <span class="string">&quot;CHECK_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CheckOnly),
-                <span class="string">&quot;QUERY_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::QueryOnly),
-                <span class="string">&quot;ADJUST_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdjustOnly),
+                <span class="string">"UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NORMAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
+                <span class="string">"BEST_EFFORT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BestEffort),
+                <span class="string">"CHECK_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CheckOnly),
+                <span class="string">"QUERY_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::QueryOnly),
+                <span class="string">"ADJUST_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdjustOnly),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1898,25 +1899,25 @@
 </span><span class="kw">pub struct </span>AllocateQuotaResponse {
     <span class="doccomment">/// The same operation_id value used in the AllocateQuotaRequest. Used for
     /// logging and diagnostics purposes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Indicates the decision of the allocate.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>allocate_errors: ::prost::alloc::vec::Vec&lt;QuotaError&gt;,
     <span class="doccomment">/// Quota metrics to indicate the result of allocation. Depending on the
     /// request, one or more of the following metrics will be included:
     ///
     /// 1. Per quota group or per quota metric incremental usage will be specified
     /// using the following delta metric :
-    ///    &quot;serviceruntime.googleapis.com/api/consumer/quota_used_count&quot;
+    ///    "serviceruntime.googleapis.com/api/consumer/quota_used_count"
     ///
     /// 2. The quota limit reached condition will be specified using the following
     /// boolean metric :
-    ///    &quot;serviceruntime.googleapis.com/quota/exceeded&quot;
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    ///    "serviceruntime.googleapis.com/quota/exceeded"
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>quota_metrics: ::prost::alloc::vec::Vec&lt;MetricValueSet&gt;,
     <span class="doccomment">/// ID of the actual config used to process the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>service_config_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents error information for [QuotaOperation][google.api.servicecontrol.v1.QuotaOperation].
@@ -1924,19 +1925,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QuotaError {
     <span class="doccomment">/// Error code.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;quota_error::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"quota_error::Code"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// Subject to whom this error applies. See the specific enum for more details
-    /// on this field. For example, &quot;clientip:&lt;ip address of client&gt;&quot; or
-    /// &quot;project:&lt;Google developer project id&gt;&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// on this field. For example, "clientip:&lt;ip address of client&gt;" or
+    /// "project:&lt;Google developer project id&gt;".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>subject: ::prost::alloc::string::String,
     <span class="doccomment">/// Free-form text that provides details on the cause of the error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Contains additional information about the quota error.
     /// If available, `status.code` will be non zero.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `QuotaError`.
@@ -1967,7 +1968,7 @@
         <span class="doccomment">/// Consumer cannot access the service because the service requires active
         /// billing.
         </span>BillingNotActive = <span class="number">107</span>,
-        <span class="doccomment">/// Consumer&#39;s project has been marked as deleted (soft deletion).
+        <span class="doccomment">/// Consumer's project has been marked as deleted (soft deletion).
         </span>ProjectDeleted = <span class="number">108</span>,
         <span class="doccomment">/// Specified API key is invalid.
         </span>ApiKeyInvalid = <span class="number">105</span>,
@@ -1979,25 +1980,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Code::Unspecified =&gt; <span class="string">&quot;UNSPECIFIED&quot;</span>,
-                Code::ResourceExhausted =&gt; <span class="string">&quot;RESOURCE_EXHAUSTED&quot;</span>,
-                Code::BillingNotActive =&gt; <span class="string">&quot;BILLING_NOT_ACTIVE&quot;</span>,
-                Code::ProjectDeleted =&gt; <span class="string">&quot;PROJECT_DELETED&quot;</span>,
-                Code::ApiKeyInvalid =&gt; <span class="string">&quot;API_KEY_INVALID&quot;</span>,
-                Code::ApiKeyExpired =&gt; <span class="string">&quot;API_KEY_EXPIRED&quot;</span>,
+                Code::Unspecified =&gt; <span class="string">"UNSPECIFIED"</span>,
+                Code::ResourceExhausted =&gt; <span class="string">"RESOURCE_EXHAUSTED"</span>,
+                Code::BillingNotActive =&gt; <span class="string">"BILLING_NOT_ACTIVE"</span>,
+                Code::ProjectDeleted =&gt; <span class="string">"PROJECT_DELETED"</span>,
+                Code::ApiKeyInvalid =&gt; <span class="string">"API_KEY_INVALID"</span>,
+                Code::ApiKeyExpired =&gt; <span class="string">"API_KEY_EXPIRED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RESOURCE_EXHAUSTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceExhausted),
-                <span class="string">&quot;BILLING_NOT_ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BillingNotActive),
-                <span class="string">&quot;PROJECT_DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectDeleted),
-                <span class="string">&quot;API_KEY_INVALID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyInvalid),
-                <span class="string">&quot;API_KEY_EXPIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyExpired),
+                <span class="string">"UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RESOURCE_EXHAUSTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceExhausted),
+                <span class="string">"BILLING_NOT_ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BillingNotActive),
+                <span class="string">"PROJECT_DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectDeleted),
+                <span class="string">"API_KEY_INVALID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyInvalid),
+                <span class="string">"API_KEY_EXPIRED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyExpired),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2020,7 +2021,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2105,19 +2106,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.servicecontrol.v1.QuotaController/AllocateQuota&quot;</span>,
+                <span class="string">"/google.api.servicecontrol.v1.QuotaController/AllocateQuota"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.servicecontrol.v1.QuotaController&quot;</span>,
-                        <span class="string">&quot;AllocateQuota&quot;</span>,
+                        <span class="string">"google.api.servicecontrol.v1.QuotaController"</span>,
+                        <span class="string">"AllocateQuota"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2130,23 +2131,23 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CheckError {
     <span class="doccomment">/// The error code.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;check_error::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"check_error::Code"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// Subject to whom this error applies. See the specific code enum for more
     /// details on this field. For example:
     ///
-    /// - &quot;project:&lt;project-id or project-number&gt;&quot;
-    /// - &quot;folder:&lt;folder-id&gt;&quot;
-    /// - &quot;organization:&lt;organization-id&gt;&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// - "project:&lt;project-id or project-number&gt;"
+    /// - "folder:&lt;folder-id&gt;"
+    /// - "organization:&lt;organization-id&gt;"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>subject: ::prost::alloc::string::String,
     <span class="doccomment">/// Free-form text providing details on the error cause of the error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>detail: ::prost::alloc::string::String,
     <span class="doccomment">/// Contains public information about the check error. If available,
     /// `status.code` will be non zero and client can propagate it out as public
     /// error.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CheckError`.
@@ -2167,21 +2168,21 @@
     </span><span class="kw">pub enum </span>Code {
         <span class="doccomment">/// This is never used in `CheckResponse`.
         </span>ErrorCodeUnspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The consumer&#39;s project id, network container, or resource container was
+        <span class="doccomment">/// The consumer's project id, network container, or resource container was
         /// not found. Same as [google.rpc.Code.NOT_FOUND][google.rpc.Code.NOT_FOUND].
         </span>NotFound = <span class="number">5</span>,
-        <span class="doccomment">/// The consumer doesn&#39;t have access to the specified resource.
+        <span class="doccomment">/// The consumer doesn't have access to the specified resource.
         /// Same as [google.rpc.Code.PERMISSION_DENIED][google.rpc.Code.PERMISSION_DENIED].
         </span>PermissionDenied = <span class="number">7</span>,
         <span class="doccomment">/// Quota check failed. Same as [google.rpc.Code.RESOURCE_EXHAUSTED][google.rpc.Code.RESOURCE_EXHAUSTED].
         </span>ResourceExhausted = <span class="number">8</span>,
-        <span class="doccomment">/// The consumer hasn&#39;t activated the service.
+        <span class="doccomment">/// The consumer hasn't activated the service.
         </span>ServiceNotActivated = <span class="number">104</span>,
         <span class="doccomment">/// The consumer cannot access the service because billing is disabled.
         </span>BillingDisabled = <span class="number">107</span>,
-        <span class="doccomment">/// The consumer&#39;s project has been marked as deleted (soft deletion).
+        <span class="doccomment">/// The consumer's project has been marked as deleted (soft deletion).
         </span>ProjectDeleted = <span class="number">108</span>,
-        <span class="doccomment">/// The consumer&#39;s project number or id does not represent a valid project.
+        <span class="doccomment">/// The consumer's project number or id does not represent a valid project.
         </span>ProjectInvalid = <span class="number">114</span>,
         <span class="doccomment">/// The input consumer info does not represent a valid consumer folder or
         /// organization.
@@ -2198,11 +2199,11 @@
         <span class="doccomment">/// The API targeted by this request is invalid for the specified consumer
         /// project.
         </span>ApiTargetBlocked = <span class="number">122</span>,
-        <span class="doccomment">/// The consumer&#39;s API key is invalid.
+        <span class="doccomment">/// The consumer's API key is invalid.
         </span>ApiKeyInvalid = <span class="number">105</span>,
-        <span class="doccomment">/// The consumer&#39;s API Key has expired.
+        <span class="doccomment">/// The consumer's API Key has expired.
         </span>ApiKeyExpired = <span class="number">112</span>,
-        <span class="doccomment">/// The consumer&#39;s API Key was not found in config record.
+        <span class="doccomment">/// The consumer's API Key was not found in config record.
         </span>ApiKeyNotFound = <span class="number">113</span>,
         <span class="doccomment">/// The credential in the request can not be verified.
         </span>InvalidCredential = <span class="number">123</span>,
@@ -2220,57 +2221,57 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Code::ErrorCodeUnspecified =&gt; <span class="string">&quot;ERROR_CODE_UNSPECIFIED&quot;</span>,
-                Code::NotFound =&gt; <span class="string">&quot;NOT_FOUND&quot;</span>,
-                Code::PermissionDenied =&gt; <span class="string">&quot;PERMISSION_DENIED&quot;</span>,
-                Code::ResourceExhausted =&gt; <span class="string">&quot;RESOURCE_EXHAUSTED&quot;</span>,
-                Code::ServiceNotActivated =&gt; <span class="string">&quot;SERVICE_NOT_ACTIVATED&quot;</span>,
-                Code::BillingDisabled =&gt; <span class="string">&quot;BILLING_DISABLED&quot;</span>,
-                Code::ProjectDeleted =&gt; <span class="string">&quot;PROJECT_DELETED&quot;</span>,
-                Code::ProjectInvalid =&gt; <span class="string">&quot;PROJECT_INVALID&quot;</span>,
-                Code::ConsumerInvalid =&gt; <span class="string">&quot;CONSUMER_INVALID&quot;</span>,
-                Code::IpAddressBlocked =&gt; <span class="string">&quot;IP_ADDRESS_BLOCKED&quot;</span>,
-                Code::RefererBlocked =&gt; <span class="string">&quot;REFERER_BLOCKED&quot;</span>,
-                Code::ClientAppBlocked =&gt; <span class="string">&quot;CLIENT_APP_BLOCKED&quot;</span>,
-                Code::ApiTargetBlocked =&gt; <span class="string">&quot;API_TARGET_BLOCKED&quot;</span>,
-                Code::ApiKeyInvalid =&gt; <span class="string">&quot;API_KEY_INVALID&quot;</span>,
-                Code::ApiKeyExpired =&gt; <span class="string">&quot;API_KEY_EXPIRED&quot;</span>,
-                Code::ApiKeyNotFound =&gt; <span class="string">&quot;API_KEY_NOT_FOUND&quot;</span>,
-                Code::InvalidCredential =&gt; <span class="string">&quot;INVALID_CREDENTIAL&quot;</span>,
-                Code::NamespaceLookupUnavailable =&gt; <span class="string">&quot;NAMESPACE_LOOKUP_UNAVAILABLE&quot;</span>,
-                Code::ServiceStatusUnavailable =&gt; <span class="string">&quot;SERVICE_STATUS_UNAVAILABLE&quot;</span>,
-                Code::BillingStatusUnavailable =&gt; <span class="string">&quot;BILLING_STATUS_UNAVAILABLE&quot;</span>,
+                Code::ErrorCodeUnspecified =&gt; <span class="string">"ERROR_CODE_UNSPECIFIED"</span>,
+                Code::NotFound =&gt; <span class="string">"NOT_FOUND"</span>,
+                Code::PermissionDenied =&gt; <span class="string">"PERMISSION_DENIED"</span>,
+                Code::ResourceExhausted =&gt; <span class="string">"RESOURCE_EXHAUSTED"</span>,
+                Code::ServiceNotActivated =&gt; <span class="string">"SERVICE_NOT_ACTIVATED"</span>,
+                Code::BillingDisabled =&gt; <span class="string">"BILLING_DISABLED"</span>,
+                Code::ProjectDeleted =&gt; <span class="string">"PROJECT_DELETED"</span>,
+                Code::ProjectInvalid =&gt; <span class="string">"PROJECT_INVALID"</span>,
+                Code::ConsumerInvalid =&gt; <span class="string">"CONSUMER_INVALID"</span>,
+                Code::IpAddressBlocked =&gt; <span class="string">"IP_ADDRESS_BLOCKED"</span>,
+                Code::RefererBlocked =&gt; <span class="string">"REFERER_BLOCKED"</span>,
+                Code::ClientAppBlocked =&gt; <span class="string">"CLIENT_APP_BLOCKED"</span>,
+                Code::ApiTargetBlocked =&gt; <span class="string">"API_TARGET_BLOCKED"</span>,
+                Code::ApiKeyInvalid =&gt; <span class="string">"API_KEY_INVALID"</span>,
+                Code::ApiKeyExpired =&gt; <span class="string">"API_KEY_EXPIRED"</span>,
+                Code::ApiKeyNotFound =&gt; <span class="string">"API_KEY_NOT_FOUND"</span>,
+                Code::InvalidCredential =&gt; <span class="string">"INVALID_CREDENTIAL"</span>,
+                Code::NamespaceLookupUnavailable =&gt; <span class="string">"NAMESPACE_LOOKUP_UNAVAILABLE"</span>,
+                Code::ServiceStatusUnavailable =&gt; <span class="string">"SERVICE_STATUS_UNAVAILABLE"</span>,
+                Code::BillingStatusUnavailable =&gt; <span class="string">"BILLING_STATUS_UNAVAILABLE"</span>,
                 Code::CloudResourceManagerBackendUnavailable =&gt; {
-                    <span class="string">&quot;CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE&quot;
+                    <span class="string">"CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE"
                 </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ERROR_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorCodeUnspecified),
-                <span class="string">&quot;NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotFound),
-                <span class="string">&quot;PERMISSION_DENIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermissionDenied),
-                <span class="string">&quot;RESOURCE_EXHAUSTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceExhausted),
-                <span class="string">&quot;SERVICE_NOT_ACTIVATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceNotActivated),
-                <span class="string">&quot;BILLING_DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BillingDisabled),
-                <span class="string">&quot;PROJECT_DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectDeleted),
-                <span class="string">&quot;PROJECT_INVALID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectInvalid),
-                <span class="string">&quot;CONSUMER_INVALID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConsumerInvalid),
-                <span class="string">&quot;IP_ADDRESS_BLOCKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IpAddressBlocked),
-                <span class="string">&quot;REFERER_BLOCKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RefererBlocked),
-                <span class="string">&quot;CLIENT_APP_BLOCKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClientAppBlocked),
-                <span class="string">&quot;API_TARGET_BLOCKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiTargetBlocked),
-                <span class="string">&quot;API_KEY_INVALID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyInvalid),
-                <span class="string">&quot;API_KEY_EXPIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyExpired),
-                <span class="string">&quot;API_KEY_NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyNotFound),
-                <span class="string">&quot;INVALID_CREDENTIAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidCredential),
-                <span class="string">&quot;NAMESPACE_LOOKUP_UNAVAILABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NamespaceLookupUnavailable),
-                <span class="string">&quot;SERVICE_STATUS_UNAVAILABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceStatusUnavailable),
-                <span class="string">&quot;BILLING_STATUS_UNAVAILABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BillingStatusUnavailable),
-                <span class="string">&quot;CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE&quot; </span>=&gt; {
+                <span class="string">"ERROR_CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorCodeUnspecified),
+                <span class="string">"NOT_FOUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotFound),
+                <span class="string">"PERMISSION_DENIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermissionDenied),
+                <span class="string">"RESOURCE_EXHAUSTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceExhausted),
+                <span class="string">"SERVICE_NOT_ACTIVATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceNotActivated),
+                <span class="string">"BILLING_DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BillingDisabled),
+                <span class="string">"PROJECT_DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectDeleted),
+                <span class="string">"PROJECT_INVALID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectInvalid),
+                <span class="string">"CONSUMER_INVALID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConsumerInvalid),
+                <span class="string">"IP_ADDRESS_BLOCKED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IpAddressBlocked),
+                <span class="string">"REFERER_BLOCKED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RefererBlocked),
+                <span class="string">"CLIENT_APP_BLOCKED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClientAppBlocked),
+                <span class="string">"API_TARGET_BLOCKED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiTargetBlocked),
+                <span class="string">"API_KEY_INVALID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyInvalid),
+                <span class="string">"API_KEY_EXPIRED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyExpired),
+                <span class="string">"API_KEY_NOT_FOUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApiKeyNotFound),
+                <span class="string">"INVALID_CREDENTIAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidCredential),
+                <span class="string">"NAMESPACE_LOOKUP_UNAVAILABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NamespaceLookupUnavailable),
+                <span class="string">"SERVICE_STATUS_UNAVAILABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceStatusUnavailable),
+                <span class="string">"BILLING_STATUS_UNAVAILABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BillingStatusUnavailable),
+                <span class="string">"CLOUD_RESOURCE_MANAGER_BACKEND_UNAVAILABLE" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudResourceManagerBackendUnavailable)
                 }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -2284,118 +2285,118 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HttpRequest {
-    <span class="doccomment">/// The request method. Examples: `&quot;GET&quot;`, `&quot;HEAD&quot;`, `&quot;PUT&quot;`, `&quot;POST&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// The request method. Examples: `"GET"`, `"HEAD"`, `"PUT"`, `"POST"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>request_method: ::prost::alloc::string::String,
     <span class="doccomment">/// The scheme (http, https), the host name, the path, and the query
     /// portion of the URL that was requested.
-    /// Example: `&quot;&lt;http://example.com/some/info?color=red&quot;`.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// Example: `"&lt;http://example.com/some/info?color=red"`.&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_url: ::prost::alloc::string::String,
     <span class="doccomment">/// The size of the HTTP request message in bytes, including the request
     /// headers and the request body.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_size: i64,
     <span class="doccomment">/// The response code indicating the status of the response.
     /// Examples: 200, 404.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>status: i32,
     <span class="doccomment">/// The size of the HTTP response message sent back to the client, in bytes,
     /// including the response headers and the response body.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>response_size: i64,
     <span class="doccomment">/// The user agent sent by the client. Example:
-    /// `&quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461; .NET
-    /// CLR 1.0.3705)&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    /// `"Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Q312461; .NET
+    /// CLR 1.0.3705)"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>user_agent: ::prost::alloc::string::String,
     <span class="doccomment">/// The IP address (IPv4 or IPv6) of the client that issued the HTTP
-    /// request. Examples: `&quot;192.168.1.1&quot;`, `&quot;FE80::0202:B3FF:FE1E:8329&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    /// request. Examples: `"192.168.1.1"`, `"FE80::0202:B3FF:FE1E:8329"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>remote_ip: ::prost::alloc::string::String,
     <span class="doccomment">/// The IP address (IPv4 or IPv6) of the origin server that the request was
     /// sent to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>server_ip: ::prost::alloc::string::String,
     <span class="doccomment">/// The referer URL of the request, as defined in
     /// [HTTP/1.1 Header Field
     /// Definitions](&lt;http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>referer: ::prost::alloc::string::String,
     <span class="doccomment">/// The request processing latency on the server, from the time the request was
     /// received until the response was sent.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>latency: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Whether or not a cache lookup was attempted.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>cache_lookup: bool,
     <span class="doccomment">/// Whether or not an entity was served from cache
     /// (with or without validation).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>cache_hit: bool,
     <span class="doccomment">/// Whether or not the response was validated with the origin server before
     /// being served from cache. This field is only meaningful if `cache_hit` is
     /// True.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>cache_validated_with_origin_server: bool,
     <span class="doccomment">/// The number of HTTP response bytes inserted into cache. Set only when a
     /// cache fill was attempted.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>cache_fill_bytes: i64,
-    <span class="doccomment">/// Protocol used for the request. Examples: &quot;HTTP/1.1&quot;, &quot;HTTP/2&quot;, &quot;websocket&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    <span class="doccomment">/// Protocol used for the request. Examples: "HTTP/1.1", "HTTP/2", "websocket"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>protocol: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An individual log entry.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LogEntry {
-    <span class="doccomment">/// Required. The log to which this log entry belongs. Examples: `&quot;syslog&quot;`,
-    /// `&quot;book_log&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    <span class="doccomment">/// Required. The log to which this log entry belongs. Examples: `"syslog"`,
+    /// `"book_log"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The time the event described by the log entry occurred. If
     /// omitted, defaults to operation start time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The severity of the log entry. The default value is
     /// `LogSeverity.DEFAULT`.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::super::super::logging::r#type::LogSeverity&quot;</span>,
-        tag = <span class="string">&quot;12&quot;
+        enumeration = <span class="string">"super::super::super::logging::r#type::LogSeverity"</span>,
+        tag = <span class="string">"12"
     </span>)]
     </span><span class="kw">pub </span>severity: i32,
     <span class="doccomment">/// Optional. Information about the HTTP request associated with this
     /// log entry, if applicable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>http_request: ::core::option::Option&lt;HttpRequest&gt;,
     <span class="doccomment">/// Optional. Resource name of the trace associated with the log entry, if any.
     /// If this field contains a relative resource name, you can assume the name is
     /// relative to `//tracing.googleapis.com`. Example:
     /// `projects/my-projectid/traces/06796866738c859f2f19b7cfb3214824`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>trace: ::prost::alloc::string::String,
     <span class="doccomment">/// A unique ID for the log entry used for deduplication. If omitted,
     /// the implementation will generate one based on operation_id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>insert_id: ::prost::alloc::string::String,
     <span class="doccomment">/// A set of user-defined (key, value) data that provides additional
     /// information about the log entry.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Optional. Information about an operation associated with the log entry, if
     /// applicable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>operation: ::core::option::Option&lt;LogEntryOperation&gt;,
     <span class="doccomment">/// Optional. Source code location information associated with the log entry,
     /// if any.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>source_location: ::core::option::Option&lt;LogEntrySourceLocation&gt;,
     <span class="doccomment">/// The log entry payload, which can be one of multiple types.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;log_entry::Payload&quot;</span>, tags = <span class="string">&quot;2, 3, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"log_entry::Payload"</span>, tags = <span class="string">"2, 3, 6"</span>)]
     </span><span class="kw">pub </span>payload: ::core::option::Option&lt;log_entry::Payload&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `LogEntry`.
@@ -2407,14 +2408,14 @@
         <span class="doccomment">/// The log entry payload, represented as a protocol buffer that is
         /// expressed as a JSON object. The only accepted type currently is
         /// [AuditLog][google.cloud.audit.AuditLog].
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>ProtoPayload(::prost_types::Any),
         <span class="doccomment">/// The log entry payload, represented as a Unicode string (UTF-8).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>TextPayload(::prost::alloc::string::String),
         <span class="doccomment">/// The log entry payload, represented as a structure that
         /// is expressed as a JSON object.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>StructPayload(::prost_types::Struct),
     }
 }
@@ -2425,18 +2426,18 @@
 </span><span class="kw">pub struct </span>LogEntryOperation {
     <span class="doccomment">/// Optional. An arbitrary operation identifier. Log entries with the
     /// same identifier are assumed to be part of the same operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. An arbitrary producer identifier. The combination of
     /// `id` and `producer` must be globally unique.  Examples for `producer`:
-    /// `&quot;MyDivision.MyBigCompany.com&quot;`, `&quot;github.com/MyProject/MyApplication&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// `"MyDivision.MyBigCompany.com"`, `"github.com/MyProject/MyApplication"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>producer: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Set this to True if this is the first log entry in the operation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>first: bool,
     <span class="doccomment">/// Optional. Set this to True if this is the last log entry in the operation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>last: bool,
 }
 <span class="doccomment">/// Additional information about the source code location that produced the log
@@ -2446,11 +2447,11 @@
 </span><span class="kw">pub struct </span>LogEntrySourceLocation {
     <span class="doccomment">/// Optional. Source file name. Depending on the runtime environment, this
     /// might be a simple name or a fully-qualified name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>file: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Line within the source file. 1-based; 0 indicates no line number
     /// available.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>line: i64,
     <span class="doccomment">/// Optional. Human-readable name of the function or method being invoked, with
     /// optional context such as the class or package name. This information may be
@@ -2458,7 +2459,7 @@
     /// less meaningful. The format can vary by language. For example:
     /// `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
     /// (Python).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>function: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents information regarding an operation.
@@ -2474,10 +2475,10 @@
     /// In scenarios where an operation is computed from existing information
     /// and an idempotent id is desirable for deduplication purpose, UUID version 5
     /// is recommended. See RFC 4122 for details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Fully qualified name of the operation. Reserved for future use.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>operation_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Identity of the consumer who is using the service.
     /// This field should be filled in for the operations initiated by a
@@ -2491,17 +2492,17 @@
     ///      - folders/FOLDER_NUMBER,
     ///      - organizations/ORGANIZATION_NUMBER,
     ///      - api`_`key:API_KEY.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>consumer_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Start time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// End time of the operation.
     /// Required when the operation is used in
     /// [ServiceController.Report][google.api.servicecontrol.v1.ServiceController.Report],
     /// but optional when the operation is used in
     /// [ServiceController.Check][google.api.servicecontrol.v1.ServiceController.Check].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Labels describing the operation. Only the following labels are allowed:
     ///
@@ -2519,7 +2520,7 @@
     ///      - `servicecontrol.googleapis.com/platform` describing the platform
     ///         where the API is served, such as App Engine, Compute Engine, or
     ///         Kubernetes Engine.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2534,16 +2535,16 @@
     /// label value combinations. If a request has such duplicated MetricValue
     /// instances, the entire request is rejected with
     /// an invalid argument error.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>metric_value_sets: ::prost::alloc::vec::Vec&lt;MetricValueSet&gt;,
     <span class="doccomment">/// Represents information to be logged.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>log_entries: ::prost::alloc::vec::Vec&lt;LogEntry&gt;,
     <span class="doccomment">/// DO NOT USE. This is an experimental field.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation::Importance&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"operation::Importance"</span>, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>importance: i32,
     <span class="doccomment">/// Unimplemented.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>extensions: ::prost::alloc::vec::Vec&lt;::prost_types::Any&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Operation`.
@@ -2575,17 +2576,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Importance::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
-                Importance::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
+                Importance::Low =&gt; <span class="string">"LOW"</span>,
+                Importance::High =&gt; <span class="string">"HIGH"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
-                <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+                <span class="string">"LOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+                <span class="string">"HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2596,22 +2597,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CheckRequest {
     <span class="doccomment">/// The service name as specified in its service configuration. For example,
-    /// `&quot;pubsub.googleapis.com&quot;`.
+    /// `"pubsub.googleapis.com"`.
     ///
     /// See
     /// [google.api.Service](&lt;https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service&gt;)
     /// for the definition of a service name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The operation to be checked.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>operation: ::core::option::Option&lt;Operation&gt;,
     <span class="doccomment">/// Specifies which version of service configuration should be used to process
     /// the request.
     ///
     /// If unspecified or no matching version can be found, the
     /// latest one will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>service_config_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for the Check method.
@@ -2621,23 +2622,23 @@
     <span class="doccomment">/// The same operation_id value used in the
     /// [CheckRequest][google.api.servicecontrol.v1.CheckRequest]. Used for logging
     /// and diagnostics purposes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Indicate the decision of the check.
     ///
     /// If no check errors are present, the service should process the operation.
     /// Otherwise the service should use the list of errors to determine the
     /// appropriate action.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>check_errors: ::prost::alloc::vec::Vec&lt;CheckError&gt;,
     <span class="doccomment">/// The actual config id used to process the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>service_config_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The current service rollout id used to process the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>service_rollout_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Feedback data returned from the server during processing a Check request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>check_info: ::core::option::Option&lt;check_response::CheckInfo&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CheckResponse`.
@@ -2647,12 +2648,12 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>CheckInfo {
         <span class="doccomment">/// A list of fields and label keys that are ignored by the server.
-        /// The client doesn&#39;t need to send them for following requests to improve
+        /// The client doesn't need to send them for following requests to improve
         /// performance and allow better aggregation.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>unused_arguments: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// Consumer info of this check.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>consumer_info: ::core::option::Option&lt;ConsumerInfo&gt;,
     }
     <span class="doccomment">/// `ConsumerInfo` provides information about the consumer.
@@ -2664,16 +2665,16 @@
         ///
         /// NOTE: This field is deprecated after we support flexible consumer
         /// id. New code should not depend on this field anymore.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>project_number: i64,
         <span class="doccomment">/// The type of the consumer which should have been defined in
         /// [Google Resource Manager](&lt;https://cloud.google.com/resource-manager/&gt;).
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;consumer_info::ConsumerType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"consumer_info::ConsumerType"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>r#type: i32,
         <span class="doccomment">/// The consumer identity number, can be Google cloud project number, folder
         /// number or organization number e.g. 1234567890. A value of 0 indicates no
         /// consumer number is found.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>consumer_number: i64,
     }
     <span class="doccomment">/// Nested message and enum types in `ConsumerInfo`.
@@ -2711,23 +2712,23 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    ConsumerType::Unspecified =&gt; <span class="string">&quot;CONSUMER_TYPE_UNSPECIFIED&quot;</span>,
-                    ConsumerType::Project =&gt; <span class="string">&quot;PROJECT&quot;</span>,
-                    ConsumerType::Folder =&gt; <span class="string">&quot;FOLDER&quot;</span>,
-                    ConsumerType::Organization =&gt; <span class="string">&quot;ORGANIZATION&quot;</span>,
-                    ConsumerType::ServiceSpecific =&gt; <span class="string">&quot;SERVICE_SPECIFIC&quot;</span>,
+                    ConsumerType::Unspecified =&gt; <span class="string">"CONSUMER_TYPE_UNSPECIFIED"</span>,
+                    ConsumerType::Project =&gt; <span class="string">"PROJECT"</span>,
+                    ConsumerType::Folder =&gt; <span class="string">"FOLDER"</span>,
+                    ConsumerType::Organization =&gt; <span class="string">"ORGANIZATION"</span>,
+                    ConsumerType::ServiceSpecific =&gt; <span class="string">"SERVICE_SPECIFIC"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;CONSUMER_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;PROJECT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Project),
-                    <span class="string">&quot;FOLDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Folder),
-                    <span class="string">&quot;ORGANIZATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organization),
-                    <span class="string">&quot;SERVICE_SPECIFIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceSpecific),
+                    <span class="string">"CONSUMER_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"PROJECT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Project),
+                    <span class="string">"FOLDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Folder),
+                    <span class="string">"ORGANIZATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organization),
+                    <span class="string">"SERVICE_SPECIFIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceSpecific),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -2739,12 +2740,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReportRequest {
     <span class="doccomment">/// The service name as specified in its service configuration. For example,
-    /// `&quot;pubsub.googleapis.com&quot;`.
+    /// `"pubsub.googleapis.com"`.
     ///
     /// See
     /// [google.api.Service](&lt;https://cloud.google.com/service-management/reference/rpc/google.api#google.api.Service&gt;)
     /// for the definition of a service name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Operations to be reported.
     ///
@@ -2757,14 +2758,14 @@
     /// however the ReportRequest size should be no larger than 1MB. See
     /// [ReportResponse.report_errors][google.api.servicecontrol.v1.ReportResponse.report_errors]
     /// for partial failure behavior.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>operations: ::prost::alloc::vec::Vec&lt;Operation&gt;,
     <span class="doccomment">/// Specifies which version of service config should be used to process the
     /// request.
     ///
     /// If unspecified or no matching version can be found, the
     /// latest one will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>service_config_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for the Report method.
@@ -2783,15 +2784,15 @@
     ///     `Operation` that failed processing has a corresponding item
     ///     in this list.
     /// 3. A failed RPC status indicates a general non-deterministic failure.
-    ///     When this happens, it&#39;s impossible to know which of the
-    ///     &#39;Operations&#39; in the request succeeded or failed.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    ///     When this happens, it's impossible to know which of the
+    ///     'Operations' in the request succeeded or failed.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>report_errors: ::prost::alloc::vec::Vec&lt;report_response::ReportError&gt;,
     <span class="doccomment">/// The actual config id used to process the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service_config_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The current service rollout id used to process the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>service_rollout_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `ReportResponse`.
@@ -2804,11 +2805,11 @@
         <span class="doccomment">/// The
         /// [Operation.operation_id][google.api.servicecontrol.v1.Operation.operation_id]
         /// value from the request.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
         <span class="doccomment">/// Details of the error when processing the
         /// [Operation][google.api.servicecontrol.v1.Operation].
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     }
 }
@@ -2829,7 +2830,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2917,19 +2918,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.servicecontrol.v1.ServiceController/Check&quot;</span>,
+                <span class="string">"/google.api.servicecontrol.v1.ServiceController/Check"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.servicecontrol.v1.ServiceController&quot;</span>,
-                        <span class="string">&quot;Check&quot;</span>,
+                        <span class="string">"google.api.servicecontrol.v1.ServiceController"</span>,
+                        <span class="string">"Check"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2959,19 +2960,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.servicecontrol.v1.ServiceController/Report&quot;</span>,
+                <span class="string">"/google.api.servicecontrol.v1.ServiceController/Report"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.servicecontrol.v1.ServiceController&quot;</span>,
-                        <span class="string">&quot;Report&quot;</span>,
+                        <span class="string">"google.api.servicecontrol.v1.ServiceController"</span>,
+                        <span class="string">"Report"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

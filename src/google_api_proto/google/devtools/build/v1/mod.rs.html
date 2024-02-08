@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/build/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/build/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -685,21 +686,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BuildStatus {
     <span class="doccomment">/// The end result.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;build_status::Result&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"build_status::Result"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>result: i32,
     <span class="doccomment">/// Final invocation ID of the build, if there was one.
     /// This field is only set on a status in BuildFinished event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>final_invocation_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Build tool exit code. Integer value returned by the executed build tool.
     /// Might not be available in some cases, e.g., a build timeout.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>build_tool_exit_code: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Human-readable error message. Do not use for programmatic purposes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Fine-grained diagnostic information to complement the status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>details: ::core::option::Option&lt;::prost_types::Any&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `BuildStatus`.
@@ -742,31 +743,31 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Result::UnknownStatus =&gt; <span class="string">&quot;UNKNOWN_STATUS&quot;</span>,
-                Result::CommandSucceeded =&gt; <span class="string">&quot;COMMAND_SUCCEEDED&quot;</span>,
-                Result::CommandFailed =&gt; <span class="string">&quot;COMMAND_FAILED&quot;</span>,
-                Result::UserError =&gt; <span class="string">&quot;USER_ERROR&quot;</span>,
-                Result::SystemError =&gt; <span class="string">&quot;SYSTEM_ERROR&quot;</span>,
-                Result::ResourceExhausted =&gt; <span class="string">&quot;RESOURCE_EXHAUSTED&quot;</span>,
-                Result::InvocationDeadlineExceeded =&gt; <span class="string">&quot;INVOCATION_DEADLINE_EXCEEDED&quot;</span>,
-                Result::RequestDeadlineExceeded =&gt; <span class="string">&quot;REQUEST_DEADLINE_EXCEEDED&quot;</span>,
-                Result::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+                Result::UnknownStatus =&gt; <span class="string">"UNKNOWN_STATUS"</span>,
+                Result::CommandSucceeded =&gt; <span class="string">"COMMAND_SUCCEEDED"</span>,
+                Result::CommandFailed =&gt; <span class="string">"COMMAND_FAILED"</span>,
+                Result::UserError =&gt; <span class="string">"USER_ERROR"</span>,
+                Result::SystemError =&gt; <span class="string">"SYSTEM_ERROR"</span>,
+                Result::ResourceExhausted =&gt; <span class="string">"RESOURCE_EXHAUSTED"</span>,
+                Result::InvocationDeadlineExceeded =&gt; <span class="string">"INVOCATION_DEADLINE_EXCEEDED"</span>,
+                Result::RequestDeadlineExceeded =&gt; <span class="string">"REQUEST_DEADLINE_EXCEEDED"</span>,
+                Result::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNKNOWN_STATUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownStatus),
-                <span class="string">&quot;COMMAND_SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CommandSucceeded),
-                <span class="string">&quot;COMMAND_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CommandFailed),
-                <span class="string">&quot;USER_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserError),
-                <span class="string">&quot;SYSTEM_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SystemError),
-                <span class="string">&quot;RESOURCE_EXHAUSTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceExhausted),
-                <span class="string">&quot;INVOCATION_DEADLINE_EXCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvocationDeadlineExceeded),
-                <span class="string">&quot;REQUEST_DEADLINE_EXCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequestDeadlineExceeded),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">"UNKNOWN_STATUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownStatus),
+                <span class="string">"COMMAND_SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CommandSucceeded),
+                <span class="string">"COMMAND_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CommandFailed),
+                <span class="string">"USER_ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserError),
+                <span class="string">"SYSTEM_ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SystemError),
+                <span class="string">"RESOURCE_EXHAUSTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceExhausted),
+                <span class="string">"INVOCATION_DEADLINE_EXCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvocationDeadlineExceeded),
+                <span class="string">"REQUEST_DEADLINE_EXCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequestDeadlineExceeded),
+                <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -779,12 +780,12 @@
 </span><span class="kw">pub struct </span>BuildEvent {
     <span class="doccomment">/// This should be precisely the time when this event happened, and not when
     /// the event proto was created or sent.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// //////////////////////////////////////////////////////////////////////////
     /// Events that indicate a state change of a build request in the build
     /// queue.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;build_event::Event&quot;</span>, tags = <span class="string">&quot;51, 52, 53, 55, 56, 59, 60, 61, 62&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"build_event::Event"</span>, tags = <span class="string">"51, 52, 53, 55, 56, 59, 60, 61, 62"</span>)]
     </span><span class="kw">pub </span>event: ::core::option::Option&lt;build_event::Event&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `BuildEvent`.
@@ -796,10 +797,10 @@
         <span class="doccomment">/// The number of the invocation attempt, starting at 1 and increasing by 1
         /// for each new attempt. Can be used to determine if there is a later
         /// invocation attempt replacing the current one a client is processing.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>attempt_number: i64,
         <span class="doccomment">/// Arbitrary details about the invocation attempt.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>details: ::core::option::Option&lt;::prost_types::Any&gt;,
     }
     <span class="doccomment">/// Notification that an invocation attempt has finished.
@@ -807,10 +808,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>InvocationAttemptFinished {
         <span class="doccomment">/// Final status of the invocation.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>invocation_status: ::core::option::Option&lt;<span class="kw">super</span>::BuildStatus&gt;,
         <span class="doccomment">/// Arbitrary details about the invocation attempt.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>details: ::core::option::Option&lt;::prost_types::Any&gt;,
     }
     <span class="doccomment">/// Notification that the build request is enqueued.
@@ -818,7 +819,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>BuildEnqueued {
         <span class="doccomment">/// Additional details about the Build.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>details: ::core::option::Option&lt;::prost_types::Any&gt;,
     }
     <span class="doccomment">/// Notification that the build request has finished, and no further
@@ -828,10 +829,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>BuildFinished {
         <span class="doccomment">/// Final status of the build.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::BuildStatus&gt;,
         <span class="doccomment">/// Additional details about the Build.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>details: ::core::option::Option&lt;::prost_types::Any&gt;,
     }
     <span class="doccomment">/// Textual output written to standard output or standard error.
@@ -839,10 +840,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ConsoleOutput {
         <span class="doccomment">/// The output stream type.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::ConsoleOutputStream&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::ConsoleOutputStream"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>r#type: i32,
         <span class="doccomment">/// The output stream content.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;console_output::Output&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"console_output::Output"</span>, tags = <span class="string">"2, 3"</span>)]
         </span><span class="kw">pub </span>output: ::core::option::Option&lt;console_output::Output&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `ConsoleOutput`.
@@ -852,10 +853,10 @@
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>Output {
             <span class="doccomment">/// Regular UTF-8 output; normal text.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span>TextOutput(::prost::alloc::string::String),
             <span class="doccomment">/// Used if the output is not UTF-8 text (for example, a binary proto).
-            </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(bytes, tag = <span class="string">"3"</span>)]
             </span>BinaryOutput(::prost::bytes::Bytes),
         }
     }
@@ -865,7 +866,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>BuildComponentStreamFinished {
         <span class="doccomment">/// How the event stream finished.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;build_component_stream_finished::FinishType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"build_component_stream_finished::FinishType"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>r#type: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `BuildComponentStreamFinished`.
@@ -899,19 +900,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    FinishType::Unspecified =&gt; <span class="string">&quot;FINISH_TYPE_UNSPECIFIED&quot;</span>,
-                    FinishType::Finished =&gt; <span class="string">&quot;FINISHED&quot;</span>,
-                    FinishType::Expired =&gt; <span class="string">&quot;EXPIRED&quot;</span>,
+                    FinishType::Unspecified =&gt; <span class="string">"FINISH_TYPE_UNSPECIFIED"</span>,
+                    FinishType::Finished =&gt; <span class="string">"FINISHED"</span>,
+                    FinishType::Expired =&gt; <span class="string">"EXPIRED"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;FINISH_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;FINISHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finished),
-                    <span class="string">&quot;EXPIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expired),
+                    <span class="string">"FINISH_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"FINISHED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finished),
+                    <span class="string">"EXPIRED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expired),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -924,35 +925,35 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Event {
         <span class="doccomment">/// An invocation attempt has started.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;51&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"51"</span>)]
         </span>InvocationAttemptStarted(InvocationAttemptStarted),
         <span class="doccomment">/// An invocation attempt has finished.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;52&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"52"</span>)]
         </span>InvocationAttemptFinished(InvocationAttemptFinished),
         <span class="doccomment">/// The build is enqueued.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;53&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"53"</span>)]
         </span>BuildEnqueued(BuildEnqueued),
         <span class="doccomment">/// The build has finished. Set when the build is terminated.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;55&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"55"</span>)]
         </span>BuildFinished(BuildFinished),
         <span class="doccomment">/// An event containing printed text.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;56&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"56"</span>)]
         </span>ConsoleOutput(ConsoleOutput),
         <span class="doccomment">/// Indicates the end of a build event stream (with the same StreamId) from
         /// a build component executing the requested build task.
         /// *** This field does not indicate the WatchBuild RPC is finished. ***
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;59&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"59"</span>)]
         </span>ComponentStreamFinished(BuildComponentStreamFinished),
         <span class="doccomment">/// Structured build event generated by Bazel about its execution progress.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;60&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"60"</span>)]
         </span>BazelEvent(::prost_types::Any),
         <span class="doccomment">/// An event that contains supplemental tool-specific information about
         /// build execution.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;61&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"61"</span>)]
         </span>BuildExecutionEvent(::prost_types::Any),
         <span class="doccomment">/// An event that contains supplemental tool-specific information about
         /// source fetching.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;62&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"62"</span>)]
         </span>SourceFetchEvent(::prost_types::Any),
     }
 }
@@ -961,14 +962,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StreamId {
     <span class="doccomment">/// The id of a Build message.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>build_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The unique invocation ID within this build.
     /// It should be the same as {invocation} (below) during the migration.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>invocation_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The component that emitted this event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;stream_id::BuildComponent&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"stream_id::BuildComponent"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>component: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `StreamId`.
@@ -1002,21 +1003,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                BuildComponent::UnknownComponent =&gt; <span class="string">&quot;UNKNOWN_COMPONENT&quot;</span>,
-                BuildComponent::Controller =&gt; <span class="string">&quot;CONTROLLER&quot;</span>,
-                BuildComponent::Worker =&gt; <span class="string">&quot;WORKER&quot;</span>,
-                BuildComponent::Tool =&gt; <span class="string">&quot;TOOL&quot;</span>,
+                BuildComponent::UnknownComponent =&gt; <span class="string">"UNKNOWN_COMPONENT"</span>,
+                BuildComponent::Controller =&gt; <span class="string">"CONTROLLER"</span>,
+                BuildComponent::Worker =&gt; <span class="string">"WORKER"</span>,
+                BuildComponent::Tool =&gt; <span class="string">"TOOL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNKNOWN_COMPONENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownComponent),
-                <span class="string">&quot;CONTROLLER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Controller),
-                <span class="string">&quot;WORKER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Worker),
-                <span class="string">&quot;TOOL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tool),
+                <span class="string">"UNKNOWN_COMPONENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownComponent),
+                <span class="string">"CONTROLLER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Controller),
+                <span class="string">"WORKER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Worker),
+                <span class="string">"TOOL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tool),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1038,24 +1039,24 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ConsoleOutputStream::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-            ConsoleOutputStream::Stdout =&gt; <span class="string">&quot;STDOUT&quot;</span>,
-            ConsoleOutputStream::Stderr =&gt; <span class="string">&quot;STDERR&quot;</span>,
+            ConsoleOutputStream::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
+            ConsoleOutputStream::Stdout =&gt; <span class="string">"STDOUT"</span>,
+            ConsoleOutputStream::Stderr =&gt; <span class="string">"STDERR"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-            <span class="string">&quot;STDOUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stdout),
-            <span class="string">&quot;STDERR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stderr),
+            <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+            <span class="string">"STDOUT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stdout),
+            <span class="string">"STDERR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stderr),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }
-<span class="doccomment">/// Publishes &#39;lifecycle events&#39; that update the high-level state of a build:
+<span class="doccomment">/// Publishes 'lifecycle events' that update the high-level state of a build:
 /// - BuildEnqueued: When a build is scheduled.
 /// - InvocationAttemptStarted: When work for a build starts; there can be
 ///      multiple invocations for a build (e.g. retries).
@@ -1065,37 +1066,37 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PublishLifecycleEventRequest {
     <span class="doccomment">/// The interactivity of this build.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;publish_lifecycle_event_request::ServiceLevel&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"publish_lifecycle_event_request::ServiceLevel"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_level: i32,
     <span class="doccomment">/// Required. The lifecycle build event. If this is a build tool event, the RPC
     /// will fail with INVALID_REQUEST.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>build_event: ::core::option::Option&lt;OrderedBuildEvent&gt;,
     <span class="doccomment">/// If the next event for this build or invocation (depending on the event
-    /// type) hasn&#39;t been published after this duration from when {build_event}
+    /// type) hasn't been published after this duration from when {build_event}
     /// is written to BES, consider this stream expired. If this field is not set,
     /// BES backend will use its own default value.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>stream_timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Additional information about a build request. These are define by the event
     /// publishers, and the Build Event Service does not validate or interpret
     /// them. They are used while notifying internal systems of new builds and
     /// invocations if the OrderedBuildEvent.event type is
     /// BuildEnqueued/InvocationAttemptStarted.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>notification_keywords: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Required. The project this build is associated with.
     /// This should match the project used for the initial call to
     /// PublishLifecycleEvent (containing a BuildEnqueued message).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether to require a previously received matching parent lifecycle event
-    /// for the current request&#39;s event before continuing processing.
+    /// for the current request's event before continuing processing.
     /// - InvocationAttemptStarted and BuildFinished events require a BuildEnqueued
     ///    parent event.
     /// - InvocationAttemptFinished events require an InvocationAttemptStarted
     ///    parent event.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>check_preceding_lifecycle_events_present: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `PublishLifecycleEventRequest`.
@@ -1127,17 +1128,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ServiceLevel::Noninteractive =&gt; <span class="string">&quot;NONINTERACTIVE&quot;</span>,
-                ServiceLevel::Interactive =&gt; <span class="string">&quot;INTERACTIVE&quot;</span>,
+                ServiceLevel::Noninteractive =&gt; <span class="string">"NONINTERACTIVE"</span>,
+                ServiceLevel::Interactive =&gt; <span class="string">"INTERACTIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;NONINTERACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Noninteractive),
-                <span class="string">&quot;INTERACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Interactive),
+                <span class="string">"NONINTERACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Noninteractive),
+                <span class="string">"INTERACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Interactive),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1149,10 +1150,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PublishBuildToolEventStreamResponse {
     <span class="doccomment">/// The stream that contains this event.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>stream_id: ::core::option::Option&lt;StreamId&gt;,
     <span class="doccomment">/// The sequence number of this event that has been committed.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sequence_number: i64,
 }
 <span class="doccomment">/// Build event with contextual information about the stream it belongs to and
@@ -1161,15 +1162,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OrderedBuildEvent {
     <span class="doccomment">/// Which build event stream this event belongs to.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>stream_id: ::core::option::Option&lt;StreamId&gt;,
     <span class="doccomment">/// The position of this event in the stream. The sequence numbers for a build
     /// event stream should be a sequence of consecutive natural numbers starting
     /// from one. (1, 2, 3, ...)
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sequence_number: i64,
     <span class="doccomment">/// The actual event.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>event: ::core::option::Option&lt;BuildEvent&gt;,
 }
 <span class="doccomment">/// Streaming request message for PublishBuildToolEventStream.
@@ -1178,24 +1179,24 @@
 </span><span class="kw">pub struct </span>PublishBuildToolEventStreamRequest {
     <span class="doccomment">/// Required. The build event with position info.
     /// New publishing clients should use this field rather than the 3 above.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>ordered_build_event: ::core::option::Option&lt;OrderedBuildEvent&gt;,
     <span class="doccomment">/// The keywords to be attached to the notification which notifies the start
     /// of a new build event stream. BES only reads this field when sequence_number
     /// or ordered_build_event.sequence_number is 1 in this message. If this field
     /// is empty, BES will not publish notification messages for this stream.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>notification_keywords: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Required. The project this build is associated with.
     /// This should match the project used for the initial call to
     /// PublishLifecycleEvent (containing a BuildEnqueued message).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether to require a previously received matching InvocationAttemptStarted
     /// event before continuing event processing for the event in the current
     /// request. BES only performs this check for events with sequence_number 1
     /// i.e. the first event in the stream.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>check_preceding_lifecycle_events_present: bool,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1226,7 +1227,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1294,7 +1295,7 @@
         /// The backend will persist the event and deliver it to registered frontend
         /// jobs immediately without batching.
         ///
-        /// The commit status of the request is reported by the RPC&#39;s util_status()
+        /// The commit status of the request is reported by the RPC's util_status()
         /// function. The error code is the canonical error code defined in
         /// //util/task/codes.proto.
         </span><span class="kw">pub async fn </span>publish_lifecycle_event(
@@ -1307,19 +1308,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.build.v1.PublishBuildEvent/PublishLifecycleEvent&quot;</span>,
+                <span class="string">"/google.devtools.build.v1.PublishBuildEvent/PublishLifecycleEvent"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.build.v1.PublishBuildEvent&quot;</span>,
-                        <span class="string">&quot;PublishLifecycleEvent&quot;</span>,
+                        <span class="string">"google.devtools.build.v1.PublishBuildEvent"</span>,
+                        <span class="string">"PublishLifecycleEvent"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1343,19 +1344,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.build.v1.PublishBuildEvent/PublishBuildToolEventStream&quot;</span>,
+                <span class="string">"/google.devtools.build.v1.PublishBuildEvent/PublishBuildToolEventStream"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.build.v1.PublishBuildEvent&quot;</span>,
-                        <span class="string">&quot;PublishBuildToolEventStream&quot;</span>,
+                        <span class="string">"google.devtools.build.v1.PublishBuildEvent"</span>,
+                        <span class="string">"PublishBuildToolEventStream"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/metastore/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/metastore/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3052,16 +3053,16 @@
     /// following format:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time when the metastore service was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the metastore service was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// User-defined labels for the metastore service.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -3070,66 +3071,66 @@
     /// instance can be accessed. It is specified in the following form:
     ///
     /// `projects/{project_number}/global/networks/{network_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The URI of the endpoint used to access the metastore service.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>endpoint_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// The TCP port at which the metastore service is reached. Default: 9083.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>port: i32,
     <span class="doccomment">/// Output only. The current state of the metastore service.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;service::State&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"service::State"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Additional information about the current state of the
     /// metastore service, if available.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>state_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A Cloud Storage URI (starting with `gs://`) that specifies
     /// where artifacts related to the metastore service are stored.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>artifact_gcs_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// The tier of the service.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;service::Tier&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"service::Tier"</span>, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>tier: i32,
     <span class="doccomment">/// The one hour maintenance window of the metastore service. This specifies
     /// when the service can be restarted for maintenance purposes in UTC time.
     /// Maintenance window is not needed for services with the SPANNER
     /// database type.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>maintenance_window: ::core::option::Option&lt;MaintenanceWindow&gt;,
     <span class="doccomment">/// Output only. The globally unique resource identifier of the metastore
     /// service.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The metadata management activities of the metastore service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>metadata_management_activity: ::core::option::Option&lt;MetadataManagementActivity&gt;,
     <span class="doccomment">/// Immutable. The release channel of the service.
     /// If unspecified, defaults to `STABLE`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;service::ReleaseChannel&quot;</span>, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"service::ReleaseChannel"</span>, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>release_channel: i32,
     <span class="doccomment">/// Immutable. Information used to configure the Dataproc Metastore service to
     /// encrypt customer data at rest. Cannot be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>encryption_config: ::core::option::Option&lt;EncryptionConfig&gt;,
     <span class="doccomment">/// The configuration specifying the network settings for the
     /// Dataproc Metastore service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>network_config: ::core::option::Option&lt;NetworkConfig&gt;,
     <span class="doccomment">/// Immutable. The database type that the Metastore service stores its data.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;service::DatabaseType&quot;</span>, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"service::DatabaseType"</span>, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>database_type: i32,
     <span class="doccomment">/// The configuration specifying telemetry settings for the Dataproc Metastore
     /// service. If unspecified defaults to `JSON`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>telemetry_config: ::core::option::Option&lt;TelemetryConfig&gt;,
     <span class="doccomment">/// Scaling configuration of the metastore service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"24"</span>)]
     </span><span class="kw">pub </span>scaling_config: ::core::option::Option&lt;ScalingConfig&gt;,
     <span class="doccomment">/// Configuration properties specific to the underlying metastore service
     /// technology (the software that serves metastore queries).
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;service::MetastoreConfig&quot;</span>, tags = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"service::MetastoreConfig"</span>, tags = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>metastore_config: ::core::option::Option&lt;service::MetastoreConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Service`.
@@ -3173,29 +3174,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Suspending =&gt; <span class="string">&quot;SUSPENDING&quot;</span>,
-                State::Suspended =&gt; <span class="string">&quot;SUSPENDED&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Suspending =&gt; <span class="string">"SUSPENDING"</span>,
+                State::Suspended =&gt; <span class="string">"SUSPENDED"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Error =&gt; <span class="string">"ERROR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;SUSPENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspending),
-                <span class="string">&quot;SUSPENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"SUSPENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspending),
+                <span class="string">"SUSPENDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3228,19 +3229,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Tier::Unspecified =&gt; <span class="string">&quot;TIER_UNSPECIFIED&quot;</span>,
-                Tier::Developer =&gt; <span class="string">&quot;DEVELOPER&quot;</span>,
-                Tier::Enterprise =&gt; <span class="string">&quot;ENTERPRISE&quot;</span>,
+                Tier::Unspecified =&gt; <span class="string">"TIER_UNSPECIFIED"</span>,
+                Tier::Developer =&gt; <span class="string">"DEVELOPER"</span>,
+                Tier::Enterprise =&gt; <span class="string">"ENTERPRISE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TIER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DEVELOPER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Developer),
-                <span class="string">&quot;ENTERPRISE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enterprise),
+                <span class="string">"TIER_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DEVELOPER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Developer),
+                <span class="string">"ENTERPRISE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enterprise),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3276,19 +3277,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ReleaseChannel::Unspecified =&gt; <span class="string">&quot;RELEASE_CHANNEL_UNSPECIFIED&quot;</span>,
-                ReleaseChannel::Canary =&gt; <span class="string">&quot;CANARY&quot;</span>,
-                ReleaseChannel::Stable =&gt; <span class="string">&quot;STABLE&quot;</span>,
+                ReleaseChannel::Unspecified =&gt; <span class="string">"RELEASE_CHANNEL_UNSPECIFIED"</span>,
+                ReleaseChannel::Canary =&gt; <span class="string">"CANARY"</span>,
+                ReleaseChannel::Stable =&gt; <span class="string">"STABLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RELEASE_CHANNEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CANARY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Canary),
-                <span class="string">&quot;STABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stable),
+                <span class="string">"RELEASE_CHANNEL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CANARY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Canary),
+                <span class="string">"STABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stable),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3319,19 +3320,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DatabaseType::Unspecified =&gt; <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot;</span>,
-                DatabaseType::Mysql =&gt; <span class="string">&quot;MYSQL&quot;</span>,
-                DatabaseType::Spanner =&gt; <span class="string">&quot;SPANNER&quot;</span>,
+                DatabaseType::Unspecified =&gt; <span class="string">"DATABASE_TYPE_UNSPECIFIED"</span>,
+                DatabaseType::Mysql =&gt; <span class="string">"MYSQL"</span>,
+                DatabaseType::Spanner =&gt; <span class="string">"SPANNER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;MYSQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
-                <span class="string">&quot;SPANNER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Spanner),
+                <span class="string">"DATABASE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"MYSQL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
+                <span class="string">"SPANNER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Spanner),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3343,7 +3344,7 @@
     </span><span class="kw">pub enum </span>MetastoreConfig {
         <span class="doccomment">/// Configuration information specific to running Hive metastore
         /// software as the metastore service.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>HiveMetastoreConfig(<span class="kw">super</span>::HiveMetastoreConfig),
     }
 }
@@ -3353,10 +3354,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MaintenanceWindow {
     <span class="doccomment">/// The hour of day (0-23) when the window starts.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>hour_of_day: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// The day of week, when the window starts.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::super::r#type::DayOfWeek&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"super::super::super::r#type::DayOfWeek"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>day_of_week: i32,
 }
 <span class="doccomment">/// Specifies configuration information specific to running Hive metastore
@@ -3365,38 +3366,38 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HiveMetastoreConfig {
     <span class="doccomment">/// Immutable. The Hive metastore schema version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// A mapping of Hive metastore configuration key-value pairs to apply to the
     /// Hive metastore (configured in `hive-site.xml`). The mappings
     /// override system defaults (some keys cannot be overridden). These
     /// overrides are also applied to auxiliary versions and can be further
-    /// customized in the auxiliary version&#39;s `AuxiliaryVersionConfig`.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    /// customized in the auxiliary version's `AuxiliaryVersionConfig`.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>config_overrides: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Information used to configure the Hive metastore service as a service
     /// principal in a Kerberos realm. To disable Kerberos, use the `UpdateService`
-    /// method and specify this field&#39;s path
-    /// (`hive_metastore_config.kerberos_config`) in the request&#39;s `update_mask`
-    /// while omitting this field from the request&#39;s `service`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// method and specify this field's path
+    /// (`hive_metastore_config.kerberos_config`) in the request's `update_mask`
+    /// while omitting this field from the request's `service`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>kerberos_config: ::core::option::Option&lt;KerberosConfig&gt;,
     <span class="doccomment">/// The protocol to use for the metastore service endpoint. If unspecified,
     /// defaults to `THRIFT`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;hive_metastore_config::EndpointProtocol&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"hive_metastore_config::EndpointProtocol"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>endpoint_protocol: i32,
     <span class="doccomment">/// A mapping of Hive metastore version to the auxiliary version
     /// configuration. When specified, a secondary Hive metastore service is
     /// created along with the primary service. All auxiliary versions must be less
-    /// than the service&#39;s primary version. The key is the auxiliary service name
+    /// than the service's primary version. The key is the auxiliary service name
     /// and it must match the regular expression [a-z](\[-a-z0-9\]*[a-z0-9])?. This
     /// means that the first character must be a lowercase letter, and all the
     /// following characters must be hyphens, lowercase letters, or digits, except
     /// the last character, which cannot be a hyphen.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>auxiliary_versions: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         AuxiliaryVersionConfig,
@@ -3430,19 +3431,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EndpointProtocol::Unspecified =&gt; <span class="string">&quot;ENDPOINT_PROTOCOL_UNSPECIFIED&quot;</span>,
-                EndpointProtocol::Thrift =&gt; <span class="string">&quot;THRIFT&quot;</span>,
-                EndpointProtocol::Grpc =&gt; <span class="string">&quot;GRPC&quot;</span>,
+                EndpointProtocol::Unspecified =&gt; <span class="string">"ENDPOINT_PROTOCOL_UNSPECIFIED"</span>,
+                EndpointProtocol::Thrift =&gt; <span class="string">"THRIFT"</span>,
+                EndpointProtocol::Grpc =&gt; <span class="string">"GRPC"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ENDPOINT_PROTOCOL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;THRIFT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Thrift),
-                <span class="string">&quot;GRPC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Grpc),
+                <span class="string">"ENDPOINT_PROTOCOL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"THRIFT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Thrift),
+                <span class="string">"GRPC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Grpc),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3454,24 +3455,24 @@
 </span><span class="kw">pub struct </span>KerberosConfig {
     <span class="doccomment">/// A Kerberos keytab file that can be used to authenticate a service principal
     /// with a Kerberos Key Distribution Center (KDC).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>keytab: ::core::option::Option&lt;Secret&gt;,
     <span class="doccomment">/// A Kerberos principal that exists in the both the keytab the KDC
     /// to authenticate as. A typical principal is of the form
     /// `primary/instance@REALM`, but there is no exact format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>principal: ::prost::alloc::string::String,
     <span class="doccomment">/// A Cloud Storage URI that specifies the path to a
     /// krb5.conf file. It is of the form `gs://{bucket_name}/path/to/krb5.conf`,
     /// although the file does not need to be named krb5.conf explicitly.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>krb5_config_gcs_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A securely stored value.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Secret {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;secret::Value&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"secret::Value"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;secret::Value&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Secret`.
@@ -3483,7 +3484,7 @@
         /// following form:
         ///
         /// `projects/{project_number}/secrets/{secret_id}/versions/{version_id}`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>CloudSecret(::prost::alloc::string::String),
     }
 }
@@ -3495,7 +3496,7 @@
     /// customer data encryption, in the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/keyRings/{key_ring_id}/cryptoKeys/{crypto_key_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>kms_key: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration information for the auxiliary service versions.
@@ -3503,22 +3504,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AuxiliaryVersionConfig {
     <span class="doccomment">/// The Hive metastore version of the auxiliary service. It must be less
-    /// than the primary Hive metastore service&#39;s version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// than the primary Hive metastore service's version.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// A mapping of Hive metastore configuration key-value pairs to apply to the
     /// auxiliary Hive metastore (configured in `hive-site.xml`) in addition to
-    /// the primary version&#39;s overrides. If keys are present in both the auxiliary
-    /// version&#39;s overrides and the primary version&#39;s overrides, the value from
-    /// the auxiliary version&#39;s overrides takes precedence.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    /// the primary version's overrides. If keys are present in both the auxiliary
+    /// version's overrides and the primary version's overrides, the value from
+    /// the auxiliary version's overrides takes precedence.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>config_overrides: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. The network configuration contains the endpoint URI(s) of the
     /// auxiliary Hive metastore service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>network_config: ::core::option::Option&lt;NetworkConfig&gt;,
 }
 <span class="doccomment">/// Network configuration for the Dataproc Metastore service.
@@ -3529,12 +3530,12 @@
 </span><span class="kw">pub struct </span>NetworkConfig {
     <span class="doccomment">/// Immutable. The consumer-side network configuration for the Dataproc
     /// Metastore instance.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>consumers: ::prost::alloc::vec::Vec&lt;network_config::Consumer&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `NetworkConfig`.
 </span><span class="kw">pub mod </span>network_config {
-    <span class="doccomment">/// Contains information of the customer&#39;s network configurations.
+    <span class="doccomment">/// Contains information of the customer's network configurations.
     ///
     /// Next available ID: 5
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3542,13 +3543,13 @@
     </span><span class="kw">pub struct </span>Consumer {
         <span class="doccomment">/// Output only. The URI of the endpoint used to access the metastore
         /// service.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>endpoint_uri: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. The location of the endpoint URI. Format:
         /// `projects/{project}/locations/{location}`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>endpoint_location: ::prost::alloc::string::String,
-        <span class="attr">#[prost(oneof = <span class="string">&quot;consumer::VpcResource&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+        <span class="attr">#[prost(oneof = <span class="string">"consumer::VpcResource"</span>, tags = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>vpc_resource: ::core::option::Option&lt;consumer::VpcResource&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Consumer`.
@@ -3557,14 +3558,14 @@
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>VpcResource {
             <span class="doccomment">/// Immutable. The subnetwork of the customer project from which an IP
-            /// address is reserved and used as the Dataproc Metastore service&#39;s
+            /// address is reserved and used as the Dataproc Metastore service's
             /// endpoint. It is accessible to hosts in the subnet and to all
             /// hosts in a subnet in the same region and same network. There must
-            /// be at least one IP address available in the subnet&#39;s primary range. The
+            /// be at least one IP address available in the subnet's primary range. The
             /// subnet is specified in the following form:
             ///
             /// `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span>Subnetwork(::prost::alloc::string::String),
         }
     }
@@ -3573,8 +3574,8 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TelemetryConfig {
-    <span class="doccomment">/// The output format of the Dataproc Metastore service&#39;s logs.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;telemetry_config::LogFormat&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// The output format of the Dataproc Metastore service's logs.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"telemetry_config::LogFormat"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>log_format: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `TelemetryConfig`.
@@ -3604,19 +3605,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                LogFormat::Unspecified =&gt; <span class="string">&quot;LOG_FORMAT_UNSPECIFIED&quot;</span>,
-                LogFormat::Legacy =&gt; <span class="string">&quot;LEGACY&quot;</span>,
-                LogFormat::Json =&gt; <span class="string">&quot;JSON&quot;</span>,
+                LogFormat::Unspecified =&gt; <span class="string">"LOG_FORMAT_UNSPECIFIED"</span>,
+                LogFormat::Legacy =&gt; <span class="string">"LEGACY"</span>,
+                LogFormat::Json =&gt; <span class="string">"JSON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;LOG_FORMAT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LEGACY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Legacy),
-                <span class="string">&quot;JSON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Json),
+                <span class="string">"LOG_FORMAT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LEGACY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Legacy),
+                <span class="string">"JSON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Json),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3627,10 +3628,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MetadataManagementActivity {
     <span class="doccomment">/// Output only. The latest metadata exports of the metastore service.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>metadata_exports: ::prost::alloc::vec::Vec&lt;MetadataExport&gt;,
     <span class="doccomment">/// Output only. The latest restores of the metastore service.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>restores: ::prost::alloc::vec::Vec&lt;Restore&gt;,
 }
 <span class="doccomment">/// A metastore resource that imports metadata.
@@ -3640,25 +3641,25 @@
     <span class="doccomment">/// Immutable. The relative resource name of the metadata import, of the form:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports/{metadata_import_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The description of the metadata import.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time when the metadata import was started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the metadata import was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the metadata import finished.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The current state of the metadata import.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_import::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"metadata_import::State"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// The metadata to be imported.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;metadata_import::Metadata&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"metadata_import::Metadata"</span>, tags = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;metadata_import::Metadata&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MetadataImport`.
@@ -3670,19 +3671,19 @@
     </span><span class="kw">pub struct </span>DatabaseDump {
         <span class="doccomment">/// The type of the database.
         </span><span class="attr">#[deprecated]
-        #[prost(enumeration = <span class="string">&quot;database_dump::DatabaseType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        #[prost(enumeration = <span class="string">"database_dump::DatabaseType"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>database_type: i32,
         <span class="doccomment">/// A Cloud Storage object or folder URI that specifies the source from which
         /// to import metadata. It must begin with `gs://`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
         <span class="doccomment">/// The name of the source database.
         </span><span class="attr">#[deprecated]
-        #[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        #[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>source_database: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. The type of the database dump. If unspecified, defaults to
         /// `MYSQL`.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::database_dump_spec::Type&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::database_dump_spec::Type"</span>, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>r#type: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `DatabaseDump`.
@@ -3711,17 +3712,17 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    DatabaseType::Unspecified =&gt; <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot;</span>,
-                    DatabaseType::Mysql =&gt; <span class="string">&quot;MYSQL&quot;</span>,
+                    DatabaseType::Unspecified =&gt; <span class="string">"DATABASE_TYPE_UNSPECIFIED"</span>,
+                    DatabaseType::Mysql =&gt; <span class="string">"MYSQL"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;MYSQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
+                    <span class="string">"DATABASE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"MYSQL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -3758,23 +3759,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3783,8 +3784,8 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Metadata {
-        <span class="doccomment">/// Immutable. A database dump from a pre-existing metastore&#39;s database.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        <span class="doccomment">/// Immutable. A database dump from a pre-existing metastore's database.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>DatabaseDump(DatabaseDump),
     }
 }
@@ -3793,18 +3794,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MetadataExport {
     <span class="doccomment">/// Output only. The time when the export started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the export ended.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The current state of the export.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_export::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"metadata_export::State"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The type of the database dump.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;database_dump_spec::Type&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"database_dump_spec::Type"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>database_dump_type: i32,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;metadata_export::Destination&quot;</span>, tags = <span class="string">&quot;4&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"metadata_export::Destination"</span>, tags = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;metadata_export::Destination&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MetadataExport`.
@@ -3839,23 +3840,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3867,7 +3868,7 @@
         /// to, in the form of
         /// `gs://&lt;bucket_name&gt;/&lt;path_inside_bucket&gt;/&lt;export_folder&gt;`, where
         /// `&lt;export_folder&gt;` is automatically generated.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span>DestinationGcsUri(::prost::alloc::string::String),
     }
 }
@@ -3878,25 +3879,25 @@
     <span class="doccomment">/// Immutable. The relative resource name of the backup, in the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}/backups/{backup_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time when the backup was started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the backup finished creating.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The current state of the backup.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;backup::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"backup::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The revision of the service at the time of backup.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>service_revision: ::core::option::Option&lt;Service&gt;,
     <span class="doccomment">/// The description of the backup.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Services that are restoring from the backup.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>restoring_services: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Backup`.
@@ -3933,25 +3934,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Restoring =&gt; <span class="string">&quot;RESTORING&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Restoring =&gt; <span class="string">"RESTORING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;RESTORING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Restoring),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"RESTORING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Restoring),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3962,26 +3963,26 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Restore {
     <span class="doccomment">/// Output only. The time when the restore started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the restore ended.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The current state of the restore.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;restore::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"restore::State"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The relative resource name of the metastore service backup to
     /// restore from, in the following form:
     ///
     /// `projects/{project_id}/locations/{location_id}/services/{service_id}/backups/{backup_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>backup: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The type of restore.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;restore::RestoreType&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"restore::RestoreType"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Output only. The restore details containing the revision of the service to
     /// be restored to, in format of JSON.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>details: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `Restore`.
@@ -4016,23 +4017,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4053,9 +4054,9 @@
     </span><span class="kw">pub enum </span>RestoreType {
         <span class="doccomment">/// The restore type is unknown.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The service&#39;s metadata and configuration are restored.
+        <span class="doccomment">/// The service's metadata and configuration are restored.
         </span>Full = <span class="number">1</span>,
-        <span class="doccomment">/// Only the service&#39;s metadata is restored.
+        <span class="doccomment">/// Only the service's metadata is restored.
         </span>MetadataOnly = <span class="number">2</span>,
     }
     <span class="kw">impl </span>RestoreType {
@@ -4063,19 +4064,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RestoreType::Unspecified =&gt; <span class="string">&quot;RESTORE_TYPE_UNSPECIFIED&quot;</span>,
-                RestoreType::Full =&gt; <span class="string">&quot;FULL&quot;</span>,
-                RestoreType::MetadataOnly =&gt; <span class="string">&quot;METADATA_ONLY&quot;</span>,
+                RestoreType::Unspecified =&gt; <span class="string">"RESTORE_TYPE_UNSPECIFIED"</span>,
+                RestoreType::Full =&gt; <span class="string">"FULL"</span>,
+                RestoreType::MetadataOnly =&gt; <span class="string">"METADATA_ONLY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RESTORE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
-                <span class="string">&quot;METADATA_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetadataOnly),
+                <span class="string">"RESTORE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"FULL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
+                <span class="string">"METADATA_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetadataOnly),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4087,7 +4088,7 @@
 </span><span class="kw">pub struct </span>ScalingConfig {
     <span class="doccomment">/// Represents either a predetermined instance size or a numeric
     /// scaling factor.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;scaling_config::ScalingModel&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"scaling_config::ScalingModel"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>scaling_model: ::core::option::Option&lt;scaling_config::ScalingModel&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ScalingConfig`.
@@ -4124,25 +4125,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                InstanceSize::Unspecified =&gt; <span class="string">&quot;INSTANCE_SIZE_UNSPECIFIED&quot;</span>,
-                InstanceSize::ExtraSmall =&gt; <span class="string">&quot;EXTRA_SMALL&quot;</span>,
-                InstanceSize::Small =&gt; <span class="string">&quot;SMALL&quot;</span>,
-                InstanceSize::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
-                InstanceSize::Large =&gt; <span class="string">&quot;LARGE&quot;</span>,
-                InstanceSize::ExtraLarge =&gt; <span class="string">&quot;EXTRA_LARGE&quot;</span>,
+                InstanceSize::Unspecified =&gt; <span class="string">"INSTANCE_SIZE_UNSPECIFIED"</span>,
+                InstanceSize::ExtraSmall =&gt; <span class="string">"EXTRA_SMALL"</span>,
+                InstanceSize::Small =&gt; <span class="string">"SMALL"</span>,
+                InstanceSize::Medium =&gt; <span class="string">"MEDIUM"</span>,
+                InstanceSize::Large =&gt; <span class="string">"LARGE"</span>,
+                InstanceSize::ExtraLarge =&gt; <span class="string">"EXTRA_LARGE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;INSTANCE_SIZE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;EXTRA_SMALL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExtraSmall),
-                <span class="string">&quot;SMALL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Small),
-                <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-                <span class="string">&quot;LARGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Large),
-                <span class="string">&quot;EXTRA_LARGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExtraLarge),
+                <span class="string">"INSTANCE_SIZE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"EXTRA_SMALL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExtraSmall),
+                <span class="string">"SMALL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Small),
+                <span class="string">"MEDIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+                <span class="string">"LARGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Large),
+                <span class="string">"EXTRA_LARGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExtraLarge),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4154,11 +4155,11 @@
     </span><span class="kw">pub enum </span>ScalingModel {
         <span class="doccomment">/// An enum of readable instance sizes, with each instance size mapping to a
         /// float value (e.g. InstanceSize.EXTRA_SMALL = scaling_factor(0.1))
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;InstanceSize&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"InstanceSize"</span>, tag = <span class="string">"1"</span>)]
         </span>InstanceSize(i32),
         <span class="doccomment">/// Scaling factor, increments of 0.1 for values less than 1.0, and
         /// increments of 1.0 for values greater than 1.0.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
         </span>ScalingFactor(f32),
     }
 }
@@ -4171,13 +4172,13 @@
     /// to list, in the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of services to return. The response may
     /// contain less than the maximum number. If unspecified, no more than 500
     /// services are returned. The maximum value is 1000; values above 1000 are
     /// changed to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A page token, received from a previous
     /// [DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices]
@@ -4188,15 +4189,15 @@
     /// When paginating, other parameters provided to
     /// [DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices]
     /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The filter to apply to list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Specify the ordering of results as described in [Sorting
     /// Order](&lt;https://cloud.google.com/apis/design/design_patterns#sorting_order&gt;).
     /// If not specified, the results will be sorted in the default order.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -4205,14 +4206,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListServicesResponse {
     <span class="doccomment">/// The services in the specified location.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>services: ::prost::alloc::vec::Vec&lt;Service&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page. If this
     /// field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -4224,7 +4225,7 @@
     /// in the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4236,20 +4237,20 @@
     /// metastore service, in the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID of the metastore service, which is used as the final
-    /// component of the metastore service&#39;s name.
+    /// component of the metastore service's name.
     ///
     /// This value must be between 2 and 63 characters long inclusive, begin with a
     /// letter, end with a letter or number, and consist of alpha-numeric
     /// ASCII characters or hyphens.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Metastore service to create. The `name` field is
     /// ignored. The ID of the created metastore service must be provided in
-    /// the request&#39;s `service_id` field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// the request's `service_id` field.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>service: ::core::option::Option&lt;Service&gt;,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -4263,7 +4264,7 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4275,14 +4276,14 @@
     /// metastore service resource by the update.
     /// Fields specified in the `update_mask` are relative to the resource (not
     /// to the full request). A field is overwritten if it is in the mask.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The metastore service to update. The server only merges fields
     /// in the service if they are specified in `update_mask`.
     ///
-    /// The metastore service&#39;s `name` field is used to identify the metastore
+    /// The metastore service's `name` field is used to identify the metastore
     /// service to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service: ::core::option::Option&lt;Service&gt;,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -4296,7 +4297,7 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4308,7 +4309,7 @@
     /// the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -4322,7 +4323,7 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4334,12 +4335,12 @@
     /// to list, in the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of imports to return. The response may contain
     /// less than the maximum number. If unspecified, no more than 500 imports are
     /// returned. The maximum value is 1000; values above 1000 are changed to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A page token, received from a previous
     /// [DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices]
@@ -4350,15 +4351,15 @@
     /// When paginating, other parameters provided to
     /// [DataprocMetastore.ListServices][google.cloud.metastore.v1.DataprocMetastore.ListServices]
     /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The filter to apply to list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Specify the ordering of results as described in [Sorting
     /// Order](&lt;https://cloud.google.com/apis/design/design_patterns#sorting_order&gt;).
     /// If not specified, the results will be sorted in the default order.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -4367,14 +4368,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListMetadataImportsResponse {
     <span class="doccomment">/// The imports in the specified service.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>metadata_imports: ::prost::alloc::vec::Vec&lt;MetadataImport&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page. If this
     /// field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -4386,7 +4387,7 @@
     /// the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports/{import_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4398,20 +4399,20 @@
     /// metastore import, in the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID of the metadata import, which is used as the final
-    /// component of the metadata import&#39;s name.
+    /// component of the metadata import's name.
     ///
     /// This value must be between 1 and 64 characters long, begin with a letter,
     /// end with a letter or number, and consist of alpha-numeric ASCII characters
     /// or hyphens.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>metadata_import_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The metadata import to create. The `name` field is ignored. The
-    /// ID of the created metadata import must be provided in the request&#39;s
+    /// ID of the created metadata import must be provided in the request's
     /// `metadata_import_id` field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>metadata_import: ::core::option::Option&lt;MetadataImport&gt;,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -4425,7 +4426,7 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4437,14 +4438,14 @@
     /// metadata import resource by the update.
     /// Fields specified in the `update_mask` are relative to the resource (not
     /// to the full request). A field is overwritten if it is in the mask.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The metadata import to update. The server only merges fields
     /// in the import if they are specified in `update_mask`.
     ///
-    /// The metadata import&#39;s `name` field is used to identify the metastore
+    /// The metadata import's `name` field is used to identify the metastore
     /// import to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>metadata_import: ::core::option::Option&lt;MetadataImport&gt;,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -4458,7 +4459,7 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4470,12 +4471,12 @@
     /// list, in the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}/backups`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of backups to return. The response may contain
     /// less than the maximum number. If unspecified, no more than 500 backups are
     /// returned. The maximum value is 1000; values above 1000 are changed to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A page token, received from a previous
     /// [DataprocMetastore.ListBackups][google.cloud.metastore.v1.DataprocMetastore.ListBackups]
@@ -4486,15 +4487,15 @@
     /// When paginating, other parameters provided to
     /// [DataprocMetastore.ListBackups][google.cloud.metastore.v1.DataprocMetastore.ListBackups]
     /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The filter to apply to list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Specify the ordering of results as described in [Sorting
     /// Order](&lt;https://cloud.google.com/apis/design/design_patterns#sorting_order&gt;).
     /// If not specified, the results will be sorted in the default order.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -4503,14 +4504,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListBackupsResponse {
     <span class="doccomment">/// The backups of the specified service.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>backups: ::prost::alloc::vec::Vec&lt;Backup&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page. If this
     /// field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -4522,7 +4523,7 @@
     /// following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}/backups/{backup_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4534,19 +4535,19 @@
     /// backup of the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID of the backup, which is used as the final component of the
-    /// backup&#39;s name.
+    /// backup's name.
     ///
     /// This value must be between 1 and 64 characters long, begin with a letter,
     /// end with a letter or number, and consist of alpha-numeric ASCII characters
     /// or hyphens.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>backup_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The backup to create. The `name` field is ignored. The ID of the
-    /// created backup must be provided in the request&#39;s `backup_id` field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// created backup must be provided in the request's `backup_id` field.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>backup: ::core::option::Option&lt;Backup&gt;,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -4560,7 +4561,7 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4572,7 +4573,7 @@
     /// following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/services/{service_id}/backups/{backup_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -4586,7 +4587,7 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4598,7 +4599,7 @@
     /// export, in the following form:
     ///
     /// `projects/{project_id}/locations/{location_id}/services/{service_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -4612,14 +4613,14 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;).
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The type of the database dump. If unspecified, defaults to
     /// `MYSQL`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;database_dump_spec::Type&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"database_dump_spec::Type"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>database_dump_type: i32,
     <span class="doccomment">/// Required. Destination that metadata is exported to.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;export_metadata_request::Destination&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"export_metadata_request::Destination"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;export_metadata_request::Destination&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ExportMetadataRequest`.
@@ -4631,7 +4632,7 @@
         <span class="doccomment">/// A Cloud Storage URI of a folder, in the format
         /// `gs://&lt;bucket_name&gt;/&lt;path_inside_bucket&gt;`. A sub-folder
         /// `&lt;export_folder&gt;` containing exported files will be created below it.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>DestinationGcsFolder(::prost::alloc::string::String),
     }
 }
@@ -4643,16 +4644,16 @@
     /// restore, in the following form:
     ///
     /// `projects/{project_id}/locations/{location_id}/services/{service_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The relative resource name of the metastore service backup to
     /// restore from, in the following form:
     ///
     /// `projects/{project_id}/locations/{location_id}/services/{service_id}/backups/{backup_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>backup: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The type of restore. If unspecified, defaults to `METADATA_ONLY`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;restore::RestoreType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"restore::RestoreType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>restore_type: i32,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -4666,7 +4667,7 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;).
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the metadata of a long-running operation.
@@ -4674,29 +4675,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the caller has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
     /// have [Operation.error][] value with a
     /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Metadata about the service in a location.
@@ -4706,7 +4707,7 @@
     <span class="doccomment">/// The versions of Hive Metastore that can be used when creating a new
     /// metastore service in this location. The server guarantees that exactly one
     /// `HiveMetastoreVersion` in the list will set `is_default`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>supported_hive_metastore_versions: ::prost::alloc::vec::Vec&lt;
         location_metadata::HiveMetastoreVersion,
     &gt;,
@@ -4718,11 +4719,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>HiveMetastoreVersion {
         <span class="doccomment">/// The semantic version of the Hive Metastore software.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
         <span class="doccomment">/// Whether `version` will be chosen by the server if a metastore service is
         /// created with a `HiveMetastoreConfig` that omits the `version`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>is_default: bool,
     }
 }
@@ -4758,19 +4759,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Mysql =&gt; <span class="string">&quot;MYSQL&quot;</span>,
-                Type::Avro =&gt; <span class="string">&quot;AVRO&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::Mysql =&gt; <span class="string">"MYSQL"</span>,
+                Type::Avro =&gt; <span class="string">"AVRO"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;MYSQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
-                <span class="string">&quot;AVRO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Avro),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"MYSQL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
+                <span class="string">"AVRO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Avro),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4785,11 +4786,11 @@
     /// metadata, in the following format:
     ///
     /// `projects/{project_id}/locations/{location_id}/services/{service_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A read-only SQL query to execute against the metadata database.
     /// The query cannot change or mutate the data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -4801,7 +4802,7 @@
     /// This instance manifests immediately along with QueryMetadataResponse. The
     /// content of the URI is not retriable until the long-running operation query
     /// against the metadata finishes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>result_manifest_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Error details in public error message for
@@ -4813,7 +4814,7 @@
     ///
     /// Keys define the failure items.
     /// Value describes the exception or details of the item.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>details: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -4828,16 +4829,16 @@
     /// metadata, in the following format:
     ///
     /// `projects/{project_id}/locations/{location_id}/services/{service_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The name of the table to be moved.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>table_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The name of the database where the table resides.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>db_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The name of the database where the table should be moved.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>destination_db_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -4854,7 +4855,7 @@
     /// metadata, in the following format:
     ///
     /// `projects/{project_id}/locations/{location_id}/services/{service_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The relative metadata resource name in the following format.
     ///
@@ -4863,10 +4864,10 @@
     /// `databases/{database_id}/tables/{table_id}`
     /// or
     /// `databases/{database_id}/tables/{table_id}/partitions/{partition_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The new location URI for the metadata resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>location_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -4904,7 +4905,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4979,19 +4980,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/ListServices&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/ListServices"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;ListServices&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"ListServices"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5007,19 +5008,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/GetService&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/GetService"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;GetService&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"GetService"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5038,19 +5039,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/CreateService&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/CreateService"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;CreateService&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"CreateService"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5069,19 +5070,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/UpdateService&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/UpdateService"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;UpdateService&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"UpdateService"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5100,19 +5101,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/DeleteService&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/DeleteService"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;DeleteService&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"DeleteService"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5131,19 +5132,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/ListMetadataImports&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/ListMetadataImports"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;ListMetadataImports&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"ListMetadataImports"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5159,19 +5160,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/GetMetadataImport&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/GetMetadataImport"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;GetMetadataImport&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"GetMetadataImport"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5190,19 +5191,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/CreateMetadataImport&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/CreateMetadataImport"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;CreateMetadataImport&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"CreateMetadataImport"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5222,19 +5223,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/UpdateMetadataImport&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/UpdateMetadataImport"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;UpdateMetadataImport&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"UpdateMetadataImport"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5253,19 +5254,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/ExportMetadata&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/ExportMetadata"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;ExportMetadata&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"ExportMetadata"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5284,19 +5285,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/RestoreService&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/RestoreService"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;RestoreService&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"RestoreService"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5315,19 +5316,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/ListBackups&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/ListBackups"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;ListBackups&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"ListBackups"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5343,19 +5344,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/GetBackup&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/GetBackup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;GetBackup&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"GetBackup"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5374,19 +5375,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/CreateBackup&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/CreateBackup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;CreateBackup&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"CreateBackup"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5405,19 +5406,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/DeleteBackup&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/DeleteBackup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;DeleteBackup&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"DeleteBackup"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5436,19 +5437,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/QueryMetadata&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/QueryMetadata"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;QueryMetadata&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"QueryMetadata"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5467,19 +5468,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/MoveTableToDatabase&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/MoveTableToDatabase"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;MoveTableToDatabase&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"MoveTableToDatabase"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5501,19 +5502,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastore/AlterMetadataResourceLocation&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastore/AlterMetadataResourceLocation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastore&quot;</span>,
-                        <span class="string">&quot;AlterMetadataResourceLocation&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastore"</span>,
+                        <span class="string">"AlterMetadataResourceLocation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5527,23 +5528,23 @@
     <span class="doccomment">/// Immutable. The relative resource name of the federation, of the
     /// form:
     /// projects/{project_number}/locations/{location_id}/federations/{federation_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time when the metastore federation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the metastore federation was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// User-defined labels for the metastore federation.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Immutable. The Apache Hive metastore version of the federation. All backend
     /// metastore versions must be compatible with the federation version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// A map from `BackendMetastore` rank to `BackendMetastore`s from which the
     /// federation service serves metadata at query time. The map key represents
@@ -5551,21 +5552,21 @@
     /// database names at query time and should be greater than or equal to zero. A
     /// `BackendMetastore` with a lower number will be evaluated before a
     /// `BackendMetastore` with a higher number.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;int32, message&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"int32, message"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>backend_metastores: ::prost::alloc::collections::BTreeMap&lt;i32, BackendMetastore&gt;,
     <span class="doccomment">/// Output only. The federation endpoint.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>endpoint_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current state of the federation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;federation::State&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"federation::State"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Additional information about the current state of the
     /// metastore federation, if available.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>state_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The globally unique resource identifier of the metastore
     /// federation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `Federation`.
@@ -5604,25 +5605,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Error =&gt; <span class="string">"ERROR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -5640,10 +5641,10 @@
     ///      * `projects/{project_id}`
     /// * Dataproc Metastore
     ///      * `projects/{project_id}/locations/{location}/services/{service_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of the backend metastore.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;backend_metastore::MetastoreType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"backend_metastore::MetastoreType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>metastore_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `BackendMetastore`.
@@ -5674,19 +5675,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                MetastoreType::Unspecified =&gt; <span class="string">&quot;METASTORE_TYPE_UNSPECIFIED&quot;</span>,
-                MetastoreType::Bigquery =&gt; <span class="string">&quot;BIGQUERY&quot;</span>,
-                MetastoreType::DataprocMetastore =&gt; <span class="string">&quot;DATAPROC_METASTORE&quot;</span>,
+                MetastoreType::Unspecified =&gt; <span class="string">"METASTORE_TYPE_UNSPECIFIED"</span>,
+                MetastoreType::Bigquery =&gt; <span class="string">"BIGQUERY"</span>,
+                MetastoreType::DataprocMetastore =&gt; <span class="string">"DATAPROC_METASTORE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;METASTORE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BIGQUERY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bigquery),
-                <span class="string">&quot;DATAPROC_METASTORE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataprocMetastore),
+                <span class="string">"METASTORE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"BIGQUERY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bigquery),
+                <span class="string">"DATAPROC_METASTORE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataprocMetastore),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -5699,13 +5700,13 @@
     <span class="doccomment">/// Required. The relative resource name of the location of metastore
     /// federations to list, in the following form:
     /// `projects/{project_number}/locations/{location_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of federations to return. The response may
     /// contain less than the maximum number. If unspecified, no more than 500
     /// services are returned. The maximum value is 1000; values above 1000 are
     /// changed to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A page token, received from a previous ListFederationServices
     /// call. Provide this token to retrieve the subsequent page.
@@ -5715,15 +5716,15 @@
     /// When paginating, other parameters provided to
     /// ListFederationServices must match the call that provided the
     /// page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The filter to apply to list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Specify the ordering of results as described in [Sorting
     /// Order](&lt;https://cloud.google.com/apis/design/design_patterns#sorting_order&gt;).
     /// If not specified, the results will be sorted in the default order.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListFederations
@@ -5731,14 +5732,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFederationsResponse {
     <span class="doccomment">/// The services in the specified location.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>federations: ::prost::alloc::vec::Vec&lt;Federation&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page. If this
     /// field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for GetFederation.
@@ -5749,7 +5750,7 @@
     /// retrieve, in the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/federations/{federation_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for CreateFederation.
@@ -5760,20 +5761,20 @@
     /// federation service, in the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID of the metastore federation, which is used as the final
-    /// component of the metastore federation&#39;s name.
+    /// component of the metastore federation's name.
     ///
     /// This value must be between 2 and 63 characters long inclusive, begin with a
     /// letter, end with a letter or number, and consist of alpha-numeric
     /// ASCII characters or hyphens.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>federation_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Metastore Federation to create. The `name` field is
     /// ignored. The ID of the created metastore federation must be
-    /// provided in the request&#39;s `federation_id` field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// provided in the request's `federation_id` field.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>federation: ::core::option::Option&lt;Federation&gt;,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -5787,7 +5788,7 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for UpdateFederation.
@@ -5798,14 +5799,14 @@
     /// metastore federation resource by the update.
     /// Fields specified in the `update_mask` are relative to the resource (not
     /// to the full request). A field is overwritten if it is in the mask.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The metastore federation to update. The server only merges fields
     /// in the service if they are specified in `update_mask`.
     ///
-    /// The metastore federation&#39;s `name` field is used to identify the
+    /// The metastore federation's `name` field is used to identify the
     /// metastore service to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>federation: ::core::option::Option&lt;Federation&gt;,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -5819,7 +5820,7 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for DeleteFederation.
@@ -5830,7 +5831,7 @@
     /// in the following form:
     ///
     /// `projects/{project_number}/locations/{location_id}/federations/{federation_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID. Specify a unique request ID to allow the server to
     /// ignore the request if it has completed. The server will ignore subsequent
@@ -5844,7 +5845,7 @@
     /// The request ID must be a valid
     /// [UUID](&lt;https://en.wikipedia.org/wiki/Universally_unique_identifier#Format&gt;)
     /// A zero UUID (00000000-0000-0000-0000-000000000000) is not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -5873,7 +5874,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -5950,19 +5951,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastoreFederation/ListFederations&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastoreFederation/ListFederations"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastoreFederation&quot;</span>,
-                        <span class="string">&quot;ListFederations&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastoreFederation"</span>,
+                        <span class="string">"ListFederations"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5978,19 +5979,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastoreFederation/GetFederation&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastoreFederation/GetFederation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastoreFederation&quot;</span>,
-                        <span class="string">&quot;GetFederation&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastoreFederation"</span>,
+                        <span class="string">"GetFederation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -6009,19 +6010,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastoreFederation/CreateFederation&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastoreFederation/CreateFederation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastoreFederation&quot;</span>,
-                        <span class="string">&quot;CreateFederation&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastoreFederation"</span>,
+                        <span class="string">"CreateFederation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -6040,19 +6041,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastoreFederation/UpdateFederation&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastoreFederation/UpdateFederation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastoreFederation&quot;</span>,
-                        <span class="string">&quot;UpdateFederation&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastoreFederation"</span>,
+                        <span class="string">"UpdateFederation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -6071,19 +6072,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.metastore.v1.DataprocMetastoreFederation/DeleteFederation&quot;</span>,
+                <span class="string">"/google.cloud.metastore.v1.DataprocMetastoreFederation/DeleteFederation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.metastore.v1.DataprocMetastoreFederation&quot;</span>,
-                        <span class="string">&quot;DeleteFederation&quot;</span>,
+                        <span class="string">"google.cloud.metastore.v1.DataprocMetastoreFederation"</span>,
+                        <span class="string">"DeleteFederation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

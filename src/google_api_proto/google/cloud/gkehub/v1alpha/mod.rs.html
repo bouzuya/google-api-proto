@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/gkehub/v1alpha/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/gkehub/v1alpha/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -727,20 +728,20 @@
 </span><span class="kw">pub struct </span>Feature {
     <span class="doccomment">/// Output only. The full, unique name of this Feature resource in the format
     /// `projects/*/locations/*/features/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// GCP labels for this Feature.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. State of the Feature resource itself.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>resource_state: ::core::option::Option&lt;FeatureResourceState&gt;,
     <span class="doccomment">/// Optional. Hub-wide Feature configuration. If this Feature does not support any
     /// Hub-wide configuration, this field may be unused.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>spec: ::core::option::Option&lt;CommonFeatureSpec&gt;,
     <span class="doccomment">/// Optional. Membership-specific configuration for this Feature. If this Feature does
     /// not support any per-Membership configuration, this field may be unused.
@@ -750,7 +751,7 @@
     ///      projects/{p}/locations/{l}/memberships/{m}
     ///
     /// Where {p} is the project, {l} is a valid location and {m} is a valid
-    /// Membership in this project at that location. {p} WILL match the Feature&#39;s
+    /// Membership in this project at that location. {p} WILL match the Feature's
     /// project.
     ///
     /// {p} will always be returned as the project number, but the project ID is
@@ -759,13 +760,13 @@
     /// ONE of the entries will be saved, with no guarantees as to which. For this
     /// reason, it is recommended the same format be used for all entries when
     /// mutating a Feature.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>membership_specs: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         MembershipFeatureSpec,
     &gt;,
     <span class="doccomment">/// Output only. The Hub-wide Feature state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>state: ::core::option::Option&lt;CommonFeatureState&gt;,
     <span class="doccomment">/// Output only. Membership-specific Feature status. If this Feature does
     /// report any per-Membership status, this field may be unused.
@@ -775,31 +776,31 @@
     ///      projects/{p}/locations/{l}/memberships/{m}
     ///
     /// Where {p} is the project number, {l} is a valid location and {m} is a valid
-    /// Membership in this project at that location. {p} MUST match the Feature&#39;s
+    /// Membership in this project at that location. {p} MUST match the Feature's
     /// project number.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>membership_states: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         MembershipFeatureState,
     &gt;,
     <span class="doccomment">/// Output only. When the Feature resource was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. When the Feature resource was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. When the Feature resource was deleted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// FeatureResourceState describes the state of a Feature *resource* in the
-/// GkeHub API. See `FeatureState` for the &quot;running state&quot; of the Feature in the
+/// GkeHub API. See `FeatureState` for the "running state" of the Feature in the
 /// Hub and across Memberships.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FeatureResourceState {
     <span class="doccomment">/// The current state of the Feature resource in the Hub API.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;feature_resource_state::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"feature_resource_state::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `FeatureResourceState`.
@@ -839,44 +840,44 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Enabling =&gt; <span class="string">&quot;ENABLING&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Disabling =&gt; <span class="string">&quot;DISABLING&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::ServiceUpdating =&gt; <span class="string">&quot;SERVICE_UPDATING&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Enabling =&gt; <span class="string">"ENABLING"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Disabling =&gt; <span class="string">"DISABLING"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::ServiceUpdating =&gt; <span class="string">"SERVICE_UPDATING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabling),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;DISABLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabling),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;SERVICE_UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceUpdating),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ENABLING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabling),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"DISABLING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabling),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"SERVICE_UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceUpdating),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
 }
 <span class="doccomment">/// FeatureState describes the high-level state of a Feature. It may be used to
-/// describe a Feature&#39;s state at the environ-level, or per-membershop, depending
+/// describe a Feature's state at the environ-level, or per-membershop, depending
 /// on the context.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FeatureState {
     <span class="doccomment">/// The high-level, machine-readable status of this Feature.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;feature_state::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"feature_state::Code"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// A human-readable description of the current status.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// The time this status and any related Feature-specific details were updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `FeatureState`.
@@ -915,21 +916,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
-                Code::Ok =&gt; <span class="string">&quot;OK&quot;</span>,
-                Code::Warning =&gt; <span class="string">&quot;WARNING&quot;</span>,
-                Code::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+                Code::Unspecified =&gt; <span class="string">"CODE_UNSPECIFIED"</span>,
+                Code::Ok =&gt; <span class="string">"OK"</span>,
+                Code::Warning =&gt; <span class="string">"WARNING"</span>,
+                Code::Error =&gt; <span class="string">"ERROR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;OK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ok),
-                <span class="string">&quot;WARNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"OK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ok),
+                <span class="string">"WARNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -939,7 +940,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommonFeatureSpec {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;common_feature_spec::FeatureSpec&quot;</span>, tags = <span class="string">&quot;102, 108&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"common_feature_spec::FeatureSpec"</span>, tags = <span class="string">"102, 108"</span>)]
     </span><span class="kw">pub </span>feature_spec: ::core::option::Option&lt;common_feature_spec::FeatureSpec&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CommonFeatureSpec`.
@@ -948,10 +949,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>FeatureSpec {
         <span class="doccomment">/// Multicluster Ingress-specific spec.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;102&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"102"</span>)]
         </span>Multiclusteringress(<span class="kw">super</span>::<span class="kw">super</span>::multiclusteringress::v1alpha::FeatureSpec),
         <span class="doccomment">/// Cloud Audit Logging-specific spec.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;108&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"108"</span>)]
         </span>Cloudauditlogging(<span class="kw">super</span>::<span class="kw">super</span>::cloudauditlogging::v1alpha::FeatureSpec),
     }
 }
@@ -959,10 +960,10 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommonFeatureState {
-    <span class="doccomment">/// Output only. The &quot;running state&quot; of the Feature in this Hub.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Output only. The "running state" of the Feature in this Hub.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: ::core::option::Option&lt;FeatureState&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;common_feature_state::FeatureState&quot;</span>, tags = <span class="string">&quot;100&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"common_feature_state::FeatureState"</span>, tags = <span class="string">"100"</span>)]
     </span><span class="kw">pub </span>feature_state: ::core::option::Option&lt;common_feature_state::FeatureState&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CommonFeatureState`.
@@ -971,7 +972,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>FeatureState {
         <span class="doccomment">/// Service Mesh-specific state.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;100&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"100"</span>)]
         </span>Servicemesh(<span class="kw">super</span>::<span class="kw">super</span>::servicemesh::v1alpha::FeatureState),
     }
 }
@@ -980,7 +981,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MembershipFeatureSpec {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;membership_feature_spec::FeatureSpec&quot;</span>, tags = <span class="string">&quot;106&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"membership_feature_spec::FeatureSpec"</span>, tags = <span class="string">"106"</span>)]
     </span><span class="kw">pub </span>feature_spec: ::core::option::Option&lt;membership_feature_spec::FeatureSpec&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MembershipFeatureSpec`.
@@ -989,7 +990,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>FeatureSpec {
         <span class="doccomment">/// Config Management-specific spec.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;106&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"106"</span>)]
         </span>Configmanagement(<span class="kw">super</span>::<span class="kw">super</span>::configmanagement::v1alpha::MembershipSpec),
     }
 }
@@ -999,9 +1000,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MembershipFeatureState {
     <span class="doccomment">/// The high-level state of this Feature for a single membership.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: ::core::option::Option&lt;FeatureState&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;membership_feature_state::FeatureState&quot;</span>, tags = <span class="string">&quot;100, 104, 106&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"membership_feature_state::FeatureState"</span>, tags = <span class="string">"100, 104, 106"</span>)]
     </span><span class="kw">pub </span>feature_state: ::core::option::Option&lt;membership_feature_state::FeatureState&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MembershipFeatureState`.
@@ -1010,13 +1011,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>FeatureState {
         <span class="doccomment">/// Service Mesh-specific state.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;100&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"100"</span>)]
         </span>Servicemesh(<span class="kw">super</span>::<span class="kw">super</span>::servicemesh::v1alpha::MembershipState),
         <span class="doccomment">/// Metering-specific spec.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;104&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"104"</span>)]
         </span>Metering(<span class="kw">super</span>::<span class="kw">super</span>::metering::v1alpha::MembershipState),
         <span class="doccomment">/// Config Management-specific state.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;106&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"106"</span>)]
         </span>Configmanagement(<span class="kw">super</span>::<span class="kw">super</span>::configmanagement::v1alpha::MembershipState),
     }
 }
@@ -1026,26 +1027,26 @@
 </span><span class="kw">pub struct </span>ListFeaturesRequest {
     <span class="doccomment">/// The parent (project and location) where the Features will be listed.
     /// Specified in the format `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// When requesting a &#39;page&#39; of resources, `page_size` specifies number of
+    <span class="doccomment">/// When requesting a 'page' of resources, `page_size` specifies number of
     /// resources to return. If unspecified or set to 0, all resources will
     /// be returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token returned by previous call to `ListFeatures` which
     /// specifies the position in the list from where to continue listing the
     /// resources.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Lists Features that match the filter expression, following the syntax
     /// outlined in &lt;https://google.aip.dev/160.&gt;
     ///
     /// Examples:
     ///
-    ///    - Feature with the name &quot;servicemesh&quot; in project &quot;foo-proj&quot;:
+    ///    - Feature with the name "servicemesh" in project "foo-proj":
     ///
-    ///        name = &quot;projects/foo-proj/locations/global/features/servicemesh&quot;
+    ///        name = "projects/foo-proj/locations/global/features/servicemesh"
     ///
     ///    - Features that have a label called `foo`:
     ///
@@ -1054,11 +1055,11 @@
     ///    - Features that have a label called `foo` whose value is `bar`:
     ///
     ///        labels.foo = bar
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// One or more fields to compare and use to sort the output.
     /// See &lt;https://google.aip.dev/132#ordering.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for the `GkeHub.ListFeatures` method.
@@ -1066,12 +1067,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFeaturesResponse {
     <span class="doccomment">/// The list of matching Features
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resources: ::prost::alloc::vec::Vec&lt;Feature&gt;,
     <span class="doccomment">/// A token to request the next page of resources from the
     /// `ListFeatures` method. The value of an empty string means
     /// that there are no more resources to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `GkeHub.GetFeature` method.
@@ -1080,7 +1081,7 @@
 </span><span class="kw">pub struct </span>GetFeatureRequest {
     <span class="doccomment">/// The Feature resource name in the format
     /// `projects/*/locations/*/features/*`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for the `GkeHub.CreateFeature` method.
@@ -1089,13 +1090,13 @@
 </span><span class="kw">pub struct </span>CreateFeatureRequest {
     <span class="doccomment">/// The parent (project and location) where the Feature will be created.
     /// Specified in the format `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of the feature to create.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>feature_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The Feature resource to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Feature&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
     /// so that if you must retry your request, the server will know to ignore
@@ -1110,7 +1111,7 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `GkeHub.DeleteFeature` method.
@@ -1119,12 +1120,12 @@
 </span><span class="kw">pub struct </span>DeleteFeatureRequest {
     <span class="doccomment">/// The Feature resource name in the format
     /// `projects/*/locations/*/features/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to true, the delete will ignore any outstanding resources for
     /// this Feature (that is, `FeatureState.has_resources` is set to true). These
     /// resources will NOT be cleaned up or modified in any way.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>force: bool,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
     /// so that if you must retry your request, the server will know to ignore
@@ -1139,7 +1140,7 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `GkeHub.UpdateFeature` method.
@@ -1148,20 +1149,20 @@
 </span><span class="kw">pub struct </span>UpdateFeatureRequest {
     <span class="doccomment">/// The Feature resource name in the format
     /// `projects/*/locations/*/features/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Mask of fields to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Only fields specified in update_mask are updated.
-    /// If you specify a field in the update_mask but don&#39;t specify its value here
+    /// If you specify a field in the update_mask but don't specify its value here
     /// that field will be deleted.
     /// If you are updating a map field, set the value of a key to null or empty
-    /// string to delete the key from the map. It&#39;s not possible to update a key&#39;s
+    /// string to delete the key from the map. It's not possible to update a key's
     /// value to the empty string.
-    /// If you specify the update_mask to be a special path &quot;*&quot;, fully replaces all
+    /// If you specify the update_mask to be a special path "*", fully replaces all
     /// user-modifiable fields to match `resource`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Feature&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID
     /// so that if you must retry your request, the server will know to ignore
@@ -1176,7 +1177,7 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the metadata of the long-running operation.
@@ -1184,28 +1185,28 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_detail: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
     /// have [Operation.error][] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
     /// corresponding to `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>cancel_requested: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1235,7 +1236,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1310,17 +1311,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gkehub.v1alpha.GkeHub/ListFeatures&quot;</span>,
+                <span class="string">"/google.cloud.gkehub.v1alpha.GkeHub/ListFeatures"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.gkehub.v1alpha.GkeHub&quot;</span>, <span class="string">&quot;ListFeatures&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.gkehub.v1alpha.GkeHub"</span>, <span class="string">"ListFeatures"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -1335,17 +1336,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gkehub.v1alpha.GkeHub/GetFeature&quot;</span>,
+                <span class="string">"/google.cloud.gkehub.v1alpha.GkeHub/GetFeature"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.gkehub.v1alpha.GkeHub&quot;</span>, <span class="string">&quot;GetFeature&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.gkehub.v1alpha.GkeHub"</span>, <span class="string">"GetFeature"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -1363,19 +1364,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gkehub.v1alpha.GkeHub/CreateFeature&quot;</span>,
+                <span class="string">"/google.cloud.gkehub.v1alpha.GkeHub/CreateFeature"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gkehub.v1alpha.GkeHub&quot;</span>,
-                        <span class="string">&quot;CreateFeature&quot;</span>,
+                        <span class="string">"google.cloud.gkehub.v1alpha.GkeHub"</span>,
+                        <span class="string">"CreateFeature"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1394,19 +1395,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gkehub.v1alpha.GkeHub/DeleteFeature&quot;</span>,
+                <span class="string">"/google.cloud.gkehub.v1alpha.GkeHub/DeleteFeature"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gkehub.v1alpha.GkeHub&quot;</span>,
-                        <span class="string">&quot;DeleteFeature&quot;</span>,
+                        <span class="string">"google.cloud.gkehub.v1alpha.GkeHub"</span>,
+                        <span class="string">"DeleteFeature"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1425,19 +1426,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.gkehub.v1alpha.GkeHub/UpdateFeature&quot;</span>,
+                <span class="string">"/google.cloud.gkehub.v1alpha.GkeHub/UpdateFeature"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.gkehub.v1alpha.GkeHub&quot;</span>,
-                        <span class="string">&quot;UpdateFeature&quot;</span>,
+                        <span class="string">"google.cloud.gkehub.v1alpha.GkeHub"</span>,
+                        <span class="string">"UpdateFeature"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

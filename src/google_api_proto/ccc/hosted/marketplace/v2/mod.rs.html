@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/ccc/hosted/marketplace/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/ccc/hosted/marketplace/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -543,27 +544,27 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CustomerLicense {
     <span class="doccomment">/// The type of API resource. This is always appsmarket#customerLicense.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
-    <span class="doccomment">/// The customer&#39;s license status. One of:
+    <span class="doccomment">/// The customer's license status. One of:
     ///
     /// - `ACTIVE`: The customer has a valid license.
     /// - `UNLICENSED`: There is no license: either this customer has never
     /// installed your application, or else has deleted it.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of the application corresponding to this license query.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>application_id: ::prost::alloc::string::String,
     <span class="doccomment">/// (Deprecated)
     </span><span class="attr">#[deprecated]
-    #[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    #[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>editions: ::prost::alloc::vec::Vec&lt;customer_license::Editions&gt;,
     <span class="doccomment">/// The ID of the customer license.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;101&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"101"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// The domain name of the customer.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;102&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"102"</span>)]
     </span><span class="kw">pub </span>customer_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `CustomerLicense`.
@@ -573,15 +574,15 @@
     </span><span class="kw">pub struct </span>Editions {
         <span class="doccomment">/// (Deprecated)
         </span><span class="attr">#[deprecated]
-        #[prost(string, tag = <span class="string">&quot;405&quot;</span>)]
+        #[prost(string, tag = <span class="string">"405"</span>)]
         </span><span class="kw">pub </span>edition_id: ::prost::alloc::string::String,
         <span class="doccomment">/// (Deprecated)
         </span><span class="attr">#[deprecated]
-        #[prost(int32, tag = <span class="string">&quot;406&quot;</span>)]
+        #[prost(int32, tag = <span class="string">"406"</span>)]
         </span><span class="kw">pub </span>seat_count: i32,
         <span class="doccomment">/// (Deprecated)
         </span><span class="attr">#[deprecated]
-        #[prost(int32, tag = <span class="string">&quot;409&quot;</span>)]
+        #[prost(int32, tag = <span class="string">"409"</span>)]
         </span><span class="kw">pub </span>assigned_seats: i32,
     }
 }
@@ -589,32 +590,32 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LicenseNotification {
     <span class="doccomment">/// The ID of the license notification.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of the application according to this notification.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>application_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The time the event occurred, measuring in milliseconds since the UNIX
     /// epoch.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>timestamp: i64,
     <span class="doccomment">/// The domain name of the customer corresponding to this notification.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>customer_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of API resource. This is always appsmarket#licenseNotification.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
     <span class="doccomment">/// The list of provisioning notifications.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>provisions: ::prost::alloc::vec::Vec&lt;license_notification::Provisions&gt;,
     <span class="doccomment">/// The list of expiry notifications.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>expiries: ::prost::alloc::vec::Vec&lt;license_notification::Expiries&gt;,
     <span class="doccomment">/// The list of reassignment notifications.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>reassignments: ::prost::alloc::vec::Vec&lt;license_notification::Reassignments&gt;,
     <span class="doccomment">/// The list of deletion notifications.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>deletes: ::prost::alloc::vec::Vec&lt;license_notification::Deletes&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `LicenseNotification`.
@@ -622,56 +623,56 @@
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Deletes {
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        <span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
         <span class="doccomment">/// (Deprecated)
         </span><span class="attr">#[deprecated]
-        #[prost(string, tag = <span class="string">&quot;901&quot;</span>)]
+        #[prost(string, tag = <span class="string">"901"</span>)]
         </span><span class="kw">pub </span>edition_id: ::prost::alloc::string::String,
     }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Expiries {
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        <span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
         <span class="doccomment">/// (Deprecated)
         </span><span class="attr">#[deprecated]
-        #[prost(string, tag = <span class="string">&quot;701&quot;</span>)]
+        #[prost(string, tag = <span class="string">"701"</span>)]
         </span><span class="kw">pub </span>edition_id: ::prost::alloc::string::String,
     }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Provisions {
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        <span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
         <span class="doccomment">/// (Deprecated)
         </span><span class="attr">#[deprecated]
-        #[prost(string, tag = <span class="string">&quot;601&quot;</span>)]
+        #[prost(string, tag = <span class="string">"601"</span>)]
         </span><span class="kw">pub </span>edition_id: ::prost::alloc::string::String,
         <span class="doccomment">/// The number of seats that were provisioned.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;602&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"602"</span>)]
         </span><span class="kw">pub </span>seat_count: i64,
     }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Reassignments {
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        <span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
         <span class="doccomment">/// The email address of the reassigned user.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;801&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"801"</span>)]
         </span><span class="kw">pub </span>user_id: ::prost::alloc::string::String,
-        <span class="attr">#[prost(string, tag = <span class="string">&quot;802&quot;</span>)]
+        <span class="attr">#[prost(string, tag = <span class="string">"802"</span>)]
         </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
         <span class="doccomment">/// (Deprecated)
         </span><span class="attr">#[deprecated]
-        #[prost(string, tag = <span class="string">&quot;803&quot;</span>)]
+        #[prost(string, tag = <span class="string">"803"</span>)]
         </span><span class="kw">pub </span>edition_id: ::prost::alloc::string::String,
     }
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LicenseNotificationList {
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
     <span class="doccomment">/// The list of notifications. One or more of:
     ///
@@ -680,81 +681,81 @@
     /// - `deletions`: An application has been deleted from a domain.
     /// - `reassignments`: An administrator has assigned or revoked a seat license
     /// for the application on the provided domain.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1007&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1007"</span>)]
     </span><span class="kw">pub </span>notifications: ::prost::alloc::vec::Vec&lt;LicenseNotification&gt;,
     <span class="doccomment">/// The token used to continue querying for notifications after the final
     /// notification in the current result set.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;100602&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"100602"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UserLicense {
     <span class="doccomment">/// The type of API resource. This is always appsmarket#userLicense.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
     <span class="doccomment">/// The domain administrator has activated the application for this domain.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>enabled: bool,
-    <span class="doccomment">/// The user&#39;s licensing status. One of:
+    <span class="doccomment">/// The user's licensing status. One of:
     ///
     /// - `ACTIVE`: The user has a valid license and should be permitted to use the
     /// application.
-    /// - `UNLICENSED`: The administrator of this user&#39;s domain never assigned a
+    /// - `UNLICENSED`: The administrator of this user's domain never assigned a
     /// seat for the application to this user.
     /// - `EXPIRED`: The administrator assigned a seat to this user, but the
     /// license is expired.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: ::prost::alloc::string::String,
     <span class="doccomment">/// (Deprecated)
     </span><span class="attr">#[deprecated]
-    #[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    #[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>edition_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The domain name of the user.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>customer_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of the application corresponding to the license query.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>application_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of user license.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;101&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"101"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// The email address of the user.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;102&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"102"</span>)]
     </span><span class="kw">pub </span>user_id: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CustomerLicenseGetRequest {
     <span class="doccomment">/// Application Id
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>application_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Customer Id
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>customer_id: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LicenseNotificationListRequest {
     <span class="doccomment">/// Application Id
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>application_id: ::prost::alloc::string::String,
-    <span class="attr">#[prost(uint32, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="attr">#[prost(uint32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>max_results: u32,
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>start_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Timestamp in milliseconds since epoch
-    </span><span class="attr">#[prost(uint64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>timestamp: u64,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UserLicenseGetRequest {
     <span class="doccomment">/// Application Id
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>application_id: ::prost::alloc::string::String,
     <span class="doccomment">/// User Id
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>user_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -770,7 +771,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -848,19 +849,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/ccc.hosted.marketplace.v2.CustomerLicenseService/Get&quot;</span>,
+                <span class="string">"/ccc.hosted.marketplace.v2.CustomerLicenseService/Get"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;ccc.hosted.marketplace.v2.CustomerLicenseService&quot;</span>,
-                        <span class="string">&quot;Get&quot;</span>,
+                        <span class="string">"ccc.hosted.marketplace.v2.CustomerLicenseService"</span>,
+                        <span class="string">"Get"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -880,7 +881,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -957,19 +958,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/ccc.hosted.marketplace.v2.LicenseNotificationService/List&quot;</span>,
+                <span class="string">"/ccc.hosted.marketplace.v2.LicenseNotificationService/List"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;ccc.hosted.marketplace.v2.LicenseNotificationService&quot;</span>,
-                        <span class="string">&quot;List&quot;</span>,
+                        <span class="string">"ccc.hosted.marketplace.v2.LicenseNotificationService"</span>,
+                        <span class="string">"List"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -989,7 +990,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1050,7 +1051,7 @@
             <span class="self">self</span>.inner = <span class="self">self</span>.inner.max_encoding_message_size(limit);
             <span class="self">self
         </span>}
-        <span class="doccomment">/// Get the user&#39;s licensing status for their permission to use a given app.
+        <span class="doccomment">/// Get the user's licensing status for their permission to use a given app.
         </span><span class="kw">pub async fn </span>get(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::UserLicenseGetRequest&gt;,
@@ -1061,19 +1062,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/ccc.hosted.marketplace.v2.UserLicenseService/Get&quot;</span>,
+                <span class="string">"/ccc.hosted.marketplace.v2.UserLicenseService/Get"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;ccc.hosted.marketplace.v2.UserLicenseService&quot;</span>,
-                        <span class="string">&quot;Get&quot;</span>,
+                        <span class="string">"ccc.hosted.marketplace.v2.UserLicenseService"</span>,
+                        <span class="string">"Get"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

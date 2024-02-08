@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/documentai/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/documentai/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1036,10 +1037,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Vertex {
     <span class="doccomment">/// X coordinate.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>x: i32,
     <span class="doccomment">/// Y coordinate.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>y: i32,
 }
 <span class="doccomment">/// A vertex represents a 2D point in the image.
@@ -1049,10 +1050,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>NormalizedVertex {
     <span class="doccomment">/// X coordinate.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>x: f32,
     <span class="doccomment">/// Y coordinate.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>y: f32,
 }
 <span class="doccomment">/// A bounding polygon for the detected image annotation.
@@ -1060,10 +1061,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BoundingPoly {
     <span class="doccomment">/// The bounding polygon vertices.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>vertices: ::prost::alloc::vec::Vec&lt;Vertex&gt;,
     <span class="doccomment">/// The bounding polygon normalized vertices.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>normalized_vertices: ::prost::alloc::vec::Vec&lt;NormalizedVertex&gt;,
 }
 <span class="doccomment">/// Request to batch process documents as an asynchronous operation.
@@ -1071,14 +1072,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchProcessDocumentsRequest {
     <span class="doccomment">/// Required. Individual requests for each document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>requests: ::prost::alloc::vec::Vec&lt;ProcessDocumentRequest&gt;,
     <span class="doccomment">/// Target project and location to make a call.
     ///
     /// Format: `projects/{project-id}/locations/{location-id}`.
     ///
     /// If no location is specified, a region will be chosen automatically.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to process one document.
@@ -1086,31 +1087,31 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ProcessDocumentRequest {
     <span class="doccomment">/// Required. Information about the input file.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;InputConfig&gt;,
     <span class="doccomment">/// Required. The desired output location.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>output_config: ::core::option::Option&lt;OutputConfig&gt;,
     <span class="doccomment">/// Specifies a known document type for deeper structure detection. Valid
-    /// values are currently &quot;general&quot; and &quot;invoice&quot;. If not provided, &quot;general&quot;\
+    /// values are currently "general" and "invoice". If not provided, "general"\
     /// is used as default. If any other value is given, the request is rejected.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>document_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Controls table extraction behavior. If not specified, the system will
     /// decide reasonable defaults.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>table_extraction_params: ::core::option::Option&lt;TableExtractionParams&gt;,
     <span class="doccomment">/// Controls form extraction behavior. If not specified, the system will
     /// decide reasonable defaults.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>form_extraction_params: ::core::option::Option&lt;FormExtractionParams&gt;,
     <span class="doccomment">/// Controls entity extraction behavior. If not specified, the system will
     /// decide reasonable defaults.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>entity_extraction_params: ::core::option::Option&lt;EntityExtractionParams&gt;,
     <span class="doccomment">/// Controls OCR behavior. If not specified, the system will decide reasonable
     /// defaults.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>ocr_params: ::core::option::Option&lt;OcrParams&gt;,
 }
 <span class="doccomment">/// Response to an batch document processing request. This is returned in
@@ -1119,7 +1120,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchProcessDocumentsResponse {
     <span class="doccomment">/// Responses for each individual document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>responses: ::prost::alloc::vec::Vec&lt;ProcessDocumentResponse&gt;,
 }
 <span class="doccomment">/// Response to a single document processing request.
@@ -1128,11 +1129,11 @@
 </span><span class="kw">pub struct </span>ProcessDocumentResponse {
     <span class="doccomment">/// Information about the input file. This is the same as the corresponding
     /// input config in the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;InputConfig&gt;,
     <span class="doccomment">/// The output location of the parsed responses. The responses are written to
     /// this location as JSON-serialized `Document` objects.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>output_config: ::core::option::Option&lt;OutputConfig&gt;,
 }
 <span class="doccomment">/// Parameters to control Optical Character Recognition (OCR) behavior.
@@ -1147,7 +1148,7 @@
     /// significant hindrance if the hint is wrong). Document processing returns an
     /// error if one or more of the specified languages is not one of the
     /// supported languages.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>language_hints: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Parameters to control table extraction behavior.
@@ -1155,19 +1156,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableExtractionParams {
     <span class="doccomment">/// Whether to enable table extraction.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enabled: bool,
     <span class="doccomment">/// Optional. Table bounding box hints that can be provided to complex cases
     /// which our algorithm cannot locate the table(s) in.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>table_bound_hints: ::prost::alloc::vec::Vec&lt;TableBoundHint&gt;,
     <span class="doccomment">/// Optional. Table header hints. The extraction will bias towards producing
     /// these terms as table headers, which may improve accuracy.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>header_hints: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// Model version of the table extraction system. Default is &quot;builtin/stable&quot;.
-    /// Specify &quot;builtin/latest&quot; for the latest model.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// Model version of the table extraction system. Default is "builtin/stable".
+    /// Specify "builtin/latest" for the latest model.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>model_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A hint for a table bounding box on the page for table parsing.
@@ -1177,11 +1178,11 @@
     <span class="doccomment">/// Optional. Page number for multi-paged inputs this hint applies to. If not
     /// provided, this hint will apply to all pages by default. This value is
     /// 1-based.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>page_number: i32,
     <span class="doccomment">/// Bounding box hint for a table on this page. The coordinates must be
     /// normalized to \[0,1\] and the bounding box must be an axis-aligned rectangle.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>bounding_box: ::core::option::Option&lt;BoundingPoly&gt;,
 }
 <span class="doccomment">/// Parameters to control form extraction behavior.
@@ -1189,25 +1190,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FormExtractionParams {
     <span class="doccomment">/// Whether to enable form extraction.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enabled: bool,
     <span class="doccomment">/// User can provide pairs of (key text, value type) to improve the parsing
     /// result.
     ///
-    /// For example, if a document has a field called &quot;Date&quot; that holds a date
-    /// value and a field called &quot;Amount&quot; that may hold either a currency value
-    /// (e.g., &quot;$500.00&quot;) or a simple number value (e.g., &quot;20&quot;), you could use the
-    /// following hints: \[ {&quot;key&quot;: &quot;Date&quot;, value_types: [ &quot;DATE&quot;\]}, {&quot;key&quot;:
-    /// &quot;Amount&quot;, &quot;value_types&quot;: \[ &quot;PRICE&quot;, &quot;NUMBER&quot; \]} ]
+    /// For example, if a document has a field called "Date" that holds a date
+    /// value and a field called "Amount" that may hold either a currency value
+    /// (e.g., "$500.00") or a simple number value (e.g., "20"), you could use the
+    /// following hints: \[ {"key": "Date", value_types: [ "DATE"\]}, {"key":
+    /// "Amount", "value_types": \[ "PRICE", "NUMBER" \]} ]
     ///
     /// If the value type is unknown, but you want to provide hints for the keys,
-    /// you can leave the value_types field blank. e.g. {&quot;key&quot;: &quot;Date&quot;,
-    /// &quot;value_types&quot;: \[\]}
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    /// you can leave the value_types field blank. e.g. {"key": "Date",
+    /// "value_types": \[\]}
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>key_value_pair_hints: ::prost::alloc::vec::Vec&lt;KeyValuePairHint&gt;,
     <span class="doccomment">/// Model version of the form extraction system. Default is
-    /// &quot;builtin/stable&quot;. Specify &quot;builtin/latest&quot; for the latest model.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// "builtin/stable". Specify "builtin/latest" for the latest model.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>model_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// User-provided hint for key value pair.
@@ -1215,13 +1216,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>KeyValuePairHint {
     <span class="doccomment">/// The key text for the hint.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
     <span class="doccomment">/// Type of the value. This is case-insensitive, and could be one of:
     /// ADDRESS, LOCATION, ORGANIZATION, PERSON, PHONE_NUMBER,
     /// ID, NUMBER, EMAIL, PRICE, TERMS, DATE, NAME. Types not in this list will
     /// be ignored.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>value_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Parameters to control entity extraction behavior.
@@ -1229,11 +1230,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EntityExtractionParams {
     <span class="doccomment">/// Whether to enable entity extraction.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enabled: bool,
     <span class="doccomment">/// Model version of the entity extraction. Default is
-    /// &quot;builtin/stable&quot;. Specify &quot;builtin/latest&quot; for the latest model.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// "builtin/stable". Specify "builtin/latest" for the latest model.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>model_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The desired input location and metadata.
@@ -1242,10 +1243,10 @@
 </span><span class="kw">pub struct </span>InputConfig {
     <span class="doccomment">/// Required. Mimetype of the input. Current supported mimetypes are
     /// application/pdf, image/tiff, and image/gif.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Required.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;input_config::Source&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"input_config::Source"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;input_config::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `InputConfig`.
@@ -1256,7 +1257,7 @@
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// The Google Cloud Storage location to read the input from. This must be a
         /// single file.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>GcsSource(<span class="kw">super</span>::GcsSource),
     }
 }
@@ -1281,10 +1282,10 @@
     /// &lt;prefix&gt;pages-051-to-100.json
     /// &lt;prefix&gt;pages-101-to-150.json
     /// &lt;prefix&gt;pages-151-to-157.json
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>pages_per_shard: i32,
     <span class="doccomment">/// Required.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;output_config::Destination&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"output_config::Destination"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;output_config::Destination&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `OutputConfig`.
@@ -1294,7 +1295,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Destination {
         <span class="doccomment">/// The Google Cloud Storage location to write the output to.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>GcsDestination(<span class="kw">super</span>::GcsDestination),
     }
 }
@@ -1302,14 +1303,14 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GcsSource {
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The Google Cloud Storage location where the output file will be written to.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GcsDestination {
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Contains metadata for the BatchProcessDocuments operation.
@@ -1317,16 +1318,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// The state of the current batch processing.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"operation_metadata::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// A message providing more details about the current state of processing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state_message: ::prost::alloc::string::String,
     <span class="doccomment">/// The creation time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The last update time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `OperationMetadata`.
@@ -1364,27 +1365,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Accepted =&gt; <span class="string">&quot;ACCEPTED&quot;</span>,
-                State::Waiting =&gt; <span class="string">&quot;WAITING&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Accepted =&gt; <span class="string">"ACCEPTED"</span>,
+                State::Waiting =&gt; <span class="string">"WAITING"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACCEPTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Accepted),
-                <span class="string">&quot;WAITING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Waiting),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACCEPTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Accepted),
+                <span class="string">"WAITING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Waiting),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1406,7 +1407,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1483,19 +1484,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.documentai.v1beta1.DocumentUnderstandingService/BatchProcessDocuments&quot;</span>,
+                <span class="string">"/google.cloud.documentai.v1beta1.DocumentUnderstandingService/BatchProcessDocuments"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.documentai.v1beta1.DocumentUnderstandingService&quot;</span>,
-                        <span class="string">&quot;BatchProcessDocuments&quot;</span>,
+                        <span class="string">"google.cloud.documentai.v1beta1.DocumentUnderstandingService"</span>,
+                        <span class="string">"BatchProcessDocuments"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1513,37 +1514,37 @@
     <span class="doccomment">/// An IANA published MIME type (also referred to as media type). For more
     /// information, see
     /// &lt;https://www.iana.org/assignments/media-types/media-types.xhtml.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
     <span class="doccomment">/// UTF-8 encoded text in reading order from the document.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
     <span class="doccomment">/// Styles for the
     /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>text_styles: ::prost::alloc::vec::Vec&lt;document::Style&gt;,
     <span class="doccomment">/// Visual page layout for the
     /// [Document][google.cloud.documentai.v1beta1.Document].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>pages: ::prost::alloc::vec::Vec&lt;document::Page&gt;,
     <span class="doccomment">/// A list of entities detected on
     /// [Document.text][google.cloud.documentai.v1beta1.Document.text]. For
     /// document shards, entities in this list may cross shard boundaries.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>entities: ::prost::alloc::vec::Vec&lt;document::Entity&gt;,
     <span class="doccomment">/// Relationship among
     /// [Document.entities][google.cloud.documentai.v1beta1.Document.entities].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>entity_relations: ::prost::alloc::vec::Vec&lt;document::EntityRelation&gt;,
     <span class="doccomment">/// Information about the sharding if this document is sharded part of a larger
     /// document. If the document is not sharded, this message is not specified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>shard_info: ::core::option::Option&lt;document::ShardInfo&gt;,
     <span class="doccomment">/// Any error that occurred while processing this document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Original source document from the user.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;document::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"document::Source"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;document::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Document`.
@@ -1555,15 +1556,15 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ShardInfo {
         <span class="doccomment">/// The 0-based index of this shard.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>shard_index: i64,
         <span class="doccomment">/// Total number of shards.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>shard_count: i64,
         <span class="doccomment">/// The index of the first character in
         /// [Document.text][google.cloud.documentai.v1beta1.Document.text] in the
         /// overall document global text.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>text_offset: i64,
     }
     <span class="doccomment">/// Annotation for common text style attributes. This adheres to CSS
@@ -1573,31 +1574,31 @@
     </span><span class="kw">pub struct </span>Style {
         <span class="doccomment">/// Text anchor indexing into the
         /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>text_anchor: ::core::option::Option&lt;TextAnchor&gt;,
         <span class="doccomment">/// Text color.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>color: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Color&gt;,
         <span class="doccomment">/// Text background color.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>background_color: ::core::option::Option&lt;
             <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Color,
         &gt;,
         <span class="doccomment">/// Font weight. Possible values are normal, bold, bolder, and lighter.
         /// &lt;https://www.w3schools.com/cssref/pr_font_weight.asp&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>font_weight: ::prost::alloc::string::String,
         <span class="doccomment">/// Text style. Possible values are normal, italic, and oblique.
         /// &lt;https://www.w3schools.com/cssref/pr_font_font-style.asp&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>text_style: ::prost::alloc::string::String,
         <span class="doccomment">/// Text decoration. Follows CSS standard.
         /// &lt;text-decoration-line&gt; &lt;text-decoration-color&gt; &lt;text-decoration-style&gt;
         /// &lt;https://www.w3schools.com/cssref/pr_text_text-decoration.asp&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>text_decoration: ::prost::alloc::string::String,
         <span class="doccomment">/// Font size.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>font_size: ::core::option::Option&lt;style::FontSize&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Style`.
@@ -1607,10 +1608,10 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>FontSize {
             <span class="doccomment">/// Font size for the text.
-            </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>size: f32,
             <span class="doccomment">/// Unit for the font size. Follows CSS naming (in, px, pt, etc.).
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>unit: ::prost::alloc::string::String,
         }
     }
@@ -1623,43 +1624,43 @@
         /// [Document][google.cloud.documentai.v1beta1.Document]. Useful when a page
         /// is taken out of a [Document][google.cloud.documentai.v1beta1.Document]
         /// for individual processing.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>page_number: i32,
         <span class="doccomment">/// Physical dimension of the page.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>dimension: ::core::option::Option&lt;page::Dimension&gt;,
         <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for the
         /// page.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>layout: ::core::option::Option&lt;page::Layout&gt;,
         <span class="doccomment">/// A list of detected languages together with confidence.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>detected_languages: ::prost::alloc::vec::Vec&lt;page::DetectedLanguage&gt;,
         <span class="doccomment">/// A list of visually detected text blocks on the page.
         /// A block has a set of lines (collected into paragraphs) that have a common
         /// line-spacing and orientation.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>blocks: ::prost::alloc::vec::Vec&lt;page::Block&gt;,
         <span class="doccomment">/// A list of visually detected text paragraphs on the page.
         /// A collection of lines that a human would perceive as a paragraph.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>paragraphs: ::prost::alloc::vec::Vec&lt;page::Paragraph&gt;,
         <span class="doccomment">/// A list of visually detected text lines on the page.
         /// A collection of tokens that a human would perceive as a line.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>lines: ::prost::alloc::vec::Vec&lt;page::Line&gt;,
         <span class="doccomment">/// A list of visually detected tokens on the page.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>tokens: ::prost::alloc::vec::Vec&lt;page::Token&gt;,
         <span class="doccomment">/// A list of detected non-text visual elements e.g. checkbox,
         /// signature etc. on the page.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
         </span><span class="kw">pub </span>visual_elements: ::prost::alloc::vec::Vec&lt;page::VisualElement&gt;,
         <span class="doccomment">/// A list of visually detected tables on the page.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
         </span><span class="kw">pub </span>tables: ::prost::alloc::vec::Vec&lt;page::Table&gt;,
         <span class="doccomment">/// A list of visually detected form fields on the page.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"11"</span>)]
         </span><span class="kw">pub </span>form_fields: ::prost::alloc::vec::Vec&lt;page::FormField&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Page`.
@@ -1669,13 +1670,13 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>Dimension {
             <span class="doccomment">/// Page width.
-            </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>width: f32,
             <span class="doccomment">/// Page height.
-            </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>height: f32,
             <span class="doccomment">/// Dimension unit.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>unit: ::prost::alloc::string::String,
         }
         <span class="doccomment">/// Visual element describing a layout unit on a page.
@@ -1684,22 +1685,22 @@
         </span><span class="kw">pub struct </span>Layout {
             <span class="doccomment">/// Text anchor indexing into the
             /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>text_anchor: ::core::option::Option&lt;<span class="kw">super</span>::TextAnchor&gt;,
             <span class="doccomment">/// Confidence of the current
             /// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] within
             /// context of the object this layout is for. e.g. confidence can be for a
             /// single token, a table, a visual element, etc. depending on context.
             /// Range \[0, 1\].
-            </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>confidence: f32,
             <span class="doccomment">/// The bounding polygon for the
             /// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout].
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>bounding_poly: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::BoundingPoly&gt;,
             <span class="doccomment">/// Detected orientation for the
             /// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout].
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;layout::Orientation&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(enumeration = <span class="string">"layout::Orientation"</span>, tag = <span class="string">"4"</span>)]
             </span><span class="kw">pub </span>orientation: i32,
         }
         <span class="doccomment">/// Nested message and enum types in `Layout`.
@@ -1737,23 +1738,23 @@
                 ///
                 /// The values are not transformed in any way and thus are considered stable
                 /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                     <span class="kw">match </span><span class="self">self </span>{
-                        Orientation::Unspecified =&gt; <span class="string">&quot;ORIENTATION_UNSPECIFIED&quot;</span>,
-                        Orientation::PageUp =&gt; <span class="string">&quot;PAGE_UP&quot;</span>,
-                        Orientation::PageRight =&gt; <span class="string">&quot;PAGE_RIGHT&quot;</span>,
-                        Orientation::PageDown =&gt; <span class="string">&quot;PAGE_DOWN&quot;</span>,
-                        Orientation::PageLeft =&gt; <span class="string">&quot;PAGE_LEFT&quot;</span>,
+                        Orientation::Unspecified =&gt; <span class="string">"ORIENTATION_UNSPECIFIED"</span>,
+                        Orientation::PageUp =&gt; <span class="string">"PAGE_UP"</span>,
+                        Orientation::PageRight =&gt; <span class="string">"PAGE_RIGHT"</span>,
+                        Orientation::PageDown =&gt; <span class="string">"PAGE_DOWN"</span>,
+                        Orientation::PageLeft =&gt; <span class="string">"PAGE_LEFT"</span>,
                     }
                 }
                 <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
                 </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                     <span class="kw">match </span>value {
-                        <span class="string">&quot;ORIENTATION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                        <span class="string">&quot;PAGE_UP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PageUp),
-                        <span class="string">&quot;PAGE_RIGHT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PageRight),
-                        <span class="string">&quot;PAGE_DOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PageDown),
-                        <span class="string">&quot;PAGE_LEFT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PageLeft),
+                        <span class="string">"ORIENTATION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                        <span class="string">"PAGE_UP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PageUp),
+                        <span class="string">"PAGE_RIGHT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PageRight),
+                        <span class="string">"PAGE_DOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PageDown),
+                        <span class="string">"PAGE_LEFT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PageLeft),
                         <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                     }
                 }
@@ -1766,10 +1767,10 @@
         </span><span class="kw">pub struct </span>Block {
             <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
             /// [Block][google.cloud.documentai.v1beta1.Document.Page.Block].
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// A list of detected languages together with confidence.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>detected_languages: ::prost::alloc::vec::Vec&lt;DetectedLanguage&gt;,
         }
         <span class="doccomment">/// A collection of lines that a human would perceive as a paragraph.
@@ -1778,10 +1779,10 @@
         </span><span class="kw">pub struct </span>Paragraph {
             <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
             /// [Paragraph][google.cloud.documentai.v1beta1.Document.Page.Paragraph].
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// A list of detected languages together with confidence.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>detected_languages: ::prost::alloc::vec::Vec&lt;DetectedLanguage&gt;,
         }
         <span class="doccomment">/// A collection of tokens that a human would perceive as a line.
@@ -1791,10 +1792,10 @@
         </span><span class="kw">pub struct </span>Line {
             <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
             /// [Line][google.cloud.documentai.v1beta1.Document.Page.Line].
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// A list of detected languages together with confidence.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>detected_languages: ::prost::alloc::vec::Vec&lt;DetectedLanguage&gt;,
         }
         <span class="doccomment">/// A detected token.
@@ -1803,14 +1804,14 @@
         </span><span class="kw">pub struct </span>Token {
             <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
             /// [Token][google.cloud.documentai.v1beta1.Document.Page.Token].
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// Detected break at the end of a
             /// [Token][google.cloud.documentai.v1beta1.Document.Page.Token].
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>detected_break: ::core::option::Option&lt;token::DetectedBreak&gt;,
             <span class="doccomment">/// A list of detected languages together with confidence.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>detected_languages: ::prost::alloc::vec::Vec&lt;DetectedLanguage&gt;,
         }
         <span class="doccomment">/// Nested message and enum types in `Token`.
@@ -1821,7 +1822,7 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>DetectedBreak {
                 <span class="doccomment">/// Detected break type.
-                </span><span class="attr">#[prost(enumeration = <span class="string">&quot;detected_break::Type&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(enumeration = <span class="string">"detected_break::Type"</span>, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>r#type: i32,
             }
             <span class="doccomment">/// Nested message and enum types in `DetectedBreak`.
@@ -1854,21 +1855,21 @@
                     ///
                     /// The values are not transformed in any way and thus are considered stable
                     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                         <span class="kw">match </span><span class="self">self </span>{
-                            Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                            Type::Space =&gt; <span class="string">&quot;SPACE&quot;</span>,
-                            Type::WideSpace =&gt; <span class="string">&quot;WIDE_SPACE&quot;</span>,
-                            Type::Hyphen =&gt; <span class="string">&quot;HYPHEN&quot;</span>,
+                            Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                            Type::Space =&gt; <span class="string">"SPACE"</span>,
+                            Type::WideSpace =&gt; <span class="string">"WIDE_SPACE"</span>,
+                            Type::Hyphen =&gt; <span class="string">"HYPHEN"</span>,
                         }
                     }
                     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
                     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                         <span class="kw">match </span>value {
-                            <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                            <span class="string">&quot;SPACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Space),
-                            <span class="string">&quot;WIDE_SPACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WideSpace),
-                            <span class="string">&quot;HYPHEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hyphen),
+                            <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                            <span class="string">"SPACE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Space),
+                            <span class="string">"WIDE_SPACE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WideSpace),
+                            <span class="string">"HYPHEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hyphen),
                             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                         }
                     }
@@ -1882,14 +1883,14 @@
         </span><span class="kw">pub struct </span>VisualElement {
             <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
             /// [Token][google.cloud.documentai.v1beta1.Document.Page.Token].
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// Type of the
             /// [VisualElement][google.cloud.documentai.v1beta1.Document.Page.VisualElement].
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
             <span class="doccomment">/// A list of detected languages together with confidence.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>detected_languages: ::prost::alloc::vec::Vec&lt;DetectedLanguage&gt;,
         }
         <span class="doccomment">/// A table representation similar to HTML table structure.
@@ -1898,16 +1899,16 @@
         </span><span class="kw">pub struct </span>Table {
             <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
             /// [Table][google.cloud.documentai.v1beta1.Document.Page.Table].
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>layout: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// Header rows of the table.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>header_rows: ::prost::alloc::vec::Vec&lt;table::TableRow&gt;,
             <span class="doccomment">/// Body rows of the table.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>body_rows: ::prost::alloc::vec::Vec&lt;table::TableRow&gt;,
             <span class="doccomment">/// A list of detected languages together with confidence.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
             </span><span class="kw">pub </span>detected_languages: ::prost::alloc::vec::Vec&lt;DetectedLanguage&gt;,
         }
         <span class="doccomment">/// Nested message and enum types in `Table`.
@@ -1917,7 +1918,7 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>TableRow {
                 <span class="doccomment">/// Cells that make up this row.
-                </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>cells: ::prost::alloc::vec::Vec&lt;TableCell&gt;,
             }
             <span class="doccomment">/// A cell representation inside the table.
@@ -1926,16 +1927,16 @@
             </span><span class="kw">pub struct </span>TableCell {
                 <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for
                 /// [TableCell][google.cloud.documentai.v1beta1.Document.Page.Table.TableCell].
-                </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>layout: ::core::option::Option&lt;<span class="kw">super</span>::Layout&gt;,
                 <span class="doccomment">/// How many rows this cell spans.
-                </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>row_span: i32,
                 <span class="doccomment">/// How many columns this cell spans.
-                </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
                 </span><span class="kw">pub </span>col_span: i32,
                 <span class="doccomment">/// A list of detected languages together with confidence.
-                </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
                 </span><span class="kw">pub </span>detected_languages: ::prost::alloc::vec::Vec&lt;
                     <span class="kw">super</span>::DetectedLanguage,
                 &gt;,
@@ -1948,31 +1949,31 @@
             <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for the
             /// [FormField][google.cloud.documentai.v1beta1.Document.Page.FormField]
             /// name. e.g. `Address`, `Email`, `Grand total`, `Phone number`, etc.
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>field_name: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// [Layout][google.cloud.documentai.v1beta1.Document.Page.Layout] for the
             /// [FormField][google.cloud.documentai.v1beta1.Document.Page.FormField]
             /// value.
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>field_value: ::core::option::Option&lt;Layout&gt;,
             <span class="doccomment">/// A list of detected languages for name together with confidence.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>name_detected_languages: ::prost::alloc::vec::Vec&lt;DetectedLanguage&gt;,
             <span class="doccomment">/// A list of detected languages for value together with confidence.
-            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
             </span><span class="kw">pub </span>value_detected_languages: ::prost::alloc::vec::Vec&lt;DetectedLanguage&gt;,
         }
         <span class="doccomment">/// Detected language for a structural component.
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>DetectedLanguage {
-            <span class="doccomment">/// The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;. For more
+            <span class="doccomment">/// The BCP-47 language code, such as "en-US" or "sr-Latn". For more
             /// information, see
             /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
             <span class="doccomment">/// Confidence of detected language. Range \[0, 1\].
-            </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>confidence: f32,
         }
     }
@@ -1984,17 +1985,17 @@
         <span class="doccomment">/// Provenance of the entity.
         /// Text anchor indexing into the
         /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>text_anchor: ::core::option::Option&lt;TextAnchor&gt;,
         <span class="doccomment">/// Required. Entity type from a schema e.g. `Address`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
         <span class="doccomment">/// Text value in the document e.g. `1600 Amphitheatre Pkwy`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>mention_text: ::prost::alloc::string::String,
         <span class="doccomment">/// Canonical mention name. This will be a unique value in the entity list
         /// for this document.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>mention_id: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Relationship between
@@ -2003,13 +2004,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>EntityRelation {
         <span class="doccomment">/// Subject entity mention_id.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>subject_id: ::prost::alloc::string::String,
         <span class="doccomment">/// Object entity mention_id.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>object_id: ::prost::alloc::string::String,
         <span class="doccomment">/// Relationship description.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>relation: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Text reference indexing into the
@@ -2019,7 +2020,7 @@
     </span><span class="kw">pub struct </span>TextAnchor {
         <span class="doccomment">/// The text segments from the
         /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>text_segments: ::prost::alloc::vec::Vec&lt;text_anchor::TextSegment&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `TextAnchor`.
@@ -2035,12 +2036,12 @@
             <span class="doccomment">/// [TextSegment][google.cloud.documentai.v1beta1.Document.TextAnchor.TextSegment]
             /// start UTF-8 char index in the
             /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
-            </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>start_index: i64,
             <span class="doccomment">/// [TextSegment][google.cloud.documentai.v1beta1.Document.TextAnchor.TextSegment]
             /// half open end UTF-8 char index in the
             /// [Document.text][google.cloud.documentai.v1beta1.Document.text].
-            </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>end_index: i64,
         }
     }
@@ -2053,12 +2054,12 @@
         ///     See [Google Cloud Storage Request
         ///     URIs](&lt;https://cloud.google.com/storage/docs/reference-uris&gt;) for more
         ///     info.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>Uri(::prost::alloc::string::String),
         <span class="doccomment">/// Inline document content, represented as a stream of bytes.
         /// Note: As with all `bytes` fields, protobuffers use a pure binary
         /// representation, whereas JSON representations use base64.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"2"</span>)]
         </span>Content(::prost::bytes::Bytes),
     }
 }

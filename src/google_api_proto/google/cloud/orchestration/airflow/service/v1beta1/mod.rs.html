@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/orchestration/airflow/service/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../../" data-static-root-path="../../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../../src-files.js"></script><script defer src="../../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/orchestration/airflow/service/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../../" data-static-root-path="../../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../../src-files.js"></script><script defer src="../../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2435,24 +2436,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. The current operation state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"operation_metadata::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The type of operation being performed.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation_metadata::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"operation_metadata::Type"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>operation_type: i32,
     <span class="doccomment">/// Output only. The resource being operated on, as a [relative resource name](
     /// /apis/design/resource_names#relative_resource_name).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The UUID of the resource being operated on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>resource_uuid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time the operation was submitted to the server.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the operation terminated, regardless of its
     /// success. This field is unset if the operation is still ongoing.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `OperationMetadata`.
@@ -2487,23 +2488,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Successful =&gt; <span class="string">&quot;SUCCESSFUL&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Pending =&gt; <span class="string">"PENDING"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Successful =&gt; <span class="string">"SUCCESSFUL"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCESSFUL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Successful),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"SUCCESSFUL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Successful),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2536,7 +2537,7 @@
         </span>SaveSnapshot = <span class="number">5</span>,
         <span class="doccomment">/// Loads snapshot of the resource operation.
         </span>LoadSnapshot = <span class="number">6</span>,
-        <span class="doccomment">/// Triggers failover of environment&#39;s Cloud SQL instance (only for highly
+        <span class="doccomment">/// Triggers failover of environment's Cloud SQL instance (only for highly
         /// resilient environments).
         </span>DatabaseFailover = <span class="number">7</span>,
     }
@@ -2545,29 +2546,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Create =&gt; <span class="string">&quot;CREATE&quot;</span>,
-                Type::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
-                Type::Update =&gt; <span class="string">&quot;UPDATE&quot;</span>,
-                Type::Check =&gt; <span class="string">&quot;CHECK&quot;</span>,
-                Type::SaveSnapshot =&gt; <span class="string">&quot;SAVE_SNAPSHOT&quot;</span>,
-                Type::LoadSnapshot =&gt; <span class="string">&quot;LOAD_SNAPSHOT&quot;</span>,
-                Type::DatabaseFailover =&gt; <span class="string">&quot;DATABASE_FAILOVER&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::Create =&gt; <span class="string">"CREATE"</span>,
+                Type::Delete =&gt; <span class="string">"DELETE"</span>,
+                Type::Update =&gt; <span class="string">"UPDATE"</span>,
+                Type::Check =&gt; <span class="string">"CHECK"</span>,
+                Type::SaveSnapshot =&gt; <span class="string">"SAVE_SNAPSHOT"</span>,
+                Type::LoadSnapshot =&gt; <span class="string">"LOAD_SNAPSHOT"</span>,
+                Type::DatabaseFailover =&gt; <span class="string">"DATABASE_FAILOVER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
-                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
-                <span class="string">&quot;UPDATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
-                <span class="string">&quot;CHECK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Check),
-                <span class="string">&quot;SAVE_SNAPSHOT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SaveSnapshot),
-                <span class="string">&quot;LOAD_SNAPSHOT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LoadSnapshot),
-                <span class="string">&quot;DATABASE_FAILOVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DatabaseFailover),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
+                <span class="string">"DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+                <span class="string">"UPDATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
+                <span class="string">"CHECK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Check),
+                <span class="string">"SAVE_SNAPSHOT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SaveSnapshot),
+                <span class="string">"LOAD_SNAPSHOT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LoadSnapshot),
+                <span class="string">"DATABASE_FAILOVER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DatabaseFailover),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2578,17 +2579,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListImageVersionsRequest {
     <span class="doccomment">/// List ImageVersions in the given project and location, in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of image_versions to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether or not image versions from old releases should be included.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>include_past_releases: bool,
 }
 <span class="doccomment">/// The ImageVersions in a project and location.
@@ -2596,10 +2597,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListImageVersionsResponse {
     <span class="doccomment">/// The list of supported ImageVersions in a location.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>image_versions: ::prost::alloc::vec::Vec&lt;ImageVersion&gt;,
     <span class="doccomment">/// The page token used to query for the next page if one exists.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Image Version information
@@ -2607,29 +2608,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImageVersion {
     <span class="doccomment">/// The string identifier of the ImageVersion, in the form:
-    /// &quot;composer-x.y.z-airflow-a.b.c&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "composer-x.y.z-airflow-a.b.c"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>image_version_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether this is the default ImageVersion used by Composer during
     /// environment creation if no input ImageVersion is specified.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>is_default: bool,
     <span class="doccomment">/// supported python versions
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>supported_python_versions: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// The date of the version release.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>release_date: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date,
     &gt;,
     <span class="doccomment">/// Whether it is impossible to create an environment with the image version.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>creation_disabled: bool,
     <span class="doccomment">/// Whether it is impossible to upgrade an environment running with the image
     /// version.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>upgrade_disabled: bool,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2646,7 +2647,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2721,19 +2722,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.ImageVersions/ListImageVersions&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.ImageVersions/ListImageVersions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.ImageVersions&quot;</span>,
-                        <span class="string">&quot;ListImageVersions&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.ImageVersions"</span>,
+                        <span class="string">"ListImageVersions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2745,11 +2746,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateEnvironmentRequest {
     <span class="doccomment">/// The parent must be of the form
-    /// &quot;projects/{projectId}/locations/{locationId}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The environment to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>environment: ::core::option::Option&lt;Environment&gt;,
 }
 <span class="doccomment">/// Get an environment.
@@ -2757,8 +2758,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetEnvironmentRequest {
     <span class="doccomment">/// The resource name of the environment to get, in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// List environments in a project and location.
@@ -2766,14 +2767,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListEnvironmentsRequest {
     <span class="doccomment">/// List environments in the given project and location, in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of environments to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The environments in a project and location.
@@ -2781,10 +2782,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListEnvironmentsResponse {
     <span class="doccomment">/// The list of environments returned by a ListEnvironmentsRequest.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environments: ::prost::alloc::vec::Vec&lt;Environment&gt;,
     <span class="doccomment">/// The page token used to query for the next page if one exists.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Delete an environment.
@@ -2792,8 +2793,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteEnvironmentRequest {
     <span class="doccomment">/// The environment to delete, in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Update an environment.
@@ -2801,27 +2802,27 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateEnvironmentRequest {
     <span class="doccomment">/// The relative resource name of the environment to update, in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A patch environment. Fields specified by the `updateMask` will be copied
     /// from the patch environment into the environment under update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::core::option::Option&lt;Environment&gt;,
     <span class="doccomment">/// Required. A comma-separated list of paths, relative to `Environment`, of
     /// fields to update.
     /// For example, to set the version of scikit-learn to install in the
     /// environment to 0.19.0 and to remove an existing installation of
     /// argparse, the `updateMask` parameter would include the following two
-    /// `paths` values: &quot;config.softwareConfig.pypiPackages.scikit-learn&quot; and
-    /// &quot;config.softwareConfig.pypiPackages.argparse&quot;. The included patch
+    /// `paths` values: "config.softwareConfig.pypiPackages.scikit-learn" and
+    /// "config.softwareConfig.pypiPackages.argparse". The included patch
     /// environment would specify the scikit-learn version as follows:
     ///
     ///      {
-    ///        &quot;config&quot;:{
-    ///          &quot;softwareConfig&quot;:{
-    ///            &quot;pypiPackages&quot;:{
-    ///              &quot;scikit-learn&quot;:&quot;==0.19.0&quot;
+    ///        "config":{
+    ///          "softwareConfig":{
+    ///            "pypiPackages":{
+    ///              "scikit-learn":"==0.19.0"
     ///            }
     ///          }
     ///        }
@@ -2830,19 +2831,19 @@
     /// Note that in the above example, any existing PyPI packages
     /// other than scikit-learn and argparse will be unaffected.
     ///
-    /// Only one update type may be included in a single request&#39;s `updateMask`.
+    /// Only one update type may be included in a single request's `updateMask`.
     /// For example, one cannot update both the PyPI packages and
     /// labels in the same request. However, it is possible to update multiple
     /// members of a map field simultaneously in the same request. For example,
-    /// to set the labels &quot;label1&quot; and &quot;label2&quot; while clearing &quot;label3&quot; (assuming
+    /// to set the labels "label1" and "label2" while clearing "label3" (assuming
     /// it already exists), one can
-    /// provide the paths &quot;labels.label1&quot;, &quot;labels.label2&quot;, and &quot;labels.label3&quot;
+    /// provide the paths "labels.label1", "labels.label2", and "labels.label3"
     /// and populate the patch environment as follows:
     ///
     ///      {
-    ///        &quot;labels&quot;:{
-    ///          &quot;label1&quot;:&quot;new-label1-value&quot;
-    ///          &quot;label2&quot;:&quot;new-label2-value&quot;
+    ///        "labels":{
+    ///          "label1":"new-label1-value"
+    ///          "label2":"new-label2-value"
     ///        }
     ///      }
     ///
@@ -2850,18 +2851,18 @@
     /// included in the `updateMask` will be unaffected.
     ///
     /// It is also possible to replace an entire map field by providing the
-    /// map field&#39;s path in the `updateMask`. The new value of the field will
+    /// map field's path in the `updateMask`. The new value of the field will
     /// be that which is provided in the patch environment. For example, to
     /// delete all pre-existing user-specified PyPI packages and
     /// install botocore at version 1.7.14, the `updateMask` would contain
-    /// the path &quot;config.softwareConfig.pypiPackages&quot;, and
+    /// the path "config.softwareConfig.pypiPackages", and
     /// the patch environment would be the following:
     ///
     ///      {
-    ///        &quot;config&quot;:{
-    ///          &quot;softwareConfig&quot;:{
-    ///            &quot;pypiPackages&quot;:{
-    ///              &quot;botocore&quot;:&quot;==1.7.14&quot;
+    ///        "config":{
+    ///          "softwareConfig":{
+    ///            "pypiPackages":{
+    ///              "botocore":"==1.7.14"
     ///            }
     ///          }
     ///        }
@@ -2897,7 +2898,7 @@
     ///        field. Supported for Cloud Composer environments in versions
     ///        composer-1.*.*-airflow-*.*.*.
     /// * `config.webServerNetworkAccessControl`
-    ///      * Replace the environment&#39;s current WebServerNetworkAccessControl.
+    ///      * Replace the environment's current WebServerNetworkAccessControl.
     /// * `config.softwareConfig.airflowConfigOverrides`
     ///      * Replace all Apache Airflow config overrides. If a replacement config
     ///        overrides map is not included in `environment`, all config overrides
@@ -2920,7 +2921,7 @@
     ///      * Upgrade the version of the environment in-place. Refer to
     ///        `SoftwareConfig.image_version` for information on how to format the
     ///        new image version. Additionally, the new image version cannot effect
-    ///        a version downgrade, and must match the current image version&#39;s
+    ///        a version downgrade, and must match the current image version's
     ///        Composer and Airflow major versions. Consult the [Cloud Composer
     ///        version list](/composer/docs/concepts/versioning/composer-versions)
     ///        for valid values.
@@ -2952,7 +2953,7 @@
     ///      * The size of the Cloud Composer environment. Supported for Cloud
     ///        Composer environments in versions composer-2.*.*-airflow-*.*.* and
     ///        newer.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Restart Airflow web server.
@@ -2961,8 +2962,8 @@
 </span><span class="kw">pub struct </span>RestartWebServerRequest {
     <span class="doccomment">/// The resource name of the environment to restart the web server for, in the
     /// form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Execute Airflow Command request.
@@ -2970,20 +2971,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecuteAirflowCommandRequest {
     <span class="doccomment">/// The resource name of the environment in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::prost::alloc::string::String,
     <span class="doccomment">/// Airflow command.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>command: ::prost::alloc::string::String,
     <span class="doccomment">/// Airflow subcommand.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>subcommand: ::prost::alloc::string::String,
     <span class="doccomment">/// Parameters for the Airflow command/subcommand as an array of arguments.
-    /// It may contain positional arguments like `\[&quot;my-dag-id&quot;\]`, key-value
-    /// parameters like `\[&quot;--foo=bar&quot;\]` or `\[&quot;--foo&quot;,&quot;bar&quot;\]`,
-    /// or other flags like `\[&quot;-f&quot;\]`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    /// It may contain positional arguments like `\["my-dag-id"\]`, key-value
+    /// parameters like `\["--foo=bar"\]` or `\["--foo","bar"\]`,
+    /// or other flags like `\["-f"\]`.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>parameters: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Response to ExecuteAirflowCommandRequest.
@@ -2991,16 +2992,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecuteAirflowCommandResponse {
     <span class="doccomment">/// The unique ID of the command execution for polling.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>execution_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the pod where the command is executed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>pod: ::prost::alloc::string::String,
     <span class="doccomment">/// The namespace of the pod where the command is executed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>pod_namespace: ::prost::alloc::string::String,
     <span class="doccomment">/// Error message. Empty if there was no error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>error: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Stop Airflow Command request.
@@ -3008,21 +3009,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StopAirflowCommandRequest {
     <span class="doccomment">/// The resource name of the environment in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::prost::alloc::string::String,
     <span class="doccomment">/// The unique ID of the command execution.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>execution_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the pod where the command is executed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>pod: ::prost::alloc::string::String,
     <span class="doccomment">/// The namespace of the pod where the command is executed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>pod_namespace: ::prost::alloc::string::String,
     <span class="doccomment">/// If true, the execution is terminated forcefully (SIGKILL). If false, the
     /// execution is stopped gracefully, giving it time for cleanup.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>force: bool,
 }
 <span class="doccomment">/// Response to StopAirflowCommandRequest.
@@ -3030,10 +3031,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StopAirflowCommandResponse {
     <span class="doccomment">/// Whether the execution is still running.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>is_done: bool,
     <span class="doccomment">/// Output message from stopping execution request.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>output: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Poll Airflow Command request.
@@ -3041,20 +3042,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PollAirflowCommandRequest {
     <span class="doccomment">/// The resource name of the environment in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::prost::alloc::string::String,
     <span class="doccomment">/// The unique ID of the command execution.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>execution_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the pod where the command is executed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>pod: ::prost::alloc::string::String,
     <span class="doccomment">/// The namespace of the pod where the command is executed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>pod_namespace: ::prost::alloc::string::String,
     <span class="doccomment">/// Line number from which new logs should be fetched.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>next_line_number: i32,
 }
 <span class="doccomment">/// Response to PollAirflowCommandRequest.
@@ -3063,13 +3064,13 @@
 </span><span class="kw">pub struct </span>PollAirflowCommandResponse {
     <span class="doccomment">/// Output from the command execution. It may not contain the full output
     /// and the caller may need to poll for more lines.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>output: ::prost::alloc::vec::Vec&lt;poll_airflow_command_response::Line&gt;,
     <span class="doccomment">/// Whether the command execution has finished and there is no more output.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>output_end: bool,
     <span class="doccomment">/// The result exit status of the command.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>exit_info: ::core::option::Option&lt;poll_airflow_command_response::ExitInfo&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PollAirflowCommandResponse`.
@@ -3079,10 +3080,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Line {
         <span class="doccomment">/// Number of the line.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>line_number: i32,
         <span class="doccomment">/// Text content of the log line.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Information about how a command ended.
@@ -3090,10 +3091,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ExitInfo {
         <span class="doccomment">/// The exit code from the command execution.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>exit_code: i32,
         <span class="doccomment">/// Error message. Empty if there was no error.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>error: ::prost::alloc::string::String,
     }
 }
@@ -3102,12 +3103,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SaveSnapshotRequest {
     <span class="doccomment">/// The resource name of the source environment in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::prost::alloc::string::String,
     <span class="doccomment">/// Location in a Cloud Storage where the snapshot is going to be stored, e.g.:
-    /// &quot;gs://my-bucket/snapshots&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// "gs://my-bucket/snapshots".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>snapshot_location: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response to SaveSnapshotRequest.
@@ -3116,9 +3117,9 @@
 </span><span class="kw">pub struct </span>SaveSnapshotResponse {
     <span class="doccomment">/// The fully-resolved Cloud Storage path of the created snapshot,
     /// e.g.:
-    /// &quot;gs://my-bucket/snapshots/project_location_environment_timestamp&quot;.
+    /// "gs://my-bucket/snapshots/project_location_environment_timestamp".
     /// This field is populated only if the snapshot creation was successful.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>snapshot_path: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to load a snapshot into a Cloud Composer environment.
@@ -3126,28 +3127,28 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LoadSnapshotRequest {
     <span class="doccomment">/// The resource name of the target environment in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::prost::alloc::string::String,
     <span class="doccomment">/// A Cloud Storage path to a snapshot to load, e.g.:
-    /// &quot;gs://my-bucket/snapshots/project_location_environment_timestamp&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// "gs://my-bucket/snapshots/project_location_environment_timestamp".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>snapshot_path: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether or not to skip installing Pypi packages when loading the
-    /// environment&#39;s state.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    /// environment's state.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>skip_pypi_packages_installation: bool,
     <span class="doccomment">/// Whether or not to skip setting environment variables when loading the
-    /// environment&#39;s state.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    /// environment's state.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>skip_environment_variables_setting: bool,
     <span class="doccomment">/// Whether or not to skip setting Airflow overrides when loading the
-    /// environment&#39;s state.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    /// environment's state.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>skip_airflow_overrides_setting: bool,
     <span class="doccomment">/// Whether or not to skip copying Cloud Storage data when loading the
-    /// environment&#39;s state.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    /// environment's state.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>skip_gcs_data_copying: bool,
 }
 <span class="doccomment">/// Response to LoadSnapshotRequest.
@@ -3160,21 +3161,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DatabaseFailoverRequest {
     <span class="doccomment">/// Target environment:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for DatabaseFailoverRequest.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DatabaseFailoverResponse {}
-<span class="doccomment">/// Request to fetch properties of environment&#39;s database.
+<span class="doccomment">/// Request to fetch properties of environment's database.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FetchDatabasePropertiesRequest {
     <span class="doccomment">/// Required. The resource name of the environment, in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for FetchDatabasePropertiesRequest.
@@ -3182,16 +3183,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FetchDatabasePropertiesResponse {
     <span class="doccomment">/// The Compute Engine zone that the instance is currently serving from.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>primary_gce_zone: ::prost::alloc::string::String,
     <span class="doccomment">/// The Compute Engine zone that the failover instance is currently serving
     /// from for a regional Cloud SQL instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>secondary_gce_zone: ::prost::alloc::string::String,
     <span class="doccomment">/// The availability status of the failover replica. A false status indicates
     /// that the failover replica is out of sync. The primary instance can only
     /// fail over to the failover replica when the status is true.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>is_failover_replica_available: bool,
 }
 <span class="doccomment">/// Configuration information for an environment.
@@ -3199,64 +3200,64 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EnvironmentConfig {
     <span class="doccomment">/// Output only. The Kubernetes Engine cluster used to run this environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gke_cluster: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The Cloud Storage prefix of the DAGs for this environment.
     /// Although Cloud Storage objects reside in a flat namespace, a hierarchical
-    /// file tree can be simulated using &quot;/&quot;-delimited object name prefixes. DAG
+    /// file tree can be simulated using "/"-delimited object name prefixes. DAG
     /// objects for this environment reside in a simulated directory with the given
     /// prefix.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dag_gcs_prefix: ::prost::alloc::string::String,
     <span class="doccomment">/// The number of nodes in the Kubernetes Engine cluster that will be
     /// used to run this environment.
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>node_count: i32,
     <span class="doccomment">/// The configuration settings for software inside the environment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>software_config: ::core::option::Option&lt;SoftwareConfig&gt;,
     <span class="doccomment">/// The configuration used for the Kubernetes Engine cluster.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>node_config: ::core::option::Option&lt;NodeConfig&gt;,
     <span class="doccomment">/// The configuration used for the Private IP Cloud Composer environment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>private_environment_config: ::core::option::Option&lt;PrivateEnvironmentConfig&gt;,
     <span class="doccomment">/// Optional. The network-level access control policy for the Airflow web
     /// server. If unspecified, no network-level access restrictions will be
     /// applied.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>web_server_network_access_control: ::core::option::Option&lt;
         WebServerNetworkAccessControl,
     &gt;,
     <span class="doccomment">/// Optional. The configuration settings for Cloud SQL instance used internally
     /// by Apache Airflow software.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>database_config: ::core::option::Option&lt;DatabaseConfig&gt;,
     <span class="doccomment">/// Optional. The configuration settings for the Airflow web server App Engine
     /// instance.
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>web_server_config: ::core::option::Option&lt;WebServerConfig&gt;,
     <span class="doccomment">/// Output only. The URI of the Apache Airflow Web UI hosted within this
     /// environment (see [Airflow web
     /// interface](/composer/docs/how-to/accessing/airflow-web-interface)).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>airflow_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The &#39;bring your own identity&#39; variant of the URI of the Apache
+    <span class="doccomment">/// Output only. The 'bring your own identity' variant of the URI of the Apache
     /// Airflow Web UI hosted within this environment, to be accessed with external
     /// identities using workforce identity federation (see [Access environments
     /// with workforce identity
     /// federation](/composer/docs/composer-2/access-environments-with-workforce-identity-federation)).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>airflow_byoid_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The encryption options for the Cloud Composer environment and its
     /// dependencies. Cannot be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>encryption_config: ::core::option::Option&lt;EncryptionConfig&gt;,
     <span class="doccomment">/// Optional. The maintenance window is the period when Cloud Composer
     /// components may undergo maintenance. It is defined so that maintenance is
@@ -3272,7 +3273,7 @@
     ///
     /// If this value is omitted, Cloud Composer components may be subject to
     /// maintenance at any time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>maintenance_window: ::core::option::Option&lt;MaintenanceWindow&gt;,
     <span class="doccomment">/// Optional. The workloads configuration settings for the GKE cluster
     /// associated with the Cloud Composer environment. The GKE cluster runs
@@ -3280,20 +3281,20 @@
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-2.*.*-airflow-*.*.* and newer.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>workloads_config: ::core::option::Option&lt;WorkloadsConfig&gt;,
     <span class="doccomment">/// Optional. The size of the Cloud Composer environment.
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-2.*.*-airflow-*.*.* and newer.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;environment_config::EnvironmentSize&quot;</span>, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"environment_config::EnvironmentSize"</span>, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>environment_size: i32,
     <span class="doccomment">/// Optional. The configuration options for GKE cluster master authorized
     /// networks. By default master authorized networks feature is:
     /// - in case of private environment: enabled with no external networks
     /// allowlisted.
     /// - in case of public environment: disabled.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>master_authorized_networks_config: ::core::option::Option&lt;
         MasterAuthorizedNetworksConfig,
     &gt;,
@@ -3301,13 +3302,13 @@
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-2.*.*-airflow-*.*.* and newer.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>recovery_config: ::core::option::Option&lt;RecoveryConfig&gt;,
     <span class="doccomment">/// Optional. Resilience mode of the Cloud Composer Environment.
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-2.2.0-airflow-*.*.* and newer.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;environment_config::ResilienceMode&quot;</span>, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"environment_config::ResilienceMode"</span>, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>resilience_mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `EnvironmentConfig`.
@@ -3340,21 +3341,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EnvironmentSize::Unspecified =&gt; <span class="string">&quot;ENVIRONMENT_SIZE_UNSPECIFIED&quot;</span>,
-                EnvironmentSize::Small =&gt; <span class="string">&quot;ENVIRONMENT_SIZE_SMALL&quot;</span>,
-                EnvironmentSize::Medium =&gt; <span class="string">&quot;ENVIRONMENT_SIZE_MEDIUM&quot;</span>,
-                EnvironmentSize::Large =&gt; <span class="string">&quot;ENVIRONMENT_SIZE_LARGE&quot;</span>,
+                EnvironmentSize::Unspecified =&gt; <span class="string">"ENVIRONMENT_SIZE_UNSPECIFIED"</span>,
+                EnvironmentSize::Small =&gt; <span class="string">"ENVIRONMENT_SIZE_SMALL"</span>,
+                EnvironmentSize::Medium =&gt; <span class="string">"ENVIRONMENT_SIZE_MEDIUM"</span>,
+                EnvironmentSize::Large =&gt; <span class="string">"ENVIRONMENT_SIZE_LARGE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ENVIRONMENT_SIZE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENVIRONMENT_SIZE_SMALL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Small),
-                <span class="string">&quot;ENVIRONMENT_SIZE_MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-                <span class="string">&quot;ENVIRONMENT_SIZE_LARGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Large),
+                <span class="string">"ENVIRONMENT_SIZE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ENVIRONMENT_SIZE_SMALL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Small),
+                <span class="string">"ENVIRONMENT_SIZE_MEDIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+                <span class="string">"ENVIRONMENT_SIZE_LARGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Large),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3373,7 +3374,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>ResilienceMode {
-        <span class="doccomment">/// Default mode doesn&#39;t change environment parameters.
+        <span class="doccomment">/// Default mode doesn't change environment parameters.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Enabled High Resilience mode, including Cloud SQL HA.
         </span>HighResilience = <span class="number">1</span>,
@@ -3383,17 +3384,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ResilienceMode::Unspecified =&gt; <span class="string">&quot;RESILIENCE_MODE_UNSPECIFIED&quot;</span>,
-                ResilienceMode::HighResilience =&gt; <span class="string">&quot;HIGH_RESILIENCE&quot;</span>,
+                ResilienceMode::Unspecified =&gt; <span class="string">"RESILIENCE_MODE_UNSPECIFIED"</span>,
+                ResilienceMode::HighResilience =&gt; <span class="string">"HIGH_RESILIENCE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RESILIENCE_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;HIGH_RESILIENCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HighResilience),
+                <span class="string">"RESILIENCE_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"HIGH_RESILIENCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HighResilience),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3404,7 +3405,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>WebServerNetworkAccessControl {
     <span class="doccomment">/// A collection of allowed IP ranges with descriptions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>allowed_ip_ranges: ::prost::alloc::vec::Vec&lt;
         web_server_network_access_control::AllowedIpRange,
     &gt;,
@@ -3423,11 +3424,11 @@
         /// IP range prefixes should be properly truncated. For example,
         /// `1.2.3.4/24` should be truncated to `1.2.3.0/24`. Similarly, for IPv6,
         /// `2001:db8::1/32` should be truncated to `2001:db8::/32`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. User-provided description. It must contain at most 300
         /// characters.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     }
 }
@@ -3459,16 +3460,16 @@
     /// See also [version
     /// list](/composer/docs/concepts/versioning/composer-versions) and [versioning
     /// overview](/composer/docs/concepts/versioning/composer-versioning-overview).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>image_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Apache Airflow configuration properties to override.
     ///
     /// Property keys contain the section and property names, separated by a
-    /// hyphen, for example &quot;core-dags_are_paused_at_creation&quot;. Section names must
-    /// not contain hyphens (&quot;-&quot;), opening square brackets (&quot;[&quot;),  or closing
-    /// square brackets (&quot;]&quot;). The property name must not be empty and must not
-    /// contain an equals sign (&quot;=&quot;) or semicolon (&quot;;&quot;). Section and property names
-    /// must not contain a period (&quot;.&quot;). Apache Airflow configuration property
+    /// hyphen, for example "core-dags_are_paused_at_creation". Section names must
+    /// not contain hyphens ("-"), opening square brackets ("["),  or closing
+    /// square brackets ("]"). The property name must not be empty and must not
+    /// contain an equals sign ("=") or semicolon (";"). Section and property names
+    /// must not contain a period ("."). Apache Airflow configuration property
     /// names must be written in
     /// [snake_case](&lt;https://en.wikipedia.org/wiki/Snake_case&gt;). Property values can
     /// contain any character, and can be written in any lower/upper case format.
@@ -3476,7 +3477,7 @@
     /// Certain Apache Airflow configuration property values are
     /// [blocked](/composer/docs/concepts/airflow-configurations),
     /// and cannot be overridden.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>airflow_config_overrides: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -3484,12 +3485,12 @@
     <span class="doccomment">/// Optional. Custom Python Package Index (PyPI) packages to be installed in
     /// the environment.
     ///
-    /// Keys refer to the lowercase package name such as &quot;numpy&quot;
+    /// Keys refer to the lowercase package name such as "numpy"
     /// and values are the lowercase extras and version specifier such as
-    /// &quot;==1.12.0&quot;, &quot;\[devel,gcp_api\]&quot;, or &quot;\[devel\]&gt;=1.8.2, &lt;1.9.2&quot;. To specify a
+    /// "==1.12.0", "\[devel,gcp_api\]", or "\[devel\]&gt;=1.8.2, &lt;1.9.2". To specify a
     /// package without pinning it to a version specifier, use the empty string as
     /// the value.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>pypi_packages: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -3516,7 +3517,7 @@
     /// * `SQL_PROJECT`
     /// * `SQL_REGION`
     /// * `SQL_USER`
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>env_variables: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -3524,22 +3525,22 @@
     <span class="doccomment">/// Optional. The major version of Python used to run the Apache Airflow
     /// scheduler, worker, and webserver processes.
     ///
-    /// Can be set to &#39;2&#39; or &#39;3&#39;. If not specified, the default is &#39;3&#39;. Cannot be
+    /// Can be set to '2' or '3'. If not specified, the default is '3'. Cannot be
     /// updated.
     ///
     /// This field is only supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
     /// Python major version 3.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>python_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The number of schedulers for Airflow.
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-2.*.*.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>scheduler_count: i32,
     <span class="doccomment">/// Optional. The configuration for Cloud Data Lineage integration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>cloud_data_lineage_integration: ::core::option::Option&lt;
         CloudDataLineageIntegration,
     &gt;,
@@ -3555,23 +3556,23 @@
     /// This field is only supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
     /// VPC-native GKE clusters.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>use_ip_aliases: bool,
-    <span class="doccomment">/// Optional. The name of the cluster&#39;s secondary range used to allocate
+    <span class="doccomment">/// Optional. The name of the cluster's secondary range used to allocate
     /// IP addresses to pods. Specify either `cluster_secondary_range_name`
     /// or `cluster_ipv4_cidr_block` but not both.
     ///
     /// For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
     /// this field is applicable only when `use_ip_aliases` is true.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>cluster_secondary_range_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The name of the services&#39; secondary range used to allocate
+    <span class="doccomment">/// Optional. The name of the services' secondary range used to allocate
     /// IP addresses to the cluster. Specify either `services_secondary_range_name`
     /// or `services_ipv4_cidr_block` but not both.
     ///
     /// For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
     /// this field is applicable only when `use_ip_aliases` is true.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>services_secondary_range_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The IP address range used to allocate IP addresses to pods in
     /// the cluster.
@@ -3591,7 +3592,7 @@
     /// to use.
     /// Specify `cluster_secondary_range_name` or `cluster_ipv4_cidr_block`
     /// but not both.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>cluster_ipv4_cidr_block: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The IP address range of the services IP addresses in this
     /// cluster.
@@ -3611,7 +3612,7 @@
     /// to use.
     /// Specify `services_secondary_range_name` or `services_ipv4_cidr_block`
     /// but not both.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>services_ipv4_cidr_block: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The configuration information for the Kubernetes Engine nodes running
@@ -3623,9 +3624,9 @@
     /// to deploy the VMs used to run the Apache Airflow software, specified as a
     /// [relative resource
     /// name](/apis/design/resource_names#relative_resource_name). For example:
-    /// &quot;projects/{projectId}/zones/{zoneId}&quot;.
+    /// "projects/{projectId}/zones/{zoneId}".
     ///
-    /// This `location` must belong to the enclosing environment&#39;s project and
+    /// This `location` must belong to the enclosing environment's project and
     /// location. If both this field and `nodeConfig.machineType` are specified,
     /// `nodeConfig.machineType` must belong to this `location`; if both are
     /// unspecified, the service will pick a zone in the Compute Engine region
@@ -3636,16 +3637,16 @@
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The Compute Engine
     /// [machine type](/compute/docs/machine-types) used for cluster instances,
     /// specified as a
     /// [relative resource
     /// name](/apis/design/resource_names#relative_resource_name). For example:
-    /// &quot;projects/{projectId}/zones/{zoneId}/machineTypes/{machineTypeId}&quot;.
+    /// "projects/{projectId}/zones/{zoneId}/machineTypes/{machineTypeId}".
     ///
-    /// The `machineType` must belong to the enclosing environment&#39;s project and
+    /// The `machineType` must belong to the enclosing environment's project and
     /// location. If both this field and `nodeConfig.location` are specified,
     /// this `machineType` must belong to the `nodeConfig.location`; if both are
     /// unspecified, the service will pick a zone in the Compute Engine region
@@ -3658,70 +3659,70 @@
     /// type](/compute/docs/machine-types#sharedcore).
     ///
     /// If this field is unspecified, the `machineTypeId` defaults
-    /// to &quot;n1-standard-1&quot;.
+    /// to "n1-standard-1".
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The Compute Engine network to be used for machine
     /// communications, specified as a
     /// [relative resource
     /// name](/apis/design/resource_names#relative_resource_name). For example:
-    /// &quot;projects/{projectId}/global/networks/{networkId}&quot;.
+    /// "projects/{projectId}/global/networks/{networkId}".
     ///
-    /// If unspecified, the default network in the environment&#39;s project is used.
+    /// If unspecified, the default network in the environment's project is used.
     /// If a [Custom Subnet Network](/vpc/docs/vpc#vpc_networks_and_subnets)
     /// is provided, `nodeConfig.subnetwork` must also be provided. For
     /// [Shared VPC](/vpc/docs/shared-vpc) subnetwork requirements, see
     /// `nodeConfig.subnetwork`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The Compute Engine subnetwork to be used for machine
     /// communications, specified as a
     /// [relative resource
     /// name](/apis/design/resource_names#relative_resource_name). For example:
-    /// &quot;projects/{projectId}/regions/{regionId}/subnetworks/{subnetworkId}&quot;
+    /// "projects/{projectId}/regions/{regionId}/subnetworks/{subnetworkId}"
     ///
     /// If a subnetwork is provided, `nodeConfig.network` must also be provided,
-    /// and the subnetwork must belong to the enclosing environment&#39;s project and
+    /// and the subnetwork must belong to the enclosing environment's project and
     /// location.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The disk size in GB used for node VMs. Minimum size is 30GB.
     /// If unspecified, defaults to 100GB. Cannot be updated.
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>disk_size_gb: i32,
     <span class="doccomment">/// Optional. The set of Google API scopes to be made available on all
     /// node VMs. If `oauth_scopes` is empty, defaults to
-    /// \[&quot;&lt;https://www.googleapis.com/auth/cloud-platform&quot;\].&gt; Cannot be updated.
+    /// \["&lt;https://www.googleapis.com/auth/cloud-platform"\].&gt; Cannot be updated.
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>oauth_scopes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. The Google Cloud Platform Service Account to be used by the
-    /// workloads. If a service account is not specified, the &quot;default&quot; Compute
+    /// workloads. If a service account is not specified, the "default" Compute
     /// Engine service account is used. Cannot be updated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The list of instance tags applied to all node VMs. Tags are used
     /// to identify valid sources or targets for network firewalls. Each tag within
     /// the list must comply with [RFC1035](&lt;https://www.ietf.org/rfc/rfc1035.txt&gt;).
     /// Cannot be updated.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. The IPAllocationPolicy fields for the GKE cluster.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>ip_allocation_policy: ::core::option::Option&lt;IpAllocationPolicy&gt;,
     <span class="doccomment">/// Optional. The maximum number of pods per node in the Cloud Composer GKE
     /// cluster. The value must be between 8 and 110 and it can be set only if the
     /// environment is VPC-native. The default value is 32. Values of this field
     /// will be propagated both to the `default-pool` node pool of the newly
-    /// created GKE cluster, and to the default &quot;Maximum Pods per Node&quot; value which
+    /// created GKE cluster, and to the default "Maximum Pods per Node" value which
     /// is used for newly created node pools if their value is not explicitly set
     /// during node pool creation. For more information, see [Optimizing IP address
     /// allocation]
@@ -3730,15 +3731,15 @@
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>max_pods_per_node: i32,
-    <span class="doccomment">/// Optional. Deploys &#39;ip-masq-agent&#39; daemon set in the GKE cluster and defines
+    <span class="doccomment">/// Optional. Deploys 'ip-masq-agent' daemon set in the GKE cluster and defines
     /// nonMasqueradeCIDRs equals to pod IP range so IP masquerading is used for
     /// all destination addresses, except between pods traffic.
     ///
     /// See:
     /// &lt;https://cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent&gt;
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>enable_ip_masq_agent: bool,
 }
 <span class="doccomment">/// Configuration options for the private GKE cluster in a Cloud Composer
@@ -3748,18 +3749,18 @@
 </span><span class="kw">pub struct </span>PrivateClusterConfig {
     <span class="doccomment">/// Optional. If `true`, access to the public endpoint of the GKE cluster is
     /// denied.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enable_private_endpoint: bool,
     <span class="doccomment">/// Optional. The CIDR block from which IPv4 range for GKE master will be
-    /// reserved. If left blank, the default value of &#39;172.16.0.0/23&#39; is used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// reserved. If left blank, the default value of '172.16.0.0/23' is used.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>master_ipv4_cidr_block: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The IP range in CIDR notation to use for the hosted master
     /// network. This range is used for assigning internal IP addresses to the
     /// cluster master or set of masters and to the internal load balancer virtual
     /// IP. This range must not overlap with any other ranges in use within the
-    /// cluster&#39;s network.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// cluster's network.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>master_ipv4_reserved_range: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration options for networking connections in the Composer 2
@@ -3770,7 +3771,7 @@
     <span class="doccomment">/// Optional. Indicates the user requested specifc connection type between
     /// Tenant and Customer projects. You cannot set networking connection type in
     /// public IP environment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;networking_config::ConnectionType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"networking_config::ConnectionType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>connection_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `NetworkingConfig`.
@@ -3806,19 +3807,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ConnectionType::Unspecified =&gt; <span class="string">&quot;CONNECTION_TYPE_UNSPECIFIED&quot;</span>,
-                ConnectionType::VpcPeering =&gt; <span class="string">&quot;VPC_PEERING&quot;</span>,
-                ConnectionType::PrivateServiceConnect =&gt; <span class="string">&quot;PRIVATE_SERVICE_CONNECT&quot;</span>,
+                ConnectionType::Unspecified =&gt; <span class="string">"CONNECTION_TYPE_UNSPECIFIED"</span>,
+                ConnectionType::VpcPeering =&gt; <span class="string">"VPC_PEERING"</span>,
+                ConnectionType::PrivateServiceConnect =&gt; <span class="string">"PRIVATE_SERVICE_CONNECT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CONNECTION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;VPC_PEERING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcPeering),
-                <span class="string">&quot;PRIVATE_SERVICE_CONNECT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateServiceConnect),
+                <span class="string">"CONNECTION_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"VPC_PEERING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcPeering),
+                <span class="string">"PRIVATE_SERVICE_CONNECT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateServiceConnect),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3833,11 +3834,11 @@
     /// If this field is set to true, `IPAllocationPolicy.use_ip_aliases` must be
     /// set to true for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enable_private_environment: bool,
     <span class="doccomment">/// Optional. Configuration for the private GKE cluster for a Private IP
     /// Cloud Composer environment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>private_cluster_config: ::core::option::Option&lt;PrivateClusterConfig&gt;,
     <span class="doccomment">/// Optional. The CIDR block from which IP range for web server will be
     /// reserved. Needs to be disjoint from
@@ -3846,18 +3847,18 @@
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>web_server_ipv4_cidr_block: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The CIDR block from which IP range in tenant project will be
     /// reserved for Cloud SQL. Needs to be disjoint from
     /// web_server_ipv4_cidr_block
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>cloud_sql_ipv4_cidr_block: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The IP range reserved for the tenant project&#39;s App Engine VMs.
+    <span class="doccomment">/// Output only. The IP range reserved for the tenant project's App Engine VMs.
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>web_server_ipv4_reserved_range: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The CIDR block from which IP range for Cloud Composer Network in
     /// tenant project will be reserved. Needs to be disjoint from
@@ -3866,29 +3867,29 @@
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-2.*.*-airflow-*.*.* and newer.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>cloud_composer_network_ipv4_cidr_block: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The IP range reserved for the tenant project&#39;s Cloud Composer
+    <span class="doccomment">/// Output only. The IP range reserved for the tenant project's Cloud Composer
     /// network.
     ///
     /// This field is supported for Cloud Composer environments in versions
     /// composer-2.*.*-airflow-*.*.* and newer.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>cloud_composer_network_ipv4_reserved_range: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. When enabled, IPs from public (non-RFC1918) ranges can be used
     /// for `IPAllocationPolicy.cluster_ipv4_cidr_block` and
     /// `IPAllocationPolicy.service_ipv4_cidr_block`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>enable_privately_used_public_ips: bool,
     <span class="doccomment">/// Optional. When specified, the environment will use Private Service Connect
     /// instead of VPC peerings to connect to Cloud SQL in the Tenant Project,
     /// and the PSC endpoint in the Customer Project will use an IP address from
     /// this subnetwork.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>cloud_composer_connection_subnetwork: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Configuration for the network connections configuration in the
     /// environment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>networking_config: ::core::option::Option&lt;NetworkingConfig&gt;,
 }
 <span class="doccomment">/// The configuration of Cloud SQL instance that is used by the Apache Airflow
@@ -3901,7 +3902,7 @@
     /// or db-n1-standard-16. If not specified, db-n1-standard-2 will be used.
     /// Supported for Cloud Composer environments in versions
     /// composer-1.*.*-airflow-*.*.*.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The configuration settings for the Airflow web server App Engine instance.
@@ -3916,7 +3917,7 @@
     /// If not specified, composer-n1-webserver-2 will be used.
     /// Value custom is returned only in response, if Airflow web server parameters
     /// were manually changed to a non-standard values.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The encryption options for the Cloud Composer environment and its
@@ -3925,10 +3926,10 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EncryptionConfig {
-    <span class="doccomment">/// Optional. Customer-managed Encryption Key available through Google&#39;s Key
+    <span class="doccomment">/// Optional. Customer-managed Encryption Key available through Google's Key
     /// Management Service. Cannot be updated. If not specified, Google-managed key
     /// will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The configuration settings for Cloud Composer maintenance window.
@@ -3936,9 +3937,9 @@
 ///
 /// ```
 ///     {
-///       &quot;startTime&quot;:&quot;2019-08-01T01:00:00Z&quot;
-///       &quot;endTime&quot;:&quot;2019-08-01T07:00:00Z&quot;
-///       &quot;recurrence&quot;:&quot;FREQ=WEEKLY;BYDAY=TU,WE&quot;
+///       "startTime":"2019-08-01T01:00:00Z"
+///       "endTime":"2019-08-01T07:00:00Z"
+///       "recurrence":"FREQ=WEEKLY;BYDAY=TU,WE"
 ///     }
 /// ```
 ///
@@ -3948,18 +3949,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MaintenanceWindow {
     <span class="doccomment">/// Required. Start time of the first recurrence of the maintenance window.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. Maintenance window end time. It is used only to calculate the
     /// duration of the maintenance window. The value for end_time must be in the
     /// future, relative to `start_time`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. Maintenance window recurrence. Format is a subset of
     /// [RFC-5545](&lt;https://tools.ietf.org/html/rfc5545&gt;) `RRULE`. The only allowed
     /// values for `FREQ` field are `FREQ=DAILY` and `FREQ=WEEKLY;BYDAY=...`
     /// Example values: `FREQ=WEEKLY;BYDAY=TU,WE`, `FREQ=DAILY`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>recurrence: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The Kubernetes workloads configuration for GKE cluster associated with the
@@ -3969,16 +3970,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>WorkloadsConfig {
     <span class="doccomment">/// Optional. Resources used by Airflow schedulers.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>scheduler: ::core::option::Option&lt;workloads_config::SchedulerResource&gt;,
     <span class="doccomment">/// Optional. Resources used by Airflow web server.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>web_server: ::core::option::Option&lt;workloads_config::WebServerResource&gt;,
     <span class="doccomment">/// Optional. Resources used by Airflow workers.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>worker: ::core::option::Option&lt;workloads_config::WorkerResource&gt;,
     <span class="doccomment">/// Optional. Resources used by Airflow triggerers.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>triggerer: ::core::option::Option&lt;workloads_config::TriggererResource&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `WorkloadsConfig`.
@@ -3988,18 +3989,18 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>SchedulerResource {
         <span class="doccomment">/// Optional. CPU request and limit for a single Airflow scheduler replica.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>cpu: f32,
         <span class="doccomment">/// Optional. Memory (GB) request and limit for a single Airflow scheduler
         /// replica.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>memory_gb: f32,
         <span class="doccomment">/// Optional. Storage (GB) request and limit for a single Airflow scheduler
         /// replica.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>storage_gb: f32,
         <span class="doccomment">/// Optional. The number of schedulers.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>count: i32,
     }
     <span class="doccomment">/// Configuration for resources used by Airflow web server.
@@ -4007,13 +4008,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>WebServerResource {
         <span class="doccomment">/// Optional. CPU request and limit for Airflow web server.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>cpu: f32,
         <span class="doccomment">/// Optional. Memory (GB) request and limit for Airflow web server.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>memory_gb: f32,
         <span class="doccomment">/// Optional. Storage (GB) request and limit for Airflow web server.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>storage_gb: f32,
     }
     <span class="doccomment">/// Configuration for resources used by Airflow workers.
@@ -4021,21 +4022,21 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>WorkerResource {
         <span class="doccomment">/// Optional. CPU request and limit for a single Airflow worker replica.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>cpu: f32,
         <span class="doccomment">/// Optional. Memory (GB) request and limit for a single Airflow worker
         /// replica.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>memory_gb: f32,
         <span class="doccomment">/// Optional. Storage (GB) request and limit for a single Airflow worker
         /// replica.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>storage_gb: f32,
         <span class="doccomment">/// Optional. Minimum number of workers for autoscaling.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>min_count: i32,
         <span class="doccomment">/// Optional. Maximum number of workers for autoscaling.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>max_count: i32,
     }
     <span class="doccomment">/// Configuration for resources used by Airflow triggerers.
@@ -4043,14 +4044,14 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>TriggererResource {
         <span class="doccomment">/// Optional. The number of triggerers.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>count: i32,
         <span class="doccomment">/// Optional. CPU request and limit for a single Airflow triggerer replica.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>cpu: f32,
         <span class="doccomment">/// Optional. Memory (GB) request and limit for a single Airflow triggerer
         /// replica.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>memory_gb: f32,
     }
 }
@@ -4059,7 +4060,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RecoveryConfig {
     <span class="doccomment">/// Optional. The configuration for scheduled snapshot creation mechanism.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>scheduled_snapshots_config: ::core::option::Option&lt;ScheduledSnapshotsConfig&gt;,
 }
 <span class="doccomment">/// The configuration for scheduled snapshot creation mechanism.
@@ -4067,20 +4068,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ScheduledSnapshotsConfig {
     <span class="doccomment">/// Optional. Whether scheduled snapshots creation is enabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enabled: bool,
     <span class="doccomment">/// Optional. The Cloud Storage location for storing automatically created
     /// snapshots.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>snapshot_location: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The cron expression representing the time when snapshots creation
     /// mechanism runs. This field is subject to additional validation around
     /// frequency of execution.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>snapshot_creation_schedule: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Time zone that sets the context to interpret
     /// snapshot_creation_schedule.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration options for the master authorized networks feature. Enabled
@@ -4091,11 +4092,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MasterAuthorizedNetworksConfig {
     <span class="doccomment">/// Whether or not master authorized networks feature is enabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enabled: bool,
     <span class="doccomment">/// Up to 50 external networks that could access Kubernetes master through
     /// HTTPS.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>cidr_blocks: ::prost::alloc::vec::Vec&lt;
         master_authorized_networks_config::CidrBlock,
     &gt;,
@@ -4107,10 +4108,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>CidrBlock {
         <span class="doccomment">/// User-defined name that identifies the CIDR block.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
         <span class="doccomment">/// CIDR block that must be specified in CIDR notation.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>cidr_block: ::prost::alloc::string::String,
     }
 }
@@ -4119,7 +4120,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudDataLineageIntegration {
     <span class="doccomment">/// Optional. Whether or not Cloud Data Lineage integration is enabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enabled: bool,
 }
 <span class="doccomment">/// An environment for running orchestration tasks.
@@ -4127,27 +4128,27 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Environment {
     <span class="doccomment">/// The resource name of the environment, in the form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
     ///
     /// EnvironmentId must start with a lowercase letter followed by up to 63
     /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Configuration parameters for this environment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;EnvironmentConfig&gt;,
     <span class="doccomment">/// Output only. The UUID (Universally Unique IDentifier) associated with this
     /// environment. This value is generated when the environment is created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>uuid: ::prost::alloc::string::String,
     <span class="doccomment">/// The current state of the environment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;environment::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"environment::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The time at which this environment was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time at which this environment was last modified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. User-defined labels for this environment.
     /// The labels map can contain no more than 64 entries. Entries of the labels
@@ -4157,7 +4158,7 @@
     /// * Values must conform to regexp:  \[\p{Ll}\p{Lo}\p{N}_-\]{0,63}
     /// * Both keys and values are additionally constrained to be &lt;= 128 bytes in
     /// size.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -4198,25 +4199,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Error =&gt; <span class="string">"ERROR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4228,8 +4229,8 @@
 </span><span class="kw">pub struct </span>CheckUpgradeRequest {
     <span class="doccomment">/// The resource name of the environment to check upgrade for, in the
     /// form:
-    /// &quot;projects/{projectId}/locations/{locationId}/environments/{environmentId}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{projectId}/locations/{locationId}/environments/{environmentId}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::prost::alloc::string::String,
     <span class="doccomment">/// The version of the software running in the environment.
     /// This encapsulates both the version of Cloud Composer functionality and the
@@ -4255,7 +4256,7 @@
     /// See also [version
     /// list](/composer/docs/concepts/versioning/composer-versions) and [versioning
     /// overview](/composer/docs/concepts/versioning/composer-versioning-overview).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>image_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message containing information about the result of an upgrade check
@@ -4264,21 +4265,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CheckUpgradeResponse {
     <span class="doccomment">/// Output only. Url for a docker build log of an upgraded image.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>build_log_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Whether build has succeeded or failed on modules conflicts.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;check_upgrade_response::ConflictResult&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"check_upgrade_response::ConflictResult"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>contains_pypi_modules_conflict: i32,
     <span class="doccomment">/// Output only. Extract from a docker image build log containing information
     /// about pypi modules conflicts.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>pypi_conflict_build_log_extract: ::prost::alloc::string::String,
     <span class="doccomment">/// Composer image for which the build was happening.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>image_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Pypi dependencies specified in the environment configuration, at the time
     /// when the build was triggered.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>pypi_dependencies: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -4312,19 +4313,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ConflictResult::Unspecified =&gt; <span class="string">&quot;CONFLICT_RESULT_UNSPECIFIED&quot;</span>,
-                ConflictResult::Conflict =&gt; <span class="string">&quot;CONFLICT&quot;</span>,
-                ConflictResult::NoConflict =&gt; <span class="string">&quot;NO_CONFLICT&quot;</span>,
+                ConflictResult::Unspecified =&gt; <span class="string">"CONFLICT_RESULT_UNSPECIFIED"</span>,
+                ConflictResult::Conflict =&gt; <span class="string">"CONFLICT"</span>,
+                ConflictResult::NoConflict =&gt; <span class="string">"NO_CONFLICT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CONFLICT_RESULT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CONFLICT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Conflict),
-                <span class="string">&quot;NO_CONFLICT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoConflict),
+                <span class="string">"CONFLICT_RESULT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CONFLICT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Conflict),
+                <span class="string">"NO_CONFLICT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoConflict),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4344,7 +4345,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4421,19 +4422,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/CreateEnvironment&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/CreateEnvironment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;CreateEnvironment&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"CreateEnvironment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4449,19 +4450,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/GetEnvironment&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/GetEnvironment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;GetEnvironment&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"GetEnvironment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4480,19 +4481,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/ListEnvironments&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/ListEnvironments"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;ListEnvironments&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"ListEnvironments"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4513,19 +4514,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/UpdateEnvironment&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/UpdateEnvironment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;UpdateEnvironment&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"UpdateEnvironment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4546,19 +4547,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/DeleteEnvironment&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/DeleteEnvironment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;DeleteEnvironment&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"DeleteEnvironment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4579,19 +4580,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/RestartWebServer&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/RestartWebServer"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;RestartWebServer&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"RestartWebServer"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4614,19 +4615,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/CheckUpgrade&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/CheckUpgrade"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;CheckUpgrade&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"CheckUpgrade"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4645,19 +4646,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/ExecuteAirflowCommand&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/ExecuteAirflowCommand"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;ExecuteAirflowCommand&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"ExecuteAirflowCommand"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4676,19 +4677,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/StopAirflowCommand&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/StopAirflowCommand"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;StopAirflowCommand&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"StopAirflowCommand"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4707,26 +4708,26 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/PollAirflowCommand&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/PollAirflowCommand"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;PollAirflowCommand&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"PollAirflowCommand"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates a snapshots of a Cloud Composer environment.
         ///
-        /// As a result of this operation, snapshot of environment&#39;s state is stored
+        /// As a result of this operation, snapshot of environment's state is stored
         /// in a location specified in the SaveSnapshotRequest.
         </span><span class="kw">pub async fn </span>save_snapshot(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -4743,26 +4744,26 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/SaveSnapshot&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/SaveSnapshot"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;SaveSnapshot&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"SaveSnapshot"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Loads a snapshot of a Cloud Composer environment.
         ///
-        /// As a result of this operation, a snapshot of environment&#39;s specified in
+        /// As a result of this operation, a snapshot of environment's specified in
         /// LoadSnapshotRequest is loaded into the environment.
         </span><span class="kw">pub async fn </span>load_snapshot(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -4779,19 +4780,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/LoadSnapshot&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/LoadSnapshot"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;LoadSnapshot&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"LoadSnapshot"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4812,19 +4813,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/DatabaseFailover&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/DatabaseFailover"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;DatabaseFailover&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"DatabaseFailover"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4843,19 +4844,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.orchestration.airflow.service.v1beta1.Environments/FetchDatabaseProperties&quot;</span>,
+                <span class="string">"/google.cloud.orchestration.airflow.service.v1beta1.Environments/FetchDatabaseProperties"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.orchestration.airflow.service.v1beta1.Environments&quot;</span>,
-                        <span class="string">&quot;FetchDatabaseProperties&quot;</span>,
+                        <span class="string">"google.cloud.orchestration.airflow.service.v1beta1.Environments"</span>,
+                        <span class="string">"FetchDatabaseProperties"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

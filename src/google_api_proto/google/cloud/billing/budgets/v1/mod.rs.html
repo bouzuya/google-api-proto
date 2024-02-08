@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/billing/budgets/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/billing/budgets/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -788,19 +789,19 @@
     <span class="doccomment">/// Output only. Resource name of the budget.
     /// The resource name implies the scope of a budget. Values are of the form
     /// `billingAccounts/{billingAccountId}/budgets/{budgetId}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// User data for display name in UI. The name must be less than or equal to 60
     /// characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Filters that define which resources are used to compute the
     /// actual spend against the budget amount, such as projects, services, and the
-    /// budget&#39;s time period, as well as other filters.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// budget's time period, as well as other filters.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>budget_filter: ::core::option::Option&lt;Filter&gt;,
     <span class="doccomment">/// Required. Budgeted amount.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>amount: ::core::option::Option&lt;BudgetAmount&gt;,
     <span class="doccomment">/// Optional. Rules that trigger alerts (notifications of thresholds
     /// being crossed) when spend exceeds the specified percentages of the budget.
@@ -808,16 +809,16 @@
     /// Optional for `pubsubTopic` notifications.
     ///
     /// Required if using email notifications.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>threshold_rules: ::prost::alloc::vec::Vec&lt;ThresholdRule&gt;,
     <span class="doccomment">/// Optional. Rules to apply to notifications sent based on budget spend and
     /// thresholds.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>notifications_rule: ::core::option::Option&lt;NotificationsRule&gt;,
     <span class="doccomment">/// Optional. Etag to validate that the object is unchanged for a
     /// read-modify-write operation.
     /// An empty etag causes an update to overwrite other changes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The budgeted amount for each usage period.
@@ -825,7 +826,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BudgetAmount {
     <span class="doccomment">/// Specification for what amount to use as the budget.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;budget_amount::BudgetAmount&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"budget_amount::BudgetAmount"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>budget_amount: ::core::option::Option&lt;budget_amount::BudgetAmount&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `BudgetAmount`.
@@ -839,21 +840,21 @@
         /// match the currency of the billing account. If specified when updating a
         /// budget, it must match the currency_code of the existing budget.
         /// The `currency_code` is provided on output.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>SpecifiedAmount(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money),
-        <span class="doccomment">/// Use the last period&#39;s actual spend as the budget for the present period.
-        /// LastPeriodAmount can only be set when the budget&#39;s time period is a
+        <span class="doccomment">/// Use the last period's actual spend as the budget for the present period.
+        /// LastPeriodAmount can only be set when the budget's time period is a
         /// [Filter.calendar_period][google.cloud.billing.budgets.v1.Filter.calendar_period].
         /// It cannot be set in combination with
         /// [Filter.custom_period][google.cloud.billing.budgets.v1.Filter.custom_period].
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>LastPeriodAmount(<span class="kw">super</span>::LastPeriodAmount),
     }
 }
 <span class="doccomment">/// Describes a budget amount targeted to the last
 /// [Filter.calendar_period][google.cloud.billing.budgets.v1.Filter.calendar_period]
 /// spend. At this time, the amount is automatically 100% of the last calendar
-/// period&#39;s spend; that is, there are no other options yet.
+/// period's spend; that is, there are no other options yet.
 /// LastPeriodAmount cannot be set for a budget configured with
 /// a
 /// [Filter.custom_period][google.cloud.billing.budgets.v1.Filter.custom_period].
@@ -888,11 +889,11 @@
     <span class="doccomment">/// Required. Send an alert when this threshold is exceeded.
     /// This is a 1.0-based percentage, so 0.5 = 50%.
     /// Validation: non-negative number.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>threshold_percent: f64,
     <span class="doccomment">/// Optional. The type of basis used to determine if spend has passed the
     /// threshold. Behavior defaults to CURRENT_SPEND if not set.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;threshold_rule::Basis&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"threshold_rule::Basis"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>spend_basis: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ThresholdRule`.
@@ -917,7 +918,7 @@
         </span>CurrentSpend = <span class="number">1</span>,
         <span class="doccomment">/// Use forecasted spend for the period as the basis for comparison against
         /// the threshold.
-        /// FORECASTED_SPEND can only be set when the budget&#39;s time period is a
+        /// FORECASTED_SPEND can only be set when the budget's time period is a
         /// [Filter.calendar_period][google.cloud.billing.budgets.v1.Filter.calendar_period].
         /// It cannot be set in combination with
         /// [Filter.custom_period][google.cloud.billing.budgets.v1.Filter.custom_period].
@@ -928,19 +929,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Basis::Unspecified =&gt; <span class="string">&quot;BASIS_UNSPECIFIED&quot;</span>,
-                Basis::CurrentSpend =&gt; <span class="string">&quot;CURRENT_SPEND&quot;</span>,
-                Basis::ForecastedSpend =&gt; <span class="string">&quot;FORECASTED_SPEND&quot;</span>,
+                Basis::Unspecified =&gt; <span class="string">"BASIS_UNSPECIFIED"</span>,
+                Basis::CurrentSpend =&gt; <span class="string">"CURRENT_SPEND"</span>,
+                Basis::ForecastedSpend =&gt; <span class="string">"FORECASTED_SPEND"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;BASIS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CURRENT_SPEND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CurrentSpend),
-                <span class="string">&quot;FORECASTED_SPEND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForecastedSpend),
+                <span class="string">"BASIS_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CURRENT_SPEND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CurrentSpend),
+                <span class="string">"FORECASTED_SPEND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForecastedSpend),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -954,7 +955,7 @@
     <span class="doccomment">/// Optional. The name of the Pub/Sub topic where budget-related messages are
     /// published, in the form `projects/{project_id}/topics/{topic_id}`. Updates
     /// are sent to the topic at regular intervals; the timing of the updates is
-    /// not dependent on the [threshold rules](#thresholdrule) you&#39;ve set.
+    /// not dependent on the [threshold rules](#thresholdrule) you've set.
     ///
     /// Note that if you want your
     /// [Pub/Sub JSON
@@ -977,15 +978,15 @@
     /// For additional details on Pub/Sub roles and permissions, see
     /// [Permissions required for this
     /// task](&lt;https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#permissions_required_for_this_task&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>pubsub_topic: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Required when
     /// [NotificationsRule.pubsub_topic][google.cloud.billing.budgets.v1.NotificationsRule.pubsub_topic]
     /// is set. The schema version of the notification sent to
     /// [NotificationsRule.pubsub_topic][google.cloud.billing.budgets.v1.NotificationsRule.pubsub_topic].
-    /// Only &quot;1.0&quot; is accepted. It represents the JSON schema as defined in
+    /// Only "1.0" is accepted. It represents the JSON schema as defined in
     /// &lt;https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#notification_format.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>schema_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Email targets to send notifications to when a threshold is
     /// exceeded. This is in addition to the `DefaultIamRecipients` who receive
@@ -1009,7 +1010,7 @@
     /// use a pubsubTopic and configure
     /// [programmatic
     /// notifications](&lt;https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications&gt;).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>monitoring_notification_channels: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
@@ -1017,7 +1018,7 @@
     /// threshold is exceeded. Default notifications are sent to those with Billing
     /// Account Administrator and Billing Account User IAM roles for the target
     /// account.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>disable_default_iam_recipients: bool,
     <span class="doccomment">/// Optional. When set to true, and when the budget has a single project
     /// configured, notifications will be sent to project level recipients of that
@@ -1026,7 +1027,7 @@
     ///
     /// Currently, project level recipients are the users with `Owner` role on a
     /// cloud project.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>enable_project_level_recipients: bool,
 }
 <span class="doccomment">/// A filter for a budget, limiting the scope of the cost to calculate.
@@ -1037,16 +1038,16 @@
     /// specifying that usage from only this set of projects should be
     /// included in the budget. If omitted, the report includes all usage for
     /// the billing account, regardless of which project the usage occurred on.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>projects: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. A set of folder and organization names of the form
     /// `folders/{folderId}` or `organizations/{organizationId}`, specifying that
     /// usage from only this set of folders and organizations should be included in
     /// the budget. If omitted, the budget includes all usage that the billing
     /// account pays for. If the folder or organization contains projects that are
-    /// paid for by a different Cloud Billing account, the budget *doesn&#39;t* apply
+    /// paid for by a different Cloud Billing account, the budget *doesn't* apply
     /// to those projects.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_ancestors: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. If
     /// [Filter.credit_types_treatment][google.cloud.billing.budgets.v1.Filter.credit_types_treatment]
@@ -1058,10 +1059,10 @@
     /// If
     /// [Filter.credit_types_treatment][google.cloud.billing.budgets.v1.Filter.credit_types_treatment]
     /// is **not** INCLUDE_SPECIFIED_CREDITS, this field must be empty.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>credit_types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. If not set, default behavior is `INCLUDE_ALL_CREDITS`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;filter::CreditTypesTreatment&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"filter::CreditTypesTreatment"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>credit_types_treatment: i32,
     <span class="doccomment">/// Optional. A set of services of the form `services/{service_id}`,
     /// specifying that usage from only this set of services should be
@@ -1069,7 +1070,7 @@
     /// all the services.
     /// The service names are available through the Catalog API:
     /// &lt;https://cloud.google.com/billing/v1/how-tos/catalog-api.&gt;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>services: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. A set of subaccounts of the form `billingAccounts/{account_id}`,
     /// specifying that usage from only this set of subaccounts should be included
@@ -1077,26 +1078,26 @@
     /// usage from the parent account is included. If the field is omitted,
     /// the report includes usage from the parent account and all subaccounts,
     /// if they exist.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>subaccounts: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. A single label and value pair specifying that usage from only
     /// this set of labeled resources should be included in the budget. If omitted,
     /// the report includes all labeled and unlabeled usage.
     ///
-    /// An object containing a single `&quot;key&quot;: value` pair. Example: `{ &quot;name&quot;:
-    /// &quot;wrench&quot; }`.
+    /// An object containing a single `"key": value` pair. Example: `{ "name":
+    /// "wrench" }`.
     ///
     ///   _Currently, multiple entries or multiple values per entry are not
     ///   allowed._
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost_types::ListValue,
     &gt;,
-    <span class="doccomment">/// Multiple options to choose the budget&#39;s time period, specifying that only
+    <span class="doccomment">/// Multiple options to choose the budget's time period, specifying that only
     /// usage that occurs during this time period should be included in the budget.
     /// If not set, the &lt;code&gt;usage_period&lt;/code&gt; defaults to CalendarPeriod.MONTH.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;filter::UsagePeriod&quot;</span>, tags = <span class="string">&quot;8, 9&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"filter::UsagePeriod"</span>, tags = <span class="string">"8, 9"</span>)]
     </span><span class="kw">pub </span>usage_period: ::core::option::Option&lt;filter::UsagePeriod&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Filter`.
@@ -1137,28 +1138,28 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                CreditTypesTreatment::Unspecified =&gt; <span class="string">&quot;CREDIT_TYPES_TREATMENT_UNSPECIFIED&quot;</span>,
-                CreditTypesTreatment::IncludeAllCredits =&gt; <span class="string">&quot;INCLUDE_ALL_CREDITS&quot;</span>,
-                CreditTypesTreatment::ExcludeAllCredits =&gt; <span class="string">&quot;EXCLUDE_ALL_CREDITS&quot;</span>,
+                CreditTypesTreatment::Unspecified =&gt; <span class="string">"CREDIT_TYPES_TREATMENT_UNSPECIFIED"</span>,
+                CreditTypesTreatment::IncludeAllCredits =&gt; <span class="string">"INCLUDE_ALL_CREDITS"</span>,
+                CreditTypesTreatment::ExcludeAllCredits =&gt; <span class="string">"EXCLUDE_ALL_CREDITS"</span>,
                 CreditTypesTreatment::IncludeSpecifiedCredits =&gt; {
-                    <span class="string">&quot;INCLUDE_SPECIFIED_CREDITS&quot;
+                    <span class="string">"INCLUDE_SPECIFIED_CREDITS"
                 </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CREDIT_TYPES_TREATMENT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INCLUDE_ALL_CREDITS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IncludeAllCredits),
-                <span class="string">&quot;EXCLUDE_ALL_CREDITS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExcludeAllCredits),
-                <span class="string">&quot;INCLUDE_SPECIFIED_CREDITS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IncludeSpecifiedCredits),
+                <span class="string">"CREDIT_TYPES_TREATMENT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"INCLUDE_ALL_CREDITS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IncludeAllCredits),
+                <span class="string">"EXCLUDE_ALL_CREDITS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExcludeAllCredits),
+                <span class="string">"INCLUDE_SPECIFIED_CREDITS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IncludeSpecifiedCredits),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
-    <span class="doccomment">/// Multiple options to choose the budget&#39;s time period, specifying that only
+    <span class="doccomment">/// Multiple options to choose the budget's time period, specifying that only
     /// usage that occurs during this time period should be included in the budget.
     /// If not set, the &lt;code&gt;usage_period&lt;/code&gt; defaults to CalendarPeriod.MONTH.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1170,11 +1171,11 @@
         /// April, May, June. After that, it tracks usage from July 1 to
         /// September 30 when the current calendar month is July, August, September,
         /// so on.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::CalendarPeriod&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::CalendarPeriod"</span>, tag = <span class="string">"8"</span>)]
         </span>CalendarPeriod(i32),
         <span class="doccomment">/// Optional. Specifies to track usage from any start date (required) to any
         /// end date (optional). This time period is static, it does not recur.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>CustomPeriod(<span class="kw">super</span>::CustomPeriod),
     }
 }
@@ -1183,17 +1184,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CustomPeriod {
     <span class="doccomment">/// Required. The start date must be after January 1, 2017.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
     <span class="doccomment">/// Optional. The end date of the time period. Budgets with elapsed end date
-    /// won&#39;t be processed. If unset, specifies to track all usage incurred since
+    /// won't be processed. If unset, specifies to track all usage incurred since
     /// the start_date.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
 }
 <span class="doccomment">/// A `CalendarPeriod` represents the abstract concept of a time period that
-/// has a canonical start. Grammatically, &quot;the start of the current
-/// `CalendarPeriod`&quot;. All calendar times begin at 12 AM US and Canadian
+/// has a canonical start. Grammatically, "the start of the current
+/// `CalendarPeriod`". All calendar times begin at 12 AM US and Canadian
 /// Pacific Time (UTC-8).
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -1215,21 +1216,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            CalendarPeriod::Unspecified =&gt; <span class="string">&quot;CALENDAR_PERIOD_UNSPECIFIED&quot;</span>,
-            CalendarPeriod::Month =&gt; <span class="string">&quot;MONTH&quot;</span>,
-            CalendarPeriod::Quarter =&gt; <span class="string">&quot;QUARTER&quot;</span>,
-            CalendarPeriod::Year =&gt; <span class="string">&quot;YEAR&quot;</span>,
+            CalendarPeriod::Unspecified =&gt; <span class="string">"CALENDAR_PERIOD_UNSPECIFIED"</span>,
+            CalendarPeriod::Month =&gt; <span class="string">"MONTH"</span>,
+            CalendarPeriod::Quarter =&gt; <span class="string">"QUARTER"</span>,
+            CalendarPeriod::Year =&gt; <span class="string">"YEAR"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;CALENDAR_PERIOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;MONTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Month),
-            <span class="string">&quot;QUARTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Quarter),
-            <span class="string">&quot;YEAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Year),
+            <span class="string">"CALENDAR_PERIOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"MONTH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Month),
+            <span class="string">"QUARTER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Quarter),
+            <span class="string">"YEAR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Year),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1240,10 +1241,10 @@
 </span><span class="kw">pub struct </span>CreateBudgetRequest {
     <span class="doccomment">/// Required. The name of the billing account to create the budget in. Values
     /// are of the form `billingAccounts/{billingAccountId}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Budget to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>budget: ::core::option::Option&lt;Budget&gt;,
 }
 <span class="doccomment">/// Request for UpdateBudget
@@ -1252,7 +1253,7 @@
 </span><span class="kw">pub struct </span>UpdateBudgetRequest {
     <span class="doccomment">/// Required. The updated budget object.
     /// The budget to update is specified by the budget name in the budget.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>budget: ::core::option::Option&lt;Budget&gt;,
     <span class="doccomment">/// Optional. Indicates which fields in the provided budget to update.
     /// Read-only fields (such as `name`) cannot be changed. If this is not
@@ -1260,7 +1261,7 @@
     /// updated. See
     /// &lt;https://developers.google.com/protocol-buffers/docs/proto3#default&gt; for more
     /// details about default values.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request for GetBudget
@@ -1269,7 +1270,7 @@
 </span><span class="kw">pub struct </span>GetBudgetRequest {
     <span class="doccomment">/// Required. Name of budget to get. Values are of the form
     /// `billingAccounts/{billingAccountId}/budgets/{budgetId}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for ListBudgets
@@ -1278,24 +1279,24 @@
 </span><span class="kw">pub struct </span>ListBudgetsRequest {
     <span class="doccomment">/// Required. Name of billing account to list budgets under. Values
     /// are of the form `billingAccounts/{billingAccountId}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Set the scope of the budgets to be returned, in the format of the
     /// resource name. The scope of a budget is the cost that it tracks, such as
     /// costs for a single project, or the costs for all projects in a folder. Only
-    /// project scope (in the format of &quot;projects/project-id&quot; or &quot;projects/123&quot;) is
-    /// supported in this field. When this field is set to a project&#39;s resource
+    /// project scope (in the format of "projects/project-id" or "projects/123") is
+    /// supported in this field. When this field is set to a project's resource
     /// name, the budgets returned are tracking the costs for that project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>scope: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of budgets to return per page.
     /// The default and maximum value are 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. The value returned by the last `ListBudgetsResponse` which
     /// indicates that this is a continuation of a prior `ListBudgets` call,
     /// and that the system should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for ListBudgets
@@ -1303,11 +1304,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListBudgetsResponse {
     <span class="doccomment">/// List of the budgets owned by the requested billing account.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>budgets: ::prost::alloc::vec::Vec&lt;Budget&gt;,
     <span class="doccomment">/// If not empty, indicates that there may be more budgets that match the
     /// request; this value should be passed in a new `ListBudgetsRequest`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for DeleteBudget
@@ -1316,7 +1317,7 @@
 </span><span class="kw">pub struct </span>DeleteBudgetRequest {
     <span class="doccomment">/// Required. Name of the budget to delete. Values are of the form
     /// `billingAccounts/{billingAccountId}/budgets/{budgetId}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1334,7 +1335,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1408,19 +1409,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.billing.budgets.v1.BudgetService/CreateBudget&quot;</span>,
+                <span class="string">"/google.cloud.billing.budgets.v1.BudgetService/CreateBudget"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.billing.budgets.v1.BudgetService&quot;</span>,
-                        <span class="string">&quot;CreateBudget&quot;</span>,
+                        <span class="string">"google.cloud.billing.budgets.v1.BudgetService"</span>,
+                        <span class="string">"CreateBudget"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1428,7 +1429,7 @@
         <span class="doccomment">/// Updates a budget and returns the updated budget.
         ///
         /// WARNING: There are some fields exposed on the Google Cloud Console that
-        /// aren&#39;t available on this API. Budget fields that are not exposed in
+        /// aren't available on this API. Budget fields that are not exposed in
         /// this API will not be changed by this method.
         </span><span class="kw">pub async fn </span>update_budget(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -1440,19 +1441,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.billing.budgets.v1.BudgetService/UpdateBudget&quot;</span>,
+                <span class="string">"/google.cloud.billing.budgets.v1.BudgetService/UpdateBudget"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.billing.budgets.v1.BudgetService&quot;</span>,
-                        <span class="string">&quot;UpdateBudget&quot;</span>,
+                        <span class="string">"google.cloud.billing.budgets.v1.BudgetService"</span>,
+                        <span class="string">"UpdateBudget"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1460,7 +1461,7 @@
         <span class="doccomment">/// Returns a budget.
         ///
         /// WARNING: There are some fields exposed on the Google Cloud Console that
-        /// aren&#39;t available on this API. When reading from the API, you will not
+        /// aren't available on this API. When reading from the API, you will not
         /// see these fields in the return value, though they may have been set
         /// in the Cloud Console.
         </span><span class="kw">pub async fn </span>get_budget(
@@ -1473,19 +1474,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.billing.budgets.v1.BudgetService/GetBudget&quot;</span>,
+                <span class="string">"/google.cloud.billing.budgets.v1.BudgetService/GetBudget"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.billing.budgets.v1.BudgetService&quot;</span>,
-                        <span class="string">&quot;GetBudget&quot;</span>,
+                        <span class="string">"google.cloud.billing.budgets.v1.BudgetService"</span>,
+                        <span class="string">"GetBudget"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1493,7 +1494,7 @@
         <span class="doccomment">/// Returns a list of budgets for a billing account.
         ///
         /// WARNING: There are some fields exposed on the Google Cloud Console that
-        /// aren&#39;t available on this API. When reading from the API, you will not
+        /// aren't available on this API. When reading from the API, you will not
         /// see these fields in the return value, though they may have been set
         /// in the Cloud Console.
         </span><span class="kw">pub async fn </span>list_budgets(
@@ -1509,19 +1510,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.billing.budgets.v1.BudgetService/ListBudgets&quot;</span>,
+                <span class="string">"/google.cloud.billing.budgets.v1.BudgetService/ListBudgets"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.billing.budgets.v1.BudgetService&quot;</span>,
-                        <span class="string">&quot;ListBudgets&quot;</span>,
+                        <span class="string">"google.cloud.billing.budgets.v1.BudgetService"</span>,
+                        <span class="string">"ListBudgets"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1537,19 +1538,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.billing.budgets.v1.BudgetService/DeleteBudget&quot;</span>,
+                <span class="string">"/google.cloud.billing.budgets.v1.BudgetService/DeleteBudget"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.billing.budgets.v1.BudgetService&quot;</span>,
-                        <span class="string">&quot;DeleteBudget&quot;</span>,
+                        <span class="string">"google.cloud.billing.budgets.v1.BudgetService"</span>,
+                        <span class="string">"DeleteBudget"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/runtimeconfig/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/runtimeconfig/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1098,11 +1099,11 @@
     ///
     /// You pick the RuntimeConfig resource name, but the server will validate that
     /// the name adheres to this format. After you create the resource, you cannot
-    /// change the resource&#39;s name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// change the resource's name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// An optional description of the RuntimeConfig object.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Describes a single variable within a RuntimeConfig resource.
@@ -1129,20 +1130,20 @@
     /// The length of a `\[VARIABLE_NAME\]` must be less than 256 bytes.
     ///
     /// Once you create a variable, you cannot change the variable name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// \[Output Only\] The time of the last variable update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// \[Ouput only\] The current state of the variable. The variable state
     /// indicates the outcome of the `variables().watch` call and is visible
     /// through the `get` and `list` calls.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;VariableState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"VariableState"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// The value of the variable. It can be either a binary or a string
     /// value. You must specify one of either `value` or `text`. Specifying both
     /// will cause the server to return an error.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;variable::Contents&quot;</span>, tags = <span class="string">&quot;2, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"variable::Contents"</span>, tags = <span class="string">"2, 5"</span>)]
     </span><span class="kw">pub </span>contents: ::core::option::Option&lt;variable::Contents&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Variable`.
@@ -1156,12 +1157,12 @@
         <span class="doccomment">/// The binary value of the variable. The length of the value must be less
         /// than 4096 bytes. Empty values are also accepted. The value must be
         /// base64 encoded. Only one of `value` or `text` can be set.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"2"</span>)]
         </span>Value(::prost::bytes::Bytes),
         <span class="doccomment">/// The string value of the variable. The length of the value must be less
         /// than 4096 bytes. Empty values are also accepted. For example,
-        /// `text: &quot;my text value&quot;`. The string must be valid UTF-8.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        /// `text: "my text value"`. The string must be valid UTF-8.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span>Text(::prost::alloc::string::String),
     }
 }
@@ -1171,7 +1172,7 @@
 </span><span class="kw">pub struct </span>EndCondition {
     <span class="doccomment">/// The condition oneof holds the available condition types for this
     /// EndCondition. Currently, the only available type is Cardinality.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;end_condition::Condition&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"end_condition::Condition"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>condition: ::core::option::Option&lt;end_condition::Condition&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `EndCondition`.
@@ -1182,9 +1183,9 @@
     /// the `path` is set to `/foo` and the number of paths is set to 2, the
     /// following variables would meet the condition in a RuntimeConfig resource:
     ///
-    /// + `/foo/variable1 = &quot;value1&quot;`
-    /// + `/foo/variable2 = &quot;value2&quot;`
-    /// + `/bar/variable3 = &quot;value3&quot;`
+    /// + `/foo/variable1 = "value1"`
+    /// + `/foo/variable2 = "value2"`
+    /// + `/bar/variable3 = "value3"`
     ///
     /// It would not would not satisify the same condition with the `number` set to
     /// 3, however, because there is only 2 paths that start with `/foo`.
@@ -1194,11 +1195,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Cardinality {
         <span class="doccomment">/// The root of the variable subtree to monitor. For example, `/foo`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
         <span class="doccomment">/// The number variables under the `path` that must exist to meet this
         /// condition. Defaults to 1 if not specified.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>number: i32,
     }
     <span class="doccomment">/// The condition oneof holds the available condition types for this
@@ -1207,14 +1208,14 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Condition {
         <span class="doccomment">/// The cardinality of the `EndCondition`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Cardinality(Cardinality),
     }
 }
 <span class="doccomment">/// A Waiter resource waits for some end condition within a RuntimeConfig
 /// resource to be met before it returns. For example, assume you have a
 /// distributed system where each node writes to a Variable resource indidicating
-/// the node&#39;s readiness as part of the startup process.
+/// the node's readiness as part of the startup process.
 ///
 /// You then configure a Waiter resource with the success condition set to wait
 /// until some number of nodes have checked in. Afterwards, your application
@@ -1240,42 +1241,42 @@
     /// of `\[WAITER_NAME\]` must be less than 64 bytes.
     ///
     /// After you create a Waiter resource, you cannot change the resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// \[Required\] Specifies the timeout of the waiter in seconds, beginning from
     /// the instant that `waiters().create` method is called. If this time elapses
     /// before the success or failure conditions are met, the waiter fails and sets
     /// the `error` code to `DEADLINE_EXCEEDED`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// \[Optional\] The failure condition of this waiter. If this condition is met,
     /// `done` will be set to `true` and the `error` code will be set to `ABORTED`.
     /// The failure condition takes precedence over the success condition. If both
     /// conditions are met, a failure will be indicated. This value is optional; if
     /// no failure condition is set, the only failure scenario will be a timeout.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>failure: ::core::option::Option&lt;EndCondition&gt;,
     <span class="doccomment">/// \[Required\] The success condition. If this condition is met, `done` will be
     /// set to `true` and the `error` value will remain unset. The failure
     /// condition takes precedence over the success condition. If both conditions
     /// are met, a failure will be indicated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>success: ::core::option::Option&lt;EndCondition&gt;,
     <span class="doccomment">/// \[Output Only\] The instant at which this Waiter resource was created. Adding
     /// the value of `timeout` to this instant yields the timeout deadline for the
     /// waiter.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// \[Output Only\] If the value is `false`, it means the waiter is still waiting
     /// for one of its conditions to be met.
     ///
     /// If true, the waiter has finished. If the waiter finished due to a timeout
     /// or failure, `error` will be set.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>done: bool,
     <span class="doccomment">/// \[Output Only\] If the waiter ended due to a failure or timeout, this value
     /// will be set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// The `VariableState` describes the last known state of the variable and is
@@ -1296,19 +1297,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            VariableState::Unspecified =&gt; <span class="string">&quot;VARIABLE_STATE_UNSPECIFIED&quot;</span>,
-            VariableState::Updated =&gt; <span class="string">&quot;UPDATED&quot;</span>,
-            VariableState::Deleted =&gt; <span class="string">&quot;DELETED&quot;</span>,
+            VariableState::Unspecified =&gt; <span class="string">"VARIABLE_STATE_UNSPECIFIED"</span>,
+            VariableState::Updated =&gt; <span class="string">"UPDATED"</span>,
+            VariableState::Deleted =&gt; <span class="string">"DELETED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;VARIABLE_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;UPDATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updated),
-            <span class="string">&quot;DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
+            <span class="string">"VARIABLE_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"UPDATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updated),
+            <span class="string">"DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1320,15 +1321,15 @@
     <span class="doccomment">/// The [project
     /// ID](&lt;https://support.google.com/cloud/answer/6158840?hl=en&amp;ref_topic=6158848&gt;)
     /// for this request, in the format `projects/\[PROJECT_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the number of results to return per page. If there are fewer
     /// elements than the specified number, returns all elements.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Specifies a page token to use. Set `pageToken` to a `nextPageToken`
     /// returned by a previous list request to get the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// `ListConfigs()` returns the following response. The order of returned
@@ -1338,14 +1339,14 @@
 </span><span class="kw">pub struct </span>ListConfigsResponse {
     <span class="doccomment">/// A list of the configurations in the project. The order of returned
     /// objects is arbitrary; that is, it is not ordered in any particular way.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>configs: ::prost::alloc::vec::Vec&lt;RuntimeConfig&gt;,
     <span class="doccomment">/// This token allows you to get the next page of results for list requests.
     /// If the number of results is larger than `pageSize`, use the `nextPageToken`
     /// as a value for the query parameter `pageToken` in the next list request.
     /// Subsequent list requests will have their own `nextPageToken` to continue
     /// paging through the results
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Gets a RuntimeConfig resource.
@@ -1355,7 +1356,7 @@
     <span class="doccomment">/// The name of the RuntimeConfig resource to retrieve, in the format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Creates a RuntimeConfig resource.
@@ -1365,10 +1366,10 @@
     <span class="doccomment">/// The [project
     /// ID](&lt;https://support.google.com/cloud/answer/6158840?hl=en&amp;ref_topic=6158848&gt;)
     /// for this request, in the format `projects/\[PROJECT_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The RuntimeConfig to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;RuntimeConfig&gt;,
     <span class="doccomment">/// An optional but recommended unique `request_id`. If the server
     /// receives two `create()` requests  with the same
@@ -1380,7 +1381,7 @@
     /// `request_id` strings.
     ///
     /// `request_id` strings are limited to 64 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `UpdateConfig()` method.
@@ -1390,10 +1391,10 @@
     <span class="doccomment">/// The name of the RuntimeConfig resource to update, in the format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The config resource to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;RuntimeConfig&gt;,
 }
 <span class="doccomment">/// Request for the `DeleteConfig()` method.
@@ -1403,7 +1404,7 @@
     <span class="doccomment">/// The RuntimeConfig resource to delete, in the format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `ListVariables()` method.
@@ -1415,25 +1416,25 @@
     /// format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Filters variables by matching the specified filter. For example:
     ///
     /// `projects/example-project/config/\[CONFIG_NAME\]/variables/example-variable`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the number of results to return per page. If there are fewer
     /// elements than the specified number, returns all elements.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Specifies a page token to use. Set `pageToken` to a `nextPageToken`
     /// returned by a previous list request to get the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The flag indicates whether the user wants to return values of variables.
     /// If true, then only those variables that user has IAM GetVariable permission
     /// will be returned along with their values.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>return_values: bool,
 }
 <span class="doccomment">/// Response for the `ListVariables()` method.
@@ -1442,14 +1443,14 @@
 </span><span class="kw">pub struct </span>ListVariablesResponse {
     <span class="doccomment">/// A list of variables and their values. The order of returned variable
     /// objects is arbitrary.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>variables: ::prost::alloc::vec::Vec&lt;Variable&gt;,
     <span class="doccomment">/// This token allows you to get the next page of results for list requests.
     /// If the number of results is larger than `pageSize`, use the `nextPageToken`
     /// as a value for the query parameter `pageToken` in the next list request.
     /// Subsequent list requests will have their own `nextPageToken` to continue
     /// paging through the results
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `WatchVariable()` method.
@@ -1459,7 +1460,7 @@
     <span class="doccomment">/// The name of the variable to watch, in the format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If specified, checks the current timestamp of the variable and if the
     /// current timestamp is newer than `newerThan` timestamp, the method returns
@@ -1467,7 +1468,7 @@
     ///
     /// If not specified or the variable has an older timestamp, the watcher waits
     /// for a the value to change before returning.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>newer_than: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request for the `GetVariable()` method.
@@ -1477,7 +1478,7 @@
     <span class="doccomment">/// The name of the variable to return, in the format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]/variables/\[VARIBLE_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `CreateVariable()` method.
@@ -1488,10 +1489,10 @@
     /// The configuration must exist beforehand; the path must by in the format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The variable to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>variable: ::core::option::Option&lt;Variable&gt;,
     <span class="doccomment">/// An optional but recommended unique `request_id`. If the server
     /// receives two `create()` requests  with the same
@@ -1503,7 +1504,7 @@
     /// `request_id` strings.
     ///
     /// `request_id` strings are limited to 64 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `UpdateVariable()` method.
@@ -1513,10 +1514,10 @@
     <span class="doccomment">/// The name of the variable to update, in the format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]/variables/\[VARIABLE_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The variable to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>variable: ::core::option::Option&lt;Variable&gt;,
 }
 <span class="doccomment">/// Request for the `DeleteVariable()` method.
@@ -1526,11 +1527,11 @@
     <span class="doccomment">/// The name of the variable to delete, in the format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]/variables/\[VARIABLE_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Set to `true` to recursively delete multiple variables with the same
     /// prefix.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>recursive: bool,
 }
 <span class="doccomment">/// Request for the `ListWaiters()` method.
@@ -1541,15 +1542,15 @@
     /// The configuration must exist beforehand; the path must by in the format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the number of results to return per page. If there are fewer
     /// elements than the specified number, returns all elements.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Specifies a page token to use. Set `pageToken` to a `nextPageToken`
     /// returned by a previous list request to get the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for the `ListWaiters()` method.
@@ -1558,14 +1559,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListWaitersResponse {
     <span class="doccomment">/// Found waiters in the project.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>waiters: ::prost::alloc::vec::Vec&lt;Waiter&gt;,
     <span class="doccomment">/// This token allows you to get the next page of results for list requests.
     /// If the number of results is larger than `pageSize`, use the `nextPageToken`
     /// as a value for the query parameter `pageToken` in the next list request.
     /// Subsequent list requests will have their own `nextPageToken` to continue
     /// paging through the results
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `GetWaiter()` method.
@@ -1576,7 +1577,7 @@
     /// format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]/waiters/\[WAITER_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `CreateWaiter()` method.
@@ -1587,10 +1588,10 @@
     /// The configuration must exist beforehand; the path must by in the format:
     ///
     /// `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The Waiter resource to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>waiter: ::core::option::Option&lt;Waiter&gt;,
     <span class="doccomment">/// An optional but recommended unique `request_id`. If the server
     /// receives two `create()` requests  with the same
@@ -1602,7 +1603,7 @@
     /// `request_id` strings.
     ///
     /// `request_id` strings are limited to 64 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `DeleteWaiter()` method.
@@ -1612,7 +1613,7 @@
     <span class="doccomment">/// The Waiter resource to delete, in the format:
     ///
     ///   `projects/\[PROJECT_ID\]/configs/\[CONFIG_NAME\]/waiters/\[WAITER_NAME\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1638,7 +1639,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1713,19 +1714,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/ListConfigs&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/ListConfigs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;ListConfigs&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"ListConfigs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1741,19 +1742,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/GetConfig&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/GetConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;GetConfig&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"GetConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1770,19 +1771,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/CreateConfig&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/CreateConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;CreateConfig&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"CreateConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1798,19 +1799,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/UpdateConfig&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/UpdateConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;UpdateConfig&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"UpdateConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1826,19 +1827,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/DeleteConfig&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/DeleteConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;DeleteConfig&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"DeleteConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1860,19 +1861,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/ListVariables&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/ListVariables"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;ListVariables&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"ListVariables"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1888,24 +1889,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/GetVariable&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/GetVariable"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;GetVariable&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"GetVariable"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Watches a specific variable and waits for a change in the variable&#39;s value.
+        <span class="doccomment">/// Watches a specific variable and waits for a change in the variable's value.
         /// When there is a change, this method returns the new value or times out.
         ///
         /// If a variable is deleted while being watched, the `variableState` state is
@@ -1929,19 +1930,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/WatchVariable&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/WatchVariable"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;WatchVariable&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"WatchVariable"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1964,19 +1965,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/CreateVariable&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/CreateVariable"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;CreateVariable&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"CreateVariable"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1992,19 +1993,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/UpdateVariable&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/UpdateVariable"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;UpdateVariable&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"UpdateVariable"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2025,19 +2026,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/DeleteVariable&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/DeleteVariable"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;DeleteVariable&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"DeleteVariable"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2056,19 +2057,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/ListWaiters&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/ListWaiters"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;ListWaiters&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"ListWaiters"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2084,19 +2085,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/GetWaiter&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/GetWaiter"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;GetWaiter&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"GetWaiter"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2119,19 +2120,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/CreateWaiter&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/CreateWaiter"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;CreateWaiter&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"CreateWaiter"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2147,19 +2148,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/DeleteWaiter&quot;</span>,
+                <span class="string">"/google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager/DeleteWaiter"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager&quot;</span>,
-                        <span class="string">&quot;DeleteWaiter&quot;</span>,
+                        <span class="string">"google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager"</span>,
+                        <span class="string">"DeleteWaiter"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

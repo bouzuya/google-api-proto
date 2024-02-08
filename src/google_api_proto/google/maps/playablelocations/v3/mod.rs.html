@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/playablelocations/v3/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/playablelocations/v3/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -457,7 +458,7 @@
 <a href="#457" id="457">457</a>
 <a href="#458" id="458">458</a>
 <a href="#459" id="459">459</a>
-</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-maps-playablelocations-v3-sample&quot;</span>))]
+</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">"google-maps-playablelocations-v3-sample"</span>))]
 </span><span class="kw">pub mod </span>sample;
 <span class="doccomment">/// A report submitted by a player about a playable location that is considered
 /// inappropriate for use in the game.
@@ -465,25 +466,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PlayerReport {
     <span class="doccomment">/// Required. The name of the playable location.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>location_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. One or more reasons why this playable location is considered bad.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;player_report::BadLocationReason&quot;</span>,
+        enumeration = <span class="string">"player_report::BadLocationReason"</span>,
         repeated,
-        packed = <span class="string">&quot;false&quot;</span>,
-        tag = <span class="string">&quot;2&quot;
+        packed = <span class="string">"false"</span>,
+        tag = <span class="string">"2"
     </span>)]
     </span><span class="kw">pub </span>reasons: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Required. A free-form description detailing why the playable location is
     /// considered bad.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>reason_details: ::prost::alloc::string::String,
     <span class="doccomment">/// Language code (in BCP-47 format) indicating the language of the freeform
-    /// description provided in `reason_details`. Examples are &quot;en&quot;, &quot;en-US&quot; or
-    /// &quot;ja-Latn&quot;. For more information, see
+    /// description provided in `reason_details`. Examples are "en", "en-US" or
+    /// "ja-Latn". For more information, see
     /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `PlayerReport`.
@@ -504,12 +505,12 @@
     </span><span class="kw">pub enum </span>BadLocationReason {
         <span class="doccomment">/// Unspecified reason. Do not use.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The reason isn&#39;t one of the reasons in this enumeration.
+        <span class="doccomment">/// The reason isn't one of the reasons in this enumeration.
         </span>Other = <span class="number">1</span>,
-        <span class="doccomment">/// The playable location isn&#39;t accessible to pedestrians. For example, if
-        /// it&#39;s in the middle of a highway.
+        <span class="doccomment">/// The playable location isn't accessible to pedestrians. For example, if
+        /// it's in the middle of a highway.
         </span>NotPedestrianAccessible = <span class="number">2</span>,
-        <span class="doccomment">/// The playable location isn&#39;t open to the public. For example, a private
+        <span class="doccomment">/// The playable location isn't open to the public. For example, a private
         /// office building.
         </span>NotOpenToPublic = <span class="number">4</span>,
         <span class="doccomment">/// The playable location is permanently closed. For example, when a business
@@ -524,25 +525,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                BadLocationReason::Unspecified =&gt; <span class="string">&quot;BAD_LOCATION_REASON_UNSPECIFIED&quot;</span>,
-                BadLocationReason::Other =&gt; <span class="string">&quot;OTHER&quot;</span>,
-                BadLocationReason::NotPedestrianAccessible =&gt; <span class="string">&quot;NOT_PEDESTRIAN_ACCESSIBLE&quot;</span>,
-                BadLocationReason::NotOpenToPublic =&gt; <span class="string">&quot;NOT_OPEN_TO_PUBLIC&quot;</span>,
-                BadLocationReason::PermanentlyClosed =&gt; <span class="string">&quot;PERMANENTLY_CLOSED&quot;</span>,
-                BadLocationReason::TemporarilyInaccessible =&gt; <span class="string">&quot;TEMPORARILY_INACCESSIBLE&quot;</span>,
+                BadLocationReason::Unspecified =&gt; <span class="string">"BAD_LOCATION_REASON_UNSPECIFIED"</span>,
+                BadLocationReason::Other =&gt; <span class="string">"OTHER"</span>,
+                BadLocationReason::NotPedestrianAccessible =&gt; <span class="string">"NOT_PEDESTRIAN_ACCESSIBLE"</span>,
+                BadLocationReason::NotOpenToPublic =&gt; <span class="string">"NOT_OPEN_TO_PUBLIC"</span>,
+                BadLocationReason::PermanentlyClosed =&gt; <span class="string">"PERMANENTLY_CLOSED"</span>,
+                BadLocationReason::TemporarilyInaccessible =&gt; <span class="string">"TEMPORARILY_INACCESSIBLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;BAD_LOCATION_REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
-                <span class="string">&quot;NOT_PEDESTRIAN_ACCESSIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotPedestrianAccessible),
-                <span class="string">&quot;NOT_OPEN_TO_PUBLIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotOpenToPublic),
-                <span class="string">&quot;PERMANENTLY_CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermanentlyClosed),
-                <span class="string">&quot;TEMPORARILY_INACCESSIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TemporarilyInaccessible),
+                <span class="string">"BAD_LOCATION_REASON_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"OTHER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
+                <span class="string">"NOT_PEDESTRIAN_ACCESSIBLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotPedestrianAccessible),
+                <span class="string">"NOT_OPEN_TO_PUBLIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotOpenToPublic),
+                <span class="string">"PERMANENTLY_CLOSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermanentlyClosed),
+                <span class="string">"TEMPORARILY_INACCESSIBLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TemporarilyInaccessible),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -553,10 +554,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Impression {
     <span class="doccomment">/// Required. The name of the playable location.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>location_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The type of impression event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;impression::ImpressionType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"impression::ImpressionType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>impression_type: i32,
     <span class="doccomment">/// An arbitrary, developer-defined type identifier for each type of game
     /// object used in your game.
@@ -568,7 +569,7 @@
     /// type of game object in your game.
     ///
     /// For example, 1=monster location, 2=powerup location.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>game_object_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Impression`.
@@ -599,19 +600,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ImpressionType::Unspecified =&gt; <span class="string">&quot;IMPRESSION_TYPE_UNSPECIFIED&quot;</span>,
-                ImpressionType::Presented =&gt; <span class="string">&quot;PRESENTED&quot;</span>,
-                ImpressionType::Interacted =&gt; <span class="string">&quot;INTERACTED&quot;</span>,
+                ImpressionType::Unspecified =&gt; <span class="string">"IMPRESSION_TYPE_UNSPECIFIED"</span>,
+                ImpressionType::Presented =&gt; <span class="string">"PRESENTED"</span>,
+                ImpressionType::Interacted =&gt; <span class="string">"INTERACTED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;IMPRESSION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PRESENTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Presented),
-                <span class="string">&quot;INTERACTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Interacted),
+                <span class="string">"IMPRESSION_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PRESENTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Presented),
+                <span class="string">"INTERACTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Interacted),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -623,7 +624,7 @@
 /// - When a game starts in a new location, your game server issues a
 /// [SamplePlayableLocations][google.maps.playablelocations.v3.PlayableLocations.SamplePlayableLocations]
 /// request. The request specifies the S2 cell, and contains one or more
-/// &quot;criteria&quot; for filtering:
+/// "criteria" for filtering:
 ///
 /// - Criterion 0: i locations for long-lived bases, or level 0 monsters, or...
 /// - Criterion 1: j locations for short-lived bases, or level 1 monsters, ...
@@ -645,11 +646,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SamplePlayableLocationsRequest {
     <span class="doccomment">/// Required. Specifies the area to search within for playable locations.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>area_filter: ::core::option::Option&lt;sample::AreaFilter&gt;,
     <span class="doccomment">/// Required. Specifies one or more (up to 5) criteria for filtering the
     /// returned playable locations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>criteria: ::prost::alloc::vec::Vec&lt;sample::Criterion&gt;,
 }
 <span class="doccomment">///
@@ -661,12 +662,12 @@
 </span><span class="kw">pub struct </span>SamplePlayableLocationsResponse {
     <span class="doccomment">/// Each PlayableLocation object corresponds to a game_object_type specified
     /// in the request.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;int32, message&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"int32, message"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>locations_per_game_object_type: ::prost::alloc::collections::BTreeMap&lt;
         i32,
         sample::PlayableLocationList,
     &gt;,
-    <span class="doccomment">/// Required. Specifies the &quot;time-to-live&quot; for the set of playable locations.
+    <span class="doccomment">/// Required. Specifies the "time-to-live" for the set of playable locations.
     /// You can use this value to determine how long to cache the set of playable
     /// locations. After this length of time, your back-end game server should
     /// issue a new
@@ -674,16 +675,16 @@
     /// request to get a fresh set of playable locations (because for example, they
     /// might have been removed, a park might have closed for the day, a
     /// business might have closed permanently).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>ttl: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
-<span class="doccomment">/// A request for logging your player&#39;s bad location reports.
+<span class="doccomment">/// A request for logging your player's bad location reports.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LogPlayerReportsRequest {
     <span class="doccomment">/// Required. Player reports. The maximum number of player reports that you can
     /// log at once is 50.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>player_reports: ::prost::alloc::vec::Vec&lt;PlayerReport&gt;,
     <span class="doccomment">/// Required. A string that uniquely identifies the log player reports request.
     /// This allows you to detect duplicate requests. We recommend that you use
@@ -692,11 +693,11 @@
     /// You should reuse the `request_id` only when retrying a request in the case
     /// of a failure. In that case, the request must be identical to the one that
     /// failed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Information about the client device (for example, device model
     /// and operating system).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>client_info: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::unity::ClientInfo&gt;,
 }
 <span class="doccomment">/// A response for the
@@ -713,7 +714,7 @@
 </span><span class="kw">pub struct </span>LogImpressionsRequest {
     <span class="doccomment">/// Required. Impression event details. The maximum number of impression
     /// reports that you can log at once is 50.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>impressions: ::prost::alloc::vec::Vec&lt;Impression&gt;,
     <span class="doccomment">/// Required. A string that uniquely identifies the log impressions request.
     /// This allows you to detect duplicate requests. We recommend that you use
@@ -722,11 +723,11 @@
     /// You should reuse the `request_id` only when retrying a request in case of
     /// failure. In this case, the request must be identical to the one that
     /// failed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Information about the client device. For example, device model
     /// and operating system.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>client_info: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::unity::ClientInfo&gt;,
 }
 <span class="doccomment">/// A response for the
@@ -749,7 +750,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -828,19 +829,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.maps.playablelocations.v3.PlayableLocations/SamplePlayableLocations&quot;</span>,
+                <span class="string">"/google.maps.playablelocations.v3.PlayableLocations/SamplePlayableLocations"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.maps.playablelocations.v3.PlayableLocations&quot;</span>,
-                        <span class="string">&quot;SamplePlayableLocations&quot;</span>,
+                        <span class="string">"google.maps.playablelocations.v3.PlayableLocations"</span>,
+                        <span class="string">"SamplePlayableLocations"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -862,19 +863,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.maps.playablelocations.v3.PlayableLocations/LogPlayerReports&quot;</span>,
+                <span class="string">"/google.maps.playablelocations.v3.PlayableLocations/LogPlayerReports"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.maps.playablelocations.v3.PlayableLocations&quot;</span>,
-                        <span class="string">&quot;LogPlayerReports&quot;</span>,
+                        <span class="string">"google.maps.playablelocations.v3.PlayableLocations"</span>,
+                        <span class="string">"LogPlayerReports"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -897,19 +898,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.maps.playablelocations.v3.PlayableLocations/LogImpressions&quot;</span>,
+                <span class="string">"/google.maps.playablelocations.v3.PlayableLocations/LogImpressions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.maps.playablelocations.v3.PlayableLocations&quot;</span>,
-                        <span class="string">&quot;LogImpressions&quot;</span>,
+                        <span class="string">"google.maps.playablelocations.v3.PlayableLocations"</span>,
+                        <span class="string">"LogImpressions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

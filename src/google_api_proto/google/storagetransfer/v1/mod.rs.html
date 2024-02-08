@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/storagetransfer/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/storagetransfer/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2835,10 +2836,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GoogleServiceAccount {
     <span class="doccomment">/// Email address of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>account_email: ::prost::alloc::string::String,
     <span class="doccomment">/// Unique identifier for the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>subject_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// AWS access key (see
@@ -2851,11 +2852,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AwsAccessKey {
     <span class="doccomment">/// Required. AWS access key ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>access_key_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. AWS secret access key. This field is not returned in RPC
     /// responses.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>secret_access_key: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Azure credentials
@@ -2871,45 +2872,45 @@
     /// [Grant limited access to Azure Storage resources using shared access
     /// signatures
     /// (SAS)](&lt;https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sas_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Conditions that determine which objects are transferred. Applies only
 /// to Cloud Data Sources such as S3, Azure, and Cloud Storage.
 ///
-/// The &quot;last modification time&quot; refers to the time of the
-/// last change to the object&#39;s content or metadata — specifically, this is
+/// The "last modification time" refers to the time of the
+/// last change to the object's content or metadata — specifically, this is
 /// the `updated` property of Cloud Storage objects, the `LastModified` field
 /// of S3 objects, and the `Last-Modified` header of Azure blobs.
 ///
 /// Transfers with a [PosixFilesystem][google.storagetransfer.v1.PosixFilesystem]
-/// source or destination don&#39;t support `ObjectConditions`.
+/// source or destination don't support `ObjectConditions`.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ObjectConditions {
     <span class="doccomment">/// Ensures that objects are not transferred until a specific minimum time
-    /// has elapsed after the &quot;last modification time&quot;. When a
+    /// has elapsed after the "last modification time". When a
     /// [TransferOperation][google.storagetransfer.v1.TransferOperation] begins,
-    /// objects with a &quot;last modification time&quot; are transferred only if the elapsed
+    /// objects with a "last modification time" are transferred only if the elapsed
     /// time between the
     /// [start_time][google.storagetransfer.v1.TransferOperation.start_time] of the
-    /// `TransferOperation` and the &quot;last modification time&quot; of the object is equal
+    /// `TransferOperation` and the "last modification time" of the object is equal
     /// to or greater than the value of min_time_elapsed_since_last_modification`.
-    /// Objects that do not have a &quot;last modification time&quot; are also transferred.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Objects that do not have a "last modification time" are also transferred.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>min_time_elapsed_since_last_modification: ::core::option::Option&lt;
         ::prost_types::Duration,
     &gt;,
     <span class="doccomment">/// Ensures that objects are not transferred if a specific maximum time
-    /// has elapsed since the &quot;last modification time&quot;.
+    /// has elapsed since the "last modification time".
     /// When a [TransferOperation][google.storagetransfer.v1.TransferOperation]
-    /// begins, objects with a &quot;last modification time&quot; are transferred only if the
+    /// begins, objects with a "last modification time" are transferred only if the
     /// elapsed time between the
     /// [start_time][google.storagetransfer.v1.TransferOperation.start_time] of the
-    /// `TransferOperation`and the &quot;last modification time&quot; of the object
+    /// `TransferOperation`and the "last modification time" of the object
     ///   is less than the value of max_time_elapsed_since_last_modification`.
-    /// Objects that do not have a &quot;last modification time&quot; are also transferred.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// Objects that do not have a "last modification time" are also transferred.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>max_time_elapsed_since_last_modification: ::core::option::Option&lt;
         ::prost_types::Duration,
     &gt;,
@@ -2942,7 +2943,7 @@
     ///
     /// For more information, see [Filtering objects from
     /// transfers](/storage-transfer/docs/filtering-objects-from-transfers).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>include_prefixes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// If you specify `exclude_prefixes`, Storage Transfer Service uses the items
     /// in the `exclude_prefixes` array to determine which objects to exclude from
@@ -2975,30 +2976,30 @@
     ///
     /// For more information, see [Filtering objects from
     /// transfers](/storage-transfer/docs/filtering-objects-from-transfers).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>exclude_prefixes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// If specified, only objects with a &quot;last modification time&quot; on or after
-    /// this timestamp and objects that don&#39;t have a &quot;last modification time&quot; are
+    <span class="doccomment">/// If specified, only objects with a "last modification time" on or after
+    /// this timestamp and objects that don't have a "last modification time" are
     /// transferred.
     ///
     /// The `last_modified_since` and `last_modified_before` fields can be used
     /// together for chunked data processing. For example, consider a script that
-    /// processes each day&#39;s worth of data at a time. For that you&#39;d set each
+    /// processes each day's worth of data at a time. For that you'd set each
     /// of the fields as follows:
     ///
     /// *  `last_modified_since` to the start of the day
     ///
     /// *  `last_modified_before` to the end of the day
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>last_modified_since: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// If specified, only objects with a &quot;last modification time&quot; before this
-    /// timestamp and objects that don&#39;t have a &quot;last modification time&quot; are
+    <span class="doccomment">/// If specified, only objects with a "last modification time" before this
+    /// timestamp and objects that don't have a "last modification time" are
     /// transferred.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>last_modified_before: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
-<span class="doccomment">/// In a GcsData resource, an object&#39;s name is the Cloud Storage object&#39;s
-/// name and its &quot;last modification time&quot; refers to the object&#39;s `updated`
+<span class="doccomment">/// In a GcsData resource, an object's name is the Cloud Storage object's
+/// name and its "last modification time" refers to the object's `updated`
 /// property of Cloud Storage objects, which changes when the content or the
 /// metadata of the object is updated.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3006,28 +3007,28 @@
 </span><span class="kw">pub struct </span>GcsData {
     <span class="doccomment">/// Required. Cloud Storage bucket name. Must meet
     /// [Bucket Name Requirements](/storage/docs/naming#requirements).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bucket_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Root path to transfer objects.
     ///
-    /// Must be an empty string or full path name that ends with a &#39;/&#39;. This field
+    /// Must be an empty string or full path name that ends with a '/'. This field
     /// is treated as an object prefix. As such, it should generally not begin with
-    /// a &#39;/&#39;.
+    /// a '/'.
     ///
     /// The root path value must meet
     /// [Object Name Requirements](/storage/docs/naming#objectnames).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An AwsS3Data resource can be a data source, but not a data sink.
-/// In an AwsS3Data resource, an object&#39;s name is the S3 object&#39;s key name.
+/// In an AwsS3Data resource, an object's name is the S3 object's key name.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AwsS3Data {
     <span class="doccomment">/// Required. S3 Bucket name (see
     /// [Creating a
     /// bucket](&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/create-bucket-get-location-example.html&gt;)).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bucket_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Input only. AWS access key used to sign the API requests to the AWS S3
     /// bucket. Permissions on the bucket must be granted to the access ID of the
@@ -3035,14 +3036,14 @@
     ///
     /// For information on our data retention policy for user credentials, see
     /// [User credentials](/storage-transfer/docs/data-retention#user-credentials).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>aws_access_key: ::core::option::Option&lt;AwsAccessKey&gt;,
     <span class="doccomment">/// Root path to transfer objects.
     ///
-    /// Must be an empty string or full path name that ends with a &#39;/&#39;. This field
+    /// Must be an empty string or full path name that ends with a '/'. This field
     /// is treated as an object prefix. As such, it should generally not begin with
-    /// a &#39;/&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// a '/'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
     <span class="doccomment">/// The Amazon Resource Name (ARN) of the role to support temporary
     /// credentials via `AssumeRoleWithWebIdentity`. For more information about
@@ -3054,13 +3055,13 @@
     /// the provided role using the
     /// [GoogleServiceAccount][google.storagetransfer.v1.GoogleServiceAccount] for
     /// this project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>role_arn: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The Resource name of a secret in Secret Manager.
     ///
     /// The Azure SAS token must be stored in Secret Manager in JSON format:
     /// &lt;pre&gt;{
-    ///   &quot;sas_token&quot; : &quot;&lt;var&gt;SAS_TOKEN&lt;/var&gt;&quot;
+    ///   "sas_token" : "&lt;var&gt;SAS_TOKEN&lt;/var&gt;"
     /// }&lt;/pre&gt;
     /// [GoogleServiceAccount][google.storagetransfer.v1.GoogleServiceAccount] must
     /// be granted `roles/secretmanager.secretAccessor` for the resource.
@@ -3075,44 +3076,44 @@
     /// [preview](&lt;https://cloud.google.com/terms/service-terms#1&gt;).
     ///
     /// Format: `projects/{project_number}/secrets/{secret_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>credentials_secret: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An AzureBlobStorageData resource can be a data source, but not a data sink.
 /// An AzureBlobStorageData resource represents one Azure container. The storage
 /// account determines the [Azure
 /// endpoint](&lt;https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account#storage-account-endpoints&gt;).
-/// In an AzureBlobStorageData resource, a blobs&#39;s name is the [Azure Blob
-/// Storage blob&#39;s key
+/// In an AzureBlobStorageData resource, a blobs's name is the [Azure Blob
+/// Storage blob's key
 /// name](&lt;https://docs.microsoft.com/en-us/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#blob-names&gt;).
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AzureBlobStorageData {
     <span class="doccomment">/// Required. The name of the Azure Storage account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>storage_account: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Input only. Credentials used to authenticate API requests to
     /// Azure.
     ///
     /// For information on our data retention policy for user credentials, see
     /// [User credentials](/storage-transfer/docs/data-retention#user-credentials).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>azure_credentials: ::core::option::Option&lt;AzureCredentials&gt;,
     <span class="doccomment">/// Required. The container to transfer from the Azure Storage account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>container: ::prost::alloc::string::String,
     <span class="doccomment">/// Root path to transfer objects.
     ///
-    /// Must be an empty string or full path name that ends with a &#39;/&#39;. This field
+    /// Must be an empty string or full path name that ends with a '/'. This field
     /// is treated as an object prefix. As such, it should generally not begin with
-    /// a &#39;/&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    /// a '/'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The Resource name of a secret in Secret Manager.
     ///
     /// The Azure SAS token must be stored in Secret Manager in JSON format:
     /// &lt;pre&gt;{
-    ///   &quot;sas_token&quot; : &quot;&lt;var&gt;SAS_TOKEN&lt;/var&gt;&quot;
+    ///   "sas_token" : "&lt;var&gt;SAS_TOKEN&lt;/var&gt;"
     /// }&lt;/pre&gt;
     /// [GoogleServiceAccount][google.storagetransfer.v1.GoogleServiceAccount] must
     /// be granted `roles/secretmanager.secretAccessor` for the resource.
@@ -3128,13 +3129,13 @@
     /// [preview](&lt;https://cloud.google.com/terms/service-terms#1&gt;).
     ///
     /// Format: `projects/{project_number}/secrets/{secret_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>credentials_secret: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An HttpData resource specifies a list of objects on the web to be transferred
 /// over HTTP.  The information of the objects to be transferred is contained in
 /// a file referenced by a URL. The first line in the file must be
-/// `&quot;TsvHttpData-1.0&quot;`, which specifies the format of the file.  Subsequent
+/// `"TsvHttpData-1.0"`, which specifies the format of the file.  Subsequent
 /// lines specify the information of the list of objects, one object per list
 /// entry. Each entry has the following tab-delimited fields:
 ///
@@ -3177,7 +3178,7 @@
     <span class="doccomment">/// Required. The URL that points to the file that stores the object list
     /// entries. This file must allow public access.  Currently, only URLs with
     /// HTTP and HTTPS schemes are supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>list_url: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A POSIX filesystem resource.
@@ -3185,7 +3186,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PosixFilesystem {
     <span class="doccomment">/// Root directory path to the filesystem.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>root_directory: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An AwsS3CompatibleData resource.
@@ -3193,26 +3194,26 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AwsS3CompatibleData {
     <span class="doccomment">/// Required. Specifies the name of the bucket.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bucket_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the root path to transfer objects.
     ///
-    /// Must be an empty string or full path name that ends with a &#39;/&#39;. This
+    /// Must be an empty string or full path name that ends with a '/'. This
     /// field is treated as an object prefix. As such, it should generally not
-    /// begin with a &#39;/&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// begin with a '/'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Specifies the endpoint of the storage service.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>endpoint: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the region to sign requests with. This can be left blank if
     /// requests should be signed with an empty region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the metadata of the S3 compatible data provider. Each provider
     /// may contain some attributes that do not apply to all S3-compatible data
     /// providers. When not specified, S3CompatibleMetadata is used by default.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;aws_s3_compatible_data::DataProvider&quot;</span>, tags = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"aws_s3_compatible_data::DataProvider"</span>, tags = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>data_provider: ::core::option::Option&lt;aws_s3_compatible_data::DataProvider&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AwsS3CompatibleData`.
@@ -3224,7 +3225,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>DataProvider {
         <span class="doccomment">/// A S3 compatible metadata.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>S3Metadata(<span class="kw">super</span>::S3CompatibleMetadata),
     }
 }
@@ -3236,20 +3237,20 @@
     <span class="doccomment">/// Specifies the authentication and authorization method used by the storage
     /// service. When not specified, Transfer Service will attempt to determine
     /// right auth method to use.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;s3_compatible_metadata::AuthMethod&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"s3_compatible_metadata::AuthMethod"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>auth_method: i32,
     <span class="doccomment">/// Specifies the API request model used to call the storage service. When not
     /// specified, the default value of RequestModel
     /// REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;s3_compatible_metadata::RequestModel&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"s3_compatible_metadata::RequestModel"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_model: i32,
     <span class="doccomment">/// Specifies the network protocol of the agent. When not specified, the
     /// default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;s3_compatible_metadata::NetworkProtocol&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"s3_compatible_metadata::NetworkProtocol"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>protocol: i32,
     <span class="doccomment">/// The Listing API to use for discovering objects. When not specified,
     /// Transfer Service will attempt to determine the right API to use.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;s3_compatible_metadata::ListApi&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"s3_compatible_metadata::ListApi"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>list_api: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `S3CompatibleMetadata`.
@@ -3280,19 +3281,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AuthMethod::Unspecified =&gt; <span class="string">&quot;AUTH_METHOD_UNSPECIFIED&quot;</span>,
-                AuthMethod::AwsSignatureV4 =&gt; <span class="string">&quot;AUTH_METHOD_AWS_SIGNATURE_V4&quot;</span>,
-                AuthMethod::AwsSignatureV2 =&gt; <span class="string">&quot;AUTH_METHOD_AWS_SIGNATURE_V2&quot;</span>,
+                AuthMethod::Unspecified =&gt; <span class="string">"AUTH_METHOD_UNSPECIFIED"</span>,
+                AuthMethod::AwsSignatureV4 =&gt; <span class="string">"AUTH_METHOD_AWS_SIGNATURE_V4"</span>,
+                AuthMethod::AwsSignatureV2 =&gt; <span class="string">"AUTH_METHOD_AWS_SIGNATURE_V2"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;AUTH_METHOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AUTH_METHOD_AWS_SIGNATURE_V4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AwsSignatureV4),
-                <span class="string">&quot;AUTH_METHOD_AWS_SIGNATURE_V2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AwsSignatureV2),
+                <span class="string">"AUTH_METHOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AUTH_METHOD_AWS_SIGNATURE_V4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AwsSignatureV4),
+                <span class="string">"AUTH_METHOD_AWS_SIGNATURE_V2" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AwsSignatureV2),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3325,19 +3326,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RequestModel::Unspecified =&gt; <span class="string">&quot;REQUEST_MODEL_UNSPECIFIED&quot;</span>,
-                RequestModel::VirtualHostedStyle =&gt; <span class="string">&quot;REQUEST_MODEL_VIRTUAL_HOSTED_STYLE&quot;</span>,
-                RequestModel::PathStyle =&gt; <span class="string">&quot;REQUEST_MODEL_PATH_STYLE&quot;</span>,
+                RequestModel::Unspecified =&gt; <span class="string">"REQUEST_MODEL_UNSPECIFIED"</span>,
+                RequestModel::VirtualHostedStyle =&gt; <span class="string">"REQUEST_MODEL_VIRTUAL_HOSTED_STYLE"</span>,
+                RequestModel::PathStyle =&gt; <span class="string">"REQUEST_MODEL_PATH_STYLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;REQUEST_MODEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;REQUEST_MODEL_VIRTUAL_HOSTED_STYLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VirtualHostedStyle),
-                <span class="string">&quot;REQUEST_MODEL_PATH_STYLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PathStyle),
+                <span class="string">"REQUEST_MODEL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"REQUEST_MODEL_VIRTUAL_HOSTED_STYLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VirtualHostedStyle),
+                <span class="string">"REQUEST_MODEL_PATH_STYLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PathStyle),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3370,19 +3371,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                NetworkProtocol::Unspecified =&gt; <span class="string">&quot;NETWORK_PROTOCOL_UNSPECIFIED&quot;</span>,
-                NetworkProtocol::Https =&gt; <span class="string">&quot;NETWORK_PROTOCOL_HTTPS&quot;</span>,
-                NetworkProtocol::Http =&gt; <span class="string">&quot;NETWORK_PROTOCOL_HTTP&quot;</span>,
+                NetworkProtocol::Unspecified =&gt; <span class="string">"NETWORK_PROTOCOL_UNSPECIFIED"</span>,
+                NetworkProtocol::Https =&gt; <span class="string">"NETWORK_PROTOCOL_HTTPS"</span>,
+                NetworkProtocol::Http =&gt; <span class="string">"NETWORK_PROTOCOL_HTTP"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;NETWORK_PROTOCOL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NETWORK_PROTOCOL_HTTPS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Https),
-                <span class="string">&quot;NETWORK_PROTOCOL_HTTP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Http),
+                <span class="string">"NETWORK_PROTOCOL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NETWORK_PROTOCOL_HTTPS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Https),
+                <span class="string">"NETWORK_PROTOCOL_HTTP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Http),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3413,19 +3414,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ListApi::Unspecified =&gt; <span class="string">&quot;LIST_API_UNSPECIFIED&quot;</span>,
-                ListApi::ListObjectsV2 =&gt; <span class="string">&quot;LIST_OBJECTS_V2&quot;</span>,
-                ListApi::ListObjects =&gt; <span class="string">&quot;LIST_OBJECTS&quot;</span>,
+                ListApi::Unspecified =&gt; <span class="string">"LIST_API_UNSPECIFIED"</span>,
+                ListApi::ListObjectsV2 =&gt; <span class="string">"LIST_OBJECTS_V2"</span>,
+                ListApi::ListObjects =&gt; <span class="string">"LIST_OBJECTS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;LIST_API_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LIST_OBJECTS_V2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ListObjectsV2),
-                <span class="string">&quot;LIST_OBJECTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ListObjects),
+                <span class="string">"LIST_API_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LIST_OBJECTS_V2" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ListObjectsV2),
+                <span class="string">"LIST_OBJECTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ListObjects),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3438,17 +3439,17 @@
     <span class="doccomment">/// Required. Specifies a unique string that identifies the agent pool.
     ///
     /// Format: `projects/{project_id}/agentPools/{agent_pool_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the client-specified AgentPool description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Specifies the state of the AgentPool.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;agent_pool::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"agent_pool::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Specifies the bandwidth limit details. If this field is unspecified, the
-    /// default value is set as &#39;No Limit&#39;.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    /// default value is set as 'No Limit'.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>bandwidth_limit: ::core::option::Option&lt;agent_pool::BandwidthLimit&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AgentPool`.
@@ -3459,7 +3460,7 @@
     </span><span class="kw">pub struct </span>BandwidthLimit {
         <span class="doccomment">/// Bandwidth rate in megabytes per second, distributed across all the agents
         /// in the pool.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>limit_mbps: i64,
     }
     <span class="doccomment">/// The state of an AgentPool.
@@ -3493,21 +3494,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Created =&gt; <span class="string">&quot;CREATED&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Created =&gt; <span class="string">"CREATED"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;CREATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Created),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"CREATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Created),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3521,14 +3522,14 @@
     /// that only objects that are different from the source are ovewritten. If
     /// true, all objects in the sink whose name matches an object in the source
     /// are overwritten with the source object.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>overwrite_objects_already_existing_in_sink: bool,
     <span class="doccomment">/// Whether objects that exist only in the sink should be deleted.
     ///
     /// **Note:** This option and
     /// [delete_objects_from_source_after_transfer][google.storagetransfer.v1.TransferOptions.delete_objects_from_source_after_transfer]
     /// are mutually exclusive.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>delete_objects_unique_in_sink: bool,
     <span class="doccomment">/// Whether objects should be deleted from the source after they are
     /// transferred to the sink.
@@ -3536,15 +3537,15 @@
     /// **Note:** This option and
     /// [delete_objects_unique_in_sink][google.storagetransfer.v1.TransferOptions.delete_objects_unique_in_sink]
     /// are mutually exclusive.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>delete_objects_from_source_after_transfer: bool,
     <span class="doccomment">/// When to overwrite objects that already exist in the sink. If not set,
     /// overwrite behavior is determined by
     /// [overwrite_objects_already_existing_in_sink][google.storagetransfer.v1.TransferOptions.overwrite_objects_already_existing_in_sink].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transfer_options::OverwriteWhen&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"transfer_options::OverwriteWhen"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>overwrite_when: i32,
     <span class="doccomment">/// Represents the selected metadata options for a transfer job.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>metadata_options: ::core::option::Option&lt;MetadataOptions&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TransferOptions`.
@@ -3581,21 +3582,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                OverwriteWhen::Unspecified =&gt; <span class="string">&quot;OVERWRITE_WHEN_UNSPECIFIED&quot;</span>,
-                OverwriteWhen::Different =&gt; <span class="string">&quot;DIFFERENT&quot;</span>,
-                OverwriteWhen::Never =&gt; <span class="string">&quot;NEVER&quot;</span>,
-                OverwriteWhen::Always =&gt; <span class="string">&quot;ALWAYS&quot;</span>,
+                OverwriteWhen::Unspecified =&gt; <span class="string">"OVERWRITE_WHEN_UNSPECIFIED"</span>,
+                OverwriteWhen::Different =&gt; <span class="string">"DIFFERENT"</span>,
+                OverwriteWhen::Never =&gt; <span class="string">"NEVER"</span>,
+                OverwriteWhen::Always =&gt; <span class="string">"ALWAYS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;OVERWRITE_WHEN_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DIFFERENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Different),
-                <span class="string">&quot;NEVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Never),
-                <span class="string">&quot;ALWAYS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Always),
+                <span class="string">"OVERWRITE_WHEN_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DIFFERENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Different),
+                <span class="string">"NEVER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Never),
+                <span class="string">"ALWAYS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Always),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3607,36 +3608,36 @@
 </span><span class="kw">pub struct </span>TransferSpec {
     <span class="doccomment">/// Only objects that satisfy these object conditions are included in the set
     /// of data source and data sink objects.  Object conditions based on
-    /// objects&#39; &quot;last modification time&quot; do not exclude objects in a data sink.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    /// objects' "last modification time" do not exclude objects in a data sink.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>object_conditions: ::core::option::Option&lt;ObjectConditions&gt;,
     <span class="doccomment">/// If the option
     /// [delete_objects_unique_in_sink][google.storagetransfer.v1.TransferOptions.delete_objects_unique_in_sink]
-    /// is `true` and time-based object conditions such as &#39;last modification time&#39;
+    /// is `true` and time-based object conditions such as 'last modification time'
     /// are specified, the request fails with an
     /// [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT] error.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>transfer_options: ::core::option::Option&lt;TransferOptions&gt;,
     <span class="doccomment">/// A manifest file provides a list of objects to be transferred from the data
     /// source. This field points to the location of the manifest file.
     /// Otherwise, the entire source bucket is used. ObjectConditions still apply.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>transfer_manifest: ::core::option::Option&lt;TransferManifest&gt;,
     <span class="doccomment">/// Specifies the agent pool name associated with the posix data source. When
     /// unspecified, the default name is used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>source_agent_pool_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the agent pool name associated with the posix data sink. When
     /// unspecified, the default name is used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>sink_agent_pool_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The write sink for the data.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;transfer_spec::DataSink&quot;</span>, tags = <span class="string">&quot;4, 13&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"transfer_spec::DataSink"</span>, tags = <span class="string">"4, 13"</span>)]
     </span><span class="kw">pub </span>data_sink: ::core::option::Option&lt;transfer_spec::DataSink&gt;,
     <span class="doccomment">/// The read source of the data.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;transfer_spec::DataSource&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 14, 8, 19&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"transfer_spec::DataSource"</span>, tags = <span class="string">"1, 2, 3, 14, 8, 19"</span>)]
     </span><span class="kw">pub </span>data_source: ::core::option::Option&lt;transfer_spec::DataSource&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;transfer_spec::IntermediateDataLocation&quot;</span>, tags = <span class="string">&quot;16&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"transfer_spec::IntermediateDataLocation"</span>, tags = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>intermediate_data_location: ::core::option::Option&lt;
         transfer_spec::IntermediateDataLocation,
     &gt;,
@@ -3648,10 +3649,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>DataSink {
         <span class="doccomment">/// A Cloud Storage data sink.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>GcsDataSink(<span class="kw">super</span>::GcsData),
         <span class="doccomment">/// A POSIX Filesystem data sink.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"13"</span>)]
         </span>PosixDataSink(<span class="kw">super</span>::PosixFilesystem),
     }
     <span class="doccomment">/// The read source of the data.
@@ -3659,22 +3660,22 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>DataSource {
         <span class="doccomment">/// A Cloud Storage data source.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>GcsDataSource(<span class="kw">super</span>::GcsData),
         <span class="doccomment">/// An AWS S3 data source.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>AwsS3DataSource(<span class="kw">super</span>::AwsS3Data),
         <span class="doccomment">/// An HTTP URL data source.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>HttpDataSource(<span class="kw">super</span>::HttpData),
         <span class="doccomment">/// A POSIX Filesystem data source.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"14"</span>)]
         </span>PosixDataSource(<span class="kw">super</span>::PosixFilesystem),
         <span class="doccomment">/// An Azure Blob Storage data source.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>AzureBlobStorageDataSource(<span class="kw">super</span>::AzureBlobStorageData),
         <span class="doccomment">/// An AWS S3 compatible data source.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;19&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"19"</span>)]
         </span>AwsS3CompatibleDataSource(<span class="kw">super</span>::AwsS3CompatibleData),
     }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3686,7 +3687,7 @@
         /// See [Transfer data between file
         /// systems](&lt;https://cloud.google.com/storage-transfer/docs/file-to-file&gt;) for
         /// more information.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;16&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"16"</span>)]
         </span>GcsIntermediateDataLocation(<span class="kw">super</span>::GcsData),
     }
 }
@@ -3697,50 +3698,50 @@
     <span class="doccomment">/// Specifies how symlinks should be handled by the transfer. By default,
     /// symlinks are not preserved. Only applicable to transfers involving
     /// POSIX file systems, and ignored for other transfers.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::Symlink&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"metadata_options::Symlink"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>symlink: i32,
-    <span class="doccomment">/// Specifies how each file&#39;s mode attribute should be handled by the transfer.
+    <span class="doccomment">/// Specifies how each file's mode attribute should be handled by the transfer.
     /// By default, mode is not preserved. Only applicable to transfers involving
     /// POSIX file systems, and ignored for other transfers.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::Mode&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"metadata_options::Mode"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>mode: i32,
-    <span class="doccomment">/// Specifies how each file&#39;s POSIX group ID (GID) attribute should be handled
+    <span class="doccomment">/// Specifies how each file's POSIX group ID (GID) attribute should be handled
     /// by the transfer. By default, GID is not preserved. Only applicable to
     /// transfers involving POSIX file systems, and ignored for other transfers.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::Gid&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"metadata_options::Gid"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>gid: i32,
-    <span class="doccomment">/// Specifies how each file&#39;s POSIX user ID (UID) attribute should be handled
+    <span class="doccomment">/// Specifies how each file's POSIX user ID (UID) attribute should be handled
     /// by the transfer. By default, UID is not preserved. Only applicable to
     /// transfers involving POSIX file systems, and ignored for other transfers.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::Uid&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"metadata_options::Uid"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>uid: i32,
-    <span class="doccomment">/// Specifies how each object&#39;s ACLs should be preserved for transfers between
+    <span class="doccomment">/// Specifies how each object's ACLs should be preserved for transfers between
     /// Google Cloud Storage buckets. If unspecified, the default behavior is the
     /// same as ACL_DESTINATION_BUCKET_DEFAULT.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::Acl&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"metadata_options::Acl"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>acl: i32,
     <span class="doccomment">/// Specifies the storage class to set on objects being transferred to Google
     /// Cloud Storage buckets.  If unspecified, the default behavior is the same as
     /// [STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT][google.storagetransfer.v1.MetadataOptions.StorageClass.STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::StorageClass&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"metadata_options::StorageClass"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>storage_class: i32,
-    <span class="doccomment">/// Specifies how each object&#39;s temporary hold status should be preserved for
+    <span class="doccomment">/// Specifies how each object's temporary hold status should be preserved for
     /// transfers between Google Cloud Storage buckets.  If unspecified, the
     /// default behavior is the same as
     /// [TEMPORARY_HOLD_PRESERVE][google.storagetransfer.v1.MetadataOptions.TemporaryHold.TEMPORARY_HOLD_PRESERVE].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::TemporaryHold&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"metadata_options::TemporaryHold"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>temporary_hold: i32,
-    <span class="doccomment">/// Specifies how each object&#39;s Cloud KMS customer-managed encryption key
+    <span class="doccomment">/// Specifies how each object's Cloud KMS customer-managed encryption key
     /// (CMEK) is preserved for transfers between Google Cloud Storage buckets.  If
     /// unspecified, the default behavior is the same as
     /// [KMS_KEY_DESTINATION_BUCKET_DEFAULT][google.storagetransfer.v1.MetadataOptions.KmsKey.KMS_KEY_DESTINATION_BUCKET_DEFAULT].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::KmsKey&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"metadata_options::KmsKey"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>kms_key: i32,
-    <span class="doccomment">/// Specifies how each object&#39;s `timeCreated` metadata is preserved for
+    <span class="doccomment">/// Specifies how each object's `timeCreated` metadata is preserved for
     /// transfers between Google Cloud Storage buckets.  If unspecified, the
     /// default behavior is the same as
     /// [TIME_CREATED_SKIP][google.storagetransfer.v1.MetadataOptions.TimeCreated.TIME_CREATED_SKIP].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;metadata_options::TimeCreated&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"metadata_options::TimeCreated"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>time_created: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `MetadataOptions`.
@@ -3771,19 +3772,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Symlink::Unspecified =&gt; <span class="string">&quot;SYMLINK_UNSPECIFIED&quot;</span>,
-                Symlink::Skip =&gt; <span class="string">&quot;SYMLINK_SKIP&quot;</span>,
-                Symlink::Preserve =&gt; <span class="string">&quot;SYMLINK_PRESERVE&quot;</span>,
+                Symlink::Unspecified =&gt; <span class="string">"SYMLINK_UNSPECIFIED"</span>,
+                Symlink::Skip =&gt; <span class="string">"SYMLINK_SKIP"</span>,
+                Symlink::Preserve =&gt; <span class="string">"SYMLINK_PRESERVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SYMLINK_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SYMLINK_SKIP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
-                <span class="string">&quot;SYMLINK_PRESERVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
+                <span class="string">"SYMLINK_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SYMLINK_SKIP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
+                <span class="string">"SYMLINK_PRESERVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3814,19 +3815,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
-                Mode::Skip =&gt; <span class="string">&quot;MODE_SKIP&quot;</span>,
-                Mode::Preserve =&gt; <span class="string">&quot;MODE_PRESERVE&quot;</span>,
+                Mode::Unspecified =&gt; <span class="string">"MODE_UNSPECIFIED"</span>,
+                Mode::Skip =&gt; <span class="string">"MODE_SKIP"</span>,
+                Mode::Preserve =&gt; <span class="string">"MODE_PRESERVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;MODE_SKIP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
-                <span class="string">&quot;MODE_PRESERVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
+                <span class="string">"MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"MODE_SKIP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
+                <span class="string">"MODE_PRESERVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3857,19 +3858,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Gid::Unspecified =&gt; <span class="string">&quot;GID_UNSPECIFIED&quot;</span>,
-                Gid::Skip =&gt; <span class="string">&quot;GID_SKIP&quot;</span>,
-                Gid::Number =&gt; <span class="string">&quot;GID_NUMBER&quot;</span>,
+                Gid::Unspecified =&gt; <span class="string">"GID_UNSPECIFIED"</span>,
+                Gid::Skip =&gt; <span class="string">"GID_SKIP"</span>,
+                Gid::Number =&gt; <span class="string">"GID_NUMBER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;GID_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;GID_SKIP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
-                <span class="string">&quot;GID_NUMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
+                <span class="string">"GID_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"GID_SKIP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
+                <span class="string">"GID_NUMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3900,19 +3901,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Uid::Unspecified =&gt; <span class="string">&quot;UID_UNSPECIFIED&quot;</span>,
-                Uid::Skip =&gt; <span class="string">&quot;UID_SKIP&quot;</span>,
-                Uid::Number =&gt; <span class="string">&quot;UID_NUMBER&quot;</span>,
+                Uid::Unspecified =&gt; <span class="string">"UID_UNSPECIFIED"</span>,
+                Uid::Skip =&gt; <span class="string">"UID_SKIP"</span>,
+                Uid::Number =&gt; <span class="string">"UID_NUMBER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UID_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;UID_SKIP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
-                <span class="string">&quot;UID_NUMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
+                <span class="string">"UID_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"UID_SKIP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
+                <span class="string">"UID_NUMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3933,9 +3934,9 @@
     </span><span class="kw">pub enum </span>Acl {
         <span class="doccomment">/// ACL behavior is unspecified.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Use the destination bucket&#39;s default object ACLS, if applicable.
+        <span class="doccomment">/// Use the destination bucket's default object ACLS, if applicable.
         </span>DestinationBucketDefault = <span class="number">1</span>,
-        <span class="doccomment">/// Preserve the object&#39;s original ACLs. This requires the service account
+        <span class="doccomment">/// Preserve the object's original ACLs. This requires the service account
         /// to have `storage.objects.getIamPolicy` permission for the source object.
         /// [Uniform bucket-level
         /// access](&lt;https://cloud.google.com/storage/docs/uniform-bucket-level-access&gt;)
@@ -3947,19 +3948,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Acl::Unspecified =&gt; <span class="string">&quot;ACL_UNSPECIFIED&quot;</span>,
-                Acl::DestinationBucketDefault =&gt; <span class="string">&quot;ACL_DESTINATION_BUCKET_DEFAULT&quot;</span>,
-                Acl::Preserve =&gt; <span class="string">&quot;ACL_PRESERVE&quot;</span>,
+                Acl::Unspecified =&gt; <span class="string">"ACL_UNSPECIFIED"</span>,
+                Acl::DestinationBucketDefault =&gt; <span class="string">"ACL_DESTINATION_BUCKET_DEFAULT"</span>,
+                Acl::Preserve =&gt; <span class="string">"ACL_PRESERVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACL_DESTINATION_BUCKET_DEFAULT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DestinationBucketDefault),
-                <span class="string">&quot;ACL_PRESERVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
+                <span class="string">"ACL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACL_DESTINATION_BUCKET_DEFAULT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DestinationBucketDefault),
+                <span class="string">"ACL_PRESERVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3980,9 +3981,9 @@
     </span><span class="kw">pub enum </span>StorageClass {
         <span class="doccomment">/// Storage class behavior is unspecified.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Use the destination bucket&#39;s default storage class.
+        <span class="doccomment">/// Use the destination bucket's default storage class.
         </span>DestinationBucketDefault = <span class="number">1</span>,
-        <span class="doccomment">/// Preserve the object&#39;s original storage class. This is only supported for
+        <span class="doccomment">/// Preserve the object's original storage class. This is only supported for
         /// transfers from Google Cloud Storage buckets. REGIONAL and MULTI_REGIONAL
         /// storage classes will be mapped to STANDARD to ensure they can be written
         /// to the destination bucket.
@@ -4001,31 +4002,31 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                StorageClass::Unspecified =&gt; <span class="string">&quot;STORAGE_CLASS_UNSPECIFIED&quot;</span>,
+                StorageClass::Unspecified =&gt; <span class="string">"STORAGE_CLASS_UNSPECIFIED"</span>,
                 StorageClass::DestinationBucketDefault =&gt; {
-                    <span class="string">&quot;STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT&quot;
+                    <span class="string">"STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT"
                 </span>}
-                StorageClass::Preserve =&gt; <span class="string">&quot;STORAGE_CLASS_PRESERVE&quot;</span>,
-                StorageClass::Standard =&gt; <span class="string">&quot;STORAGE_CLASS_STANDARD&quot;</span>,
-                StorageClass::Nearline =&gt; <span class="string">&quot;STORAGE_CLASS_NEARLINE&quot;</span>,
-                StorageClass::Coldline =&gt; <span class="string">&quot;STORAGE_CLASS_COLDLINE&quot;</span>,
-                StorageClass::Archive =&gt; <span class="string">&quot;STORAGE_CLASS_ARCHIVE&quot;</span>,
+                StorageClass::Preserve =&gt; <span class="string">"STORAGE_CLASS_PRESERVE"</span>,
+                StorageClass::Standard =&gt; <span class="string">"STORAGE_CLASS_STANDARD"</span>,
+                StorageClass::Nearline =&gt; <span class="string">"STORAGE_CLASS_NEARLINE"</span>,
+                StorageClass::Coldline =&gt; <span class="string">"STORAGE_CLASS_COLDLINE"</span>,
+                StorageClass::Archive =&gt; <span class="string">"STORAGE_CLASS_ARCHIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STORAGE_CLASS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT&quot; </span>=&gt; {
+                <span class="string">"STORAGE_CLASS_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::DestinationBucketDefault)
                 }
-                <span class="string">&quot;STORAGE_CLASS_PRESERVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
-                <span class="string">&quot;STORAGE_CLASS_STANDARD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
-                <span class="string">&quot;STORAGE_CLASS_NEARLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nearline),
-                <span class="string">&quot;STORAGE_CLASS_COLDLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Coldline),
-                <span class="string">&quot;STORAGE_CLASS_ARCHIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Archive),
+                <span class="string">"STORAGE_CLASS_PRESERVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
+                <span class="string">"STORAGE_CLASS_STANDARD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
+                <span class="string">"STORAGE_CLASS_NEARLINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nearline),
+                <span class="string">"STORAGE_CLASS_COLDLINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Coldline),
+                <span class="string">"STORAGE_CLASS_ARCHIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Archive),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4048,7 +4049,7 @@
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Do not set a temporary hold on the destination object.
         </span>Skip = <span class="number">1</span>,
-        <span class="doccomment">/// Preserve the object&#39;s original temporary hold status.
+        <span class="doccomment">/// Preserve the object's original temporary hold status.
         </span>Preserve = <span class="number">2</span>,
     }
     <span class="kw">impl </span>TemporaryHold {
@@ -4056,19 +4057,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                TemporaryHold::Unspecified =&gt; <span class="string">&quot;TEMPORARY_HOLD_UNSPECIFIED&quot;</span>,
-                TemporaryHold::Skip =&gt; <span class="string">&quot;TEMPORARY_HOLD_SKIP&quot;</span>,
-                TemporaryHold::Preserve =&gt; <span class="string">&quot;TEMPORARY_HOLD_PRESERVE&quot;</span>,
+                TemporaryHold::Unspecified =&gt; <span class="string">"TEMPORARY_HOLD_UNSPECIFIED"</span>,
+                TemporaryHold::Skip =&gt; <span class="string">"TEMPORARY_HOLD_SKIP"</span>,
+                TemporaryHold::Preserve =&gt; <span class="string">"TEMPORARY_HOLD_PRESERVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TEMPORARY_HOLD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;TEMPORARY_HOLD_SKIP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
-                <span class="string">&quot;TEMPORARY_HOLD_PRESERVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
+                <span class="string">"TEMPORARY_HOLD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"TEMPORARY_HOLD_SKIP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
+                <span class="string">"TEMPORARY_HOLD_PRESERVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4089,11 +4090,11 @@
     </span><span class="kw">pub enum </span>KmsKey {
         <span class="doccomment">/// KmsKey behavior is unspecified.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Use the destination bucket&#39;s default encryption settings.
+        <span class="doccomment">/// Use the destination bucket's default encryption settings.
         </span>DestinationBucketDefault = <span class="number">1</span>,
-        <span class="doccomment">/// Preserve the object&#39;s original Cloud KMS customer-managed encryption key
+        <span class="doccomment">/// Preserve the object's original Cloud KMS customer-managed encryption key
         /// (CMEK) if present. Objects that do not use a Cloud KMS encryption key
-        /// will be encrypted using the destination bucket&#39;s encryption settings.
+        /// will be encrypted using the destination bucket's encryption settings.
         </span>Preserve = <span class="number">2</span>,
     }
     <span class="kw">impl </span>KmsKey {
@@ -4101,21 +4102,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                KmsKey::Unspecified =&gt; <span class="string">&quot;KMS_KEY_UNSPECIFIED&quot;</span>,
-                KmsKey::DestinationBucketDefault =&gt; <span class="string">&quot;KMS_KEY_DESTINATION_BUCKET_DEFAULT&quot;</span>,
-                KmsKey::Preserve =&gt; <span class="string">&quot;KMS_KEY_PRESERVE&quot;</span>,
+                KmsKey::Unspecified =&gt; <span class="string">"KMS_KEY_UNSPECIFIED"</span>,
+                KmsKey::DestinationBucketDefault =&gt; <span class="string">"KMS_KEY_DESTINATION_BUCKET_DEFAULT"</span>,
+                KmsKey::Preserve =&gt; <span class="string">"KMS_KEY_PRESERVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;KMS_KEY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;KMS_KEY_DESTINATION_BUCKET_DEFAULT&quot; </span>=&gt; {
+                <span class="string">"KMS_KEY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"KMS_KEY_DESTINATION_BUCKET_DEFAULT" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::DestinationBucketDefault)
                 }
-                <span class="string">&quot;KMS_KEY_PRESERVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
+                <span class="string">"KMS_KEY_PRESERVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preserve),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4139,9 +4140,9 @@
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Do not preserve the `timeCreated` metadata from the source object.
         </span>Skip = <span class="number">1</span>,
-        <span class="doccomment">/// Preserves the source object&#39;s `timeCreated` metadata in the `customTime`
+        <span class="doccomment">/// Preserves the source object's `timeCreated` metadata in the `customTime`
         /// field in the destination object.  Note that any value stored in the
-        /// source object&#39;s `customTime` field will not be propagated to the
+        /// source object's `customTime` field will not be propagated to the
         /// destination object.
         </span>PreserveAsCustomTime = <span class="number">2</span>,
     }
@@ -4150,21 +4151,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                TimeCreated::Unspecified =&gt; <span class="string">&quot;TIME_CREATED_UNSPECIFIED&quot;</span>,
-                TimeCreated::Skip =&gt; <span class="string">&quot;TIME_CREATED_SKIP&quot;</span>,
+                TimeCreated::Unspecified =&gt; <span class="string">"TIME_CREATED_UNSPECIFIED"</span>,
+                TimeCreated::Skip =&gt; <span class="string">"TIME_CREATED_SKIP"</span>,
                 TimeCreated::PreserveAsCustomTime =&gt; {
-                    <span class="string">&quot;TIME_CREATED_PRESERVE_AS_CUSTOM_TIME&quot;
+                    <span class="string">"TIME_CREATED_PRESERVE_AS_CUSTOM_TIME"
                 </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TIME_CREATED_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;TIME_CREATED_SKIP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
-                <span class="string">&quot;TIME_CREATED_PRESERVE_AS_CUSTOM_TIME&quot; </span>=&gt; {
+                <span class="string">"TIME_CREATED_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"TIME_CREATED_SKIP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
+                <span class="string">"TIME_CREATED_PRESERVE_AS_CUSTOM_TIME" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreserveAsCustomTime)
                 }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -4180,7 +4181,7 @@
     /// service account for the transfer must have `storage.objects.get`
     /// permission for this object. An example path is
     /// `gs://bucket_name/path/manifest.csv`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Transfers can be scheduled to recur or to run just once.
@@ -4190,7 +4191,7 @@
     <span class="doccomment">/// Required. The start date of a transfer. Date boundaries are determined
     /// relative to UTC time. If `schedule_start_date` and
     /// [start_time_of_day][google.storagetransfer.v1.Schedule.start_time_of_day]
-    /// are in the past relative to the job&#39;s creation time, the transfer starts
+    /// are in the past relative to the job's creation time, the transfer starts
     /// the day after you schedule the transfer request.
     ///
     /// **Note:** When starting jobs at or near midnight UTC it is possible that
@@ -4201,7 +4202,7 @@
     /// `start_time_of_day` set to midnight UTC. The first scheduled
     /// [TransferOperation][google.storagetransfer.v1.TransferOperation] takes
     /// place on June 3 at midnight UTC.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>schedule_start_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
     <span class="doccomment">/// The last day a transfer runs. Date boundaries are determined relative to
     /// UTC time. A job runs once per 24 hours within the following guidelines:
@@ -4215,7 +4216,7 @@
     ///      day at
     ///      [start_time_of_day][google.storagetransfer.v1.Schedule.start_time_of_day]
     ///      through `schedule_end_date`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>schedule_end_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
     <span class="doccomment">/// The time in UTC that a transfer job is scheduled to run. Transfers may
     /// start later than this time.
@@ -4232,7 +4233,7 @@
     /// *   One-time transfers run at the specified time.
     /// *   Recurring transfers run at the specified time each day, through
     ///      `schedule_end_date`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>start_time_of_day: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::TimeOfDay&gt;,
     <span class="doccomment">/// The time in UTC that no further transfer operations are scheduled. Combined
     /// with
@@ -4250,12 +4251,12 @@
     ///
     /// *   If `end_time_of_day` is set and `schedule_end_date` is not set, then
     ///      [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT] is returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>end_time_of_day: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::r#type::TimeOfDay&gt;,
     <span class="doccomment">/// Interval between the start of each scheduled TransferOperation. If
     /// unspecified, the default value is 24 hours. This value may not be less than
     /// 1 hour.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>repeat_interval: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Specifies the Event-driven transfer options. Event-driven transfers listen to
@@ -4264,21 +4265,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EventStream {
     <span class="doccomment">/// Required. Specifies a unique name of the resource such as AWS SQS
-    /// ARN in the form &#39;arn:aws:sqs:region:account_id:queue_name&#39;,
+    /// ARN in the form 'arn:aws:sqs:region:account_id:queue_name',
     /// or Pub/Sub subscription resource name in the form
-    /// &#39;projects/{project}/subscriptions/{sub}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project}/subscriptions/{sub}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies the date and time that Storage Transfer Service starts
     /// listening for events from this stream. If no start time is specified or
     /// start time is in the past, Storage Transfer Service starts listening
     /// immediately.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>event_stream_start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Specifies the data and time at which Storage Transfer Service stops
     /// listening for events from this stream. After this time, any transfers in
     /// progress will complete, but no new transfers are initiated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>event_stream_expiration_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// This resource represents the configuration of a transfer job that runs
@@ -4294,51 +4295,51 @@
     /// If the specified name is in use by a job, the creation request fails with
     /// an [ALREADY_EXISTS][google.rpc.Code.ALREADY_EXISTS] error.
     ///
-    /// This name must start with `&quot;transferJobs/&quot;` prefix and end with a letter or
+    /// This name must start with `"transferJobs/"` prefix and end with a letter or
     /// a number, and should be no more than 128 characters. For transfers
     /// involving PosixFilesystem, this name must start with `transferJobs/OPI`
     /// specifically. For all other transfer types, this name must not start with
     /// `transferJobs/OPI`.
     ///
     /// Non-PosixFilesystem example:
-    /// `&quot;transferJobs/^(?!OPI)\[A-Za-z0-9-._~\]*[A-Za-z0-9]$&quot;`
+    /// `"transferJobs/^(?!OPI)\[A-Za-z0-9-._~\]*[A-Za-z0-9]$"`
     ///
     /// PosixFilesystem example:
-    /// `&quot;transferJobs/OPI^\[A-Za-z0-9-._~\]*[A-Za-z0-9]$&quot;`
+    /// `"transferJobs/OPI^\[A-Za-z0-9-._~\]*[A-Za-z0-9]$"`
     ///
     /// Applications must not rely on the enforcement of naming requirements
     /// involving OPI.
     ///
     /// Invalid job names fail with an
     /// [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT] error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A description provided by the user for the job. Its max length is 1024
     /// bytes when Unicode-encoded.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of the Google Cloud project that owns the job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Transfer specification.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>transfer_spec: ::core::option::Option&lt;TransferSpec&gt;,
     <span class="doccomment">/// Notification configuration. This is not supported for transfers involving
     /// PosixFilesystem.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>notification_config: ::core::option::Option&lt;NotificationConfig&gt;,
     <span class="doccomment">/// Logging configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>logging_config: ::core::option::Option&lt;LoggingConfig&gt;,
     <span class="doccomment">/// Specifies schedule for the transfer job.
     /// This is an optional field. When the field is not set, the job never
     /// executes a transfer, unless you invoke RunTransferJob or update the job to
     /// have a non-empty schedule.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>schedule: ::core::option::Option&lt;Schedule&gt;,
     <span class="doccomment">/// Specifies the event stream for the transfer job for event-driven transfers.
     /// When EventStream is specified, the Schedule fields are ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>event_stream: ::core::option::Option&lt;EventStream&gt;,
     <span class="doccomment">/// Status of the job. This value MUST be specified for
     /// `CreateTransferJobRequests`.
@@ -4349,20 +4350,20 @@
     /// [DISABLED][google.storagetransfer.v1.TransferJob.Status.DISABLED], and an
     /// operation spawned by the transfer is running, the status change would not
     /// affect the current operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transfer_job::Status&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"transfer_job::Status"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>status: i32,
     <span class="doccomment">/// Output only. The time that the transfer job was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>creation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time that the transfer job was last modified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>last_modification_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time that the transfer job was deleted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>deletion_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The name of the most recently started TransferOperation of this JobConfig.
     /// Present if a TransferOperation has been created for this JobConfig.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>latest_operation_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `TransferJob`.
@@ -4398,21 +4399,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Status::Unspecified =&gt; <span class="string">&quot;STATUS_UNSPECIFIED&quot;</span>,
-                Status::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
-                Status::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                Status::Deleted =&gt; <span class="string">&quot;DELETED&quot;</span>,
+                Status::Unspecified =&gt; <span class="string">"STATUS_UNSPECIFIED"</span>,
+                Status::Enabled =&gt; <span class="string">"ENABLED"</span>,
+                Status::Disabled =&gt; <span class="string">"DISABLED"</span>,
+                Status::Deleted =&gt; <span class="string">"DELETED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATUS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
+                <span class="string">"STATUS_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ENABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
+                <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">"DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4424,10 +4425,10 @@
 </span><span class="kw">pub struct </span>ErrorLogEntry {
     <span class="doccomment">/// Required. A URL that refers to the target (a data source, a data sink,
     /// or an object) with which the error is associated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of messages that carry the error details.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>error_details: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A summary of errors by error code, plus a count and sample error log
@@ -4436,16 +4437,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ErrorSummary {
     <span class="doccomment">/// Required.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::rpc::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"super::super::rpc::Code"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>error_code: i32,
     <span class="doccomment">/// Required. Count of this type of error.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>error_count: i64,
     <span class="doccomment">/// Error samples.
     ///
     /// At most 5 error log entries are recorded for a given
     /// error code for a single transfer operation.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>error_log_entries: ::prost::alloc::vec::Vec&lt;ErrorLogEntry&gt;,
 }
 <span class="doccomment">/// A collection of counters that report the progress of a transfer operation.
@@ -4455,58 +4456,58 @@
     <span class="doccomment">/// Objects found in the data source that are scheduled to be transferred,
     /// excluding any that are filtered based on object conditions or skipped due
     /// to sync.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>objects_found_from_source: i64,
     <span class="doccomment">/// Bytes found in the data source that are scheduled to be transferred,
     /// excluding any that are filtered based on object conditions or skipped due
     /// to sync.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>bytes_found_from_source: i64,
     <span class="doccomment">/// Objects found only in the data sink that are scheduled to be deleted.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>objects_found_only_from_sink: i64,
     <span class="doccomment">/// Bytes found only in the data sink that are scheduled to be deleted.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>bytes_found_only_from_sink: i64,
     <span class="doccomment">/// Objects in the data source that are not transferred because they already
     /// exist in the data sink.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>objects_from_source_skipped_by_sync: i64,
     <span class="doccomment">/// Bytes in the data source that are not transferred because they already
     /// exist in the data sink.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>bytes_from_source_skipped_by_sync: i64,
     <span class="doccomment">/// Objects that are copied to the data sink.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>objects_copied_to_sink: i64,
     <span class="doccomment">/// Bytes that are copied to the data sink.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>bytes_copied_to_sink: i64,
     <span class="doccomment">/// Objects that are deleted from the data source.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>objects_deleted_from_source: i64,
     <span class="doccomment">/// Bytes that are deleted from the data source.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>bytes_deleted_from_source: i64,
     <span class="doccomment">/// Objects that are deleted from the data sink.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>objects_deleted_from_sink: i64,
     <span class="doccomment">/// Bytes that are deleted from the data sink.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>bytes_deleted_from_sink: i64,
     <span class="doccomment">/// Objects in the data source that failed to be transferred or that failed
     /// to be deleted after being transferred.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>objects_from_source_failed: i64,
     <span class="doccomment">/// Bytes in the data source that failed to be transferred or that failed to
     /// be deleted after being transferred.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>bytes_from_source_failed: i64,
     <span class="doccomment">/// Objects that failed to be deleted from the data sink.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>objects_failed_to_delete_from_sink: i64,
     <span class="doccomment">/// Bytes that failed to be deleted from the data sink.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>bytes_failed_to_delete_from_sink: i64,
     <span class="doccomment">/// For transfers involving PosixFilesystem only.
     ///
@@ -4514,7 +4515,7 @@
     /// directory of the transfer is `base/` and there are two other directories,
     /// `a/` and `b/` under this directory, the count after listing `base/`,
     /// `base/a/` and `base/b/` is 3.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>directories_found_from_source: i64,
     <span class="doccomment">/// For transfers involving PosixFilesystem only.
     ///
@@ -4522,36 +4523,36 @@
     /// Potential failures when listing a directory include permission failure or
     /// block failure. If listing a directory fails, no files in the directory are
     /// transferred.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>directories_failed_to_list_from_source: i64,
     <span class="doccomment">/// For transfers involving PosixFilesystem only.
     ///
     /// Number of successful listings for each directory found at the source.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>directories_successfully_listed_from_source: i64,
     <span class="doccomment">/// Number of successfully cleaned up intermediate objects.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>intermediate_objects_cleaned_up: i64,
     <span class="doccomment">/// Number of intermediate objects failed cleaned up.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>intermediate_objects_failed_cleaned_up: i64,
 }
 <span class="doccomment">/// Specification to configure notifications published to Pub/Sub.
 /// Notifications are published to the customer-provided topic using the
 /// following `PubsubMessage.attributes`:
 ///
-/// * `&quot;eventType&quot;`: one of the
+/// * `"eventType"`: one of the
 /// [EventType][google.storagetransfer.v1.NotificationConfig.EventType] values
-/// * `&quot;payloadFormat&quot;`: one of the
+/// * `"payloadFormat"`: one of the
 /// [PayloadFormat][google.storagetransfer.v1.NotificationConfig.PayloadFormat]
 /// values
-/// * `&quot;projectId&quot;`: the
+/// * `"projectId"`: the
 /// [project_id][google.storagetransfer.v1.TransferOperation.project_id] of the
 /// `TransferOperation`
-/// * `&quot;transferJobName&quot;`: the
+/// * `"transferJobName"`: the
 /// [transfer_job_name][google.storagetransfer.v1.TransferOperation.transfer_job_name]
 /// of the `TransferOperation`
-/// * `&quot;transferOperationName&quot;`: the
+/// * `"transferOperationName"`: the
 /// [name][google.storagetransfer.v1.TransferOperation.name] of the
 /// `TransferOperation`
 ///
@@ -4565,14 +4566,14 @@
     /// notifications. Must be of the format: `projects/{project}/topics/{topic}`.
     /// Not matching this format results in an
     /// [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT] error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>pubsub_topic: ::prost::alloc::string::String,
     <span class="doccomment">/// Event types for which a notification is desired. If empty, send
     /// notifications for all event types.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;notification_config::EventType&quot;</span>, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"notification_config::EventType"</span>, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>event_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Required. The desired format of the notification message payloads.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;notification_config::PayloadFormat&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"notification_config::PayloadFormat"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>payload_format: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `NotificationConfig`.
@@ -4613,26 +4614,26 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EventType::Unspecified =&gt; <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot;</span>,
-                EventType::TransferOperationSuccess =&gt; <span class="string">&quot;TRANSFER_OPERATION_SUCCESS&quot;</span>,
-                EventType::TransferOperationFailed =&gt; <span class="string">&quot;TRANSFER_OPERATION_FAILED&quot;</span>,
-                EventType::TransferOperationAborted =&gt; <span class="string">&quot;TRANSFER_OPERATION_ABORTED&quot;</span>,
+                EventType::Unspecified =&gt; <span class="string">"EVENT_TYPE_UNSPECIFIED"</span>,
+                EventType::TransferOperationSuccess =&gt; <span class="string">"TRANSFER_OPERATION_SUCCESS"</span>,
+                EventType::TransferOperationFailed =&gt; <span class="string">"TRANSFER_OPERATION_FAILED"</span>,
+                EventType::TransferOperationAborted =&gt; <span class="string">"TRANSFER_OPERATION_ABORTED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;TRANSFER_OPERATION_SUCCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransferOperationSuccess),
-                <span class="string">&quot;TRANSFER_OPERATION_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransferOperationFailed),
-                <span class="string">&quot;TRANSFER_OPERATION_ABORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransferOperationAborted),
+                <span class="string">"EVENT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"TRANSFER_OPERATION_SUCCESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransferOperationSuccess),
+                <span class="string">"TRANSFER_OPERATION_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransferOperationFailed),
+                <span class="string">"TRANSFER_OPERATION_ABORTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransferOperationAborted),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
-    <span class="doccomment">/// Enum for specifying the format of a notification message&#39;s payload.
+    <span class="doccomment">/// Enum for specifying the format of a notification message's payload.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -4660,19 +4661,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                PayloadFormat::Unspecified =&gt; <span class="string">&quot;PAYLOAD_FORMAT_UNSPECIFIED&quot;</span>,
-                PayloadFormat::None =&gt; <span class="string">&quot;NONE&quot;</span>,
-                PayloadFormat::Json =&gt; <span class="string">&quot;JSON&quot;</span>,
+                PayloadFormat::Unspecified =&gt; <span class="string">"PAYLOAD_FORMAT_UNSPECIFIED"</span>,
+                PayloadFormat::None =&gt; <span class="string">"NONE"</span>,
+                PayloadFormat::Json =&gt; <span class="string">"JSON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PAYLOAD_FORMAT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
-                <span class="string">&quot;JSON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Json),
+                <span class="string">"PAYLOAD_FORMAT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+                <span class="string">"JSON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Json),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4697,17 +4698,17 @@
     /// Not supported for transfers with PosixFilesystem data sources; use
     /// [enable_onprem_gcs_transfer_logs][google.storagetransfer.v1.LoggingConfig.enable_onprem_gcs_transfer_logs]
     /// instead.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logging_config::LoggableAction&quot;</span>, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"logging_config::LoggableAction"</span>, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>log_actions: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// States in which `log_actions` are logged. If empty, no logs are generated.
     /// Not supported for transfers with PosixFilesystem data sources; use
     /// [enable_onprem_gcs_transfer_logs][google.storagetransfer.v1.LoggingConfig.enable_onprem_gcs_transfer_logs]
     /// instead.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logging_config::LoggableActionState&quot;</span>, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"logging_config::LoggableActionState"</span>, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>log_action_states: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// For transfers with a PosixFilesystem source, this option enables the Cloud
     /// Storage transfer logs for this transfer.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>enable_onprem_gcs_transfer_logs: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `LoggingConfig`.
@@ -4740,21 +4741,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                LoggableAction::Unspecified =&gt; <span class="string">&quot;LOGGABLE_ACTION_UNSPECIFIED&quot;</span>,
-                LoggableAction::Find =&gt; <span class="string">&quot;FIND&quot;</span>,
-                LoggableAction::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
-                LoggableAction::Copy =&gt; <span class="string">&quot;COPY&quot;</span>,
+                LoggableAction::Unspecified =&gt; <span class="string">"LOGGABLE_ACTION_UNSPECIFIED"</span>,
+                LoggableAction::Find =&gt; <span class="string">"FIND"</span>,
+                LoggableAction::Delete =&gt; <span class="string">"DELETE"</span>,
+                LoggableAction::Copy =&gt; <span class="string">"COPY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;LOGGABLE_ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;FIND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Find),
-                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
-                <span class="string">&quot;COPY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Copy),
+                <span class="string">"LOGGABLE_ACTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"FIND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Find),
+                <span class="string">"DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+                <span class="string">"COPY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Copy),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4787,19 +4788,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                LoggableActionState::Unspecified =&gt; <span class="string">&quot;LOGGABLE_ACTION_STATE_UNSPECIFIED&quot;</span>,
-                LoggableActionState::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                LoggableActionState::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                LoggableActionState::Unspecified =&gt; <span class="string">"LOGGABLE_ACTION_STATE_UNSPECIFIED"</span>,
+                LoggableActionState::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                LoggableActionState::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;LOGGABLE_ACTION_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"LOGGABLE_ACTION_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4810,37 +4811,37 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TransferOperation {
     <span class="doccomment">/// A globally unique ID assigned by the system.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of the Google Cloud project that owns the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Transfer specification.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>transfer_spec: ::core::option::Option&lt;TransferSpec&gt;,
     <span class="doccomment">/// Notification configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>notification_config: ::core::option::Option&lt;NotificationConfig&gt;,
     <span class="doccomment">/// Cloud Logging configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>logging_config: ::core::option::Option&lt;LoggingConfig&gt;,
     <span class="doccomment">/// Start time of this transfer execution.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// End time of this transfer execution.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Status of the transfer operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transfer_operation::Status&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"transfer_operation::Status"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>status: i32,
     <span class="doccomment">/// Information about the progress of the transfer operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>counters: ::core::option::Option&lt;TransferCounters&gt;,
     <span class="doccomment">/// Summarizes errors encountered with sample error log entries.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>error_breakdowns: ::prost::alloc::vec::Vec&lt;ErrorSummary&gt;,
     <span class="doccomment">/// The name of the transfer job that triggers this transfer operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>transfer_job_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `TransferOperation`.
@@ -4881,29 +4882,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Status::Unspecified =&gt; <span class="string">&quot;STATUS_UNSPECIFIED&quot;</span>,
-                Status::InProgress =&gt; <span class="string">&quot;IN_PROGRESS&quot;</span>,
-                Status::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
-                Status::Success =&gt; <span class="string">&quot;SUCCESS&quot;</span>,
-                Status::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                Status::Aborted =&gt; <span class="string">&quot;ABORTED&quot;</span>,
-                Status::Queued =&gt; <span class="string">&quot;QUEUED&quot;</span>,
-                Status::Suspending =&gt; <span class="string">&quot;SUSPENDING&quot;</span>,
+                Status::Unspecified =&gt; <span class="string">"STATUS_UNSPECIFIED"</span>,
+                Status::InProgress =&gt; <span class="string">"IN_PROGRESS"</span>,
+                Status::Paused =&gt; <span class="string">"PAUSED"</span>,
+                Status::Success =&gt; <span class="string">"SUCCESS"</span>,
+                Status::Failed =&gt; <span class="string">"FAILED"</span>,
+                Status::Aborted =&gt; <span class="string">"ABORTED"</span>,
+                Status::Queued =&gt; <span class="string">"QUEUED"</span>,
+                Status::Suspending =&gt; <span class="string">"SUSPENDING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATUS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgress),
-                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
-                <span class="string">&quot;SUCCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Success),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;ABORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aborted),
-                <span class="string">&quot;QUEUED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Queued),
-                <span class="string">&quot;SUSPENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspending),
+                <span class="string">"STATUS_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"IN_PROGRESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgress),
+                <span class="string">"PAUSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
+                <span class="string">"SUCCESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Success),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"ABORTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aborted),
+                <span class="string">"QUEUED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Queued),
+                <span class="string">"SUSPENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspending),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4915,7 +4916,7 @@
 </span><span class="kw">pub struct </span>GetGoogleServiceAccountRequest {
     <span class="doccomment">/// Required. The ID of the Google Cloud project that the Google service
     /// account is associated with.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request passed to CreateTransferJob.
@@ -4923,7 +4924,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateTransferJobRequest {
     <span class="doccomment">/// Required. The job to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transfer_job: ::core::option::Option&lt;TransferJob&gt;,
 }
 <span class="doccomment">/// Request passed to UpdateTransferJob.
@@ -4931,11 +4932,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateTransferJobRequest {
     <span class="doccomment">/// Required. The name of job to update.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>job_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID of the Google Cloud project that owns the
     /// job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The job to update. `transferJob` is expected to specify one or
     /// more of five fields:
@@ -4949,7 +4950,7 @@
     /// job status to
     /// [DELETED][google.storagetransfer.v1.TransferJob.Status.DELETED] requires
     /// `storagetransfer.jobs.delete` permission.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>transfer_job: ::core::option::Option&lt;TransferJob&gt;,
     <span class="doccomment">/// The field mask of the fields in `transferJob` that are to be updated in
     /// this request.  Fields in `transferJob` that can be updated are:
@@ -4962,7 +4963,7 @@
     /// provided. An incomplete specification missing any required fields is
     /// rejected with the error
     /// [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_transfer_job_field_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request passed to GetTransferJob.
@@ -4970,11 +4971,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTransferJobRequest {
     <span class="doccomment">/// Required. The job to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>job_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID of the Google Cloud project that owns the
     /// job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request passed to DeleteTransferJob.
@@ -4982,11 +4983,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteTransferJobRequest {
     <span class="doccomment">/// Required. The job to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>job_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID of the Google Cloud project that owns the
     /// job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// `projectId`, `jobNames`, and `jobStatuses` are query parameters that can
@@ -4995,9 +4996,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTransferJobsRequest {
     <span class="doccomment">/// Required. A list of query parameters specified as JSON text in the form of:
-    /// `{&quot;projectId&quot;:&quot;my_project_id&quot;,
-    ///   &quot;jobNames&quot;:\[&quot;jobid1&quot;,&quot;jobid2&quot;,...\],
-    ///   &quot;jobStatuses&quot;:\[&quot;status1&quot;,&quot;status2&quot;,...\]}`
+    /// `{"projectId":"my_project_id",
+    ///   "jobNames":\["jobid1","jobid2",...\],
+    ///   "jobStatuses":\["status1","status2",...\]}`
     ///
     /// Since `jobNames` and `jobStatuses` support multiple values, their values
     /// must be specified with array notation. `projectId` is required.
@@ -5006,13 +5007,13 @@
     /// [ENABLED][google.storagetransfer.v1.TransferJob.Status.ENABLED],
     /// [DISABLED][google.storagetransfer.v1.TransferJob.Status.DISABLED], and
     /// [DELETED][google.storagetransfer.v1.TransferJob.Status.DELETED].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The list page size. The max allowed value is 256.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The list page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response from ListTransferJobs.
@@ -5020,10 +5021,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTransferJobsResponse {
     <span class="doccomment">/// A list of transfer jobs.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transfer_jobs: ::prost::alloc::vec::Vec&lt;TransferJob&gt;,
     <span class="doccomment">/// The list next page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request passed to PauseTransferOperation.
@@ -5031,7 +5032,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PauseTransferOperationRequest {
     <span class="doccomment">/// Required. The name of the transfer operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request passed to ResumeTransferOperation.
@@ -5039,7 +5040,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResumeTransferOperationRequest {
     <span class="doccomment">/// Required. The name of the transfer operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request passed to RunTransferJob.
@@ -5047,11 +5048,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RunTransferJobRequest {
     <span class="doccomment">/// Required. The name of the transfer job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>job_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID of the Google Cloud project that owns the transfer
     /// job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Specifies the request passed to CreateAgentPool.
@@ -5060,10 +5061,10 @@
 </span><span class="kw">pub struct </span>CreateAgentPoolRequest {
     <span class="doccomment">/// Required. The ID of the Google Cloud project that owns the
     /// agent pool.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The agent pool to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>agent_pool: ::core::option::Option&lt;AgentPool&gt;,
     <span class="doccomment">/// Required. The ID of the agent pool to create.
     ///
@@ -5078,7 +5079,7 @@
     ///
     /// As expressed by the regular expression:
     /// `^(?!goog)[a-z](\[a-z0-9-._~\]*[a-z0-9])?$`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>agent_pool_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Specifies the request passed to UpdateAgentPool.
@@ -5095,7 +5096,7 @@
     /// *  [bandwidth_limit][google.storagetransfer.v1.AgentPool.bandwidth_limit]
     /// An `UpdateAgentPoolRequest` with any other fields is rejected
     /// with the error [INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>agent_pool: ::core::option::Option&lt;AgentPool&gt;,
     <span class="doccomment">/// The \[field mask\]
     /// (&lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf&gt;)
@@ -5105,7 +5106,7 @@
     /// *  [display_name][google.storagetransfer.v1.AgentPool.display_name]
     ///
     /// *  [bandwidth_limit][google.storagetransfer.v1.AgentPool.bandwidth_limit]
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Specifies the request passed to GetAgentPool.
@@ -5113,7 +5114,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetAgentPoolRequest {
     <span class="doccomment">/// Required. The name of the agent pool to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Specifies the request passed to DeleteAgentPool.
@@ -5121,7 +5122,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteAgentPoolRequest {
     <span class="doccomment">/// Required. The name of the agent pool to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request passed to ListAgentPools.
@@ -5129,23 +5130,23 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAgentPoolsRequest {
     <span class="doccomment">/// Required. The ID of the Google Cloud project that owns the job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// An optional list of query parameters specified as JSON text in the
     /// form of:
     ///
-    /// `{&quot;agentPoolNames&quot;:\[&quot;agentpool1&quot;,&quot;agentpool2&quot;,...\]}`
+    /// `{"agentPoolNames":\["agentpool1","agentpool2",...\]}`
     ///
     /// Since `agentPoolNames` support multiple values, its values must be
     /// specified with array notation. When the filter is either empty or not
     /// provided, the list returns all agent pools for the project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The list page size. The max allowed value is `256`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The list page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response from ListAgentPools.
@@ -5153,10 +5154,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAgentPoolsResponse {
     <span class="doccomment">/// A list of agent pools.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>agent_pools: ::prost::alloc::vec::Vec&lt;AgentPool&gt;,
     <span class="doccomment">/// The list next page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -5175,7 +5176,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -5259,19 +5260,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/GetGoogleServiceAccount&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/GetGoogleServiceAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;GetGoogleServiceAccount&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"GetGoogleServiceAccount"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5287,28 +5288,28 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/CreateTransferJob&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/CreateTransferJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;CreateTransferJob&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"CreateTransferJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Updates a transfer job. Updating a job&#39;s transfer spec does not affect
+        <span class="doccomment">/// Updates a transfer job. Updating a job's transfer spec does not affect
         /// transfer operations that are running already.
         ///
-        /// **Note:** The job&#39;s [status][google.storagetransfer.v1.TransferJob.status]
-        /// field can be modified using this RPC (for example, to set a job&#39;s status to
+        /// **Note:** The job's [status][google.storagetransfer.v1.TransferJob.status]
+        /// field can be modified using this RPC (for example, to set a job's status to
         /// [DELETED][google.storagetransfer.v1.TransferJob.Status.DELETED],
         /// [DISABLED][google.storagetransfer.v1.TransferJob.Status.DISABLED], or
         /// [ENABLED][google.storagetransfer.v1.TransferJob.Status.ENABLED]).
@@ -5322,19 +5323,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/UpdateTransferJob&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/UpdateTransferJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;UpdateTransferJob&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"UpdateTransferJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5350,19 +5351,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/GetTransferJob&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/GetTransferJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;GetTransferJob&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"GetTransferJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5381,19 +5382,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/ListTransferJobs&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/ListTransferJobs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;ListTransferJobs&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"ListTransferJobs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5409,19 +5410,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/PauseTransferOperation&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/PauseTransferOperation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;PauseTransferOperation&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"PauseTransferOperation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5437,19 +5438,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/ResumeTransferOperation&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/ResumeTransferOperation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;ResumeTransferOperation&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"ResumeTransferOperation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5471,19 +5472,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/RunTransferJob&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/RunTransferJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;RunTransferJob&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"RunTransferJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5500,19 +5501,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/DeleteTransferJob&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/DeleteTransferJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;DeleteTransferJob&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"DeleteTransferJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5528,19 +5529,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/CreateAgentPool&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/CreateAgentPool"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;CreateAgentPool&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"CreateAgentPool"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5556,19 +5557,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/UpdateAgentPool&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/UpdateAgentPool"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;UpdateAgentPool&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"UpdateAgentPool"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5584,19 +5585,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/GetAgentPool&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/GetAgentPool"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;GetAgentPool&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"GetAgentPool"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5615,19 +5616,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/ListAgentPools&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/ListAgentPools"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;ListAgentPools&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"ListAgentPools"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5643,19 +5644,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storagetransfer.v1.StorageTransferService/DeleteAgentPool&quot;</span>,
+                <span class="string">"/google.storagetransfer.v1.StorageTransferService/DeleteAgentPool"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storagetransfer.v1.StorageTransferService&quot;</span>,
-                        <span class="string">&quot;DeleteAgentPool&quot;</span>,
+                        <span class="string">"google.storagetransfer.v1.StorageTransferService"</span>,
+                        <span class="string">"DeleteAgentPool"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/confidentialcomputing/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/confidentialcomputing/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -406,20 +407,20 @@
 </span><span class="kw">pub struct </span>Challenge {
     <span class="doccomment">/// Output only. The resource name for this Challenge in the format
     /// `projects/*/locations/*/challenges/*`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time at which this Challenge was created
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time at which this Challenge will no longer be usable. It
     /// is also the expiration time for any tokens generated from this Challenge.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Indicates if this challenge has been used to generate a token.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>used: bool,
     <span class="doccomment">/// Output only. Identical to nonce, but as a string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>tpm_nonce: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for creating a Challenge
@@ -428,11 +429,11 @@
 </span><span class="kw">pub struct </span>CreateChallengeRequest {
     <span class="doccomment">/// Required. The resource name of the location where the Challenge will be
     /// used, in the format `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Challenge to be created. Currently this field can be empty as
     /// all the Challenge fields are set by the server.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>challenge: ::core::option::Option&lt;Challenge&gt;,
 }
 <span class="doccomment">/// A request for an OIDC token, providing all the necessary information needed
@@ -443,22 +444,22 @@
     <span class="doccomment">/// Required. The name of the Challenge whose nonce was used to generate the
     /// attestation, in the format `projects/*/locations/*/challenges/*`. The
     /// provided Challenge will be consumed, and cannot be used again.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>challenge: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Credentials used to populate the &quot;emails&quot; claim in the
+    <span class="doccomment">/// Optional. Credentials used to populate the "emails" claim in the
     /// claims_token.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gcp_credentials: ::core::option::Option&lt;GcpCredentials&gt;,
     <span class="doccomment">/// Required. The TPM-specific data provided by the attesting platform, used to
     /// populate any of the claims regarding platform state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>tpm_attestation: ::core::option::Option&lt;TpmAttestation&gt;,
     <span class="doccomment">/// Optional. Optional information related to the Confidential Space TEE.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>confidential_space_info: ::core::option::Option&lt;ConfidentialSpaceInfo&gt;,
     <span class="doccomment">/// Optional. A collection of optional, workload-specified claims that modify
     /// the token output.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>token_options: ::core::option::Option&lt;TokenOptions&gt;,
 }
 <span class="doccomment">/// A response once an attestation has been successfully verified, containing a
@@ -467,11 +468,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VerifyAttestationResponse {
     <span class="doccomment">/// Output only. Same as claims_token, but as a string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>oidc_claims_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A list of messages that carry the partial error details
     /// related to VerifyAttestation.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>partial_errors: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// Credentials issued by GCP which are linked to the platform attestation. These
@@ -480,7 +481,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GcpCredentials {
     <span class="doccomment">/// Same as id_tokens, but as a string.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service_account_id_tokens: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
@@ -491,15 +492,15 @@
 </span><span class="kw">pub struct </span>TokenOptions {
     <span class="doccomment">/// Optional. Optional string to issue the token with a custom audience claim.
     /// Required if one or more nonces are specified.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>audience: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Optional parameter to place one or more nonces in the eat_nonce
     /// claim in the output token. The minimum size for JSON-encoded EATs is 10
     /// bytes and the maximum size is 74 bytes.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>nonce: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. Optional token type to select what type of token to return.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TokenType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TokenType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>token_type: i32,
 }
 <span class="doccomment">/// TPM2 data containing everything necessary to validate any platform state
@@ -508,25 +509,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TpmAttestation {
     <span class="doccomment">/// TPM2 PCR Quotes generated by calling TPM2_Quote on each PCR bank.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>quotes: ::prost::alloc::vec::Vec&lt;tpm_attestation::Quote&gt;,
     <span class="doccomment">/// The binary TCG Event Log containing events measured into the TPM by the
     /// platform firmware and operating system. Formatted as described in the
-    /// &quot;TCG PC Client Platform Firmware Profile Specification&quot;.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    /// "TCG PC Client Platform Firmware Profile Specification".
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>tcg_event_log: ::prost::bytes::Bytes,
     <span class="doccomment">/// An Event Log containing additional events measured into the TPM that are
     /// not already present in the tcg_event_log. Formatted as described in the
-    /// &quot;Canonical Event Log Format&quot; TCG Specification.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    /// "Canonical Event Log Format" TCG Specification.
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>canonical_event_log: ::prost::bytes::Bytes,
     <span class="doccomment">/// DER-encoded X.509 certificate of the Attestation Key (otherwise known as
     /// an AK or a TPM restricted signing key) used to generate the quotes.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>ak_cert: ::prost::bytes::Bytes,
     <span class="doccomment">/// List of DER-encoded X.509 certificates which, together with the ak_cert,
     /// chain back to a trusted Root Certificate.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>cert_chain: ::prost::alloc::vec::Vec&lt;::prost::bytes::Bytes&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TpmAttestation`.
@@ -537,19 +538,19 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Quote {
         <span class="doccomment">/// The hash algorithm of the PCR bank being quoted, encoded as a TPM_ALG_ID
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>hash_algo: i32,
         <span class="doccomment">/// Raw binary values of each PCRs being quoted.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;int32, bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(btree_map = <span class="string">"int32, bytes"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>pcr_values: ::prost::alloc::collections::BTreeMap&lt;
             i32,
             ::prost::bytes::Bytes,
         &gt;,
         <span class="doccomment">/// TPM2 quote, encoded as a TPMS_ATTEST
-        </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>raw_quote: ::prost::bytes::Bytes,
         <span class="doccomment">/// TPM2 signature, encoded as a TPMT_SIGNATURE
-        </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>raw_signature: ::prost::bytes::Bytes,
     }
 }
@@ -560,7 +561,7 @@
 </span><span class="kw">pub struct </span>ConfidentialSpaceInfo {
     <span class="doccomment">/// Optional. A list of signed entities containing container image signatures
     /// that can be used for server-side signature verification.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>signed_entities: ::prost::alloc::vec::Vec&lt;SignedEntity&gt;,
 }
 <span class="doccomment">/// SignedEntity represents an OCI image object containing everything necessary
@@ -570,7 +571,7 @@
 </span><span class="kw">pub struct </span>SignedEntity {
     <span class="doccomment">/// Optional. A list of container image signatures attached to an OCI image
     /// object.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>container_image_signatures: ::prost::alloc::vec::Vec&lt;ContainerImageSignature&gt;,
 }
 <span class="doccomment">/// ContainerImageSignature holds necessary metadata to verify a container image
@@ -581,7 +582,7 @@
     <span class="doccomment">/// Optional. The binary signature payload following the SimpleSigning format
     /// &lt;https://github.com/sigstore/cosign/blob/main/specs/SIGNATURE_SPEC.md#simple-signing.&gt;
     /// This payload includes the container image digest.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>payload: ::prost::bytes::Bytes,
     <span class="doccomment">/// Optional. A signature over the payload.
     /// The container image digest is incorporated into the signature as follows:
@@ -590,13 +591,13 @@
     /// 2. Generate a signature over SHA256 digest of the payload.
     /// The signature generation process can be represented as follows:
     /// `Sign(sha256(SimpleSigningPayload(sha256(Image Manifest))))`
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>signature: ::prost::bytes::Bytes,
     <span class="doccomment">/// Optional. Reserved for future use.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>public_key: ::prost::bytes::Bytes,
     <span class="doccomment">/// Optional. Reserved for future use.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SigningAlgorithm&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"SigningAlgorithm"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>sig_alg: i32,
 }
 <span class="doccomment">/// SigningAlgorithm enumerates all the supported signing algorithms.
@@ -617,21 +618,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            SigningAlgorithm::Unspecified =&gt; <span class="string">&quot;SIGNING_ALGORITHM_UNSPECIFIED&quot;</span>,
-            SigningAlgorithm::RsassaPssSha256 =&gt; <span class="string">&quot;RSASSA_PSS_SHA256&quot;</span>,
-            SigningAlgorithm::RsassaPkcs1v15Sha256 =&gt; <span class="string">&quot;RSASSA_PKCS1V15_SHA256&quot;</span>,
-            SigningAlgorithm::EcdsaP256Sha256 =&gt; <span class="string">&quot;ECDSA_P256_SHA256&quot;</span>,
+            SigningAlgorithm::Unspecified =&gt; <span class="string">"SIGNING_ALGORITHM_UNSPECIFIED"</span>,
+            SigningAlgorithm::RsassaPssSha256 =&gt; <span class="string">"RSASSA_PSS_SHA256"</span>,
+            SigningAlgorithm::RsassaPkcs1v15Sha256 =&gt; <span class="string">"RSASSA_PKCS1V15_SHA256"</span>,
+            SigningAlgorithm::EcdsaP256Sha256 =&gt; <span class="string">"ECDSA_P256_SHA256"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;SIGNING_ALGORITHM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;RSASSA_PSS_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsassaPssSha256),
-            <span class="string">&quot;RSASSA_PKCS1V15_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsassaPkcs1v15Sha256),
-            <span class="string">&quot;ECDSA_P256_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EcdsaP256Sha256),
+            <span class="string">"SIGNING_ALGORITHM_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"RSASSA_PSS_SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsassaPssSha256),
+            <span class="string">"RSASSA_PKCS1V15_SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsassaPkcs1v15Sha256),
+            <span class="string">"ECDSA_P256_SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EcdsaP256Sha256),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -651,17 +652,17 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            TokenType::Unspecified =&gt; <span class="string">&quot;TOKEN_TYPE_UNSPECIFIED&quot;</span>,
-            TokenType::Oidc =&gt; <span class="string">&quot;TOKEN_TYPE_OIDC&quot;</span>,
+            TokenType::Unspecified =&gt; <span class="string">"TOKEN_TYPE_UNSPECIFIED"</span>,
+            TokenType::Oidc =&gt; <span class="string">"TOKEN_TYPE_OIDC"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;TOKEN_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;TOKEN_TYPE_OIDC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Oidc),
+            <span class="string">"TOKEN_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"TOKEN_TYPE_OIDC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Oidc),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -680,7 +681,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -752,19 +753,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.confidentialcomputing.v1.ConfidentialComputing/CreateChallenge&quot;</span>,
+                <span class="string">"/google.cloud.confidentialcomputing.v1.ConfidentialComputing/CreateChallenge"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.confidentialcomputing.v1.ConfidentialComputing&quot;</span>,
-                        <span class="string">&quot;CreateChallenge&quot;</span>,
+                        <span class="string">"google.cloud.confidentialcomputing.v1.ConfidentialComputing"</span>,
+                        <span class="string">"CreateChallenge"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -783,19 +784,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.confidentialcomputing.v1.ConfidentialComputing/VerifyAttestation&quot;</span>,
+                <span class="string">"/google.cloud.confidentialcomputing.v1.ConfidentialComputing/VerifyAttestation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.confidentialcomputing.v1.ConfidentialComputing&quot;</span>,
-                        <span class="string">&quot;VerifyAttestation&quot;</span>,
+                        <span class="string">"google.cloud.confidentialcomputing.v1.ConfidentialComputing"</span>,
+                        <span class="string">"VerifyAttestation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

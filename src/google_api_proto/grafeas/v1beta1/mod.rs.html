@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/grafeas/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/grafeas/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1054,33 +1055,33 @@
 <a href="#1054" id="1054">1054</a>
 <a href="#1055" id="1055">1055</a>
 <a href="#1056" id="1056">1056</a>
-</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;grafeas-v1beta1-attestation&quot;</span>))]
+</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">"grafeas-v1beta1-attestation"</span>))]
 </span><span class="kw">pub mod </span>attestation;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;grafeas-v1beta1-build&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"grafeas-v1beta1-build"</span>))]
 </span><span class="kw">pub mod </span>build;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;grafeas-v1beta1-deployment&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"grafeas-v1beta1-deployment"</span>))]
 </span><span class="kw">pub mod </span>deployment;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;grafeas-v1beta1-discovery&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"grafeas-v1beta1-discovery"</span>))]
 </span><span class="kw">pub mod </span>discovery;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;grafeas-v1beta1-image&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"grafeas-v1beta1-image"</span>))]
 </span><span class="kw">pub mod </span>image;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;grafeas-v1beta1-package&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"grafeas-v1beta1-package"</span>))]
 </span><span class="kw">pub mod </span>package;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;grafeas-v1beta1-provenance&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"grafeas-v1beta1-provenance"</span>))]
 </span><span class="kw">pub mod </span>provenance;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;grafeas-v1beta1-source&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"grafeas-v1beta1-source"</span>))]
 </span><span class="kw">pub mod </span>source;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;grafeas-v1beta1-vulnerability&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"grafeas-v1beta1-vulnerability"</span>))]
 </span><span class="kw">pub mod </span>vulnerability;
 <span class="doccomment">/// Metadata for any related URL information.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RelatedUrl {
     <span class="doccomment">/// Specific URL associated with the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
     <span class="doccomment">/// Label to describe usage of the URL.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Verifiers (e.g. Kritis implementations) MUST verify signatures
@@ -1099,9 +1100,9 @@
 ///    * The public key that `public_key_id` refers to does not verify the
 ///      signature with respect to the payload.
 ///
-/// The `signature` contents SHOULD NOT be &quot;attached&quot; (where the payload is
+/// The `signature` contents SHOULD NOT be "attached" (where the payload is
 /// included with the serialized `signature` bytes). Verifiers MUST ignore any
-/// &quot;attached&quot; payload and only verify signatures with respect to explicitly
+/// "attached" payload and only verify signatures with respect to explicitly
 /// provided payload (e.g. a `payload` field on the proto message that holds
 /// this Signature, or the canonical serialization of the proto message that
 /// holds this signature).
@@ -1114,7 +1115,7 @@
     /// the payload explicitly. Alternatively, a message might have a canonical
     /// serialization that can always be unambiguously computed to derive the
     /// payload.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>signature: ::prost::bytes::Bytes,
     <span class="doccomment">/// The identifier for the public key that verifies this signature.
     ///    * The `public_key_id` is required.
@@ -1125,15 +1126,15 @@
     /// Examples of valid `public_key_id`s:
     ///
     /// OpenPGP V4 public key fingerprint:
-    ///    * &quot;openpgp4fpr:74FAF3B861BDA0870C7B6DEF607E48D2A663AEEA&quot;
+    ///    * "openpgp4fpr:74FAF3B861BDA0870C7B6DEF607E48D2A663AEEA"
     /// See &lt;https://www.iana.org/assignments/uri-schemes/prov/openpgp4fpr&gt; for more
     /// details on this scheme.
     ///
     /// RFC6920 digest-named SubjectPublicKeyInfo (digest of the DER
     /// serialization):
-    ///    * &quot;ni:///sha-256;cD9o9Cq6LG3jD0iKXqEi_vdjJGecm_iXkbqVoScViaU&quot;
-    ///    * &quot;nih:///sha-256;703f68f42aba2c6de30f488a5ea122fef76324679c9bf89791ba95a1271589a5&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    ///    * "ni:///sha-256;cD9o9Cq6LG3jD0iKXqEi_vdjJGecm_iXkbqVoScViaU"
+    ///    * "nih:///sha-256;703f68f42aba2c6de30f488a5ea122fef76324679c9bf89791ba95a1271589a5"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>public_key_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Kind represents the kinds of notes supported.
@@ -1154,7 +1155,7 @@
     </span>Deployment = <span class="number">5</span>,
     <span class="doccomment">/// The note and occurrence track the initial discovery status of a resource.
     </span>Discovery = <span class="number">6</span>,
-    <span class="doccomment">/// This represents a logical &quot;role&quot; that can attest to artifacts.
+    <span class="doccomment">/// This represents a logical "role" that can attest to artifacts.
     </span>Attestation = <span class="number">7</span>,
 }
 <span class="kw">impl </span>NoteKind {
@@ -1162,29 +1163,29 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            NoteKind::Unspecified =&gt; <span class="string">&quot;NOTE_KIND_UNSPECIFIED&quot;</span>,
-            NoteKind::Vulnerability =&gt; <span class="string">&quot;VULNERABILITY&quot;</span>,
-            NoteKind::Build =&gt; <span class="string">&quot;BUILD&quot;</span>,
-            NoteKind::Image =&gt; <span class="string">&quot;IMAGE&quot;</span>,
-            NoteKind::Package =&gt; <span class="string">&quot;PACKAGE&quot;</span>,
-            NoteKind::Deployment =&gt; <span class="string">&quot;DEPLOYMENT&quot;</span>,
-            NoteKind::Discovery =&gt; <span class="string">&quot;DISCOVERY&quot;</span>,
-            NoteKind::Attestation =&gt; <span class="string">&quot;ATTESTATION&quot;</span>,
+            NoteKind::Unspecified =&gt; <span class="string">"NOTE_KIND_UNSPECIFIED"</span>,
+            NoteKind::Vulnerability =&gt; <span class="string">"VULNERABILITY"</span>,
+            NoteKind::Build =&gt; <span class="string">"BUILD"</span>,
+            NoteKind::Image =&gt; <span class="string">"IMAGE"</span>,
+            NoteKind::Package =&gt; <span class="string">"PACKAGE"</span>,
+            NoteKind::Deployment =&gt; <span class="string">"DEPLOYMENT"</span>,
+            NoteKind::Discovery =&gt; <span class="string">"DISCOVERY"</span>,
+            NoteKind::Attestation =&gt; <span class="string">"ATTESTATION"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;NOTE_KIND_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;VULNERABILITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Vulnerability),
-            <span class="string">&quot;BUILD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Build),
-            <span class="string">&quot;IMAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Image),
-            <span class="string">&quot;PACKAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Package),
-            <span class="string">&quot;DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deployment),
-            <span class="string">&quot;DISCOVERY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Discovery),
-            <span class="string">&quot;ATTESTATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Attestation),
+            <span class="string">"NOTE_KIND_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"VULNERABILITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Vulnerability),
+            <span class="string">"BUILD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Build),
+            <span class="string">"IMAGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Image),
+            <span class="string">"PACKAGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Package),
+            <span class="string">"DEPLOYMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deployment),
+            <span class="string">"DISCOVERY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Discovery),
+            <span class="string">"ATTESTATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Attestation),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1195,32 +1196,32 @@
 </span><span class="kw">pub struct </span>Occurrence {
     <span class="doccomment">/// Output only. The name of the occurrence in the form of
     /// `projects/\[PROJECT_ID\]/occurrences/\[OCCURRENCE_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Immutable. The resource for which the occurrence applies.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Resource&gt;,
     <span class="doccomment">/// Required. Immutable. The analysis note associated with this occurrence, in
     /// the form of `projects/\[PROVIDER_ID\]/notes/\[NOTE_ID\]`. This field can be
     /// used as a filter in list requests.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>note_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. This explicitly denotes which of the occurrence details are
     /// specified. This field can be used as a filter in list requests.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;NoteKind&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"NoteKind"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>kind: i32,
     <span class="doccomment">/// A description of actions that can be taken to remedy the note.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>remediation: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time this occurrence was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time this occurrence was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. Immutable. Describes the details of the note kind found on this
     /// resource.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;occurrence::Details&quot;</span>, tags = <span class="string">&quot;8, 9, 10, 11, 12, 13, 14&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"occurrence::Details"</span>, tags = <span class="string">"8, 9, 10, 11, 12, 13, 14"</span>)]
     </span><span class="kw">pub </span>details: ::core::option::Option&lt;occurrence::Details&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Occurrence`.
@@ -1231,26 +1232,26 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Details {
         <span class="doccomment">/// Describes a security vulnerability.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>Vulnerability(<span class="kw">super</span>::vulnerability::Details),
         <span class="doccomment">/// Describes a verifiable build.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>Build(<span class="kw">super</span>::build::Details),
         <span class="doccomment">/// Describes how this resource derives from the basis in the associated
         /// note.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>DerivedImage(<span class="kw">super</span>::image::Details),
         <span class="doccomment">/// Describes the installation of a package on the linked resource.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"11"</span>)]
         </span>Installation(<span class="kw">super</span>::package::Details),
         <span class="doccomment">/// Describes the deployment of an artifact on a runtime.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"12"</span>)]
         </span>Deployment(<span class="kw">super</span>::deployment::Details),
         <span class="doccomment">/// Describes when a resource was discovered.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"13"</span>)]
         </span>Discovered(<span class="kw">super</span>::discovery::Details),
         <span class="doccomment">/// Describes an attestation of an artifact.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"14"</span>)]
         </span>Attestation(<span class="kw">super</span>::attestation::Details),
     }
 }
@@ -1259,15 +1260,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Resource {
     <span class="doccomment">/// The name of the resource. For example, the name of a Docker image -
-    /// &quot;Debian&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "Debian".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The unique URI of the resource. For example,
     /// `&lt;https://gcr.io/project/image@sha256:foo`&gt; for a Docker image.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// The hash of the resource content. For example, the Docker digest.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>content_hash: ::core::option::Option&lt;provenance::Hash&gt;,
 }
 <span class="doccomment">/// A type of analysis that can be done for a resource.
@@ -1276,37 +1277,37 @@
 </span><span class="kw">pub struct </span>Note {
     <span class="doccomment">/// Output only. The name of the note in the form of
     /// `projects/\[PROVIDER_ID\]/notes/\[NOTE_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A one sentence description of this note.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>short_description: ::prost::alloc::string::String,
     <span class="doccomment">/// A detailed description of this note.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>long_description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The type of analysis. This field can be used as a filter in
     /// list requests.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;NoteKind&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"NoteKind"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>kind: i32,
     <span class="doccomment">/// URLs associated with this note.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>related_url: ::prost::alloc::vec::Vec&lt;RelatedUrl&gt;,
     <span class="doccomment">/// Time of expiration for this note. Empty if note does not expire.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>expiration_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time this note was created. This field can be used as a
     /// filter in list requests.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time this note was last updated. This field can be used as
     /// a filter in list requests.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Other notes related to this note.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>related_note_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Required. Immutable. The type of analysis this note represents.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;note::Type&quot;</span>, tags = <span class="string">&quot;10, 11, 12, 13, 14, 15, 16&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"note::Type"</span>, tags = <span class="string">"10, 11, 12, 13, 14, 15, 16"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;note::Type&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Note`.
@@ -1316,25 +1317,25 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Type {
         <span class="doccomment">/// A note describing a package vulnerability.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>Vulnerability(<span class="kw">super</span>::vulnerability::Vulnerability),
         <span class="doccomment">/// A note describing build provenance for a verifiable build.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"11"</span>)]
         </span>Build(<span class="kw">super</span>::build::Build),
         <span class="doccomment">/// A note describing a base image.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"12"</span>)]
         </span>BaseImage(<span class="kw">super</span>::image::Basis),
         <span class="doccomment">/// A note describing a package hosted by various package managers.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"13"</span>)]
         </span>Package(<span class="kw">super</span>::package::Package),
         <span class="doccomment">/// A note describing something that can be deployed.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"14"</span>)]
         </span>Deployable(<span class="kw">super</span>::deployment::Deployable),
         <span class="doccomment">/// A note describing the initial analysis of a resource.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;15&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"15"</span>)]
         </span>Discovery(<span class="kw">super</span>::discovery::Discovery),
         <span class="doccomment">/// A note describing an attestation role.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;16&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"16"</span>)]
         </span>AttestationAuthority(<span class="kw">super</span>::attestation::Authority),
     }
 }
@@ -1344,7 +1345,7 @@
 </span><span class="kw">pub struct </span>GetOccurrenceRequest {
     <span class="doccomment">/// The name of the occurrence in the form of
     /// `projects/\[PROJECT_ID\]/occurrences/\[OCCURRENCE_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to list occurrences.
@@ -1353,16 +1354,16 @@
 </span><span class="kw">pub struct </span>ListOccurrencesRequest {
     <span class="doccomment">/// The name of the project to list occurrences for in the form of
     /// `projects/\[PROJECT_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The filter expression.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of occurrences to return in the list.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token to provide to skip to a particular spot in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for listing occurrences.
@@ -1370,12 +1371,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListOccurrencesResponse {
     <span class="doccomment">/// The occurrences requested.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>occurrences: ::prost::alloc::vec::Vec&lt;Occurrence&gt;,
     <span class="doccomment">/// The next pagination token in the list response. It should be used as
     /// `page_token` for the following request. An empty value means no more
     /// results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to delete a occurrence.
@@ -1384,7 +1385,7 @@
 </span><span class="kw">pub struct </span>DeleteOccurrenceRequest {
     <span class="doccomment">/// The name of the occurrence in the form of
     /// `projects/\[PROJECT_ID\]/occurrences/\[OCCURRENCE_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to create a new occurrence.
@@ -1393,10 +1394,10 @@
 </span><span class="kw">pub struct </span>CreateOccurrenceRequest {
     <span class="doccomment">/// The name of the project in the form of `projects/\[PROJECT_ID\]`, under which
     /// the occurrence is to be created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The occurrence to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>occurrence: ::core::option::Option&lt;Occurrence&gt;,
 }
 <span class="doccomment">/// Request to update an occurrence.
@@ -1405,13 +1406,13 @@
 </span><span class="kw">pub struct </span>UpdateOccurrenceRequest {
     <span class="doccomment">/// The name of the occurrence in the form of
     /// `projects/\[PROJECT_ID\]/occurrences/\[OCCURRENCE_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The updated occurrence.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>occurrence: ::core::option::Option&lt;Occurrence&gt;,
     <span class="doccomment">/// The fields to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request to get a note.
@@ -1420,7 +1421,7 @@
 </span><span class="kw">pub struct </span>GetNoteRequest {
     <span class="doccomment">/// The name of the note in the form of
     /// `projects/\[PROVIDER_ID\]/notes/\[NOTE_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to get the note to which the specified occurrence is attached.
@@ -1429,7 +1430,7 @@
 </span><span class="kw">pub struct </span>GetOccurrenceNoteRequest {
     <span class="doccomment">/// The name of the occurrence in the form of
     /// `projects/\[PROJECT_ID\]/occurrences/\[OCCURRENCE_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to list notes.
@@ -1438,16 +1439,16 @@
 </span><span class="kw">pub struct </span>ListNotesRequest {
     <span class="doccomment">/// The name of the project to list notes for in the form of
     /// `projects/\[PROJECT_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The filter expression.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of notes to return in the list.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token to provide to skip to a particular spot in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for listing notes.
@@ -1455,12 +1456,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListNotesResponse {
     <span class="doccomment">/// The notes requested.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>notes: ::prost::alloc::vec::Vec&lt;Note&gt;,
     <span class="doccomment">/// The next pagination token in the list response. It should be used as
     /// `page_token` for the following request. An empty value means no more
     /// results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to delete a note.
@@ -1469,7 +1470,7 @@
 </span><span class="kw">pub struct </span>DeleteNoteRequest {
     <span class="doccomment">/// The name of the note in the form of
     /// `projects/\[PROVIDER_ID\]/notes/\[NOTE_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to create a new note.
@@ -1478,13 +1479,13 @@
 </span><span class="kw">pub struct </span>CreateNoteRequest {
     <span class="doccomment">/// The name of the project in the form of `projects/\[PROJECT_ID\]`, under which
     /// the note is to be created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID to use for this note.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>note_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The note to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>note: ::core::option::Option&lt;Note&gt;,
 }
 <span class="doccomment">/// Request to update a note.
@@ -1493,13 +1494,13 @@
 </span><span class="kw">pub struct </span>UpdateNoteRequest {
     <span class="doccomment">/// The name of the note in the form of
     /// `projects/\[PROVIDER_ID\]/notes/\[NOTE_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The updated note.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>note: ::core::option::Option&lt;Note&gt;,
     <span class="doccomment">/// The fields to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request to list occurrences for a note.
@@ -1508,16 +1509,16 @@
 </span><span class="kw">pub struct </span>ListNoteOccurrencesRequest {
     <span class="doccomment">/// The name of the note to list occurrences for in the form of
     /// `projects/\[PROVIDER_ID\]/notes/\[NOTE_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The filter expression.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of occurrences to return in the list.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token to provide to skip to a particular spot in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for listing occurrences for a note.
@@ -1525,10 +1526,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListNoteOccurrencesResponse {
     <span class="doccomment">/// The occurrences attached to the specified note.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>occurrences: ::prost::alloc::vec::Vec&lt;Occurrence&gt;,
     <span class="doccomment">/// Token to provide to skip to a particular spot in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to create notes in batch.
@@ -1537,10 +1538,10 @@
 </span><span class="kw">pub struct </span>BatchCreateNotesRequest {
     <span class="doccomment">/// The name of the project in the form of `projects/\[PROJECT_ID\]`, under which
     /// the notes are to be created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The notes to create.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>notes: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         Note,
@@ -1551,7 +1552,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCreateNotesResponse {
     <span class="doccomment">/// The notes that were created.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>notes: ::prost::alloc::vec::Vec&lt;Note&gt;,
 }
 <span class="doccomment">/// Request to create occurrences in batch.
@@ -1560,10 +1561,10 @@
 </span><span class="kw">pub struct </span>BatchCreateOccurrencesRequest {
     <span class="doccomment">/// The name of the project in the form of `projects/\[PROJECT_ID\]`, under which
     /// the occurrences are to be created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The occurrences to create.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>occurrences: ::prost::alloc::vec::Vec&lt;Occurrence&gt;,
 }
 <span class="doccomment">/// Response for creating occurrences in batch.
@@ -1571,7 +1572,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCreateOccurrencesResponse {
     <span class="doccomment">/// The occurrences that were created.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>occurrences: ::prost::alloc::vec::Vec&lt;Occurrence&gt;,
 }
 <span class="doccomment">/// Request to get a vulnerability summary for some set of occurrences.
@@ -1580,10 +1581,10 @@
 </span><span class="kw">pub struct </span>GetVulnerabilityOccurrencesSummaryRequest {
     <span class="doccomment">/// The name of the project to get a vulnerability summary for in the form of
     /// `projects/\[PROJECT_ID\]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The filter expression.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A summary of how many vulnerability occurrences there are per resource and
@@ -1592,7 +1593,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VulnerabilityOccurrencesSummary {
     <span class="doccomment">/// A listing by resource of the number of fixable and total vulnerabilities.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>counts: ::prost::alloc::vec::Vec&lt;
         vulnerability_occurrences_summary::FixableTotalByDigest,
     &gt;,
@@ -1604,17 +1605,17 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>FixableTotalByDigest {
         <span class="doccomment">/// The affected resource.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>resource: ::core::option::Option&lt;<span class="kw">super</span>::Resource&gt;,
         <span class="doccomment">/// The severity for this count. SEVERITY_UNSPECIFIED indicates total across
         /// all severities.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::vulnerability::Severity&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::vulnerability::Severity"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>severity: i32,
         <span class="doccomment">/// The number of fixable vulnerabilities associated with this resource.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>fixable_count: i64,
         <span class="doccomment">/// The total number of vulnerabilities associated with this resource.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>total_count: i64,
     }
 }
@@ -1645,7 +1646,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1717,17 +1718,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/GetOccurrence&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/GetOccurrence"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>, <span class="string">&quot;GetOccurrence&quot;</span>),
+                    GrpcMethod::new(<span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>, <span class="string">"GetOccurrence"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -1745,17 +1746,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/ListOccurrences&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/ListOccurrences"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>, <span class="string">&quot;ListOccurrences&quot;</span>),
+                    GrpcMethod::new(<span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>, <span class="string">"ListOccurrences"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -1772,17 +1773,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/DeleteOccurrence&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/DeleteOccurrence"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>, <span class="string">&quot;DeleteOccurrence&quot;</span>),
+                    GrpcMethod::new(<span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>, <span class="string">"DeleteOccurrence"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -1797,17 +1798,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/CreateOccurrence&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/CreateOccurrence"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>, <span class="string">&quot;CreateOccurrence&quot;</span>),
+                    GrpcMethod::new(<span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>, <span class="string">"CreateOccurrence"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -1825,19 +1826,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/BatchCreateOccurrences&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/BatchCreateOccurrences"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>,
-                        <span class="string">&quot;BatchCreateOccurrences&quot;</span>,
+                        <span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>,
+                        <span class="string">"BatchCreateOccurrences"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1853,17 +1854,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/UpdateOccurrence&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/UpdateOccurrence"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>, <span class="string">&quot;UpdateOccurrence&quot;</span>),
+                    GrpcMethod::new(<span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>, <span class="string">"UpdateOccurrence"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -1879,19 +1880,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/GetOccurrenceNote&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/GetOccurrenceNote"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>,
-                        <span class="string">&quot;GetOccurrenceNote&quot;</span>,
+                        <span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>,
+                        <span class="string">"GetOccurrenceNote"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1907,16 +1908,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/GetNote&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/GetNote"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>, <span class="string">&quot;GetNote&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>, <span class="string">"GetNote"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Lists notes for the specified project.
@@ -1933,16 +1934,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/ListNotes&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/ListNotes"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>, <span class="string">&quot;ListNotes&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>, <span class="string">"ListNotes"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Deletes the specified note.
@@ -1956,16 +1957,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/DeleteNote&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/DeleteNote"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>, <span class="string">&quot;DeleteNote&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>, <span class="string">"DeleteNote"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates a new note.
@@ -1979,16 +1980,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/CreateNote&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/CreateNote"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>, <span class="string">&quot;CreateNote&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>, <span class="string">"CreateNote"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates new notes in batch.
@@ -2005,17 +2006,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/BatchCreateNotes&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/BatchCreateNotes"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>, <span class="string">&quot;BatchCreateNotes&quot;</span>),
+                    GrpcMethod::new(<span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>, <span class="string">"BatchCreateNotes"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2030,16 +2031,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/UpdateNote&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/UpdateNote"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>, <span class="string">&quot;UpdateNote&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>, <span class="string">"UpdateNote"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Lists occurrences referencing the specified note. Provider projects can use
@@ -2058,19 +2059,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/ListNoteOccurrences&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/ListNoteOccurrences"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>,
-                        <span class="string">&quot;ListNoteOccurrences&quot;</span>,
+                        <span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>,
+                        <span class="string">"ListNoteOccurrences"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2091,19 +2092,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/grafeas.v1beta1.GrafeasV1Beta1/GetVulnerabilityOccurrencesSummary&quot;</span>,
+                <span class="string">"/grafeas.v1beta1.GrafeasV1Beta1/GetVulnerabilityOccurrencesSummary"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;grafeas.v1beta1.GrafeasV1Beta1&quot;</span>,
-                        <span class="string">&quot;GetVulnerabilityOccurrencesSummary&quot;</span>,
+                        <span class="string">"grafeas.v1beta1.GrafeasV1Beta1"</span>,
+                        <span class="string">"GetVulnerabilityOccurrencesSummary"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/storage/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/storage/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -778,7 +779,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ArrowSchema {
     <span class="doccomment">/// IPC serialized Arrow schema.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>serialized_schema: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Arrow RecordBatch.
@@ -786,10 +787,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ArrowRecordBatch {
     <span class="doccomment">/// IPC serialized Arrow RecordBatch.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>serialized_record_batch: ::prost::bytes::Bytes,
     <span class="doccomment">/// The count of rows in the returning block.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>row_count: i64,
 }
 <span class="doccomment">/// Avro schema.
@@ -798,7 +799,7 @@
 </span><span class="kw">pub struct </span>AvroSchema {
     <span class="doccomment">/// Json serialized schema, as described at
     /// &lt;https://avro.apache.org/docs/1.8.1/spec.html&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>schema: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Avro rows.
@@ -806,10 +807,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AvroRows {
     <span class="doccomment">/// Binary serialized rows in a block.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>serialized_binary_rows: ::prost::bytes::Bytes,
     <span class="doccomment">/// The count of rows in the returning block.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>row_count: i64,
 }
 <span class="doccomment">/// Options dictating how we read a table.
@@ -828,24 +829,24 @@
     /// As an example, consider a table with the following schema:
     ///
     ///    {
-    ///        &quot;name&quot;: &quot;struct_field&quot;,
-    ///        &quot;type&quot;: &quot;RECORD&quot;,
-    ///        &quot;mode&quot;: &quot;NULLABLE&quot;,
-    ///        &quot;fields&quot;: [
+    ///        "name": "struct_field",
+    ///        "type": "RECORD",
+    ///        "mode": "NULLABLE",
+    ///        "fields": [
     ///            {
-    ///                &quot;name&quot;: &quot;string_field1&quot;,
-    ///                &quot;type&quot;: &quot;STRING&quot;,
-    /// .              &quot;mode&quot;: &quot;NULLABLE&quot;
+    ///                "name": "string_field1",
+    ///                "type": "STRING",
+    /// .              "mode": "NULLABLE"
     ///            },
     ///            {
-    ///                &quot;name&quot;: &quot;string_field2&quot;,
-    ///                &quot;type&quot;: &quot;STRING&quot;,
-    ///                &quot;mode&quot;: &quot;NULLABLE&quot;
+    ///                "name": "string_field2",
+    ///                "type": "STRING",
+    ///                "mode": "NULLABLE"
     ///            }
     ///        ]
     ///    }
     ///
-    /// Specifying &quot;struct_field&quot; in the selected fields list will result in a
+    /// Specifying "struct_field" in the selected fields list will result in a
     /// read session schema with the following logical structure:
     ///
     ///    struct_field {
@@ -853,7 +854,7 @@
     ///        string_field2
     ///    }
     ///
-    /// Specifying &quot;struct_field.string_field1&quot; in the selected fields list will
+    /// Specifying "struct_field.string_field1" in the selected fields list will
     /// result in a read session schema with the following logical structure:
     ///
     ///    struct_field {
@@ -863,19 +864,19 @@
     /// The order of the fields in the read session schema is derived from the
     /// table schema and does not correspond to the order in which the fields are
     /// specified in this list.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>selected_fields: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. SQL text filtering statement, similar to a WHERE clause in
     /// a SQL query. Aggregates are not supported.
     ///
-    /// Examples: &quot;int_field &gt; 5&quot;
-    ///            &quot;date_field = CAST(&#39;2014-9-27&#39; as DATE)&quot;
-    ///            &quot;nullable_field is not NULL&quot;
-    ///            &quot;st_equals(geo_field, st_geofromtext(&quot;POINT(2, 2)&quot;))&quot;
-    ///            &quot;numeric_field BETWEEN 1.0 AND 5.0&quot;
+    /// Examples: "int_field &gt; 5"
+    ///            "date_field = CAST('2014-9-27' as DATE)"
+    ///            "nullable_field is not NULL"
+    ///            "st_equals(geo_field, st_geofromtext("POINT(2, 2)"))"
+    ///            "numeric_field BETWEEN 1.0 AND 5.0"
     ///
     /// Restricted to a maximum length for 1 MB.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>row_restriction: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Table reference that includes just the 3 strings needed to identify a table.
@@ -883,13 +884,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableReference {
     <span class="doccomment">/// The assigned project ID of the project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of the dataset in the above project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dataset_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of the table in the above dataset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>table_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// All fields in this message optional.
@@ -897,7 +898,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableModifiers {
     <span class="doccomment">/// The snapshot time of the table. If not set, interpreted as now.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>snapshot_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Information about a single data stream within a read session.
@@ -906,7 +907,7 @@
 </span><span class="kw">pub struct </span>Stream {
     <span class="doccomment">/// Name of the stream, in the form
     /// `projects/{project_id}/locations/{location}/streams/{stream_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Expresses a point within a given stream using an offset position.
@@ -914,10 +915,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StreamPosition {
     <span class="doccomment">/// Identifier for a given Stream.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>stream: ::core::option::Option&lt;Stream&gt;,
     <span class="doccomment">/// Position in the stream.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>offset: i64,
 }
 <span class="doccomment">/// Information returned from a `CreateReadSession` request.
@@ -926,28 +927,28 @@
 </span><span class="kw">pub struct </span>ReadSession {
     <span class="doccomment">/// Unique identifier for the session, in the form
     /// `projects/{project_id}/locations/{location}/sessions/{session_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Time at which the session becomes invalid. After this time, subsequent
     /// requests to read this Session will return errors.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Streams associated with this session.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>streams: ::prost::alloc::vec::Vec&lt;Stream&gt;,
     <span class="doccomment">/// Table that this ReadSession is reading from.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>table_reference: ::core::option::Option&lt;TableReference&gt;,
     <span class="doccomment">/// Any modifiers which are applied when reading from the specified table.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>table_modifiers: ::core::option::Option&lt;TableModifiers&gt;,
     <span class="doccomment">/// The strategy to use for distributing data among the streams.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ShardingStrategy&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ShardingStrategy"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>sharding_strategy: i32,
     <span class="doccomment">/// The schema for the read. If read_options.selected_fields is set, the
     /// schema may be different from the table schema as it will only contain
     /// the selected fields.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;read_session::Schema&quot;</span>, tags = <span class="string">&quot;5, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"read_session::Schema"</span>, tags = <span class="string">"5, 6"</span>)]
     </span><span class="kw">pub </span>schema: ::core::option::Option&lt;read_session::Schema&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ReadSession`.
@@ -959,10 +960,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Schema {
         <span class="doccomment">/// Avro schema.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>AvroSchema(<span class="kw">super</span>::AvroSchema),
         <span class="doccomment">/// Arrow schema.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>ArrowSchema(<span class="kw">super</span>::ArrowSchema),
     }
 }
@@ -972,15 +973,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateReadSessionRequest {
     <span class="doccomment">/// Required. Reference to the table to read.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>table_reference: ::core::option::Option&lt;TableReference&gt;,
     <span class="doccomment">/// Required. String of the form `projects/{project_id}` indicating the
     /// project this ReadSession is associated with. This is the project that will
     /// be billed for usage.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Any modifiers to the Table (e.g. snapshot timestamp).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>table_modifiers: ::core::option::Option&lt;TableModifiers&gt;,
     <span class="doccomment">/// Initial number of streams. If unset or 0, we will
     /// provide a value of streams so as to produce reasonable throughput. Must be
@@ -989,18 +990,18 @@
     /// the maximum amount of parallelism allowed by the system.
     ///
     /// Streams must be read starting from offset 0.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>requested_streams: i32,
     <span class="doccomment">/// Read options for this session (e.g. column selection, filters).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>read_options: ::core::option::Option&lt;TableReadOptions&gt;,
     <span class="doccomment">/// Data output format. Currently default to Avro.
     /// DATA_FORMAT_UNSPECIFIED not supported.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DataFormat&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DataFormat"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>format: i32,
     <span class="doccomment">/// The strategy to use for distributing data among multiple streams. Currently
     /// defaults to liquid sharding.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ShardingStrategy&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ShardingStrategy"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>sharding_strategy: i32,
 }
 <span class="doccomment">/// Requesting row data via `ReadRows` must provide Stream position information.
@@ -1010,7 +1011,7 @@
     <span class="doccomment">/// Required. Identifier of the position in the stream to start reading from.
     /// The offset requested must be less than the last row read from ReadRows.
     /// Requesting a larger offset is undefined.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>read_position: ::core::option::Option&lt;StreamPosition&gt;,
 }
 <span class="doccomment">/// Progress information for a given Stream.
@@ -1020,7 +1021,7 @@
     <span class="doccomment">/// Number of estimated rows in the current stream. May change over time as
     /// different readers in the stream progress at rates which are relatively fast
     /// or slow.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>estimated_row_count: i64,
     <span class="doccomment">/// A value in the range \[0.0, 1.0\] that represents the fraction of rows
     /// assigned to this stream that have been processed by the server. In the
@@ -1029,17 +1030,17 @@
     ///
     /// This value is only populated for sessions created through the BALANCED
     /// sharding strategy.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>fraction_consumed: f32,
     <span class="doccomment">/// Represents the progress of the current stream.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>progress: ::core::option::Option&lt;Progress&gt;,
     <span class="doccomment">/// Whether this stream can be split. For sessions that use the LIQUID sharding
     /// strategy, this value is always false. For BALANCED sessions, this value is
     /// false when enough data have been read such that no more splits are possible
     /// at that point or beyond. For small tables or streams that are the result of
     /// a chain of splits, this value may never be true.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>is_splittable: bool,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1056,11 +1057,11 @@
     /// Note that if a filter is provided, the `at_response_end` value of the
     /// previous response may not necessarily be equal to the `at_response_start`
     /// value of the current response.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>at_response_start: f32,
     <span class="doccomment">/// Similar to `at_response_start`, except that this value includes the rows in
     /// the current response.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>at_response_end: f32,
 }
 <span class="doccomment">/// Information on if the current connection is being throttled.
@@ -1069,7 +1070,7 @@
 </span><span class="kw">pub struct </span>ThrottleStatus {
     <span class="doccomment">/// How much this connection is being throttled.
     /// 0 is no throttling, 100 is completely throttled.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>throttle_percent: i32,
 }
 <span class="doccomment">/// Response from calling `ReadRows` may include row data, progress and
@@ -1081,24 +1082,24 @@
     /// in addition to the row_count values in the output-specific messages in
     /// `rows`, so that code which needs to record progress through the stream can
     /// do so in an output format-independent way.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>row_count: i64,
     <span class="doccomment">/// Estimated stream statistics.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;StreamStatus&gt;,
     <span class="doccomment">/// Throttling status. If unset, the latest response still describes
     /// the current throttling status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>throttle_status: ::core::option::Option&lt;ThrottleStatus&gt;,
     <span class="doccomment">/// Row data is returned in format specified during session creation.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;read_rows_response::Rows&quot;</span>, tags = <span class="string">&quot;3, 4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"read_rows_response::Rows"</span>, tags = <span class="string">"3, 4"</span>)]
     </span><span class="kw">pub </span>rows: ::core::option::Option&lt;read_rows_response::Rows&gt;,
     <span class="doccomment">/// The schema for the read. If read_options.selected_fields is set, the
     /// schema may be different from the table schema as it will only contain
     /// the selected fields. This schema is equivalent to the one returned by
     /// CreateSession. This field is only populated in the first ReadRowsResponse
     /// RPC.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;read_rows_response::Schema&quot;</span>, tags = <span class="string">&quot;7, 8&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"read_rows_response::Schema"</span>, tags = <span class="string">"7, 8"</span>)]
     </span><span class="kw">pub </span>schema: ::core::option::Option&lt;read_rows_response::Schema&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ReadRowsResponse`.
@@ -1108,10 +1109,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Rows {
         <span class="doccomment">/// Serialized row data in AVRO format.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>AvroRows(<span class="kw">super</span>::AvroRows),
         <span class="doccomment">/// Serialized row data in Arrow RecordBatch format.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>ArrowRecordBatch(<span class="kw">super</span>::ArrowRecordBatch),
     }
     <span class="doccomment">/// The schema for the read. If read_options.selected_fields is set, the
@@ -1123,10 +1124,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Schema {
         <span class="doccomment">/// Output only. Avro schema.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>AvroSchema(<span class="kw">super</span>::AvroSchema),
         <span class="doccomment">/// Output only. Arrow schema.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>ArrowSchema(<span class="kw">super</span>::ArrowSchema),
     }
 }
@@ -1137,12 +1138,12 @@
 </span><span class="kw">pub struct </span>BatchCreateReadSessionStreamsRequest {
     <span class="doccomment">/// Required. Must be a non-expired session obtained from a call to
     /// CreateReadSession. Only the name field needs to be set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>session: ::core::option::Option&lt;ReadSession&gt;,
     <span class="doccomment">/// Required. Number of new streams requested. Must be positive.
     /// Number of added streams may be less than this, see CreateReadSessionRequest
     /// for more information.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>requested_streams: i32,
 }
 <span class="doccomment">/// The response from `BatchCreateReadSessionStreams` returns the stream
@@ -1151,7 +1152,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCreateReadSessionStreamsResponse {
     <span class="doccomment">/// Newly added streams.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>streams: ::prost::alloc::vec::Vec&lt;Stream&gt;,
 }
 <span class="doccomment">/// Request information for invoking `FinalizeStream`.
@@ -1159,7 +1160,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FinalizeStreamRequest {
     <span class="doccomment">/// Required. Stream to finalize.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>stream: ::core::option::Option&lt;Stream&gt;,
 }
 <span class="doccomment">/// Request information for `SplitReadStream`.
@@ -1167,7 +1168,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SplitReadStreamRequest {
     <span class="doccomment">/// Required. Stream to split.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>original_stream: ::core::option::Option&lt;Stream&gt;,
     <span class="doccomment">/// A value in the range (0.0, 1.0) that specifies the fractional point at
     /// which the original stream should be split. The actual split point is
@@ -1176,7 +1177,7 @@
     /// will be proportional to this fractional value. Additionally, because the
     /// server-side unit for assigning data is collections of rows, this fraction
     /// will always map to to a data storage boundary on the server side.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>fraction: f32,
 }
 <span class="doccomment">/// Response from `SplitReadStream`.
@@ -1186,11 +1187,11 @@
     <span class="doccomment">/// Primary stream, which contains the beginning portion of
     /// |original_stream|. An empty value indicates that the original stream can no
     /// longer be split.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>primary_stream: ::core::option::Option&lt;Stream&gt;,
     <span class="doccomment">/// Remainder stream, which contains the tail of |original_stream|. An empty
     /// value indicates that the original stream can no longer be split.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>remainder_stream: ::core::option::Option&lt;Stream&gt;,
 }
 <span class="doccomment">/// Data format for input or output data.
@@ -1211,19 +1212,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DataFormat::Unspecified =&gt; <span class="string">&quot;DATA_FORMAT_UNSPECIFIED&quot;</span>,
-            DataFormat::Avro =&gt; <span class="string">&quot;AVRO&quot;</span>,
-            DataFormat::Arrow =&gt; <span class="string">&quot;ARROW&quot;</span>,
+            DataFormat::Unspecified =&gt; <span class="string">"DATA_FORMAT_UNSPECIFIED"</span>,
+            DataFormat::Avro =&gt; <span class="string">"AVRO"</span>,
+            DataFormat::Arrow =&gt; <span class="string">"ARROW"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;DATA_FORMAT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;AVRO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Avro),
-            <span class="string">&quot;ARROW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Arrow),
+            <span class="string">"DATA_FORMAT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"AVRO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Avro),
+            <span class="string">"ARROW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Arrow),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1234,9 +1235,9 @@
 </span><span class="kw">pub enum </span>ShardingStrategy {
     <span class="doccomment">/// Same as LIQUID.
     </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Assigns data to each stream based on the client&#39;s read rate. The faster the
+    <span class="doccomment">/// Assigns data to each stream based on the client's read rate. The faster the
     /// client reads from a stream, the more data is assigned to the stream. In
-    /// this strategy, it&#39;s possible to read all data from a single stream even if
+    /// this strategy, it's possible to read all data from a single stream even if
     /// there are other streams present.
     </span>Liquid = <span class="number">1</span>,
     <span class="doccomment">/// Assigns data to each stream such that roughly the same number of rows can
@@ -1252,19 +1253,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ShardingStrategy::Unspecified =&gt; <span class="string">&quot;SHARDING_STRATEGY_UNSPECIFIED&quot;</span>,
-            ShardingStrategy::Liquid =&gt; <span class="string">&quot;LIQUID&quot;</span>,
-            ShardingStrategy::Balanced =&gt; <span class="string">&quot;BALANCED&quot;</span>,
+            ShardingStrategy::Unspecified =&gt; <span class="string">"SHARDING_STRATEGY_UNSPECIFIED"</span>,
+            ShardingStrategy::Liquid =&gt; <span class="string">"LIQUID"</span>,
+            ShardingStrategy::Balanced =&gt; <span class="string">"BALANCED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;SHARDING_STRATEGY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;LIQUID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Liquid),
-            <span class="string">&quot;BALANCED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Balanced),
+            <span class="string">"SHARDING_STRATEGY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"LIQUID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Liquid),
+            <span class="string">"BALANCED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Balanced),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1290,7 +1291,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1373,19 +1374,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta1.BigQueryStorage/CreateReadSession&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta1.BigQueryStorage/CreateReadSession"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta1.BigQueryStorage&quot;</span>,
-                        <span class="string">&quot;CreateReadSession&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta1.BigQueryStorage"</span>,
+                        <span class="string">"CreateReadSession"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1412,19 +1413,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta1.BigQueryStorage/ReadRows&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta1.BigQueryStorage/ReadRows"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta1.BigQueryStorage&quot;</span>,
-                        <span class="string">&quot;ReadRows&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta1.BigQueryStorage"</span>,
+                        <span class="string">"ReadRows"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.server_streaming(req, path, codec).<span class="kw">await
@@ -1445,19 +1446,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta1.BigQueryStorage/BatchCreateReadSessionStreams&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta1.BigQueryStorage/BatchCreateReadSessionStreams"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta1.BigQueryStorage&quot;</span>,
-                        <span class="string">&quot;BatchCreateReadSessionStreams&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta1.BigQueryStorage"</span>,
+                        <span class="string">"BatchCreateReadSessionStreams"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1486,19 +1487,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta1.BigQueryStorage/FinalizeStream&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta1.BigQueryStorage/FinalizeStream"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta1.BigQueryStorage&quot;</span>,
-                        <span class="string">&quot;FinalizeStream&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta1.BigQueryStorage"</span>,
+                        <span class="string">"FinalizeStream"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1529,19 +1530,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.storage.v1beta1.BigQueryStorage/SplitReadStream&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.storage.v1beta1.BigQueryStorage/SplitReadStream"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.storage.v1beta1.BigQueryStorage&quot;</span>,
-                        <span class="string">&quot;SplitReadStream&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.storage.v1beta1.BigQueryStorage"</span>,
+                        <span class="string">"SplitReadStream"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/rpc/context/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/rpc/context/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -395,34 +396,34 @@
     <span class="doccomment">/// The origin of a network activity. In a multi hop network activity,
     /// the origin represents the sender of the first hop. For the first hop,
     /// the `source` and the `origin` must have the same content.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>origin: ::core::option::Option&lt;attribute_context::Peer&gt;,
     <span class="doccomment">/// The source of a network activity, such as starting a TCP connection.
     /// In a multi hop network activity, the source represents the sender of the
     /// last hop.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;attribute_context::Peer&gt;,
     <span class="doccomment">/// The destination of a network activity, such as accepting a TCP connection.
     /// In a multi hop network activity, the destination represents the receiver of
     /// the last hop.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;attribute_context::Peer&gt;,
     <span class="doccomment">/// Represents a network request, such as an HTTP request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request: ::core::option::Option&lt;attribute_context::Request&gt;,
     <span class="doccomment">/// Represents a network response, such as an HTTP response.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>response: ::core::option::Option&lt;attribute_context::Response&gt;,
     <span class="doccomment">/// Represents a target resource that is involved with a network activity.
     /// If multiple resources are involved with an activity, this must be the
     /// primary one.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;attribute_context::Resource&gt;,
     <span class="doccomment">/// Represents an API operation that is involved to a network activity.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>api: ::core::option::Option&lt;attribute_context::Api&gt;,
     <span class="doccomment">/// Supports extensions for advanced use cases, such as logs and metrics.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>extensions: ::prost::alloc::vec::Vec&lt;::prost_types::Any&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AttributeContext`.
@@ -435,13 +436,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Peer {
         <span class="doccomment">/// The IP address of the peer.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>ip: ::prost::alloc::string::String,
         <span class="doccomment">/// The network port of the peer.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>port: i64,
         <span class="doccomment">/// The labels associated with the peer.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             ::prost::alloc::string::String,
@@ -449,12 +450,12 @@
         <span class="doccomment">/// The identity of this peer. Similar to `Request.auth.principal`, but
         /// relative to the peer instead of the request. For example, the
         /// identity associated with a load balancer that forwarded the request.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>principal: ::prost::alloc::string::String,
         <span class="doccomment">/// The CLDR country/region code associated with the above IP address.
         /// If the IP address is private, the `region_code` should reflect the
         /// physical location where this peer is running.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// This message defines attributes associated with API operations, such as
@@ -464,22 +465,22 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Api {
         <span class="doccomment">/// The API service name. It is a logical identifier for a networked API,
-        /// such as &quot;pubsub.googleapis.com&quot;. The naming syntax depends on the
+        /// such as "pubsub.googleapis.com". The naming syntax depends on the
         /// API management system being used for handling the request.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
         <span class="doccomment">/// The API operation name. For gRPC requests, it is the fully qualified API
-        /// method name, such as &quot;google.pubsub.v1.Publisher.Publish&quot;. For OpenAPI
-        /// requests, it is the `operationId`, such as &quot;getPet&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        /// method name, such as "google.pubsub.v1.Publisher.Publish". For OpenAPI
+        /// requests, it is the `operationId`, such as "getPet".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>operation: ::prost::alloc::string::String,
-        <span class="doccomment">/// The API protocol used for sending the request, such as &quot;http&quot;, &quot;https&quot;,
-        /// &quot;grpc&quot;, or &quot;internal&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        <span class="doccomment">/// The API protocol used for sending the request, such as "http", "https",
+        /// "grpc", or "internal".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>protocol: ::prost::alloc::string::String,
-        <span class="doccomment">/// The API version associated with the API operation above, such as &quot;v1&quot; or
-        /// &quot;v1alpha1&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        <span class="doccomment">/// The API version associated with the API operation above, such as "v1" or
+        /// "v1alpha1".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// This message defines request authentication attributes. Terminology is
@@ -492,8 +493,8 @@
         /// (`sub`) claims within a JWT. The issuer and subject should be `/`
         /// delimited, with `/` percent-encoded within the subject fragment. For
         /// Google accounts, the principal format is:
-        /// &quot;&lt;https://accounts.google.com/{id}&quot;&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// "&lt;https://accounts.google.com/{id}"&gt;
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>principal: ::prost::alloc::string::String,
         <span class="doccomment">/// The intended audience(s) for this authentication information. Reflects
         /// the audience (`aud`) claim within a JWT. The audience
@@ -501,47 +502,47 @@
         /// the following pieces of information:
         ///
         /// *  The services intended to receive the credential. For example,
-        ///     \[&quot;&lt;https://pubsub.googleapis.com/&quot;,&gt; &quot;&lt;https://storage.googleapis.com/&quot;\].&gt;
+        ///     \["&lt;https://pubsub.googleapis.com/",&gt; "&lt;https://storage.googleapis.com/"\].&gt;
         /// *  A set of service-based scopes. For example,
-        ///     \[&quot;&lt;https://www.googleapis.com/auth/cloud-platform&quot;\].&gt;
+        ///     \["&lt;https://www.googleapis.com/auth/cloud-platform"\].&gt;
         /// *  The client id of an app, such as the Firebase project id for JWTs
         ///     from Firebase Auth.
         ///
         /// Consult the documentation for the credential issuer to determine the
         /// information provided.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>audiences: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// The authorized presenter of the credential. Reflects the optional
         /// Authorized Presenter (`azp`) claim within a JWT or the
         /// OAuth client id. For example, a Google Cloud Platform client id looks
-        /// as follows: &quot;123456789012.apps.googleusercontent.com&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        /// as follows: "123456789012.apps.googleusercontent.com".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>presenter: ::prost::alloc::string::String,
         <span class="doccomment">/// Structured claims presented with the credential. JWTs include
         /// `{key: value}` pairs for standard and private claims. The following
         /// is a subset of the standard required and optional claims that would
         /// typically be presented for a Google-based JWT:
         ///
-        ///     {&#39;iss&#39;: &#39;accounts.google.com&#39;,
-        ///      &#39;sub&#39;: &#39;113289723416554971153&#39;,
-        ///      &#39;aud&#39;: \[&#39;123456789012&#39;, &#39;pubsub.googleapis.com&#39;\],
-        ///      &#39;azp&#39;: &#39;123456789012.apps.googleusercontent.com&#39;,
-        ///      &#39;email&#39;: &#39;jsmith@example.com&#39;,
-        ///      &#39;iat&#39;: 1353601026,
-        ///      &#39;exp&#39;: 1353604926}
+        ///     {'iss': 'accounts.google.com',
+        ///      'sub': '113289723416554971153',
+        ///      'aud': \['123456789012', 'pubsub.googleapis.com'\],
+        ///      'azp': '123456789012.apps.googleusercontent.com',
+        ///      'email': 'jsmith@example.com',
+        ///      'iat': 1353601026,
+        ///      'exp': 1353604926}
         ///
         /// SAML assertions are similarly specified, but with an identity provider
         /// dependent structure.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>claims: ::core::option::Option&lt;::prost_types::Struct&gt;,
         <span class="doccomment">/// A list of access level resource names that allow resources to be
         /// accessed by authenticated requester. It is part of Secure GCP processing
         /// for the incoming request. An access level string has the format:
-        /// &quot;//{api_service_name}/accessPolicies/{policy_id}/accessLevels/{short_name}&quot;
+        /// "//{api_service_name}/accessPolicies/{policy_id}/accessLevels/{short_name}"
         ///
         /// Example:
-        /// &quot;//accesscontextmanager.googleapis.com/accessPolicies/MY_POLICY_ID/accessLevels/MY_LEVEL&quot;
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+        /// "//accesscontextmanager.googleapis.com/accessPolicies/MY_POLICY_ID/accessLevels/MY_LEVEL"
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>access_levels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// This message defines attributes for an HTTP request. If the actual
@@ -553,52 +554,52 @@
         <span class="doccomment">/// The unique ID for a request, which can be propagated to downstream
         /// systems. The ID should have low probability of collision
         /// within a single day for a specific service.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
         <span class="doccomment">/// The HTTP request method, such as `GET`, `POST`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>method: ::prost::alloc::string::String,
         <span class="doccomment">/// The HTTP request headers. If multiple headers share the same key, they
         /// must be merged according to the HTTP spec. All header keys must be
         /// lowercased, because HTTP header keys are case-insensitive.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>headers: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             ::prost::alloc::string::String,
         &gt;,
         <span class="doccomment">/// The HTTP URL path, excluding the query parameters.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
         <span class="doccomment">/// The HTTP request `Host` header value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>host: ::prost::alloc::string::String,
         <span class="doccomment">/// The HTTP URL scheme, such as `http` and `https`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>scheme: ::prost::alloc::string::String,
         <span class="doccomment">/// The HTTP URL query in the format of `name1=value1&amp;name2=value2`, as it
         /// appears in the first line of the HTTP request. No decoding is performed.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
         <span class="doccomment">/// The timestamp when the `destination` service receives the last byte of
         /// the request.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
         </span><span class="kw">pub </span>time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// The HTTP request size in bytes. If unknown, it must be -1.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"10"</span>)]
         </span><span class="kw">pub </span>size: i64,
-        <span class="doccomment">/// The network protocol used with the request, such as &quot;http/1.1&quot;,
-        /// &quot;spdy/3&quot;, &quot;h2&quot;, &quot;h2c&quot;, &quot;webrtc&quot;, &quot;tcp&quot;, &quot;udp&quot;, &quot;quic&quot;. See
+        <span class="doccomment">/// The network protocol used with the request, such as "http/1.1",
+        /// "spdy/3", "h2", "h2c", "webrtc", "tcp", "udp", "quic". See
         /// &lt;https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids&gt;
         /// for details.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
         </span><span class="kw">pub </span>protocol: ::prost::alloc::string::String,
         <span class="doccomment">/// A special parameter for request reason. It is used by security systems
         /// to associate auditing information with a request.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
         </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
         <span class="doccomment">/// The request authentication. May be absent for unauthenticated requests.
         /// Derived from the HTTP request `Authorization` header or equivalent.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
         </span><span class="kw">pub </span>auth: ::core::option::Option&lt;Auth&gt;,
     }
     <span class="doccomment">/// This message defines attributes for a typical network response. It
@@ -607,28 +608,28 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Response {
         <span class="doccomment">/// The HTTP response status code, such as `200` and `404`.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>code: i64,
         <span class="doccomment">/// The HTTP response size in bytes. If unknown, it must be -1.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>size: i64,
         <span class="doccomment">/// The HTTP response headers. If multiple headers share the same key, they
         /// must be merged according to HTTP spec. All header keys must be
         /// lowercased, because HTTP header keys are case-insensitive.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>headers: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             ::prost::alloc::string::String,
         &gt;,
         <span class="doccomment">/// The timestamp when the `destination` service sends the last byte of
         /// the response.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// The amount of time it takes the backend service to fully respond to a
         /// request. Measured from when the destination service starts to send the
         /// request to the backend until when the destination service receives the
         /// complete response from the backend.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>backend_latency: ::core::option::Option&lt;::prost_types::Duration&gt;,
     }
     <span class="doccomment">/// This message defines core attributes for a resource. A resource is an
@@ -640,10 +641,10 @@
         <span class="doccomment">/// The name of the service that this resource belongs to, such as
         /// `pubsub.googleapis.com`. The service may be different from the DNS
         /// hostname that actually serves the request.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
         <span class="doccomment">/// The stable identifier (name) of a resource on the `service`. A resource
-        /// can be logically identified as &quot;//{resource.service}/{resource.name}&quot;.
+        /// can be logically identified as "//{resource.service}/{resource.name}".
         /// The differences between a resource name and a URI are:
         ///
         /// *   Resource name is a logical identifier, independent of network
@@ -654,18 +655,18 @@
         ///      `&lt;https://pubsub.googleapis.com/v1/projects/123/topics/news-feed`.&gt;
         ///
         /// See &lt;https://cloud.google.com/apis/design/resource_names&gt; for details.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// The type of the resource. The syntax is platform-specific because
         /// different platforms define their resources differently.
         ///
-        /// For Google APIs, the type format must be &quot;{service}/{kind}&quot;, such as
-        /// &quot;pubsub.googleapis.com/Topic&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        /// For Google APIs, the type format must be "{service}/{kind}", such as
+        /// "pubsub.googleapis.com/Topic".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
         <span class="doccomment">/// The labels or tags on the resource, such as AWS resource tags and
         /// Kubernetes resource labels.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             ::prost::alloc::string::String,
@@ -675,38 +676,38 @@
         /// typically generated by the server on successful creation of a resource
         /// and must not be changed. UID is used to uniquely identify resources
         /// with resource name reuses. This should be a UUID4.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
         <span class="doccomment">/// Annotations is an unstructured key-value map stored with a resource that
         /// may be set by external tools to store and retrieve arbitrary metadata.
         /// They are not queryable and should be preserved when modifying objects.
         ///
         /// More info: &lt;https://kubernetes.io/docs/user-guide/annotations&gt;
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             ::prost::alloc::string::String,
         &gt;,
         <span class="doccomment">/// Mutable. The display name set by clients. Must be &lt;= 63 characters.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. The timestamp when the resource was created. This may
         /// be either the time creation was initiated or when it was completed.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// Output only. The timestamp when the resource was last updated. Any
         /// change to the resource made by users must refresh this value.
         /// Changes to a resource made by the service should refresh this value.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
         </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// Output only. The timestamp when the resource was deleted.
         /// If the resource is not deleted, this must be empty.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
         </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// Output only. An opaque value that uniquely identifies a version or
         /// generation of a resource. It can be used to confirm that the client
         /// and server agree on the ordering of a resource being written.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
         </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
         <span class="doccomment">/// Immutable. The location of the resource. The location encoding is
         /// specific to the service provider, and new encoding may be introduced
@@ -716,7 +717,7 @@
         /// APIs, such as `us-east1`, `aws-us-east-1`, and `azure-eastus2`. The
         /// semantics of `location` is identical to the
         /// `cloud.googleapis.com/location` label used by some Google Cloud APIs.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
         </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
     }
 }
@@ -725,25 +726,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AuditContext {
     <span class="doccomment">/// Serialized audit log.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>audit_log: ::prost::bytes::Bytes,
     <span class="doccomment">/// An API request message that is scrubbed based on the method annotation.
     /// This field should only be filled if audit_log field is present.
     /// Service Control will use this to assemble a complete log for Cloud Audit
     /// Logs and Google internal audit logs.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>scrubbed_request: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// An API response message that is scrubbed based on the method annotation.
     /// This field should only be filled if audit_log field is present.
     /// Service Control will use this to assemble a complete log for Cloud Audit
     /// Logs and Google internal audit logs.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>scrubbed_response: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// Number of scrubbed response items.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>scrubbed_response_item_count: i32,
     <span class="doccomment">/// Audit resource name which is scrubbed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>target_resource: ::prost::alloc::string::String,
 }
 </code></pre></div></section></main></body></html>

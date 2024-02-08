@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/timeseriesinsights/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/timeseriesinsights/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1208,21 +1209,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BigqueryMapping {
     <span class="doccomment">/// The column which should be used as the event timestamps. If not specified
-    /// &#39;Timestamp&#39; is used by default. The column may have TIMESTAMP or INT64
+    /// 'Timestamp' is used by default. The column may have TIMESTAMP or INT64
     /// type (the latter is interpreted as microseconds since the Unix epoch).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>timestamp_column: ::prost::alloc::string::String,
     <span class="doccomment">/// The column which should be used as the group ID (grouping events into
-    /// sessions). If not specified &#39;GroupId&#39; is used by default, if the input
+    /// sessions). If not specified 'GroupId' is used by default, if the input
     /// table does not have such a column, random unique group IDs are
     /// generated automatically (different group ID per input row).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>group_id_column: ::prost::alloc::string::String,
     <span class="doccomment">/// The list of columns that should be translated to dimensions. If empty,
     /// all columns are translated to dimensions. The timestamp and group_id
     /// columns should not be listed here again. Columns are expected to have
     /// primitive types (STRING, INT64, FLOAT64 or NUMERIC).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>dimension_column: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A data source consists of multiple [Event][google.cloud.timeseriesinsights.v1.Event] objects stored on
@@ -1236,11 +1237,11 @@
     /// 1) Google Cloud Storage files (JSON) are defined in the following form.
     /// `gs://bucket_name/object_name`. For more information on Cloud Storage URIs,
     /// please see &lt;https://cloud.google.com/storage/docs/reference-uris.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// For BigQuery inputs defines the columns that should be used for dimensions
     /// (including time and group ID).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>bq_mapping: ::core::option::Option&lt;BigqueryMapping&gt;,
 }
 <span class="doccomment">/// A collection of data sources sent for processing.
@@ -1249,27 +1250,27 @@
 </span><span class="kw">pub struct </span>DataSet {
     <span class="doccomment">/// The dataset name, which will be used for querying, status and unload
     /// requests. This must be unique within a project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// [Data dimension names][google.cloud.timeseriesinsights.v1.EventDimension.name] allowed for this `DataSet`.
     ///
     /// If left empty, all dimension names are included. This field works as a
     /// filter to avoid regenerating the data.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Input data.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>data_sources: ::prost::alloc::vec::Vec&lt;DataSource&gt;,
     <span class="doccomment">/// Dataset state in the system.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;data_set::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"data_set::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Dataset processing status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Periodically we discard dataset [Event][google.cloud.timeseriesinsights.v1.Event] objects that have
-    /// timestamps older than &#39;ttl&#39;.  Omitting this field or a zero value means no
+    /// timestamps older than 'ttl'.  Omitting this field or a zero value means no
     /// events are discarded.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>ttl: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DataSet`.
@@ -1311,29 +1312,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                State::Loading =&gt; <span class="string">&quot;LOADING&quot;</span>,
-                State::Loaded =&gt; <span class="string">&quot;LOADED&quot;</span>,
-                State::Unloading =&gt; <span class="string">&quot;UNLOADING&quot;</span>,
-                State::Unloaded =&gt; <span class="string">&quot;UNLOADED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
+                State::Pending =&gt; <span class="string">"PENDING"</span>,
+                State::Loading =&gt; <span class="string">"LOADING"</span>,
+                State::Loaded =&gt; <span class="string">"LOADED"</span>,
+                State::Unloading =&gt; <span class="string">"UNLOADING"</span>,
+                State::Unloaded =&gt; <span class="string">"UNLOADED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;LOADING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Loading),
-                <span class="string">&quot;LOADED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Loaded),
-                <span class="string">&quot;UNLOADING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unloading),
-                <span class="string">&quot;UNLOADED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unloaded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"LOADING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Loading),
+                <span class="string">"LOADED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Loaded),
+                <span class="string">"UNLOADING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unloading),
+                <span class="string">"UNLOADED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unloaded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1347,14 +1348,14 @@
     ///
     /// **NOTE**: `EventDimension` names must be composed of alphanumeric
     /// characters only, and are case insensitive. Unicode characters are *not*
-    /// supported. The underscore &#39;_&#39; is also allowed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// supported. The underscore '_' is also allowed.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Dimension value.
     ///
     /// **NOTE**: All entries of the dimension `name` must have the same `value`
     /// type.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;event_dimension::Value&quot;</span>, tags = <span class="string">&quot;2, 3, 4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"event_dimension::Value"</span>, tags = <span class="string">"2, 3, 4, 5"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;event_dimension::Value&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `EventDimension`.
@@ -1370,16 +1371,16 @@
         ///
         /// **NOTE**: String values are case insensitive. Unicode characters are
         /// supported.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>StringVal(::prost::alloc::string::String),
         <span class="doccomment">/// Long representation.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
         </span>LongVal(i64),
         <span class="doccomment">/// Bool representation.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
         </span>BoolVal(bool),
         <span class="doccomment">/// Double representation.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"5"</span>)]
         </span>DoubleVal(f64),
     }
 }
@@ -1408,16 +1409,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Event {
     <span class="doccomment">/// Event dimensions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dimensions: ::prost::alloc::vec::Vec&lt;EventDimension&gt;,
     <span class="doccomment">/// Event group ID.
     ///
     /// **NOTE**: JSON encoding should use a string to hold a 64-bit integer value,
     /// because a native JSON number holds only 53 binary bits for an integer.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>group_id: i64,
     <span class="doccomment">/// Event timestamp.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Appends events to an existing DataSet.
@@ -1440,11 +1441,11 @@
     ///     returned.
     /// 0. The events must be newer than the current time minus
     ///     [DataSet TTL][google.cloud.timeseriesinsights.v1.DataSet.ttl] or they will be dropped.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>events: ::prost::alloc::vec::Vec&lt;Event&gt;,
     <span class="doccomment">/// Required. The DataSet to which we want to append to in the format of
-    /// &quot;projects/{project}/datasets/{dataset}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// "projects/{project}/datasets/{dataset}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dataset: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for an AppendEvents RPC.
@@ -1452,7 +1453,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AppendEventsResponse {
     <span class="doccomment">/// Dropped events; empty if all events are successfully added.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dropped_events: ::prost::alloc::vec::Vec&lt;Event&gt;,
 }
 <span class="doccomment">/// Create a DataSet request.
@@ -1460,33 +1461,33 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateDataSetRequest {
     <span class="doccomment">/// Required. Client project name which will own this DataSet in the format of
-    /// &#39;projects/{project}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Dataset to be loaded.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dataset: ::core::option::Option&lt;DataSet&gt;,
 }
 <span class="doccomment">/// Unload DataSet request from the serving system.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteDataSetRequest {
-    <span class="doccomment">/// Required. Dataset name in the format of &quot;projects/{project}/datasets/{dataset}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. Dataset name in the format of "projects/{project}/datasets/{dataset}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// List the DataSets created by the current project.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDataSetsRequest {
-    <span class="doccomment">/// Required. Project owning the DataSet in the format of &quot;projects/{project}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. Project owning the DataSet in the format of "projects/{project}".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of results to return in the list.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token to provide to skip to a particular spot in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Created DataSets list response.
@@ -1494,10 +1495,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDataSetsResponse {
     <span class="doccomment">/// The list of created DataSets.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>datasets: ::prost::alloc::vec::Vec&lt;DataSet&gt;,
     <span class="doccomment">/// Token to receive the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A categorical dimension fixed to a certain value.
@@ -1505,13 +1506,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PinnedDimension {
     <span class="doccomment">/// The name of the dimension for which we are fixing its value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Dimension value.
     ///
     /// **NOTE**: The `value` type must match that in the data with the same
     /// `dimension` as name.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;pinned_dimension::Value&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"pinned_dimension::Value"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;pinned_dimension::Value&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PinnedDimension`.
@@ -1525,11 +1526,11 @@
     </span><span class="kw">pub enum </span>Value {
         <span class="doccomment">/// A string value. This can be used for [dimensions][google.cloud.timeseriesinsights.v1.EventDimension], which
         /// have their value field set to [string_val][google.cloud.timeseriesinsights.v1.EventDimension.string_val].
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>StringVal(::prost::alloc::string::String),
         <span class="doccomment">/// A bool value. This can be used for [dimensions][google.cloud.timeseriesinsights.v1.EventDimension], which
         /// have their value field set to [bool_val][google.cloud.timeseriesinsights.v1.EventDimension.bool_val].
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span>BoolVal(bool),
     }
 }
@@ -1554,7 +1555,7 @@
     /// Must be in the (0.0, inf) range.
     ///
     /// If unspecified, it defaults to 0.000001.
-    </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(double, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>noise_threshold: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Optional. Specifying any known seasonality/periodicity in the time series
     /// for the slices we will analyze can improve the quality of the results.
@@ -1564,7 +1565,7 @@
     ///
     /// If your time series has multiple seasonal patterns, then set it to the most
     /// granular one (e.g. if it has daily and weekly patterns, set this to DAILY).
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;forecast_params::Period&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"forecast_params::Period"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>seasonality_hint: i32,
     <span class="doccomment">/// Optional. The length of the returned [forecasted
     /// timeseries][EvaluatedSlice.forecast].
@@ -1572,17 +1573,17 @@
     /// This duration is currently capped at 100 x
     /// [granularity][google.cloud.timeseriesinsights.v1.TimeseriesParams.granularity].
     ///
-    /// Example: If the detection point is set to &quot;2020-12-27T00:00:00Z&quot;, the
-    /// [granularity][google.cloud.timeseriesinsights.v1.TimeseriesParams.granularity] to &quot;3600s&quot; and the
-    /// horizon_duration to &quot;10800s&quot;, then we will generate 3 time
-    /// series points (from &quot;2020-12-27T01:00:00Z&quot; to &quot;2020-12-27T04:00:00Z&quot;), for
+    /// Example: If the detection point is set to "2020-12-27T00:00:00Z", the
+    /// [granularity][google.cloud.timeseriesinsights.v1.TimeseriesParams.granularity] to "3600s" and the
+    /// horizon_duration to "10800s", then we will generate 3 time
+    /// series points (from "2020-12-27T01:00:00Z" to "2020-12-27T04:00:00Z"), for
     /// which we will return their forecasted values.
     ///
     /// Note: The horizon time is only used for forecasting not for anormaly
     /// detection. To detect anomalies for multiple points of time,
     /// simply send multiple queries with those as
     /// [detectionTime][google.cloud.timeseriesinsights.v1.QueryDataSetRequest.detection_time].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>horizon_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ForecastParams`.
@@ -1619,25 +1620,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Period::Unspecified =&gt; <span class="string">&quot;PERIOD_UNSPECIFIED&quot;</span>,
-                Period::Hourly =&gt; <span class="string">&quot;HOURLY&quot;</span>,
-                Period::Daily =&gt; <span class="string">&quot;DAILY&quot;</span>,
-                Period::Weekly =&gt; <span class="string">&quot;WEEKLY&quot;</span>,
-                Period::Monthly =&gt; <span class="string">&quot;MONTHLY&quot;</span>,
-                Period::Yearly =&gt; <span class="string">&quot;YEARLY&quot;</span>,
+                Period::Unspecified =&gt; <span class="string">"PERIOD_UNSPECIFIED"</span>,
+                Period::Hourly =&gt; <span class="string">"HOURLY"</span>,
+                Period::Daily =&gt; <span class="string">"DAILY"</span>,
+                Period::Weekly =&gt; <span class="string">"WEEKLY"</span>,
+                Period::Monthly =&gt; <span class="string">"MONTHLY"</span>,
+                Period::Yearly =&gt; <span class="string">"YEARLY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PERIOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;HOURLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hourly),
-                <span class="string">&quot;DAILY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Daily),
-                <span class="string">&quot;WEEKLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Weekly),
-                <span class="string">&quot;MONTHLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Monthly),
-                <span class="string">&quot;YEARLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Yearly),
+                <span class="string">"PERIOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"HOURLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hourly),
+                <span class="string">"DAILY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Daily),
+                <span class="string">"WEEKLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Weekly),
+                <span class="string">"MONTHLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Monthly),
+                <span class="string">"YEARLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Yearly),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1648,7 +1649,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimeseriesPoint {
     <span class="doccomment">/// The timestamp of this point.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The value for this point.
     ///
@@ -1656,7 +1657,7 @@
     /// in the `\[time, time + granularity\]` range (see
     /// [granularity][google.cloud.timeseriesinsights.v1.TimeseriesParams.granularity]) using the specified
     /// [metric][google.cloud.timeseriesinsights.v1.TimeseriesParams.metric].
-    </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(double, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;f64&gt;,
 }
 <span class="doccomment">/// A time series.
@@ -1664,7 +1665,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Timeseries {
     <span class="doccomment">/// The points in this time series, ordered by their timestamp.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>point: ::prost::alloc::vec::Vec&lt;TimeseriesPoint&gt;,
 }
 <span class="doccomment">/// Forecast result for a given slice.
@@ -1672,18 +1673,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EvaluatedSlice {
     <span class="doccomment">/// Values for all categorical dimensions that uniquely identify this slice.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dimensions: ::prost::alloc::vec::Vec&lt;PinnedDimension&gt;,
     <span class="doccomment">/// The actual value at the detection time (see
     /// [detectionTime][google.cloud.timeseriesinsights.v1.QueryDataSetRequest.detection_time]).
     ///
     /// **NOTE**: This value can be an estimate, so it should not be used as a
     /// source of truth.
-    </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(double, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>detection_point_actual: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// The expected value at the detection time, which is obtained by forecasting
     /// on the historical time series.
-    </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(double, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>detection_point_forecast: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// How much our forecast model expects the detection point actual will
     /// deviate from its forecasted value based on how well it fit the input time
@@ -1696,7 +1697,7 @@
     /// anomaly is.
     ///
     /// The expected deviation is always positive.
-    </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(double, optional, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>expected_deviation: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Summarizes how significant the change between the actual and forecasted
     /// detection points are compared with the historical patterns observed on the
@@ -1721,7 +1722,7 @@
     /// If there were issues evaluating this slice, then the anomaly score will be
     /// set to -1.0 and the [status][google.cloud.timeseriesinsights.v1.EvaluatedSlice.status] field will contain details on what
     /// went wrong.
-    </span><span class="attr">#[prost(double, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(double, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>anomaly_score: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// The actual values in the `[`
     /// [detectionTime][google.cloud.timeseriesinsights.v1.QueryDataSetRequest.detection_time] `-`
@@ -1731,7 +1732,7 @@
     ///
     /// **NOTE**: This field is only populated if
     /// [returnTimeseries][google.cloud.timeseriesinsights.v1.QueryDataSetRequest.return_timeseries] is true.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>history: ::core::option::Option&lt;Timeseries&gt;,
     <span class="doccomment">/// The forecasted values in the `[`
     /// [detectionTime][google.cloud.timeseriesinsights.v1.QueryDataSetRequest.detection_time] `+`
@@ -1741,26 +1742,26 @@
     ///
     /// **NOTE**: This field is only populated if
     /// [returnTimeseries][google.cloud.timeseriesinsights.v1.QueryDataSetRequest.return_timeseries] is true.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>forecast: ::core::option::Option&lt;Timeseries&gt;,
     <span class="doccomment">/// Evaluation status. Contains an error message if the `anomalyScore` is &lt; 0.
     ///
     /// Possible error messages:
     ///
-    /// - **&quot;Time series too sparse&quot;**: The returned time series for this slice did
+    /// - **"Time series too sparse"**: The returned time series for this slice did
     /// not contain enough data points (we require a minimum of 10).
-    /// - **&quot;Not enough recent time series points&quot;**: The time series contains the
+    /// - **"Not enough recent time series points"**: The time series contains the
     /// minimum of 10 points, but there are not enough close in time to the
     /// detection point.
-    /// - **&quot;Missing detection point data&quot;**: There were not events to be
+    /// - **"Missing detection point data"**: There were not events to be
     /// aggregated within the `\[detectionTime, detectionTime + granularity\]` time
-    /// interval, so we don&#39;t have an actual value with which we can compare our
+    /// interval, so we don't have an actual value with which we can compare our
     /// prediction.
-    /// - **&quot;Data retrieval error&quot;**: We failed to retrieve the time series data
+    /// - **"Data retrieval error"**: We failed to retrieve the time series data
     /// for this slice and could not evaluate it successfully. Should be a
     /// transient error.
-    /// - **&quot;Internal server error&quot;**: Internal unexpected error.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    /// - **"Internal server error"**: Internal unexpected error.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// Parameters that control how we slice the dataset and, optionally, filter
@@ -1775,13 +1776,13 @@
     /// in the queried `DataSet` will be ignored.
     ///
     /// Currently only dimensions that hold string values can be specified here.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dimension_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. We will only analyze slices for which
     /// [EvaluatedSlice.dimensions][google.cloud.timeseriesinsights.v1.EvaluatedSlice.dimensions] contain all of the
-    /// following pinned dimensions. A query with a pinned dimension `{ name: &quot;d3&quot;
-    /// stringVal: &quot;v3&quot; }` will only analyze events which contain the dimension `{
-    /// name: &quot;d3&quot; stringVal: &quot;v3&quot; }`.
+    /// following pinned dimensions. A query with a pinned dimension `{ name: "d3"
+    /// stringVal: "v3" }` will only analyze events which contain the dimension `{
+    /// name: "d3" stringVal: "v3" }`.
     /// The [pinnedDimensions][google.cloud.timeseriesinsights.v1.SlicingParams.pinned_dimensions] and
     /// [dimensionNames][google.cloud.timeseriesinsights.v1.SlicingParams.dimension_names] fields can **not**
     /// share the same dimension names.
@@ -1790,31 +1791,31 @@
     ///
     /// ```json
     /// {
-    ///    dimensionNames: \[&quot;d1&quot;, &quot;d2&quot;\],
+    ///    dimensionNames: \["d1", "d2"\],
     ///    pinnedDimensions: [
-    ///      { name: &quot;d3&quot; stringVal: &quot;v3&quot; },
-    ///      { name: &quot;d4&quot; stringVal: &quot;v4&quot; }
+    ///      { name: "d3" stringVal: "v3" },
+    ///      { name: "d4" stringVal: "v4" }
     ///    ]
     /// }
     /// ```
     ///
-    /// In the previous example we will slice the dataset by dimensions &quot;d1&quot;,
-    /// &quot;d2&quot;, &quot;d3&quot; and &quot;d4&quot;, but we will only analyze slices for which &quot;d3=v3&quot; and
-    /// &quot;d4=v4&quot;.
+    /// In the previous example we will slice the dataset by dimensions "d1",
+    /// "d2", "d3" and "d4", but we will only analyze slices for which "d3=v3" and
+    /// "d4=v4".
     ///
-    /// The following example is **invalid** as &quot;d2&quot; is present in both
+    /// The following example is **invalid** as "d2" is present in both
     /// dimensionNames and pinnedDimensions:
     ///
     /// ```json
     /// {
-    ///    dimensionNames: \[&quot;d1&quot;, &quot;d2&quot;\],
+    ///    dimensionNames: \["d1", "d2"\],
     ///    pinnedDimensions: [
-    ///      { name: &quot;d2&quot; stringVal: &quot;v2&quot; },
-    ///      { name: &quot;d4&quot; stringVal: &quot;v4&quot; }
+    ///      { name: "d2" stringVal: "v2" },
+    ///      { name: "d4" stringVal: "v4" }
     ///    ]
     /// }
     /// ```
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>pinned_dimensions: ::prost::alloc::vec::Vec&lt;PinnedDimension&gt;,
 }
 <span class="doccomment">/// Parameters that control how we construct the time series for each slice.
@@ -1836,7 +1837,7 @@
     /// `\[detectionTime - forecastHistory, detectionTime + granularity\]` time
     /// interval, the slice evaluation can fail. For more information, see
     /// [EvaluatedSlice.status][google.cloud.timeseriesinsights.v1.EvaluatedSlice.status].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>forecast_history: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Required. The time granularity of the time series (on the x-axis). Each time series
     /// point starting at time T will aggregate all events for a particular slice
@@ -1851,7 +1852,7 @@
     /// ingestion-time one).
     ///
     /// Currently, the minimal supported granularity is 10 seconds.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>granularity: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Optional. Denotes the [name][google.cloud.timeseriesinsights.v1.EventDimension.name] of a numerical
     /// dimension that will have its values aggregated to compute the y-axis of the
@@ -1870,67 +1871,67 @@
     /// If the metric is unspecified, we will use the number of events that each
     /// time series point contains as the point value.
     ///
-    /// Example: Let&#39;s assume we have the following three events in our dataset:
+    /// Example: Let's assume we have the following three events in our dataset:
     /// ```json
     /// {
-    ///    eventTime: &quot;2020-12-27T00:00:00Z&quot;,
+    ///    eventTime: "2020-12-27T00:00:00Z",
     ///    dimensions: [
-    ///      { name: &quot;d1&quot; stringVal: &quot;v1&quot; },
-    ///      { name: &quot;d2&quot; stringVal: &quot;v2&quot; }
-    ///      { name: &quot;m1&quot; longVal: 100 }
-    ///      { name: &quot;m2&quot; longVal: 11 }
+    ///      { name: "d1" stringVal: "v1" },
+    ///      { name: "d2" stringVal: "v2" }
+    ///      { name: "m1" longVal: 100 }
+    ///      { name: "m2" longVal: 11 }
     ///    ]
     /// },
     /// {
-    ///    eventTime: &quot;2020-12-27T00:10:00Z&quot;,
+    ///    eventTime: "2020-12-27T00:10:00Z",
     ///    dimensions: [
-    ///      { name: &quot;d1&quot; stringVal: &quot;v1&quot; },
-    ///      { name: &quot;d2&quot; stringVal: &quot;v2&quot; }
-    ///      { name: &quot;m1&quot; longVal: 200 }
-    ///      { name: &quot;m2&quot; longVal: 22 }
+    ///      { name: "d1" stringVal: "v1" },
+    ///      { name: "d2" stringVal: "v2" }
+    ///      { name: "m1" longVal: 200 }
+    ///      { name: "m2" longVal: 22 }
     ///    ]
     /// },
     /// {
-    ///    eventTime: &quot;2020-12-27T00:20:00Z&quot;,
+    ///    eventTime: "2020-12-27T00:20:00Z",
     ///    dimensions: [
-    ///      { name: &quot;d1&quot; stringVal: &quot;v1&quot; },
-    ///      { name: &quot;d2&quot; stringVal: &quot;v2&quot; }
-    ///      { name: &quot;m1&quot; longVal: 300 }
-    ///      { name: &quot;m2&quot; longVal: 33 }
+    ///      { name: "d1" stringVal: "v1" },
+    ///      { name: "d2" stringVal: "v2" }
+    ///      { name: "m1" longVal: 300 }
+    ///      { name: "m2" longVal: 33 }
     ///    ]
     /// }
     /// ```
     ///
     /// These events are all within the same hour, spaced 10 minutes between each
     /// of them. Assuming our [QueryDataSetRequest][google.cloud.timeseriesinsights.v1.QueryDataSetRequest] had set
-    /// [slicingParams.dimensionNames][google.cloud.timeseriesinsights.v1.SlicingParams.dimension_names] to [&quot;d1&quot;,
-    /// &quot;d2&quot;] and [timeseries_params.granularity][google.cloud.timeseriesinsights.v1.TimeseriesParams.granularity] to
-    /// &quot;3600s&quot;, then all the previous events will be aggregated into the same
+    /// [slicingParams.dimensionNames][google.cloud.timeseriesinsights.v1.SlicingParams.dimension_names] to ["d1",
+    /// "d2"] and [timeseries_params.granularity][google.cloud.timeseriesinsights.v1.TimeseriesParams.granularity] to
+    /// "3600s", then all the previous events will be aggregated into the same
     /// [timeseries point][google.cloud.timeseriesinsights.v1.TimeseriesPoint].
     ///
-    /// The time series point that they&#39;re all part of will have the
-    /// [time][google.cloud.timeseriesinsights.v1.TimeseriesPoint.time] set to &quot;2020-12-27T00:00:00Z&quot; and the
+    /// The time series point that they're all part of will have the
+    /// [time][google.cloud.timeseriesinsights.v1.TimeseriesPoint.time] set to "2020-12-27T00:00:00Z" and the
     /// [value][google.cloud.timeseriesinsights.v1.TimeseriesPoint.value] populated based on this metric field:
     ///
-    /// - If the metric is set to &quot;m1&quot; and metric_aggregation_method to SUM, then
+    /// - If the metric is set to "m1" and metric_aggregation_method to SUM, then
     /// the value of the point will be 600.
-    /// - If the metric is set to &quot;m2&quot; and metric_aggregation_method to SUM, then
+    /// - If the metric is set to "m2" and metric_aggregation_method to SUM, then
     /// the value of the point will be 66.
-    /// - If the metric is set to &quot;m1&quot; and metric_aggregation_method to AVERAGE,
+    /// - If the metric is set to "m1" and metric_aggregation_method to AVERAGE,
     /// then the value of the point will be 200.
-    /// - If the metric is set to &quot;m2&quot; and metric_aggregation_method to AVERAGE,
+    /// - If the metric is set to "m2" and metric_aggregation_method to AVERAGE,
     /// then the value of the point will be 22.
-    /// - If the metric field is &quot;&quot; or unspecified, then the value of the point
+    /// - If the metric field is "" or unspecified, then the value of the point
     /// will be 3, as we will simply count the events.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>metric: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. Together with the [metric][google.cloud.timeseriesinsights.v1.TimeseriesParams.metric] field, specifies how
     /// we will aggregate multiple events to obtain the value of a time series
     /// point. See the [metric][google.cloud.timeseriesinsights.v1.TimeseriesParams.metric] documentation for more
     /// details.
     ///
-    /// If the metric is not specified or &quot;&quot;, then this field will be ignored.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;timeseries_params::AggregationMethod&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    /// If the metric is not specified or "", then this field will be ignored.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"timeseries_params::AggregationMethod"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>metric_aggregation_method: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `TimeseriesParams`.
@@ -1964,19 +1965,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AggregationMethod::Unspecified =&gt; <span class="string">&quot;AGGREGATION_METHOD_UNSPECIFIED&quot;</span>,
-                AggregationMethod::Sum =&gt; <span class="string">&quot;SUM&quot;</span>,
-                AggregationMethod::Average =&gt; <span class="string">&quot;AVERAGE&quot;</span>,
+                AggregationMethod::Unspecified =&gt; <span class="string">"AGGREGATION_METHOD_UNSPECIFIED"</span>,
+                AggregationMethod::Sum =&gt; <span class="string">"SUM"</span>,
+                AggregationMethod::Average =&gt; <span class="string">"AVERAGE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;AGGREGATION_METHOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sum),
-                <span class="string">&quot;AVERAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Average),
+                <span class="string">"AGGREGATION_METHOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sum),
+                <span class="string">"AVERAGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Average),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1987,8 +1988,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryDataSetRequest {
     <span class="doccomment">/// Required. Loaded DataSet to be queried in the format of
-    /// &quot;projects/{project}/datasets/{dataset}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{project}/datasets/{dataset}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. This is the point in time that we want to probe for anomalies.
     ///
@@ -2000,7 +2001,7 @@
     /// [detectionTime, detectionTime + granularity) time interval, where
     /// the granularity is specified in the
     /// [timeseriesParams.granularity][google.cloud.timeseriesinsights.v1.TimeseriesParams.granularity] field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>detection_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// How many slices are returned in
     /// [QueryDataSetResponse.slices][google.cloud.timeseriesinsights.v1.QueryDataSetResponse.slices].
@@ -2013,19 +2014,19 @@
     /// latency and resource usage.
     ///
     /// Defaults to 50.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>num_returned_slices: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Parameters controlling how we will split the dataset into the slices that
     /// we will analyze.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>slicing_params: ::core::option::Option&lt;SlicingParams&gt;,
     <span class="doccomment">/// Parameters controlling how we will build the time series used to predict
     /// the [detectionTime][google.cloud.timeseriesinsights.v1.QueryDataSetRequest.detection_time] value for each slice.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>timeseries_params: ::core::option::Option&lt;TimeseriesParams&gt;,
     <span class="doccomment">/// Parameters that control the time series forecasting models, such as the
     /// sensitivity of the anomaly detection.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>forecast_params: ::core::option::Option&lt;ForecastParams&gt;,
     <span class="doccomment">/// If specified, we will return the actual and forecasted time for all
     /// returned slices.
@@ -2033,7 +2034,7 @@
     /// The time series are returned in the
     /// [EvaluatedSlice.history][google.cloud.timeseriesinsights.v1.EvaluatedSlice.history] and
     /// [EvaluatedSlice.forecast][google.cloud.timeseriesinsights.v1.EvaluatedSlice.forecast] fields.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>return_timeseries: bool,
 }
 <span class="doccomment">/// Response for a query executed by the system.
@@ -2041,14 +2042,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryDataSetResponse {
     <span class="doccomment">/// Loaded DataSet that was queried.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Slices sorted in descending order by their
     /// [anomalyScore][google.cloud.timeseriesinsights.v1.EvaluatedSlice.anomaly_score].
     ///
     /// At most [numReturnedSlices][google.cloud.timeseriesinsights.v1.QueryDataSetRequest.num_returned_slices]
     /// slices are present in this field.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>slices: ::prost::alloc::vec::Vec&lt;EvaluatedSlice&gt;,
 }
 <span class="doccomment">/// Request for evaluateSlice.
@@ -2056,34 +2057,34 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EvaluateSliceRequest {
     <span class="doccomment">/// Required. Loaded DataSet to be queried in the format of
-    /// &quot;projects/{project}/datasets/{dataset}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{project}/datasets/{dataset}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dataset: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Dimensions with pinned values that specify the slice for which we will
     /// fetch the time series.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>pinned_dimensions: ::prost::alloc::vec::Vec&lt;PinnedDimension&gt;,
     <span class="doccomment">/// Required. This is the point in time that we want to probe for anomalies.
     ///
     /// See documentation for
     /// [QueryDataSetRequest.detectionTime][google.cloud.timeseriesinsights.v1.QueryDataSetRequest.detection_time].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>detection_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Parameters controlling how we will build the time series used to predict
     /// the [detectionTime][google.cloud.timeseriesinsights.v1.EvaluateSliceRequest.detection_time] value for this slice.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>timeseries_params: ::core::option::Option&lt;TimeseriesParams&gt;,
     <span class="doccomment">/// Parameters that control the time series forecasting models, such as the
     /// sensitivity of the anomaly detection.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>forecast_params: ::core::option::Option&lt;ForecastParams&gt;,
 }
 <span class="doccomment">/// Request for evaluateTimeseries.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EvaluateTimeseriesRequest {
-    <span class="doccomment">/// Required. Client project name in the format of &#39;projects/{project}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. Client project name in the format of 'projects/{project}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Evaluate this time series without requiring it was previously loaded in
     /// a data set.
@@ -2096,20 +2097,20 @@
     /// The length of the time series must be at least 10.
     ///
     /// All points must have the same time offset relative to the granularity. For
-    /// example, if the [granularity][google.cloud.timeseriesinsights.v1.EvaluateTimeseriesRequest.granularity] is &quot;5s&quot;, then the following
+    /// example, if the [granularity][google.cloud.timeseriesinsights.v1.EvaluateTimeseriesRequest.granularity] is "5s", then the following
     /// point.time sequences are valid:
-    /// - &quot;100s&quot;, &quot;105s&quot;, &quot;120s&quot;, &quot;125s&quot; (no offset)
-    /// - &quot;102s&quot;, &quot;107s&quot;, &quot;122s&quot;, &quot;127s&quot; (offset is &quot;2s&quot;)
+    /// - "100s", "105s", "120s", "125s" (no offset)
+    /// - "102s", "107s", "122s", "127s" (offset is "2s")
     /// However, the following sequence is invalid as it has inconsistent offsets:
-    /// - &quot;100s&quot;, &quot;105s&quot;, &quot;122s&quot;, &quot;127s&quot; (offsets are either &quot;0s&quot; or &quot;2s&quot;)
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// - "100s", "105s", "122s", "127s" (offsets are either "0s" or "2s")
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>timeseries: ::core::option::Option&lt;Timeseries&gt;,
     <span class="doccomment">/// The granularity of the time series (time distance between two consecutive
     /// points).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>granularity: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The forecast parameters.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>forecast_params: ::core::option::Option&lt;ForecastParams&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2125,7 +2126,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2206,19 +2207,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/ListDataSets&quot;</span>,
+                <span class="string">"/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/ListDataSets"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.timeseriesinsights.v1.TimeseriesInsightsController&quot;</span>,
-                        <span class="string">&quot;ListDataSets&quot;</span>,
+                        <span class="string">"google.cloud.timeseriesinsights.v1.TimeseriesInsightsController"</span>,
+                        <span class="string">"ListDataSets"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2239,19 +2240,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/CreateDataSet&quot;</span>,
+                <span class="string">"/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/CreateDataSet"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.timeseriesinsights.v1.TimeseriesInsightsController&quot;</span>,
-                        <span class="string">&quot;CreateDataSet&quot;</span>,
+                        <span class="string">"google.cloud.timeseriesinsights.v1.TimeseriesInsightsController"</span>,
+                        <span class="string">"CreateDataSet"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2270,19 +2271,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/DeleteDataSet&quot;</span>,
+                <span class="string">"/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/DeleteDataSet"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.timeseriesinsights.v1.TimeseriesInsightsController&quot;</span>,
-                        <span class="string">&quot;DeleteDataSet&quot;</span>,
+                        <span class="string">"google.cloud.timeseriesinsights.v1.TimeseriesInsightsController"</span>,
+                        <span class="string">"DeleteDataSet"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2301,19 +2302,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/AppendEvents&quot;</span>,
+                <span class="string">"/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/AppendEvents"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.timeseriesinsights.v1.TimeseriesInsightsController&quot;</span>,
-                        <span class="string">&quot;AppendEvents&quot;</span>,
+                        <span class="string">"google.cloud.timeseriesinsights.v1.TimeseriesInsightsController"</span>,
+                        <span class="string">"AppendEvents"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2333,19 +2334,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/QueryDataSet&quot;</span>,
+                <span class="string">"/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/QueryDataSet"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.timeseriesinsights.v1.TimeseriesInsightsController&quot;</span>,
-                        <span class="string">&quot;QueryDataSet&quot;</span>,
+                        <span class="string">"google.cloud.timeseriesinsights.v1.TimeseriesInsightsController"</span>,
+                        <span class="string">"QueryDataSet"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2361,19 +2362,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/EvaluateSlice&quot;</span>,
+                <span class="string">"/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/EvaluateSlice"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.timeseriesinsights.v1.TimeseriesInsightsController&quot;</span>,
-                        <span class="string">&quot;EvaluateSlice&quot;</span>,
+                        <span class="string">"google.cloud.timeseriesinsights.v1.TimeseriesInsightsController"</span>,
+                        <span class="string">"EvaluateSlice"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2389,19 +2390,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/EvaluateTimeseries&quot;</span>,
+                <span class="string">"/google.cloud.timeseriesinsights.v1.TimeseriesInsightsController/EvaluateTimeseries"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.timeseriesinsights.v1.TimeseriesInsightsController&quot;</span>,
-                        <span class="string">&quot;EvaluateTimeseries&quot;</span>,
+                        <span class="string">"google.cloud.timeseriesinsights.v1.TimeseriesInsightsController"</span>,
+                        <span class="string">"EvaluateTimeseries"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

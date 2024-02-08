@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/eventarc/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/eventarc/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1427,40 +1428,40 @@
     <span class="doccomment">/// Required. The resource name of the channel. Must be unique within the
     /// location on the project and must be in
     /// `projects/{project}/locations/{location}/channels/{channel_id}` format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Server assigned unique identifier for the channel. The value
     /// is a UUID4 string and guaranteed to remain unchanged until the resource is
     /// deleted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The creation time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The last-modified time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The name of the event provider (e.g. Eventarc SaaS partner) associated
     /// with the channel. This provider will be granted permissions to publish
     /// events to the channel. Format:
     /// `projects/{project}/locations/{location}/providers/{provider_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>provider: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The state of a Channel.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;channel::State&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"channel::State"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The activation token for the channel. The token must be used
     /// by the provider to register the channel for publishing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>activation_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Resource name of a KMS crypto key (managed by the user) used to
     /// encrypt/decrypt their event data.
     ///
     /// It must match the pattern
     /// `projects/*/locations/*/keyRings/*/cryptoKeys/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>crypto_key_name: ::prost::alloc::string::String,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;channel::Transport&quot;</span>, tags = <span class="string">&quot;8&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"channel::Transport"</span>, tags = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>transport: ::core::option::Option&lt;channel::Transport&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Channel`.
@@ -1495,7 +1496,7 @@
         ///
         /// 1. The SaaS provider disconnected from this Channel.
         /// 2. The Channel activation token has expired but the SaaS provider
-        ///     wasn&#39;t connected.
+        ///     wasn't connected.
         ///
         /// To re-establish a Connection with a provider, the subscriber
         /// should create a new Channel and give it to the provider.
@@ -1506,21 +1507,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Inactive =&gt; <span class="string">&quot;INACTIVE&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Pending =&gt; <span class="string">"PENDING"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Inactive =&gt; <span class="string">"INACTIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"INACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1531,7 +1532,7 @@
         <span class="doccomment">/// Output only. The name of the Pub/Sub topic created and managed by
         /// Eventarc system as a transport for the event delivery. Format:
         /// `projects/{project}/topics/{topic_id}`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
         </span>PubsubTopic(::prost::alloc::string::String),
     }
 }
@@ -1543,28 +1544,28 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ChannelConnection {
     <span class="doccomment">/// Required. The name of the connection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Server assigned ID of the resource.
     /// The server guarantees uniqueness and immutability until deleted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The name of the connected subscriber Channel.
     /// This is a weak reference to avoid cross project and cross accounts
     /// references. This must be in
     /// `projects/{project}/location/{location}/channels/{channel_id}` format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>channel: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The creation time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The last-modified time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Input only. Activation token for the channel. The token will be used
     /// during the creation of ChannelConnection to bind the channel with the
     /// provider project. This field will not be stored in the provider resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>activation_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A representation of the Provider resource.
@@ -1573,13 +1574,13 @@
 </span><span class="kw">pub struct </span>Provider {
     <span class="doccomment">/// Output only. In `projects/{project}/locations/{location}/providers/{provider_id}`
     /// format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Human friendly name for the Provider. For example &quot;Cloud Storage&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Output only. Human friendly name for the Provider. For example "Cloud Storage".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Event types for this provider.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>event_types: ::prost::alloc::vec::Vec&lt;EventType&gt;,
 }
 <span class="doccomment">/// A representation of the event type resource.
@@ -1587,24 +1588,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EventType {
     <span class="doccomment">/// Output only. The full name of the event type (for example,
-    /// &quot;google.cloud.storage.object.v1.finalized&quot;). In the form of
+    /// "google.cloud.storage.object.v1.finalized"). In the form of
     /// {provider-specific-prefix}.{resource}.{version}.{verb}. Types MUST be
     /// versioned and event schemas are guaranteed to remain backward compatible
     /// within one version. Note that event type versions and API versions do not
     /// need to match.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human friendly description of what the event type is about.
-    /// For example &quot;Bucket created in Cloud Storage&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// For example "Bucket created in Cloud Storage".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Filtering attributes for the event type.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>filtering_attributes: ::prost::alloc::vec::Vec&lt;FilteringAttribute&gt;,
     <span class="doccomment">/// Output only. URI for the event schema.
     /// For example
-    /// &quot;&lt;https://github.com/googleapis/google-cloudevents/blob/master/proto/google/events/cloud/storage/v1/events.proto&quot;&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// "&lt;https://github.com/googleapis/google-cloudevents/blob/master/proto/google/events/cloud/storage/v1/events.proto"&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>event_schema_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A representation of the FilteringAttribute resource.
@@ -1613,18 +1614,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FilteringAttribute {
     <span class="doccomment">/// Output only. Attribute used for filtering the event type.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>attribute: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Description of the purpose of the attribute.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. If true, the triggers for this provider should always specify a filter
     /// on these attributes. Trigger creation will fail otherwise.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>required: bool,
     <span class="doccomment">/// Output only. If true, the attribute accepts matching expressions in the Eventarc
     /// PathPattern format.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>path_pattern_supported: bool,
 }
 <span class="doccomment">/// A GoogleChannelConfig is a resource that stores the custom settings
@@ -1637,17 +1638,17 @@
 </span><span class="kw">pub struct </span>GoogleChannelConfig {
     <span class="doccomment">/// Required. The resource name of the config. Must be in the format of,
     /// `projects/{project}/locations/{location}/googleChannelConfig`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The last-modified time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Resource name of a KMS crypto key (managed by the user) used to
     /// encrypt/decrypt their event data.
     ///
     /// It must match the pattern
     /// `projects/*/locations/*/keyRings/*/cryptoKeys/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>crypto_key_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A representation of the trigger resource.
@@ -1657,21 +1658,21 @@
     <span class="doccomment">/// Required. The resource name of the trigger. Must be unique within the location of the
     /// project and must be in
     /// `projects/{project}/locations/{location}/triggers/{trigger}` format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Server-assigned unique identifier for the trigger. The value is a UUID4
     /// string and guaranteed to remain unchanged until the resource is deleted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The creation time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The last-modified time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. Unordered list. The list of filters that applies to event attributes. Only events that
     /// match all the provided filters are sent to the destination.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>event_filters: ::prost::alloc::vec::Vec&lt;EventFilter&gt;,
     <span class="doccomment">/// Optional. The IAM service account email associated with the trigger. The
     /// service account represents the identity of the trigger.
@@ -1687,19 +1688,19 @@
     /// for information on how to invoke authenticated Cloud Run services.
     /// To create Audit Log triggers, the service account should also
     /// have the `roles/eventarc.eventReceiver` IAM role.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Destination specifies where the events should be sent to.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;Destination&gt;,
     <span class="doccomment">/// Optional. To deliver messages, Eventarc might use other GCP
     /// products as a transport intermediary. This field contains a reference to
     /// that transport intermediary. This information can be used for debugging
     /// purposes.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>transport: ::core::option::Option&lt;Transport&gt;,
     <span class="doccomment">/// Optional. User labels attached to the triggers that can be used to group resources.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1707,10 +1708,10 @@
     <span class="doccomment">/// Optional. The name of the channel associated with the trigger in
     /// `projects/{project}/locations/{location}/channels/{channel}` format.
     /// You must provide a channel to receive events from Eventarc SaaS partners.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>channel: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The reason(s) why a trigger is in FAILED state.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>conditions: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         StateCondition,
@@ -1718,7 +1719,7 @@
     <span class="doccomment">/// Output only. This checksum is computed by the server based on the value of other
     /// fields, and might be sent only on create requests to ensure that the
     /// client has an up-to-date value before proceeding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;99&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"99"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Filters events based on exact matches on the CloudEvents attributes.
@@ -1728,17 +1729,17 @@
     <span class="doccomment">/// Required. The name of a CloudEvents attribute. Currently, only a subset of attributes
     /// are supported for filtering.
     ///
-    /// All triggers MUST provide a filter for the &#39;type&#39; attribute.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// All triggers MUST provide a filter for the 'type' attribute.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>attribute: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The value for the attribute.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The operator used for matching the events with the value of the
     /// filter. If not specified, only events that have an exact key-value pair
     /// specified in the filter are matched. The only allowed value is
     /// `match-path-pattern`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>operator: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A condition that is part of the trigger state computation.
@@ -1746,17 +1747,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StateCondition {
     <span class="doccomment">/// The canonical code of the condition.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::super::rpc::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"super::super::super::rpc::Code"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// Human-readable message.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents a target of an invocation over HTTP.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Destination {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;destination::Descriptor&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"destination::Descriptor"</span>, tags = <span class="string">"1, 2, 3, 4"</span>)]
     </span><span class="kw">pub </span>descriptor: ::core::option::Option&lt;destination::Descriptor&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Destination`.
@@ -1766,21 +1767,21 @@
     </span><span class="kw">pub enum </span>Descriptor {
         <span class="doccomment">/// Cloud Run fully-managed resource that receives the events. The resource
         /// should be in the same project as the trigger.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>CloudRun(<span class="kw">super</span>::CloudRun),
         <span class="doccomment">/// The Cloud Function resource name. Only Cloud Functions V2 is supported.
         /// Format: `projects/{project}/locations/{location}/functions/{function}`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>CloudFunction(::prost::alloc::string::String),
         <span class="doccomment">/// A GKE service capable of receiving events. The service should be running
         /// in the same project as the trigger.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Gke(<span class="kw">super</span>::Gke),
         <span class="doccomment">/// The resource name of the Workflow whose Executions are triggered by
         /// the events. The Workflow resource should be deployed in the same project
         /// as the trigger.
         /// Format: `projects/{project}/locations/{location}/workflows/{workflow}`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span>Workflow(::prost::alloc::string::String),
     }
 }
@@ -1789,7 +1790,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Transport {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;transport::Intermediary&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"transport::Intermediary"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>intermediary: ::core::option::Option&lt;transport::Intermediary&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Transport`.
@@ -1799,7 +1800,7 @@
     </span><span class="kw">pub enum </span>Intermediary {
         <span class="doccomment">/// The Pub/Sub topic and subscription used by Eventarc as a transport
         /// intermediary.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Pubsub(<span class="kw">super</span>::Pubsub),
     }
 }
@@ -1812,16 +1813,16 @@
     ///
     /// Only services located in the same project as the trigger object
     /// can be addressed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The relative path on the Cloud Run service the events should be sent to.
     ///
     /// The value must conform to the definition of a URI path segment (section 3.3
-    /// of RFC2396). Examples: &quot;/route&quot;, &quot;route&quot;, &quot;route/subroute&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// of RFC2396). Examples: "/route", "route", "route/subroute".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The region the Cloud Run service is deployed in.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents a GKE destination.
@@ -1830,24 +1831,24 @@
 </span><span class="kw">pub struct </span>Gke {
     <span class="doccomment">/// Required. The name of the cluster the GKE service is running in. The cluster must be
     /// running in the same project as the trigger being created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cluster: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The name of the Google Compute Engine in which the cluster resides, which
     /// can either be compute zone (for example, us-central1-a) for the zonal
     /// clusters or region (for example, us-central1) for regional clusters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The namespace the GKE service is running in.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>namespace: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name of the GKE service.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The relative path on the GKE service the events should be sent to.
     ///
     /// The value must conform to the definition of a URI path segment (section 3.3
-    /// of RFC2396). Examples: &quot;/route&quot;, &quot;route&quot;, &quot;route/subroute&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    /// of RFC2396). Examples: "/route", "route", "route/subroute".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents a Pub/Sub transport.
@@ -1861,12 +1862,12 @@
     /// You can set an existing topic for triggers of the type
     /// `google.cloud.pubsub.topic.v1.messagePublished`. The topic you provide
     /// here is not deleted by Eventarc at trigger deletion.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>topic: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The name of the Pub/Sub subscription created and managed by Eventarc
     /// as a transport for the event delivery. Format:
     /// `projects/{PROJECT_ID}/subscriptions/{SUBSCRIPTION_NAME}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>subscription: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for the GetTrigger method.
@@ -1874,7 +1875,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTriggerRequest {
     <span class="doccomment">/// Required. The name of the trigger to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for the ListTriggers method.
@@ -1882,30 +1883,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTriggersRequest {
     <span class="doccomment">/// Required. The parent collection to list triggers on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of triggers to return on each page.
     ///
     /// Note: The service may send fewer.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token; provide the value from the `next_page_token` field in a
     /// previous `ListTriggers` call to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListTriggers` must match
     /// the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The sorting order of the resources returned. Value should be a
     /// comma-separated list of fields. The default sorting order is ascending. To
     /// specify descending order for a field, append a `desc` suffix; for example:
     /// `name desc, trigger_id`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// Filter field. Used to filter the Triggers to be listed. Possible filters
     /// are described in &lt;https://google.aip.dev/160.&gt; For example, using
-    /// &quot;?filter=destination:gke&quot; would list only Triggers with a gke destination.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    /// "?filter=destination:gke" would list only Triggers with a gke destination.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response message for the `ListTriggers` method.
@@ -1913,14 +1914,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTriggersResponse {
     <span class="doccomment">/// The requested triggers, up to the number specified in `page_size`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>triggers: ::prost::alloc::vec::Vec&lt;Trigger&gt;,
     <span class="doccomment">/// A page token that can be sent to `ListTriggers` to request the next page.
     /// If this is empty, then there are no more pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Unreachable resources, if any.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The request message for the CreateTrigger method.
@@ -1928,17 +1929,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateTriggerRequest {
     <span class="doccomment">/// Required. The parent collection in which to add this trigger.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The trigger to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>trigger: ::core::option::Option&lt;Trigger&gt;,
     <span class="doccomment">/// Required. The user-provided ID to be assigned to the trigger.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>trigger_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. If set, validate the request and preview the review, but do not
     /// post it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// The request message for the UpdateTrigger method.
@@ -1946,20 +1947,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateTriggerRequest {
     <span class="doccomment">/// The trigger to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>trigger: ::core::option::Option&lt;Trigger&gt;,
     <span class="doccomment">/// The fields to be updated; only fields explicitly provided are updated.
     /// If no field mask is provided, all provided fields in the request are
-    /// updated. To update all fields, provide a field mask of &quot;*&quot;.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// updated. To update all fields, provide a field mask of "*".
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// If set to true, and the trigger is not found, a new trigger will be
     /// created. In this situation, `update_mask` is ignored.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
     <span class="doccomment">/// Required. If set, validate the request and preview the review, but do not
     /// post it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// The request message for the DeleteTrigger method.
@@ -1967,19 +1968,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteTriggerRequest {
     <span class="doccomment">/// Required. The name of the trigger to be deleted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If provided, the trigger will only be deleted if the etag matches the
     /// current etag on the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to true, and the trigger is not found, the request will succeed
     /// but no action will be taken on the server.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
     <span class="doccomment">/// Required. If set, validate the request and preview the review, but do not
     /// post it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// The request message for the GetChannel method.
@@ -1987,7 +1988,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetChannelRequest {
     <span class="doccomment">/// Required. The name of the channel to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for the ListChannels method.
@@ -1995,25 +1996,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListChannelsRequest {
     <span class="doccomment">/// Required. The parent collection to list channels on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of channels to return on each page.
     ///
     /// Note: The service may send fewer.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token; provide the value from the `next_page_token` field in a
     /// previous `ListChannels` call to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListChannels` must
     /// match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The sorting order of the resources returned. Value should be a
     /// comma-separated list of fields. The default sorting order is ascending. To
     /// specify descending order for a field, append a `desc` suffix; for example:
     /// `name desc, channel_id`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response message for the `ListChannels` method.
@@ -2021,14 +2022,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListChannelsResponse {
     <span class="doccomment">/// The requested channels, up to the number specified in `page_size`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>channels: ::prost::alloc::vec::Vec&lt;Channel&gt;,
     <span class="doccomment">/// A page token that can be sent to `ListChannels` to request the next page.
     /// If this is empty, then there are no more pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Unreachable resources, if any.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The request message for the CreateChannel method.
@@ -2036,17 +2037,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateChannelRequest {
     <span class="doccomment">/// Required. The parent collection in which to add this channel.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The channel to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>channel: ::core::option::Option&lt;Channel&gt;,
     <span class="doccomment">/// Required. The user-provided ID to be assigned to the channel.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>channel_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. If set, validate the request and preview the review, but do not
     /// post it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// The request message for the UpdateChannel method.
@@ -2054,16 +2055,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateChannelRequest {
     <span class="doccomment">/// The channel to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>channel: ::core::option::Option&lt;Channel&gt;,
     <span class="doccomment">/// The fields to be updated; only fields explicitly provided are updated.
     /// If no field mask is provided, all provided fields in the request are
-    /// updated. To update all fields, provide a field mask of &quot;*&quot;.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// updated. To update all fields, provide a field mask of "*".
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. If set, validate the request and preview the review, but do not
     /// post it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// The request message for the DeleteChannel method.
@@ -2071,11 +2072,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteChannelRequest {
     <span class="doccomment">/// Required. The name of the channel to be deleted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. If set, validate the request and preview the review, but do not
     /// post it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// The request message for the GetProvider method.
@@ -2083,7 +2084,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetProviderRequest {
     <span class="doccomment">/// Required. The name of the provider to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for the ListProviders method.
@@ -2091,26 +2092,26 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListProvidersRequest {
     <span class="doccomment">/// Required. The parent of the provider to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of providers to return on each page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token; provide the value from the `next_page_token` field in a
     /// previous `ListProviders` call to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListProviders` must
     /// match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The sorting order of the resources returned. Value should be a
     /// comma-separated list of fields. The default sorting oder is ascending. To
     /// specify descending order for a field, append a `desc` suffix; for example:
     /// `name desc, _id`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// The filter field that the list request will filter on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response message for the `ListProviders` method.
@@ -2118,14 +2119,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListProvidersResponse {
     <span class="doccomment">/// The requested providers, up to the number specified in `page_size`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>providers: ::prost::alloc::vec::Vec&lt;Provider&gt;,
     <span class="doccomment">/// A page token that can be sent to `ListProviders` to request the next page.
     /// If this is empty, then there are no more pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Unreachable resources, if any.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The request message for the GetChannelConnection method.
@@ -2133,7 +2134,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetChannelConnectionRequest {
     <span class="doccomment">/// Required. The name of the channel connection to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for the ListChannelConnections method.
@@ -2141,19 +2142,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListChannelConnectionsRequest {
     <span class="doccomment">/// Required. The parent collection from which to list channel connections.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of channel connections to return on each page.
     ///
     /// Note: The service may send fewer responses.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token; provide the value from the `next_page_token` field in a
     /// previous `ListChannelConnections` call to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListChannelConnetions`
     /// match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response message for the `ListChannelConnections` method.
@@ -2162,15 +2163,15 @@
 </span><span class="kw">pub struct </span>ListChannelConnectionsResponse {
     <span class="doccomment">/// The requested channel connections, up to the number specified in
     /// `page_size`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>channel_connections: ::prost::alloc::vec::Vec&lt;ChannelConnection&gt;,
     <span class="doccomment">/// A page token that can be sent to `ListChannelConnections` to request the
     /// next page.
     /// If this is empty, then there are no more pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Unreachable resources, if any.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The request message for the CreateChannelConnection method.
@@ -2178,13 +2179,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateChannelConnectionRequest {
     <span class="doccomment">/// Required. The parent collection in which to add this channel connection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Channel connection to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>channel_connection: ::core::option::Option&lt;ChannelConnection&gt;,
     <span class="doccomment">/// Required. The user-provided ID to be assigned to the channel connection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>channel_connection_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for the DeleteChannelConnection method.
@@ -2192,7 +2193,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteChannelConnectionRequest {
     <span class="doccomment">/// Required. The name of the channel connection to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for the UpdateGoogleChannelConfig method.
@@ -2200,12 +2201,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateGoogleChannelConfigRequest {
     <span class="doccomment">/// Required. The config to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>google_channel_config: ::core::option::Option&lt;GoogleChannelConfig&gt;,
     <span class="doccomment">/// The fields to be updated; only fields explicitly provided are updated.
     /// If no field mask is provided, all provided fields in the request are
-    /// updated. To update all fields, provide a field mask of &quot;*&quot;.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// updated. To update all fields, provide a field mask of "*".
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The request message for the GetGoogleChannelConfig method.
@@ -2213,7 +2214,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetGoogleChannelConfigRequest {
     <span class="doccomment">/// Required. The name of the config to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the metadata of the long-running operation.
@@ -2221,28 +2222,28 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
     /// have [Operation.error][] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
     /// corresponding to `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2260,7 +2261,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2332,17 +2333,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/GetTrigger&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/GetTrigger"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;GetTrigger&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"GetTrigger"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2360,17 +2361,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/ListTriggers&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/ListTriggers"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;ListTriggers&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"ListTriggers"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2388,17 +2389,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/CreateTrigger&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/CreateTrigger"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;CreateTrigger&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"CreateTrigger"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2416,17 +2417,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/UpdateTrigger&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/UpdateTrigger"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;UpdateTrigger&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"UpdateTrigger"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2444,17 +2445,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/DeleteTrigger&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/DeleteTrigger"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;DeleteTrigger&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"DeleteTrigger"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2469,17 +2470,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/GetChannel&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/GetChannel"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;GetChannel&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"GetChannel"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2497,17 +2498,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/ListChannels&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/ListChannels"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;ListChannels&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"ListChannels"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2525,17 +2526,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/CreateChannel&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/CreateChannel"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;CreateChannel&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"CreateChannel"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2553,17 +2554,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/UpdateChannel&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/UpdateChannel"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;UpdateChannel&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"UpdateChannel"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2581,17 +2582,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/DeleteChannel&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/DeleteChannel"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;DeleteChannel&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"DeleteChannel"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2606,17 +2607,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/GetProvider&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/GetProvider"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;GetProvider&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"GetProvider"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2634,17 +2635,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/ListProviders&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/ListProviders"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>, <span class="string">&quot;ListProviders&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.eventarc.v1.Eventarc"</span>, <span class="string">"ListProviders"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2662,19 +2663,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/GetChannelConnection&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/GetChannelConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>,
-                        <span class="string">&quot;GetChannelConnection&quot;</span>,
+                        <span class="string">"google.cloud.eventarc.v1.Eventarc"</span>,
+                        <span class="string">"GetChannelConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2693,19 +2694,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/ListChannelConnections&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/ListChannelConnections"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>,
-                        <span class="string">&quot;ListChannelConnections&quot;</span>,
+                        <span class="string">"google.cloud.eventarc.v1.Eventarc"</span>,
+                        <span class="string">"ListChannelConnections"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2724,19 +2725,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/CreateChannelConnection&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/CreateChannelConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>,
-                        <span class="string">&quot;CreateChannelConnection&quot;</span>,
+                        <span class="string">"google.cloud.eventarc.v1.Eventarc"</span>,
+                        <span class="string">"CreateChannelConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2755,19 +2756,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/DeleteChannelConnection&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/DeleteChannelConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>,
-                        <span class="string">&quot;DeleteChannelConnection&quot;</span>,
+                        <span class="string">"google.cloud.eventarc.v1.Eventarc"</span>,
+                        <span class="string">"DeleteChannelConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2786,19 +2787,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/GetGoogleChannelConfig&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/GetGoogleChannelConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>,
-                        <span class="string">&quot;GetGoogleChannelConfig&quot;</span>,
+                        <span class="string">"google.cloud.eventarc.v1.Eventarc"</span>,
+                        <span class="string">"GetGoogleChannelConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2817,19 +2818,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.eventarc.v1.Eventarc/UpdateGoogleChannelConfig&quot;</span>,
+                <span class="string">"/google.cloud.eventarc.v1.Eventarc/UpdateGoogleChannelConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.eventarc.v1.Eventarc&quot;</span>,
-                        <span class="string">&quot;UpdateGoogleChannelConfig&quot;</span>,
+                        <span class="string">"google.cloud.eventarc.v1.Eventarc"</span>,
+                        <span class="string">"UpdateGoogleChannelConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/rpc/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/rpc/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -573,7 +574,7 @@
 <a href="#573" id="573">573</a>
 <a href="#574" id="574">574</a>
 <a href="#575" id="575">575</a>
-</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-rpc-context&quot;</span>))]
+</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">"google-rpc-context"</span>))]
 </span><span class="kw">pub mod </span>context;
 <span class="doccomment">/// The `Status` type defines a logical error model that is suitable for
 /// different programming environments, including REST APIs and RPC APIs. It is
@@ -587,17 +588,17 @@
 </span><span class="kw">pub struct </span>Status {
     <span class="doccomment">/// The status code, which should be an enum value of
     /// [google.rpc.Code][google.rpc.Code].
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// A developer-facing error message, which should be in English. Any
     /// user-facing error message should be localized and sent in the
     /// [google.rpc.Status.details][google.rpc.Status.details] field, or localized
     /// by the client.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of messages that carry the error details.  There is a common set of
     /// message types for APIs to use.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>details: ::prost::alloc::vec::Vec&lt;::prost_types::Any&gt;,
 }
 <span class="doccomment">/// The canonical error codes for gRPC APIs.
@@ -678,7 +679,7 @@
     /// HTTP Mapping: 429 Too Many Requests
     </span>ResourceExhausted = <span class="number">8</span>,
     <span class="doccomment">/// The operation was rejected because the system is not in a state
-    /// required for the operation&#39;s execution.  For example, the directory
+    /// required for the operation's execution.  For example, the directory
     /// to be deleted is non-empty, an rmdir operation is applied to
     /// a non-directory, etc.
     ///
@@ -689,7 +690,7 @@
     ///       example, when a client-specified test-and-set fails, indicating the
     ///       client should restart a read-modify-write sequence.
     ///   (c) Use `FAILED_PRECONDITION` if the client should not retry until
-    ///       the system state has been explicitly fixed. For example, if an &quot;rmdir&quot;
+    ///       the system state has been explicitly fixed. For example, if an "rmdir"
     ///       fails because the directory is non-empty, `FAILED_PRECONDITION`
     ///       should be returned since the client should not retry unless
     ///       the files are deleted from the directory.
@@ -753,61 +754,61 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            Code::Ok =&gt; <span class="string">&quot;OK&quot;</span>,
-            Code::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-            Code::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-            Code::InvalidArgument =&gt; <span class="string">&quot;INVALID_ARGUMENT&quot;</span>,
-            Code::DeadlineExceeded =&gt; <span class="string">&quot;DEADLINE_EXCEEDED&quot;</span>,
-            Code::NotFound =&gt; <span class="string">&quot;NOT_FOUND&quot;</span>,
-            Code::AlreadyExists =&gt; <span class="string">&quot;ALREADY_EXISTS&quot;</span>,
-            Code::PermissionDenied =&gt; <span class="string">&quot;PERMISSION_DENIED&quot;</span>,
-            Code::Unauthenticated =&gt; <span class="string">&quot;UNAUTHENTICATED&quot;</span>,
-            Code::ResourceExhausted =&gt; <span class="string">&quot;RESOURCE_EXHAUSTED&quot;</span>,
-            Code::FailedPrecondition =&gt; <span class="string">&quot;FAILED_PRECONDITION&quot;</span>,
-            Code::Aborted =&gt; <span class="string">&quot;ABORTED&quot;</span>,
-            Code::OutOfRange =&gt; <span class="string">&quot;OUT_OF_RANGE&quot;</span>,
-            Code::Unimplemented =&gt; <span class="string">&quot;UNIMPLEMENTED&quot;</span>,
-            Code::Internal =&gt; <span class="string">&quot;INTERNAL&quot;</span>,
-            Code::Unavailable =&gt; <span class="string">&quot;UNAVAILABLE&quot;</span>,
-            Code::DataLoss =&gt; <span class="string">&quot;DATA_LOSS&quot;</span>,
+            Code::Ok =&gt; <span class="string">"OK"</span>,
+            Code::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
+            Code::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
+            Code::InvalidArgument =&gt; <span class="string">"INVALID_ARGUMENT"</span>,
+            Code::DeadlineExceeded =&gt; <span class="string">"DEADLINE_EXCEEDED"</span>,
+            Code::NotFound =&gt; <span class="string">"NOT_FOUND"</span>,
+            Code::AlreadyExists =&gt; <span class="string">"ALREADY_EXISTS"</span>,
+            Code::PermissionDenied =&gt; <span class="string">"PERMISSION_DENIED"</span>,
+            Code::Unauthenticated =&gt; <span class="string">"UNAUTHENTICATED"</span>,
+            Code::ResourceExhausted =&gt; <span class="string">"RESOURCE_EXHAUSTED"</span>,
+            Code::FailedPrecondition =&gt; <span class="string">"FAILED_PRECONDITION"</span>,
+            Code::Aborted =&gt; <span class="string">"ABORTED"</span>,
+            Code::OutOfRange =&gt; <span class="string">"OUT_OF_RANGE"</span>,
+            Code::Unimplemented =&gt; <span class="string">"UNIMPLEMENTED"</span>,
+            Code::Internal =&gt; <span class="string">"INTERNAL"</span>,
+            Code::Unavailable =&gt; <span class="string">"UNAVAILABLE"</span>,
+            Code::DataLoss =&gt; <span class="string">"DATA_LOSS"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;OK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ok),
-            <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-            <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-            <span class="string">&quot;INVALID_ARGUMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidArgument),
-            <span class="string">&quot;DEADLINE_EXCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeadlineExceeded),
-            <span class="string">&quot;NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotFound),
-            <span class="string">&quot;ALREADY_EXISTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlreadyExists),
-            <span class="string">&quot;PERMISSION_DENIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermissionDenied),
-            <span class="string">&quot;UNAUTHENTICATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unauthenticated),
-            <span class="string">&quot;RESOURCE_EXHAUSTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceExhausted),
-            <span class="string">&quot;FAILED_PRECONDITION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailedPrecondition),
-            <span class="string">&quot;ABORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aborted),
-            <span class="string">&quot;OUT_OF_RANGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OutOfRange),
-            <span class="string">&quot;UNIMPLEMENTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unimplemented),
-            <span class="string">&quot;INTERNAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Internal),
-            <span class="string">&quot;UNAVAILABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unavailable),
-            <span class="string">&quot;DATA_LOSS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataLoss),
+            <span class="string">"OK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ok),
+            <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+            <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+            <span class="string">"INVALID_ARGUMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidArgument),
+            <span class="string">"DEADLINE_EXCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeadlineExceeded),
+            <span class="string">"NOT_FOUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotFound),
+            <span class="string">"ALREADY_EXISTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlreadyExists),
+            <span class="string">"PERMISSION_DENIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermissionDenied),
+            <span class="string">"UNAUTHENTICATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unauthenticated),
+            <span class="string">"RESOURCE_EXHAUSTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceExhausted),
+            <span class="string">"FAILED_PRECONDITION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailedPrecondition),
+            <span class="string">"ABORTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aborted),
+            <span class="string">"OUT_OF_RANGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OutOfRange),
+            <span class="string">"UNIMPLEMENTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unimplemented),
+            <span class="string">"INTERNAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Internal),
+            <span class="string">"UNAVAILABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unavailable),
+            <span class="string">"DATA_LOSS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataLoss),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }
 <span class="doccomment">/// Describes the cause of the error with structured details.
 ///
-/// Example of an error when contacting the &quot;pubsub.googleapis.com&quot; API when it
+/// Example of an error when contacting the "pubsub.googleapis.com" API when it
 /// is not enabled:
 ///
-///      { &quot;reason&quot;: &quot;API_DISABLED&quot;
-///        &quot;domain&quot;: &quot;googleapis.com&quot;
-///        &quot;metadata&quot;: {
-///          &quot;resource&quot;: &quot;projects/123&quot;,
-///          &quot;service&quot;: &quot;pubsub.googleapis.com&quot;
+///      { "reason": "API_DISABLED"
+///        "domain": "googleapis.com"
+///        "metadata": {
+///          "resource": "projects/123",
+///          "service": "pubsub.googleapis.com"
 ///        }
 ///      }
 ///
@@ -816,10 +817,10 @@
 /// Example of an error that is returned when attempting to create a Spanner
 /// instance in a region that is out of stock:
 ///
-///      { &quot;reason&quot;: &quot;STOCKOUT&quot;
-///        &quot;domain&quot;: &quot;spanner.googleapis.com&quot;,
-///        &quot;metadata&quot;: {
-///          &quot;availableRegions&quot;: &quot;us-central1,us-east2&quot;
+///      { "reason": "STOCKOUT"
+///        "domain": "spanner.googleapis.com",
+///        "metadata": {
+///          "availableRegions": "us-central1,us-east2"
 ///        }
 ///      }
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -830,25 +831,25 @@
     /// domain of errors. This should be at most 63 characters and match a
     /// regular expression of `[A-Z][A-Z0-9_]+\[A-Z0-9\]`, which represents
     /// UPPER_SNAKE_CASE.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
-    <span class="doccomment">/// The logical grouping to which the &quot;reason&quot; belongs. The error domain
+    <span class="doccomment">/// The logical grouping to which the "reason" belongs. The error domain
     /// is typically the registered service name of the tool or product that
-    /// generates the error. Example: &quot;pubsub.googleapis.com&quot;. If the error is
+    /// generates the error. Example: "pubsub.googleapis.com". If the error is
     /// generated by some common infrastructure, the error domain must be a
     /// globally unique value that identifies the infrastructure. For Google API
-    /// infrastructure, the error domain is &quot;googleapis.com&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// infrastructure, the error domain is "googleapis.com".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>domain: ::prost::alloc::string::String,
     <span class="doccomment">/// Additional structured details about this error.
     ///
     /// Keys should match /\[a-zA-Z0-9-_\]/ and be limited to 64 characters in
     /// length. When identifying the current value of an exceeded limit, the units
     /// should be contained in the key, not the value.  For example, rather than
-    /// {&quot;instanceLimit&quot;: &quot;100/request&quot;}, should be returned as,
-    /// {&quot;instanceLimitPerRequest&quot;: &quot;100&quot;}, if the client exceeds the number of
+    /// {"instanceLimit": "100/request"}, should be returned as,
+    /// {"instanceLimitPerRequest": "100"}, if the client exceeds the number of
     /// instances that can be created in a single (batch) request.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -858,7 +859,7 @@
 /// the recommendation here or retry when this information is missing from error
 /// responses.
 ///
-/// It&#39;s always recommended that clients should use exponential backoff when
+/// It's always recommended that clients should use exponential backoff when
 /// retrying.
 ///
 /// Clients should wait until `retry_delay` amount of time has passed since
@@ -871,7 +872,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RetryInfo {
     <span class="doccomment">/// Clients should wait at least this long between retrying the same request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>retry_delay: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Describes additional debugging info.
@@ -879,10 +880,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DebugInfo {
     <span class="doccomment">/// The stack trace entries indicating where the error occurred.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>stack_entries: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Additional debugging information provided by the server.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>detail: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Describes how a quota check failed.
@@ -890,7 +891,7 @@
 /// For example if a daily limit was exceeded for the calling project,
 /// a service could respond with a QuotaFailure detail containing the project
 /// id and the description of the quota limit that was exceeded.  If the
-/// calling project hasn&#39;t enabled the service in the developer console, then
+/// calling project hasn't enabled the service in the developer console, then
 /// a service could respond with the project id and set `service_disabled`
 /// to true.
 ///
@@ -900,7 +901,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QuotaFailure {
     <span class="doccomment">/// Describes all quota violations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>violations: ::prost::alloc::vec::Vec&lt;quota_failure::Violation&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `QuotaFailure`.
@@ -911,18 +912,18 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Violation {
         <span class="doccomment">/// The subject on which the quota check failed.
-        /// For example, &quot;clientip:&lt;ip address of client&gt;&quot; or &quot;project:&lt;Google
-        /// developer project id&gt;&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// For example, "clientip:&lt;ip address of client&gt;" or "project:&lt;Google
+        /// developer project id&gt;".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>subject: ::prost::alloc::string::String,
         <span class="doccomment">/// A description of how the quota check failed. Clients can use this
-        /// description to find more about the quota configuration in the service&#39;s
+        /// description to find more about the quota configuration in the service's
         /// public documentation, or find the relevant quota limit to adjust through
         /// developer console.
         ///
-        /// For example: &quot;Service disabled&quot; or &quot;Daily Limit for read operations
-        /// exceeded&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        /// For example: "Service disabled" or "Daily Limit for read operations
+        /// exceeded".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     }
 }
@@ -935,7 +936,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PreconditionFailure {
     <span class="doccomment">/// Describes all precondition violations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>violations: ::prost::alloc::vec::Vec&lt;precondition_failure::Violation&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PreconditionFailure`.
@@ -946,19 +947,19 @@
     </span><span class="kw">pub struct </span>Violation {
         <span class="doccomment">/// The type of PreconditionFailure. We recommend using a service-specific
         /// enum type to define the supported precondition violation subjects. For
-        /// example, &quot;TOS&quot; for &quot;Terms of Service violation&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// example, "TOS" for "Terms of Service violation".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
         <span class="doccomment">/// The subject, relative to the type, that failed.
-        /// For example, &quot;google.com/cloud&quot; relative to the &quot;TOS&quot; type would indicate
+        /// For example, "google.com/cloud" relative to the "TOS" type would indicate
         /// which terms of service is being referenced.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>subject: ::prost::alloc::string::String,
         <span class="doccomment">/// A description of how the precondition failed. Developers can use this
         /// description to understand how to fix the failure.
         ///
-        /// For example: &quot;Terms of service not accepted&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        /// For example: "Terms of service not accepted".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     }
 }
@@ -968,7 +969,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BadRequest {
     <span class="doccomment">/// Describes all violations in a client request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>field_violations: ::prost::alloc::vec::Vec&lt;bad_request::FieldViolation&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `BadRequest`.
@@ -1014,10 +1015,10 @@
         ///    first `emailAddresses` message
         /// * `emailAddresses\[3\].type\[2\]` for a violation in the second `type`
         ///    value in the third `emailAddresses` message.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>field: ::prost::alloc::string::String,
         <span class="doccomment">/// A description of why the request element is bad.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     }
 }
@@ -1027,50 +1028,50 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RequestInfo {
     <span class="doccomment">/// An opaque string that should only be interpreted by the service generating
-    /// it. For example, it can be used to identify requests in the service&#39;s logs.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// it. For example, it can be used to identify requests in the service's logs.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Any data that was used to serve this request. For example, an encrypted
     /// stack trace that can be sent back to the service provider for debugging.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>serving_data: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Describes the resource that is being accessed.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResourceInfo {
-    <span class="doccomment">/// A name for the type of resource being accessed, e.g. &quot;sql table&quot;,
-    /// &quot;cloud storage bucket&quot;, &quot;file&quot;, &quot;Google calendar&quot;; or the type URL
-    /// of the resource: e.g. &quot;type.googleapis.com/google.pubsub.v1.Topic&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// A name for the type of resource being accessed, e.g. "sql table",
+    /// "cloud storage bucket", "file", "Google calendar"; or the type URL
+    /// of the resource: e.g. "type.googleapis.com/google.pubsub.v1.Topic".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the resource being accessed.  For example, a shared calendar
-    /// name: &quot;example.com_4fghdhgsrgh@group.calendar.google.com&quot;, if the current
+    /// name: "example.com_4fghdhgsrgh@group.calendar.google.com", if the current
     /// error is
     /// [google.rpc.Code.PERMISSION_DENIED][google.rpc.Code.PERMISSION_DENIED].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The owner of the resource (optional).
-    /// For example, &quot;user:&lt;owner email&gt;&quot; or &quot;project:&lt;Google developer project
-    /// id&gt;&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// For example, "user:&lt;owner email&gt;" or "project:&lt;Google developer project
+    /// id&gt;".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>owner: ::prost::alloc::string::String,
     <span class="doccomment">/// Describes what error is encountered when accessing this resource.
     /// For example, updating a cloud project may require the `writer` permission
     /// on the developer console project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Provides links to documentation or for performing an out of band action.
 ///
 /// For example, if a quota check failed with an error indicating the calling
-/// project hasn&#39;t enabled the accessed service, this can contain a URL pointing
+/// project hasn't enabled the accessed service, this can contain a URL pointing
 /// directly to the right place in the developer console to flip the bit.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Help {
     <span class="doccomment">/// URL(s) pointing to additional information on handling the current error.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>links: ::prost::alloc::vec::Vec&lt;help::Link&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Help`.
@@ -1080,10 +1081,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Link {
         <span class="doccomment">/// Describes what the link offers.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
         <span class="doccomment">/// The URL of the link.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
     }
 }
@@ -1094,11 +1095,11 @@
 </span><span class="kw">pub struct </span>LocalizedMessage {
     <span class="doccomment">/// The locale used following the specification defined at
     /// &lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt.&gt;
-    /// Examples are: &quot;en-US&quot;, &quot;fr-CH&quot;, &quot;es-MX&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Examples are: "en-US", "fr-CH", "es-MX"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>locale: ::prost::alloc::string::String,
     <span class="doccomment">/// The localized error message in the above locale.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents an HTTP request.
@@ -1106,17 +1107,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HttpRequest {
     <span class="doccomment">/// The HTTP request method.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>method: ::prost::alloc::string::String,
     <span class="doccomment">/// The HTTP request URI.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// The HTTP request headers. The ordering of the headers is significant.
     /// Multiple headers with the same key may present for the request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>headers: ::prost::alloc::vec::Vec&lt;HttpHeader&gt;,
     <span class="doccomment">/// The HTTP request body. If the body is not expected, it should be empty.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>body: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Represents an HTTP response.
@@ -1124,17 +1125,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HttpResponse {
     <span class="doccomment">/// The HTTP status code, such as 200 or 404.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>status: i32,
-    <span class="doccomment">/// The HTTP reason phrase, such as &quot;OK&quot; or &quot;Not Found&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The HTTP reason phrase, such as "OK" or "Not Found".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
     <span class="doccomment">/// The HTTP response headers. The ordering of the headers is significant.
     /// Multiple headers with the same key may present for the response.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>headers: ::prost::alloc::vec::Vec&lt;HttpHeader&gt;,
     <span class="doccomment">/// The HTTP response body. If the body is not expected, it should be empty.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>body: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Represents an HTTP header.
@@ -1142,10 +1143,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HttpHeader {
     <span class="doccomment">/// The HTTP header key. It is case insensitive.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
     <span class="doccomment">/// The HTTP header value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
 }
 </code></pre></div></section></main></body></html>

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/storage/control/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/storage/control/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -544,7 +545,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PendingRenameInfo {
     <span class="doccomment">/// Output only. The name of the rename operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operation: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A folder.
@@ -553,24 +554,24 @@
 </span><span class="kw">pub struct </span>Folder {
     <span class="doccomment">/// Identifier. The name of this folder.
     /// Format: `projects/{project}/buckets/{bucket}/folders/{folder}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The version of the metadata for this folder. Used for
     /// preconditions and for detecting changes in metadata.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>metageneration: i64,
     <span class="doccomment">/// Output only. The creation time of the folder.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The modification time of the folder.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Only present if the folder is part of an ongoing RenameFolder
     /// operation. Contains information which can be used to query the operation
     /// status. The presence of this field also indicates all write operations are
     /// blocked for this folder, including folder, managed folder, and object
     /// operations.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>pending_rename_info: ::core::option::Option&lt;PendingRenameInfo&gt;,
 }
 <span class="doccomment">/// Request message for GetFolder.
@@ -579,19 +580,19 @@
 </span><span class="kw">pub struct </span>GetFolderRequest {
     <span class="doccomment">/// Required. Name of the folder.
     /// Format: `projects/{project}/buckets/{bucket}/folders/{folder}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Makes the operation only succeed conditional on whether the folder&#39;s
+    <span class="doccomment">/// Makes the operation only succeed conditional on whether the folder's
     /// current metageneration matches the given value.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>if_metageneration_match: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Makes the operation only succeed conditional on whether the folder&#39;s
+    <span class="doccomment">/// Makes the operation only succeed conditional on whether the folder's
     /// current metageneration does not match the given value.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>if_metageneration_not_match: ::core::option::Option&lt;i64&gt;,
     <span class="doccomment">/// Optional. A unique identifier for this request. UUID is the recommended
     /// format, but other formats are still accepted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for CreateFolder.
@@ -599,25 +600,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateFolderRequest {
     <span class="doccomment">/// Required. Name of the bucket in which the folder will reside.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Properties of the new folder being created.
     /// The bucket and name of the folder are specified in the parent and folder_id
     /// fields, respectively. Populating those fields in `folder` will result in an
     /// error.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>folder: ::core::option::Option&lt;Folder&gt;,
     <span class="doccomment">/// Required. The absolute path of the folder, using a single `/` as delimiter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>folder_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. If true, parent folder doesn&#39;t have to be present and all missing
+    <span class="doccomment">/// Optional. If true, parent folder doesn't have to be present and all missing
     /// ancestor folders will be created atomically.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>recursive: bool,
     <span class="doccomment">/// Optional. A unique identifier for this request. UUID is the recommended
     /// format, but other formats are still accepted. This request is only
     /// idempotent if a `request_id` is provided.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for DeleteFolder.
@@ -626,20 +627,20 @@
 </span><span class="kw">pub struct </span>DeleteFolderRequest {
     <span class="doccomment">/// Required. Name of the folder.
     /// Format: `projects/{project}/buckets/{bucket}/folders/{folder}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Makes the operation only succeed conditional on whether the folder&#39;s
+    <span class="doccomment">/// Makes the operation only succeed conditional on whether the folder's
     /// current metageneration matches the given value.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>if_metageneration_match: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// Makes the operation only succeed conditional on whether the folder&#39;s
+    <span class="doccomment">/// Makes the operation only succeed conditional on whether the folder's
     /// current metageneration does not match the given value.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>if_metageneration_not_match: ::core::option::Option&lt;i64&gt;,
     <span class="doccomment">/// Optional. A unique identifier for this request. UUID is the recommended
     /// format, but other formats are still accepted. This request is only
     /// idempotent if a `request_id` is provided.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for ListFolders.
@@ -647,40 +648,40 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFoldersRequest {
     <span class="doccomment">/// Required. Name of the bucket in which to look for folders.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum number of folders to return in a single response. The
     /// service will use this parameter or 1,000 items, whichever is smaller.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A previously-returned page token representing part of the larger
     /// set of results to view.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Filter results to folders whose names begin with this prefix.
-    /// If set, the value must either be an empty string or end with a &#39;/&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// If set, the value must either be an empty string or end with a '/'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>prefix: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, returns results in a directory-like mode. The results
     /// will only include folders that either exactly match the above prefix, or
-    /// are one level below the prefix. The only supported value is &#39;/&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    /// are one level below the prefix. The only supported value is '/'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>delimiter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Filter results to folders whose names are lexicographically equal
     /// to or after lexicographic_start. If lexicographic_end is also set, the
     /// folders listed have names between lexicographic_start (inclusive) and
     /// lexicographic_end (exclusive).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>lexicographic_start: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Filter results to folders whose names are lexicographically
     /// before lexicographic_end. If lexicographic_start is also set, the folders
     /// listed have names between lexicographic_start (inclusive) and
     /// lexicographic_end (exclusive).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>lexicographic_end: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A unique identifier for this request. UUID is the recommended
     /// format, but other formats are still accepted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListFolders.
@@ -688,11 +689,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFoldersResponse {
     <span class="doccomment">/// The list of child folders
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>folders: ::prost::alloc::vec::Vec&lt;Folder&gt;,
     <span class="doccomment">/// The continuation token, used to page through large result sets. Provide
     /// this value in a subsequent request to return the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for RenameFolder.
@@ -701,23 +702,23 @@
 </span><span class="kw">pub struct </span>RenameFolderRequest {
     <span class="doccomment">/// Required. Name of the source folder being renamed.
     /// Format: `projects/{project}/buckets/{bucket}/folders/{folder}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The destination folder ID, e.g. `foo/bar/`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>destination_folder_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Makes the operation only succeed conditional on whether the source
-    /// folder&#39;s current metageneration matches the given value.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    /// folder's current metageneration matches the given value.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>if_metageneration_match: ::core::option::Option&lt;i64&gt;,
     <span class="doccomment">/// Makes the operation only succeed conditional on whether the source
-    /// folder&#39;s current metageneration does not match the given value.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    /// folder's current metageneration does not match the given value.
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>if_metageneration_not_match: ::core::option::Option&lt;i64&gt;,
     <span class="doccomment">/// Optional. A unique identifier for this request. UUID is the recommended
     /// format, but other formats are still accepted. This request is only
     /// idempotent if a `request_id` is provided.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The message contains metadata that is common to all Storage Control
@@ -727,23 +728,23 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommonLongRunningOperationMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation was last modified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The type of operation invoked.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. The estimated progress of the operation in percentage [0,
     /// 100]. The value -1 means the progress is unknown.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>progress_percent: i32,
 }
 <span class="doccomment">/// Message returned in the metadata field of the Operation resource for
@@ -752,13 +753,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RenameFolderMetadata {
     <span class="doccomment">/// Generic metadata for the long running operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>common_metadata: ::core::option::Option&lt;CommonLongRunningOperationMetadata&gt;,
     <span class="doccomment">/// The path of the source folder.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>source_folder_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The path of the destination folder.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>destination_folder_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The storage layout configuration of a bucket.
@@ -767,24 +768,24 @@
 </span><span class="kw">pub struct </span>StorageLayout {
     <span class="doccomment">/// Output only. The name of the StorageLayout resource.
     /// Format: `projects/{project}/buckets/{bucket}/storageLayout`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The location of the bucket.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The location type of the bucket (region, dual-region,
     /// multi-region, etc).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>location_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The data placement configuration for custom dual region. If
     /// there is no configuration, this is not a custom dual region bucket.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>custom_placement_config: ::core::option::Option&lt;
         storage_layout::CustomPlacementConfig,
     &gt;,
-    <span class="doccomment">/// Output only. The bucket&#39;s hierarchical namespace configuration. If there is
+    <span class="doccomment">/// Output only. The bucket's hierarchical namespace configuration. If there is
     /// no configuration, the hierarchical namespace is disabled.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>hierarchical_namespace: ::core::option::Option&lt;
         storage_layout::HierarchicalNamespace,
     &gt;,
@@ -798,15 +799,15 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>CustomPlacementConfig {
         <span class="doccomment">/// List of locations to use for data placement.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>data_locations: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
-    <span class="doccomment">/// Configuration for a bucket&#39;s hierarchical namespace feature.
+    <span class="doccomment">/// Configuration for a bucket's hierarchical namespace feature.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>HierarchicalNamespace {
         <span class="doccomment">/// Enables the hierarchical namespace feature.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>enabled: bool,
     }
 }
@@ -816,15 +817,15 @@
 </span><span class="kw">pub struct </span>GetStorageLayoutRequest {
     <span class="doccomment">/// Required. The name of the StorageLayout resource.
     /// Format: `projects/{project}/buckets/{bucket}/storageLayout`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// An optional prefix used for permission check. It is useful when the caller
     /// only has limited permissions under a specific prefix.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>prefix: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A unique identifier for this request. UUID is the recommended
     /// format, but other formats are still accepted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -841,7 +842,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -913,19 +914,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storage.control.v2.StorageControl/CreateFolder&quot;</span>,
+                <span class="string">"/google.storage.control.v2.StorageControl/CreateFolder"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storage.control.v2.StorageControl&quot;</span>,
-                        <span class="string">&quot;CreateFolder&quot;</span>,
+                        <span class="string">"google.storage.control.v2.StorageControl"</span>,
+                        <span class="string">"CreateFolder"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -941,19 +942,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storage.control.v2.StorageControl/DeleteFolder&quot;</span>,
+                <span class="string">"/google.storage.control.v2.StorageControl/DeleteFolder"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storage.control.v2.StorageControl&quot;</span>,
-                        <span class="string">&quot;DeleteFolder&quot;</span>,
+                        <span class="string">"google.storage.control.v2.StorageControl"</span>,
+                        <span class="string">"DeleteFolder"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -969,19 +970,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storage.control.v2.StorageControl/GetFolder&quot;</span>,
+                <span class="string">"/google.storage.control.v2.StorageControl/GetFolder"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storage.control.v2.StorageControl&quot;</span>,
-                        <span class="string">&quot;GetFolder&quot;</span>,
+                        <span class="string">"google.storage.control.v2.StorageControl"</span>,
+                        <span class="string">"GetFolder"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1000,19 +1001,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storage.control.v2.StorageControl/ListFolders&quot;</span>,
+                <span class="string">"/google.storage.control.v2.StorageControl/ListFolders"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storage.control.v2.StorageControl&quot;</span>,
-                        <span class="string">&quot;ListFolders&quot;</span>,
+                        <span class="string">"google.storage.control.v2.StorageControl"</span>,
+                        <span class="string">"ListFolders"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1033,19 +1034,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storage.control.v2.StorageControl/RenameFolder&quot;</span>,
+                <span class="string">"/google.storage.control.v2.StorageControl/RenameFolder"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storage.control.v2.StorageControl&quot;</span>,
-                        <span class="string">&quot;RenameFolder&quot;</span>,
+                        <span class="string">"google.storage.control.v2.StorageControl"</span>,
+                        <span class="string">"RenameFolder"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1061,19 +1062,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.storage.control.v2.StorageControl/GetStorageLayout&quot;</span>,
+                <span class="string">"/google.storage.control.v2.StorageControl/GetStorageLayout"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.storage.control.v2.StorageControl&quot;</span>,
-                        <span class="string">&quot;GetStorageLayout&quot;</span>,
+                        <span class="string">"google.storage.control.v2.StorageControl"</span>,
+                        <span class="string">"GetStorageLayout"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

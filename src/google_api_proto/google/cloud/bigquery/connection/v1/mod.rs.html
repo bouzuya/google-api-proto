@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/connection/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/connection/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -779,13 +780,13 @@
 </span><span class="kw">pub struct </span>CreateConnectionRequest {
     <span class="doccomment">/// Required. Parent resource name.
     /// Must be in the format `projects/{project_id}/locations/{location_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Connection id that should be assigned to the created connection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>connection_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Connection to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>connection: ::core::option::Option&lt;Connection&gt;,
 }
 <span class="doccomment">/// The request for
@@ -795,7 +796,7 @@
 </span><span class="kw">pub struct </span>GetConnectionRequest {
     <span class="doccomment">/// Required. Name of the requested connection, for example:
     /// `projects/{project_id}/locations/{location_id}/connections/{connection_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -805,13 +806,13 @@
 </span><span class="kw">pub struct </span>ListConnectionsRequest {
     <span class="doccomment">/// Required. Parent resource name.
     /// Must be in the form: `projects/{project_id}/locations/{location_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
@@ -820,10 +821,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListConnectionsResponse {
     <span class="doccomment">/// Next page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// List of connections.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>connections: ::prost::alloc::vec::Vec&lt;Connection&gt;,
 }
 <span class="doccomment">/// The request for
@@ -833,13 +834,13 @@
 </span><span class="kw">pub struct </span>UpdateConnectionRequest {
     <span class="doccomment">/// Required. Name of the connection to update, for example:
     /// `projects/{project_id}/locations/{location_id}/connections/{connection_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Connection containing the updated fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>connection: ::core::option::Option&lt;Connection&gt;,
     <span class="doccomment">/// Required. Update mask for the connection fields to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The request for [ConnectionService.DeleteConnectionRequest][].
@@ -848,7 +849,7 @@
 </span><span class="kw">pub struct </span>DeleteConnectionRequest {
     <span class="doccomment">/// Required. Name of the deleted connection, for example:
     /// `projects/{project_id}/locations/{location_id}/connections/{connection_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration parameters to establish connection with an external data
@@ -858,25 +859,25 @@
 </span><span class="kw">pub struct </span>Connection {
     <span class="doccomment">/// The resource name of the connection in the form of:
     /// `projects/{project_id}/locations/{location_id}/connections/{connection_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// User provided display name for the connection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>friendly_name: ::prost::alloc::string::String,
     <span class="doccomment">/// User provided description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The creation timestamp of the connection.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>creation_time: i64,
     <span class="doccomment">/// Output only. The last update timestamp of the connection.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>last_modified_time: i64,
     <span class="doccomment">/// Output only. True, if credential is configured for this connection.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>has_credential: bool,
     <span class="doccomment">/// Properties specific to the underlying data source.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;connection::Properties&quot;</span>, tags = <span class="string">&quot;4, 8, 11, 21, 22, 23, 24&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"connection::Properties"</span>, tags = <span class="string">"4, 8, 11, 21, 22, 23, 24"</span>)]
     </span><span class="kw">pub </span>properties: ::core::option::Option&lt;connection::Properties&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Connection`.
@@ -886,27 +887,27 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Properties {
         <span class="doccomment">/// Cloud SQL properties.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>CloudSql(<span class="kw">super</span>::CloudSqlProperties),
         <span class="doccomment">/// Amazon Web Services (AWS) properties.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>Aws(<span class="kw">super</span>::AwsProperties),
         <span class="doccomment">/// Azure properties.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"11"</span>)]
         </span>Azure(<span class="kw">super</span>::AzureProperties),
         <span class="doccomment">/// Cloud Spanner properties.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;21&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"21"</span>)]
         </span>CloudSpanner(<span class="kw">super</span>::CloudSpannerProperties),
         <span class="doccomment">/// Cloud Resource properties.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;22&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"22"</span>)]
         </span>CloudResource(<span class="kw">super</span>::CloudResourceProperties),
         <span class="doccomment">/// Spark properties.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;23&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"23"</span>)]
         </span>Spark(<span class="kw">super</span>::SparkProperties),
         <span class="doccomment">/// Optional. Salesforce DataCloud properties. This field is intended for
         /// use only by Salesforce partner projects. This field contains properties
         /// for your Salesforce DataCloud connection.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;24&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"24"</span>)]
         </span>SalesforceDataCloud(<span class="kw">super</span>::SalesforceDataCloudProperties),
     }
 }
@@ -915,16 +916,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudSqlProperties {
     <span class="doccomment">/// Cloud SQL instance ID in the form `project:location:instance`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Database name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>database: ::prost::alloc::string::String,
     <span class="doccomment">/// Type of the Cloud SQL database.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;cloud_sql_properties::DatabaseType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"cloud_sql_properties::DatabaseType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Input only. Cloud SQL credential.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>credential: ::core::option::Option&lt;CloudSqlCredential&gt;,
     <span class="doccomment">/// Output only. The account ID of the service used for the purpose of this
     /// connection.
@@ -932,7 +933,7 @@
     /// When the connection is used in the context of an operation in
     /// BigQuery, this service account will serve as the identity being used for
     /// connecting to the CloudSQL instance specified in this connection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>service_account_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `CloudSqlProperties`.
@@ -963,19 +964,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DatabaseType::Unspecified =&gt; <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot;</span>,
-                DatabaseType::Postgres =&gt; <span class="string">&quot;POSTGRES&quot;</span>,
-                DatabaseType::Mysql =&gt; <span class="string">&quot;MYSQL&quot;</span>,
+                DatabaseType::Unspecified =&gt; <span class="string">"DATABASE_TYPE_UNSPECIFIED"</span>,
+                DatabaseType::Postgres =&gt; <span class="string">"POSTGRES"</span>,
+                DatabaseType::Mysql =&gt; <span class="string">"MYSQL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DATABASE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;POSTGRES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Postgres),
-                <span class="string">&quot;MYSQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
+                <span class="string">"DATABASE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"POSTGRES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Postgres),
+                <span class="string">"MYSQL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -986,21 +987,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudSqlCredential {
     <span class="doccomment">/// The username for the credential.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
     <span class="doccomment">/// The password for the credential.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>password: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Connection properties specific to Cloud Spanner.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudSpannerProperties {
-    <span class="doccomment">/// Cloud Spanner database in the form `project/instance/database&#39;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud Spanner database in the form `project/instance/database'
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>database: ::prost::alloc::string::String,
     <span class="doccomment">/// If parallelism should be used when reading from Cloud Spanner
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>use_parallelism: bool,
     <span class="doccomment">/// Allows setting max parallelism per query when executing on Spanner
     /// independent compute resources. If unspecified, default values of
@@ -1010,12 +1011,12 @@
     /// REQUIRES: `use_parallelism` must be set.
     /// REQUIRES: Either `use_data_boost` or `use_serverless_analytics` must be
     /// set.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>max_parallelism: i32,
     <span class="doccomment">/// If the serverless analytics service should be used to read data from Cloud
     /// Spanner.
     /// Note: `use_parallelism` must be set when using serverless analytics.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>use_serverless_analytics: bool,
     <span class="doccomment">/// If set, the request will be executed via Spanner independent compute
     /// resources.
@@ -1023,7 +1024,7 @@
     ///
     /// NOTE: `use_serverless_analytics` will be deprecated. Prefer
     /// `use_data_boost` over `use_serverless_analytics`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>use_data_boost: bool,
     <span class="doccomment">/// Optional. Cloud Spanner database role for fine-grained access control.
     /// The Cloud Spanner admin should have provisioned the database role with
@@ -1035,7 +1036,7 @@
     ///
     /// REQUIRES: The database role name must start with a letter, and can only
     /// contain letters, numbers, and underscores.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>database_role: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Connection properties specific to Amazon Web Services (AWS).
@@ -1043,7 +1044,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AwsProperties {
     <span class="doccomment">/// Authentication method chosen at connection creation.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;aws_properties::AuthenticationMethod&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"aws_properties::AuthenticationMethod"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>authentication_method: ::core::option::Option&lt;
         aws_properties::AuthenticationMethod,
     &gt;,
@@ -1054,48 +1055,48 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>AuthenticationMethod {
-        <span class="doccomment">/// Authentication using Google owned AWS IAM user&#39;s access key to assume
-        /// into customer&#39;s AWS IAM Role.
+        <span class="doccomment">/// Authentication using Google owned AWS IAM user's access key to assume
+        /// into customer's AWS IAM Role.
         /// Deprecated, do not use.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>CrossAccountRole(<span class="kw">super</span>::AwsCrossAccountRole),
         <span class="doccomment">/// Authentication using Google owned service account to assume into
-        /// customer&#39;s AWS IAM Role.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        /// customer's AWS IAM Role.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>AccessRole(<span class="kw">super</span>::AwsAccessRole),
     }
 }
 <span class="doccomment">/// Authentication method for Amazon Web Services (AWS) that uses Google owned
-/// AWS IAM user&#39;s access key to assume into customer&#39;s AWS IAM Role.
+/// AWS IAM user's access key to assume into customer's AWS IAM Role.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AwsCrossAccountRole {
     <span class="doccomment">/// The user’s AWS IAM Role that trusts the Google-owned AWS IAM user
     /// Connection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>iam_role_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Google-owned AWS IAM User for a Connection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>iam_user_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A Google-generated id for representing Connection’s identity
     /// in AWS. External Id is also used for preventing the Confused Deputy
     /// Problem. See
     /// &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>external_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Authentication method for Amazon Web Services (AWS) that uses Google owned
-/// Google service account to assume into customer&#39;s AWS IAM Role.
+/// Google service account to assume into customer's AWS IAM Role.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AwsAccessRole {
     <span class="doccomment">/// The user’s AWS IAM Role that trusts the Google-owned AWS IAM user
     /// Connection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>iam_role_id: ::prost::alloc::string::String,
     <span class="doccomment">/// A unique Google-owned and Google-generated identity for the Connection.
-    /// This identity will be used to access the user&#39;s AWS IAM Role.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// This identity will be used to access the user's AWS IAM Role.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>identity: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Container for connection properties specific to Azure.
@@ -1103,29 +1104,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AzureProperties {
     <span class="doccomment">/// Output only. The name of the Azure Active Directory Application.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>application: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The client id of the Azure Active Directory Application.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>client_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The object id of the Azure Active Directory Application.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>object_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The id of customer&#39;s directory that host the data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// The id of customer's directory that host the data.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>customer_tenant_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The URL user will be redirected to after granting consent during connection
     /// setup.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>redirect_uri: ::prost::alloc::string::String,
-    <span class="doccomment">/// The client ID of the user&#39;s Azure Active Directory Application used for a
+    <span class="doccomment">/// The client ID of the user's Azure Active Directory Application used for a
     /// federated connection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>federated_application_client_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A unique Google-owned and Google-generated identity for the
-    /// Connection. This identity will be used to access the user&#39;s Azure Active
+    /// Connection. This identity will be used to access the user's Azure Active
     /// Directory Application.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>identity: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Container for connection properties for delegation of access to GCP
@@ -1144,7 +1145,7 @@
     ///
     /// The account ID is in the form of:
     ///    &lt;service-1234&gt;@gcp-sa-bigquery-cloudresource.iam.gserviceaccount.com
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_account_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration of the Dataproc Metastore Service.
@@ -1156,7 +1157,7 @@
     /// Example:
     ///
     /// * `projects/\[project_id\]/locations/\[region\]/services/\[service_id\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>metastore_service: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration of the Spark History Server.
@@ -1169,7 +1170,7 @@
     /// Example:
     ///
     /// * `projects/\[project_id\]/regions/\[region\]/clusters/\[cluster_name\]`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dataproc_cluster: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Container for connection properties to execute stored procedures for Apache
@@ -1188,13 +1189,13 @@
     ///
     /// The account ID is in the form of:
     /// bqcx-&lt;projectnumber&gt;-&lt;uniqueid&gt;@gcp-sa-bigquery-consp.iam.gserviceaccount.com
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_account_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Dataproc Metastore Service configuration for the connection.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>metastore_service_config: ::core::option::Option&lt;MetastoreServiceConfig&gt;,
     <span class="doccomment">/// Optional. Spark History Server configuration for the connection.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>spark_history_server_config: ::core::option::Option&lt;SparkHistoryServerConfig&gt;,
 }
 <span class="doccomment">/// Connection properties specific to Salesforce DataCloud. This is intended for
@@ -1202,15 +1203,15 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SalesforceDataCloudProperties {
-    <span class="doccomment">/// The URL to the user&#39;s Salesforce DataCloud instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// The URL to the user's Salesforce DataCloud instance.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A unique Google-owned and Google-generated service account
     /// identity for the connection.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>identity: ::prost::alloc::string::String,
-    <span class="doccomment">/// The ID of the user&#39;s Salesforce tenant.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The ID of the user's Salesforce tenant.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>tenant_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1227,7 +1228,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1299,19 +1300,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.connection.v1.ConnectionService/CreateConnection&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.connection.v1.ConnectionService/CreateConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.connection.v1.ConnectionService&quot;</span>,
-                        <span class="string">&quot;CreateConnection&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.connection.v1.ConnectionService"</span>,
+                        <span class="string">"CreateConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1327,19 +1328,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.connection.v1.ConnectionService/GetConnection&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.connection.v1.ConnectionService/GetConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.connection.v1.ConnectionService&quot;</span>,
-                        <span class="string">&quot;GetConnection&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.connection.v1.ConnectionService"</span>,
+                        <span class="string">"GetConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1358,19 +1359,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.connection.v1.ConnectionService/ListConnections&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.connection.v1.ConnectionService/ListConnections"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.connection.v1.ConnectionService&quot;</span>,
-                        <span class="string">&quot;ListConnections&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.connection.v1.ConnectionService"</span>,
+                        <span class="string">"ListConnections"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1387,19 +1388,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.connection.v1.ConnectionService/UpdateConnection&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.connection.v1.ConnectionService/UpdateConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.connection.v1.ConnectionService&quot;</span>,
-                        <span class="string">&quot;UpdateConnection&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.connection.v1.ConnectionService"</span>,
+                        <span class="string">"UpdateConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1415,19 +1416,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.connection.v1.ConnectionService/DeleteConnection&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.connection.v1.ConnectionService/DeleteConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.connection.v1.ConnectionService&quot;</span>,
-                        <span class="string">&quot;DeleteConnection&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.connection.v1.ConnectionService"</span>,
+                        <span class="string">"DeleteConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1450,19 +1451,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.connection.v1.ConnectionService/GetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.connection.v1.ConnectionService/GetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.connection.v1.ConnectionService&quot;</span>,
-                        <span class="string">&quot;GetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.connection.v1.ConnectionService"</span>,
+                        <span class="string">"GetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1486,19 +1487,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.connection.v1.ConnectionService/SetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.connection.v1.ConnectionService/SetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.connection.v1.ConnectionService&quot;</span>,
-                        <span class="string">&quot;SetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.connection.v1.ConnectionService"</span>,
+                        <span class="string">"SetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1509,7 +1510,7 @@
         ///
         /// Note: This operation is designed to be used for building permission-aware
         /// UIs and command-line tools, not for authorization checking. This operation
-        /// may &quot;fail open&quot; without warning.
+        /// may "fail open" without warning.
         </span><span class="kw">pub async fn </span>test_iam_permissions(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;
@@ -1527,19 +1528,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.connection.v1.ConnectionService/TestIamPermissions&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.connection.v1.ConnectionService/TestIamPermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.connection.v1.ConnectionService&quot;</span>,
-                        <span class="string">&quot;TestIamPermissions&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.connection.v1.ConnectionService"</span>,
+                        <span class="string">"TestIamPermissions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

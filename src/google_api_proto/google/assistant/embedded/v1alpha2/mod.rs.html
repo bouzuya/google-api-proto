@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/assistant/embedded/v1alpha2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/assistant/embedded/v1alpha2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -806,7 +807,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AssistRequest {
     <span class="doccomment">/// Exactly one of these fields must be specified in each `AssistRequest`.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;assist_request::Type&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"assist_request::Type"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;assist_request::Type&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AssistRequest`.
@@ -818,7 +819,7 @@
         <span class="doccomment">/// The `config` message provides information to the recognizer that
         /// specifies how to process the request.
         /// The first `AssistRequest` message must contain a `config` message.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Config(<span class="kw">super</span>::AssistConfig),
         <span class="doccomment">/// The audio data to be recognized. Sequential chunks of audio data are sent
         /// in sequential `AssistRequest` messages. The first `AssistRequest`
@@ -828,7 +829,7 @@
         /// Audio must be sent at approximately real-time (16000 samples per second).
         /// An error will be returned if audio is sent significantly faster or
         /// slower.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"2"</span>)]
         </span>AudioIn(::prost::bytes::Bytes),
     }
 }
@@ -838,17 +839,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AssistResponse {
     <span class="doccomment">/// *Output-only* Indicates the type of event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;assist_response::EventType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"assist_response::EventType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>event_type: i32,
-    <span class="doccomment">/// *Output-only* The audio containing the Assistant&#39;s response to the query.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// *Output-only* The audio containing the Assistant's response to the query.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>audio_out: ::core::option::Option&lt;AudioOut&gt;,
-    <span class="doccomment">/// *Output-only* Contains the Assistant&#39;s visual response to the query.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// *Output-only* Contains the Assistant's visual response to the query.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>screen_out: ::core::option::Option&lt;ScreenOut&gt;,
     <span class="doccomment">/// *Output-only* Contains the action triggered by the query with the
     /// appropriate payloads and semantic parsing.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>device_action: ::core::option::Option&lt;DeviceAction&gt;,
     <span class="doccomment">/// *Output-only* This repeated list contains zero or more speech recognition
     /// results that correspond to consecutive portions of the audio currently
@@ -857,14 +858,14 @@
     /// recent audio. The strings can be concatenated to view the full
     /// in-progress response. When the speech recognition completes, this list
     /// will contain one item with `stability` of `1.0`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>speech_results: ::prost::alloc::vec::Vec&lt;SpeechRecognitionResult&gt;,
-    <span class="doccomment">/// *Output-only* Contains output related to the user&#39;s query.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// *Output-only* Contains output related to the user's query.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>dialog_state_out: ::core::option::Option&lt;DialogStateOut&gt;,
     <span class="doccomment">/// *Output-only* Debugging info for developer. Only returned if request set
     /// `return_debug_info` to true.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>debug_info: ::core::option::Option&lt;DebugInfo&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AssistResponse`.
@@ -885,7 +886,7 @@
     </span><span class="kw">pub enum </span>EventType {
         <span class="doccomment">/// No event specified.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// This event indicates that the server has detected the end of the user&#39;s
+        <span class="doccomment">/// This event indicates that the server has detected the end of the user's
         /// speech utterance and expects no additional speech. Therefore, the server
         /// will not process additional audio (although it may subsequently return
         /// additional results). The client should stop sending additional audio
@@ -898,17 +899,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EventType::Unspecified =&gt; <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot;</span>,
-                EventType::EndOfUtterance =&gt; <span class="string">&quot;END_OF_UTTERANCE&quot;</span>,
+                EventType::Unspecified =&gt; <span class="string">"EVENT_TYPE_UNSPECIFIED"</span>,
+                EventType::EndOfUtterance =&gt; <span class="string">"END_OF_UTTERANCE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;END_OF_UTTERANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EndOfUtterance),
+                <span class="string">"EVENT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"END_OF_UTTERANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EndOfUtterance),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -924,7 +925,7 @@
     /// &lt;https://developers.google.com/actions/reference/rest/Shared.Types/AppResponse.&gt;
     /// It will only be populated if the request maker owns the AoG project and the
     /// AoG project is in preview mode.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>aog_agent_to_assistant_json: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Specifies how to process the `AssistRequest` messages.
@@ -932,22 +933,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AssistConfig {
     <span class="doccomment">/// *Required* Specifies how to format the audio that will be returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>audio_out_config: ::core::option::Option&lt;AudioOutConfig&gt;,
     <span class="doccomment">/// *Optional* Specifies the desired format to use when server returns a
     /// visual screen response.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>screen_out_config: ::core::option::Option&lt;ScreenOutConfig&gt;,
     <span class="doccomment">/// *Required* Represents the current dialog state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>dialog_state_in: ::core::option::Option&lt;DialogStateIn&gt;,
     <span class="doccomment">/// Device configuration that uniquely identifies a specific device.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>device_config: ::core::option::Option&lt;DeviceConfig&gt;,
     <span class="doccomment">/// *Optional* Debugging parameters for the whole `Assist` RPC.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>debug_config: ::core::option::Option&lt;DebugConfig&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;assist_config::Type&quot;</span>, tags = <span class="string">&quot;1, 6&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"assist_config::Type"</span>, tags = <span class="string">"1, 6"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;assist_config::Type&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AssistConfig`.
@@ -958,11 +959,11 @@
         <span class="doccomment">/// Specifies how to process the subsequent incoming audio. Required if
         /// [AssistRequest.audio_in][google.assistant.embedded.v1alpha2.AssistRequest.audio_in]
         /// bytes will be provided in subsequent requests.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>AudioInConfig(<span class="kw">super</span>::AudioInConfig),
         <span class="doccomment">/// The text input to be sent to the Assistant. This can be populated from a
         /// text interface if audio input is not available.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span>TextQuery(::prost::alloc::string::String),
     }
 }
@@ -974,14 +975,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AudioInConfig {
     <span class="doccomment">/// *Required* Encoding of audio data sent in all `audio_in` messages.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;audio_in_config::Encoding&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"audio_in_config::Encoding"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>encoding: i32,
     <span class="doccomment">/// *Required* Sample rate (in Hertz) of the audio data sent in all `audio_in`
     /// messages. Valid values are from 16000-24000, but 16000 is optimal.
     /// For best results, set the sampling rate of the audio source to 16000 Hz.
-    /// If that&#39;s not possible, use the native sample rate of the audio source
+    /// If that's not possible, use the native sample rate of the audio source
     /// (instead of re-sampling).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sample_rate_hertz: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `AudioInConfig`.
@@ -1020,19 +1021,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Encoding::Unspecified =&gt; <span class="string">&quot;ENCODING_UNSPECIFIED&quot;</span>,
-                Encoding::Linear16 =&gt; <span class="string">&quot;LINEAR16&quot;</span>,
-                Encoding::Flac =&gt; <span class="string">&quot;FLAC&quot;</span>,
+                Encoding::Unspecified =&gt; <span class="string">"ENCODING_UNSPECIFIED"</span>,
+                Encoding::Linear16 =&gt; <span class="string">"LINEAR16"</span>,
+                Encoding::Flac =&gt; <span class="string">"FLAC"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ENCODING_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LINEAR16&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linear16),
-                <span class="string">&quot;FLAC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Flac),
+                <span class="string">"ENCODING_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LINEAR16" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linear16),
+                <span class="string">"FLAC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Flac),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1045,15 +1046,15 @@
 </span><span class="kw">pub struct </span>AudioOutConfig {
     <span class="doccomment">/// *Required* The encoding of audio data to be returned in all `audio_out`
     /// messages.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;audio_out_config::Encoding&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"audio_out_config::Encoding"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>encoding: i32,
     <span class="doccomment">/// *Required* The sample rate in Hertz of the audio data returned in
     /// `audio_out` messages. Valid values are: 16000-24000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sample_rate_hertz: i32,
-    <span class="doccomment">/// *Required* Current volume setting of the device&#39;s audio output.
+    <span class="doccomment">/// *Required* Current volume setting of the device's audio output.
     /// Valid values are 1 to 100 (corresponding to 1% to 100%).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>volume_percentage: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `AudioOutConfig`.
@@ -1090,21 +1091,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Encoding::Unspecified =&gt; <span class="string">&quot;ENCODING_UNSPECIFIED&quot;</span>,
-                Encoding::Linear16 =&gt; <span class="string">&quot;LINEAR16&quot;</span>,
-                Encoding::Mp3 =&gt; <span class="string">&quot;MP3&quot;</span>,
-                Encoding::OpusInOgg =&gt; <span class="string">&quot;OPUS_IN_OGG&quot;</span>,
+                Encoding::Unspecified =&gt; <span class="string">"ENCODING_UNSPECIFIED"</span>,
+                Encoding::Linear16 =&gt; <span class="string">"LINEAR16"</span>,
+                Encoding::Mp3 =&gt; <span class="string">"MP3"</span>,
+                Encoding::OpusInOgg =&gt; <span class="string">"OPUS_IN_OGG"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ENCODING_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LINEAR16&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linear16),
-                <span class="string">&quot;MP3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mp3),
-                <span class="string">&quot;OPUS_IN_OGG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OpusInOgg),
+                <span class="string">"ENCODING_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LINEAR16" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linear16),
+                <span class="string">"MP3" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mp3),
+                <span class="string">"OPUS_IN_OGG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OpusInOgg),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1116,7 +1117,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ScreenOutConfig {
     <span class="doccomment">/// Current visual screen-mode for the device while issuing the query.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;screen_out_config::ScreenMode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"screen_out_config::ScreenMode"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>screen_mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ScreenOutConfig`.
@@ -1151,19 +1152,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ScreenMode::Unspecified =&gt; <span class="string">&quot;SCREEN_MODE_UNSPECIFIED&quot;</span>,
-                ScreenMode::Off =&gt; <span class="string">&quot;OFF&quot;</span>,
-                ScreenMode::Playing =&gt; <span class="string">&quot;PLAYING&quot;</span>,
+                ScreenMode::Unspecified =&gt; <span class="string">"SCREEN_MODE_UNSPECIFIED"</span>,
+                ScreenMode::Off =&gt; <span class="string">"OFF"</span>,
+                ScreenMode::Playing =&gt; <span class="string">"PLAYING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SCREEN_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;OFF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Off),
-                <span class="string">&quot;PLAYING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Playing),
+                <span class="string">"SCREEN_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"OFF" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Off),
+                <span class="string">"PLAYING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Playing),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1179,27 +1180,27 @@
     /// omitted (field not set) if there was no prior `Assist` RPC because this is
     /// the first `Assist` RPC made by this device after it was first setup and/or
     /// a factory-default reset.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>conversation_state: ::prost::bytes::Bytes,
     <span class="doccomment">/// *Required* Language of the request in
     /// [IETF BCP 47 syntax](&lt;https://tools.ietf.org/html/bcp47&gt;) (for example,
-    /// &quot;en-US&quot;). See [Language
+    /// "en-US"). See [Language
     /// Support](&lt;https://developers.google.com/assistant/sdk/reference/rpc/languages&gt;)
     /// for more information. If you have selected a language for this `device_id`
     /// using the
     /// [Settings](&lt;https://developers.google.com/assistant/sdk/reference/assistant-app/assistant-settings&gt;)
-    /// menu in your phone&#39;s Google Assistant app, that selection will override
+    /// menu in your phone's Google Assistant app, that selection will override
     /// this value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// *Optional* Location of the device where the query originated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>device_location: ::core::option::Option&lt;DeviceLocation&gt;,
     <span class="doccomment">/// *Optional* If true, the server will treat the request as a new conversation
     /// and not use state from the prior request. Set this field to true when the
     /// conversation should be restarted, such as after a device reboot, or after a
     /// significant lapse of time since the prior query.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>is_new_conversation: bool,
 }
 <span class="doccomment">/// *Required* Fields that identify the device to the Assistant.
@@ -1218,40 +1219,40 @@
     <span class="doccomment">/// *Required* Unique identifier for the device. The id length must be 128
     /// characters or less. Example: DBCDW098234. This MUST match the device_id
     /// returned from device registration. This device_id is used to match against
-    /// the user&#39;s registered devices to lookup the supported traits and
+    /// the user's registered devices to lookup the supported traits and
     /// capabilities of this device. This information should not change across
     /// device reboots. However, it should not be saved across
     /// factory-default resets.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>device_id: ::prost::alloc::string::String,
     <span class="doccomment">/// *Required* Unique identifier for the device model. The combination of
     /// device_model_id and device_id must have been previously associated through
     /// device registration.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>device_model_id: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// The audio containing the Assistant&#39;s response to the query. Sequential chunks
+<span class="doccomment">/// The audio containing the Assistant's response to the query. Sequential chunks
 /// of audio data are received in sequential `AssistResponse` messages.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AudioOut {
-    <span class="doccomment">/// *Output-only* The audio data containing the Assistant&#39;s response to the
+    <span class="doccomment">/// *Output-only* The audio data containing the Assistant's response to the
     /// query. Sequential chunks of audio data are received in sequential
     /// `AssistResponse` messages.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>audio_data: ::prost::bytes::Bytes,
 }
-<span class="doccomment">/// The Assistant&#39;s visual output response to query. Enabled by
+<span class="doccomment">/// The Assistant's visual output response to query. Enabled by
 /// `screen_out_config`.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ScreenOut {
     <span class="doccomment">/// *Output-only* The format of the provided screen data.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;screen_out::Format&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"screen_out::Format"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>format: i32,
     <span class="doccomment">/// *Output-only* The raw screen data to be displayed as the result of the
     /// Assistant query.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Nested message and enum types in `ScreenOut`.
@@ -1283,17 +1284,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Format::Unspecified =&gt; <span class="string">&quot;FORMAT_UNSPECIFIED&quot;</span>,
-                Format::Html =&gt; <span class="string">&quot;HTML&quot;</span>,
+                Format::Unspecified =&gt; <span class="string">"FORMAT_UNSPECIFIED"</span>,
+                Format::Html =&gt; <span class="string">"HTML"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;FORMAT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;HTML&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Html),
+                <span class="string">"FORMAT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"HTML" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Html),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1310,33 +1311,33 @@
     /// Device Action grammar. The format is given by the
     /// `action.devices.EXECUTE` intent for a given
     /// [trait](&lt;https://developers.google.com/assistant/sdk/reference/traits/&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>device_request_json: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The estimated transcription of a phrase the user has spoken. This could be
-/// a single segment or the full guess of the user&#39;s spoken query.
+/// a single segment or the full guess of the user's spoken query.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SpeechRecognitionResult {
     <span class="doccomment">/// *Output-only* Transcript text representing the words that the user spoke.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transcript: ::prost::alloc::string::String,
     <span class="doccomment">/// *Output-only* An estimate of the likelihood that the Assistant will not
     /// change its guess about this result. Values range from 0.0 (completely
     /// unstable) to 1.0 (completely stable and final). The default of 0.0 is a
     /// sentinel value indicating `stability` was not set.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>stability: f32,
 }
-<span class="doccomment">/// The dialog state resulting from the user&#39;s query. Multiple of these messages
+<span class="doccomment">/// The dialog state resulting from the user's query. Multiple of these messages
 /// may be received.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DialogStateOut {
     <span class="doccomment">/// *Output-only* Supplemental display text from the Assistant. This could be
     /// the same as the speech spoken in `AssistResponse.audio_out` or it could
-    /// be some additional information which aids the user&#39;s understanding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// be some additional information which aids the user's understanding.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>supplemental_display_text: ::prost::alloc::string::String,
     <span class="doccomment">/// *Output-only* State information for the subsequent `Assist` RPC. This
     /// value should be saved in the client and returned in the
@@ -1345,11 +1346,11 @@
     /// value.) This information should be saved across device reboots. However,
     /// this value should be cleared (not saved in the client) during a
     /// factory-default reset.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>conversation_state: ::prost::bytes::Bytes,
     <span class="doccomment">/// *Output-only* Specifies the mode of the microphone after this `Assist`
     /// RPC is processed.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;dialog_state_out::MicrophoneMode&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"dialog_state_out::MicrophoneMode"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>microphone_mode: i32,
     <span class="doccomment">/// *Output-only* Updated volume level. The value will be 0 or omitted
     /// (indicating no change) unless a voice command such as *Increase the volume*
@@ -1360,7 +1361,7 @@
     /// supply it in the `AudioOutConfig` of the next `AssistRequest`. (Some
     /// clients may also implement other ways to allow the current volume level to
     /// be changed, for example, by providing a knob that the user can turn.)
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>volume_percentage: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `DialogStateOut`.
@@ -1394,19 +1395,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                MicrophoneMode::Unspecified =&gt; <span class="string">&quot;MICROPHONE_MODE_UNSPECIFIED&quot;</span>,
-                MicrophoneMode::CloseMicrophone =&gt; <span class="string">&quot;CLOSE_MICROPHONE&quot;</span>,
-                MicrophoneMode::DialogFollowOn =&gt; <span class="string">&quot;DIALOG_FOLLOW_ON&quot;</span>,
+                MicrophoneMode::Unspecified =&gt; <span class="string">"MICROPHONE_MODE_UNSPECIFIED"</span>,
+                MicrophoneMode::CloseMicrophone =&gt; <span class="string">"CLOSE_MICROPHONE"</span>,
+                MicrophoneMode::DialogFollowOn =&gt; <span class="string">"DIALOG_FOLLOW_ON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MICROPHONE_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CLOSE_MICROPHONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloseMicrophone),
-                <span class="string">&quot;DIALOG_FOLLOW_ON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DialogFollowOn),
+                <span class="string">"MICROPHONE_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CLOSE_MICROPHONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloseMicrophone),
+                <span class="string">"DIALOG_FOLLOW_ON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DialogFollowOn),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1419,7 +1420,7 @@
     <span class="doccomment">/// When this field is set to true, the `debug_info` field in `AssistResponse`
     /// may be populated. However it will significantly increase latency of
     /// responses. Do not set this field true in production code.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>return_debug_info: bool,
 }
 <span class="doccomment">/// There are three sources of locations. They are used with this precedence:
@@ -1433,7 +1434,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeviceLocation {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;device_location::Type&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"device_location::Type"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;device_location::Type&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DeviceLocation`.
@@ -1442,7 +1443,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Type {
         <span class="doccomment">/// Latitude and longitude of device.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Coordinates(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng),
     }
 }
@@ -1460,7 +1461,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1538,7 +1539,7 @@
         /// *   AssistRequest.audio_in
         /// *   AssistRequest.audio_in
         /// *   AssistResponse.event_type.END_OF_UTTERANCE
-        /// *   AssistResponse.speech_results.transcript &quot;add to my shopping list&quot;
+        /// *   AssistResponse.speech_results.transcript "add to my shopping list"
         /// *   AssistResponse.dialog_state_out.microphone_mode.DIALOG_FOLLOW_ON
         /// *   AssistResponse.audio_out
         /// *   AssistResponse.audio_out
@@ -1546,7 +1547,7 @@
         ///
         ///
         /// The user then says *bagels* and the Assistant responds
-        /// *OK, I&#39;ve added bagels to your shopping list*. This is sent as another gRPC
+        /// *OK, I've added bagels to your shopping list*. This is sent as another gRPC
         /// connection call to the `Assist` method, again with streamed requests and
         /// responses, such as:
         ///
@@ -1577,19 +1578,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.assistant.embedded.v1alpha2.EmbeddedAssistant/Assist&quot;</span>,
+                <span class="string">"/google.assistant.embedded.v1alpha2.EmbeddedAssistant/Assist"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.assistant.embedded.v1alpha2.EmbeddedAssistant&quot;</span>,
-                        <span class="string">&quot;Assist&quot;</span>,
+                        <span class="string">"google.assistant.embedded.v1alpha2.EmbeddedAssistant"</span>,
+                        <span class="string">"Assist"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await

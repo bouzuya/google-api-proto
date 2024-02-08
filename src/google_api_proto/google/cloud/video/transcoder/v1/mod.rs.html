@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/video/transcoder/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/video/transcoder/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2218,7 +2219,7 @@
 </span><span class="kw">pub struct </span>Job {
     <span class="doccomment">/// The resource name of the job.
     /// Format: `projects/{project_number}/locations/{location}/jobs/{job}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Input only. Specify the `input_uri` to populate empty `uri` fields in each
     /// element of `Job.config.inputs` or `JobTemplate.config.inputs` when using
@@ -2226,62 +2227,62 @@
     /// duration and stored in Cloud Storage (for example,
     /// `gs://bucket/inputs/file.mp4`). See [Supported input and output
     /// formats](&lt;https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>input_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Input only. Specify the `output_uri` to populate an empty
     /// `Job.config.output.uri` or `JobTemplate.config.output.uri` when using
     /// template. URI for the output file(s). For example,
     /// `gs://my-bucket/outputs/`. See [Supported input and output
     /// formats](&lt;https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>output_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current state of the job.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;job::ProcessingState&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"job::ProcessingState"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The time the job was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the transcoding started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the transcoding finished.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Job time to live value in days, which will be effective after job
     /// completion. Job should be deleted automatically after the given TTL. Enter
     /// a value between 1 and 90. The default is 30.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>ttl_after_completion_days: i32,
     <span class="doccomment">/// The labels associated with this job. You can use these to organize and
     /// group your jobs.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. An error object that describes the reason for the failure.
     /// This property is always present when `state` is `FAILED`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// The processing mode of the job.
     /// The default is `PROCESSING_MODE_INTERACTIVE`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;job::ProcessingMode&quot;</span>, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"job::ProcessingMode"</span>, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>mode: i32,
     <span class="doccomment">/// The processing priority of a batch job.
     /// This field can only be set for batch mode jobs. The default value is 0.
     /// This value cannot be negative. Higher values correspond to higher
     /// priorities for the job.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>batch_mode_priority: i32,
     <span class="doccomment">/// Optional. The optimization strategy of the job. The default is
     /// `AUTODETECT`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;job::OptimizationStrategy&quot;</span>, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"job::OptimizationStrategy"</span>, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>optimization: i32,
-    <span class="doccomment">/// Specify the `job_config` for the transcoding job. If you don&#39;t specify the
+    <span class="doccomment">/// Specify the `job_config` for the transcoding job. If you don't specify the
     /// `job_config`, the API selects `templateId`; this template ID is set to
     /// `preset/web-hd` by default. When you use a `template_id` to create a job,
     /// the `Job.config` is populated by the `JobTemplate.config`.&lt;br&gt;
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;job::JobConfig&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"job::JobConfig"</span>, tags = <span class="string">"4, 5"</span>)]
     </span><span class="kw">pub </span>job_config: ::core::option::Option&lt;job::JobConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Job`.
@@ -2317,23 +2318,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ProcessingState::Unspecified =&gt; <span class="string">&quot;PROCESSING_STATE_UNSPECIFIED&quot;</span>,
-                ProcessingState::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                ProcessingState::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                ProcessingState::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                ProcessingState::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                ProcessingState::Unspecified =&gt; <span class="string">"PROCESSING_STATE_UNSPECIFIED"</span>,
+                ProcessingState::Pending =&gt; <span class="string">"PENDING"</span>,
+                ProcessingState::Running =&gt; <span class="string">"RUNNING"</span>,
+                ProcessingState::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                ProcessingState::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PROCESSING_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"PROCESSING_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2367,19 +2368,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ProcessingMode::Unspecified =&gt; <span class="string">&quot;PROCESSING_MODE_UNSPECIFIED&quot;</span>,
-                ProcessingMode::Interactive =&gt; <span class="string">&quot;PROCESSING_MODE_INTERACTIVE&quot;</span>,
-                ProcessingMode::Batch =&gt; <span class="string">&quot;PROCESSING_MODE_BATCH&quot;</span>,
+                ProcessingMode::Unspecified =&gt; <span class="string">"PROCESSING_MODE_UNSPECIFIED"</span>,
+                ProcessingMode::Interactive =&gt; <span class="string">"PROCESSING_MODE_INTERACTIVE"</span>,
+                ProcessingMode::Batch =&gt; <span class="string">"PROCESSING_MODE_BATCH"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PROCESSING_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PROCESSING_MODE_INTERACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Interactive),
-                <span class="string">&quot;PROCESSING_MODE_BATCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Batch),
+                <span class="string">"PROCESSING_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PROCESSING_MODE_INTERACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Interactive),
+                <span class="string">"PROCESSING_MODE_BATCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Batch),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2410,24 +2411,24 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                OptimizationStrategy::Unspecified =&gt; <span class="string">&quot;OPTIMIZATION_STRATEGY_UNSPECIFIED&quot;</span>,
-                OptimizationStrategy::Autodetect =&gt; <span class="string">&quot;AUTODETECT&quot;</span>,
-                OptimizationStrategy::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                OptimizationStrategy::Unspecified =&gt; <span class="string">"OPTIMIZATION_STRATEGY_UNSPECIFIED"</span>,
+                OptimizationStrategy::Autodetect =&gt; <span class="string">"AUTODETECT"</span>,
+                OptimizationStrategy::Disabled =&gt; <span class="string">"DISABLED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;OPTIMIZATION_STRATEGY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AUTODETECT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Autodetect),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">"OPTIMIZATION_STRATEGY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AUTODETECT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Autodetect),
+                <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
-    <span class="doccomment">/// Specify the `job_config` for the transcoding job. If you don&#39;t specify the
+    <span class="doccomment">/// Specify the `job_config` for the transcoding job. If you don't specify the
     /// `job_config`, the API selects `templateId`; this template ID is set to
     /// `preset/web-hd` by default. When you use a `template_id` to create a job,
     /// the `Job.config` is populated by the `JobTemplate.config`.&lt;br&gt;
@@ -2438,10 +2439,10 @@
         /// The default is `preset/web-hd`, which is the only supported preset.
         ///
         /// User defined JobTemplate: `{job_template_id}`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span>TemplateId(::prost::alloc::string::String),
         <span class="doccomment">/// The configuration for this job.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>Config(<span class="kw">super</span>::JobConfig),
     }
 }
@@ -2452,14 +2453,14 @@
     <span class="doccomment">/// The resource name of the job template.
     /// Format:
     /// `projects/{project_number}/locations/{location}/jobTemplates/{job_template}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The configuration for this template.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;JobConfig&gt;,
     <span class="doccomment">/// The labels associated with this job template. You can use these to organize
     /// and group your job templates.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2470,43 +2471,43 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobConfig {
     <span class="doccomment">/// List of input assets stored in Cloud Storage.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>inputs: ::prost::alloc::vec::Vec&lt;Input&gt;,
     <span class="doccomment">/// List of `Edit atom`s. Defines the ultimate timeline of the resulting
     /// file or manifest.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>edit_list: ::prost::alloc::vec::Vec&lt;EditAtom&gt;,
     <span class="doccomment">/// List of elementary streams.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>elementary_streams: ::prost::alloc::vec::Vec&lt;ElementaryStream&gt;,
     <span class="doccomment">/// List of multiplexing settings for output streams.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>mux_streams: ::prost::alloc::vec::Vec&lt;MuxStream&gt;,
     <span class="doccomment">/// List of output manifests.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>manifests: ::prost::alloc::vec::Vec&lt;Manifest&gt;,
     <span class="doccomment">/// Output configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>output: ::core::option::Option&lt;Output&gt;,
     <span class="doccomment">/// List of ad breaks. Specifies where to insert ad break tags in the output
     /// manifests.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>ad_breaks: ::prost::alloc::vec::Vec&lt;AdBreak&gt;,
     <span class="doccomment">/// Destination on Pub/Sub.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>pubsub_destination: ::core::option::Option&lt;PubsubDestination&gt;,
     <span class="doccomment">/// List of output sprite sheets.
     /// Spritesheets require at least one VideoStream in the Jobconfig.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>sprite_sheets: ::prost::alloc::vec::Vec&lt;SpriteSheet&gt;,
     <span class="doccomment">/// List of overlays on the output video, in descending Z-order.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>overlays: ::prost::alloc::vec::Vec&lt;Overlay&gt;,
     <span class="doccomment">/// List of encryption configurations for the content.
     /// Each configuration has an ID. Specify this ID in the
     /// [MuxStream.encryption_id][google.cloud.video.transcoder.v1.MuxStream.encryption_id]
     /// field to indicate the configuration to use for that `MuxStream` output.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>encryptions: ::prost::alloc::vec::Vec&lt;Encryption&gt;,
 }
 <span class="doccomment">/// Input asset.
@@ -2515,17 +2516,17 @@
 </span><span class="kw">pub struct </span>Input {
     <span class="doccomment">/// A unique key for this input. Must be specified when using advanced
     /// mapping and edit lists.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
     <span class="doccomment">/// URI of the media. Input files must be at least 5 seconds in duration and
     /// stored in Cloud Storage (for example, `gs://bucket/inputs/file.mp4`).
     /// If empty, the value is populated from `Job.input_uri`. See
     /// [Supported input and output
     /// formats](&lt;https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Preprocessing configurations.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>preprocessing_config: ::core::option::Option&lt;PreprocessingConfig&gt;,
 }
 <span class="doccomment">/// Location of output file(s) in a Cloud Storage bucket.
@@ -2536,7 +2537,7 @@
     /// If empty, the value is populated from `Job.output_uri`. See
     /// [Supported input and output
     /// formats](&lt;https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Edit atom.
@@ -2545,20 +2546,20 @@
 </span><span class="kw">pub struct </span>EditAtom {
     <span class="doccomment">/// A unique key for this atom. Must be specified when using advanced
     /// mapping.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
     <span class="doccomment">/// List of `Input.key`s identifying files that should be used in this atom.
     /// The listed `inputs` must have the same timeline.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>inputs: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// End time in seconds for the atom, relative to the input file timeline.
     /// When `end_time_offset` is not specified, the `inputs` are used until
     /// the end of the atom.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>end_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Start time in seconds for the atom, relative to the input file timeline.
     /// The default is `0s`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>start_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Ad break.
@@ -2567,7 +2568,7 @@
 </span><span class="kw">pub struct </span>AdBreak {
     <span class="doccomment">/// Start time in seconds for the ad break, relative to the output file
     /// timeline. The default is `0s`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Encoding of an input file such as an audio, video, or text track.
@@ -2577,10 +2578,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ElementaryStream {
     <span class="doccomment">/// A unique key for this elementary stream.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
     <span class="doccomment">/// Encoding of an audio, video, or text track.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;elementary_stream::ElementaryStream&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"elementary_stream::ElementaryStream"</span>, tags = <span class="string">"1, 2, 3"</span>)]
     </span><span class="kw">pub </span>elementary_stream: ::core::option::Option&lt;elementary_stream::ElementaryStream&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ElementaryStream`.
@@ -2590,13 +2591,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ElementaryStream {
         <span class="doccomment">/// Encoding of a video stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>VideoStream(<span class="kw">super</span>::VideoStream),
         <span class="doccomment">/// Encoding of an audio stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>AudioStream(<span class="kw">super</span>::AudioStream),
         <span class="doccomment">/// Encoding of a text stream. For example, closed captions or subtitles.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>TextStream(<span class="kw">super</span>::TextStream),
     }
 }
@@ -2606,14 +2607,14 @@
 </span><span class="kw">pub struct </span>MuxStream {
     <span class="doccomment">/// A unique key for this multiplexed stream. HLS media manifests will be
     /// named `MuxStream.key` with the `.m3u8` extension suffix.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the generated file. The default is `MuxStream.key` with the
     /// extension suffix corresponding to the `MuxStream.container`.
     ///
     /// Individual segments also have an incremental 10-digit zero-padded suffix
     /// starting from 0 before the extension, such as `mux_stream0000000123.ts`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>file_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The container format. The default is `mp4`
     ///
@@ -2627,17 +2628,17 @@
     /// See also:
     /// [Supported input and output
     /// formats](&lt;https://cloud.google.com/transcoder/docs/concepts/supported-input-and-output-formats&gt;)
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>container: ::prost::alloc::string::String,
     <span class="doccomment">/// List of `ElementaryStream.key`s multiplexed in this stream.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>elementary_streams: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Segment settings for `ts`, `fmp4` and `vtt`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>segment_settings: ::core::option::Option&lt;SegmentSettings&gt;,
     <span class="doccomment">/// Identifier of the encryption configuration to use. If omitted, output will
     /// be unencrypted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>encryption_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Manifest configuration.
@@ -2646,10 +2647,10 @@
 </span><span class="kw">pub struct </span>Manifest {
     <span class="doccomment">/// The name of the generated file. The default is `manifest` with the
     /// extension suffix corresponding to the `Manifest.type`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>file_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Type of the manifest.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;manifest::ManifestType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"manifest::ManifestType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Required. List of user given `MuxStream.key`s that should appear in this
     /// manifest.
@@ -2657,10 +2658,10 @@
     /// When `Manifest.type` is `HLS`, a media manifest with name `MuxStream.key`
     /// and `.m3u8` extension is generated for each element of the
     /// `Manifest.mux_streams`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>mux_streams: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Specifies the manifest configuration.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;manifest::ManifestConfig&quot;</span>, tags = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"manifest::ManifestConfig"</span>, tags = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>manifest_config: ::core::option::Option&lt;manifest::ManifestConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Manifest`.
@@ -2671,7 +2672,7 @@
     </span><span class="kw">pub struct </span>DashConfig {
         <span class="doccomment">/// The segment reference scheme for a `DASH` manifest. The default is
         /// `SEGMENT_LIST`.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;dash_config::SegmentReferenceScheme&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"dash_config::SegmentReferenceScheme"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>segment_reference_scheme: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `DashConfig`.
@@ -2702,23 +2703,23 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
                     SegmentReferenceScheme::Unspecified =&gt; {
-                        <span class="string">&quot;SEGMENT_REFERENCE_SCHEME_UNSPECIFIED&quot;
+                        <span class="string">"SEGMENT_REFERENCE_SCHEME_UNSPECIFIED"
                     </span>}
-                    SegmentReferenceScheme::SegmentList =&gt; <span class="string">&quot;SEGMENT_LIST&quot;</span>,
+                    SegmentReferenceScheme::SegmentList =&gt; <span class="string">"SEGMENT_LIST"</span>,
                     SegmentReferenceScheme::SegmentTemplateNumber =&gt; {
-                        <span class="string">&quot;SEGMENT_TEMPLATE_NUMBER&quot;
+                        <span class="string">"SEGMENT_TEMPLATE_NUMBER"
                     </span>}
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;SEGMENT_REFERENCE_SCHEME_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;SEGMENT_LIST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SegmentList),
-                    <span class="string">&quot;SEGMENT_TEMPLATE_NUMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SegmentTemplateNumber),
+                    <span class="string">"SEGMENT_REFERENCE_SCHEME_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"SEGMENT_LIST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SegmentList),
+                    <span class="string">"SEGMENT_TEMPLATE_NUMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SegmentTemplateNumber),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -2750,19 +2751,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ManifestType::Unspecified =&gt; <span class="string">&quot;MANIFEST_TYPE_UNSPECIFIED&quot;</span>,
-                ManifestType::Hls =&gt; <span class="string">&quot;HLS&quot;</span>,
-                ManifestType::Dash =&gt; <span class="string">&quot;DASH&quot;</span>,
+                ManifestType::Unspecified =&gt; <span class="string">"MANIFEST_TYPE_UNSPECIFIED"</span>,
+                ManifestType::Hls =&gt; <span class="string">"HLS"</span>,
+                ManifestType::Dash =&gt; <span class="string">"DASH"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MANIFEST_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;HLS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hls),
-                <span class="string">&quot;DASH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dash),
+                <span class="string">"MANIFEST_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"HLS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hls),
+                <span class="string">"DASH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dash),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2772,7 +2773,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ManifestConfig {
         <span class="doccomment">/// `DASH` manifest configuration.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>Dash(DashConfig),
     }
 }
@@ -2782,7 +2783,7 @@
 </span><span class="kw">pub struct </span>PubsubDestination {
     <span class="doccomment">/// The name of the Pub/Sub topic to publish job completion notification
     /// to. For example: `projects/{project}/topics/{topic}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>topic: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Sprite sheet configuration.
@@ -2794,13 +2795,13 @@
     /// Supported formats:
     ///
     /// - `jpeg`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>format: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. File name prefix for the generated sprite sheets.
     ///
     /// Each sprite sheet has an incremental 10-digit zero-padded suffix starting
     /// from 0 before the extension, such as `sprite_sheet0000000123.jpeg`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>file_prefix: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The width of sprite in pixels. Must be an even integer. To
     /// preserve the source aspect ratio, set the
@@ -2814,7 +2815,7 @@
     /// provide the width, in pixels, per the horizontal ASR. The API calculates
     /// the height per the horizontal ASR. The API detects any rotation metadata
     /// and swaps the requested height and width for the output.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>sprite_width_pixels: i32,
     <span class="doccomment">/// Required. The height of sprite in pixels. Must be an even integer. To
     /// preserve the source aspect ratio, set the
@@ -2828,34 +2829,34 @@
     /// provide the height, in pixels, per the horizontal ASR. The API calculates
     /// the width per the horizontal ASR. The API detects any rotation metadata
     /// and swaps the requested height and width for the output.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>sprite_height_pixels: i32,
     <span class="doccomment">/// The maximum number of sprites per row in a sprite sheet. The default is 0,
     /// which indicates no maximum limit.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>column_count: i32,
     <span class="doccomment">/// The maximum number of rows per sprite sheet. When the sprite sheet is full,
     /// a new sprite sheet is created. The default is 0, which indicates no maximum
     /// limit.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>row_count: i32,
     <span class="doccomment">/// Start time in seconds, relative to the output file timeline. Determines the
     /// first sprite to pick. The default is `0s`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>start_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// End time in seconds, relative to the output file timeline. When
     /// `end_time_offset` is not specified, the sprites are generated until the end
     /// of the output file.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>end_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The quality of the generated sprite sheet. Enter a value between 1
     /// and 100, where 1 is the lowest quality and 100 is the highest quality.
     /// The default is 100. A high quality value corresponds to a low image data
     /// compression ratio.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>quality: i32,
     <span class="doccomment">/// Specify either total number of sprites or interval to create sprites.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;sprite_sheet::ExtractionStrategy&quot;</span>, tags = <span class="string">&quot;9, 10&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"sprite_sheet::ExtractionStrategy"</span>, tags = <span class="string">"9, 10"</span>)]
     </span><span class="kw">pub </span>extraction_strategy: ::core::option::Option&lt;sprite_sheet::ExtractionStrategy&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SpriteSheet`.
@@ -2867,11 +2868,11 @@
         <span class="doccomment">/// Total number of sprites. Create the specified number of sprites
         /// distributed evenly across the timeline of the output media. The default
         /// is 100.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"9"</span>)]
         </span>TotalCount(i32),
         <span class="doccomment">/// Starting from `0s`, create sprites at regular intervals. Specify the
         /// interval value in seconds.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>Interval(::prost_types::Duration),
     }
 }
@@ -2880,11 +2881,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Overlay {
     <span class="doccomment">/// Image overlay.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>image: ::core::option::Option&lt;overlay::Image&gt;,
     <span class="doccomment">/// List of Animations. The list should be chronological, without any time
     /// overlap.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>animations: ::prost::alloc::vec::Vec&lt;overlay::Animation&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Overlay`.
@@ -2894,10 +2895,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>NormalizedCoordinate {
         <span class="doccomment">/// Normalized x coordinate.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>x: f64,
         <span class="doccomment">/// Normalized y coordinate.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>y: f64,
     }
     <span class="doccomment">/// Overlaid image.
@@ -2906,17 +2907,17 @@
     </span><span class="kw">pub struct </span>Image {
         <span class="doccomment">/// Required. URI of the image in Cloud Storage. For example,
         /// `gs://bucket/inputs/image.png`. Only PNG and JPEG images are supported.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
         <span class="doccomment">/// Normalized image resolution, based on output video resolution. Valid
         /// values: `0.0`–`1.0`. To respect the original image aspect ratio, set
         /// either `x` or `y` to `0.0`. To use the original image resolution, set
         /// both `x` and `y` to `0.0`.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>resolution: ::core::option::Option&lt;NormalizedCoordinate&gt;,
         <span class="doccomment">/// Target image opacity. Valid values are from  `1.0` (solid, default) to
         /// `0.0` (transparent), exclusive. Set this to a value greater than `0.0`.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>alpha: f64,
     }
     <span class="doccomment">/// Display static overlay object.
@@ -2928,10 +2929,10 @@
         /// object. For example, use the x and y coordinates {0,0} to position the
         /// top-left corner of the overlay animation in the top-left corner of the
         /// output video.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>xy: ::core::option::Option&lt;NormalizedCoordinate&gt;,
         <span class="doccomment">/// The time to start displaying the overlay object, in seconds. Default: 0
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>start_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
     }
     <span class="doccomment">/// Display overlay object with fade animation.
@@ -2939,21 +2940,21 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AnimationFade {
         <span class="doccomment">/// Required. Type of fade animation: `FADE_IN` or `FADE_OUT`.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;FadeType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"FadeType"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>fade_type: i32,
         <span class="doccomment">/// Normalized coordinates based on output video resolution. Valid
         /// values: `0.0`–`1.0`. `xy` is the upper-left coordinate of the overlay
         /// object. For example, use the x and y coordinates {0,0} to position the
         /// top-left corner of the overlay animation in the top-left corner of the
         /// output video.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>xy: ::core::option::Option&lt;NormalizedCoordinate&gt;,
         <span class="doccomment">/// The time to start the fade animation, in seconds. Default: 0
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>start_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
         <span class="doccomment">/// The time to end the fade animation, in seconds. Default:
         /// `start_time_offset` + 1s
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>end_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
     }
     <span class="doccomment">/// End previous overlay animation from the video. Without AnimationEnd, the
@@ -2963,7 +2964,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AnimationEnd {
         <span class="doccomment">/// The time to end overlay object, in seconds. Default: 0
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>start_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
     }
     <span class="doccomment">/// Animation types.
@@ -2971,7 +2972,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Animation {
         <span class="doccomment">/// Animations can be static or fade, or they can end the previous animation.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;animation::AnimationType&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"animation::AnimationType"</span>, tags = <span class="string">"1, 2, 3"</span>)]
         </span><span class="kw">pub </span>animation_type: ::core::option::Option&lt;animation::AnimationType&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Animation`.
@@ -2981,13 +2982,13 @@
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>AnimationType {
             <span class="doccomment">/// Display static overlay object.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
             </span>AnimationStatic(<span class="kw">super</span>::AnimationStatic),
             <span class="doccomment">/// Display overlay object with fade animation.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>AnimationFade(<span class="kw">super</span>::AnimationFade),
             <span class="doccomment">/// End previous animation.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
             </span>AnimationEnd(<span class="kw">super</span>::AnimationEnd),
         }
     }
@@ -3017,19 +3018,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                FadeType::Unspecified =&gt; <span class="string">&quot;FADE_TYPE_UNSPECIFIED&quot;</span>,
-                FadeType::FadeIn =&gt; <span class="string">&quot;FADE_IN&quot;</span>,
-                FadeType::FadeOut =&gt; <span class="string">&quot;FADE_OUT&quot;</span>,
+                FadeType::Unspecified =&gt; <span class="string">"FADE_TYPE_UNSPECIFIED"</span>,
+                FadeType::FadeIn =&gt; <span class="string">"FADE_IN"</span>,
+                FadeType::FadeOut =&gt; <span class="string">"FADE_OUT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;FADE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;FADE_IN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FadeIn),
-                <span class="string">&quot;FADE_OUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FadeOut),
+                <span class="string">"FADE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"FADE_IN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FadeIn),
+                <span class="string">"FADE_OUT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FadeOut),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3040,25 +3041,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PreprocessingConfig {
     <span class="doccomment">/// Color preprocessing configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>color: ::core::option::Option&lt;preprocessing_config::Color&gt;,
     <span class="doccomment">/// Denoise preprocessing configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>denoise: ::core::option::Option&lt;preprocessing_config::Denoise&gt;,
     <span class="doccomment">/// Deblock preprocessing configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>deblock: ::core::option::Option&lt;preprocessing_config::Deblock&gt;,
     <span class="doccomment">/// Audio preprocessing configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>audio: ::core::option::Option&lt;preprocessing_config::Audio&gt;,
     <span class="doccomment">/// Specify the video cropping configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>crop: ::core::option::Option&lt;preprocessing_config::Crop&gt;,
     <span class="doccomment">/// Specify the video pad filter configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>pad: ::core::option::Option&lt;preprocessing_config::Pad&gt;,
     <span class="doccomment">/// Specify the video deinterlace configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>deinterlace: ::core::option::Option&lt;preprocessing_config::Deinterlace&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PreprocessingConfig`.
@@ -3072,17 +3073,17 @@
         <span class="doccomment">/// Control color saturation of the video. Enter a value between -1 and 1,
         /// where -1 is fully desaturated and 1 is maximum saturation. 0 is no
         /// change. The default is 0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>saturation: f64,
         <span class="doccomment">/// Control black and white contrast of the video. Enter a value between -1
         /// and 1, where -1 is minimum contrast and 1 is maximum contrast. 0 is no
         /// change. The default is 0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>contrast: f64,
         <span class="doccomment">/// Control brightness of the video. Enter a value between -1 and 1, where -1
         /// is minimum brightness and 1 is maximum brightness. 0 is no change. The
         /// default is 0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>brightness: f64,
     }
     <span class="doccomment">/// Denoise preprocessing configuration.
@@ -3093,7 +3094,7 @@
     </span><span class="kw">pub struct </span>Denoise {
         <span class="doccomment">/// Set strength of the denoise. Enter a value between 0 and 1. The higher
         /// the value, the smoother the image. 0 is no denoising. The default is 0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>strength: f64,
         <span class="doccomment">/// Set the denoiser mode. The default is `standard`.
         ///
@@ -3101,7 +3102,7 @@
         ///
         /// - `standard`
         /// - `grain`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>tune: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Deblock preprocessing configuration.
@@ -3113,10 +3114,10 @@
         <span class="doccomment">/// Set strength of the deblocker. Enter a value between 0 and 1. The higher
         /// the value, the stronger the block removal. 0 is no deblocking. The
         /// default is 0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>strength: f64,
         <span class="doccomment">/// Enable deblocker. The default is `false`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>enabled: bool,
     }
     <span class="doccomment">/// Audio preprocessing configuration.
@@ -3134,17 +3135,17 @@
         /// *   -14 is the new online audio standard recommended by Spotify, as well
         ///      as Amazon Echo
         /// *   0 disables normalization
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>lufs: f64,
         <span class="doccomment">/// Enable boosting high frequency components. The default is `false`.
         ///
         /// **Note:** This field is not supported.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>high_boost: bool,
         <span class="doccomment">/// Enable boosting low frequency components. The default is `false`.
         ///
         /// **Note:** This field is not supported.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>low_boost: bool,
     }
     <span class="doccomment">/// Video cropping configuration for the input video. The cropped input video
@@ -3153,16 +3154,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Crop {
         <span class="doccomment">/// The number of pixels to crop from the top. The default is 0.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>top_pixels: i32,
         <span class="doccomment">/// The number of pixels to crop from the bottom. The default is 0.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>bottom_pixels: i32,
         <span class="doccomment">/// The number of pixels to crop from the left. The default is 0.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>left_pixels: i32,
         <span class="doccomment">/// The number of pixels to crop from the right. The default is 0.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>right_pixels: i32,
     }
     <span class="doccomment">/// Pad filter configuration for the input video. The padded input video
@@ -3171,16 +3172,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Pad {
         <span class="doccomment">/// The number of pixels to add to the top. The default is 0.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>top_pixels: i32,
         <span class="doccomment">/// The number of pixels to add to the bottom. The default is 0.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>bottom_pixels: i32,
         <span class="doccomment">/// The number of pixels to add to the left. The default is 0.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>left_pixels: i32,
         <span class="doccomment">/// The number of pixels to add to the right. The default is 0.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>right_pixels: i32,
     }
     <span class="doccomment">/// Deinterlace configuration for input video.
@@ -3188,7 +3189,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Deinterlace {
         <span class="doccomment">/// Specify the video deinterlacing filter. The default is `yadif`.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;deinterlace::DeinterlacingFilter&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"deinterlace::DeinterlacingFilter"</span>, tags = <span class="string">"1, 2"</span>)]
         </span><span class="kw">pub </span>deinterlacing_filter: ::core::option::Option&lt;
             deinterlace::DeinterlacingFilter,
         &gt;,
@@ -3205,11 +3206,11 @@
             ///
             /// - `send_frame`: Output one frame for each frame
             /// - `send_field`: Output one frame for each field
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>mode: ::prost::alloc::string::String,
             <span class="doccomment">/// Disable spacial interlacing.
             /// The default is `false`.
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>disable_spatial_interlacing: bool,
             <span class="doccomment">/// The picture field parity assumed for the input interlaced video.
             /// The default is `auto`.
@@ -3218,11 +3219,11 @@
             /// - `tff`: Assume the top field is first
             /// - `bff`: Assume the bottom field is first
             /// - `auto`: Enable automatic detection of field parity
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>parity: ::prost::alloc::string::String,
             <span class="doccomment">/// Deinterlace all frames rather than just the frames identified as
             /// interlaced. The default is `false`.
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
             </span><span class="kw">pub </span>deinterlace_all_frames: bool,
         }
         <span class="doccomment">/// Bob Weaver Deinterlacing Filter Configuration.
@@ -3235,7 +3236,7 @@
             ///
             /// - `send_frame`: Output one frame for each frame
             /// - `send_field`: Output one frame for each field
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>mode: ::prost::alloc::string::String,
             <span class="doccomment">/// The picture field parity assumed for the input interlaced video.
             /// The default is `auto`.
@@ -3244,11 +3245,11 @@
             /// - `tff`: Assume the top field is first
             /// - `bff`: Assume the bottom field is first
             /// - `auto`: Enable automatic detection of field parity
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>parity: ::prost::alloc::string::String,
             <span class="doccomment">/// Deinterlace all frames rather than just the frames identified as
             /// interlaced. The default is `false`.
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>deinterlace_all_frames: bool,
         }
         <span class="doccomment">/// Specify the video deinterlacing filter. The default is `yadif`.
@@ -3256,10 +3257,10 @@
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>DeinterlacingFilter {
             <span class="doccomment">/// Specifies the Yet Another Deinterlacing Filter Configuration.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
             </span>Yadif(YadifConfig),
             <span class="doccomment">/// Specifies the Bob Weaver Deinterlacing Filter Configuration.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>Bwdif(BwdifConfig),
         }
     }
@@ -3269,7 +3270,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VideoStream {
     <span class="doccomment">/// Codec settings can be h264, h265, or vp9.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;video_stream::CodecSettings&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"video_stream::CodecSettings"</span>, tags = <span class="string">"1, 2, 3"</span>)]
     </span><span class="kw">pub </span>codec_settings: ::core::option::Option&lt;video_stream::CodecSettings&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `VideoStream`.
@@ -3286,7 +3287,7 @@
         /// provide the width, in pixels, per the horizontal ASR. The API calculates
         /// the height per the horizontal ASR. The API detects any rotation metadata
         /// and swaps the requested height and width for the output.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>width_pixels: i32,
         <span class="doccomment">/// The height of the video in pixels. Must be an even integer.
         /// When not specified, the height is adjusted to match the specified width
@@ -3296,7 +3297,7 @@
         /// provide the height, in pixels, per the horizontal ASR. The API calculates
         /// the width per the horizontal ASR. The API detects any rotation metadata
         /// and swaps the requested height and width for the output.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>height_pixels: i32,
         <span class="doccomment">/// Required. The target video frame rate in frames per second (FPS). Must be
         /// less than or equal to 120. Will default to the input frame rate if larger
@@ -3305,11 +3306,11 @@
         /// [Calculating frame
         /// rate](&lt;https://cloud.google.com/transcoder/docs/concepts/frame-rate&gt;) for
         /// more information.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>frame_rate: f64,
         <span class="doccomment">/// Required. The video bitrate in bits per second. The minimum value is
         /// 1,000. The maximum value is 800,000,000.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>bitrate_bps: i32,
         <span class="doccomment">/// Pixel format to use. The default is `yuv420p`.
         ///
@@ -3324,7 +3325,7 @@
         /// - `yuv420p12` 12-bit HDR pixel format
         /// - `yuv422p12` 12-bit HDR pixel format
         /// - `yuv444p12` 12-bit HDR pixel format
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>pixel_format: ::prost::alloc::string::String,
         <span class="doccomment">/// Specify the `rate_control_mode`. The default is `vbr`.
         ///
@@ -3332,28 +3333,28 @@
         ///
         /// - `vbr` - variable bitrate
         /// - `crf` - constant rate factor
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>rate_control_mode: ::prost::alloc::string::String,
         <span class="doccomment">/// Target CRF level. Must be between 10 and 36, where 10 is the highest
         /// quality and 36 is the most efficient compression. The default is 21.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>crf_level: i32,
         <span class="doccomment">/// Specifies whether an open Group of Pictures (GOP) structure should be
         /// allowed or not. The default is `false`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>allow_open_gop: bool,
         <span class="doccomment">/// Use two-pass encoding strategy to achieve better video quality.
         /// `VideoStream.rate_control_mode` must be `vbr`. The default is `false`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"11"</span>)]
         </span><span class="kw">pub </span>enable_two_pass: bool,
         <span class="doccomment">/// Size of the Video Buffering Verifier (VBV) buffer in bits. Must be
         /// greater than zero. The default is equal to `VideoStream.bitrate_bps`.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"12"</span>)]
         </span><span class="kw">pub </span>vbv_size_bits: i32,
         <span class="doccomment">/// Initial fullness of the Video Buffering Verifier (VBV) buffer in bits.
         /// Must be greater than zero. The default is equal to 90% of
         /// `VideoStream.vbv_size_bits`.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"13"</span>)]
         </span><span class="kw">pub </span>vbv_fullness_bits: i32,
         <span class="doccomment">/// The entropy coder to use. The default is `cabac`.
         ///
@@ -3361,21 +3362,21 @@
         ///
         /// - `cavlc`
         /// - `cabac`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
         </span><span class="kw">pub </span>entropy_coder: ::prost::alloc::string::String,
         <span class="doccomment">/// Allow B-pyramid for reference frame selection. This may not be supported
         /// on all decoders. The default is `false`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"15"</span>)]
         </span><span class="kw">pub </span>b_pyramid: bool,
         <span class="doccomment">/// The number of consecutive B-frames. Must be greater than or equal to
         /// zero. Must be less than `VideoStream.gop_frame_count` if set. The default
         /// is 0.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;16&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"16"</span>)]
         </span><span class="kw">pub </span>b_frame_count: i32,
         <span class="doccomment">/// Specify the intensity of the adaptive quantizer (AQ). Must be between 0
         /// and 1, where 0 disables the quantizer and 1 maximizes the quantizer. A
         /// higher value equals a lower bitrate but smoother image. The default is 0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;17&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"17"</span>)]
         </span><span class="kw">pub </span>aq_strength: f64,
         <span class="doccomment">/// Enforces the specified codec profile. The following profiles are
         /// supported:
@@ -3389,14 +3390,14 @@
         /// Note that certain values for this field may cause the
         /// transcoder to override other fields you set in the `H264CodecSettings`
         /// message.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"18"</span>)]
         </span><span class="kw">pub </span>profile: ::prost::alloc::string::String,
         <span class="doccomment">/// Enforces the specified codec tune. The available options are
         /// [FFmpeg-compatible](&lt;https://trac.ffmpeg.org/wiki/Encode/H.264#Tune&gt;).
         /// Note that certain values for this field may cause the
         /// transcoder to override other fields you set in the `H264CodecSettings`
         /// message.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;19&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"19"</span>)]
         </span><span class="kw">pub </span>tune: ::prost::alloc::string::String,
         <span class="doccomment">/// Enforces the specified codec preset. The default is `veryfast`. The
         /// available options are
@@ -3404,10 +3405,10 @@
         /// Note that certain values for this field may cause the
         /// transcoder to override other fields you set in the `H264CodecSettings`
         /// message.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;20&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"20"</span>)]
         </span><span class="kw">pub </span>preset: ::prost::alloc::string::String,
         <span class="doccomment">/// GOP mode can be either by frame count or duration.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;h264_codec_settings::GopMode&quot;</span>, tags = <span class="string">&quot;9, 10&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"h264_codec_settings::GopMode"</span>, tags = <span class="string">"9, 10"</span>)]
         </span><span class="kw">pub </span>gop_mode: ::core::option::Option&lt;h264_codec_settings::GopMode&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `H264CodecSettings`.
@@ -3418,14 +3419,14 @@
         </span><span class="kw">pub enum </span>GopMode {
             <span class="doccomment">/// Select the GOP size based on the specified frame count. Must be greater
             /// than zero.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"9"</span>)]
             </span>GopFrameCount(i32),
             <span class="doccomment">/// Select the GOP size based on the specified duration. The default is
             /// `3s`. Note that `gopDuration` must be less than or equal to
             /// [`segmentDuration`](#SegmentSettings), and
             /// [`segmentDuration`](#SegmentSettings) must be divisible by
             /// `gopDuration`.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
             </span>GopDuration(::prost_types::Duration),
         }
     }
@@ -3441,7 +3442,7 @@
         /// provide the width, in pixels, per the horizontal ASR. The API calculates
         /// the height per the horizontal ASR. The API detects any rotation metadata
         /// and swaps the requested height and width for the output.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>width_pixels: i32,
         <span class="doccomment">/// The height of the video in pixels. Must be an even integer.
         /// When not specified, the height is adjusted to match the specified width
@@ -3451,7 +3452,7 @@
         /// provide the height, in pixels, per the horizontal ASR. The API calculates
         /// the width per the horizontal ASR. The API detects any rotation metadata
         /// and swaps the requested height and width for the output.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>height_pixels: i32,
         <span class="doccomment">/// Required. The target video frame rate in frames per second (FPS). Must be
         /// less than or equal to 120. Will default to the input frame rate if larger
@@ -3460,11 +3461,11 @@
         /// [Calculating frame
         /// rate](&lt;https://cloud.google.com/transcoder/docs/concepts/frame-rate&gt;) for
         /// more information.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>frame_rate: f64,
         <span class="doccomment">/// Required. The video bitrate in bits per second. The minimum value is
         /// 1,000. The maximum value is 800,000,000.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>bitrate_bps: i32,
         <span class="doccomment">/// Pixel format to use. The default is `yuv420p`.
         ///
@@ -3479,7 +3480,7 @@
         /// - `yuv420p12` 12-bit HDR pixel format
         /// - `yuv422p12` 12-bit HDR pixel format
         /// - `yuv444p12` 12-bit HDR pixel format
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>pixel_format: ::prost::alloc::string::String,
         <span class="doccomment">/// Specify the `rate_control_mode`. The default is `vbr`.
         ///
@@ -3487,42 +3488,42 @@
         ///
         /// - `vbr` - variable bitrate
         /// - `crf` - constant rate factor
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>rate_control_mode: ::prost::alloc::string::String,
         <span class="doccomment">/// Target CRF level. Must be between 10 and 36, where 10 is the highest
         /// quality and 36 is the most efficient compression. The default is 21.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>crf_level: i32,
         <span class="doccomment">/// Specifies whether an open Group of Pictures (GOP) structure should be
         /// allowed or not. The default is `false`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>allow_open_gop: bool,
         <span class="doccomment">/// Use two-pass encoding strategy to achieve better video quality.
         /// `VideoStream.rate_control_mode` must be `vbr`. The default is `false`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"11"</span>)]
         </span><span class="kw">pub </span>enable_two_pass: bool,
         <span class="doccomment">/// Size of the Video Buffering Verifier (VBV) buffer in bits. Must be
         /// greater than zero. The default is equal to `VideoStream.bitrate_bps`.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"12"</span>)]
         </span><span class="kw">pub </span>vbv_size_bits: i32,
         <span class="doccomment">/// Initial fullness of the Video Buffering Verifier (VBV) buffer in bits.
         /// Must be greater than zero. The default is equal to 90% of
         /// `VideoStream.vbv_size_bits`.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"13"</span>)]
         </span><span class="kw">pub </span>vbv_fullness_bits: i32,
         <span class="doccomment">/// Allow B-pyramid for reference frame selection. This may not be supported
         /// on all decoders. The default is `false`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;14&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"14"</span>)]
         </span><span class="kw">pub </span>b_pyramid: bool,
         <span class="doccomment">/// The number of consecutive B-frames. Must be greater than or equal to
         /// zero. Must be less than `VideoStream.gop_frame_count` if set. The default
         /// is 0.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;15&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"15"</span>)]
         </span><span class="kw">pub </span>b_frame_count: i32,
         <span class="doccomment">/// Specify the intensity of the adaptive quantizer (AQ). Must be between 0
         /// and 1, where 0 disables the quantizer and 1 maximizes the quantizer. A
         /// higher value equals a lower bitrate but smoother image. The default is 0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;16&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"16"</span>)]
         </span><span class="kw">pub </span>aq_strength: f64,
         <span class="doccomment">/// Enforces the specified codec profile. The following profiles are
         /// supported:
@@ -3551,14 +3552,14 @@
         /// Note that certain values for this field may cause the
         /// transcoder to override other fields you set in the `H265CodecSettings`
         /// message.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"17"</span>)]
         </span><span class="kw">pub </span>profile: ::prost::alloc::string::String,
         <span class="doccomment">/// Enforces the specified codec tune. The available options are
         /// [FFmpeg-compatible](&lt;https://trac.ffmpeg.org/wiki/Encode/H.265&gt;).
         /// Note that certain values for this field may cause the
         /// transcoder to override other fields you set in the `H265CodecSettings`
         /// message.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"18"</span>)]
         </span><span class="kw">pub </span>tune: ::prost::alloc::string::String,
         <span class="doccomment">/// Enforces the specified codec preset. The default is `veryfast`. The
         /// available options are
@@ -3566,10 +3567,10 @@
         /// Note that certain values for this field may cause the
         /// transcoder to override other fields you set in the `H265CodecSettings`
         /// message.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;19&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"19"</span>)]
         </span><span class="kw">pub </span>preset: ::prost::alloc::string::String,
         <span class="doccomment">/// GOP mode can be either by frame count or duration.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;h265_codec_settings::GopMode&quot;</span>, tags = <span class="string">&quot;9, 10&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"h265_codec_settings::GopMode"</span>, tags = <span class="string">"9, 10"</span>)]
         </span><span class="kw">pub </span>gop_mode: ::core::option::Option&lt;h265_codec_settings::GopMode&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `H265CodecSettings`.
@@ -3580,14 +3581,14 @@
         </span><span class="kw">pub enum </span>GopMode {
             <span class="doccomment">/// Select the GOP size based on the specified frame count. Must be greater
             /// than zero.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"9"</span>)]
             </span>GopFrameCount(i32),
             <span class="doccomment">/// Select the GOP size based on the specified duration. The default is
             /// `3s`. Note that `gopDuration` must be less than or equal to
             /// [`segmentDuration`](#SegmentSettings), and
             /// [`segmentDuration`](#SegmentSettings) must be divisible by
             /// `gopDuration`.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
             </span>GopDuration(::prost_types::Duration),
         }
     }
@@ -3603,7 +3604,7 @@
         /// provide the width, in pixels, per the horizontal ASR. The API calculates
         /// the height per the horizontal ASR. The API detects any rotation metadata
         /// and swaps the requested height and width for the output.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>width_pixels: i32,
         <span class="doccomment">/// The height of the video in pixels. Must be an even integer.
         /// When not specified, the height is adjusted to match the specified width
@@ -3613,7 +3614,7 @@
         /// provide the height, in pixels, per the horizontal ASR. The API calculates
         /// the width per the horizontal ASR. The API detects any rotation metadata
         /// and swaps the requested height and width for the output.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>height_pixels: i32,
         <span class="doccomment">/// Required. The target video frame rate in frames per second (FPS). Must be
         /// less than or equal to 120. Will default to the input frame rate if larger
@@ -3622,11 +3623,11 @@
         /// [Calculating frame
         /// rate](&lt;https://cloud.google.com/transcoder/docs/concepts/frame-rate&gt;) for
         /// more information.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>frame_rate: f64,
         <span class="doccomment">/// Required. The video bitrate in bits per second. The minimum value is
         /// 1,000. The maximum value is 480,000,000.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>bitrate_bps: i32,
         <span class="doccomment">/// Pixel format to use. The default is `yuv420p`.
         ///
@@ -3641,20 +3642,20 @@
         /// - `yuv420p12` 12-bit HDR pixel format
         /// - `yuv422p12` 12-bit HDR pixel format
         /// - `yuv444p12` 12-bit HDR pixel format
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>pixel_format: ::prost::alloc::string::String,
         <span class="doccomment">/// Specify the `rate_control_mode`. The default is `vbr`.
         ///
         /// Supported rate control modes:
         ///
         /// - `vbr` - variable bitrate
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>rate_control_mode: ::prost::alloc::string::String,
         <span class="doccomment">/// Target CRF level. Must be between 10 and 36, where 10 is the highest
         /// quality and 36 is the most efficient compression. The default is 21.
         ///
         /// **Note:** This field is not supported.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>crf_level: i32,
         <span class="doccomment">/// Enforces the specified codec profile. The following profiles are
         /// supported:
@@ -3669,10 +3670,10 @@
         /// Note that certain values for this field may cause the
         /// transcoder to override other fields you set in the `Vp9CodecSettings`
         /// message.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
         </span><span class="kw">pub </span>profile: ::prost::alloc::string::String,
         <span class="doccomment">/// GOP mode can be either by frame count or duration.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;vp9_codec_settings::GopMode&quot;</span>, tags = <span class="string">&quot;8, 9&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"vp9_codec_settings::GopMode"</span>, tags = <span class="string">"8, 9"</span>)]
         </span><span class="kw">pub </span>gop_mode: ::core::option::Option&lt;vp9_codec_settings::GopMode&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Vp9CodecSettings`.
@@ -3683,14 +3684,14 @@
         </span><span class="kw">pub enum </span>GopMode {
             <span class="doccomment">/// Select the GOP size based on the specified frame count. Must be greater
             /// than zero.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;8&quot;</span>)]
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"8"</span>)]
             </span>GopFrameCount(i32),
             <span class="doccomment">/// Select the GOP size based on the specified duration. The default is
             /// `3s`. Note that `gopDuration` must be less than or equal to
             /// [`segmentDuration`](#SegmentSettings), and
             /// [`segmentDuration`](#SegmentSettings) must be divisible by
             /// `gopDuration`.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
             </span>GopDuration(::prost_types::Duration),
         }
     }
@@ -3699,13 +3700,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>CodecSettings {
         <span class="doccomment">/// H264 codec settings.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>H264(H264CodecSettings),
         <span class="doccomment">/// H265 codec settings.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>H265(H265CodecSettings),
         <span class="doccomment">/// VP9 codec settings.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Vp9(Vp9CodecSettings),
     }
 }
@@ -3723,18 +3724,18 @@
     /// - `mp3`
     /// - `ac3`
     /// - `eac3`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>codec: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Audio bitrate in bits per second. Must be between 1 and
     /// 10,000,000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>bitrate_bps: i32,
     <span class="doccomment">/// Number of audio channels. Must be between 1 and 6. The default is 2.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>channel_count: i32,
     <span class="doccomment">/// A list of channel names specifying layout of the audio channels.
     /// This only affects the metadata embedded in the container headers, if
-    /// supported by the specified format. The default is `\[&quot;fl&quot;, &quot;fr&quot;\]`.
+    /// supported by the specified format. The default is `\["fl", "fr"\]`.
     ///
     /// Supported channel names:
     ///
@@ -3744,23 +3745,23 @@
     /// - `sr` - Side right channel
     /// - `fc` - Front center channel
     /// - `lfe` - Low frequency
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>channel_layout: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The mapping for the `Job.edit_list` atoms with audio `EditAtom.inputs`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>mapping: ::prost::alloc::vec::Vec&lt;audio_stream::AudioMapping&gt;,
     <span class="doccomment">/// The audio sample rate in Hertz. The default is 48000 Hertz.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>sample_rate_hertz: i32,
     <span class="doccomment">/// The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
     /// information, see
     /// &lt;https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt; Not
     /// supported in MP4 files.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// The name for this particular audio stream that
     /// will be added to the HLS/DASH manifest. Not supported in MP4 files.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `AudioStream`.
@@ -3771,23 +3772,23 @@
     </span><span class="kw">pub struct </span>AudioMapping {
         <span class="doccomment">/// Required. The `EditAtom.key` that references the atom with audio inputs
         /// in the `Job.edit_list`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>atom_key: ::prost::alloc::string::String,
         <span class="doccomment">/// Required. The `Input.key` that identifies the input file.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>input_key: ::prost::alloc::string::String,
         <span class="doccomment">/// Required. The zero-based index of the track in the input file.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>input_track: i32,
         <span class="doccomment">/// Required. The zero-based index of the channel in the input audio stream.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>input_channel: i32,
         <span class="doccomment">/// Required. The zero-based index of the channel in the output audio stream.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>output_channel: i32,
         <span class="doccomment">/// Audio volume control in dB. Negative values decrease volume,
         /// positive values increase. The default is 0.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>gain_db: f64,
     }
 }
@@ -3804,20 +3805,20 @@
     /// - `cea608`
     /// - `cea708`
     /// - `webvtt`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>codec: ::prost::alloc::string::String,
     <span class="doccomment">/// The BCP-47 language code, such as `en-US` or `sr-Latn`. For more
     /// information, see
     /// &lt;https://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt; Not
     /// supported in MP4 files.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// The mapping for the `Job.edit_list` atoms with text `EditAtom.inputs`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>mapping: ::prost::alloc::vec::Vec&lt;text_stream::TextMapping&gt;,
     <span class="doccomment">/// The name for this particular text stream that
     /// will be added to the HLS/DASH manifest. Not supported in MP4 files.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `TextStream`.
@@ -3828,13 +3829,13 @@
     </span><span class="kw">pub struct </span>TextMapping {
         <span class="doccomment">/// Required. The `EditAtom.key` that references atom with text inputs in the
         /// `Job.edit_list`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>atom_key: ::prost::alloc::string::String,
         <span class="doccomment">/// Required. The `Input.key` that identifies the input file.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>input_key: ::prost::alloc::string::String,
         <span class="doccomment">/// Required. The zero-based index of the track in the input file.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>input_track: i32,
     }
 }
@@ -3846,10 +3847,10 @@
     /// `segmentDuration` must be greater than or equal to
     /// [`gopDuration`](#videostream), and `segmentDuration` must be divisible by
     /// [`gopDuration`](#videostream).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>segment_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Required. Create an individual segment file. The default is `false`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>individual_segments: bool,
 }
 <span class="doccomment">/// Encryption settings.
@@ -3857,17 +3858,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Encryption {
     <span class="doccomment">/// Required. Identifier for this set of encryption options.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. DRM system(s) to use; at least one must be specified. If a
     /// DRM system is omitted, it is considered disabled.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>drm_systems: ::core::option::Option&lt;encryption::DrmSystems&gt;,
     <span class="doccomment">/// Encryption mode can be either `aes` or `cenc`.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;encryption::EncryptionMode&quot;</span>, tags = <span class="string">&quot;3, 4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"encryption::EncryptionMode"</span>, tags = <span class="string">"3, 4, 5"</span>)]
     </span><span class="kw">pub </span>encryption_mode: ::core::option::Option&lt;encryption::EncryptionMode&gt;,
     <span class="doccomment">/// Defines where content keys are stored.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;encryption::SecretSource&quot;</span>, tags = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"encryption::SecretSource"</span>, tags = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>secret_source: ::core::option::Option&lt;encryption::SecretSource&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Encryption`.
@@ -3890,7 +3891,7 @@
         ///
         /// - `cenc`
         /// - `cbcs`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>scheme: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Configuration for secrets stored in Google Secret Manager.
@@ -3901,9 +3902,9 @@
         /// the following format:
         /// `projects/{project}/secrets/{secret_id}/versions/{version_number}`
         ///
-        /// Note that only numbered versions are supported. Aliases like &quot;latest&quot; are
+        /// Note that only numbered versions are supported. Aliases like "latest" are
         /// not supported.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>secret_version: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Widevine configuration.
@@ -3927,16 +3928,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>DrmSystems {
         <span class="doccomment">/// Widevine configuration.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>widevine: ::core::option::Option&lt;Widevine&gt;,
         <span class="doccomment">/// Fairplay configuration.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>fairplay: ::core::option::Option&lt;Fairplay&gt;,
         <span class="doccomment">/// Playready configuration.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>playready: ::core::option::Option&lt;Playready&gt;,
         <span class="doccomment">/// Clearkey configuration.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>clearkey: ::core::option::Option&lt;Clearkey&gt;,
     }
     <span class="doccomment">/// Encryption mode can be either `aes` or `cenc`.
@@ -3944,13 +3945,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>EncryptionMode {
         <span class="doccomment">/// Configuration for AES-128 encryption.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Aes128(Aes128Encryption),
         <span class="doccomment">/// Configuration for SAMPLE-AES encryption.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>SampleAes(SampleAesEncryption),
         <span class="doccomment">/// Configuration for MPEG Common Encryption (MPEG-CENC).
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>MpegCenc(MpegCommonEncryption),
     }
     <span class="doccomment">/// Defines where content keys are stored.
@@ -3958,7 +3959,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>SecretSource {
         <span class="doccomment">/// Keys are stored in Google Secret Manager.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>SecretManagerKeySource(SecretManagerSource),
     }
 }
@@ -3968,10 +3969,10 @@
 </span><span class="kw">pub struct </span>CreateJobRequest {
     <span class="doccomment">/// Required. The parent location to create and process this job.
     /// Format: `projects/{project}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Parameters for creating transcoding job.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>job: ::core::option::Option&lt;Job&gt;,
 }
 <span class="doccomment">/// Request message for `TranscoderService.ListJobs`.
@@ -3980,22 +3981,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListJobsRequest {
     <span class="doccomment">/// Required. Format: `projects/{project}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The `next_page_token` value returned from a previous List request, if
     /// any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The filter expression, following the syntax outlined in
     /// &lt;https://google.aip.dev/160.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// One or more fields to compare and use to sort the output.
     /// See &lt;https://google.aip.dev/132#ordering.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `TranscoderService.GetJob`.
@@ -4004,7 +4005,7 @@
 </span><span class="kw">pub struct </span>GetJobRequest {
     <span class="doccomment">/// Required. The name of the job to retrieve.
     /// Format: `projects/{project}/locations/{location}/jobs/{job}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `TranscoderService.DeleteJob`.
@@ -4013,11 +4014,11 @@
 </span><span class="kw">pub struct </span>DeleteJobRequest {
     <span class="doccomment">/// Required. The name of the job to delete.
     /// Format: `projects/{project}/locations/{location}/jobs/{job}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to true, and the job is not found, the request will succeed but no
     /// action will be taken on the server.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
 <span class="doccomment">/// Response message for `TranscoderService.ListJobs`.
@@ -4025,13 +4026,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListJobsResponse {
     <span class="doccomment">/// List of jobs in the specified region.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>jobs: ::prost::alloc::vec::Vec&lt;Job&gt;,
     <span class="doccomment">/// The pagination token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// List of regions that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for `TranscoderService.CreateJobTemplate`.
@@ -4040,17 +4041,17 @@
 </span><span class="kw">pub struct </span>CreateJobTemplateRequest {
     <span class="doccomment">/// Required. The parent location to create this job template.
     /// Format: `projects/{project}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Parameters for creating job template.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>job_template: ::core::option::Option&lt;JobTemplate&gt;,
     <span class="doccomment">/// Required. The ID to use for the job template, which will become the final
-    /// component of the job template&#39;s resource name.
+    /// component of the job template's resource name.
     ///
     /// This value should be 4-63 characters, and valid characters must match the
     /// regular expression `[a-zA-Z][a-zA-Z0-9_-]*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>job_template_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `TranscoderService.ListJobTemplates`.
@@ -4059,22 +4060,22 @@
 </span><span class="kw">pub struct </span>ListJobTemplatesRequest {
     <span class="doccomment">/// Required. The parent location from which to retrieve the collection of job
     /// templates. Format: `projects/{project}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The `next_page_token` value returned from a previous List request, if
     /// any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The filter expression, following the syntax outlined in
     /// &lt;https://google.aip.dev/160.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// One or more fields to compare and use to sort the output.
     /// See &lt;https://google.aip.dev/132#ordering.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `TranscoderService.GetJobTemplate`.
@@ -4084,7 +4085,7 @@
     <span class="doccomment">/// Required. The name of the job template to retrieve.
     /// Format:
     /// `projects/{project}/locations/{location}/jobTemplates/{job_template}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `TranscoderService.DeleteJobTemplate`.
@@ -4093,11 +4094,11 @@
 </span><span class="kw">pub struct </span>DeleteJobTemplateRequest {
     <span class="doccomment">/// Required. The name of the job template to delete.
     /// `projects/{project}/locations/{location}/jobTemplates/{job_template}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to true, and the job template is not found, the request will succeed
     /// but no action will be taken on the server.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
 <span class="doccomment">/// Response message for `TranscoderService.ListJobTemplates`.
@@ -4105,13 +4106,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListJobTemplatesResponse {
     <span class="doccomment">/// List of job templates in the specified region.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>job_templates: ::prost::alloc::vec::Vec&lt;JobTemplate&gt;,
     <span class="doccomment">/// The pagination token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// List of regions that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -4133,7 +4134,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4205,19 +4206,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.video.transcoder.v1.TranscoderService/CreateJob&quot;</span>,
+                <span class="string">"/google.cloud.video.transcoder.v1.TranscoderService/CreateJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.video.transcoder.v1.TranscoderService&quot;</span>,
-                        <span class="string">&quot;CreateJob&quot;</span>,
+                        <span class="string">"google.cloud.video.transcoder.v1.TranscoderService"</span>,
+                        <span class="string">"CreateJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4236,19 +4237,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.video.transcoder.v1.TranscoderService/ListJobs&quot;</span>,
+                <span class="string">"/google.cloud.video.transcoder.v1.TranscoderService/ListJobs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.video.transcoder.v1.TranscoderService&quot;</span>,
-                        <span class="string">&quot;ListJobs&quot;</span>,
+                        <span class="string">"google.cloud.video.transcoder.v1.TranscoderService"</span>,
+                        <span class="string">"ListJobs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4264,19 +4265,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.video.transcoder.v1.TranscoderService/GetJob&quot;</span>,
+                <span class="string">"/google.cloud.video.transcoder.v1.TranscoderService/GetJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.video.transcoder.v1.TranscoderService&quot;</span>,
-                        <span class="string">&quot;GetJob&quot;</span>,
+                        <span class="string">"google.cloud.video.transcoder.v1.TranscoderService"</span>,
+                        <span class="string">"GetJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4292,19 +4293,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.video.transcoder.v1.TranscoderService/DeleteJob&quot;</span>,
+                <span class="string">"/google.cloud.video.transcoder.v1.TranscoderService/DeleteJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.video.transcoder.v1.TranscoderService&quot;</span>,
-                        <span class="string">&quot;DeleteJob&quot;</span>,
+                        <span class="string">"google.cloud.video.transcoder.v1.TranscoderService"</span>,
+                        <span class="string">"DeleteJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4320,19 +4321,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.video.transcoder.v1.TranscoderService/CreateJobTemplate&quot;</span>,
+                <span class="string">"/google.cloud.video.transcoder.v1.TranscoderService/CreateJobTemplate"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.video.transcoder.v1.TranscoderService&quot;</span>,
-                        <span class="string">&quot;CreateJobTemplate&quot;</span>,
+                        <span class="string">"google.cloud.video.transcoder.v1.TranscoderService"</span>,
+                        <span class="string">"CreateJobTemplate"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4351,19 +4352,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.video.transcoder.v1.TranscoderService/ListJobTemplates&quot;</span>,
+                <span class="string">"/google.cloud.video.transcoder.v1.TranscoderService/ListJobTemplates"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.video.transcoder.v1.TranscoderService&quot;</span>,
-                        <span class="string">&quot;ListJobTemplates&quot;</span>,
+                        <span class="string">"google.cloud.video.transcoder.v1.TranscoderService"</span>,
+                        <span class="string">"ListJobTemplates"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4379,19 +4380,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.video.transcoder.v1.TranscoderService/GetJobTemplate&quot;</span>,
+                <span class="string">"/google.cloud.video.transcoder.v1.TranscoderService/GetJobTemplate"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.video.transcoder.v1.TranscoderService&quot;</span>,
-                        <span class="string">&quot;GetJobTemplate&quot;</span>,
+                        <span class="string">"google.cloud.video.transcoder.v1.TranscoderService"</span>,
+                        <span class="string">"GetJobTemplate"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4407,19 +4408,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.video.transcoder.v1.TranscoderService/DeleteJobTemplate&quot;</span>,
+                <span class="string">"/google.cloud.video.transcoder.v1.TranscoderService/DeleteJobTemplate"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.video.transcoder.v1.TranscoderService&quot;</span>,
-                        <span class="string">&quot;DeleteJobTemplate&quot;</span>,
+                        <span class="string">"google.cloud.video.transcoder.v1.TranscoderService"</span>,
+                        <span class="string">"DeleteJobTemplate"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

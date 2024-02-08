@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/ai/generativelanguage/v1beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/ai/generativelanguage/v1beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1193,7 +1194,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CitationMetadata {
     <span class="doccomment">/// Citations to sources for a specific response.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>citation_sources: ::prost::alloc::vec::Vec&lt;CitationSource&gt;,
 }
 <span class="doccomment">/// A citation to a source for a portion of a specific response.
@@ -1204,19 +1205,19 @@
     /// source.
     ///
     /// Index indicates the start of the segment, measured in bytes.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_index: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Optional. End of the attributed segment, exclusive.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_index: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Optional. URI that is attributed as a source for a portion of the text.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>uri: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. License for the GitHub project that is attributed as a source for
     /// segment.
     ///
     /// License info is required for code citations.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>license: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Content filtering metadata associated with processing a single request.
@@ -1227,10 +1228,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ContentFilter {
     <span class="doccomment">/// The reason content was blocked during request processing.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;content_filter::BlockedReason&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"content_filter::BlockedReason"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>reason: i32,
     <span class="doccomment">/// A string that describes the filtering behavior in more detail.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>message: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ContentFilter`.
@@ -1261,19 +1262,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                BlockedReason::Unspecified =&gt; <span class="string">&quot;BLOCKED_REASON_UNSPECIFIED&quot;</span>,
-                BlockedReason::Safety =&gt; <span class="string">&quot;SAFETY&quot;</span>,
-                BlockedReason::Other =&gt; <span class="string">&quot;OTHER&quot;</span>,
+                BlockedReason::Unspecified =&gt; <span class="string">"BLOCKED_REASON_UNSPECIFIED"</span>,
+                BlockedReason::Safety =&gt; <span class="string">"SAFETY"</span>,
+                BlockedReason::Other =&gt; <span class="string">"OTHER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;BLOCKED_REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SAFETY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Safety),
-                <span class="string">&quot;OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
+                <span class="string">"BLOCKED_REASON_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SAFETY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Safety),
+                <span class="string">"OTHER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1290,10 +1291,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SafetyFeedback {
     <span class="doccomment">/// Safety rating evaluated from content.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>rating: ::core::option::Option&lt;SafetyRating&gt;,
     <span class="doccomment">/// Safety settings applied to the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>setting: ::core::option::Option&lt;SafetySetting&gt;,
 }
 <span class="doccomment">/// Safety rating for a piece of content.
@@ -1307,10 +1308,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SafetyRating {
     <span class="doccomment">/// Required. The category for this rating.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HarmCategory&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HarmCategory"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>category: i32,
     <span class="doccomment">/// Required. The probability of harm for this content.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;safety_rating::HarmProbability&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"safety_rating::HarmProbability"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>probability: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `SafetyRating`.
@@ -1348,23 +1349,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                HarmProbability::Unspecified =&gt; <span class="string">&quot;HARM_PROBABILITY_UNSPECIFIED&quot;</span>,
-                HarmProbability::Negligible =&gt; <span class="string">&quot;NEGLIGIBLE&quot;</span>,
-                HarmProbability::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
-                HarmProbability::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
-                HarmProbability::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
+                HarmProbability::Unspecified =&gt; <span class="string">"HARM_PROBABILITY_UNSPECIFIED"</span>,
+                HarmProbability::Negligible =&gt; <span class="string">"NEGLIGIBLE"</span>,
+                HarmProbability::Low =&gt; <span class="string">"LOW"</span>,
+                HarmProbability::Medium =&gt; <span class="string">"MEDIUM"</span>,
+                HarmProbability::High =&gt; <span class="string">"HIGH"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;HARM_PROBABILITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NEGLIGIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Negligible),
-                <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
-                <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-                <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+                <span class="string">"HARM_PROBABILITY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NEGLIGIBLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Negligible),
+                <span class="string">"LOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+                <span class="string">"MEDIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+                <span class="string">"HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1378,10 +1379,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SafetySetting {
     <span class="doccomment">/// Required. The category for this setting.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HarmCategory&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HarmCategory"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>category: i32,
     <span class="doccomment">/// Required. Controls the probability threshold at which harm is blocked.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;safety_setting::HarmBlockThreshold&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"safety_setting::HarmBlockThreshold"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>threshold: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `SafetySetting`.
@@ -1414,21 +1415,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                HarmBlockThreshold::Unspecified =&gt; <span class="string">&quot;HARM_BLOCK_THRESHOLD_UNSPECIFIED&quot;</span>,
-                HarmBlockThreshold::BlockLowAndAbove =&gt; <span class="string">&quot;BLOCK_LOW_AND_ABOVE&quot;</span>,
-                HarmBlockThreshold::BlockMediumAndAbove =&gt; <span class="string">&quot;BLOCK_MEDIUM_AND_ABOVE&quot;</span>,
-                HarmBlockThreshold::BlockOnlyHigh =&gt; <span class="string">&quot;BLOCK_ONLY_HIGH&quot;</span>,
+                HarmBlockThreshold::Unspecified =&gt; <span class="string">"HARM_BLOCK_THRESHOLD_UNSPECIFIED"</span>,
+                HarmBlockThreshold::BlockLowAndAbove =&gt; <span class="string">"BLOCK_LOW_AND_ABOVE"</span>,
+                HarmBlockThreshold::BlockMediumAndAbove =&gt; <span class="string">"BLOCK_MEDIUM_AND_ABOVE"</span>,
+                HarmBlockThreshold::BlockOnlyHigh =&gt; <span class="string">"BLOCK_ONLY_HIGH"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;HARM_BLOCK_THRESHOLD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BLOCK_LOW_AND_ABOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockLowAndAbove),
-                <span class="string">&quot;BLOCK_MEDIUM_AND_ABOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockMediumAndAbove),
-                <span class="string">&quot;BLOCK_ONLY_HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockOnlyHigh),
+                <span class="string">"HARM_BLOCK_THRESHOLD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"BLOCK_LOW_AND_ABOVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockLowAndAbove),
+                <span class="string">"BLOCK_MEDIUM_AND_ABOVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockMediumAndAbove),
+                <span class="string">"BLOCK_ONLY_HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockOnlyHigh),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1462,27 +1463,27 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            HarmCategory::Unspecified =&gt; <span class="string">&quot;HARM_CATEGORY_UNSPECIFIED&quot;</span>,
-            HarmCategory::Derogatory =&gt; <span class="string">&quot;HARM_CATEGORY_DEROGATORY&quot;</span>,
-            HarmCategory::Toxicity =&gt; <span class="string">&quot;HARM_CATEGORY_TOXICITY&quot;</span>,
-            HarmCategory::Violence =&gt; <span class="string">&quot;HARM_CATEGORY_VIOLENCE&quot;</span>,
-            HarmCategory::Sexual =&gt; <span class="string">&quot;HARM_CATEGORY_SEXUAL&quot;</span>,
-            HarmCategory::Medical =&gt; <span class="string">&quot;HARM_CATEGORY_MEDICAL&quot;</span>,
-            HarmCategory::Dangerous =&gt; <span class="string">&quot;HARM_CATEGORY_DANGEROUS&quot;</span>,
+            HarmCategory::Unspecified =&gt; <span class="string">"HARM_CATEGORY_UNSPECIFIED"</span>,
+            HarmCategory::Derogatory =&gt; <span class="string">"HARM_CATEGORY_DEROGATORY"</span>,
+            HarmCategory::Toxicity =&gt; <span class="string">"HARM_CATEGORY_TOXICITY"</span>,
+            HarmCategory::Violence =&gt; <span class="string">"HARM_CATEGORY_VIOLENCE"</span>,
+            HarmCategory::Sexual =&gt; <span class="string">"HARM_CATEGORY_SEXUAL"</span>,
+            HarmCategory::Medical =&gt; <span class="string">"HARM_CATEGORY_MEDICAL"</span>,
+            HarmCategory::Dangerous =&gt; <span class="string">"HARM_CATEGORY_DANGEROUS"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;HARM_CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;HARM_CATEGORY_DEROGATORY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Derogatory),
-            <span class="string">&quot;HARM_CATEGORY_TOXICITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Toxicity),
-            <span class="string">&quot;HARM_CATEGORY_VIOLENCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Violence),
-            <span class="string">&quot;HARM_CATEGORY_SEXUAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sexual),
-            <span class="string">&quot;HARM_CATEGORY_MEDICAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medical),
-            <span class="string">&quot;HARM_CATEGORY_DANGEROUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dangerous),
+            <span class="string">"HARM_CATEGORY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"HARM_CATEGORY_DEROGATORY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Derogatory),
+            <span class="string">"HARM_CATEGORY_TOXICITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Toxicity),
+            <span class="string">"HARM_CATEGORY_VIOLENCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Violence),
+            <span class="string">"HARM_CATEGORY_SEXUAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sexual),
+            <span class="string">"HARM_CATEGORY_MEDICAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medical),
+            <span class="string">"HARM_CATEGORY_DANGEROUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dangerous),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1492,13 +1493,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateTextRequest {
     <span class="doccomment">/// Required. The model name to use with the format name=models/{model}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The free-form input text given to the model as a prompt.
     ///
     /// Given a prompt, the model will generate a TextCompletion response it
     /// predicts as the completion of the input text.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>prompt: ::core::option::Option&lt;TextPrompt&gt;,
     <span class="doccomment">/// Controls the randomness of the output.
     /// Note: The default value varies by model, see the `Model.temperature`
@@ -1508,18 +1509,18 @@
     /// inclusive. A value closer to 1.0 will produce responses that are more
     /// varied and creative, while a value closer to 0.0 will typically result in
     /// more straightforward responses from the model.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>temperature: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// Number of generated responses to return.
     ///
     /// This value must be between \[1, 8\], inclusive. If unset, this will default
     /// to 1.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>candidate_count: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// The maximum number of tokens to include in a candidate.
     ///
     /// If unset, this will default to 64.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>max_output_tokens: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// The maximum cumulative probability of tokens to consider when sampling.
     ///
@@ -1532,7 +1533,7 @@
     ///
     /// Note: The default value varies by model, see the `Model.top_p`
     /// attribute of the `Model` returned the `getModel` function.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>top_p: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// The maximum number of tokens to consider when sampling.
     ///
@@ -1543,7 +1544,7 @@
     ///
     /// Note: The default value varies by model, see the `Model.top_k`
     /// attribute of the `Model` returned the `getModel` function.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>top_k: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// A list of unique `SafetySetting` instances for blocking unsafe content.
     ///
@@ -1555,12 +1556,12 @@
     /// safety_settings. If there is no `SafetySetting` for a given
     /// `SafetyCategory` provided in the list, the API will use the default safety
     /// setting for that category.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>safety_settings: ::prost::alloc::vec::Vec&lt;SafetySetting&gt;,
     <span class="doccomment">/// The set of character sequences (up to 5) that will stop output generation.
     /// If specified, the API will stop at the first appearance of a stop
     /// sequence. The stop sequence will not be included as part of the response.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>stop_sequences: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The response from the model, including candidate completions.
@@ -1568,7 +1569,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateTextResponse {
     <span class="doccomment">/// Candidate responses from the model.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>candidates: ::prost::alloc::vec::Vec&lt;TextCompletion&gt;,
     <span class="doccomment">/// A set of content filtering metadata for the prompt and response
     /// text.
@@ -1581,10 +1582,10 @@
     ///
     /// The blocking is configured by the `SafetySettings` in the request (or the
     /// default `SafetySettings` of the API).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>filters: ::prost::alloc::vec::Vec&lt;ContentFilter&gt;,
     <span class="doccomment">/// Returns any safety feedback related to content filtering.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>safety_feedback: ::prost::alloc::vec::Vec&lt;SafetyFeedback&gt;,
 }
 <span class="doccomment">/// Text given to the model as a prompt.
@@ -1594,7 +1595,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TextPrompt {
     <span class="doccomment">/// Required. The prompt text.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Output text returned from a model.
@@ -1602,19 +1603,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TextCompletion {
     <span class="doccomment">/// Output only. The generated text returned from the model.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>output: ::prost::alloc::string::String,
     <span class="doccomment">/// Ratings for the safety of a response.
     ///
     /// There is at most one rating per category.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>safety_ratings: ::prost::alloc::vec::Vec&lt;SafetyRating&gt;,
     <span class="doccomment">/// Output only. Citation information for model-generated `output` in this
     /// `TextCompletion`.
     ///
     /// This field may be populated with attribution information for any text
     /// included in the `output`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>citation_metadata: ::core::option::Option&lt;CitationMetadata&gt;,
 }
 <span class="doccomment">/// Request to get a text embedding from the model.
@@ -1622,11 +1623,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EmbedTextRequest {
     <span class="doccomment">/// Required. The model name to use with the format model=models/{model}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The free-form input text that the model will turn into an
     /// embedding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response to a EmbedTextRequest.
@@ -1634,7 +1635,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EmbedTextResponse {
     <span class="doccomment">/// Output only. The embedding generated from the input text.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>embedding: ::core::option::Option&lt;Embedding&gt;,
 }
 <span class="doccomment">/// A list of floats representing the embedding.
@@ -1642,7 +1643,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Embedding {
     <span class="doccomment">/// The embedding values.
-    </span><span class="attr">#[prost(float, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(float, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>value: ::prost::alloc::vec::Vec&lt;f32&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1662,7 +1663,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1737,19 +1738,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.ai.generativelanguage.v1beta2.TextService/GenerateText&quot;</span>,
+                <span class="string">"/google.ai.generativelanguage.v1beta2.TextService/GenerateText"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.ai.generativelanguage.v1beta2.TextService&quot;</span>,
-                        <span class="string">&quot;GenerateText&quot;</span>,
+                        <span class="string">"google.ai.generativelanguage.v1beta2.TextService"</span>,
+                        <span class="string">"GenerateText"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1768,19 +1769,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.ai.generativelanguage.v1beta2.TextService/EmbedText&quot;</span>,
+                <span class="string">"/google.ai.generativelanguage.v1beta2.TextService/EmbedText"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.ai.generativelanguage.v1beta2.TextService&quot;</span>,
-                        <span class="string">&quot;EmbedText&quot;</span>,
+                        <span class="string">"google.ai.generativelanguage.v1beta2.TextService"</span>,
+                        <span class="string">"EmbedText"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1795,45 +1796,45 @@
     ///
     /// Format: `models/{model}` with a `{model}` naming convention of:
     ///
-    /// * &quot;{base_model_id}-{version}&quot;
+    /// * "{base_model_id}-{version}"
     ///
     /// Examples:
     ///
     /// * `models/chat-bison-001`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The name of the base model, pass this to the generation request.
     ///
     /// Examples:
     ///
     /// * `chat-bison`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>base_model_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The version number of the model.
     ///
     /// This represents the major version
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
-    <span class="doccomment">/// The human-readable name of the model. E.g. &quot;Chat Bison&quot;.
+    <span class="doccomment">/// The human-readable name of the model. E.g. "Chat Bison".
     ///
     /// The name can be up to 128 characters long and can consist of any UTF-8
     /// characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// A short description of the model.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Maximum number of input tokens allowed for this model.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>input_token_limit: i32,
     <span class="doccomment">/// Maximum number of output tokens available for this model.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>output_token_limit: i32,
-    <span class="doccomment">/// The model&#39;s supported generation methods.
+    <span class="doccomment">/// The model's supported generation methods.
     ///
     /// The method names are defined as Pascal case
     /// strings, such as `generateMessage` which correspond to API methods.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>supported_generation_methods: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
@@ -1844,7 +1845,7 @@
     /// typically result in less surprising responses from the model.
     /// This value specifies default to be used by the backend while making the
     /// call to the model.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>temperature: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// For Nucleus sampling.
     ///
@@ -1852,14 +1853,14 @@
     /// sum is at least `top_p`.
     /// This value specifies default to be used by the backend while making the
     /// call to the model.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>top_p: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// For Top-k sampling.
     ///
     /// Top-k sampling considers the set of `top_k` most probable tokens.
     /// This value specifies default to be used by the backend while making the
     /// call to the model.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>top_k: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// Request for getting information about a specific Model.
@@ -1871,7 +1872,7 @@
     /// This name should match a model name returned by the `ListModels` method.
     ///
     /// Format: `models/{model}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for listing all Models.
@@ -1884,7 +1885,7 @@
     /// If unspecified, at most 50 models will be returned per page.
     /// This method returns at most 1000 models per page, even if you pass a larger
     /// page_size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListModels` call.
     ///
@@ -1893,7 +1894,7 @@
     ///
     /// When paginating, all other parameters provided to `ListModels` must match
     /// the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response from `ListModel` containing a paginated list of Models.
@@ -1901,12 +1902,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListModelsResponse {
     <span class="doccomment">/// The returned Models.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>models: ::prost::alloc::vec::Vec&lt;Model&gt;,
     <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
     ///
     /// If this field is omitted, there are no more pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1923,7 +1924,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1995,19 +1996,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.ai.generativelanguage.v1beta2.ModelService/GetModel&quot;</span>,
+                <span class="string">"/google.ai.generativelanguage.v1beta2.ModelService/GetModel"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.ai.generativelanguage.v1beta2.ModelService&quot;</span>,
-                        <span class="string">&quot;GetModel&quot;</span>,
+                        <span class="string">"google.ai.generativelanguage.v1beta2.ModelService"</span>,
+                        <span class="string">"GetModel"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2026,19 +2027,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.ai.generativelanguage.v1beta2.ModelService/ListModels&quot;</span>,
+                <span class="string">"/google.ai.generativelanguage.v1beta2.ModelService/ListModels"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.ai.generativelanguage.v1beta2.ModelService&quot;</span>,
-                        <span class="string">&quot;ListModels&quot;</span>,
+                        <span class="string">"google.ai.generativelanguage.v1beta2.ModelService"</span>,
+                        <span class="string">"ListModels"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2052,14 +2053,14 @@
     <span class="doccomment">/// Required. The name of the model to use.
     ///
     /// Format: `name=models/{model}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The structured textual input given to the model as a prompt.
     ///
     /// Given a
     /// prompt, the model will return what it predicts is the next message in the
     /// discussion.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>prompt: ::core::option::Option&lt;MessagePrompt&gt;,
     <span class="doccomment">/// Optional. Controls the randomness of the output.
     ///
@@ -2067,13 +2068,13 @@
     /// inclusive. A value closer to `1.0` will produce responses that are more
     /// varied, while a value closer to `0.0` will typically result in
     /// less surprising responses from the model.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>temperature: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// Optional. The number of generated response messages to return.
     ///
     /// This value must be between
     /// `\[1, 8\]`, inclusive. If unset, this will default to `1`.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>candidate_count: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Optional. The maximum cumulative probability of tokens to consider when
     /// sampling.
@@ -2082,14 +2083,14 @@
     ///
     /// Nucleus sampling considers the smallest set of tokens whose probability
     /// sum is at least `top_p`.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>top_p: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// Optional. The maximum number of tokens to consider when sampling.
     ///
     /// The model uses combined Top-k and nucleus sampling.
     ///
     /// Top-k sampling considers the set of `top_k` most probable tokens.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>top_k: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// The response from the model.
@@ -2100,10 +2101,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateMessageResponse {
     <span class="doccomment">/// Candidate response messages from the model.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>candidates: ::prost::alloc::vec::Vec&lt;Message&gt;,
     <span class="doccomment">/// The conversation history used by the model.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>messages: ::prost::alloc::vec::Vec&lt;Message&gt;,
     <span class="doccomment">/// A set of content filtering metadata for the prompt and response
     /// text.
@@ -2111,7 +2112,7 @@
     /// This indicates which `SafetyCategory`(s) blocked a
     /// candidate from this response, the lowest `HarmProbability`
     /// that triggered a block, and the HarmThreshold setting for that category.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>filters: ::prost::alloc::vec::Vec&lt;ContentFilter&gt;,
 }
 <span class="doccomment">/// The base unit of structured text.
@@ -2130,10 +2131,10 @@
     /// the content of this Message when it is fed to the model as text.
     ///
     /// The author can be any alphanumeric string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>author: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The text content of the structured `Message`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Citation information for model-generated `content` in this
     /// `Message`.
@@ -2141,7 +2142,7 @@
     /// If this `Message` was generated as output from the model, this field may be
     /// populated with attribution information for any text included in the
     /// `content`. This field is used only on output.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>citation_metadata: ::core::option::Option&lt;CitationMetadata&gt;,
 }
 <span class="doccomment">/// All of the structured input text passed to the model as a prompt.
@@ -2162,14 +2163,14 @@
     /// with every request to maintain continuity.
     ///
     /// This field can be a description of your prompt to the model to help provide
-    /// context and guide the responses. Examples: &quot;Translate the phrase from
-    /// English to French.&quot; or &quot;Given a statement, classify the sentiment as happy,
-    /// sad or neutral.&quot;
+    /// context and guide the responses. Examples: "Translate the phrase from
+    /// English to French." or "Given a statement, classify the sentiment as happy,
+    /// sad or neutral."
     ///
     /// Anything included in this field will take precedence over message history
-    /// if the total input size exceeds the model&#39;s `input_token_limit` and the
+    /// if the total input size exceeds the model's `input_token_limit` and the
     /// input request is truncated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>context: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Examples of what the model should generate.
     ///
@@ -2178,18 +2179,18 @@
     ///
     /// These `examples` are treated identically to conversation messages except
     /// that they take precedence over the history in `messages`:
-    /// If the total input size exceeds the model&#39;s `input_token_limit` the input
+    /// If the total input size exceeds the model's `input_token_limit` the input
     /// will be truncated. Items will be dropped from `messages` before `examples`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>examples: ::prost::alloc::vec::Vec&lt;Example&gt;,
     <span class="doccomment">/// Required. A snapshot of the recent conversation history sorted
     /// chronologically.
     ///
     /// Turns alternate between two authors.
     ///
-    /// If the total input size exceeds the model&#39;s `input_token_limit` the input
+    /// If the total input size exceeds the model's `input_token_limit` the input
     /// will be truncated: The oldest items will be dropped from `messages`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>messages: ::prost::alloc::vec::Vec&lt;Message&gt;,
 }
 <span class="doccomment">/// An input/output example used to instruct the Model.
@@ -2199,10 +2200,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Example {
     <span class="doccomment">/// Required. An example of an input `Message` from the user.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>input: ::core::option::Option&lt;Message&gt;,
     <span class="doccomment">/// Required. An example of what the model should output given the input.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>output: ::core::option::Option&lt;Message&gt;,
 }
 <span class="doccomment">/// Counts the number of tokens in the `prompt` sent to a model.
@@ -2212,28 +2213,28 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CountMessageTokensRequest {
-    <span class="doccomment">/// Required. The model&#39;s resource name. This serves as an ID for the Model to
+    <span class="doccomment">/// Required. The model's resource name. This serves as an ID for the Model to
     /// use.
     ///
     /// This name should match a model name returned by the `ListModels` method.
     ///
     /// Format: `models/{model}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The prompt, whose token count is to be returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>prompt: ::core::option::Option&lt;MessagePrompt&gt;,
 }
 <span class="doccomment">/// A response from `CountMessageTokens`.
 ///
-/// It returns the model&#39;s `token_count` for the `prompt`.
+/// It returns the model's `token_count` for the `prompt`.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CountMessageTokensResponse {
     <span class="doccomment">/// The number of tokens that the `model` tokenizes the `prompt` into.
     ///
     /// Always non-negative.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>token_count: i32,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2253,7 +2254,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2328,24 +2329,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.ai.generativelanguage.v1beta2.DiscussService/GenerateMessage&quot;</span>,
+                <span class="string">"/google.ai.generativelanguage.v1beta2.DiscussService/GenerateMessage"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.ai.generativelanguage.v1beta2.DiscussService&quot;</span>,
-                        <span class="string">&quot;GenerateMessage&quot;</span>,
+                        <span class="string">"google.ai.generativelanguage.v1beta2.DiscussService"</span>,
+                        <span class="string">"GenerateMessage"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Runs a model&#39;s tokenizer on a string and returns the token count.
+        <span class="doccomment">/// Runs a model's tokenizer on a string and returns the token count.
         </span><span class="kw">pub async fn </span>count_message_tokens(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CountMessageTokensRequest&gt;,
@@ -2359,19 +2360,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.ai.generativelanguage.v1beta2.DiscussService/CountMessageTokens&quot;</span>,
+                <span class="string">"/google.ai.generativelanguage.v1beta2.DiscussService/CountMessageTokens"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.ai.generativelanguage.v1beta2.DiscussService&quot;</span>,
-                        <span class="string">&quot;CountMessageTokens&quot;</span>,
+                        <span class="string">"google.ai.generativelanguage.v1beta2.DiscussService"</span>,
+                        <span class="string">"CountMessageTokens"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/regionlookup/v1alpha/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/regionlookup/v1alpha/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -600,25 +601,25 @@
 /// region_code must also be provided when address is specified.
 ///
 /// The fields address, latlng and place_id specify a location contained inside
-/// the region to match. For example if address is &quot;1600 Amphitheatre Pkwy,
-/// Mountain View, CA 94043&quot; the API returns the following matched_place_id
+/// the region to match. For example if address is "1600 Amphitheatre Pkwy,
+/// Mountain View, CA 94043" the API returns the following matched_place_id
 /// results when the following place_types are specified:
 ///
 /// place_type:                   matched_place_id results:
-/// postal_code                   Place ID for &quot;94043&quot;
+/// postal_code                   Place ID for "94043"
 /// administrative_area_level_1   Place ID for The State of California
 /// administrative_area_level_2   Place ID for Santa Clara County
 /// etc.
 ///
 /// More Examples:
 ///
-/// If latlng is &quot;latitude: 37.4220656 longitude: -122.0862784&quot; and place_type
-/// is &quot;locality&quot;, the result contains the Place ID (of type &quot;locality&quot;) for
+/// If latlng is "latitude: 37.4220656 longitude: -122.0862784" and place_type
+/// is "locality", the result contains the Place ID (of type "locality") for
 /// that location (the Place ID of Mountain View, CA, in this case).
 ///
-/// If place_id is &quot;ChIJj61dQgK6j4AR4GeTYWZsKWw&quot; (Place ID for Google office in
-/// Mountain view, CA) and place_type is &quot;locality&quot;, the result contains the
-/// Place ID (of type &quot;locality&quot;) for that location (the Place ID of Mountain
+/// If place_id is "ChIJj61dQgK6j4AR4GeTYWZsKWw" (Place ID for Google office in
+/// Mountain view, CA) and place_type is "locality", the result contains the
+/// Place ID (of type "locality") for that location (the Place ID of Mountain
 /// View, CA, in this case).
 ///
 /// If no match is found, matched_place_id is not set.
@@ -634,19 +635,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RegionSearchValue {
     <span class="doccomment">/// Required. The type of the place to match.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;region_search_value::PlaceType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"region_search_value::PlaceType"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>place_type: i32,
-    <span class="doccomment">/// The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;, corresponding to
+    <span class="doccomment">/// The BCP-47 language code, such as "en-US" or "sr-Latn", corresponding to
     /// the language in which the place name and address is requested. If none is
     /// requested, then it defaults to English.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Two-letter ISO-3166 country/region code for the location you&#39;re trying to
+    <span class="doccomment">/// Two-letter ISO-3166 country/region code for the location you're trying to
     /// match. region_code is required when address is specified.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
     <span class="doccomment">/// The location must be specified by one of the following:
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;region_search_value::Location&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"region_search_value::Location"</span>, tags = <span class="string">"1, 2, 3"</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;region_search_value::Location&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RegionSearchValue`.
@@ -693,35 +694,35 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                PlaceType::Unspecified =&gt; <span class="string">&quot;PLACE_TYPE_UNSPECIFIED&quot;</span>,
-                PlaceType::PostalCode =&gt; <span class="string">&quot;POSTAL_CODE&quot;</span>,
-                PlaceType::AdministrativeAreaLevel1 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_1&quot;</span>,
-                PlaceType::AdministrativeAreaLevel2 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_2&quot;</span>,
-                PlaceType::Locality =&gt; <span class="string">&quot;LOCALITY&quot;</span>,
-                PlaceType::Neighborhood =&gt; <span class="string">&quot;NEIGHBORHOOD&quot;</span>,
-                PlaceType::Country =&gt; <span class="string">&quot;COUNTRY&quot;</span>,
-                PlaceType::Sublocality =&gt; <span class="string">&quot;SUBLOCALITY&quot;</span>,
-                PlaceType::AdministrativeAreaLevel3 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_3&quot;</span>,
-                PlaceType::AdministrativeAreaLevel4 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_4&quot;</span>,
-                PlaceType::SchoolDistrict =&gt; <span class="string">&quot;SCHOOL_DISTRICT&quot;</span>,
+                PlaceType::Unspecified =&gt; <span class="string">"PLACE_TYPE_UNSPECIFIED"</span>,
+                PlaceType::PostalCode =&gt; <span class="string">"POSTAL_CODE"</span>,
+                PlaceType::AdministrativeAreaLevel1 =&gt; <span class="string">"ADMINISTRATIVE_AREA_LEVEL_1"</span>,
+                PlaceType::AdministrativeAreaLevel2 =&gt; <span class="string">"ADMINISTRATIVE_AREA_LEVEL_2"</span>,
+                PlaceType::Locality =&gt; <span class="string">"LOCALITY"</span>,
+                PlaceType::Neighborhood =&gt; <span class="string">"NEIGHBORHOOD"</span>,
+                PlaceType::Country =&gt; <span class="string">"COUNTRY"</span>,
+                PlaceType::Sublocality =&gt; <span class="string">"SUBLOCALITY"</span>,
+                PlaceType::AdministrativeAreaLevel3 =&gt; <span class="string">"ADMINISTRATIVE_AREA_LEVEL_3"</span>,
+                PlaceType::AdministrativeAreaLevel4 =&gt; <span class="string">"ADMINISTRATIVE_AREA_LEVEL_4"</span>,
+                PlaceType::SchoolDistrict =&gt; <span class="string">"SCHOOL_DISTRICT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PLACE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;POSTAL_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostalCode),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel1),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel2),
-                <span class="string">&quot;LOCALITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locality),
-                <span class="string">&quot;NEIGHBORHOOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neighborhood),
-                <span class="string">&quot;COUNTRY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Country),
-                <span class="string">&quot;SUBLOCALITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sublocality),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel3),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel4),
-                <span class="string">&quot;SCHOOL_DISTRICT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SchoolDistrict),
+                <span class="string">"PLACE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"POSTAL_CODE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostalCode),
+                <span class="string">"ADMINISTRATIVE_AREA_LEVEL_1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel1),
+                <span class="string">"ADMINISTRATIVE_AREA_LEVEL_2" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel2),
+                <span class="string">"LOCALITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locality),
+                <span class="string">"NEIGHBORHOOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neighborhood),
+                <span class="string">"COUNTRY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Country),
+                <span class="string">"SUBLOCALITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sublocality),
+                <span class="string">"ADMINISTRATIVE_AREA_LEVEL_3" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel3),
+                <span class="string">"ADMINISTRATIVE_AREA_LEVEL_4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel4),
+                <span class="string">"SCHOOL_DISTRICT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SchoolDistrict),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -732,13 +733,13 @@
     </span><span class="kw">pub enum </span>Location {
         <span class="doccomment">/// The unstructured street address that is contained inside a region to
         /// match. region_code is required when address is specified.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>Address(::prost::alloc::string::String),
         <span class="doccomment">/// The latitude and longitude that is contained inside a region to match.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Latlng(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng),
         <span class="doccomment">/// The Place ID that is contained inside a region to match.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>PlaceId(::prost::alloc::string::String),
     }
 }
@@ -748,10 +749,10 @@
 ///
 /// One of place or unit_code must be specified. If none is specified,
 /// an INVALID_ARGUMENT error is returned. region_code must also be specified
-/// except when place_type is &quot;country&quot;.
+/// except when place_type is "country".
 ///
 /// place and unit_code specify a location to match a Place ID to. For
-/// example if place is &quot;California&quot; and region_code &quot;US&quot; the API
+/// example if place is "California" and region_code "US" the API
 /// returns the following matched_place_id results when the following
 /// place_types are specified:
 ///
@@ -759,7 +760,7 @@
 /// administrative_area_level_1   Place ID for The State of California
 /// (All other supported types)   No Match
 ///
-/// If unit_code is &quot;6&quot; (FIPs code for California) and region_code is &quot;US
+/// If unit_code is "6" (FIPs code for California) and region_code is "US
 /// the API returns the following matched_place_id results when the
 /// following place_types are specified:
 ///
@@ -767,7 +768,7 @@
 /// administrative_area_level_1   Place ID for The State of California
 /// (All other supported types)   No Match
 ///
-/// or if unit_code is &quot;US&quot; the API returns the following results when
+/// or if unit_code is "US" the API returns the following results when
 /// the following place_types are specified:
 ///
 /// place type:                   matched_place_id results:
@@ -778,7 +779,7 @@
 ///
 /// Candidate Place IDs are returned when a lookup finds a region with a
 /// different place_type then the one requested. For example if place is
-/// &quot;California&quot; and place_type is &quot;country&quot; the Place ID for The State of
+/// "California" and place_type is "country" the Place ID for The State of
 /// California is returned as a candidate in the candidate_place_ids field.
 ///
 /// Next available tag: 10
@@ -786,19 +787,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RegionIdentifier {
     <span class="doccomment">/// Required. Place type to match.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;region_identifier::PlaceType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"region_identifier::PlaceType"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>place_type: i32,
-    <span class="doccomment">/// The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;, corresponding to
+    <span class="doccomment">/// The BCP-47 language code, such as "en-US" or "sr-Latn", corresponding to
     /// the language in which the place name and address is requested. If none is
     /// requested, then it defaults to English.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
-    <span class="doccomment">/// Two-letter ISO-3166 country/region code for the location you&#39;re trying to
-    /// match. region_code is optional if place_type is &quot;country&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    <span class="doccomment">/// Two-letter ISO-3166 country/region code for the location you're trying to
+    /// match. region_code is optional if place_type is "country".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
     <span class="doccomment">/// The location must be specified by one of the following:
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;region_identifier::Location&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"region_identifier::Location"</span>, tags = <span class="string">"4, 5"</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;region_identifier::Location&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RegionIdentifier`.
@@ -845,35 +846,35 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                PlaceType::Unspecified =&gt; <span class="string">&quot;PLACE_TYPE_UNSPECIFIED&quot;</span>,
-                PlaceType::PostalCode =&gt; <span class="string">&quot;POSTAL_CODE&quot;</span>,
-                PlaceType::AdministrativeAreaLevel1 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_1&quot;</span>,
-                PlaceType::AdministrativeAreaLevel2 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_2&quot;</span>,
-                PlaceType::Locality =&gt; <span class="string">&quot;LOCALITY&quot;</span>,
-                PlaceType::Neighborhood =&gt; <span class="string">&quot;NEIGHBORHOOD&quot;</span>,
-                PlaceType::Country =&gt; <span class="string">&quot;COUNTRY&quot;</span>,
-                PlaceType::Sublocality =&gt; <span class="string">&quot;SUBLOCALITY&quot;</span>,
-                PlaceType::AdministrativeAreaLevel3 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_3&quot;</span>,
-                PlaceType::AdministrativeAreaLevel4 =&gt; <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_4&quot;</span>,
-                PlaceType::SchoolDistrict =&gt; <span class="string">&quot;SCHOOL_DISTRICT&quot;</span>,
+                PlaceType::Unspecified =&gt; <span class="string">"PLACE_TYPE_UNSPECIFIED"</span>,
+                PlaceType::PostalCode =&gt; <span class="string">"POSTAL_CODE"</span>,
+                PlaceType::AdministrativeAreaLevel1 =&gt; <span class="string">"ADMINISTRATIVE_AREA_LEVEL_1"</span>,
+                PlaceType::AdministrativeAreaLevel2 =&gt; <span class="string">"ADMINISTRATIVE_AREA_LEVEL_2"</span>,
+                PlaceType::Locality =&gt; <span class="string">"LOCALITY"</span>,
+                PlaceType::Neighborhood =&gt; <span class="string">"NEIGHBORHOOD"</span>,
+                PlaceType::Country =&gt; <span class="string">"COUNTRY"</span>,
+                PlaceType::Sublocality =&gt; <span class="string">"SUBLOCALITY"</span>,
+                PlaceType::AdministrativeAreaLevel3 =&gt; <span class="string">"ADMINISTRATIVE_AREA_LEVEL_3"</span>,
+                PlaceType::AdministrativeAreaLevel4 =&gt; <span class="string">"ADMINISTRATIVE_AREA_LEVEL_4"</span>,
+                PlaceType::SchoolDistrict =&gt; <span class="string">"SCHOOL_DISTRICT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PLACE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;POSTAL_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostalCode),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel1),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel2),
-                <span class="string">&quot;LOCALITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locality),
-                <span class="string">&quot;NEIGHBORHOOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neighborhood),
-                <span class="string">&quot;COUNTRY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Country),
-                <span class="string">&quot;SUBLOCALITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sublocality),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel3),
-                <span class="string">&quot;ADMINISTRATIVE_AREA_LEVEL_4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel4),
-                <span class="string">&quot;SCHOOL_DISTRICT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SchoolDistrict),
+                <span class="string">"PLACE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"POSTAL_CODE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostalCode),
+                <span class="string">"ADMINISTRATIVE_AREA_LEVEL_1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel1),
+                <span class="string">"ADMINISTRATIVE_AREA_LEVEL_2" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel2),
+                <span class="string">"LOCALITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locality),
+                <span class="string">"NEIGHBORHOOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neighborhood),
+                <span class="string">"COUNTRY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Country),
+                <span class="string">"SUBLOCALITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sublocality),
+                <span class="string">"ADMINISTRATIVE_AREA_LEVEL_3" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel3),
+                <span class="string">"ADMINISTRATIVE_AREA_LEVEL_4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdministrativeAreaLevel4),
+                <span class="string">"SCHOOL_DISTRICT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SchoolDistrict),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -888,16 +889,16 @@
         /// the region Place ID.
         ///
         /// For example:
-        /// If place_type is &quot;locality&quot;, a valid place can be &quot;Palo Alto, CA&quot;.
+        /// If place_type is "locality", a valid place can be "Palo Alto, CA".
         ///
-        /// If place_type is &quot;postal_code&quot;, a valid place can be &quot;94109&quot;.
+        /// If place_type is "postal_code", a valid place can be "94109".
         ///
-        /// If place_type is &quot;country&quot;, a valid place can be &quot;United States&quot;.
+        /// If place_type is "country", a valid place can be "United States".
         /// etc.
         ///
         /// region_code is required when place is specified except when
-        /// place_type is &quot;country&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        /// place_type is "country".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span>Place(::prost::alloc::string::String),
         <span class="doccomment">/// The FIPs state or county codes (US only) or ISO-3166-1 country code to be
         /// matched.
@@ -906,21 +907,21 @@
         /// the region Place ID.
         ///
         /// For example:
-        /// If place_type is &quot;country&quot;, a valid unit_code can be &quot;US&quot; (ISO-3166-1
-        /// Alpha-2 code for United States) or &quot;BR&quot; (ISO-3166-1 Alpha-2 code for
+        /// If place_type is "country", a valid unit_code can be "US" (ISO-3166-1
+        /// Alpha-2 code for United States) or "BR" (ISO-3166-1 Alpha-2 code for
         /// Brazil).
         ///
-        /// If place_type is &quot;administrative_area_level_1&quot; (state) and region_code is
-        /// &quot;US&quot;, a valid unit_code can be &quot;6&quot; (FIPs code for California) or
-        /// &quot;12&quot;(FIPs code for Florida).
+        /// If place_type is "administrative_area_level_1" (state) and region_code is
+        /// "US", a valid unit_code can be "6" (FIPs code for California) or
+        /// "12"(FIPs code for Florida).
         ///
-        /// If place_type is &quot;administrative_area_level_2&quot; (county) and region_code
-        /// is &quot;US&quot;, a valid unit_code can be &quot;6001&quot; (FIPs code for Alameda County in
-        /// California) or &quot;12086&quot; (FIPs code for Miami-Dade County in Florida).
+        /// If place_type is "administrative_area_level_2" (county) and region_code
+        /// is "US", a valid unit_code can be "6001" (FIPs code for Alameda County in
+        /// California) or "12086" (FIPs code for Miami-Dade County in Florida).
         ///
         /// region_code is required when specifying a FIPs code. region_code is
         /// ignored for ISO-3166-1 country codes.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span>UnitCode(::prost::alloc::string::String),
     }
 }
@@ -932,13 +933,13 @@
 </span><span class="kw">pub struct </span>RegionMatch {
     <span class="doccomment">/// Place ID of the region that is matched. If region is found, this field is
     /// not set.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>matched_place_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Region candidate IDs. Up to three candidates may be returned.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>candidate_place_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Matching debug information for when no match is found.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>debug_info: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Lookup Region Request.
@@ -949,21 +950,21 @@
 </span><span class="kw">pub struct </span>LookupRegionRequest {
     <span class="doccomment">/// Each `RegionIdentifier` represents the desired fields used to lookup a
     /// single region. See `RegionIdentifier` proto for more details and examples.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>identifiers: ::prost::alloc::vec::Vec&lt;RegionIdentifier&gt;,
     <span class="doccomment">/// The maximum number of matches to return. The service may return fewer than
     /// this value.
     ///
     /// If unspecified, at most 50 matches will be returned. The maximum value is
     /// 1000; values above 1000 will be coerced to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `LookupRegion` call. Provide this to
     /// retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `LookupRegion` must match
     /// the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Lookup Region Response.
@@ -974,11 +975,11 @@
 </span><span class="kw">pub struct </span>LookupRegionResponse {
     <span class="doccomment">/// Lookup region matches, one for each `RegionIdentifier` in
     /// `LookupRegionRequest.identifiers`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>matches: ::prost::alloc::vec::Vec&lt;RegionMatch&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Search Region Request.
@@ -990,21 +991,21 @@
     <span class="doccomment">/// Each value represents desired search values of a single region to match.
     /// The API tries to match them to Place IDs. See `RegionSearchValue`
     /// proto for more info and examples.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>search_values: ::prost::alloc::vec::Vec&lt;RegionSearchValue&gt;,
     <span class="doccomment">/// The maximum number of matches to return. The service may return fewer than
     /// this value.
     ///
     /// If unspecified, at most 50 matches will be returned. The maximum value is
     /// 1000; values above 1000 will be coerced to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `SearchRegion` call. Provide this to
     /// retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `LookupRegion` must match
     /// the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Match Region Response.
@@ -1015,11 +1016,11 @@
 </span><span class="kw">pub struct </span>SearchRegionResponse {
     <span class="doccomment">/// Search region matches, one for each `RegionSearchValue` in
     /// `SearchRegionRequest.search_values`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>matches: ::prost::alloc::vec::Vec&lt;RegionMatch&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1036,7 +1037,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1121,19 +1122,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.maps.regionlookup.v1alpha.RegionLookup/LookupRegion&quot;</span>,
+                <span class="string">"/google.maps.regionlookup.v1alpha.RegionLookup/LookupRegion"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.maps.regionlookup.v1alpha.RegionLookup&quot;</span>,
-                        <span class="string">&quot;LookupRegion&quot;</span>,
+                        <span class="string">"google.maps.regionlookup.v1alpha.RegionLookup"</span>,
+                        <span class="string">"LookupRegion"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1165,19 +1166,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.maps.regionlookup.v1alpha.RegionLookup/SearchRegion&quot;</span>,
+                <span class="string">"/google.maps.regionlookup.v1alpha.RegionLookup/SearchRegion"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.maps.regionlookup.v1alpha.RegionLookup&quot;</span>,
-                        <span class="string">&quot;SearchRegion&quot;</span>,
+                        <span class="string">"google.maps.regionlookup.v1alpha.RegionLookup"</span>,
+                        <span class="string">"SearchRegion"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

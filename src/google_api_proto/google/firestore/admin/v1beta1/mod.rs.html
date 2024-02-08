@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/firestore/admin/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/firestore/admin/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -783,10 +784,10 @@
     /// by [google.firestore.v1beta1.Document.fields][fields].
     /// Special field path `__name__` may be used by itself or at the end of a
     /// path. `__type__` may be used only at the end of path.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>field_path: ::prost::alloc::string::String,
-    <span class="doccomment">/// The field&#39;s mode.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;index_field::Mode&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The field's mode.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"index_field::Mode"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `IndexField`.
@@ -807,13 +808,13 @@
     </span><span class="kw">pub enum </span>Mode {
         <span class="doccomment">/// The mode is unspecified.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The field&#39;s values are indexed so as to support sequencing in
+        <span class="doccomment">/// The field's values are indexed so as to support sequencing in
         /// ascending order and also query by &lt;, &gt;, &lt;=, &gt;=, and =.
         </span>Ascending = <span class="number">2</span>,
-        <span class="doccomment">/// The field&#39;s values are indexed so as to support sequencing in
+        <span class="doccomment">/// The field's values are indexed so as to support sequencing in
         /// descending order and also query by &lt;, &gt;, &lt;=, &gt;=, and =.
         </span>Descending = <span class="number">3</span>,
-        <span class="doccomment">/// The field&#39;s array values are indexed so as to support membership using
+        <span class="doccomment">/// The field's array values are indexed so as to support membership using
         /// ARRAY_CONTAINS queries.
         </span>ArrayContains = <span class="number">4</span>,
     }
@@ -822,21 +823,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
-                Mode::Ascending =&gt; <span class="string">&quot;ASCENDING&quot;</span>,
-                Mode::Descending =&gt; <span class="string">&quot;DESCENDING&quot;</span>,
-                Mode::ArrayContains =&gt; <span class="string">&quot;ARRAY_CONTAINS&quot;</span>,
+                Mode::Unspecified =&gt; <span class="string">"MODE_UNSPECIFIED"</span>,
+                Mode::Ascending =&gt; <span class="string">"ASCENDING"</span>,
+                Mode::Descending =&gt; <span class="string">"DESCENDING"</span>,
+                Mode::ArrayContains =&gt; <span class="string">"ARRAY_CONTAINS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ASCENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ascending),
-                <span class="string">&quot;DESCENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Descending),
-                <span class="string">&quot;ARRAY_CONTAINS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ArrayContains),
+                <span class="string">"MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ASCENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ascending),
+                <span class="string">"DESCENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Descending),
+                <span class="string">"ARRAY_CONTAINS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ArrayContains),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -848,17 +849,17 @@
 </span><span class="kw">pub struct </span>Index {
     <span class="doccomment">/// The resource name of the index.
     /// Output only.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The collection ID to which this index applies. Required.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>collection_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The fields to index.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>fields: ::prost::alloc::vec::Vec&lt;IndexField&gt;,
     <span class="doccomment">/// The state of the index.
     /// Output only.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;index::State&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"index::State"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Index`.
@@ -903,21 +904,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Ready =&gt; <span class="string">"READY"</span>,
+                State::Error =&gt; <span class="string">"ERROR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"READY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -929,26 +930,26 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>IndexOperationMetadata {
     <span class="doccomment">/// The time that work began on the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the operation ended, either successfully or otherwise. Unset if
     /// the operation is still active.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The index resource that this operation is acting on. For example:
     /// `projects/{project_id}/databases/{database_id}/indexes/{index_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>index: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of index operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;index_operation_metadata::OperationType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"index_operation_metadata::OperationType"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>operation_type: i32,
     <span class="doccomment">/// True if the \[google.longrunning.Operation\] was cancelled. If the
     /// cancellation is in progress, cancelled will be true but
     /// [google.longrunning.Operation.done][google.longrunning.Operation.done] will be false.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>cancelled: bool,
     <span class="doccomment">/// Progress of the existing operation, measured in number of documents.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>document_progress: ::core::option::Option&lt;Progress&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `IndexOperationMetadata`.
@@ -977,17 +978,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                OperationType::Unspecified =&gt; <span class="string">&quot;OPERATION_TYPE_UNSPECIFIED&quot;</span>,
-                OperationType::CreatingIndex =&gt; <span class="string">&quot;CREATING_INDEX&quot;</span>,
+                OperationType::Unspecified =&gt; <span class="string">"OPERATION_TYPE_UNSPECIFIED"</span>,
+                OperationType::CreatingIndex =&gt; <span class="string">"CREATING_INDEX"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;OPERATION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING_INDEX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreatingIndex),
+                <span class="string">"OPERATION_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING_INDEX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreatingIndex),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -999,11 +1000,11 @@
 </span><span class="kw">pub struct </span>Progress {
     <span class="doccomment">/// An estimate of how much work has been completed. Note that this may be
     /// greater than `work_estimated`.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>work_completed: i64,
     <span class="doccomment">/// An estimate of how much work needs to be performed. Zero if the
     /// work estimate is unavailable. May change as work progresses.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>work_estimated: i64,
 }
 <span class="doccomment">/// The request for [FirestoreAdmin.CreateIndex][google.firestore.admin.v1beta1.FirestoreAdmin.CreateIndex].
@@ -1012,11 +1013,11 @@
 </span><span class="kw">pub struct </span>CreateIndexRequest {
     <span class="doccomment">/// The name of the database this index will apply to. For example:
     /// `projects/{project_id}/databases/{database_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The index to create. The name and state fields are output only and will be
     /// ignored. Certain single field indexes cannot be created or deleted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>index: ::core::option::Option&lt;Index&gt;,
 }
 <span class="doccomment">/// The request for [FirestoreAdmin.GetIndex][google.firestore.admin.v1beta1.FirestoreAdmin.GetIndex].
@@ -1025,7 +1026,7 @@
 </span><span class="kw">pub struct </span>GetIndexRequest {
     <span class="doccomment">/// The name of the index. For example:
     /// `projects/{project_id}/databases/{database_id}/indexes/{index_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for [FirestoreAdmin.ListIndexes][google.firestore.admin.v1beta1.FirestoreAdmin.ListIndexes].
@@ -1034,15 +1035,15 @@
 </span><span class="kw">pub struct </span>ListIndexesRequest {
     <span class="doccomment">/// The database name. For example:
     /// `projects/{project_id}/databases/{database_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The standard List page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The standard List page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for [FirestoreAdmin.DeleteIndex][google.firestore.admin.v1beta1.FirestoreAdmin.DeleteIndex].
@@ -1051,7 +1052,7 @@
 </span><span class="kw">pub struct </span>DeleteIndexRequest {
     <span class="doccomment">/// The index name. For example:
     /// `projects/{project_id}/databases/{database_id}/indexes/{index_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for [FirestoreAdmin.ListIndexes][google.firestore.admin.v1beta1.FirestoreAdmin.ListIndexes].
@@ -1059,10 +1060,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListIndexesResponse {
     <span class="doccomment">/// The indexes.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>indexes: ::prost::alloc::vec::Vec&lt;Index&gt;,
     <span class="doccomment">/// The standard List next-page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for [FirestoreAdmin.ExportDocuments][google.firestore.admin.v1beta1.FirestoreAdmin.ExportDocuments].
@@ -1071,10 +1072,10 @@
 </span><span class="kw">pub struct </span>ExportDocumentsRequest {
     <span class="doccomment">/// Database to export. Should be of the form:
     /// `projects/{project_id}/databases/{database_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Which collection ids to export. Unspecified means all collections.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>collection_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The output URI. Currently only supports Google Cloud Storage URIs of the
     /// form: `gs://BUCKET_NAME\[/NAMESPACE_PATH\]`, where `BUCKET_NAME` is the name
@@ -1084,7 +1085,7 @@
     /// guidelines: &lt;https://cloud.google.com/storage/docs/naming.&gt;
     /// If the URI is a bucket (without a namespace path), a prefix will be
     /// generated based on the start time.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>output_uri_prefix: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for [FirestoreAdmin.ImportDocuments][google.firestore.admin.v1beta1.FirestoreAdmin.ImportDocuments].
@@ -1093,18 +1094,18 @@
 </span><span class="kw">pub struct </span>ImportDocumentsRequest {
     <span class="doccomment">/// Database to import into. Should be of the form:
     /// `projects/{project_id}/databases/{database_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Which collection ids to import. Unspecified means all collections included
     /// in the import.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>collection_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Location of the exported files.
     /// This must match the output_uri_prefix of an ExportDocumentsResponse from
     /// an export that has completed successfully.
     /// See:
     /// [google.firestore.admin.v1beta1.ExportDocumentsResponse.output_uri_prefix][google.firestore.admin.v1beta1.ExportDocumentsResponse.output_uri_prefix].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>input_uri_prefix: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Returned in the [google.longrunning.Operation][google.longrunning.Operation] response field.
@@ -1114,7 +1115,7 @@
     <span class="doccomment">/// Location of the output files. This can be used to begin an import
     /// into Cloud Firestore (this project or another project) after the operation
     /// completes successfully.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>output_uri_prefix: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Metadata for ExportDocuments operations.
@@ -1122,26 +1123,26 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExportDocumentsMetadata {
     <span class="doccomment">/// The time that work began on the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the operation ended, either successfully or otherwise. Unset if
     /// the operation is still active.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The state of the export operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OperationState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"OperationState"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>operation_state: i32,
     <span class="doccomment">/// An estimate of the number of documents processed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>progress_documents: ::core::option::Option&lt;Progress&gt;,
     <span class="doccomment">/// An estimate of the number of bytes processed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>progress_bytes: ::core::option::Option&lt;Progress&gt;,
     <span class="doccomment">/// Which collection ids are being exported.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>collection_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Where the entities are being exported to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>output_uri_prefix: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Metadata for ImportDocuments operations.
@@ -1149,26 +1150,26 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportDocumentsMetadata {
     <span class="doccomment">/// The time that work began on the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the operation ended, either successfully or otherwise. Unset if
     /// the operation is still active.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The state of the import operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OperationState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"OperationState"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>operation_state: i32,
     <span class="doccomment">/// An estimate of the number of documents processed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>progress_documents: ::core::option::Option&lt;Progress&gt;,
     <span class="doccomment">/// An estimate of the number of bytes processed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>progress_bytes: ::core::option::Option&lt;Progress&gt;,
     <span class="doccomment">/// Which collection ids are being imported.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>collection_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The location of the documents being imported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>input_uri_prefix: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The various possible states for an ongoing Operation.
@@ -1199,29 +1200,29 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            OperationState::StateUnspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-            OperationState::Initializing =&gt; <span class="string">&quot;INITIALIZING&quot;</span>,
-            OperationState::Processing =&gt; <span class="string">&quot;PROCESSING&quot;</span>,
-            OperationState::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
-            OperationState::Finalizing =&gt; <span class="string">&quot;FINALIZING&quot;</span>,
-            OperationState::Successful =&gt; <span class="string">&quot;SUCCESSFUL&quot;</span>,
-            OperationState::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-            OperationState::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+            OperationState::StateUnspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+            OperationState::Initializing =&gt; <span class="string">"INITIALIZING"</span>,
+            OperationState::Processing =&gt; <span class="string">"PROCESSING"</span>,
+            OperationState::Cancelling =&gt; <span class="string">"CANCELLING"</span>,
+            OperationState::Finalizing =&gt; <span class="string">"FINALIZING"</span>,
+            OperationState::Successful =&gt; <span class="string">"SUCCESSFUL"</span>,
+            OperationState::Failed =&gt; <span class="string">"FAILED"</span>,
+            OperationState::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StateUnspecified),
-            <span class="string">&quot;INITIALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
-            <span class="string">&quot;PROCESSING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Processing),
-            <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
-            <span class="string">&quot;FINALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finalizing),
-            <span class="string">&quot;SUCCESSFUL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Successful),
-            <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-            <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+            <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StateUnspecified),
+            <span class="string">"INITIALIZING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
+            <span class="string">"PROCESSING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Processing),
+            <span class="string">"CANCELLING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
+            <span class="string">"FINALIZING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finalizing),
+            <span class="string">"SUCCESSFUL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Successful),
+            <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+            <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1282,7 +1283,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1344,7 +1345,7 @@
             <span class="self">self
         </span>}
         <span class="doccomment">/// Creates the specified index.
-        /// A newly created index&#39;s initial state is `CREATING`. On completion of the
+        /// A newly created index's initial state is `CREATING`. On completion of the
         /// returned [google.longrunning.Operation][google.longrunning.Operation], the state will be `READY`.
         /// If the index already exists, the call will return an `ALREADY_EXISTS`
         /// status.
@@ -1369,19 +1370,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.firestore.admin.v1beta1.FirestoreAdmin/CreateIndex&quot;</span>,
+                <span class="string">"/google.firestore.admin.v1beta1.FirestoreAdmin/CreateIndex"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.firestore.admin.v1beta1.FirestoreAdmin&quot;</span>,
-                        <span class="string">&quot;CreateIndex&quot;</span>,
+                        <span class="string">"google.firestore.admin.v1beta1.FirestoreAdmin"</span>,
+                        <span class="string">"CreateIndex"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1400,19 +1401,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.firestore.admin.v1beta1.FirestoreAdmin/ListIndexes&quot;</span>,
+                <span class="string">"/google.firestore.admin.v1beta1.FirestoreAdmin/ListIndexes"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.firestore.admin.v1beta1.FirestoreAdmin&quot;</span>,
-                        <span class="string">&quot;ListIndexes&quot;</span>,
+                        <span class="string">"google.firestore.admin.v1beta1.FirestoreAdmin"</span>,
+                        <span class="string">"ListIndexes"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1428,19 +1429,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.firestore.admin.v1beta1.FirestoreAdmin/GetIndex&quot;</span>,
+                <span class="string">"/google.firestore.admin.v1beta1.FirestoreAdmin/GetIndex"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.firestore.admin.v1beta1.FirestoreAdmin&quot;</span>,
-                        <span class="string">&quot;GetIndex&quot;</span>,
+                        <span class="string">"google.firestore.admin.v1beta1.FirestoreAdmin"</span>,
+                        <span class="string">"GetIndex"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1456,19 +1457,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.firestore.admin.v1beta1.FirestoreAdmin/DeleteIndex&quot;</span>,
+                <span class="string">"/google.firestore.admin.v1beta1.FirestoreAdmin/DeleteIndex"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.firestore.admin.v1beta1.FirestoreAdmin&quot;</span>,
-                        <span class="string">&quot;DeleteIndex&quot;</span>,
+                        <span class="string">"google.firestore.admin.v1beta1.FirestoreAdmin"</span>,
+                        <span class="string">"DeleteIndex"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1494,19 +1495,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.firestore.admin.v1beta1.FirestoreAdmin/ExportDocuments&quot;</span>,
+                <span class="string">"/google.firestore.admin.v1beta1.FirestoreAdmin/ExportDocuments"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.firestore.admin.v1beta1.FirestoreAdmin&quot;</span>,
-                        <span class="string">&quot;ExportDocuments&quot;</span>,
+                        <span class="string">"google.firestore.admin.v1beta1.FirestoreAdmin"</span>,
+                        <span class="string">"ExportDocuments"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1529,19 +1530,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.firestore.admin.v1beta1.FirestoreAdmin/ImportDocuments&quot;</span>,
+                <span class="string">"/google.firestore.admin.v1beta1.FirestoreAdmin/ImportDocuments"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.firestore.admin.v1beta1.FirestoreAdmin&quot;</span>,
-                        <span class="string">&quot;ImportDocuments&quot;</span>,
+                        <span class="string">"google.firestore.admin.v1beta1.FirestoreAdmin"</span>,
+                        <span class="string">"ImportDocuments"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

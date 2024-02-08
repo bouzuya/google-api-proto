@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/migration/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/migration/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1258,17 +1259,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResourceErrorDetail {
     <span class="doccomment">/// Required. Information about the resource where the error is located.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource_info: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ResourceInfo,
     &gt;,
     <span class="doccomment">/// Required. The error details for the resource.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>error_details: ::prost::alloc::vec::Vec&lt;ErrorDetail&gt;,
     <span class="doccomment">/// Required. How many errors there are in total for the resource. Truncation
     /// can be indicated by having an `error_count` that is higher than the size of
     /// `error_details`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>error_count: i32,
 }
 <span class="doccomment">/// Provides details for errors, e.g. issues that where encountered when
@@ -1277,10 +1278,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ErrorDetail {
     <span class="doccomment">/// Optional. The exact location within the resource (if applicable).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;ErrorLocation&gt;,
     <span class="doccomment">/// Required. Describes the cause of the error with structured detail.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>error_info: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ErrorInfo&gt;,
 }
 <span class="doccomment">/// Holds information about where the error is located.
@@ -1289,11 +1290,11 @@
 </span><span class="kw">pub struct </span>ErrorLocation {
     <span class="doccomment">/// Optional. If applicable, denotes the line where the error occurred. A zero
     /// value means that there is no line information.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>line: i32,
     <span class="doccomment">/// Optional. If applicable, denotes the column where the error occurred. A
     /// zero value means that there is no columns information.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>column: i32,
 }
 <span class="doccomment">/// The metrics object for a SubTask.
@@ -1303,34 +1304,34 @@
     <span class="doccomment">/// Required. The name of the metric.
     ///
     /// If the metric is not known by the service yet, it will be auto-created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>metric: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The value type of the time series.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::super::super::super::api::metric_descriptor::ValueType&quot;</span>,
-        tag = <span class="string">&quot;2&quot;
+        enumeration = <span class="string">"super::super::super::super::api::metric_descriptor::ValueType"</span>,
+        tag = <span class="string">"2"
     </span>)]
     </span><span class="kw">pub </span>value_type: i32,
     <span class="doccomment">/// Optional. The metric kind of the time series.
     ///
     /// If present, it must be the same as the metric kind of the associated
-    /// metric. If the associated metric&#39;s descriptor must be auto-created, then
+    /// metric. If the associated metric's descriptor must be auto-created, then
     /// this field specifies the metric kind of the new descriptor and must be
     /// either `GAUGE` (the default) or `CUMULATIVE`.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::super::super::super::api::metric_descriptor::MetricKind&quot;</span>,
-        tag = <span class="string">&quot;3&quot;
+        enumeration = <span class="string">"super::super::super::super::api::metric_descriptor::MetricKind"</span>,
+        tag = <span class="string">"3"
     </span>)]
     </span><span class="kw">pub </span>metric_kind: i32,
     <span class="doccomment">/// Required. The data points of this time series. When listing time series,
     /// points are returned in reverse time order.
     ///
     /// When creating a time series, this field must contain exactly one point and
-    /// the point&#39;s type must be the same as the value type of the associated
-    /// metric. If the associated metric&#39;s descriptor must be auto-created, then
-    /// the value type of the descriptor is determined by the point&#39;s type, which
+    /// the point's type must be the same as the value type of the associated
+    /// metric. If the associated metric's descriptor must be auto-created, then
+    /// the value type of the descriptor is determined by the point's type, which
     /// must be `BOOL`, `INT64`, `DOUBLE`, or `DISTRIBUTION`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>points: ::prost::alloc::vec::Vec&lt;Point&gt;,
 }
 <span class="doccomment">/// A single data point in a time series.
@@ -1346,10 +1347,10 @@
     /// the same start time and increasing end times, until an event resets the
     /// cumulative value to zero and sets a new start time for the following
     /// points.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>interval: ::core::option::Option&lt;TimeInterval&gt;,
     <span class="doccomment">/// The value of the data point.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;TypedValue&gt;,
 }
 <span class="doccomment">/// A time interval extending just after a start time through an end time.
@@ -1361,10 +1362,10 @@
     <span class="doccomment">/// Optional. The beginning of the time interval.  The default value
     /// for the start time is the end time. The start time must not be
     /// later than the end time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. The end of the time interval.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// A single strongly-typed value.
@@ -1372,7 +1373,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TypedValue {
     <span class="doccomment">/// The typed value field.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;typed_value::Value&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"typed_value::Value"</span>, tags = <span class="string">"1, 2, 3, 4, 5"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;typed_value::Value&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TypedValue`.
@@ -1382,21 +1383,21 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Value {
         <span class="doccomment">/// A Boolean value: `true` or `false`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span>BoolValue(bool),
         <span class="doccomment">/// A 64-bit integer. Its range is approximately `+/-9.2x10^18`.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span>Int64Value(i64),
         <span class="doccomment">/// A 64-bit double-precision floating-point number. Its magnitude
         /// is approximately `+/-10^(+/-300)` and it has 16 significant digits of
         /// precision.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
         </span>DoubleValue(f64),
         <span class="doccomment">/// A variable-length string value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span>StringValue(::prost::alloc::string::String),
         <span class="doccomment">/// A distribution value.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>DistributionValue(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::api::Distribution),
     }
 }
@@ -1406,30 +1407,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TranslationConfigDetails {
     <span class="doccomment">/// The dialect of the input files.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>source_dialect: ::core::option::Option&lt;Dialect&gt;,
     <span class="doccomment">/// The target dialect for the engine to translate the input to.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>target_dialect: ::core::option::Option&lt;Dialect&gt;,
     <span class="doccomment">/// The default source environment values for the translation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>source_env: ::core::option::Option&lt;SourceEnv&gt;,
     <span class="doccomment">/// The indicator to show translation request initiator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>request_source: ::prost::alloc::string::String,
     <span class="doccomment">/// The chosen path where the source for input files will be found.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;translation_config_details::SourceLocation&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"translation_config_details::SourceLocation"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source_location: ::core::option::Option&lt;
         translation_config_details::SourceLocation,
     &gt;,
     <span class="doccomment">/// The chosen path where the destination for output files will be found.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;translation_config_details::TargetLocation&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"translation_config_details::TargetLocation"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>target_location: ::core::option::Option&lt;
         translation_config_details::TargetLocation,
     &gt;,
     <span class="doccomment">/// The mapping of full SQL object names from their current state to the
     /// desired output.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;translation_config_details::OutputNameMapping&quot;</span>, tags = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"translation_config_details::OutputNameMapping"</span>, tags = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>output_name_mapping: ::core::option::Option&lt;
         translation_config_details::OutputNameMapping,
     &gt;,
@@ -1441,7 +1442,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>SourceLocation {
         <span class="doccomment">/// The Cloud Storage path for a directory of files to translate in a task.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>GcsSourcePath(::prost::alloc::string::String),
     }
     <span class="doccomment">/// The chosen path where the destination for output files will be found.
@@ -1449,7 +1450,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>TargetLocation {
         <span class="doccomment">/// The Cloud Storage path to write back the corresponding input files to.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>GcsTargetPath(::prost::alloc::string::String),
     }
     <span class="doccomment">/// The mapping of full SQL object names from their current state to the
@@ -1458,7 +1459,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>OutputNameMapping {
         <span class="doccomment">/// The mapping of objects to their desired output names in list form.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>NameMappingList(<span class="kw">super</span>::ObjectNameMappingList),
     }
 }
@@ -1468,8 +1469,8 @@
 </span><span class="kw">pub struct </span>Dialect {
     <span class="doccomment">/// The possible dialect options that this message represents.
     </span><span class="attr">#[prost(
-        oneof = <span class="string">&quot;dialect::DialectValue&quot;</span>,
-        tags = <span class="string">&quot;1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14&quot;
+        oneof = <span class="string">"dialect::DialectValue"</span>,
+        tags = <span class="string">"1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14"
     </span>)]
     </span><span class="kw">pub </span>dialect_value: ::core::option::Option&lt;dialect::DialectValue&gt;,
 }
@@ -1480,46 +1481,46 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>DialectValue {
         <span class="doccomment">/// The BigQuery dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>BigqueryDialect(<span class="kw">super</span>::BigQueryDialect),
         <span class="doccomment">/// The HiveQL dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>HiveqlDialect(<span class="kw">super</span>::HiveQlDialect),
         <span class="doccomment">/// The Redshift dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>RedshiftDialect(<span class="kw">super</span>::RedshiftDialect),
         <span class="doccomment">/// The Teradata dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>TeradataDialect(<span class="kw">super</span>::TeradataDialect),
         <span class="doccomment">/// The Oracle dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>OracleDialect(<span class="kw">super</span>::OracleDialect),
         <span class="doccomment">/// The SparkSQL dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>SparksqlDialect(<span class="kw">super</span>::SparkSqlDialect),
         <span class="doccomment">/// The Snowflake dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>SnowflakeDialect(<span class="kw">super</span>::SnowflakeDialect),
         <span class="doccomment">/// The Netezza dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>NetezzaDialect(<span class="kw">super</span>::NetezzaDialect),
         <span class="doccomment">/// The Azure Synapse dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>AzureSynapseDialect(<span class="kw">super</span>::AzureSynapseDialect),
         <span class="doccomment">/// The Vertica dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>VerticaDialect(<span class="kw">super</span>::VerticaDialect),
         <span class="doccomment">/// The SQL Server dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"11"</span>)]
         </span>SqlServerDialect(<span class="kw">super</span>::SqlServerDialect),
         <span class="doccomment">/// The Postgresql dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"12"</span>)]
         </span>PostgresqlDialect(<span class="kw">super</span>::PostgresqlDialect),
         <span class="doccomment">/// The Presto dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"13"</span>)]
         </span>PrestoDialect(<span class="kw">super</span>::PrestoDialect),
         <span class="doccomment">/// The MySQL dialect
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"14"</span>)]
         </span>MysqlDialect(<span class="kw">super</span>::MySqlDialect),
     }
 }
@@ -1540,7 +1541,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TeradataDialect {
     <span class="doccomment">/// Which Teradata sub-dialect mode the user specifies.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;teradata_dialect::Mode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"teradata_dialect::Mode"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `TeradataDialect`.
@@ -1571,19 +1572,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
-                Mode::Sql =&gt; <span class="string">&quot;SQL&quot;</span>,
-                Mode::Bteq =&gt; <span class="string">&quot;BTEQ&quot;</span>,
+                Mode::Unspecified =&gt; <span class="string">"MODE_UNSPECIFIED"</span>,
+                Mode::Sql =&gt; <span class="string">"SQL"</span>,
+                Mode::Bteq =&gt; <span class="string">"BTEQ"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sql),
-                <span class="string">&quot;BTEQ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bteq),
+                <span class="string">"MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SQL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sql),
+                <span class="string">"BTEQ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bteq),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1635,7 +1636,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ObjectNameMappingList {
     <span class="doccomment">/// The elements of the object name map.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name_map: ::prost::alloc::vec::Vec&lt;ObjectNameMapping&gt;,
 }
 <span class="doccomment">/// Represents a key-value pair of NameMappingKey to NameMappingValue to
@@ -1644,10 +1645,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ObjectNameMapping {
     <span class="doccomment">/// The name of the object in source that is being mapped.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;NameMappingKey&gt;,
     <span class="doccomment">/// The desired target name of the object that is being mapped.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>target: ::core::option::Option&lt;NameMappingValue&gt;,
 }
 <span class="doccomment">/// The potential components of a full name mapping that will be mapped
@@ -1656,22 +1657,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>NameMappingKey {
     <span class="doccomment">/// The type of object that is being mapped.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;name_mapping_key::Type&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"name_mapping_key::Type"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// The database name (BigQuery project ID equivalent in the source data
     /// warehouse).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>database: ::prost::alloc::string::String,
     <span class="doccomment">/// The schema name (BigQuery dataset equivalent in the source data warehouse).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>schema: ::prost::alloc::string::String,
     <span class="doccomment">/// The relation name (BigQuery table or view equivalent in the source data
     /// warehouse).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>relation: ::prost::alloc::string::String,
     <span class="doccomment">/// The attribute name (BigQuery column equivalent in the source data
     /// warehouse).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>attribute: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `NameMappingKey`.
@@ -1712,29 +1713,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Database =&gt; <span class="string">&quot;DATABASE&quot;</span>,
-                Type::Schema =&gt; <span class="string">&quot;SCHEMA&quot;</span>,
-                Type::Relation =&gt; <span class="string">&quot;RELATION&quot;</span>,
-                Type::Attribute =&gt; <span class="string">&quot;ATTRIBUTE&quot;</span>,
-                Type::RelationAlias =&gt; <span class="string">&quot;RELATION_ALIAS&quot;</span>,
-                Type::AttributeAlias =&gt; <span class="string">&quot;ATTRIBUTE_ALIAS&quot;</span>,
-                Type::Function =&gt; <span class="string">&quot;FUNCTION&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::Database =&gt; <span class="string">"DATABASE"</span>,
+                Type::Schema =&gt; <span class="string">"SCHEMA"</span>,
+                Type::Relation =&gt; <span class="string">"RELATION"</span>,
+                Type::Attribute =&gt; <span class="string">"ATTRIBUTE"</span>,
+                Type::RelationAlias =&gt; <span class="string">"RELATION_ALIAS"</span>,
+                Type::AttributeAlias =&gt; <span class="string">"ATTRIBUTE_ALIAS"</span>,
+                Type::Function =&gt; <span class="string">"FUNCTION"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DATABASE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Database),
-                <span class="string">&quot;SCHEMA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Schema),
-                <span class="string">&quot;RELATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Relation),
-                <span class="string">&quot;ATTRIBUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Attribute),
-                <span class="string">&quot;RELATION_ALIAS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RelationAlias),
-                <span class="string">&quot;ATTRIBUTE_ALIAS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AttributeAlias),
-                <span class="string">&quot;FUNCTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Function),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DATABASE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Database),
+                <span class="string">"SCHEMA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Schema),
+                <span class="string">"RELATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Relation),
+                <span class="string">"ATTRIBUTE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Attribute),
+                <span class="string">"RELATION_ALIAS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RelationAlias),
+                <span class="string">"ATTRIBUTE_ALIAS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AttributeAlias),
+                <span class="string">"FUNCTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Function),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1747,18 +1748,18 @@
 </span><span class="kw">pub struct </span>NameMappingValue {
     <span class="doccomment">/// The database name (BigQuery project ID equivalent in the target data
     /// warehouse).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>database: ::prost::alloc::string::String,
     <span class="doccomment">/// The schema name (BigQuery dataset equivalent in the target data warehouse).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>schema: ::prost::alloc::string::String,
     <span class="doccomment">/// The relation name (BigQuery table or view equivalent in the target data
     /// warehouse).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>relation: ::prost::alloc::string::String,
     <span class="doccomment">/// The attribute name (BigQuery column equivalent in the target data
     /// warehouse).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>attribute: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the default source environment values for the translation.
@@ -1767,11 +1768,11 @@
 </span><span class="kw">pub struct </span>SourceEnv {
     <span class="doccomment">/// The default database name to fully qualify SQL objects when their database
     /// name is missing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>default_database: ::prost::alloc::string::String,
     <span class="doccomment">/// The schema search path. When SQL objects are missing schema name,
     /// translation engine will search through this list to find the value.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>schema_search_path: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A migration workflow which specifies what needs to be done for an EDW
@@ -1783,28 +1784,28 @@
     /// The ID is server-generated.
     ///
     /// Example: `projects/123/locations/us/workflows/345`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The display name of the workflow. This can be set to give a workflow
     /// a descriptive name. There is no guarantee or enforcement of uniqueness.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The tasks in a workflow in a named map. The name (i.e. key) has no
     /// meaning and is merely a convenient way to address a specific task
     /// in a workflow.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>tasks: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         MigrationTask,
     &gt;,
     <span class="doccomment">/// Output only. That status of the workflow.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;migration_workflow::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"migration_workflow::State"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Time when the workflow was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Time when the workflow was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>last_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MigrationWorkflow`.
@@ -1843,23 +1844,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Draft =&gt; <span class="string">&quot;DRAFT&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
-                State::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Draft =&gt; <span class="string">"DRAFT"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Paused =&gt; <span class="string">"PAUSED"</span>,
+                State::Completed =&gt; <span class="string">"COMPLETED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DRAFT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Draft),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
-                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DRAFT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Draft),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"PAUSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
+                <span class="string">"COMPLETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1872,7 +1873,7 @@
 </span><span class="kw">pub struct </span>MigrationTask {
     <span class="doccomment">/// Output only. Immutable. The unique identifier for the migration task. The
     /// ID is server-generated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of the task. This must be one of the supported task types:
     /// Translation_Teradata2BQ, Translation_Redshift2BQ, Translation_Bteq2BQ,
@@ -1881,25 +1882,25 @@
     /// Translation_AzureSynapse2BQ, Translation_Vertica2BQ,
     /// Translation_SQLServer2BQ, Translation_Presto2BQ, Translation_MySQL2BQ,
     /// Translation_Postgresql2BQ.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current state of the task.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;migration_task::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"migration_task::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. An explanation that may be populated when the task is in
     /// FAILED state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>processing_error: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ErrorInfo,
     &gt;,
     <span class="doccomment">/// Time when the task was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Time when the task was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>last_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The details of the task.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;migration_task::TaskDetails&quot;</span>, tags = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"migration_task::TaskDetails"</span>, tags = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>task_details: ::core::option::Option&lt;migration_task::TaskDetails&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MigrationTask`.
@@ -1939,27 +1940,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                State::Orchestrating =&gt; <span class="string">&quot;ORCHESTRATING&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Pending =&gt; <span class="string">"PENDING"</span>,
+                State::Orchestrating =&gt; <span class="string">"ORCHESTRATING"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Paused =&gt; <span class="string">"PAUSED"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;ORCHESTRATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Orchestrating),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"ORCHESTRATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Orchestrating),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"PAUSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1969,7 +1970,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>TaskDetails {
         <span class="doccomment">/// Task configuration for Batch SQL Translation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"14"</span>)]
         </span>TranslationConfigDetails(<span class="kw">super</span>::TranslationConfigDetails),
     }
 }
@@ -1983,45 +1984,45 @@
     /// is server-generated.
     ///
     /// Example: `projects/123/locations/us/workflows/345/subtasks/678`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The unique ID of the task to which this subtask belongs.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>task_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of the Subtask. The migration service does not check whether this
     /// is a known type. It is up to the task creator (i.e. orchestrator or worker)
     /// to ensure it only creates subtasks for which there are compatible workers
     /// polling for Subtasks.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current state of the subtask.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;migration_subtask::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"migration_subtask::State"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. An explanation that may be populated when the task is in
     /// FAILED state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>processing_error: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::ErrorInfo,
     &gt;,
     <span class="doccomment">/// Output only. Provides details to errors and issues encountered while
     /// processing the subtask. Presence of error details does not mean that the
     /// subtask failed.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>resource_error_details: ::prost::alloc::vec::Vec&lt;ResourceErrorDetail&gt;,
     <span class="doccomment">/// The number or resources with errors. Note: This is not the total
     /// number of errors as each resource can have more than one error.
     /// This is used to indicate truncation by having a `resource_error_count`
     /// that is higher than the size of `resource_error_details`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>resource_error_count: i32,
     <span class="doccomment">/// Time when the subtask was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Time when the subtask was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>last_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The metrics for the subtask.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>metrics: ::prost::alloc::vec::Vec&lt;TimeSeries&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MigrationSubtask`.
@@ -2062,27 +2063,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
-                State::PendingDependency =&gt; <span class="string">&quot;PENDING_DEPENDENCY&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Paused =&gt; <span class="string">"PAUSED"</span>,
+                State::PendingDependency =&gt; <span class="string">"PENDING_DEPENDENCY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
-                <span class="string">&quot;PENDING_DEPENDENCY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PendingDependency),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"PAUSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
+                <span class="string">"PENDING_DEPENDENCY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PendingDependency),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2094,10 +2095,10 @@
 </span><span class="kw">pub struct </span>CreateMigrationWorkflowRequest {
     <span class="doccomment">/// Required. The name of the project to which this migration workflow belongs.
     /// Example: `projects/foo/locations/bar`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The migration workflow to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>migration_workflow: ::core::option::Option&lt;MigrationWorkflow&gt;,
 }
 <span class="doccomment">/// A request to get a previously created migration workflow.
@@ -2106,10 +2107,10 @@
 </span><span class="kw">pub struct </span>GetMigrationWorkflowRequest {
     <span class="doccomment">/// Required. The unique identifier for the migration workflow.
     /// Example: `projects/123/locations/us/workflows/1234`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The list of fields to be retrieved.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>read_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// A request to list previously created migration workflows.
@@ -2118,21 +2119,21 @@
 </span><span class="kw">pub struct </span>ListMigrationWorkflowsRequest {
     <span class="doccomment">/// Required. The project and location of the migration workflows to list.
     /// Example: `projects/123/locations/us`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The list of fields to be retrieved.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>read_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// The maximum number of migration workflows to return. The service may return
     /// fewer than this number.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from previous `ListMigrationWorkflows` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListMigrationWorkflows`
     /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response object for a `ListMigrationWorkflows` call.
@@ -2140,11 +2141,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListMigrationWorkflowsResponse {
     <span class="doccomment">/// The migration workflows for the specified project / location.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>migration_workflows: ::prost::alloc::vec::Vec&lt;MigrationWorkflow&gt;,
     <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to delete a previously created migration workflow.
@@ -2153,7 +2154,7 @@
 </span><span class="kw">pub struct </span>DeleteMigrationWorkflowRequest {
     <span class="doccomment">/// Required. The unique identifier for the migration workflow.
     /// Example: `projects/123/locations/us/workflows/1234`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to start a previously created migration workflow.
@@ -2162,7 +2163,7 @@
 </span><span class="kw">pub struct </span>StartMigrationWorkflowRequest {
     <span class="doccomment">/// Required. The unique identifier for the migration workflow.
     /// Example: `projects/123/locations/us/workflows/1234`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to get a previously created migration subtasks.
@@ -2171,10 +2172,10 @@
 </span><span class="kw">pub struct </span>GetMigrationSubtaskRequest {
     <span class="doccomment">/// Required. The unique identifier for the migration subtask.
     /// Example: `projects/123/locations/us/workflows/1234/subtasks/543`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The list of fields to be retrieved.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>read_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// A request to list previously created migration subtasks.
@@ -2183,26 +2184,26 @@
 </span><span class="kw">pub struct </span>ListMigrationSubtasksRequest {
     <span class="doccomment">/// Required. The migration task of the subtasks to list.
     /// Example: `projects/123/locations/us/workflows/1234`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The list of fields to be retrieved.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>read_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Optional. The maximum number of migration tasks to return. The service may
     /// return fewer than this number.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A page token, received from previous `ListMigrationSubtasks`
     /// call. Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListMigrationSubtasks`
     /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The filter to apply. This can be used to get the subtasks of a
-    /// specific tasks in a workflow, e.g. `migration_task = &quot;ab012&quot;` where
-    /// `&quot;ab012&quot;` is the task ID (not the name in the named map).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    /// specific tasks in a workflow, e.g. `migration_task = "ab012"` where
+    /// `"ab012"` is the task ID (not the name in the named map).
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response object for a `ListMigrationSubtasks` call.
@@ -2210,11 +2211,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListMigrationSubtasksResponse {
     <span class="doccomment">/// The migration subtasks for the specified task.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>migration_subtasks: ::prost::alloc::vec::Vec&lt;MigrationSubtask&gt;,
     <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2231,7 +2232,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2306,19 +2307,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.migration.v2.MigrationService/CreateMigrationWorkflow&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.migration.v2.MigrationService/CreateMigrationWorkflow"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.migration.v2.MigrationService&quot;</span>,
-                        <span class="string">&quot;CreateMigrationWorkflow&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.migration.v2.MigrationService"</span>,
+                        <span class="string">"CreateMigrationWorkflow"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2337,19 +2338,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.migration.v2.MigrationService/GetMigrationWorkflow&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.migration.v2.MigrationService/GetMigrationWorkflow"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.migration.v2.MigrationService&quot;</span>,
-                        <span class="string">&quot;GetMigrationWorkflow&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.migration.v2.MigrationService"</span>,
+                        <span class="string">"GetMigrationWorkflow"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2368,19 +2369,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.migration.v2.MigrationService/ListMigrationWorkflows&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.migration.v2.MigrationService/ListMigrationWorkflows"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.migration.v2.MigrationService&quot;</span>,
-                        <span class="string">&quot;ListMigrationWorkflows&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.migration.v2.MigrationService"</span>,
+                        <span class="string">"ListMigrationWorkflows"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2396,19 +2397,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.migration.v2.MigrationService/DeleteMigrationWorkflow&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.migration.v2.MigrationService/DeleteMigrationWorkflow"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.migration.v2.MigrationService&quot;</span>,
-                        <span class="string">&quot;DeleteMigrationWorkflow&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.migration.v2.MigrationService"</span>,
+                        <span class="string">"DeleteMigrationWorkflow"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2427,19 +2428,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.migration.v2.MigrationService/StartMigrationWorkflow&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.migration.v2.MigrationService/StartMigrationWorkflow"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.migration.v2.MigrationService&quot;</span>,
-                        <span class="string">&quot;StartMigrationWorkflow&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.migration.v2.MigrationService"</span>,
+                        <span class="string">"StartMigrationWorkflow"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2458,19 +2459,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.migration.v2.MigrationService/GetMigrationSubtask&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.migration.v2.MigrationService/GetMigrationSubtask"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.migration.v2.MigrationService&quot;</span>,
-                        <span class="string">&quot;GetMigrationSubtask&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.migration.v2.MigrationService"</span>,
+                        <span class="string">"GetMigrationSubtask"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2489,19 +2490,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.migration.v2.MigrationService/ListMigrationSubtasks&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.migration.v2.MigrationService/ListMigrationSubtasks"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.migration.v2.MigrationService&quot;</span>,
-                        <span class="string">&quot;ListMigrationSubtasks&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.migration.v2.MigrationService"</span>,
+                        <span class="string">"ListMigrationSubtasks"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/script/type/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/script/type/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -257,17 +258,17 @@
 <a href="#257" id="257">257</a>
 <a href="#258" id="258">258</a>
 <a href="#259" id="259">259</a>
-</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-apps-script-type-calendar&quot;</span>))]
+</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">"google-apps-script-type-calendar"</span>))]
 </span><span class="kw">pub mod </span>calendar;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-apps-script-type-docs&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-apps-script-type-docs"</span>))]
 </span><span class="kw">pub mod </span>docs;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-apps-script-type-drive&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-apps-script-type-drive"</span>))]
 </span><span class="kw">pub mod </span>drive;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-apps-script-type-gmail&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-apps-script-type-gmail"</span>))]
 </span><span class="kw">pub mod </span>gmail;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-apps-script-type-sheets&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-apps-script-type-sheets"</span>))]
 </span><span class="kw">pub mod </span>sheets;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-apps-script-type-slides&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-apps-script-type-slides"</span>))]
 </span><span class="kw">pub mod </span>slides;
 <span class="doccomment">/// Common format for declaring a  menu item, or button, that appears within a
 /// host app.
@@ -276,25 +277,25 @@
 </span><span class="kw">pub struct </span>MenuItemExtensionPoint {
     <span class="doccomment">/// Required. The endpoint to execute when this extension point is
     /// activated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>run_function: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. User-visible text describing the action taken by activating this
-    /// extension point. For example, &quot;Insert invoice&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// extension point. For example, "Insert invoice".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
     <span class="doccomment">/// The URL for the logo image shown in the add-on toolbar.
     ///
-    /// If not set, defaults to the add-on&#39;s primary logo URL.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// If not set, defaults to the add-on's primary logo URL.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>logo_url: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// Common format for declaring an add-on&#39;s home-page view.
+<span class="doccomment">/// Common format for declaring an add-on's home-page view.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HomepageExtensionPoint {
     <span class="doccomment">/// Required. The endpoint to execute when this extension point is
     /// activated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>run_function: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set to `false`, disable the home-page view in this context.
     ///
@@ -302,7 +303,7 @@
     ///
     /// If an add-ons custom home-page view is disabled, an autogenerated overview
     /// card will be provided for users instead.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>enabled: ::core::option::Option&lt;bool&gt;,
 }
 <span class="doccomment">/// Format for declaring a universal action menu item extension point.
@@ -310,12 +311,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UniversalActionExtensionPoint {
     <span class="doccomment">/// Required. User-visible text describing the action taken by activating this
-    /// extension point, for example, &quot;Add a new contact&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// extension point, for example, "Add a new contact".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The action type supported on a universal action menu item. It
     /// could be either a link to open or an endpoint to execute.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;universal_action_extension_point::ActionType&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"universal_action_extension_point::ActionType"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>action_type: ::core::option::Option&lt;
         universal_action_extension_point::ActionType,
     &gt;,
@@ -328,10 +329,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ActionType {
         <span class="doccomment">/// URL to be opened by the UniversalAction.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>OpenLink(::prost::alloc::string::String),
         <span class="doccomment">/// Endpoint to be run by the UniversalAction.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>RunFunction(::prost::alloc::string::String),
     }
 }
@@ -340,7 +341,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AddOnWidgetSet {
     <span class="doccomment">/// The list of widgets used in an add-on.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;add_on_widget_set::WidgetType&quot;</span>, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"add_on_widget_set::WidgetType"</span>, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>used_widgets: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AddOnWidgetSet`.
@@ -381,29 +382,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                WidgetType::Unspecified =&gt; <span class="string">&quot;WIDGET_TYPE_UNSPECIFIED&quot;</span>,
-                WidgetType::DatePicker =&gt; <span class="string">&quot;DATE_PICKER&quot;</span>,
-                WidgetType::StyledButtons =&gt; <span class="string">&quot;STYLED_BUTTONS&quot;</span>,
-                WidgetType::PersistentForms =&gt; <span class="string">&quot;PERSISTENT_FORMS&quot;</span>,
-                WidgetType::FixedFooter =&gt; <span class="string">&quot;FIXED_FOOTER&quot;</span>,
-                WidgetType::UpdateSubjectAndRecipients =&gt; <span class="string">&quot;UPDATE_SUBJECT_AND_RECIPIENTS&quot;</span>,
-                WidgetType::GridWidget =&gt; <span class="string">&quot;GRID_WIDGET&quot;</span>,
-                WidgetType::AddonComposeUiAction =&gt; <span class="string">&quot;ADDON_COMPOSE_UI_ACTION&quot;</span>,
+                WidgetType::Unspecified =&gt; <span class="string">"WIDGET_TYPE_UNSPECIFIED"</span>,
+                WidgetType::DatePicker =&gt; <span class="string">"DATE_PICKER"</span>,
+                WidgetType::StyledButtons =&gt; <span class="string">"STYLED_BUTTONS"</span>,
+                WidgetType::PersistentForms =&gt; <span class="string">"PERSISTENT_FORMS"</span>,
+                WidgetType::FixedFooter =&gt; <span class="string">"FIXED_FOOTER"</span>,
+                WidgetType::UpdateSubjectAndRecipients =&gt; <span class="string">"UPDATE_SUBJECT_AND_RECIPIENTS"</span>,
+                WidgetType::GridWidget =&gt; <span class="string">"GRID_WIDGET"</span>,
+                WidgetType::AddonComposeUiAction =&gt; <span class="string">"ADDON_COMPOSE_UI_ACTION"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;WIDGET_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DATE_PICKER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DatePicker),
-                <span class="string">&quot;STYLED_BUTTONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StyledButtons),
-                <span class="string">&quot;PERSISTENT_FORMS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PersistentForms),
-                <span class="string">&quot;FIXED_FOOTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FixedFooter),
-                <span class="string">&quot;UPDATE_SUBJECT_AND_RECIPIENTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UpdateSubjectAndRecipients),
-                <span class="string">&quot;GRID_WIDGET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GridWidget),
-                <span class="string">&quot;ADDON_COMPOSE_UI_ACTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AddonComposeUiAction),
+                <span class="string">"WIDGET_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DATE_PICKER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DatePicker),
+                <span class="string">"STYLED_BUTTONS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StyledButtons),
+                <span class="string">"PERSISTENT_FORMS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PersistentForms),
+                <span class="string">"FIXED_FOOTER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FixedFooter),
+                <span class="string">"UPDATE_SUBJECT_AND_RECIPIENTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UpdateSubjectAndRecipients),
+                <span class="string">"GRID_WIDGET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GridWidget),
+                <span class="string">"ADDON_COMPOSE_UI_ACTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AddonComposeUiAction),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -414,32 +415,32 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommonAddOnManifest {
     <span class="doccomment">/// Required. The display name of the add-on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The URL for the logo image shown in the add-on toolbar.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>logo_url: ::prost::alloc::string::String,
     <span class="doccomment">/// Common layout properties for the add-on cards.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>layout_properties: ::core::option::Option&lt;LayoutProperties&gt;,
     <span class="doccomment">/// The widgets used in the add-on. If this field is not specified,
     /// it indicates that default set is used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>add_on_widget_set: ::core::option::Option&lt;AddOnWidgetSet&gt;,
     <span class="doccomment">/// Whether to pass locale information from host app.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>use_locale_from_app: bool,
     <span class="doccomment">/// Defines an endpoint that will be executed in any context, in
     /// any host. Any cards generated by this function will always be available to
     /// the user, but may be eclipsed by contextual content when this add-on
     /// declares more targeted triggers.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>homepage_trigger: ::core::option::Option&lt;HomepageExtensionPoint&gt;,
     <span class="doccomment">/// Defines a list of extension points in the universal action menu which
     /// serves as a setting menu for the add-on. The extension point can be
     /// link URL to open or an endpoint to execute as a form
     /// submission.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>universal_actions: ::prost::alloc::vec::Vec&lt;UniversalActionExtensionPoint&gt;,
     <span class="doccomment">/// An OpenLink action
     /// can only use a URL with an HTTPS, MAILTO or TEL scheme.  For HTTPS links,
@@ -448,7 +449,7 @@
     /// prefixes specified in this whitelist. If the prefix omits the scheme, HTTPS
     /// is assumed.  Notice that HTTP links are automatically rewritten to HTTPS
     /// links.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>open_link_url_prefixes: ::core::option::Option&lt;::prost_types::ListValue&gt;,
 }
 <span class="doccomment">/// Card layout properties shared across all add-on host applications.
@@ -458,14 +459,14 @@
     <span class="doccomment">/// The primary color of the add-on. It sets the color of toolbar. If no
     /// primary color is set explicitly, the default value provided by the
     /// framework is used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>primary_color: ::prost::alloc::string::String,
     <span class="doccomment">/// The secondary color of the add-on. It sets the color of buttons.
     /// If primary color is set but no secondary color is set, the
     /// secondary color is the same as the primary color. If neither primary
     /// color nor secondary color is set, the default value provided by the
     /// framework is used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>secondary_color: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Options for sending requests to add-on HTTP endpoints
@@ -473,7 +474,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HttpOptions {
     <span class="doccomment">/// Configuration for the token sent in the HTTP Authorization header
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HttpAuthorizationHeader&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HttpAuthorizationHeader"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>authorization_header: i32,
 }
 <span class="doccomment">/// Authorization header sent in add-on HTTP requests
@@ -495,23 +496,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             HttpAuthorizationHeader::Unspecified =&gt; {
-                <span class="string">&quot;HTTP_AUTHORIZATION_HEADER_UNSPECIFIED&quot;
+                <span class="string">"HTTP_AUTHORIZATION_HEADER_UNSPECIFIED"
             </span>}
-            HttpAuthorizationHeader::SystemIdToken =&gt; <span class="string">&quot;SYSTEM_ID_TOKEN&quot;</span>,
-            HttpAuthorizationHeader::UserIdToken =&gt; <span class="string">&quot;USER_ID_TOKEN&quot;</span>,
-            HttpAuthorizationHeader::None =&gt; <span class="string">&quot;NONE&quot;</span>,
+            HttpAuthorizationHeader::SystemIdToken =&gt; <span class="string">"SYSTEM_ID_TOKEN"</span>,
+            HttpAuthorizationHeader::UserIdToken =&gt; <span class="string">"USER_ID_TOKEN"</span>,
+            HttpAuthorizationHeader::None =&gt; <span class="string">"NONE"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;HTTP_AUTHORIZATION_HEADER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;SYSTEM_ID_TOKEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SystemIdToken),
-            <span class="string">&quot;USER_ID_TOKEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserIdToken),
-            <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+            <span class="string">"HTTP_AUTHORIZATION_HEADER_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"SYSTEM_ID_TOKEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SystemIdToken),
+            <span class="string">"USER_ID_TOKEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserIdToken),
+            <span class="string">"NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }

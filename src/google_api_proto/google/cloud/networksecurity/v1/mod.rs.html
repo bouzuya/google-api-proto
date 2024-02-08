@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/networksecurity/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/networksecurity/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1186,65 +1187,65 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
     /// have [Operation.error][] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
     /// corresponding to `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// AuthorizationPolicy is a resource that specifies how a server
 /// should authorize incoming connections. This resource in itself does
-/// not change the configuration unless it&#39;s attached to a target https
+/// not change the configuration unless it's attached to a target https
 /// proxy or endpoint config selector resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AuthorizationPolicy {
     <span class="doccomment">/// Required. Name of the AuthorizationPolicy resource. It matches pattern
     /// `projects/{project}/locations/{location}/authorizationPolicies/&lt;authorization_policy&gt;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Free-text description of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The timestamp when the resource was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The timestamp when the resource was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Set of label tags associated with the AuthorizationPolicy resource.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Required. The action to take when a rule match is found. Possible values
-    /// are &quot;ALLOW&quot; or &quot;DENY&quot;.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;authorization_policy::Action&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    /// are "ALLOW" or "DENY".
+    </span><span class="attr">#[prost(enumeration = <span class="string">"authorization_policy::Action"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>action: i32,
     <span class="doccomment">/// Optional. List of rules to match. Note that at least one of the rules must match in
-    /// order for the action specified in the &#39;action&#39; field to be taken. A rule is
+    /// order for the action specified in the 'action' field to be taken. A rule is
     /// a match if there is a matching source and destination. If left blank, the
     /// action specified in the `action` field will be applied on every request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>rules: ::prost::alloc::vec::Vec&lt;authorization_policy::Rule&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AuthorizationPolicy`.
@@ -1255,16 +1256,16 @@
     </span><span class="kw">pub struct </span>Rule {
         <span class="doccomment">/// Optional. List of attributes for the traffic source. All of the sources must match.
         /// A source is a match if both principals and ip_blocks match. If not set,
-        /// the action specified in the &#39;action&#39; field will be applied without any
+        /// the action specified in the 'action' field will be applied without any
         /// rule checks for the source.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>sources: ::prost::alloc::vec::Vec&lt;rule::Source&gt;,
         <span class="doccomment">/// Optional. List of attributes for the traffic destination. All of the destinations
         /// must match. A destination is a match if a request matches all the
         /// specified hosts, ports, methods and headers. If not set, the
-        /// action specified in the &#39;action&#39; field will be applied without any rule
+        /// action specified in the 'action' field will be applied without any rule
         /// checks for the destination.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>destinations: ::prost::alloc::vec::Vec&lt;rule::Destination&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Rule`.
@@ -1275,43 +1276,43 @@
         </span><span class="kw">pub struct </span>Source {
             <span class="doccomment">/// Optional. List of peer identities to match for authorization. At least one
             /// principal should match. Each peer can be an exact match, or a prefix
-            /// match (example, &quot;namespace/*&quot;) or a suffix match (example,
-            /// &quot;*/service-account&quot;) or a presence match &quot;*&quot;. Authorization based on
+            /// match (example, "namespace/*") or a suffix match (example,
+            /// "*/service-account") or a presence match "*". Authorization based on
             /// the principal name without certificate validation (configured by
             /// ServerTlsPolicy resource) is considered insecure.
-            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>principals: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
             <span class="doccomment">/// Optional. List of CIDR ranges to match based on source IP address. At least one
-            /// IP block should match. Single IP (e.g., &quot;1.2.3.4&quot;) and CIDR (e.g.,
-            /// &quot;1.2.3.0/24&quot;) are supported. Authorization based on source IP alone
+            /// IP block should match. Single IP (e.g., "1.2.3.4") and CIDR (e.g.,
+            /// "1.2.3.0/24") are supported. Authorization based on source IP alone
             /// should be avoided. The IP addresses of any load balancers or proxies
             /// should be considered untrusted.
-            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>ip_blocks: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         }
         <span class="doccomment">/// Specification of traffic destination attributes.
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>Destination {
-            <span class="doccomment">/// Required. List of host names to match. Matched against the &quot;:authority&quot; header in
+            <span class="doccomment">/// Required. List of host names to match. Matched against the ":authority" header in
             /// http requests. At least one host should match. Each host can be an
-            /// exact match, or a prefix match (example &quot;mydomain.*&quot;) or a suffix
-            /// match (example &quot;*.myorg.com&quot;) or a presence (any) match &quot;*&quot;.
-            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+            /// exact match, or a prefix match (example "mydomain.*") or a suffix
+            /// match (example "*.myorg.com") or a presence (any) match "*".
+            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>hosts: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
             <span class="doccomment">/// Required. List of destination ports to match. At least one port should match.
-            </span><span class="attr">#[prost(uint32, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(uint32, repeated, packed = <span class="string">"false"</span>, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>ports: ::prost::alloc::vec::Vec&lt;u32&gt;,
             <span class="doccomment">/// Optional. A list of HTTP methods to match. At least one method should
             /// match. Should not be set for gRPC services.
-            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
             </span><span class="kw">pub </span>methods: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
             <span class="doccomment">/// Optional. Match against key:value pair in http header. Provides a flexible match
             /// based on HTTP headers, for potentially advanced use cases. At least one
             /// header should match. Avoid using header matches to make authorization
             /// decisions unless there is a strong guarantee that requests arrive
             /// through a trusted client or proxy.
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
             </span><span class="kw">pub </span>http_header_match: ::core::option::Option&lt;destination::HttpHeaderMatch&gt;,
         }
         <span class="doccomment">/// Nested message and enum types in `Destination`.
@@ -1321,12 +1322,12 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>HttpHeaderMatch {
                 <span class="doccomment">/// Required. The name of the HTTP header to match. For matching
-                /// against the HTTP request&#39;s authority, use a headerMatch
-                /// with the header name &quot;:authority&quot;. For matching a
-                /// request&#39;s method, use the headerName &quot;:method&quot;.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                /// against the HTTP request's authority, use a headerMatch
+                /// with the header name ":authority". For matching a
+                /// request's method, use the headerName ":method".
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>header_name: ::prost::alloc::string::String,
-                <span class="attr">#[prost(oneof = <span class="string">&quot;http_header_match::Type&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+                <span class="attr">#[prost(oneof = <span class="string">"http_header_match::Type"</span>, tags = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;http_header_match::Type&gt;,
             }
             <span class="doccomment">/// Nested message and enum types in `HttpHeaderMatch`.
@@ -1340,8 +1341,8 @@
                     /// For matching against a port specified in the HTTP
                     /// request, use a headerMatch with headerName set to Host
                     /// and a regular expression that satisfies the RFC2616 Host
-                    /// header&#39;s port specifier.
-                    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                    /// header's port specifier.
+                    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
                     </span>RegexMatch(::prost::alloc::string::String),
                 }
             }
@@ -1367,7 +1368,7 @@
         </span>Allow = <span class="number">1</span>,
         <span class="doccomment">/// Deny access.
         /// Deny rules should be avoided unless they are used to provide a default
-        /// &quot;deny all&quot; fallback.
+        /// "deny all" fallback.
         </span>Deny = <span class="number">2</span>,
     }
     <span class="kw">impl </span>Action {
@@ -1375,19 +1376,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Action::Unspecified =&gt; <span class="string">&quot;ACTION_UNSPECIFIED&quot;</span>,
-                Action::Allow =&gt; <span class="string">&quot;ALLOW&quot;</span>,
-                Action::Deny =&gt; <span class="string">&quot;DENY&quot;</span>,
+                Action::Unspecified =&gt; <span class="string">"ACTION_UNSPECIFIED"</span>,
+                Action::Allow =&gt; <span class="string">"ALLOW"</span>,
+                Action::Deny =&gt; <span class="string">"DENY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ALLOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Allow),
-                <span class="string">&quot;DENY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deny),
+                <span class="string">"ACTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ALLOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Allow),
+                <span class="string">"DENY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deny),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1400,16 +1401,16 @@
     <span class="doccomment">/// Required. The project and location from which the AuthorizationPolicies
     /// should be listed, specified in the format
     /// `projects/{project}/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Maximum number of AuthorizationPolicies to return per call.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value returned by the last
     /// `ListAuthorizationPoliciesResponse` Indicates that this is a
     /// continuation of a prior `ListAuthorizationPolicies` call, and
     /// that the system should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response returned by the ListAuthorizationPolicies method.
@@ -1417,12 +1418,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAuthorizationPoliciesResponse {
     <span class="doccomment">/// List of AuthorizationPolicies resources.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>authorization_policies: ::prost::alloc::vec::Vec&lt;AuthorizationPolicy&gt;,
     <span class="doccomment">/// If there might be more results than those appearing in this response, then
     /// `next_page_token` is included. To get the next set of results, call this
     /// method again using the value of `next_page_token` as `page_token`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request used by the GetAuthorizationPolicy method.
@@ -1431,7 +1432,7 @@
 </span><span class="kw">pub struct </span>GetAuthorizationPolicyRequest {
     <span class="doccomment">/// Required. A name of the AuthorizationPolicy to get. Must be in the format
     /// `projects/{project}/locations/{location}/authorizationPolicies/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request used by the CreateAuthorizationPolicy method.
@@ -1440,16 +1441,16 @@
 </span><span class="kw">pub struct </span>CreateAuthorizationPolicyRequest {
     <span class="doccomment">/// Required. The parent resource of the AuthorizationPolicy. Must be in the
     /// format `projects/{project}/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Short name of the AuthorizationPolicy resource to be created.
     /// This value should be 1-63 characters long, containing only
     /// letters, numbers, hyphens, and underscores, and should not start
-    /// with a number. E.g. &quot;authz_policy&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// with a number. E.g. "authz_policy".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>authorization_policy_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. AuthorizationPolicy resource to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>authorization_policy: ::core::option::Option&lt;AuthorizationPolicy&gt;,
 }
 <span class="doccomment">/// Request used by the UpdateAuthorizationPolicy method.
@@ -1461,10 +1462,10 @@
     /// The fields specified in the update_mask are relative to the resource, not
     /// the full request. A field will be overwritten if it is in the mask. If the
     /// user does not provide a mask then all fields will be overwritten.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. Updated AuthorizationPolicy resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>authorization_policy: ::core::option::Option&lt;AuthorizationPolicy&gt;,
 }
 <span class="doccomment">/// Request used by the DeleteAuthorizationPolicy method.
@@ -1473,7 +1474,7 @@
 </span><span class="kw">pub struct </span>DeleteAuthorizationPolicyRequest {
     <span class="doccomment">/// Required. A name of the AuthorizationPolicy to delete. Must be in the format
     /// `projects/{project}/locations/{location}/authorizationPolicies/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Specification of the GRPC Endpoint.
@@ -1481,8 +1482,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GrpcEndpoint {
     <span class="doccomment">/// Required. The target URI of the gRPC endpoint. Only UDS path is supported, and
-    /// should start with &quot;unix:&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// should start with "unix:".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>target_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Specification of ValidationCA. Defines the mechanism to obtain the
@@ -1491,7 +1492,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ValidationCa {
     <span class="doccomment">/// The type of certificate provider which provides the CA certificate.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;validation_ca::Type&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"validation_ca::Type"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;validation_ca::Type&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ValidationCA`.
@@ -1502,12 +1503,12 @@
     </span><span class="kw">pub enum </span>Type {
         <span class="doccomment">/// gRPC specific configuration to access the gRPC server to
         /// obtain the CA certificate.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>GrpcEndpoint(<span class="kw">super</span>::GrpcEndpoint),
         <span class="doccomment">/// The certificate provider instance specification that will be passed to
         /// the data plane, which will be used to load necessary credential
         /// information.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>CertificateProviderInstance(<span class="kw">super</span>::CertificateProviderInstance),
     }
 }
@@ -1519,9 +1520,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CertificateProviderInstance {
     <span class="doccomment">/// Required. Plugin instance name, used to locate and load CertificateProvider instance
-    /// configuration. Set to &quot;google_cloud_private_spiffe&quot; to use Certificate
+    /// configuration. Set to "google_cloud_private_spiffe" to use Certificate
     /// Authority Service certificate provider instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>plugin_instance: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Specification of certificate provider. Defines the mechanism to obtain the
@@ -1531,7 +1532,7 @@
 </span><span class="kw">pub struct </span>CertificateProvider {
     <span class="doccomment">/// The type of certificate provider which provides the certificates and
     /// private keys.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;certificate_provider::Type&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"certificate_provider::Type"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;certificate_provider::Type&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CertificateProvider`.
@@ -1543,12 +1544,12 @@
     </span><span class="kw">pub enum </span>Type {
         <span class="doccomment">/// gRPC specific configuration to access the gRPC server to
         /// obtain the cert and private key.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>GrpcEndpoint(<span class="kw">super</span>::GrpcEndpoint),
         <span class="doccomment">/// The certificate provider instance specification that will be passed to
         /// the data plane, which will be used to load necessary credential
         /// information.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>CertificateProviderInstance(<span class="kw">super</span>::CertificateProviderInstance),
     }
 }
@@ -1560,35 +1561,35 @@
 </span><span class="kw">pub struct </span>ClientTlsPolicy {
     <span class="doccomment">/// Required. Name of the ClientTlsPolicy resource. It matches the pattern
     /// `projects/*/locations/{location}/clientTlsPolicies/{client_tls_policy}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Free-text description of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The timestamp when the resource was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The timestamp when the resource was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Set of label tags associated with the resource.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Optional. Server Name Indication string to present to the server during TLS
-    /// handshake. E.g: &quot;secure.example.com&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    /// handshake. E.g: "secure.example.com".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>sni: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Defines a mechanism to provision client identity (public and private keys)
     /// for peer to peer authentication. The presence of this dictates mTLS.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>client_certificate: ::core::option::Option&lt;CertificateProvider&gt;,
     <span class="doccomment">/// Optional. Defines the mechanism to obtain the Certificate Authority certificate to
     /// validate the server certificate. If empty, client does not validate the
     /// server certificate.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>server_validation_ca: ::prost::alloc::vec::Vec&lt;ValidationCa&gt;,
 }
 <span class="doccomment">/// Request used by the ListClientTlsPolicies method.
@@ -1597,16 +1598,16 @@
 </span><span class="kw">pub struct </span>ListClientTlsPoliciesRequest {
     <span class="doccomment">/// Required. The project and location from which the ClientTlsPolicies should
     /// be listed, specified in the format `projects/*/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Maximum number of ClientTlsPolicies to return per call.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value returned by the last `ListClientTlsPoliciesResponse`
     /// Indicates that this is a continuation of a prior
     /// `ListClientTlsPolicies` call, and that the system
     /// should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response returned by the ListClientTlsPolicies method.
@@ -1614,12 +1615,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListClientTlsPoliciesResponse {
     <span class="doccomment">/// List of ClientTlsPolicy resources.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>client_tls_policies: ::prost::alloc::vec::Vec&lt;ClientTlsPolicy&gt;,
     <span class="doccomment">/// If there might be more results than those appearing in this response, then
     /// `next_page_token` is included. To get the next set of results, call this
     /// method again using the value of `next_page_token` as `page_token`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request used by the GetClientTlsPolicy method.
@@ -1628,7 +1629,7 @@
 </span><span class="kw">pub struct </span>GetClientTlsPolicyRequest {
     <span class="doccomment">/// Required. A name of the ClientTlsPolicy to get. Must be in the format
     /// `projects/*/locations/{location}/clientTlsPolicies/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request used by the CreateClientTlsPolicy method.
@@ -1637,15 +1638,15 @@
 </span><span class="kw">pub struct </span>CreateClientTlsPolicyRequest {
     <span class="doccomment">/// Required. The parent resource of the ClientTlsPolicy. Must be in
     /// the format `projects/*/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Short name of the ClientTlsPolicy resource to be created. This value should
     /// be 1-63 characters long, containing only letters, numbers, hyphens, and
-    /// underscores, and should not start with a number. E.g. &quot;client_mtls_policy&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// underscores, and should not start with a number. E.g. "client_mtls_policy".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>client_tls_policy_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. ClientTlsPolicy resource to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>client_tls_policy: ::core::option::Option&lt;ClientTlsPolicy&gt;,
 }
 <span class="doccomment">/// Request used by UpdateClientTlsPolicy method.
@@ -1658,10 +1659,10 @@
     /// the full request. A field will be overwritten if it is in the
     /// mask. If the user does not provide a mask then all fields will be
     /// overwritten.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. Updated ClientTlsPolicy resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>client_tls_policy: ::core::option::Option&lt;ClientTlsPolicy&gt;,
 }
 <span class="doccomment">/// Request used by the DeleteClientTlsPolicy method.
@@ -1670,7 +1671,7 @@
 </span><span class="kw">pub struct </span>DeleteClientTlsPolicyRequest {
     <span class="doccomment">/// Required. A name of the ClientTlsPolicy to delete. Must be in
     /// the format `projects/*/locations/{location}/clientTlsPolicies/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// ServerTlsPolicy is a resource that specifies how a server should authenticate
@@ -1681,19 +1682,19 @@
 </span><span class="kw">pub struct </span>ServerTlsPolicy {
     <span class="doccomment">/// Required. Name of the ServerTlsPolicy resource. It matches the pattern
     /// `projects/*/locations/{location}/serverTlsPolicies/{server_tls_policy}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Free-text description of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The timestamp when the resource was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The timestamp when the resource was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Set of label tags associated with the resource.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1708,13 +1709,13 @@
     ///
     /// Consider using it if you wish to upgrade in place your deployment to TLS
     /// while having mixed TLS and non-TLS traffic reaching port :80.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>allow_open: bool,
     <span class="doccomment">///
     /// Defines a mechanism to provision server identity (public and private keys).
     /// Cannot be combined with `allow_open` as a permissive mode that allows both
     /// plain text and TLS is not supported.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>server_certificate: ::core::option::Option&lt;CertificateProvider&gt;,
     <span class="doccomment">///
     /// Defines a mechanism to provision peer validation certificates for peer to
@@ -1722,7 +1723,7 @@
     /// certificate will not be requested. The connection is treated as TLS and not
     /// mTLS. If `allow_open` and `mtls_policy` are set, server allows both plain
     /// text and mTLS connections.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>mtls_policy: ::core::option::Option&lt;server_tls_policy::MtlsPolicy&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ServerTlsPolicy`.
@@ -1734,7 +1735,7 @@
         <span class="doccomment">///
         /// Defines the mechanism to obtain the Certificate Authority certificate to
         /// validate the client certificate.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>client_validation_ca: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::ValidationCa&gt;,
     }
 }
@@ -1744,16 +1745,16 @@
 </span><span class="kw">pub struct </span>ListServerTlsPoliciesRequest {
     <span class="doccomment">/// Required. The project and location from which the ServerTlsPolicies should
     /// be listed, specified in the format `projects/*/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Maximum number of ServerTlsPolicies to return per call.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value returned by the last `ListServerTlsPoliciesResponse`
     /// Indicates that this is a continuation of a prior
     /// `ListServerTlsPolicies` call, and that the system
     /// should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response returned by the ListServerTlsPolicies method.
@@ -1761,12 +1762,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListServerTlsPoliciesResponse {
     <span class="doccomment">/// List of ServerTlsPolicy resources.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>server_tls_policies: ::prost::alloc::vec::Vec&lt;ServerTlsPolicy&gt;,
     <span class="doccomment">/// If there might be more results than those appearing in this response, then
     /// `next_page_token` is included. To get the next set of results, call this
     /// method again using the value of `next_page_token` as `page_token`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request used by the GetServerTlsPolicy method.
@@ -1775,7 +1776,7 @@
 </span><span class="kw">pub struct </span>GetServerTlsPolicyRequest {
     <span class="doccomment">/// Required. A name of the ServerTlsPolicy to get. Must be in the format
     /// `projects/*/locations/{location}/serverTlsPolicies/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request used by the CreateServerTlsPolicy method.
@@ -1784,15 +1785,15 @@
 </span><span class="kw">pub struct </span>CreateServerTlsPolicyRequest {
     <span class="doccomment">/// Required. The parent resource of the ServerTlsPolicy. Must be in
     /// the format `projects/*/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Short name of the ServerTlsPolicy resource to be created. This value should
     /// be 1-63 characters long, containing only letters, numbers, hyphens, and
-    /// underscores, and should not start with a number. E.g. &quot;server_mtls_policy&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// underscores, and should not start with a number. E.g. "server_mtls_policy".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>server_tls_policy_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. ServerTlsPolicy resource to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>server_tls_policy: ::core::option::Option&lt;ServerTlsPolicy&gt;,
 }
 <span class="doccomment">/// Request used by UpdateServerTlsPolicy method.
@@ -1805,10 +1806,10 @@
     /// the full request. A field will be overwritten if it is in the
     /// mask. If the user does not provide a mask then all fields will be
     /// overwritten.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. Updated ServerTlsPolicy resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>server_tls_policy: ::core::option::Option&lt;ServerTlsPolicy&gt;,
 }
 <span class="doccomment">/// Request used by the DeleteServerTlsPolicy method.
@@ -1817,7 +1818,7 @@
 </span><span class="kw">pub struct </span>DeleteServerTlsPolicyRequest {
     <span class="doccomment">/// Required. A name of the ServerTlsPolicy to delete. Must be in
     /// the format `projects/*/locations/{location}/serverTlsPolicies/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1836,7 +1837,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1911,19 +1912,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/ListAuthorizationPolicies&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/ListAuthorizationPolicies"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;ListAuthorizationPolicies&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"ListAuthorizationPolicies"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1942,19 +1943,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/GetAuthorizationPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/GetAuthorizationPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;GetAuthorizationPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"GetAuthorizationPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1973,19 +1974,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/CreateAuthorizationPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/CreateAuthorizationPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;CreateAuthorizationPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"CreateAuthorizationPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2004,19 +2005,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/UpdateAuthorizationPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/UpdateAuthorizationPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;UpdateAuthorizationPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"UpdateAuthorizationPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2035,19 +2036,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/DeleteAuthorizationPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/DeleteAuthorizationPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;DeleteAuthorizationPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"DeleteAuthorizationPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2066,19 +2067,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/ListServerTlsPolicies&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/ListServerTlsPolicies"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;ListServerTlsPolicies&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"ListServerTlsPolicies"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2097,19 +2098,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/GetServerTlsPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/GetServerTlsPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;GetServerTlsPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"GetServerTlsPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2128,19 +2129,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/CreateServerTlsPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/CreateServerTlsPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;CreateServerTlsPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"CreateServerTlsPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2159,19 +2160,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/UpdateServerTlsPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/UpdateServerTlsPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;UpdateServerTlsPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"UpdateServerTlsPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2190,19 +2191,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/DeleteServerTlsPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/DeleteServerTlsPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;DeleteServerTlsPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"DeleteServerTlsPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2221,19 +2222,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/ListClientTlsPolicies&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/ListClientTlsPolicies"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;ListClientTlsPolicies&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"ListClientTlsPolicies"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2252,19 +2253,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/GetClientTlsPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/GetClientTlsPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;GetClientTlsPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"GetClientTlsPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2283,19 +2284,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/CreateClientTlsPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/CreateClientTlsPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;CreateClientTlsPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"CreateClientTlsPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2314,19 +2315,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/UpdateClientTlsPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/UpdateClientTlsPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;UpdateClientTlsPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"UpdateClientTlsPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2345,19 +2346,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networksecurity.v1.NetworkSecurity/DeleteClientTlsPolicy&quot;</span>,
+                <span class="string">"/google.cloud.networksecurity.v1.NetworkSecurity/DeleteClientTlsPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networksecurity.v1.NetworkSecurity&quot;</span>,
-                        <span class="string">&quot;DeleteClientTlsPolicy&quot;</span>,
+                        <span class="string">"google.cloud.networksecurity.v1.NetworkSecurity"</span>,
+                        <span class="string">"DeleteClientTlsPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

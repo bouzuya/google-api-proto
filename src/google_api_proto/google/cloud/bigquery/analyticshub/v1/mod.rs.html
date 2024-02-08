@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/analyticshub/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/analyticshub/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1659,40 +1660,40 @@
 </span><span class="kw">pub struct </span>DataExchange {
     <span class="doccomment">/// Output only. The resource name of the data exchange.
     /// e.g. `projects/myproject/locations/US/dataExchanges/123`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Human-readable display name of the data exchange. The display
     /// name must contain only Unicode letters, numbers (0-9), underscores (_),
     /// dashes (-), spaces ( ), ampersands (&amp;) and must not start or end with
     /// spaces. Default value is an empty string. Max length: 63 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Description of the data exchange. The description must not
     /// contain Unicode non-characters as well as C0 and C1 control codes except
     /// tabs (HT), new lines (LF), carriage returns (CR), and page breaks (FF).
     /// Default value is an empty string.
     /// Max length: 2000 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Email or URL of the primary point of contact of the data
     /// exchange. Max Length: 1000 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>primary_contact: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Documentation describing the data exchange.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>documentation: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Number of listings contained in the data exchange.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>listing_count: i32,
     <span class="doccomment">/// Optional. Base64 encoded image representing the data exchange. Max
     /// Size: 3.0MiB Expected image dimensions are 512x512 pixels, however the API
     /// only performs validation on size of the encoded data. Note: For byte
     /// fields, the content of the fields are base64-encoded (which increases the
     /// size of the data by 33-36%) when using JSON on the wire.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>icon: ::prost::bytes::Bytes,
     <span class="doccomment">/// Optional. Configurable data sharing environment option for a data exchange.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>sharing_environment_config: ::core::option::Option&lt;SharingEnvironmentConfig&gt;,
 }
 <span class="doccomment">/// Sharing environment is a behavior model for sharing data within a
@@ -1700,7 +1701,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SharingEnvironmentConfig {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;sharing_environment_config::Environment&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"sharing_environment_config::Environment"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>environment: ::core::option::Option&lt;sharing_environment_config::Environment&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SharingEnvironmentConfig`.
@@ -1717,10 +1718,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Environment {
         <span class="doccomment">/// Default Analytics Hub data exchange, used for secured data sharing.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>DefaultExchangeConfig(DefaultExchangeConfig),
         <span class="doccomment">/// Data Clean Room (DCR), used for privacy-safe and secured data sharing.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>DcrExchangeConfig(DcrExchangeConfig),
     }
 }
@@ -1729,11 +1730,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DataProvider {
     <span class="doccomment">/// Optional. Name of the data provider.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Email or URL of the data provider.
     /// Max Length: 1000 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>primary_contact: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Contains details of the listing publisher.
@@ -1741,11 +1742,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Publisher {
     <span class="doccomment">/// Optional. Name of the listing publisher.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Email or URL of the listing publisher.
     /// Max Length: 1000 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>primary_contact: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Contains the reference that identifies a destination bigquery dataset.
@@ -1755,10 +1756,10 @@
     <span class="doccomment">/// Required. A unique ID for this dataset, without the project name. The ID
     /// must contain only letters (a-z, A-Z), numbers (0-9), or underscores (_).
     /// The maximum length is 1,024 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dataset_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID of the project containing this dataset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Defines the destination bigquery dataset.
@@ -1766,20 +1767,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DestinationDataset {
     <span class="doccomment">/// Required. A reference that identifies the destination dataset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dataset_reference: ::core::option::Option&lt;DestinationDatasetReference&gt;,
     <span class="doccomment">/// Optional. A descriptive name for the dataset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>friendly_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. A user-friendly description of the dataset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. The labels associated with this dataset. You can use these
     /// to organize and group your datasets.
     /// You can set this property when inserting or updating a dataset.
     /// See &lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels&gt;
     /// for more information.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1787,7 +1788,7 @@
     <span class="doccomment">/// Required. The geographic location where the dataset should reside. See
     /// &lt;https://cloud.google.com/bigquery/docs/locations&gt; for supported
     /// locations.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A listing is what gets published into a data exchange that a subscriber can
@@ -1799,60 +1800,60 @@
 </span><span class="kw">pub struct </span>Listing {
     <span class="doccomment">/// Output only. The resource name of the listing.
     /// e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Human-readable display name of the listing. The display name must
     /// contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
-    /// spaces ( ), ampersands (&amp;) and can&#39;t start or end with spaces. Default
+    /// spaces ( ), ampersands (&amp;) and can't start or end with spaces. Default
     /// value is an empty string. Max length: 63 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Short description of the listing. The description must not
     /// contain Unicode non-characters and C0 and C1 control codes except tabs
     /// (HT), new lines (LF), carriage returns (CR), and page breaks (FF). Default
     /// value is an empty string. Max length: 2000 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Email or URL of the primary point of contact of the listing.
     /// Max Length: 1000 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>primary_contact: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Documentation describing the listing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>documentation: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Current state of the listing.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;listing::State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"listing::State"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Optional. Base64 encoded image representing the listing. Max Size: 3.0MiB
     /// Expected image dimensions are 512x512 pixels, however the API only
     /// performs validation on size of the encoded data.
     /// Note: For byte fields, the contents of the field are base64-encoded (which
     /// increases the size of the data by 33-36%) when using JSON on the wire.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>icon: ::prost::bytes::Bytes,
     <span class="doccomment">/// Optional. Details of the data provider who owns the source data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>data_provider: ::core::option::Option&lt;DataProvider&gt;,
     <span class="doccomment">/// Optional. Categories of the listing. Up to two categories are allowed.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;listing::Category&quot;</span>, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"listing::Category"</span>, repeated, packed = <span class="string">"false"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>categories: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Optional. Details of the publisher who owns the listing and who can share
     /// the source data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>publisher: ::core::option::Option&lt;Publisher&gt;,
     <span class="doccomment">/// Optional. Email or URL of the request access of the listing.
     /// Subscribers can use this reference to request access.
     /// Max Length: 1000 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>request_access: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, restricted export configuration will be propagated and
     /// enforced on the linked dataset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>restricted_export_config: ::core::option::Option&lt;
         listing::RestrictedExportConfig,
     &gt;,
     <span class="doccomment">/// Listing source.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;listing::Source&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"listing::Source"</span>, tags = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;listing::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Listing`.
@@ -1860,16 +1861,16 @@
     <span class="doccomment">/// A reference to a shared dataset. It is an existing BigQuery dataset with a
     /// collection of objects such as tables and views that you want to share
     /// with subscribers.
-    /// When subscriber&#39;s subscribe to a listing, Analytics Hub creates a linked
+    /// When subscriber's subscribe to a listing, Analytics Hub creates a linked
     /// dataset in
-    /// the subscriber&#39;s project. A Linked dataset is an opaque, read-only BigQuery
+    /// the subscriber's project. A Linked dataset is an opaque, read-only BigQuery
     /// dataset that serves as a _symbolic link_ to a shared dataset.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>BigQueryDatasetSource {
         <span class="doccomment">/// Resource name of the dataset source for this listing.
         /// e.g. `projects/myproject/datasets/123`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>dataset: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Restricted export config, used to configure restricted export on linked
@@ -1878,15 +1879,15 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>RestrictedExportConfig {
         <span class="doccomment">/// Optional. If true, enable restricted export.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>enabled: bool,
         <span class="doccomment">/// Output only. If true, restrict direct table access(read
         /// api/tabledata.list) on linked table.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>restrict_direct_table_access: bool,
         <span class="doccomment">/// Optional. If true, restrict export of query result derived from
         /// restricted linked dataset table.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>restrict_query_result: bool,
     }
     <span class="doccomment">/// State of the listing.
@@ -1914,17 +1915,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1969,63 +1970,63 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Category::Unspecified =&gt; <span class="string">&quot;CATEGORY_UNSPECIFIED&quot;</span>,
-                Category::Others =&gt; <span class="string">&quot;CATEGORY_OTHERS&quot;</span>,
-                Category::AdvertisingAndMarketing =&gt; <span class="string">&quot;CATEGORY_ADVERTISING_AND_MARKETING&quot;</span>,
-                Category::Commerce =&gt; <span class="string">&quot;CATEGORY_COMMERCE&quot;</span>,
-                Category::ClimateAndEnvironment =&gt; <span class="string">&quot;CATEGORY_CLIMATE_AND_ENVIRONMENT&quot;</span>,
-                Category::Demographics =&gt; <span class="string">&quot;CATEGORY_DEMOGRAPHICS&quot;</span>,
-                Category::Economics =&gt; <span class="string">&quot;CATEGORY_ECONOMICS&quot;</span>,
-                Category::Education =&gt; <span class="string">&quot;CATEGORY_EDUCATION&quot;</span>,
-                Category::Energy =&gt; <span class="string">&quot;CATEGORY_ENERGY&quot;</span>,
-                Category::Financial =&gt; <span class="string">&quot;CATEGORY_FINANCIAL&quot;</span>,
-                Category::Gaming =&gt; <span class="string">&quot;CATEGORY_GAMING&quot;</span>,
-                Category::Geospatial =&gt; <span class="string">&quot;CATEGORY_GEOSPATIAL&quot;</span>,
+                Category::Unspecified =&gt; <span class="string">"CATEGORY_UNSPECIFIED"</span>,
+                Category::Others =&gt; <span class="string">"CATEGORY_OTHERS"</span>,
+                Category::AdvertisingAndMarketing =&gt; <span class="string">"CATEGORY_ADVERTISING_AND_MARKETING"</span>,
+                Category::Commerce =&gt; <span class="string">"CATEGORY_COMMERCE"</span>,
+                Category::ClimateAndEnvironment =&gt; <span class="string">"CATEGORY_CLIMATE_AND_ENVIRONMENT"</span>,
+                Category::Demographics =&gt; <span class="string">"CATEGORY_DEMOGRAPHICS"</span>,
+                Category::Economics =&gt; <span class="string">"CATEGORY_ECONOMICS"</span>,
+                Category::Education =&gt; <span class="string">"CATEGORY_EDUCATION"</span>,
+                Category::Energy =&gt; <span class="string">"CATEGORY_ENERGY"</span>,
+                Category::Financial =&gt; <span class="string">"CATEGORY_FINANCIAL"</span>,
+                Category::Gaming =&gt; <span class="string">"CATEGORY_GAMING"</span>,
+                Category::Geospatial =&gt; <span class="string">"CATEGORY_GEOSPATIAL"</span>,
                 Category::HealthcareAndLifeScience =&gt; {
-                    <span class="string">&quot;CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE&quot;
+                    <span class="string">"CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE"
                 </span>}
-                Category::Media =&gt; <span class="string">&quot;CATEGORY_MEDIA&quot;</span>,
-                Category::PublicSector =&gt; <span class="string">&quot;CATEGORY_PUBLIC_SECTOR&quot;</span>,
-                Category::Retail =&gt; <span class="string">&quot;CATEGORY_RETAIL&quot;</span>,
-                Category::Sports =&gt; <span class="string">&quot;CATEGORY_SPORTS&quot;</span>,
-                Category::ScienceAndResearch =&gt; <span class="string">&quot;CATEGORY_SCIENCE_AND_RESEARCH&quot;</span>,
+                Category::Media =&gt; <span class="string">"CATEGORY_MEDIA"</span>,
+                Category::PublicSector =&gt; <span class="string">"CATEGORY_PUBLIC_SECTOR"</span>,
+                Category::Retail =&gt; <span class="string">"CATEGORY_RETAIL"</span>,
+                Category::Sports =&gt; <span class="string">"CATEGORY_SPORTS"</span>,
+                Category::ScienceAndResearch =&gt; <span class="string">"CATEGORY_SCIENCE_AND_RESEARCH"</span>,
                 Category::TransportationAndLogistics =&gt; {
-                    <span class="string">&quot;CATEGORY_TRANSPORTATION_AND_LOGISTICS&quot;
+                    <span class="string">"CATEGORY_TRANSPORTATION_AND_LOGISTICS"
                 </span>}
-                Category::TravelAndTourism =&gt; <span class="string">&quot;CATEGORY_TRAVEL_AND_TOURISM&quot;</span>,
+                Category::TravelAndTourism =&gt; <span class="string">"CATEGORY_TRAVEL_AND_TOURISM"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CATEGORY_OTHERS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Others),
-                <span class="string">&quot;CATEGORY_ADVERTISING_AND_MARKETING&quot; </span>=&gt; {
+                <span class="string">"CATEGORY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CATEGORY_OTHERS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Others),
+                <span class="string">"CATEGORY_ADVERTISING_AND_MARKETING" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdvertisingAndMarketing)
                 }
-                <span class="string">&quot;CATEGORY_COMMERCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Commerce),
-                <span class="string">&quot;CATEGORY_CLIMATE_AND_ENVIRONMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClimateAndEnvironment),
-                <span class="string">&quot;CATEGORY_DEMOGRAPHICS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Demographics),
-                <span class="string">&quot;CATEGORY_ECONOMICS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Economics),
-                <span class="string">&quot;CATEGORY_EDUCATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Education),
-                <span class="string">&quot;CATEGORY_ENERGY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Energy),
-                <span class="string">&quot;CATEGORY_FINANCIAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Financial),
-                <span class="string">&quot;CATEGORY_GAMING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gaming),
-                <span class="string">&quot;CATEGORY_GEOSPATIAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Geospatial),
-                <span class="string">&quot;CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE&quot; </span>=&gt; {
+                <span class="string">"CATEGORY_COMMERCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Commerce),
+                <span class="string">"CATEGORY_CLIMATE_AND_ENVIRONMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClimateAndEnvironment),
+                <span class="string">"CATEGORY_DEMOGRAPHICS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Demographics),
+                <span class="string">"CATEGORY_ECONOMICS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Economics),
+                <span class="string">"CATEGORY_EDUCATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Education),
+                <span class="string">"CATEGORY_ENERGY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Energy),
+                <span class="string">"CATEGORY_FINANCIAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Financial),
+                <span class="string">"CATEGORY_GAMING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gaming),
+                <span class="string">"CATEGORY_GEOSPATIAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Geospatial),
+                <span class="string">"CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::HealthcareAndLifeScience)
                 }
-                <span class="string">&quot;CATEGORY_MEDIA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Media),
-                <span class="string">&quot;CATEGORY_PUBLIC_SECTOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PublicSector),
-                <span class="string">&quot;CATEGORY_RETAIL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Retail),
-                <span class="string">&quot;CATEGORY_SPORTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sports),
-                <span class="string">&quot;CATEGORY_SCIENCE_AND_RESEARCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScienceAndResearch),
-                <span class="string">&quot;CATEGORY_TRANSPORTATION_AND_LOGISTICS&quot; </span>=&gt; {
+                <span class="string">"CATEGORY_MEDIA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Media),
+                <span class="string">"CATEGORY_PUBLIC_SECTOR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PublicSector),
+                <span class="string">"CATEGORY_RETAIL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Retail),
+                <span class="string">"CATEGORY_SPORTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sports),
+                <span class="string">"CATEGORY_SCIENCE_AND_RESEARCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScienceAndResearch),
+                <span class="string">"CATEGORY_TRANSPORTATION_AND_LOGISTICS" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::TransportationAndLogistics)
                 }
-                <span class="string">&quot;CATEGORY_TRAVEL_AND_TOURISM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TravelAndTourism),
+                <span class="string">"CATEGORY_TRAVEL_AND_TOURISM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TravelAndTourism),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2035,11 +2036,11 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// Required. Shared dataset i.e. BigQuery dataset source.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>BigqueryDataset(BigQueryDatasetSource),
     }
 }
-<span class="doccomment">/// A subscription represents a subscribers&#39; access to a particular set of
+<span class="doccomment">/// A subscription represents a subscribers' access to a particular set of
 /// published data. It contains references to associated listings,
 /// data exchanges, and linked datasets.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2047,22 +2048,22 @@
 </span><span class="kw">pub struct </span>Subscription {
     <span class="doccomment">/// Output only. The resource name of the subscription.
     /// e.g. `projects/myproject/locations/US/subscriptions/123`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Timestamp when the subscription was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>creation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Timestamp when the subscription was last modified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>last_modify_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Organization of the project this subscription belongs to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>organization_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Display name of the project of this subscription.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>organization_display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Current state of the subscription.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;subscription::State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"subscription::State"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Map of listing resource names to associated linked resource,
     /// e.g. projects/123/locations/US/dataExchanges/456/listings/789
@@ -2071,15 +2072,15 @@
     ///
     /// For listing-level subscriptions, this is a map of size 1.
     /// Only contains values if state == STATE_ACTIVE.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>linked_dataset_map: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         subscription::LinkedResource,
     &gt;,
     <span class="doccomment">/// Output only. Email of the subscriber.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>subscriber_contact: ::prost::alloc::string::String,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;subscription::ResourceName&quot;</span>, tags = <span class="string">&quot;5, 6&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"subscription::ResourceName"</span>, tags = <span class="string">"5, 6"</span>)]
     </span><span class="kw">pub </span>resource_name: ::core::option::Option&lt;subscription::ResourceName&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Subscription`.
@@ -2088,7 +2089,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>LinkedResource {
-        <span class="attr">#[prost(oneof = <span class="string">&quot;linked_resource::Reference&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+        <span class="attr">#[prost(oneof = <span class="string">"linked_resource::Reference"</span>, tags = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>reference: ::core::option::Option&lt;linked_resource::Reference&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `LinkedResource`.
@@ -2098,7 +2099,7 @@
         </span><span class="kw">pub enum </span>Reference {
             <span class="doccomment">/// Output only. Name of the linked dataset, e.g.
             /// projects/subscriberproject/datasets/linked_dataset
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span>LinkedDataset(::prost::alloc::string::String),
         }
     }
@@ -2132,21 +2133,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;STATE_ACTIVE&quot;</span>,
-                State::Stale =&gt; <span class="string">&quot;STATE_STALE&quot;</span>,
-                State::Inactive =&gt; <span class="string">&quot;STATE_INACTIVE&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Active =&gt; <span class="string">"STATE_ACTIVE"</span>,
+                State::Stale =&gt; <span class="string">"STATE_STALE"</span>,
+                State::Inactive =&gt; <span class="string">"STATE_INACTIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STATE_ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;STATE_STALE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stale),
-                <span class="string">&quot;STATE_INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STATE_ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"STATE_STALE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stale),
+                <span class="string">"STATE_INACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2156,11 +2157,11 @@
     </span><span class="kw">pub enum </span>ResourceName {
         <span class="doccomment">/// Output only. Resource name of the source Listing.
         /// e.g. projects/123/locations/US/dataExchanges/456/listings/789
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span>Listing(::prost::alloc::string::String),
         <span class="doccomment">/// Output only. Resource name of the source Data Exchange.
         /// e.g. projects/123/locations/US/dataExchanges/456
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span>DataExchange(::prost::alloc::string::String),
     }
 }
@@ -2170,15 +2171,15 @@
 </span><span class="kw">pub struct </span>ListDataExchangesRequest {
     <span class="doccomment">/// Required. The parent resource path of the data exchanges.
     /// e.g. `projects/myproject/locations/US`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return in a single response page. Leverage
     /// the page tokens to iterate through the entire collection.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token, returned by a previous call, to request the next page of
     /// results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for response to the list of data exchanges.
@@ -2186,10 +2187,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDataExchangesResponse {
     <span class="doccomment">/// The list of data exchanges.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>data_exchanges: ::prost::alloc::vec::Vec&lt;DataExchange&gt;,
     <span class="doccomment">/// A token to request the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for requesting the list of data exchanges from projects in an
@@ -2199,15 +2200,15 @@
 </span><span class="kw">pub struct </span>ListOrgDataExchangesRequest {
     <span class="doccomment">/// Required. The organization resource path of the projects containing
     /// DataExchanges. e.g. `organizations/myorg/locations/US`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>organization: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return in a single response page. Leverage
     /// the page tokens to iterate through the entire collection.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token, returned by a previous call, to request the next page of
     /// results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for response to listing data exchanges in an organization and
@@ -2216,10 +2217,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListOrgDataExchangesResponse {
     <span class="doccomment">/// The list of data exchanges.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>data_exchanges: ::prost::alloc::vec::Vec&lt;DataExchange&gt;,
     <span class="doccomment">/// A token to request the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for getting a data exchange.
@@ -2228,7 +2229,7 @@
 </span><span class="kw">pub struct </span>GetDataExchangeRequest {
     <span class="doccomment">/// Required. The resource name of the data exchange.
     /// e.g. `projects/myproject/locations/US/dataExchanges/123`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for creating a data exchange.
@@ -2237,17 +2238,17 @@
 </span><span class="kw">pub struct </span>CreateDataExchangeRequest {
     <span class="doccomment">/// Required. The parent resource path of the data exchange.
     /// e.g. `projects/myproject/locations/US`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID of the data exchange.
     /// Must contain only Unicode letters, numbers (0-9), underscores (_).
     /// Should not use characters that require URL-escaping, or characters
     /// outside of ASCII, spaces.
     /// Max length: 100 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data_exchange_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The data exchange to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>data_exchange: ::core::option::Option&lt;DataExchange&gt;,
 }
 <span class="doccomment">/// Message for updating a data exchange.
@@ -2257,10 +2258,10 @@
     <span class="doccomment">/// Required. Field mask specifies the fields to update in the data exchange
     /// resource. The fields specified in the
     /// `updateMask` are relative to the resource and are not a full request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The data exchange to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data_exchange: ::core::option::Option&lt;DataExchange&gt;,
 }
 <span class="doccomment">/// Message for deleting a data exchange.
@@ -2269,7 +2270,7 @@
 </span><span class="kw">pub struct </span>DeleteDataExchangeRequest {
     <span class="doccomment">/// Required. The full name of the data exchange resource that you want to
     /// delete. For example, `projects/myproject/locations/US/dataExchanges/123`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for requesting the list of listings.
@@ -2278,15 +2279,15 @@
 </span><span class="kw">pub struct </span>ListListingsRequest {
     <span class="doccomment">/// Required. The parent resource path of the listing.
     /// e.g. `projects/myproject/locations/US/dataExchanges/123`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return in a single response page. Leverage
     /// the page tokens to iterate through the entire collection.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token, returned by a previous call, to request the next page of
     /// results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for response to the list of Listings.
@@ -2294,10 +2295,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListListingsResponse {
     <span class="doccomment">/// The list of Listing.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>listings: ::prost::alloc::vec::Vec&lt;Listing&gt;,
     <span class="doccomment">/// A token to request the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for getting a listing.
@@ -2306,7 +2307,7 @@
 </span><span class="kw">pub struct </span>GetListingRequest {
     <span class="doccomment">/// Required. The resource name of the listing.
     /// e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for creating a listing.
@@ -2315,17 +2316,17 @@
 </span><span class="kw">pub struct </span>CreateListingRequest {
     <span class="doccomment">/// Required. The parent resource path of the listing.
     /// e.g. `projects/myproject/locations/US/dataExchanges/123`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID of the listing to create.
     /// Must contain only Unicode letters, numbers (0-9), underscores (_).
     /// Should not use characters that require URL-escaping, or characters
     /// outside of ASCII, spaces.
     /// Max length: 100 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>listing_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The listing to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>listing: ::core::option::Option&lt;Listing&gt;,
 }
 <span class="doccomment">/// Message for updating a Listing.
@@ -2335,10 +2336,10 @@
     <span class="doccomment">/// Required. Field mask specifies the fields to update in the listing
     /// resource. The fields specified in the `updateMask` are relative to the
     /// resource and are not a full request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The listing to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>listing: ::core::option::Option&lt;Listing&gt;,
 }
 <span class="doccomment">/// Message for deleting a listing.
@@ -2347,7 +2348,7 @@
 </span><span class="kw">pub struct </span>DeleteListingRequest {
     <span class="doccomment">/// Required. Resource name of the listing to delete.
     /// e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for subscribing to a listing.
@@ -2356,10 +2357,10 @@
 </span><span class="kw">pub struct </span>SubscribeListingRequest {
     <span class="doccomment">/// Required. Resource name of the listing that you want to subscribe to.
     /// e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Resulting destination of the listing that you subscribed to.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;subscribe_listing_request::Destination&quot;</span>, tags = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"subscribe_listing_request::Destination"</span>, tags = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;subscribe_listing_request::Destination&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SubscribeListingRequest`.
@@ -2369,7 +2370,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Destination {
         <span class="doccomment">/// BigQuery destination dataset to create for the subscriber.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>DestinationDataset(<span class="kw">super</span>::DestinationDataset),
     }
 }
@@ -2378,7 +2379,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SubscribeListingResponse {
     <span class="doccomment">/// Subscription object created from this subscribe action.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subscription: ::core::option::Option&lt;Subscription&gt;,
 }
 <span class="doccomment">/// Message for subscribing to a Data Exchange.
@@ -2387,18 +2388,18 @@
 </span><span class="kw">pub struct </span>SubscribeDataExchangeRequest {
     <span class="doccomment">/// Required. Resource name of the Data Exchange.
     /// e.g. `projects/publisherproject/locations/US/dataExchanges/123`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The parent resource path of the Subscription.
     /// e.g. `projects/subscriberproject/locations/US`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>destination: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name of the subscription to create.
     /// e.g. `subscription1`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>subscription: ::prost::alloc::string::String,
     <span class="doccomment">/// Email of the subscriber.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>subscriber_contact: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for response when you subscribe to a Data Exchange.
@@ -2406,7 +2407,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SubscribeDataExchangeResponse {
     <span class="doccomment">/// Subscription object created from this subscribe action.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subscription: ::core::option::Option&lt;Subscription&gt;,
 }
 <span class="doccomment">/// Message for refreshing a subscription.
@@ -2415,7 +2416,7 @@
 </span><span class="kw">pub struct </span>RefreshSubscriptionRequest {
     <span class="doccomment">/// Required. Resource name of the Subscription to refresh.
     /// e.g. `projects/subscriberproject/locations/US/subscriptions/123`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for response when you refresh a subscription.
@@ -2423,7 +2424,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RefreshSubscriptionResponse {
     <span class="doccomment">/// The refreshed subscription resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subscription: ::core::option::Option&lt;Subscription&gt;,
 }
 <span class="doccomment">/// Message for getting a subscription.
@@ -2432,7 +2433,7 @@
 </span><span class="kw">pub struct </span>GetSubscriptionRequest {
     <span class="doccomment">/// Required. Resource name of the subscription.
     /// e.g. projects/123/locations/US/subscriptions/456
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for listing subscriptions.
@@ -2441,16 +2442,16 @@
 </span><span class="kw">pub struct </span>ListSubscriptionsRequest {
     <span class="doccomment">/// Required. The parent resource path of the subscription.
     /// e.g. projects/myproject/locations/US
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The filter expression may be used to filter by Data Exchange or Listing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return in a single response page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token, returned by a previous call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for response to the listing of subscriptions.
@@ -2458,10 +2459,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSubscriptionsResponse {
     <span class="doccomment">/// The list of subscriptions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subscriptions: ::prost::alloc::vec::Vec&lt;Subscription&gt;,
     <span class="doccomment">/// Next page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for listing subscriptions of a shared resource.
@@ -2472,17 +2473,17 @@
     /// either a Listing or a DataExchange. e.g.
     /// projects/123/locations/US/dataExchanges/456 OR e.g.
     /// projects/123/locations/US/dataExchanges/456/listings/789
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
     <span class="doccomment">/// If selected, includes deleted subscriptions in the response
     /// (up to 63 days after deletion).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>include_deleted_subscriptions: bool,
     <span class="doccomment">/// The maximum number of results to return in a single response page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token, returned by a previous call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for response to the listing of shared resource subscriptions.
@@ -2490,10 +2491,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSharedResourceSubscriptionsResponse {
     <span class="doccomment">/// The list of subscriptions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>shared_resource_subscriptions: ::prost::alloc::vec::Vec&lt;Subscription&gt;,
     <span class="doccomment">/// Next page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for revoking a subscription.
@@ -2502,7 +2503,7 @@
 </span><span class="kw">pub struct </span>RevokeSubscriptionRequest {
     <span class="doccomment">/// Required. Resource name of the subscription to revoke.
     /// e.g. projects/123/locations/US/subscriptions/456
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for response when you revoke a subscription.
@@ -2515,7 +2516,7 @@
 </span><span class="kw">pub struct </span>DeleteSubscriptionRequest {
     <span class="doccomment">/// Required. Resource name of the subscription to delete.
     /// e.g. projects/123/locations/US/subscriptions/456
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the metadata of a long-running operation in Analytics Hub.
@@ -2523,29 +2524,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
     /// have [Operation.error][] value with a
     /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2567,7 +2568,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2642,19 +2643,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/ListDataExchanges&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/ListDataExchanges"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;ListDataExchanges&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"ListDataExchanges"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2674,19 +2675,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/ListOrgDataExchanges&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/ListOrgDataExchanges"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;ListOrgDataExchanges&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"ListOrgDataExchanges"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2702,19 +2703,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/GetDataExchange&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/GetDataExchange"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;GetDataExchange&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"GetDataExchange"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2730,19 +2731,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/CreateDataExchange&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/CreateDataExchange"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;CreateDataExchange&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"CreateDataExchange"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2758,19 +2759,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/UpdateDataExchange&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/UpdateDataExchange"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;UpdateDataExchange&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"UpdateDataExchange"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2786,19 +2787,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/DeleteDataExchange&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/DeleteDataExchange"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;DeleteDataExchange&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"DeleteDataExchange"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2817,19 +2818,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/ListListings&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/ListListings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;ListListings&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"ListListings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2845,19 +2846,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/GetListing&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/GetListing"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;GetListing&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"GetListing"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2873,19 +2874,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/CreateListing&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/CreateListing"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;CreateListing&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"CreateListing"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2901,19 +2902,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/UpdateListing&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/UpdateListing"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;UpdateListing&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"UpdateListing"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2929,19 +2930,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/DeleteListing&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/DeleteListing"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;DeleteListing&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"DeleteListing"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2951,7 +2952,7 @@
         /// Currently, with Analytics Hub, you can create listings that
         /// reference only BigQuery datasets.
         /// Upon subscription to a listing for a BigQuery dataset, Analytics Hub
-        /// creates a linked dataset in the subscriber&#39;s project.
+        /// creates a linked dataset in the subscriber's project.
         </span><span class="kw">pub async fn </span>subscribe_listing(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::SubscribeListingRequest&gt;,
@@ -2965,19 +2966,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/SubscribeListing&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/SubscribeListing"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;SubscribeListing&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"SubscribeListing"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2997,19 +2998,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/SubscribeDataExchange&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/SubscribeDataExchange"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;SubscribeDataExchange&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"SubscribeDataExchange"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3030,19 +3031,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/RefreshSubscription&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/RefreshSubscription"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;RefreshSubscription&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"RefreshSubscription"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3058,19 +3059,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/GetSubscription&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/GetSubscription"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;GetSubscription&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"GetSubscription"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3089,19 +3090,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/ListSubscriptions&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/ListSubscriptions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;ListSubscriptions&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"ListSubscriptions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3122,19 +3123,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/ListSharedResourceSubscriptions&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/ListSharedResourceSubscriptions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;ListSharedResourceSubscriptions&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"ListSharedResourceSubscriptions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3153,19 +3154,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/RevokeSubscription&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/RevokeSubscription"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;RevokeSubscription&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"RevokeSubscription"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3184,19 +3185,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/DeleteSubscription&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/DeleteSubscription"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;DeleteSubscription&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"DeleteSubscription"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3217,19 +3218,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/GetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/GetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;GetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"GetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3250,19 +3251,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/SetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/SetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;SetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"SetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3285,19 +3286,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/TestIamPermissions&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.analyticshub.v1.AnalyticsHubService/TestIamPermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.analyticshub.v1.AnalyticsHubService&quot;</span>,
-                        <span class="string">&quot;TestIamPermissions&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.analyticshub.v1.AnalyticsHubService"</span>,
+                        <span class="string">"TestIamPermissions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

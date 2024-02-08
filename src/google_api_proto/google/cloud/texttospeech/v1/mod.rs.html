@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/texttospeech/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/texttospeech/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -634,11 +635,11 @@
     /// [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;) language tag.
     /// If not specified, the API will return all supported voices.
     /// If specified, the ListVoices call will only return voices that can be used
-    /// to synthesize this language_code. For example, if you specify `&quot;en-NZ&quot;`,
-    /// all `&quot;en-NZ&quot;` voices will be returned. If you specify `&quot;no&quot;`, both
-    /// `&quot;no-\*&quot;` (Norwegian) and `&quot;nb-\*&quot;` (Norwegian Bokmal) voices will be
+    /// to synthesize this language_code. For example, if you specify `"en-NZ"`,
+    /// all `"en-NZ"` voices will be returned. If you specify `"no"`, both
+    /// `"no-\*"` (Norwegian) and `"nb-\*"` (Norwegian Bokmal) voices will be
     /// returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The message returned to the client by the `ListVoices` method.
@@ -646,7 +647,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListVoicesResponse {
     <span class="doccomment">/// The list of voices.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>voices: ::prost::alloc::vec::Vec&lt;Voice&gt;,
 }
 <span class="doccomment">/// Description of a voice supported by the TTS service.
@@ -655,17 +656,17 @@
 </span><span class="kw">pub struct </span>Voice {
     <span class="doccomment">/// The languages that this voice supports, expressed as
     /// [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;) language tags (e.g.
-    /// &quot;en-US&quot;, &quot;es-419&quot;, &quot;cmn-tw&quot;).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "en-US", "es-419", "cmn-tw").
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>language_codes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The name of this voice.  Each distinct voice has a unique name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The gender of this voice.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SsmlVoiceGender&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"SsmlVoiceGender"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>ssml_gender: i32,
     <span class="doccomment">/// The natural sample rate (in hertz) for this voice.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>natural_sample_rate_hertz: i32,
 }
 <span class="doccomment">/// The top-level message sent by the client for the `SynthesizeSpeech` method.
@@ -673,13 +674,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SynthesizeSpeechRequest {
     <span class="doccomment">/// Required. The Synthesizer requires either plain text or SSML as input.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>input: ::core::option::Option&lt;SynthesisInput&gt;,
     <span class="doccomment">/// Required. The desired voice of the synthesized audio.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>voice: ::core::option::Option&lt;VoiceSelectionParams&gt;,
     <span class="doccomment">/// Required. The configuration of the synthesized audio.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>audio_config: ::core::option::Option&lt;AudioConfig&gt;,
 }
 <span class="doccomment">/// Contains text input to be synthesized. Either `text` or `ssml` must be
@@ -690,7 +691,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SynthesisInput {
     <span class="doccomment">/// The input source, which is either plain text or SSML.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;synthesis_input::InputSource&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"synthesis_input::InputSource"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>input_source: ::core::option::Option&lt;synthesis_input::InputSource&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SynthesisInput`.
@@ -700,14 +701,14 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>InputSource {
         <span class="doccomment">/// The raw text to be synthesized.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>Text(::prost::alloc::string::String),
         <span class="doccomment">/// The SSML document to be synthesized. The SSML document must be valid
         /// and well-formed. Otherwise the RPC will fail and return
         /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]. For
         /// more information, see
         /// [SSML](&lt;https://cloud.google.com/text-to-speech/docs/ssml&gt;).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>Ssml(::prost::alloc::string::String),
     }
 }
@@ -717,32 +718,32 @@
 </span><span class="kw">pub struct </span>VoiceSelectionParams {
     <span class="doccomment">/// Required. The language (and potentially also the region) of the voice
     /// expressed as a [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;)
-    /// language tag, e.g. &quot;en-US&quot;. This should not include a script tag (e.g. use
-    /// &quot;cmn-cn&quot; rather than &quot;cmn-Hant-cn&quot;), because the script will be inferred
+    /// language tag, e.g. "en-US". This should not include a script tag (e.g. use
+    /// "cmn-cn" rather than "cmn-Hant-cn"), because the script will be inferred
     /// from the input provided in the SynthesisInput.  The TTS service
     /// will use this parameter to help choose an appropriate voice.  Note that
     /// the TTS service may choose a voice with a slightly different language code
     /// than the one selected; it may substitute a different region
-    /// (e.g. using en-US rather than en-CA if there isn&#39;t a Canadian voice
-    /// available), or even a different language, e.g. using &quot;nb&quot; (Norwegian
-    /// Bokmal) instead of &quot;no&quot; (Norwegian)&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// (e.g. using en-US rather than en-CA if there isn't a Canadian voice
+    /// available), or even a different language, e.g. using "nb" (Norwegian
+    /// Bokmal) instead of "no" (Norwegian)".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the voice. If not set, the service will choose a
     /// voice based on the other parameters such as language_code and gender.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The preferred gender of the voice. If not set, the service will
     /// choose a voice based on the other parameters such as language_code and
     /// name. Note that this is only a preference, not requirement; if a
     /// voice of the appropriate gender is not available, the synthesizer should
     /// substitute a voice with a different gender rather than failing the request.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SsmlVoiceGender&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"SsmlVoiceGender"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>ssml_gender: i32,
     <span class="doccomment">/// The configuration for a custom voice. If \[CustomVoiceParams.model\] is set,
     /// the service will choose the custom voice matching the specified
     /// configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>custom_voice: ::core::option::Option&lt;CustomVoiceParams&gt;,
 }
 <span class="doccomment">/// Description of audio data to be synthesized.
@@ -750,18 +751,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AudioConfig {
     <span class="doccomment">/// Required. The format of the audio byte stream.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AudioEncoding&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"AudioEncoding"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>audio_encoding: i32,
     <span class="doccomment">/// Optional. Input only. Speaking rate/speed, in the range \[0.25, 4.0\]. 1.0 is
     /// the normal native speed supported by the specific voice. 2.0 is twice as
     /// fast, and 0.5 is half as fast. If unset(0.0), defaults to the native 1.0
     /// speed. Any other values &lt; 0.25 or &gt; 4.0 will return an error.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>speaking_rate: f64,
     <span class="doccomment">/// Optional. Input only. Speaking pitch, in the range \[-20.0, 20.0\]. 20 means
     /// increase 20 semitones from the original pitch. -20 means decrease 20
     /// semitones from the original pitch.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>pitch: f64,
     <span class="doccomment">/// Optional. Input only. Volume gain (in dB) of the normal native volume
     /// supported by the specific voice, in the range \[-96.0, 16.0\]. If unset, or
@@ -769,26 +770,26 @@
     /// value of -6.0 (dB) will play at approximately half the amplitude of the
     /// normal native signal amplitude. A value of +6.0 (dB) will play at
     /// approximately twice the amplitude of the normal native signal amplitude.
-    /// Strongly recommend not to exceed +10 (dB) as there&#39;s usually no effective
+    /// Strongly recommend not to exceed +10 (dB) as there's usually no effective
     /// increase in loudness for any value greater than that.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>volume_gain_db: f64,
     <span class="doccomment">/// Optional. The synthesis sample rate (in hertz) for this audio. When this is
-    /// specified in SynthesizeSpeechRequest, if this is different from the voice&#39;s
+    /// specified in SynthesizeSpeechRequest, if this is different from the voice's
     /// natural sample rate, then the synthesizer will honor this request by
     /// converting to the desired sample rate (which might result in worse audio
     /// quality), unless the specified sample rate is not supported for the
     /// encoding chosen, in which case it will fail the request and return
     /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT].
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>sample_rate_hertz: i32,
-    <span class="doccomment">/// Optional. Input only. An identifier which selects &#39;audio effects&#39; profiles
+    <span class="doccomment">/// Optional. Input only. An identifier which selects 'audio effects' profiles
     /// that are applied on (post synthesized) text to speech. Effects are applied
     /// on top of each other in the order they are given. See
     /// [audio
     /// profiles](&lt;https://cloud.google.com/text-to-speech/docs/audio-profiles&gt;) for
     /// current supported profile ids.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>effects_profile_id: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Description of the custom voice to be synthesized.
@@ -796,11 +797,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CustomVoiceParams {
     <span class="doccomment">/// Required. The name of the AutoML model that synthesizes the custom voice.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Deprecated. The usage of the synthesized audio to be reported.
     </span><span class="attr">#[deprecated]
-    #[prost(enumeration = <span class="string">&quot;custom_voice_params::ReportedUsage&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    #[prost(enumeration = <span class="string">"custom_voice_params::ReportedUsage"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>reported_usage: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `CustomVoiceParams`.
@@ -835,19 +836,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ReportedUsage::Unspecified =&gt; <span class="string">&quot;REPORTED_USAGE_UNSPECIFIED&quot;</span>,
-                ReportedUsage::Realtime =&gt; <span class="string">&quot;REALTIME&quot;</span>,
-                ReportedUsage::Offline =&gt; <span class="string">&quot;OFFLINE&quot;</span>,
+                ReportedUsage::Unspecified =&gt; <span class="string">"REPORTED_USAGE_UNSPECIFIED"</span>,
+                ReportedUsage::Realtime =&gt; <span class="string">"REALTIME"</span>,
+                ReportedUsage::Offline =&gt; <span class="string">"OFFLINE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;REPORTED_USAGE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;REALTIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Realtime),
-                <span class="string">&quot;OFFLINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Offline),
+                <span class="string">"REPORTED_USAGE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"REALTIME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Realtime),
+                <span class="string">"OFFLINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Offline),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -862,7 +863,7 @@
     /// For LINEAR16 audio, we include the WAV header. Note: as
     /// with all bytes fields, protobuffers use a pure binary representation,
     /// whereas JSON representations use base64.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>audio_content: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Gender of the voice as described in
@@ -871,10 +872,10 @@
 #[repr(i32)]
 </span><span class="kw">pub enum </span>SsmlVoiceGender {
     <span class="doccomment">/// An unspecified gender.
-    /// In VoiceSelectionParams, this means that the client doesn&#39;t care which
+    /// In VoiceSelectionParams, this means that the client doesn't care which
     /// gender the selected voice will have. In the Voice field of
-    /// ListVoicesResponse, this may mean that the voice doesn&#39;t fit any of the
-    /// other categories in this enum, or that the gender of the voice isn&#39;t known.
+    /// ListVoicesResponse, this may mean that the voice doesn't fit any of the
+    /// other categories in this enum, or that the gender of the voice isn't known.
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// A male voice.
     </span>Male = <span class="number">1</span>,
@@ -888,27 +889,27 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            SsmlVoiceGender::Unspecified =&gt; <span class="string">&quot;SSML_VOICE_GENDER_UNSPECIFIED&quot;</span>,
-            SsmlVoiceGender::Male =&gt; <span class="string">&quot;MALE&quot;</span>,
-            SsmlVoiceGender::Female =&gt; <span class="string">&quot;FEMALE&quot;</span>,
-            SsmlVoiceGender::Neutral =&gt; <span class="string">&quot;NEUTRAL&quot;</span>,
+            SsmlVoiceGender::Unspecified =&gt; <span class="string">"SSML_VOICE_GENDER_UNSPECIFIED"</span>,
+            SsmlVoiceGender::Male =&gt; <span class="string">"MALE"</span>,
+            SsmlVoiceGender::Female =&gt; <span class="string">"FEMALE"</span>,
+            SsmlVoiceGender::Neutral =&gt; <span class="string">"NEUTRAL"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;SSML_VOICE_GENDER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;MALE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Male),
-            <span class="string">&quot;FEMALE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Female),
-            <span class="string">&quot;NEUTRAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neutral),
+            <span class="string">"SSML_VOICE_GENDER_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"MALE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Male),
+            <span class="string">"FEMALE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Female),
+            <span class="string">"NEUTRAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neutral),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }
 <span class="doccomment">/// Configuration to set up audio encoder. The encoding determines the output
-/// audio format that we&#39;d like.
+/// audio format that we'd like.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>AudioEncoding {
@@ -937,25 +938,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            AudioEncoding::Unspecified =&gt; <span class="string">&quot;AUDIO_ENCODING_UNSPECIFIED&quot;</span>,
-            AudioEncoding::Linear16 =&gt; <span class="string">&quot;LINEAR16&quot;</span>,
-            AudioEncoding::Mp3 =&gt; <span class="string">&quot;MP3&quot;</span>,
-            AudioEncoding::OggOpus =&gt; <span class="string">&quot;OGG_OPUS&quot;</span>,
-            AudioEncoding::Mulaw =&gt; <span class="string">&quot;MULAW&quot;</span>,
-            AudioEncoding::Alaw =&gt; <span class="string">&quot;ALAW&quot;</span>,
+            AudioEncoding::Unspecified =&gt; <span class="string">"AUDIO_ENCODING_UNSPECIFIED"</span>,
+            AudioEncoding::Linear16 =&gt; <span class="string">"LINEAR16"</span>,
+            AudioEncoding::Mp3 =&gt; <span class="string">"MP3"</span>,
+            AudioEncoding::OggOpus =&gt; <span class="string">"OGG_OPUS"</span>,
+            AudioEncoding::Mulaw =&gt; <span class="string">"MULAW"</span>,
+            AudioEncoding::Alaw =&gt; <span class="string">"ALAW"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;AUDIO_ENCODING_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;LINEAR16&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linear16),
-            <span class="string">&quot;MP3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mp3),
-            <span class="string">&quot;OGG_OPUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OggOpus),
-            <span class="string">&quot;MULAW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mulaw),
-            <span class="string">&quot;ALAW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Alaw),
+            <span class="string">"AUDIO_ENCODING_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"LINEAR16" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linear16),
+            <span class="string">"MP3" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mp3),
+            <span class="string">"OGG_OPUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OggOpus),
+            <span class="string">"MULAW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mulaw),
+            <span class="string">"ALAW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Alaw),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -974,7 +975,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1049,19 +1050,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.texttospeech.v1.TextToSpeech/ListVoices&quot;</span>,
+                <span class="string">"/google.cloud.texttospeech.v1.TextToSpeech/ListVoices"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.texttospeech.v1.TextToSpeech&quot;</span>,
-                        <span class="string">&quot;ListVoices&quot;</span>,
+                        <span class="string">"google.cloud.texttospeech.v1.TextToSpeech"</span>,
+                        <span class="string">"ListVoices"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1081,19 +1082,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.texttospeech.v1.TextToSpeech/SynthesizeSpeech&quot;</span>,
+                <span class="string">"/google.cloud.texttospeech.v1.TextToSpeech/SynthesizeSpeech"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.texttospeech.v1.TextToSpeech&quot;</span>,
-                        <span class="string">&quot;SynthesizeSpeech&quot;</span>,
+                        <span class="string">"google.cloud.texttospeech.v1.TextToSpeech"</span>,
+                        <span class="string">"SynthesizeSpeech"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1107,22 +1108,22 @@
 </span><span class="kw">pub struct </span>SynthesizeLongAudioRequest {
     <span class="doccomment">/// The resource states of the request in the form of
     /// `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Synthesizer requires either plain text or SSML as input.
     /// While Long Audio is in preview, SSML is temporarily unsupported.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>input: ::core::option::Option&lt;SynthesisInput&gt;,
     <span class="doccomment">/// Required. The configuration of the synthesized audio.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>audio_config: ::core::option::Option&lt;AudioConfig&gt;,
     <span class="doccomment">/// Required. Specifies a Cloud Storage URI for the synthesis results. Must be
     /// specified in the format: `gs://bucket_name/object_name`, and the bucket
     /// must already exist.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>output_gcs_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The desired voice of the synthesized audio.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>voice: ::core::option::Option&lt;VoiceSelectionParams&gt;,
 }
 <span class="doccomment">/// The message returned to the client by the `SynthesizeLongAudio` method.
@@ -1134,14 +1135,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SynthesizeLongAudioMetadata {
     <span class="doccomment">/// Time when the request was received.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Deprecated. Do not use.
     </span><span class="attr">#[deprecated]
-    #[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    #[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>last_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The progress of the most recent processing update in percentage, ie. 70.0%.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>progress_percentage: f64,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1158,7 +1159,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1235,19 +1236,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.texttospeech.v1.TextToSpeechLongAudioSynthesize/SynthesizeLongAudio&quot;</span>,
+                <span class="string">"/google.cloud.texttospeech.v1.TextToSpeechLongAudioSynthesize/SynthesizeLongAudio"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.texttospeech.v1.TextToSpeechLongAudioSynthesize&quot;</span>,
-                        <span class="string">&quot;SynthesizeLongAudio&quot;</span>,
+                        <span class="string">"google.cloud.texttospeech.v1.TextToSpeechLongAudioSynthesize"</span>,
+                        <span class="string">"SynthesizeLongAudio"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

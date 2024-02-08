@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/filestore/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/filestore/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1705,11 +1706,11 @@
     <span class="doccomment">/// The name of the Google Compute Engine
     /// [VPC network](&lt;https://cloud.google.com/vpc/docs/vpc&gt;) to which the
     /// instance is connected.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
     <span class="doccomment">/// Internet protocol versions for which the instance has IP addresses
     /// assigned. For this version, only MODE_IPV4 is supported.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;network_config::AddressMode&quot;</span>, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"network_config::AddressMode"</span>, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>modes: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Optional, reserved_ip_range can have one of the following two types of
     /// values.
@@ -1727,19 +1728,19 @@
     /// ranges](&lt;https://www.arin.net/reference/research/statistics/address_filters/&gt;)
     /// that identifies the range of IP addresses reserved for this instance. For
     /// example, 10.0.0.0/29, 192.168.0.0/24 or 192.168.0.0/26, respectively. The
-    /// range you specify can&#39;t overlap with either existing subnets or assigned IP
+    /// range you specify can't overlap with either existing subnets or assigned IP
     /// address ranges for other Filestore instances in the selected VPC
     /// network.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>reserved_ip_range: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. IPv4 addresses in the format
     /// `{octet1}.{octet2}.{octet3}.{octet4}` or IPv6 addresses in the format
     /// `{block1}:{block2}:{block3}:{block4}:{block5}:{block6}:{block7}:{block8}`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>ip_addresses: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The network connect mode of the Filestore instance.
     /// If not provided, the connect mode defaults to DIRECT_PEERING.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;network_config::ConnectMode&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"network_config::ConnectMode"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>connect_mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `NetworkConfig`.
@@ -1768,17 +1769,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AddressMode::Unspecified =&gt; <span class="string">&quot;ADDRESS_MODE_UNSPECIFIED&quot;</span>,
-                AddressMode::ModeIpv4 =&gt; <span class="string">&quot;MODE_IPV4&quot;</span>,
+                AddressMode::Unspecified =&gt; <span class="string">"ADDRESS_MODE_UNSPECIFIED"</span>,
+                AddressMode::ModeIpv4 =&gt; <span class="string">"MODE_IPV4"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ADDRESS_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;MODE_IPV4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ModeIpv4),
+                <span class="string">"ADDRESS_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"MODE_IPV4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ModeIpv4),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1811,19 +1812,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ConnectMode::Unspecified =&gt; <span class="string">&quot;CONNECT_MODE_UNSPECIFIED&quot;</span>,
-                ConnectMode::DirectPeering =&gt; <span class="string">&quot;DIRECT_PEERING&quot;</span>,
-                ConnectMode::PrivateServiceAccess =&gt; <span class="string">&quot;PRIVATE_SERVICE_ACCESS&quot;</span>,
+                ConnectMode::Unspecified =&gt; <span class="string">"CONNECT_MODE_UNSPECIFIED"</span>,
+                ConnectMode::DirectPeering =&gt; <span class="string">"DIRECT_PEERING"</span>,
+                ConnectMode::PrivateServiceAccess =&gt; <span class="string">"PRIVATE_SERVICE_ACCESS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CONNECT_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DIRECT_PEERING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DirectPeering),
-                <span class="string">&quot;PRIVATE_SERVICE_ACCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateServiceAccess),
+                <span class="string">"CONNECT_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DIRECT_PEERING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DirectPeering),
+                <span class="string">"PRIVATE_SERVICE_ACCESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateServiceAccess),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1837,19 +1838,19 @@
     /// basic service tier and 1-63 characters for all other service tiers.
     /// Must use lowercase letters, numbers, or underscores `\[a-z0-9_\]`. Must
     /// start with a letter. Immutable.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// File share capacity in gigabytes (GB).
     /// Filestore defines 1 GB as 1024^3 bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>capacity_gb: i64,
     <span class="doccomment">/// Nfs Export Options.
     /// There is a limit of 10 export options per file share.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>nfs_export_options: ::prost::alloc::vec::Vec&lt;NfsExportOptions&gt;,
     <span class="doccomment">/// The source that this file share has been restored from. Empty if the file
     /// share is created from scratch.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;file_share_config::Source&quot;</span>, tags = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"file_share_config::Source"</span>, tags = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;file_share_config::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `FileShareConfig`.
@@ -1862,7 +1863,7 @@
         <span class="doccomment">/// The resource name of the backup, in the format
         /// `projects/{project_number}/locations/{location_id}/backups/{backup_id}`,
         /// that this file share has been restored from.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
         </span>SourceBackup(::prost::alloc::string::String),
     }
 }
@@ -1878,29 +1879,29 @@
     /// NfsExportOptions. An error will be returned.
     /// The limit is 64 IP ranges/addresses for each FileShareConfig among all
     /// NfsExportOptions.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>ip_ranges: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Either READ_ONLY, for allowing only read requests on the exported
     /// directory, or READ_WRITE, for allowing both read and write requests.
     /// The default is READ_WRITE.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;nfs_export_options::AccessMode&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"nfs_export_options::AccessMode"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>access_mode: i32,
     <span class="doccomment">/// Either NO_ROOT_SQUASH, for allowing root access on the exported directory,
     /// or ROOT_SQUASH, for not allowing root access. The default is
     /// NO_ROOT_SQUASH.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;nfs_export_options::SquashMode&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"nfs_export_options::SquashMode"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>squash_mode: i32,
     <span class="doccomment">/// An integer representing the anonymous user id with a default value of
     /// 65534.
     /// Anon_uid may only be set with squash_mode of ROOT_SQUASH.  An error will be
     /// returned if this field is specified for other squash_mode settings.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>anon_uid: i64,
     <span class="doccomment">/// An integer representing the anonymous group id with a default value of
     /// 65534.
     /// Anon_gid may only be set with squash_mode of ROOT_SQUASH.  An error will be
     /// returned if this field is specified for other squash_mode settings.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>anon_gid: i64,
 }
 <span class="doccomment">/// Nested message and enum types in `NfsExportOptions`.
@@ -1931,19 +1932,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AccessMode::Unspecified =&gt; <span class="string">&quot;ACCESS_MODE_UNSPECIFIED&quot;</span>,
-                AccessMode::ReadOnly =&gt; <span class="string">&quot;READ_ONLY&quot;</span>,
-                AccessMode::ReadWrite =&gt; <span class="string">&quot;READ_WRITE&quot;</span>,
+                AccessMode::Unspecified =&gt; <span class="string">"ACCESS_MODE_UNSPECIFIED"</span>,
+                AccessMode::ReadOnly =&gt; <span class="string">"READ_ONLY"</span>,
+                AccessMode::ReadWrite =&gt; <span class="string">"READ_WRITE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACCESS_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;READ_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadOnly),
-                <span class="string">&quot;READ_WRITE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadWrite),
+                <span class="string">"ACCESS_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"READ_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadOnly),
+                <span class="string">"READ_WRITE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadWrite),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1974,19 +1975,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SquashMode::Unspecified =&gt; <span class="string">&quot;SQUASH_MODE_UNSPECIFIED&quot;</span>,
-                SquashMode::NoRootSquash =&gt; <span class="string">&quot;NO_ROOT_SQUASH&quot;</span>,
-                SquashMode::RootSquash =&gt; <span class="string">&quot;ROOT_SQUASH&quot;</span>,
+                SquashMode::Unspecified =&gt; <span class="string">"SQUASH_MODE_UNSPECIFIED"</span>,
+                SquashMode::NoRootSquash =&gt; <span class="string">"NO_ROOT_SQUASH"</span>,
+                SquashMode::RootSquash =&gt; <span class="string">"ROOT_SQUASH"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SQUASH_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NO_ROOT_SQUASH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoRootSquash),
-                <span class="string">&quot;ROOT_SQUASH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RootSquash),
+                <span class="string">"SQUASH_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NO_ROOT_SQUASH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoRootSquash),
+                <span class="string">"ROOT_SQUASH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RootSquash),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1998,57 +1999,57 @@
 </span><span class="kw">pub struct </span>Instance {
     <span class="doccomment">/// Output only. The resource name of the instance, in the format
     /// `projects/{project}/locations/{location}/instances/{instance}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The description of the instance (2048 characters or less).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The instance state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;instance::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"instance::State"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Additional information about the instance state, if available.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time when the instance was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The service tier of the instance.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;instance::Tier&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"instance::Tier"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>tier: i32,
     <span class="doccomment">/// Resource labels to represent user provided metadata.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// File system shares on the instance.
     /// For this version, only a single file share is supported.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>file_shares: ::prost::alloc::vec::Vec&lt;FileShareConfig&gt;,
     <span class="doccomment">/// VPC networks to which the instance is connected.
     /// For this version, only a single network is supported.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>networks: ::prost::alloc::vec::Vec&lt;NetworkConfig&gt;,
     <span class="doccomment">/// Server-specified ETag for the instance resource to prevent simultaneous
     /// updates from overwriting each other.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Reserved for future use.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>satisfies_pzs: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// Output only. Reserved for future use.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>satisfies_pzi: bool,
     <span class="doccomment">/// KMS key name used for data encryption.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Field indicates all the reasons the instance is in &quot;SUSPENDED&quot;
+    <span class="doccomment">/// Output only. Field indicates all the reasons the instance is in "SUSPENDED"
     /// state.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;instance::SuspensionReason&quot;</span>,
+        enumeration = <span class="string">"instance::SuspensionReason"</span>,
         repeated,
-        packed = <span class="string">&quot;false&quot;</span>,
-        tag = <span class="string">&quot;15&quot;
+        packed = <span class="string">"false"</span>,
+        tag = <span class="string">"15"
     </span>)]
     </span><span class="kw">pub </span>suspension_reasons: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
@@ -2101,35 +2102,35 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Repairing =&gt; <span class="string">&quot;REPAIRING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-                State::Restoring =&gt; <span class="string">&quot;RESTORING&quot;</span>,
-                State::Suspended =&gt; <span class="string">&quot;SUSPENDED&quot;</span>,
-                State::Suspending =&gt; <span class="string">&quot;SUSPENDING&quot;</span>,
-                State::Resuming =&gt; <span class="string">&quot;RESUMING&quot;</span>,
-                State::Reverting =&gt; <span class="string">&quot;REVERTING&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Ready =&gt; <span class="string">"READY"</span>,
+                State::Repairing =&gt; <span class="string">"REPAIRING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Error =&gt; <span class="string">"ERROR"</span>,
+                State::Restoring =&gt; <span class="string">"RESTORING"</span>,
+                State::Suspended =&gt; <span class="string">"SUSPENDED"</span>,
+                State::Suspending =&gt; <span class="string">"SUSPENDING"</span>,
+                State::Resuming =&gt; <span class="string">"RESUMING"</span>,
+                State::Reverting =&gt; <span class="string">"REVERTING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;REPAIRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Repairing),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="string">&quot;RESTORING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Restoring),
-                <span class="string">&quot;SUSPENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
-                <span class="string">&quot;SUSPENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspending),
-                <span class="string">&quot;RESUMING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resuming),
-                <span class="string">&quot;REVERTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reverting),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"READY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">"REPAIRING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Repairing),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"RESTORING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Restoring),
+                <span class="string">"SUSPENDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
+                <span class="string">"SUSPENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspending),
+                <span class="string">"RESUMING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resuming),
+                <span class="string">"REVERTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reverting),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2180,31 +2181,31 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Tier::Unspecified =&gt; <span class="string">&quot;TIER_UNSPECIFIED&quot;</span>,
-                Tier::Standard =&gt; <span class="string">&quot;STANDARD&quot;</span>,
-                Tier::Premium =&gt; <span class="string">&quot;PREMIUM&quot;</span>,
-                Tier::BasicHdd =&gt; <span class="string">&quot;BASIC_HDD&quot;</span>,
-                Tier::BasicSsd =&gt; <span class="string">&quot;BASIC_SSD&quot;</span>,
-                Tier::HighScaleSsd =&gt; <span class="string">&quot;HIGH_SCALE_SSD&quot;</span>,
-                Tier::Enterprise =&gt; <span class="string">&quot;ENTERPRISE&quot;</span>,
-                Tier::Zonal =&gt; <span class="string">&quot;ZONAL&quot;</span>,
-                Tier::Regional =&gt; <span class="string">&quot;REGIONAL&quot;</span>,
+                Tier::Unspecified =&gt; <span class="string">"TIER_UNSPECIFIED"</span>,
+                Tier::Standard =&gt; <span class="string">"STANDARD"</span>,
+                Tier::Premium =&gt; <span class="string">"PREMIUM"</span>,
+                Tier::BasicHdd =&gt; <span class="string">"BASIC_HDD"</span>,
+                Tier::BasicSsd =&gt; <span class="string">"BASIC_SSD"</span>,
+                Tier::HighScaleSsd =&gt; <span class="string">"HIGH_SCALE_SSD"</span>,
+                Tier::Enterprise =&gt; <span class="string">"ENTERPRISE"</span>,
+                Tier::Zonal =&gt; <span class="string">"ZONAL"</span>,
+                Tier::Regional =&gt; <span class="string">"REGIONAL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TIER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STANDARD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
-                <span class="string">&quot;PREMIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Premium),
-                <span class="string">&quot;BASIC_HDD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BasicHdd),
-                <span class="string">&quot;BASIC_SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BasicSsd),
-                <span class="string">&quot;HIGH_SCALE_SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HighScaleSsd),
-                <span class="string">&quot;ENTERPRISE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enterprise),
-                <span class="string">&quot;ZONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Zonal),
-                <span class="string">&quot;REGIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Regional),
+                <span class="string">"TIER_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STANDARD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
+                <span class="string">"PREMIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Premium),
+                <span class="string">"BASIC_HDD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BasicHdd),
+                <span class="string">"BASIC_SSD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BasicSsd),
+                <span class="string">"HIGH_SCALE_SSD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HighScaleSsd),
+                <span class="string">"ENTERPRISE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enterprise),
+                <span class="string">"ZONAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Zonal),
+                <span class="string">"REGIONAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Regional),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2233,17 +2234,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SuspensionReason::Unspecified =&gt; <span class="string">&quot;SUSPENSION_REASON_UNSPECIFIED&quot;</span>,
-                SuspensionReason::KmsKeyIssue =&gt; <span class="string">&quot;KMS_KEY_ISSUE&quot;</span>,
+                SuspensionReason::Unspecified =&gt; <span class="string">"SUSPENSION_REASON_UNSPECIFIED"</span>,
+                SuspensionReason::KmsKeyIssue =&gt; <span class="string">"KMS_KEY_ISSUE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SUSPENSION_REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;KMS_KEY_ISSUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KmsKeyIssue),
+                <span class="string">"SUSPENSION_REASON_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"KMS_KEY_ISSUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KmsKeyIssue),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2253,17 +2254,17 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateInstanceRequest {
-    <span class="doccomment">/// Required. The instance&#39;s project and location, in the format
+    <span class="doccomment">/// Required. The instance's project and location, in the format
     /// `projects/{project_id}/locations/{location}`. In Filestore,
     /// locations map to Google Cloud zones, for example **us-west1-b**.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The name of the instance to create.
     /// The name must be unique for the specified project and location.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. An [instance resource][google.cloud.filestore.v1.Instance]
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>instance: ::core::option::Option&lt;Instance&gt;,
 }
 <span class="doccomment">/// GetInstanceRequest gets the state of an instance.
@@ -2272,7 +2273,7 @@
 </span><span class="kw">pub struct </span>GetInstanceRequest {
     <span class="doccomment">/// Required. The instance resource name, in the format
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// UpdateInstanceRequest updates the settings of an instance.
@@ -2283,29 +2284,29 @@
     /// field.  The elements of the repeated paths field may only include these
     /// fields:
     ///
-    /// * &quot;description&quot;
-    /// * &quot;file_shares&quot;
-    /// * &quot;labels&quot;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    /// * "description"
+    /// * "file_shares"
+    /// * "labels"
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Only fields specified in update_mask are updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance: ::core::option::Option&lt;Instance&gt;,
 }
-<span class="doccomment">/// RestoreInstanceRequest restores an existing instance&#39;s file share from a
+<span class="doccomment">/// RestoreInstanceRequest restores an existing instance's file share from a
 /// backup.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RestoreInstanceRequest {
     <span class="doccomment">/// Required. The resource name of the instance, in the format
     /// `projects/{project_number}/locations/{location_id}/instances/{instance_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name of the file share in the Filestore instance that the backup
     /// is being restored to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>file_share: ::prost::alloc::string::String,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;restore_instance_request::Source&quot;</span>, tags = <span class="string">&quot;3&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"restore_instance_request::Source"</span>, tags = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;restore_instance_request::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RestoreInstanceRequest`.
@@ -2315,11 +2316,11 @@
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// The resource name of the backup, in the format
         /// `projects/{project_number}/locations/{location_id}/backups/{backup_id}`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>SourceBackup(::prost::alloc::string::String),
     }
 }
-<span class="doccomment">/// RevertInstanceRequest reverts the given instance&#39;s file share to the
+<span class="doccomment">/// RevertInstanceRequest reverts the given instance's file share to the
 /// specified snapshot.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2327,12 +2328,12 @@
     <span class="doccomment">/// Required.
     /// `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
     /// The resource name of the instance, in the format
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The snapshot resource ID, in the format &#39;my-snapshot&#39;, where the
+    <span class="doccomment">/// Required. The snapshot resource ID, in the format 'my-snapshot', where the
     /// specified ID is the {snapshot_id} of the fully qualified name like
     /// `projects/{project_id}/locations/{location_id}/instances/{instance_id}/snapshots/{snapshot_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>target_snapshot_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// DeleteInstanceRequest deletes an instance.
@@ -2341,11 +2342,11 @@
 </span><span class="kw">pub struct </span>DeleteInstanceRequest {
     <span class="doccomment">/// Required. The instance resource name, in the format
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to true, all snapshots of the instance will also be deleted.
     /// (Otherwise, the request will only work if the instance has no snapshots.)
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>force: bool,
 }
 <span class="doccomment">/// ListInstancesRequest lists instances.
@@ -2355,23 +2356,23 @@
     <span class="doccomment">/// Required. The project and location for which to retrieve instance
     /// information, in the format `projects/{project_id}/locations/{location}`. In
     /// Cloud Filestore, locations map to Google Cloud zones, for example
-    /// **us-west1-b**. To retrieve instance information for all locations, use &quot;-&quot;
+    /// **us-west1-b**. To retrieve instance information for all locations, use "-"
     /// for the
     /// `{location}` value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value to use if there are additional
     /// results to retrieve for this list request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Sort results. Supported values are &quot;name&quot;, &quot;name desc&quot; or &quot;&quot; (unsorted).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// List filter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// ListInstancesResponse is the result of ListInstancesRequest.
@@ -2380,18 +2381,18 @@
 </span><span class="kw">pub struct </span>ListInstancesResponse {
     <span class="doccomment">/// A list of instances in the project for the specified location.
     ///
-    /// If the `{location}` value in the request is &quot;-&quot;, the response contains a
+    /// If the `{location}` value in the request is "-", the response contains a
     /// list of instances from all locations. If any location is unreachable, the
     /// response will only return instances in reachable locations and the
-    /// &quot;unreachable&quot; field will be populated with a list of unreachable locations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "unreachable" field will be populated with a list of unreachable locations.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instances: ::prost::alloc::vec::Vec&lt;Instance&gt;,
     <span class="doccomment">/// The token you can use to retrieve the next page of results. Not returned
     /// if there are no more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A Filestore snapshot.
@@ -2400,27 +2401,27 @@
 </span><span class="kw">pub struct </span>Snapshot {
     <span class="doccomment">/// Output only. The resource name of the snapshot, in the format
     /// `projects/{project_id}/locations/{location_id}/instances/{instance_id}/snapshots/{snapshot_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A description of the snapshot with 2048 characters or less.
     /// Requests with longer descriptions will be rejected.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The snapshot state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;snapshot::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"snapshot::State"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The time when the snapshot was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Resource labels to represent user provided metadata.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. The amount of bytes needed to allocate a full copy of the
     /// snapshot content
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>filesystem_used_bytes: i64,
 }
 <span class="doccomment">/// Nested message and enum types in `Snapshot`.
@@ -2453,21 +2454,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Ready =&gt; <span class="string">"READY"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"READY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2479,17 +2480,17 @@
 </span><span class="kw">pub struct </span>CreateSnapshotRequest {
     <span class="doccomment">/// Required. The Filestore Instance to create the snapshots of, in the format
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID to use for the snapshot.
     /// The ID must be unique within the specified instance.
     ///
     /// This value must start with a lowercase letter followed by up to 62
     /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>snapshot_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A snapshot resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>snapshot: ::core::option::Option&lt;Snapshot&gt;,
 }
 <span class="doccomment">/// GetSnapshotRequest gets the state of a snapshot.
@@ -2498,7 +2499,7 @@
 </span><span class="kw">pub struct </span>GetSnapshotRequest {
     <span class="doccomment">/// Required. The snapshot resource name, in the format
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}/snapshots/{snapshot_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// DeleteSnapshotRequest deletes a snapshot.
@@ -2507,7 +2508,7 @@
 </span><span class="kw">pub struct </span>DeleteSnapshotRequest {
     <span class="doccomment">/// Required. The snapshot resource name, in the format
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}/snapshots/{snapshot_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// UpdateSnapshotRequest updates description and/or labels for a snapshot.
@@ -2516,10 +2517,10 @@
 </span><span class="kw">pub struct </span>UpdateSnapshotRequest {
     <span class="doccomment">/// Required. Mask of fields to update. At least one path must be supplied in
     /// this field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. A snapshot resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>snapshot: ::core::option::Option&lt;Snapshot&gt;,
 }
 <span class="doccomment">/// ListSnapshotsRequest lists snapshots.
@@ -2529,20 +2530,20 @@
     <span class="doccomment">/// Required. The instance for which to retrieve snapshot information,
     /// in the format
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value to use if there are additional
     /// results to retrieve for this list request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Sort results. Supported values are &quot;name&quot;, &quot;name desc&quot; or &quot;&quot; (unsorted).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// List filter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// ListSnapshotsResponse is the result of ListSnapshotsRequest.
@@ -2550,11 +2551,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSnapshotsResponse {
     <span class="doccomment">/// A list of snapshots in the project for the specified instance.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>snapshots: ::prost::alloc::vec::Vec&lt;Snapshot&gt;,
     <span class="doccomment">/// The token you can use to retrieve the next page of results. Not returned
     /// if there are no more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A Filestore backup.
@@ -2563,57 +2564,57 @@
 </span><span class="kw">pub struct </span>Backup {
     <span class="doccomment">/// Output only. The resource name of the backup, in the format
     /// `projects/{project_number}/locations/{location_id}/backups/{backup_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A description of the backup with 2048 characters or less.
     /// Requests with longer descriptions will be rejected.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The backup state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;backup::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"backup::State"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The time when the backup was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Resource labels to represent user provided metadata.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. Capacity of the source file share when the backup was created.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>capacity_gb: i64,
     <span class="doccomment">/// Output only. The size of the storage used by the backup. As backups share
     /// storage, this number is expected to change with backup creation/deletion.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>storage_bytes: i64,
     <span class="doccomment">/// The resource name of the source Filestore instance, in the format
     /// `projects/{project_number}/locations/{location_id}/instances/{instance_id}`,
     /// used to create this backup.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>source_instance: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the file share in the source Filestore instance that the
     /// backup is created from.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>source_file_share: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The service tier of the source Filestore instance that this
     /// backup is created from.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;instance::Tier&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"instance::Tier"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>source_instance_tier: i32,
     <span class="doccomment">/// Output only. Amount of bytes that will be downloaded if the backup is
     /// restored. This may be different than storage bytes, since sequential
     /// backups of the same disk will share storage.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>download_bytes: i64,
     <span class="doccomment">/// Output only. Reserved for future use.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>satisfies_pzs: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// Output only. Reserved for future use.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>satisfies_pzi: bool,
     <span class="doccomment">/// Immutable. KMS key name used for data encryption.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>kms_key: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `Backup`.
@@ -2652,25 +2653,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Finalizing =&gt; <span class="string">&quot;FINALIZING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Invalid =&gt; <span class="string">&quot;INVALID&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Finalizing =&gt; <span class="string">"FINALIZING"</span>,
+                State::Ready =&gt; <span class="string">"READY"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Invalid =&gt; <span class="string">"INVALID"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;FINALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finalizing),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;INVALID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Invalid),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"FINALIZING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finalizing),
+                <span class="string">"READY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"INVALID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Invalid),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2680,13 +2681,13 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateBackupRequest {
-    <span class="doccomment">/// Required. The backup&#39;s project and location, in the format
+    <span class="doccomment">/// Required. The backup's project and location, in the format
     /// `projects/{project_number}/locations/{location}`. In Filestore,
     /// backup locations map to Google Cloud regions, for example **us-west1**.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A [backup resource][google.cloud.filestore.v1.Backup]
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>backup: ::core::option::Option&lt;Backup&gt;,
     <span class="doccomment">/// Required. The ID to use for the backup.
     /// The ID must be unique within the specified project and location.
@@ -2695,7 +2696,7 @@
     /// lowercase letters, numbers, or hyphens, and cannot end with a hyphen.
     /// Values that do not match this pattern will trigger an INVALID_ARGUMENT
     /// error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>backup_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// DeleteBackupRequest deletes a backup.
@@ -2704,7 +2705,7 @@
 </span><span class="kw">pub struct </span>DeleteBackupRequest {
     <span class="doccomment">/// Required. The backup resource name, in the format
     /// `projects/{project_number}/locations/{location}/backups/{backup_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// UpdateBackupRequest updates description and/or labels for a backup.
@@ -2712,11 +2713,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateBackupRequest {
     <span class="doccomment">/// Required. A [backup resource][google.cloud.filestore.v1.Backup]
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>backup: ::core::option::Option&lt;Backup&gt;,
     <span class="doccomment">/// Required. Mask of fields to update.  At least one path must be supplied in
     /// this field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// GetBackupRequest gets the state of a backup.
@@ -2725,7 +2726,7 @@
 </span><span class="kw">pub struct </span>GetBackupRequest {
     <span class="doccomment">/// Required. The backup resource name, in the format
     /// `projects/{project_number}/locations/{location}/backups/{backup_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// ListBackupsRequest lists backups.
@@ -2736,22 +2737,22 @@
     /// information, in the format
     /// `projects/{project_number}/locations/{location}`. In Filestore, backup
     /// locations map to Google Cloud regions, for example **us-west1**. To
-    /// retrieve backup information for all locations, use &quot;-&quot; for the
+    /// retrieve backup information for all locations, use "-" for the
     /// `{location}` value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value to use if there are additional
     /// results to retrieve for this list request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Sort results. Supported values are &quot;name&quot;, &quot;name desc&quot; or &quot;&quot; (unsorted).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// Sort results. Supported values are "name", "name desc" or "" (unsorted).
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// List filter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// ListBackupsResponse is the result of ListBackupsRequest.
@@ -2760,19 +2761,19 @@
 </span><span class="kw">pub struct </span>ListBackupsResponse {
     <span class="doccomment">/// A list of backups in the project for the specified location.
     ///
-    /// If the `{location}` value in the request is &quot;-&quot;, the response contains a
+    /// If the `{location}` value in the request is "-", the response contains a
     /// list of backups from all locations. If any location is unreachable, the
     /// response will only return backups in reachable locations and the
-    /// &quot;unreachable&quot; field will be populated with a list of unreachable
+    /// "unreachable" field will be populated with a list of unreachable
     /// locations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>backups: ::prost::alloc::vec::Vec&lt;Backup&gt;,
     <span class="doccomment">/// The token you can use to retrieve the next page of results. Not returned
     /// if there are no more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2807,7 +2808,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2883,19 +2884,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/ListInstances&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/ListInstances"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;ListInstances&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"ListInstances"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2911,19 +2912,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/GetInstance&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/GetInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;GetInstance&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"GetInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2945,19 +2946,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/CreateInstance&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/CreateInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;CreateInstance&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"CreateInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2976,24 +2977,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/UpdateInstance&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/UpdateInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;UpdateInstance&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"UpdateInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Restores an existing instance&#39;s file share from a backup.
+        <span class="doccomment">/// Restores an existing instance's file share from a backup.
         ///
         /// The capacity of the instance needs to be equal to or larger than the
         /// capacity of the backup (and also equal to or larger than the minimum
@@ -3011,24 +3012,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/RestoreInstance&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/RestoreInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;RestoreInstance&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"RestoreInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Revert an existing instance&#39;s file system to a specified snapshot.
+        <span class="doccomment">/// Revert an existing instance's file system to a specified snapshot.
         </span><span class="kw">pub async fn </span>revert_instance(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::RevertInstanceRequest&gt;,
@@ -3042,19 +3043,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/RevertInstance&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/RevertInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;RevertInstance&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"RevertInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3073,19 +3074,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/DeleteInstance&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/DeleteInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;DeleteInstance&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"DeleteInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3105,19 +3106,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/ListSnapshots&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/ListSnapshots"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;ListSnapshots&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"ListSnapshots"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3133,19 +3134,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/GetSnapshot&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/GetSnapshot"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;GetSnapshot&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"GetSnapshot"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3164,19 +3165,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/CreateSnapshot&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/CreateSnapshot"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;CreateSnapshot&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"CreateSnapshot"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3195,19 +3196,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/DeleteSnapshot&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/DeleteSnapshot"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;DeleteSnapshot&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"DeleteSnapshot"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3226,19 +3227,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/UpdateSnapshot&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/UpdateSnapshot"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;UpdateSnapshot&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"UpdateSnapshot"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3258,19 +3259,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/ListBackups&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/ListBackups"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;ListBackups&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"ListBackups"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3286,19 +3287,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/GetBackup&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/GetBackup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;GetBackup&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"GetBackup"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3317,19 +3318,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/CreateBackup&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/CreateBackup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;CreateBackup&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"CreateBackup"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3348,19 +3349,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/DeleteBackup&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/DeleteBackup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;DeleteBackup&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"DeleteBackup"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3379,19 +3380,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.filestore.v1.CloudFilestoreManager/UpdateBackup&quot;</span>,
+                <span class="string">"/google.cloud.filestore.v1.CloudFilestoreManager/UpdateBackup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.filestore.v1.CloudFilestoreManager&quot;</span>,
-                        <span class="string">&quot;UpdateBackup&quot;</span>,
+                        <span class="string">"google.cloud.filestore.v1.CloudFilestoreManager"</span>,
+                        <span class="string">"UpdateBackup"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

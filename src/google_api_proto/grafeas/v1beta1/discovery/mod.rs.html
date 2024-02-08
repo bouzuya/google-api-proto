@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/grafeas/v1beta1/discovery/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/grafeas/v1beta1/discovery/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -142,14 +143,14 @@
 <a href="#142" id="142">142</a>
 <a href="#143" id="143">143</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A note that indicates a type of analysis a provider would perform. This note
-/// exists in a provider&#39;s project. A `Discovery` occurrence is created in a
-/// consumer&#39;s project at the start of analysis.
+/// exists in a provider's project. A `Discovery` occurrence is created in a
+/// consumer's project at the start of analysis.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Discovery {
     <span class="doccomment">/// Required. Immutable. The kind of analysis that is handled by this
     /// discovery.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::NoteKind&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"super::NoteKind"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>analysis_kind: i32,
 }
 <span class="doccomment">/// Details of a discovery occurrence.
@@ -157,7 +158,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Details {
     <span class="doccomment">/// Required. Analysis status for the discovered resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>discovered: ::core::option::Option&lt;Discovered&gt;,
 }
 <span class="doccomment">/// Provides information about the analysis status of a discovered resource.
@@ -165,18 +166,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Discovered {
     <span class="doccomment">/// Whether the resource is continuously analyzed.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;discovered::ContinuousAnalysis&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"discovered::ContinuousAnalysis"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>continuous_analysis: i32,
     <span class="doccomment">/// The last time continuous analysis was done for this resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>last_analysis_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The status of discovery for the resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;discovered::AnalysisStatus&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"discovered::AnalysisStatus"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>analysis_status: i32,
     <span class="doccomment">/// When an error is encountered this will contain a LocalizedMessage under
     /// details to show to the user. The LocalizedMessage is output only and
     /// populated by the API.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>analysis_status_error: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::google::rpc::Status,
     &gt;,
@@ -209,19 +210,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ContinuousAnalysis::Unspecified =&gt; <span class="string">&quot;CONTINUOUS_ANALYSIS_UNSPECIFIED&quot;</span>,
-                ContinuousAnalysis::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                ContinuousAnalysis::Inactive =&gt; <span class="string">&quot;INACTIVE&quot;</span>,
+                ContinuousAnalysis::Unspecified =&gt; <span class="string">"CONTINUOUS_ANALYSIS_UNSPECIFIED"</span>,
+                ContinuousAnalysis::Active =&gt; <span class="string">"ACTIVE"</span>,
+                ContinuousAnalysis::Inactive =&gt; <span class="string">"INACTIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CONTINUOUS_ANALYSIS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
+                <span class="string">"CONTINUOUS_ANALYSIS_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"INACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -260,25 +261,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AnalysisStatus::Unspecified =&gt; <span class="string">&quot;ANALYSIS_STATUS_UNSPECIFIED&quot;</span>,
-                AnalysisStatus::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                AnalysisStatus::Scanning =&gt; <span class="string">&quot;SCANNING&quot;</span>,
-                AnalysisStatus::FinishedSuccess =&gt; <span class="string">&quot;FINISHED_SUCCESS&quot;</span>,
-                AnalysisStatus::FinishedFailed =&gt; <span class="string">&quot;FINISHED_FAILED&quot;</span>,
-                AnalysisStatus::FinishedUnsupported =&gt; <span class="string">&quot;FINISHED_UNSUPPORTED&quot;</span>,
+                AnalysisStatus::Unspecified =&gt; <span class="string">"ANALYSIS_STATUS_UNSPECIFIED"</span>,
+                AnalysisStatus::Pending =&gt; <span class="string">"PENDING"</span>,
+                AnalysisStatus::Scanning =&gt; <span class="string">"SCANNING"</span>,
+                AnalysisStatus::FinishedSuccess =&gt; <span class="string">"FINISHED_SUCCESS"</span>,
+                AnalysisStatus::FinishedFailed =&gt; <span class="string">"FINISHED_FAILED"</span>,
+                AnalysisStatus::FinishedUnsupported =&gt; <span class="string">"FINISHED_UNSUPPORTED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ANALYSIS_STATUS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;SCANNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scanning),
-                <span class="string">&quot;FINISHED_SUCCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedSuccess),
-                <span class="string">&quot;FINISHED_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedFailed),
-                <span class="string">&quot;FINISHED_UNSUPPORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedUnsupported),
+                <span class="string">"ANALYSIS_STATUS_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"SCANNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scanning),
+                <span class="string">"FINISHED_SUCCESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedSuccess),
+                <span class="string">"FINISHED_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedFailed),
+                <span class="string">"FINISHED_UNSUPPORTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinishedUnsupported),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }

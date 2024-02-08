@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/resourcesettings/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/resourcesettings/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -466,16 +467,16 @@
     /// * `folders/{folder_id}/settings/{setting_name}`
     /// * `organizations/{organization_id}/settings/{setting_name}`
     ///
-    /// For example, &quot;/projects/123/settings/gcp-enableMyFeature&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// For example, "/projects/123/settings/gcp-enableMyFeature"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Metadata about a setting which is not editable by the end user.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;SettingMetadata&gt;,
     <span class="doccomment">/// The configured value of the setting at the given parent resource (ignoring
     /// the resource hierarchy). The data type of [Value][google.cloud.resourcesettings.v1.Value] must always be
     /// consistent with the data type defined in [Setting.metadata][google.cloud.resourcesettings.v1.Setting.metadata].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>local_value: ::core::option::Option&lt;Value&gt;,
     <span class="doccomment">/// Output only. The computed effective value of the setting at the given parent resource
     /// (based on the resource hierarchy).
@@ -484,19 +485,19 @@
     /// order (the next option is used if the previous one does not exist):
     ///
     /// 1. the local setting value on the given resource: [Setting.local_value][google.cloud.resourcesettings.v1.Setting.local_value]
-    /// 2. if one of the given resource&#39;s ancestors have a local setting value,
+    /// 2. if one of the given resource's ancestors have a local setting value,
     ///     the local value at the nearest such ancestor
-    /// 3. the setting&#39;s default value: [SettingMetadata.default_value][google.cloud.resourcesettings.v1.SettingMetadata.default_value]
+    /// 3. the setting's default value: [SettingMetadata.default_value][google.cloud.resourcesettings.v1.SettingMetadata.default_value]
     /// 4. an empty value (defined as a `Value` with all fields unset)
     ///
     /// The data type of [Value][google.cloud.resourcesettings.v1.Value] must always be
     /// consistent with the data type defined in [Setting.metadata][google.cloud.resourcesettings.v1.Setting.metadata].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>effective_value: ::core::option::Option&lt;Value&gt;,
     <span class="doccomment">/// A fingerprint used for optimistic concurrency. See
     /// [UpdateSetting][google.cloud.resourcesettings.v1.ResourceSettingsService.UpdateSetting] for more
     /// details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Metadata about a setting which is not editable by the end user.
@@ -504,23 +505,23 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SettingMetadata {
     <span class="doccomment">/// The human readable name for this setting.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// A detailed description of what this setting does.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// A flag indicating that values of this setting cannot be modified (see
     /// documentation of the specific setting for updates and reasons).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>read_only: bool,
     <span class="doccomment">/// The data type for this setting.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;setting_metadata::DataType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"setting_metadata::DataType"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>data_type: i32,
     <span class="doccomment">/// The value provided by [Setting.effective_value][google.cloud.resourcesettings.v1.Setting.effective_value] if no setting value is
     /// explicitly set.
     ///
     /// Note: not all settings have a default value.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>default_value: ::core::option::Option&lt;Value&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SettingMetadata`.
@@ -556,23 +557,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DataType::Unspecified =&gt; <span class="string">&quot;DATA_TYPE_UNSPECIFIED&quot;</span>,
-                DataType::Boolean =&gt; <span class="string">&quot;BOOLEAN&quot;</span>,
-                DataType::String =&gt; <span class="string">&quot;STRING&quot;</span>,
-                DataType::StringSet =&gt; <span class="string">&quot;STRING_SET&quot;</span>,
-                DataType::EnumValue =&gt; <span class="string">&quot;ENUM_VALUE&quot;</span>,
+                DataType::Unspecified =&gt; <span class="string">"DATA_TYPE_UNSPECIFIED"</span>,
+                DataType::Boolean =&gt; <span class="string">"BOOLEAN"</span>,
+                DataType::String =&gt; <span class="string">"STRING"</span>,
+                DataType::StringSet =&gt; <span class="string">"STRING_SET"</span>,
+                DataType::EnumValue =&gt; <span class="string">"ENUM_VALUE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DATA_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BOOLEAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Boolean),
-                <span class="string">&quot;STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
-                <span class="string">&quot;STRING_SET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StringSet),
-                <span class="string">&quot;ENUM_VALUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EnumValue),
+                <span class="string">"DATA_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"BOOLEAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Boolean),
+                <span class="string">"STRING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
+                <span class="string">"STRING_SET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StringSet),
+                <span class="string">"ENUM_VALUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EnumValue),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -583,7 +584,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Value {
     <span class="doccomment">/// Selects the data type and associated value.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;value::Value&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"value::Value"</span>, tags = <span class="string">"1, 2, 3, 4"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;value::Value&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Value`.
@@ -595,7 +596,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>StringSet {
         <span class="doccomment">/// The strings in the set
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// A enum value that can hold any enum type setting values.
@@ -605,7 +606,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>EnumValue {
         <span class="doccomment">/// The value of this enum
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Selects the data type and associated value.
@@ -613,16 +614,16 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Value {
         <span class="doccomment">/// Defines this value as being a boolean value.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span>BooleanValue(bool),
         <span class="doccomment">/// Defines this value as being a string value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>StringValue(::prost::alloc::string::String),
         <span class="doccomment">/// Defines this value as being a StringSet.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>StringSetValue(StringSet),
         <span class="doccomment">/// Defines this value as being a Enum.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>EnumValue(EnumValue),
     }
 }
@@ -637,16 +638,16 @@
     /// * `projects/{project_id}`
     /// * `folders/{folder_id}`
     /// * `organizations/{organization_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Unused. The size of the page to be returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Unused. A page token used to retrieve the next page.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The SettingView for this request.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SettingView&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"SettingView"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>view: i32,
 }
 <span class="doccomment">/// The response from ListSettings.
@@ -654,10 +655,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSettingsResponse {
     <span class="doccomment">/// A list of settings that are available at the specified Cloud resource.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>settings: ::prost::alloc::vec::Vec&lt;Setting&gt;,
     <span class="doccomment">/// Unused. A page token used to retrieve the next page.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for GetSetting.
@@ -666,10 +667,10 @@
 </span><span class="kw">pub struct </span>GetSettingRequest {
     <span class="doccomment">/// Required. The name of the setting to get. See [Setting][google.cloud.resourcesettings.v1.Setting] for naming
     /// requirements.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The SettingView for this request.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SettingView&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"SettingView"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>view: i32,
 }
 <span class="doccomment">/// The request for UpdateSetting.
@@ -677,7 +678,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateSettingRequest {
     <span class="doccomment">/// Required. The setting to update. See [Setting][google.cloud.resourcesettings.v1.Setting] for field requirements.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>setting: ::core::option::Option&lt;Setting&gt;,
 }
 <span class="doccomment">/// View options for Settings.
@@ -700,21 +701,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            SettingView::Unspecified =&gt; <span class="string">&quot;SETTING_VIEW_UNSPECIFIED&quot;</span>,
-            SettingView::Basic =&gt; <span class="string">&quot;SETTING_VIEW_BASIC&quot;</span>,
-            SettingView::EffectiveValue =&gt; <span class="string">&quot;SETTING_VIEW_EFFECTIVE_VALUE&quot;</span>,
-            SettingView::LocalValue =&gt; <span class="string">&quot;SETTING_VIEW_LOCAL_VALUE&quot;</span>,
+            SettingView::Unspecified =&gt; <span class="string">"SETTING_VIEW_UNSPECIFIED"</span>,
+            SettingView::Basic =&gt; <span class="string">"SETTING_VIEW_BASIC"</span>,
+            SettingView::EffectiveValue =&gt; <span class="string">"SETTING_VIEW_EFFECTIVE_VALUE"</span>,
+            SettingView::LocalValue =&gt; <span class="string">"SETTING_VIEW_LOCAL_VALUE"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;SETTING_VIEW_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;SETTING_VIEW_BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-            <span class="string">&quot;SETTING_VIEW_EFFECTIVE_VALUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EffectiveValue),
-            <span class="string">&quot;SETTING_VIEW_LOCAL_VALUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocalValue),
+            <span class="string">"SETTING_VIEW_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"SETTING_VIEW_BASIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+            <span class="string">"SETTING_VIEW_EFFECTIVE_VALUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EffectiveValue),
+            <span class="string">"SETTING_VIEW_LOCAL_VALUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocalValue),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -744,7 +745,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -821,19 +822,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.resourcesettings.v1.ResourceSettingsService/ListSettings&quot;</span>,
+                <span class="string">"/google.cloud.resourcesettings.v1.ResourceSettingsService/ListSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.resourcesettings.v1.ResourceSettingsService&quot;</span>,
-                        <span class="string">&quot;ListSettings&quot;</span>,
+                        <span class="string">"google.cloud.resourcesettings.v1.ResourceSettingsService"</span>,
+                        <span class="string">"ListSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -852,19 +853,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.resourcesettings.v1.ResourceSettingsService/GetSetting&quot;</span>,
+                <span class="string">"/google.cloud.resourcesettings.v1.ResourceSettingsService/GetSetting"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.resourcesettings.v1.ResourceSettingsService&quot;</span>,
-                        <span class="string">&quot;GetSetting&quot;</span>,
+                        <span class="string">"google.cloud.resourcesettings.v1.ResourceSettingsService"</span>,
+                        <span class="string">"GetSetting"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -895,19 +896,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.resourcesettings.v1.ResourceSettingsService/UpdateSetting&quot;</span>,
+                <span class="string">"/google.cloud.resourcesettings.v1.ResourceSettingsService/UpdateSetting"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.resourcesettings.v1.ResourceSettingsService&quot;</span>,
-                        <span class="string">&quot;UpdateSetting&quot;</span>,
+                        <span class="string">"google.cloud.resourcesettings.v1.ResourceSettingsService"</span>,
+                        <span class="string">"UpdateSetting"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

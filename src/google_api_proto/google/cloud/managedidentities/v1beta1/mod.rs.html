@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/managedidentities/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/managedidentities/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -939,10 +940,10 @@
 </span><span class="kw">pub struct </span>Domain {
     <span class="doccomment">/// Output only. The unique name of the domain using the form:
     /// `projects/{project_id}/locations/global/domains/{domain_name}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Resource labels that can contain user-provided metadata.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -952,45 +953,45 @@
     /// instance is connected to. Networks can be added using UpdateDomain.
     /// The domain is only available on networks listed in `authorized_networks`.
     /// If CIDR subnets overlap between networks, domain creation will fail.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>authorized_networks: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Required. The CIDR range of internal addresses that are reserved for this
     /// domain. Reserved networks must be /24 or larger. Ranges must be
     /// unique and non-overlapping with existing subnets in
     /// \[Domain\].[authorized_networks].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>reserved_ip_range: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Locations where domain needs to be provisioned.
     /// [regions][compute/docs/regions-zones/]
     /// e.g. us-west1 or us-east4
     /// Service supports up to 4 locations at once. Each location will use a /26
     /// block.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>locations: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. The name of delegated administrator account used to perform
     /// Active Directory operations. If not specified, `setupadmin` will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>admin: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The fully-qualified domain name of the exposed domain used by
     /// clients to connect to the service. Similar to what would be chosen for an
     /// Active Directory set up on an internal network.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>fqdn: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time the instance was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The last update time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The current state of this domain.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;domain::State&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"domain::State"</span>, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Additional information about the current status of this
     /// domain, if available.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current trusts associated with the domain.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>trusts: ::prost::alloc::vec::Vec&lt;Trust&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Domain`.
@@ -1015,7 +1016,7 @@
         </span>Creating = <span class="number">1</span>,
         <span class="doccomment">/// The domain has been created and is fully usable.
         </span>Ready = <span class="number">2</span>,
-        <span class="doccomment">/// The domain&#39;s configuration is being updated.
+        <span class="doccomment">/// The domain's configuration is being updated.
         </span>Updating = <span class="number">3</span>,
         <span class="doccomment">/// The domain is being deleted.
         </span>Deleting = <span class="number">4</span>,
@@ -1032,29 +1033,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Repairing =&gt; <span class="string">&quot;REPAIRING&quot;</span>,
-                State::PerformingMaintenance =&gt; <span class="string">&quot;PERFORMING_MAINTENANCE&quot;</span>,
-                State::Unavailable =&gt; <span class="string">&quot;UNAVAILABLE&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Ready =&gt; <span class="string">"READY"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Repairing =&gt; <span class="string">"REPAIRING"</span>,
+                State::PerformingMaintenance =&gt; <span class="string">"PERFORMING_MAINTENANCE"</span>,
+                State::Unavailable =&gt; <span class="string">"UNAVAILABLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;REPAIRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Repairing),
-                <span class="string">&quot;PERFORMING_MAINTENANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PerformingMaintenance),
-                <span class="string">&quot;UNAVAILABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unavailable),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"READY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"REPAIRING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Repairing),
+                <span class="string">"PERFORMING_MAINTENANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PerformingMaintenance),
+                <span class="string">"UNAVAILABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unavailable),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1067,46 +1068,46 @@
 </span><span class="kw">pub struct </span>Trust {
     <span class="doccomment">/// The fully qualified target domain name which will be in trust with the
     /// current domain.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>target_domain_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of trust represented by the trust resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;trust::TrustType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"trust::TrustType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>trust_type: i32,
     <span class="doccomment">/// The trust direction, which decides if the current domain is trusted,
     /// trusting, or both.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;trust::TrustDirection&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"trust::TrustDirection"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>trust_direction: i32,
     <span class="doccomment">/// The trust authentication type, which decides whether the trusted side has
     /// forest/domain wide access or selective access to an approved set of
     /// resources.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>selective_authentication: bool,
     <span class="doccomment">/// The target DNS server IP addresses which can resolve the remote domain
     /// involved in the trust.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>target_dns_ip_addresses: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Input only. The trust secret used for the handshake
     /// with the target domain. It will not be stored.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>trust_handshake_secret: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time the instance was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The last update time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The current state of the trust.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;trust::State&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"trust::State"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Additional information about the current state of the
     /// trust, if available.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>state_description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The last heartbeat time when the trust was known to be
     /// connected.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>last_trust_heartbeat_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Trust`.
@@ -1143,25 +1144,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Connected =&gt; <span class="string">&quot;CONNECTED&quot;</span>,
-                State::Disconnected =&gt; <span class="string">&quot;DISCONNECTED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Connected =&gt; <span class="string">"CONNECTED"</span>,
+                State::Disconnected =&gt; <span class="string">"DISCONNECTED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;CONNECTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Connected),
-                <span class="string">&quot;DISCONNECTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disconnected),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"CONNECTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Connected),
+                <span class="string">"DISCONNECTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disconnected),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1192,19 +1193,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                TrustType::Unspecified =&gt; <span class="string">&quot;TRUST_TYPE_UNSPECIFIED&quot;</span>,
-                TrustType::Forest =&gt; <span class="string">&quot;FOREST&quot;</span>,
-                TrustType::External =&gt; <span class="string">&quot;EXTERNAL&quot;</span>,
+                TrustType::Unspecified =&gt; <span class="string">"TRUST_TYPE_UNSPECIFIED"</span>,
+                TrustType::Forest =&gt; <span class="string">"FOREST"</span>,
+                TrustType::External =&gt; <span class="string">"EXTERNAL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TRUST_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;FOREST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Forest),
-                <span class="string">&quot;EXTERNAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::External),
+                <span class="string">"TRUST_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"FOREST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Forest),
+                <span class="string">"EXTERNAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::External),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1240,21 +1241,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                TrustDirection::Unspecified =&gt; <span class="string">&quot;TRUST_DIRECTION_UNSPECIFIED&quot;</span>,
-                TrustDirection::Inbound =&gt; <span class="string">&quot;INBOUND&quot;</span>,
-                TrustDirection::Outbound =&gt; <span class="string">&quot;OUTBOUND&quot;</span>,
-                TrustDirection::Bidirectional =&gt; <span class="string">&quot;BIDIRECTIONAL&quot;</span>,
+                TrustDirection::Unspecified =&gt; <span class="string">"TRUST_DIRECTION_UNSPECIFIED"</span>,
+                TrustDirection::Inbound =&gt; <span class="string">"INBOUND"</span>,
+                TrustDirection::Outbound =&gt; <span class="string">"OUTBOUND"</span>,
+                TrustDirection::Bidirectional =&gt; <span class="string">"BIDIRECTIONAL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TRUST_DIRECTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INBOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inbound),
-                <span class="string">&quot;OUTBOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Outbound),
-                <span class="string">&quot;BIDIRECTIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bidirectional),
+                <span class="string">"TRUST_DIRECTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"INBOUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inbound),
+                <span class="string">"OUTBOUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Outbound),
+                <span class="string">"BIDIRECTIONAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bidirectional),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1265,25 +1266,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OpMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
     /// have [Operation.error][] value with a [google.rpc.Status.code][google.rpc.Status.code] of 1,
     /// corresponding to `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1293,7 +1294,7 @@
 </span><span class="kw">pub struct </span>CreateMicrosoftAdDomainRequest {
     <span class="doccomment">/// Required. The resource project name and location using the form:
     /// `projects/{project_id}/locations/global`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A domain name, e.g. mydomain.myorg.com, with the following restrictions:
     ///   * Must contain only lowercase letters, numbers, periods and hyphens.
@@ -1301,14 +1302,14 @@
     ///   * Must contain between 2-64 characters.
     ///   * Must end with a number or a letter.
     ///   * Must not start with period.
-    ///   * First segment length (mydomain form example above) shouldn&#39;t exceed
+    ///   * First segment length (mydomain form example above) shouldn't exceed
     ///     15 chars.
     ///   * The last segment cannot be fully numeric.
     ///   * Must be unique within the customer project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>domain_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A Managed Identity domain resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>domain: ::core::option::Option&lt;Domain&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -1318,7 +1319,7 @@
 </span><span class="kw">pub struct </span>ResetAdminPasswordRequest {
     <span class="doccomment">/// Required. The domain resource name using the form:
     /// `projects/{project_id}/locations/global/domains/{domain_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -1327,7 +1328,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResetAdminPasswordResponse {
     <span class="doccomment">/// A random password. See [admin][google.cloud.managedidentities.v1beta1.Domain.admin] for more information.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>password: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1337,29 +1338,29 @@
 </span><span class="kw">pub struct </span>ListDomainsRequest {
     <span class="doccomment">/// Required. The resource name of the domain location using the form:
     /// `projects/{project_id}/locations/global`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of items to return.
     /// If not specified, a default value of 1000 will be used.
     /// Regardless of the page_size value, the response may include a partial list.
-    /// Callers should rely on a response&#39;s
+    /// Callers should rely on a response's
     /// [next_page_token][google.cloud.managedidentities.v1beta1.ListDomainsResponse.next_page_token]
     /// to determine if there are additional results to list.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The `next_page_token` value returned from a previous ListDomainsRequest
     /// request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A filter specifying constraints of a list operation.
-    /// For example, `Domain.fqdn=&quot;mydomain.myorginization&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// For example, `Domain.fqdn="mydomain.myorginization"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Specifies the ordering of results. See
     /// [Sorting
     /// order](&lt;https://cloud.google.com/apis/design/design_patterns#sorting_order&gt;)
     /// for more information.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -1368,14 +1369,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDomainsResponse {
     <span class="doccomment">/// A list of Managed Identities Service domains in the project.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>domains: ::prost::alloc::vec::Vec&lt;Domain&gt;,
     <span class="doccomment">/// A token to retrieve the next page of results, or empty if there are no more
     /// results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -1385,7 +1386,7 @@
 </span><span class="kw">pub struct </span>GetDomainRequest {
     <span class="doccomment">/// Required. The domain resource name using the form:
     /// `projects/{project_id}/locations/global/domains/{domain_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1400,11 +1401,11 @@
     ///   * `locations`
     ///   * `authorized_networks`
     ///   * `audit_logs_enabled`
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. Domain message with updated fields. Only supported fields specified in
     /// update_mask are updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>domain: ::core::option::Option&lt;Domain&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -1414,7 +1415,7 @@
 </span><span class="kw">pub struct </span>DeleteDomainRequest {
     <span class="doccomment">/// Required. The domain resource name using the form:
     /// `projects/{project_id}/locations/global/domains/{domain_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1424,10 +1425,10 @@
 </span><span class="kw">pub struct </span>AttachTrustRequest {
     <span class="doccomment">/// Required. The resource domain name, project name and location using the form:
     /// `projects/{project_id}/locations/global/domains/{domain_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The domain trust resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>trust: ::core::option::Option&lt;Trust&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -1437,15 +1438,15 @@
 </span><span class="kw">pub struct </span>ReconfigureTrustRequest {
     <span class="doccomment">/// Required. The resource domain name, project name and location using the form:
     /// `projects/{project_id}/locations/global/domains/{domain_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The fully-qualified target domain name which will be in trust with current
     /// domain.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>target_domain_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The target DNS server IP addresses to resolve the remote domain involved
     /// in the trust.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target_dns_ip_addresses: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
@@ -1457,10 +1458,10 @@
 </span><span class="kw">pub struct </span>DetachTrustRequest {
     <span class="doccomment">/// Required. The resource domain name, project name, and location using the form:
     /// `projects/{project_id}/locations/global/domains/{domain_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The domain trust resource to removed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>trust: ::core::option::Option&lt;Trust&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -1470,10 +1471,10 @@
 </span><span class="kw">pub struct </span>ValidateTrustRequest {
     <span class="doccomment">/// Required. The resource domain name, project name, and location using the form:
     /// `projects/{project_id}/locations/global/domains/{domain_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The domain trust to validate trust state for.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>trust: ::core::option::Option&lt;Trust&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1489,7 +1490,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1566,24 +1567,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/CreateMicrosoftAdDomain&quot;</span>,
+                <span class="string">"/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/CreateMicrosoftAdDomain"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.managedidentities.v1beta1.ManagedIdentitiesService&quot;</span>,
-                        <span class="string">&quot;CreateMicrosoftAdDomain&quot;</span>,
+                        <span class="string">"google.cloud.managedidentities.v1beta1.ManagedIdentitiesService"</span>,
+                        <span class="string">"CreateMicrosoftAdDomain"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Resets a domain&#39;s administrator password.
+        <span class="doccomment">/// Resets a domain's administrator password.
         </span><span class="kw">pub async fn </span>reset_admin_password(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ResetAdminPasswordRequest&gt;,
@@ -1597,19 +1598,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/ResetAdminPassword&quot;</span>,
+                <span class="string">"/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/ResetAdminPassword"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.managedidentities.v1beta1.ManagedIdentitiesService&quot;</span>,
-                        <span class="string">&quot;ResetAdminPassword&quot;</span>,
+                        <span class="string">"google.cloud.managedidentities.v1beta1.ManagedIdentitiesService"</span>,
+                        <span class="string">"ResetAdminPassword"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1628,19 +1629,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/ListDomains&quot;</span>,
+                <span class="string">"/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/ListDomains"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.managedidentities.v1beta1.ManagedIdentitiesService&quot;</span>,
-                        <span class="string">&quot;ListDomains&quot;</span>,
+                        <span class="string">"google.cloud.managedidentities.v1beta1.ManagedIdentitiesService"</span>,
+                        <span class="string">"ListDomains"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1656,19 +1657,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/GetDomain&quot;</span>,
+                <span class="string">"/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/GetDomain"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.managedidentities.v1beta1.ManagedIdentitiesService&quot;</span>,
-                        <span class="string">&quot;GetDomain&quot;</span>,
+                        <span class="string">"google.cloud.managedidentities.v1beta1.ManagedIdentitiesService"</span>,
+                        <span class="string">"GetDomain"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1687,19 +1688,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/UpdateDomain&quot;</span>,
+                <span class="string">"/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/UpdateDomain"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.managedidentities.v1beta1.ManagedIdentitiesService&quot;</span>,
-                        <span class="string">&quot;UpdateDomain&quot;</span>,
+                        <span class="string">"google.cloud.managedidentities.v1beta1.ManagedIdentitiesService"</span>,
+                        <span class="string">"UpdateDomain"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1718,19 +1719,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/DeleteDomain&quot;</span>,
+                <span class="string">"/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/DeleteDomain"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.managedidentities.v1beta1.ManagedIdentitiesService&quot;</span>,
-                        <span class="string">&quot;DeleteDomain&quot;</span>,
+                        <span class="string">"google.cloud.managedidentities.v1beta1.ManagedIdentitiesService"</span>,
+                        <span class="string">"DeleteDomain"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1749,19 +1750,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/AttachTrust&quot;</span>,
+                <span class="string">"/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/AttachTrust"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.managedidentities.v1beta1.ManagedIdentitiesService&quot;</span>,
-                        <span class="string">&quot;AttachTrust&quot;</span>,
+                        <span class="string">"google.cloud.managedidentities.v1beta1.ManagedIdentitiesService"</span>,
+                        <span class="string">"AttachTrust"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1780,19 +1781,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/ReconfigureTrust&quot;</span>,
+                <span class="string">"/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/ReconfigureTrust"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.managedidentities.v1beta1.ManagedIdentitiesService&quot;</span>,
-                        <span class="string">&quot;ReconfigureTrust&quot;</span>,
+                        <span class="string">"google.cloud.managedidentities.v1beta1.ManagedIdentitiesService"</span>,
+                        <span class="string">"ReconfigureTrust"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1811,19 +1812,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/DetachTrust&quot;</span>,
+                <span class="string">"/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/DetachTrust"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.managedidentities.v1beta1.ManagedIdentitiesService&quot;</span>,
-                        <span class="string">&quot;DetachTrust&quot;</span>,
+                        <span class="string">"google.cloud.managedidentities.v1beta1.ManagedIdentitiesService"</span>,
+                        <span class="string">"DetachTrust"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1843,19 +1844,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/ValidateTrust&quot;</span>,
+                <span class="string">"/google.cloud.managedidentities.v1beta1.ManagedIdentitiesService/ValidateTrust"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.managedidentities.v1beta1.ManagedIdentitiesService&quot;</span>,
-                        <span class="string">&quot;ValidateTrust&quot;</span>,
+                        <span class="string">"google.cloud.managedidentities.v1beta1.ManagedIdentitiesService"</span>,
+                        <span class="string">"ValidateTrust"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

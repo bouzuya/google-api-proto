@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/networkconnectivity/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/networkconnectivity/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2567,29 +2568,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have been cancelled successfully
     /// have [Operation.error][] value with a
     /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Policy Based Routes (PBR) are more powerful routes that allows GCP customers
@@ -2602,55 +2603,55 @@
 </span><span class="kw">pub struct </span>PolicyBasedRoute {
     <span class="doccomment">/// Immutable. A unique name of the resource in the form of
     /// `projects/{project_number}/locations/global/PolicyBasedRoutes/{policy_based_route_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Time when the PolicyBasedRoute was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when the PolicyBasedRoute was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// User-defined labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Optional. An optional description of this resource. Provide this field when
     /// you create the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Fully-qualified URL of the network that this route applies to.
     /// e.g. projects/my-project/global/networks/my-network.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The filter to match L4 traffic.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>filter: ::core::option::Option&lt;policy_based_route::Filter&gt;,
     <span class="doccomment">/// Optional. The priority of this policy based route. Priority is used to
     /// break ties in cases where there are more than one matching policy based
     /// routes found. In cases where multiple policy based routes are matched, the
     /// one with the lowest-numbered priority value wins. The default value is
     /// 1000. The priority value must be from 1 to 65535, inclusive.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>priority: i32,
     <span class="doccomment">/// Output only. If potential misconfigurations are detected for this route,
     /// this field will be populated with warning messages.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>warnings: ::prost::alloc::vec::Vec&lt;policy_based_route::Warnings&gt;,
     <span class="doccomment">/// Output only. Server-defined fully-qualified URL for this resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>self_link: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Type of this resource. Always
     /// networkconnectivity#policyBasedRoute for Policy Based Route resources.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
     <span class="doccomment">/// Target specifies network endpoints to which this policy based route applies
     /// to. If none of the target is specified, the PBR will be installed on all
     /// network endpoints (e.g. VMs, VPNs, and Interconnects) in the VPC.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;policy_based_route::Target&quot;</span>, tags = <span class="string">&quot;18, 9&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"policy_based_route::Target"</span>, tags = <span class="string">"18, 9"</span>)]
     </span><span class="kw">pub </span>target: ::core::option::Option&lt;policy_based_route::Target&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;policy_based_route::NextHop&quot;</span>, tags = <span class="string">&quot;12, 21&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"policy_based_route::NextHop"</span>, tags = <span class="string">"12, 21"</span>)]
     </span><span class="kw">pub </span>next_hop: ::core::option::Option&lt;policy_based_route::NextHop&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PolicyBasedRoute`.
@@ -2662,7 +2663,7 @@
         <span class="doccomment">/// Optional. A list of VM instance tags to which this policy based route
         /// applies to. VM instances that have ANY of tags specified here will
         /// install this PBR.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// InterconnectAttachment to which this route applies to.
@@ -2671,7 +2672,7 @@
     </span><span class="kw">pub struct </span>InterconnectAttachment {
         <span class="doccomment">/// Optional. Cloud region to install this policy based route on interconnect
         /// attachment. Use `all` to install it on all interconnect attachments.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>region: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Filter matches L4 traffic.
@@ -2679,21 +2680,21 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Filter {
         <span class="doccomment">/// Optional. The IP protocol that this policy based route applies to. Valid
-        /// values are &#39;TCP&#39;, &#39;UDP&#39;, and &#39;ALL&#39;. Default is &#39;ALL&#39;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// values are 'TCP', 'UDP', and 'ALL'. Default is 'ALL'.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>ip_protocol: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. The source IP range of outgoing packets that this policy based
-        /// route applies to. Default is &quot;0.0.0.0/0&quot; if protocol version is IPv4.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        /// route applies to. Default is "0.0.0.0/0" if protocol version is IPv4.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>src_range: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. The destination IP range of outgoing packets that this policy
-        /// based route applies to. Default is &quot;0.0.0.0/0&quot; if protocol version is
+        /// based route applies to. Default is "0.0.0.0/0" if protocol version is
         /// IPv4.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>dest_range: ::prost::alloc::string::String,
         <span class="doccomment">/// Required. Internet protocol versions this policy based route applies to.
         /// For this version, only IPV4 is supported.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;filter::ProtocolVersion&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"filter::ProtocolVersion"</span>, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>protocol_version: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `Filter`.
@@ -2722,17 +2723,17 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    ProtocolVersion::Unspecified =&gt; <span class="string">&quot;PROTOCOL_VERSION_UNSPECIFIED&quot;</span>,
-                    ProtocolVersion::Ipv4 =&gt; <span class="string">&quot;IPV4&quot;</span>,
+                    ProtocolVersion::Unspecified =&gt; <span class="string">"PROTOCOL_VERSION_UNSPECIFIED"</span>,
+                    ProtocolVersion::Ipv4 =&gt; <span class="string">"IPV4"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;PROTOCOL_VERSION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;IPV4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ipv4),
+                    <span class="string">"PROTOCOL_VERSION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"IPV4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ipv4),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -2743,7 +2744,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Warnings {
         <span class="doccomment">/// Output only. A warning code, if applicable.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;warnings::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"warnings::Code"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>code: i32,
         <span class="doccomment">/// Output only. Metadata about this warning in key: value format. The key
         /// should provides more detail on the warning being returned. For example,
@@ -2751,13 +2752,13 @@
         /// particular zone, this key might be scope and the key value might be the
         /// zone name. Other examples might be a key indicating a deprecated resource
         /// and a suggested replacement.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>data: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             ::prost::alloc::string::String,
         &gt;,
         <span class="doccomment">/// Output only. A human-readable description of the warning code.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>warning_message: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Nested message and enum types in `Warnings`.
@@ -2792,19 +2793,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    Code::WarningUnspecified =&gt; <span class="string">&quot;WARNING_UNSPECIFIED&quot;</span>,
-                    Code::ResourceNotActive =&gt; <span class="string">&quot;RESOURCE_NOT_ACTIVE&quot;</span>,
-                    Code::ResourceBeingModified =&gt; <span class="string">&quot;RESOURCE_BEING_MODIFIED&quot;</span>,
+                    Code::WarningUnspecified =&gt; <span class="string">"WARNING_UNSPECIFIED"</span>,
+                    Code::ResourceNotActive =&gt; <span class="string">"RESOURCE_NOT_ACTIVE"</span>,
+                    Code::ResourceBeingModified =&gt; <span class="string">"RESOURCE_BEING_MODIFIED"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;WARNING_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WarningUnspecified),
-                    <span class="string">&quot;RESOURCE_NOT_ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceNotActive),
-                    <span class="string">&quot;RESOURCE_BEING_MODIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceBeingModified),
+                    <span class="string">"WARNING_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WarningUnspecified),
+                    <span class="string">"RESOURCE_NOT_ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceNotActive),
+                    <span class="string">"RESOURCE_BEING_MODIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceBeingModified),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -2837,17 +2838,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                OtherRoutes::Unspecified =&gt; <span class="string">&quot;OTHER_ROUTES_UNSPECIFIED&quot;</span>,
-                OtherRoutes::DefaultRouting =&gt; <span class="string">&quot;DEFAULT_ROUTING&quot;</span>,
+                OtherRoutes::Unspecified =&gt; <span class="string">"OTHER_ROUTES_UNSPECIFIED"</span>,
+                OtherRoutes::DefaultRouting =&gt; <span class="string">"DEFAULT_ROUTING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;OTHER_ROUTES_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DEFAULT_ROUTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DefaultRouting),
+                <span class="string">"OTHER_ROUTES_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DEFAULT_ROUTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DefaultRouting),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2859,10 +2860,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Target {
         <span class="doccomment">/// Optional. VM instances to which this policy based route applies to.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;18&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"18"</span>)]
         </span>VirtualMachine(VirtualMachine),
         <span class="doccomment">/// Optional. The interconnect attachments to which this route applies to.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>InterconnectAttachment(InterconnectAttachment),
     }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2871,11 +2872,11 @@
         <span class="doccomment">/// Optional. The IP of a global access enabled L4 ILB that should be the
         /// next hop to handle matching packets. For this version, only
         /// next_hop_ilb_ip is supported.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
         </span>NextHopIlbIp(::prost::alloc::string::String),
         <span class="doccomment">/// Optional. Other routes that will be referenced to determine the next hop
         /// of the packet.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OtherRoutes&quot;</span>, tag = <span class="string">&quot;21&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"OtherRoutes"</span>, tag = <span class="string">"21"</span>)]
         </span>NextHopOtherRoutes(i32),
     }
 }
@@ -2883,20 +2884,20 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPolicyBasedRoutesRequest {
-    <span class="doccomment">/// Required. The parent resource&#39;s name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. The parent resource's name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results per page that should be returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// A filter expression that filters the results listed in the response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Sort the results by a certain order.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for [PolicyBasedRouting.ListPolicyBasedRoutes][] method.
@@ -2904,14 +2905,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPolicyBasedRoutesResponse {
     <span class="doccomment">/// Policy based routes to be returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>policy_based_routes: ::prost::alloc::vec::Vec&lt;PolicyBasedRoute&gt;,
     <span class="doccomment">/// The next pagination token in the List response. It should be used as
     /// page_token for the following request. An empty value means no more result.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request for [PolicyBasedRouting.GetPolicyBasedRoute][] method.
@@ -2919,21 +2920,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetPolicyBasedRouteRequest {
     <span class="doccomment">/// Required. Name of the PolicyBasedRoute resource to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for [PolicyBasedRouting.CreatePolicyBasedRoute][] method.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreatePolicyBasedRouteRequest {
-    <span class="doccomment">/// Required. The parent resource&#39;s name of the PolicyBasedRoute.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. The parent resource's name of the PolicyBasedRoute.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Unique id for the Policy Based Route to create.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>policy_based_route_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Initial values for a new Policy Based Route.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>policy_based_route: ::core::option::Option&lt;PolicyBasedRoute&gt;,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -2948,7 +2949,7 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for [PolicyBasedRouting.DeletePolicyBasedRoute][] method.
@@ -2956,7 +2957,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeletePolicyBasedRouteRequest {
     <span class="doccomment">/// Required. Name of the PolicyBasedRoute resource to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -2971,7 +2972,7 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2989,7 +2990,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3066,19 +3067,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/ListPolicyBasedRoutes&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/ListPolicyBasedRoutes"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.PolicyBasedRoutingService&quot;</span>,
-                        <span class="string">&quot;ListPolicyBasedRoutes&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.PolicyBasedRoutingService"</span>,
+                        <span class="string">"ListPolicyBasedRoutes"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3097,19 +3098,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/GetPolicyBasedRoute&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/GetPolicyBasedRoute"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.PolicyBasedRoutingService&quot;</span>,
-                        <span class="string">&quot;GetPolicyBasedRoute&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.PolicyBasedRoutingService"</span>,
+                        <span class="string">"GetPolicyBasedRoute"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3128,19 +3129,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/CreatePolicyBasedRoute&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/CreatePolicyBasedRoute"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.PolicyBasedRoutingService&quot;</span>,
-                        <span class="string">&quot;CreatePolicyBasedRoute&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.PolicyBasedRoutingService"</span>,
+                        <span class="string">"CreatePolicyBasedRoute"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3159,19 +3160,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/DeletePolicyBasedRoute&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.PolicyBasedRoutingService/DeletePolicyBasedRoute"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.PolicyBasedRoutingService&quot;</span>,
-                        <span class="string">&quot;DeletePolicyBasedRoute&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.PolicyBasedRoutingService"</span>,
+                        <span class="string">"DeletePolicyBasedRoute"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3180,7 +3181,7 @@
 }
 <span class="doccomment">/// A Network Connectivity Center hub is a global management resource to which
 /// you attach spokes. A single hub can contain spokes from multiple regions.
-/// However, if any of a hub&#39;s spokes use the site-to-site data transfer feature,
+/// However, if any of a hub's spokes use the site-to-site data transfer feature,
 /// the resources associated with those spokes must all be in the same VPC
 /// network. Spokes that do not use site-to-site data transfer can be associated
 /// with any VPC network in your project.
@@ -3190,38 +3191,38 @@
     <span class="doccomment">/// Immutable. The name of the hub. Hub names must be unique. They use the
     /// following form:
     ///      `projects/{project_number}/locations/global/hubs/{hub_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time the hub was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the hub was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional labels in key-value pair format. For more information about
     /// labels, see [Requirements for
     /// labels](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements&gt;).
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// An optional description of the hub.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The Google-generated UUID for the hub. This value is unique
     /// across all hub resources. If a hub is deleted and another with the same
     /// name is created, the new hub is assigned a different unique_id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>unique_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current lifecycle state of this hub.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;State&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"State"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// The VPC networks associated with this hub&#39;s spokes.
+    <span class="doccomment">/// The VPC networks associated with this hub's spokes.
     ///
     /// This field is read-only. Network Connectivity Center automatically
     /// populates it based on the set of spokes attached to the hub.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>routing_vpcs: ::prost::alloc::vec::Vec&lt;RoutingVpc&gt;,
     <span class="doccomment">/// Output only. The route tables that belong to this hub. They use the
     /// following form:
@@ -3229,14 +3230,14 @@
     ///
     /// This field is read-only. Network Connectivity Center automatically
     /// populates it based on the route tables nested under the hub.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>route_tables: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. A summary of the spokes associated with a hub. The
     /// summary includes a count of spokes according to type
     /// and according to state. If any spokes are inactive,
     /// the summary also lists the reasons they are inactive,
     /// including a count for each reason.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>spoke_summary: ::core::option::Option&lt;SpokeSummary&gt;,
 }
 <span class="doccomment">/// RoutingVPC contains information about the VPC networks associated
@@ -3245,14 +3246,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RoutingVpc {
     <span class="doccomment">/// The URI of the VPC network.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. If true, indicates that this VPC network is currently
     /// associated with spokes that use the data transfer feature (spokes where the
     /// site_to_site_data_transfer field is set to true). If you create new spokes
     /// that use data transfer, they must be associated with this VPC network. At
     /// most, one VPC network will have this field set to true.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>required_for_new_site_to_site_data_transfer_spokes: bool,
 }
 <span class="doccomment">/// A Network Connectivity Center spoke represents one or more network
@@ -3271,61 +3272,61 @@
     <span class="doccomment">/// Immutable. The name of the spoke. Spoke names must be unique. They use the
     /// following form:
     ///      `projects/{project_number}/locations/{region}/spokes/{spoke_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time the spoke was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the spoke was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional labels in key-value pair format. For more information about
     /// labels, see [Requirements for
     /// labels](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements&gt;).
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// An optional description of the spoke.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Immutable. The name of the hub that this spoke is attached to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>hub: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The name of the group that this spoke is associated with.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>group: ::prost::alloc::string::String,
     <span class="doccomment">/// VPN tunnels that are associated with the spoke.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>linked_vpn_tunnels: ::core::option::Option&lt;LinkedVpnTunnels&gt;,
     <span class="doccomment">/// VLAN attachments that are associated with the spoke.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>linked_interconnect_attachments: ::core::option::Option&lt;
         LinkedInterconnectAttachments,
     &gt;,
     <span class="doccomment">/// Router appliance instances that are associated with the spoke.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>linked_router_appliance_instances: ::core::option::Option&lt;
         LinkedRouterApplianceInstances,
     &gt;,
     <span class="doccomment">/// Optional. VPC network that is associated with the spoke.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>linked_vpc_network: ::core::option::Option&lt;LinkedVpcNetwork&gt;,
     <span class="doccomment">/// Output only. The Google-generated UUID for the spoke. This value is unique
     /// across all spoke resources. If a spoke is deleted and another with the same
     /// name is created, the new spoke is assigned a different `unique_id`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>unique_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current lifecycle state of this spoke.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;State&quot;</span>, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"State"</span>, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The reasons for current state of the spoke. Only present when
     /// the spoke is in the `INACTIVE` state.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>reasons: ::prost::alloc::vec::Vec&lt;spoke::StateReason&gt;,
     <span class="doccomment">/// Output only. The type of resource associated with the spoke.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SpokeType&quot;</span>, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"SpokeType"</span>, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>spoke_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Spoke`.
@@ -3335,13 +3336,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>StateReason {
         <span class="doccomment">/// The code associated with this reason.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;state_reason::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"state_reason::Code"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>code: i32,
         <span class="doccomment">/// Human-readable details about this reason.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
         <span class="doccomment">/// Additional information provided by the user in the RejectSpoke call.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>user_details: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Nested message and enum types in `StateReason`.
@@ -3377,23 +3378,23 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
-                    Code::PendingReview =&gt; <span class="string">&quot;PENDING_REVIEW&quot;</span>,
-                    Code::Rejected =&gt; <span class="string">&quot;REJECTED&quot;</span>,
-                    Code::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
-                    Code::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                    Code::Unspecified =&gt; <span class="string">"CODE_UNSPECIFIED"</span>,
+                    Code::PendingReview =&gt; <span class="string">"PENDING_REVIEW"</span>,
+                    Code::Rejected =&gt; <span class="string">"REJECTED"</span>,
+                    Code::Paused =&gt; <span class="string">"PAUSED"</span>,
+                    Code::Failed =&gt; <span class="string">"FAILED"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;PENDING_REVIEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PendingReview),
-                    <span class="string">&quot;REJECTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rejected),
-                    <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
-                    <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                    <span class="string">"CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"PENDING_REVIEW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PendingReview),
+                    <span class="string">"REJECTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rejected),
+                    <span class="string">"PAUSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
+                    <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -3406,33 +3407,33 @@
     <span class="doccomment">/// Immutable. The name of the route table. Route table names must be unique.
     /// They use the following form:
     ///       `projects/{project_number}/locations/global/hubs/{hub}/routeTables/{route_table_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time the route table was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the route table was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional labels in key-value pair format. For more information about
     /// labels, see [Requirements for
     /// labels](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements&gt;).
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// An optional description of the route table.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The Google-generated UUID for the route table. This value is
     /// unique across all route table resources. If a route table is deleted and
     /// another with the same name is created, the new route table is assigned
     /// a different `uid`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current lifecycle state of this route table.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"State"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// A route defines a path from VM instances within a spoke to a specific
@@ -3443,52 +3444,52 @@
     <span class="doccomment">/// Immutable. The name of the route. Route names must be unique. Route names
     /// use the following form:
     ///       `projects/{project_number}/locations/global/hubs/{hub}/routeTables/{route_table_id}/routes/{route_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time the route was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the route was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The destination IP address range.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>ip_cidr_range: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The route&#39;s type. Its type is determined by the properties of
+    <span class="doccomment">/// Output only. The route's type. Its type is determined by the properties of
     /// its IP address range.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;RouteType&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"RouteType"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Immutable. The destination VPC network for packets on this route.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_hop_vpc_network: ::core::option::Option&lt;NextHopVpcNetwork&gt;,
     <span class="doccomment">/// Optional labels in key-value pair format. For more information about
     /// labels, see [Requirements for
     /// labels](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements&gt;).
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// An optional description of the route.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The Google-generated UUID for the route. This value is unique
     /// across all Network Connectivity Center route resources. If a
     /// route is deleted and another with the same name is created,
     /// the new route is assigned a different `uid`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current lifecycle state of the route.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;State&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"State"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Immutable. The spoke that this route leads to.
     /// Example: projects/12345/locations/global/spokes/SPOKE
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>spoke: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The location of the route.
-    /// Uses the following form: &quot;projects/{project}/locations/{location}&quot;
+    /// Uses the following form: "projects/{project}/locations/{location}"
     /// Example: projects/1234/locations/us-central1
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A group represents a subset of spokes attached to a hub.
@@ -3498,33 +3499,33 @@
     <span class="doccomment">/// Immutable. The name of the group. Group names must be unique. They
     /// use the following form:
     ///       `projects/{project_number}/locations/global/hubs/{hub}/groups/{group_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time the group was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the group was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Labels in key-value pair format. For more information about
     /// labels, see [Requirements for
     /// labels](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements&gt;).
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Optional. The description of the group.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The Google-generated UUID for the group. This value is unique
     /// across all group resources. If a group is deleted and
     /// another with the same name is created, the new route table is assigned
     /// a different unique_id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current lifecycle state of this group.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"State"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Request for
@@ -3533,20 +3534,20 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListHubsRequest {
-    <span class="doccomment">/// Required. The parent resource&#39;s name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. The parent resource's name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results per page to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression that filters the list of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Sort the results by a certain order.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for
@@ -3556,15 +3557,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListHubsResponse {
     <span class="doccomment">/// The requested hubs.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>hubs: ::prost::alloc::vec::Vec&lt;Hub&gt;,
     <span class="doccomment">/// The token for the next page of the response. To see more results,
     /// use this value as the page_token for your next request. If this value
     /// is empty, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request for
@@ -3574,7 +3575,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetHubRequest {
     <span class="doccomment">/// Required. The name of the hub resource to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
@@ -3584,18 +3585,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateHubRequest {
     <span class="doccomment">/// Required. The parent resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A unique identifier for the hub.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>hub_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The initial values for a new hub.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>hub: ::core::option::Option&lt;Hub&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID so
     /// that if you must retry your request, the server knows to ignore the request
     /// if it has already been completed. The server guarantees that a request
-    /// doesn&#39;t result in creation of duplicate commitments for at least 60
+    /// doesn't result in creation of duplicate commitments for at least 60
     /// minutes.
     ///
     /// For example, consider a situation where you make an initial request and
@@ -3606,7 +3607,7 @@
     ///
     /// The request ID must be a valid UUID, with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
@@ -3620,15 +3621,15 @@
     /// update_mask are relative to the resource, not the full request. A field is
     /// overwritten if it is in the mask. If the user does not provide a mask, then
     /// all fields are overwritten.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The state that the hub should be in after the update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>hub: ::core::option::Option&lt;Hub&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID so
     /// that if you must retry your request, the server knows to ignore the request
     /// if it has already been completed. The server guarantees that a request
-    /// doesn&#39;t result in creation of duplicate commitments for at least 60
+    /// doesn't result in creation of duplicate commitments for at least 60
     /// minutes.
     ///
     /// For example, consider a situation where you make an initial request and
@@ -3639,7 +3640,7 @@
     ///
     /// The request ID must be a valid UUID, with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -3648,12 +3649,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteHubRequest {
     <span class="doccomment">/// Required. The name of the hub to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID so
     /// that if you must retry your request, the server knows to ignore the request
     /// if it has already been completed. The server guarantees that a request
-    /// doesn&#39;t result in creation of duplicate commitments for at least 60
+    /// doesn't result in creation of duplicate commitments for at least 60
     /// minutes.
     ///
     /// For example, consider a situation where you make an initial request and
@@ -3664,7 +3665,7 @@
     ///
     /// The request ID must be a valid UUID, with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -3674,7 +3675,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListHubSpokesRequest {
     <span class="doccomment">/// Required. The name of the hub.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of locations.
     /// Specify one of the following: `\[global\]`, a single region (for
@@ -3684,24 +3685,24 @@
     /// includes only spokes in the specified location.
     /// If the spoke_locations field is not populated, the list of results
     /// includes spokes in all locations.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>spoke_locations: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The maximum number of results to return per page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression that filters the list of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Sort the results by name or create_time.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// The view of the spoke to return.
     /// The view that you use determines which spoke fields are included in the
     /// response.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;list_hub_spokes_request::SpokeView&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"list_hub_spokes_request::SpokeView"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>view: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ListHubSpokesRequest`.
@@ -3736,19 +3737,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SpokeView::Unspecified =&gt; <span class="string">&quot;SPOKE_VIEW_UNSPECIFIED&quot;</span>,
-                SpokeView::Basic =&gt; <span class="string">&quot;BASIC&quot;</span>,
-                SpokeView::Detailed =&gt; <span class="string">&quot;DETAILED&quot;</span>,
+                SpokeView::Unspecified =&gt; <span class="string">"SPOKE_VIEW_UNSPECIFIED"</span>,
+                SpokeView::Basic =&gt; <span class="string">"BASIC"</span>,
+                SpokeView::Detailed =&gt; <span class="string">"DETAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SPOKE_VIEW_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-                <span class="string">&quot;DETAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Detailed),
+                <span class="string">"SPOKE_VIEW_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"BASIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+                <span class="string">"DETAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Detailed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3762,15 +3763,15 @@
     <span class="doccomment">/// The requested spokes.
     /// The spoke fields can be partially populated based on the `view` field in
     /// the request message.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>spokes: ::prost::alloc::vec::Vec&lt;Spoke&gt;,
     <span class="doccomment">/// The token for the next page of the response. To see more results,
     /// use this value as the page_token for your next request. If this value
     /// is empty, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The request for
@@ -3779,19 +3780,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSpokesRequest {
     <span class="doccomment">/// Required. The parent resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return per page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression that filters the list of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Sort the results by a certain order.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
@@ -3800,15 +3801,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSpokesResponse {
     <span class="doccomment">/// The requested spokes.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>spokes: ::prost::alloc::vec::Vec&lt;Spoke&gt;,
     <span class="doccomment">/// The token for the next page of the response. To see more results,
     /// use this value as the page_token for your next request. If this value
     /// is empty, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The request for
@@ -3817,7 +3818,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetSpokeRequest {
     <span class="doccomment">/// Required. The name of the spoke resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -3826,18 +3827,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateSpokeRequest {
     <span class="doccomment">/// Required. The parent resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Unique id for the spoke to create.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>spoke_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The initial values for a new spoke.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>spoke: ::core::option::Option&lt;Spoke&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID so
     /// that if you must retry your request, the server knows to ignore the request
     /// if it has already been completed. The server guarantees that a request
-    /// doesn&#39;t result in creation of duplicate commitments for at least 60
+    /// doesn't result in creation of duplicate commitments for at least 60
     /// minutes.
     ///
     /// For example, consider a situation where you make an initial request and
@@ -3848,7 +3849,7 @@
     ///
     /// The request ID must be a valid UUID, with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
@@ -3862,15 +3863,15 @@
     /// update_mask are relative to the resource, not the full request. A field is
     /// overwritten if it is in the mask. If the user does not provide a mask, then
     /// all fields are overwritten.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The state that the spoke should be in after the update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>spoke: ::core::option::Option&lt;Spoke&gt;,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID so
     /// that if you must retry your request, the server knows to ignore the request
     /// if it has already been completed. The server guarantees that a request
-    /// doesn&#39;t result in creation of duplicate commitments for at least 60
+    /// doesn't result in creation of duplicate commitments for at least 60
     /// minutes.
     ///
     /// For example, consider a situation where you make an initial request and
@@ -3881,7 +3882,7 @@
     ///
     /// The request ID must be a valid UUID, with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -3890,12 +3891,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteSpokeRequest {
     <span class="doccomment">/// Required. The name of the spoke to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID so
     /// that if you must retry your request, the server knows to ignore the request
     /// if it has already been completed. The server guarantees that a request
-    /// doesn&#39;t result in creation of duplicate commitments for at least 60
+    /// doesn't result in creation of duplicate commitments for at least 60
     /// minutes.
     ///
     /// For example, consider a situation where you make an initial request and
@@ -3906,7 +3907,7 @@
     ///
     /// The request ID must be a valid UUID, with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -3915,15 +3916,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AcceptHubSpokeRequest {
     <span class="doccomment">/// Required. The name of the hub into which to accept the spoke.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The URI of the spoke to accept into the hub.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>spoke_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID so
     /// that if you must retry your request, the server knows to ignore the request
     /// if it has already been completed. The server guarantees that a request
-    /// doesn&#39;t result in creation of duplicate commitments for at least 60
+    /// doesn't result in creation of duplicate commitments for at least 60
     /// minutes.
     ///
     /// For example, consider a situation where you make an initial request and
@@ -3934,7 +3935,7 @@
     ///
     /// The request ID must be a valid UUID, with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
@@ -3943,7 +3944,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AcceptHubSpokeResponse {
     <span class="doccomment">/// The spoke that was operated on.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>spoke: ::core::option::Option&lt;Spoke&gt;,
 }
 <span class="doccomment">/// The request for
@@ -3952,15 +3953,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RejectHubSpokeRequest {
     <span class="doccomment">/// Required. The name of the hub from which to reject the spoke.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The URI of the spoke to reject from the hub.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>spoke_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A request ID to identify requests. Specify a unique request ID so
     /// that if you must retry your request, the server knows to ignore the request
     /// if it has already been completed. The server guarantees that a request
-    /// doesn&#39;t result in creation of duplicate commitments for at least 60
+    /// doesn't result in creation of duplicate commitments for at least 60
     /// minutes.
     ///
     /// For example, consider a situation where you make an initial request and
@@ -3971,10 +3972,10 @@
     ///
     /// The request ID must be a valid UUID, with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Additional information provided by the hub administrator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>details: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
@@ -3983,7 +3984,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RejectHubSpokeResponse {
     <span class="doccomment">/// The spoke that was operated on.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>spoke: ::core::option::Option&lt;Spoke&gt;,
 }
 <span class="doccomment">/// The request for
@@ -3992,7 +3993,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetRouteTableRequest {
     <span class="doccomment">/// Required. The name of the route table resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -4001,7 +4002,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetRouteRequest {
     <span class="doccomment">/// Required. The name of the route resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
@@ -4010,20 +4011,20 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRoutesRequest {
-    <span class="doccomment">/// Required. The parent resource&#39;s name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. The parent resource's name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return per page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression that filters the list of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Sort the results by a certain order.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for
@@ -4033,15 +4034,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRoutesResponse {
     <span class="doccomment">/// The requested routes.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>routes: ::prost::alloc::vec::Vec&lt;Route&gt;,
     <span class="doccomment">/// The token for the next page of the response. To see more results,
     /// use this value as the page_token for your next request. If this value
     /// is empty, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// RouteTables that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request for
@@ -4050,20 +4051,20 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRouteTablesRequest {
-    <span class="doccomment">/// Required. The parent resource&#39;s name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. The parent resource's name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return per page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression that filters the list of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Sort the results by a certain order.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for
@@ -4073,15 +4074,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRouteTablesResponse {
     <span class="doccomment">/// The requested route tables.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>route_tables: ::prost::alloc::vec::Vec&lt;RouteTable&gt;,
     <span class="doccomment">/// The token for the next page of the response. To see more results,
     /// use this value as the page_token for your next request. If this value
     /// is empty, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Hubs that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request for
@@ -4090,20 +4091,20 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListGroupsRequest {
-    <span class="doccomment">/// Required. The parent resource&#39;s name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. The parent resource's name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results to return per page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression that filters the list of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Sort the results by a certain order.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for
@@ -4113,15 +4114,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListGroupsResponse {
     <span class="doccomment">/// The requested groups.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>groups: ::prost::alloc::vec::Vec&lt;Group&gt;,
     <span class="doccomment">/// The token for the next page of the response. To see more results,
     /// use this value as the page_token for your next request. If this value
     /// is empty, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Hubs that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A collection of Cloud VPN tunnel resources. These resources should be
@@ -4132,15 +4133,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LinkedVpnTunnels {
     <span class="doccomment">/// The URIs of linked VPN tunnel resources.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A value that controls whether site-to-site data transfer is enabled for
     /// these resources. Data transfer is available only in [supported
     /// locations](&lt;https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations&gt;).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>site_to_site_data_transfer: bool,
     <span class="doccomment">/// Output only. The VPC network where these VPN tunnels are located.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>vpc_network: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A collection of VLAN attachment resources. These resources should
@@ -4151,15 +4152,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LinkedInterconnectAttachments {
     <span class="doccomment">/// The URIs of linked interconnect attachment resources
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A value that controls whether site-to-site data transfer is enabled for
     /// these resources. Data transfer is available only in [supported
     /// locations](&lt;https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations&gt;).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>site_to_site_data_transfer: bool,
     <span class="doccomment">/// Output only. The VPC network where these VLAN attachments are located.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>vpc_network: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A collection of router appliance instances. If you configure multiple router
@@ -4170,16 +4171,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LinkedRouterApplianceInstances {
     <span class="doccomment">/// The list of router appliance instances.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instances: ::prost::alloc::vec::Vec&lt;RouterApplianceInstance&gt;,
     <span class="doccomment">/// A value that controls whether site-to-site data transfer is enabled for
     /// these resources. Data transfer is available only in [supported
     /// locations](&lt;https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/locations&gt;).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>site_to_site_data_transfer: bool,
     <span class="doccomment">/// Output only. The VPC network where these router appliance instances are
     /// located.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>vpc_network: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An existing VPC network.
@@ -4187,24 +4188,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LinkedVpcNetwork {
     <span class="doccomment">/// Required. The URI of the VPC network resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. IP ranges encompassing the subnets to be excluded from peering.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>exclude_export_ranges: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A router appliance instance is a Compute Engine virtual machine (VM) instance
 /// that acts as a BGP speaker. A router appliance instance is specified by the
-/// URI of the VM and the internal IP address of one of the VM&#39;s network
+/// URI of the VM and the internal IP address of one of the VM's network
 /// interfaces.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RouterApplianceInstance {
     <span class="doccomment">/// The URI of the VM.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>virtual_machine: ::prost::alloc::string::String,
     <span class="doccomment">/// The IP address on the VM to use for peering.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>ip_address: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Metadata about locations
@@ -4212,14 +4213,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LocationMetadata {
     <span class="doccomment">/// List of supported features
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LocationFeature&quot;</span>, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"LocationFeature"</span>, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>location_features: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>NextHopVpcNetwork {
     <span class="doccomment">/// The URI of the VPC network resource
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Summarizes information about the spokes associated with a hub.
@@ -4232,15 +4233,15 @@
 </span><span class="kw">pub struct </span>SpokeSummary {
     <span class="doccomment">/// Output only. Counts the number of spokes of each type that are
     /// associated with a specific hub.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>spoke_type_counts: ::prost::alloc::vec::Vec&lt;spoke_summary::SpokeTypeCount&gt;,
     <span class="doccomment">/// Output only. Counts the number of spokes that are in each state
     /// and associated with a given hub.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>spoke_state_counts: ::prost::alloc::vec::Vec&lt;spoke_summary::SpokeStateCount&gt;,
     <span class="doccomment">/// Output only. Counts the number of spokes that are inactive for each
     /// possible reason and associated with a given hub.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>spoke_state_reason_counts: ::prost::alloc::vec::Vec&lt;
         spoke_summary::SpokeStateReasonCount,
     &gt;,
@@ -4254,11 +4255,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>SpokeTypeCount {
         <span class="doccomment">/// Output only. The type of the spokes.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::SpokeType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::SpokeType"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>spoke_type: i32,
         <span class="doccomment">/// Output only. The total number of spokes of this type that are
         /// associated with the hub.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>count: i64,
     }
     <span class="doccomment">/// The number of spokes that are in a particular state
@@ -4267,11 +4268,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>SpokeStateCount {
         <span class="doccomment">/// Output only. The state of the spokes.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::State"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>state: i32,
         <span class="doccomment">/// Output only. The total number of spokes that are in this state
         /// and associated with a given hub.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>count: i64,
     }
     <span class="doccomment">/// The number of spokes in the hub that are inactive for this reason.
@@ -4279,11 +4280,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>SpokeStateReasonCount {
         <span class="doccomment">/// Output only. The reason that a spoke is inactive.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::spoke::state_reason::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::spoke::state_reason::Code"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>state_reason_code: i32,
         <span class="doccomment">/// Output only. The total number of spokes that are inactive for a
         /// particular reason and associated with a given hub.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>count: i64,
     }
 }
@@ -4293,7 +4294,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetGroupRequest {
     <span class="doccomment">/// Required. The name of the route table resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Supported features for a location
@@ -4312,34 +4313,34 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            LocationFeature::Unspecified =&gt; <span class="string">&quot;LOCATION_FEATURE_UNSPECIFIED&quot;</span>,
-            LocationFeature::SiteToCloudSpokes =&gt; <span class="string">&quot;SITE_TO_CLOUD_SPOKES&quot;</span>,
-            LocationFeature::SiteToSiteSpokes =&gt; <span class="string">&quot;SITE_TO_SITE_SPOKES&quot;</span>,
+            LocationFeature::Unspecified =&gt; <span class="string">"LOCATION_FEATURE_UNSPECIFIED"</span>,
+            LocationFeature::SiteToCloudSpokes =&gt; <span class="string">"SITE_TO_CLOUD_SPOKES"</span>,
+            LocationFeature::SiteToSiteSpokes =&gt; <span class="string">"SITE_TO_SITE_SPOKES"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;LOCATION_FEATURE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;SITE_TO_CLOUD_SPOKES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SiteToCloudSpokes),
-            <span class="string">&quot;SITE_TO_SITE_SPOKES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SiteToSiteSpokes),
+            <span class="string">"LOCATION_FEATURE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"SITE_TO_CLOUD_SPOKES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SiteToCloudSpokes),
+            <span class="string">"SITE_TO_SITE_SPOKES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SiteToSiteSpokes),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }
-<span class="doccomment">/// The route&#39;s type
+<span class="doccomment">/// The route's type
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>RouteType {
     <span class="doccomment">/// No route type information specified
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// The route leads to a destination within the primary address range of the
-    /// VPC network&#39;s subnet.
+    /// VPC network's subnet.
     </span>VpcPrimarySubnet = <span class="number">1</span>,
     <span class="doccomment">/// The route leads to a destination within the secondary address range of the
-    /// VPC network&#39;s subnet.
+    /// VPC network's subnet.
     </span>VpcSecondarySubnet = <span class="number">2</span>,
 }
 <span class="kw">impl </span>RouteType {
@@ -4347,19 +4348,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            RouteType::Unspecified =&gt; <span class="string">&quot;ROUTE_TYPE_UNSPECIFIED&quot;</span>,
-            RouteType::VpcPrimarySubnet =&gt; <span class="string">&quot;VPC_PRIMARY_SUBNET&quot;</span>,
-            RouteType::VpcSecondarySubnet =&gt; <span class="string">&quot;VPC_SECONDARY_SUBNET&quot;</span>,
+            RouteType::Unspecified =&gt; <span class="string">"ROUTE_TYPE_UNSPECIFIED"</span>,
+            RouteType::VpcPrimarySubnet =&gt; <span class="string">"VPC_PRIMARY_SUBNET"</span>,
+            RouteType::VpcSecondarySubnet =&gt; <span class="string">"VPC_SECONDARY_SUBNET"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;ROUTE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;VPC_PRIMARY_SUBNET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcPrimarySubnet),
-            <span class="string">&quot;VPC_SECONDARY_SUBNET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcSecondarySubnet),
+            <span class="string">"ROUTE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"VPC_PRIMARY_SUBNET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcPrimarySubnet),
+            <span class="string">"VPC_SECONDARY_SUBNET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcSecondarySubnet),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4371,17 +4372,17 @@
 </span><span class="kw">pub enum </span>State {
     <span class="doccomment">/// No state information available
     </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// The resource&#39;s create operation is in progress.
+    <span class="doccomment">/// The resource's create operation is in progress.
     </span>Creating = <span class="number">1</span>,
     <span class="doccomment">/// The resource is active
     </span>Active = <span class="number">2</span>,
-    <span class="doccomment">/// The resource&#39;s delete operation is in progress.
+    <span class="doccomment">/// The resource's delete operation is in progress.
     </span>Deleting = <span class="number">3</span>,
-    <span class="doccomment">/// The resource&#39;s accept operation is in progress.
+    <span class="doccomment">/// The resource's accept operation is in progress.
     </span>Accepting = <span class="number">8</span>,
-    <span class="doccomment">/// The resource&#39;s reject operation is in progress.
+    <span class="doccomment">/// The resource's reject operation is in progress.
     </span>Rejecting = <span class="number">9</span>,
-    <span class="doccomment">/// The resource&#39;s update operation is in progress.
+    <span class="doccomment">/// The resource's update operation is in progress.
     </span>Updating = <span class="number">6</span>,
     <span class="doccomment">/// The resource is inactive.
     </span>Inactive = <span class="number">7</span>,
@@ -4394,31 +4395,31 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-            State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-            State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-            State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-            State::Accepting =&gt; <span class="string">&quot;ACCEPTING&quot;</span>,
-            State::Rejecting =&gt; <span class="string">&quot;REJECTING&quot;</span>,
-            State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-            State::Inactive =&gt; <span class="string">&quot;INACTIVE&quot;</span>,
-            State::Obsolete =&gt; <span class="string">&quot;OBSOLETE&quot;</span>,
+            State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+            State::Creating =&gt; <span class="string">"CREATING"</span>,
+            State::Active =&gt; <span class="string">"ACTIVE"</span>,
+            State::Deleting =&gt; <span class="string">"DELETING"</span>,
+            State::Accepting =&gt; <span class="string">"ACCEPTING"</span>,
+            State::Rejecting =&gt; <span class="string">"REJECTING"</span>,
+            State::Updating =&gt; <span class="string">"UPDATING"</span>,
+            State::Inactive =&gt; <span class="string">"INACTIVE"</span>,
+            State::Obsolete =&gt; <span class="string">"OBSOLETE"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-            <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-            <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-            <span class="string">&quot;ACCEPTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Accepting),
-            <span class="string">&quot;REJECTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rejecting),
-            <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-            <span class="string">&quot;INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
-            <span class="string">&quot;OBSOLETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Obsolete),
+            <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+            <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+            <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+            <span class="string">"ACCEPTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Accepting),
+            <span class="string">"REJECTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rejecting),
+            <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+            <span class="string">"INACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inactive),
+            <span class="string">"OBSOLETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Obsolete),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4444,23 +4445,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            SpokeType::Unspecified =&gt; <span class="string">&quot;SPOKE_TYPE_UNSPECIFIED&quot;</span>,
-            SpokeType::VpnTunnel =&gt; <span class="string">&quot;VPN_TUNNEL&quot;</span>,
-            SpokeType::InterconnectAttachment =&gt; <span class="string">&quot;INTERCONNECT_ATTACHMENT&quot;</span>,
-            SpokeType::RouterAppliance =&gt; <span class="string">&quot;ROUTER_APPLIANCE&quot;</span>,
-            SpokeType::VpcNetwork =&gt; <span class="string">&quot;VPC_NETWORK&quot;</span>,
+            SpokeType::Unspecified =&gt; <span class="string">"SPOKE_TYPE_UNSPECIFIED"</span>,
+            SpokeType::VpnTunnel =&gt; <span class="string">"VPN_TUNNEL"</span>,
+            SpokeType::InterconnectAttachment =&gt; <span class="string">"INTERCONNECT_ATTACHMENT"</span>,
+            SpokeType::RouterAppliance =&gt; <span class="string">"ROUTER_APPLIANCE"</span>,
+            SpokeType::VpcNetwork =&gt; <span class="string">"VPC_NETWORK"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;SPOKE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;VPN_TUNNEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpnTunnel),
-            <span class="string">&quot;INTERCONNECT_ATTACHMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InterconnectAttachment),
-            <span class="string">&quot;ROUTER_APPLIANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RouterAppliance),
-            <span class="string">&quot;VPC_NETWORK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcNetwork),
+            <span class="string">"SPOKE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"VPN_TUNNEL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpnTunnel),
+            <span class="string">"INTERCONNECT_ATTACHMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InterconnectAttachment),
+            <span class="string">"ROUTER_APPLIANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RouterAppliance),
+            <span class="string">"VPC_NETWORK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcNetwork),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4481,7 +4482,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4556,19 +4557,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/ListHubs&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/ListHubs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;ListHubs&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"ListHubs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4584,19 +4585,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/GetHub&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/GetHub"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;GetHub&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"GetHub"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4615,19 +4616,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/CreateHub&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/CreateHub"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;CreateHub&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"CreateHub"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4647,19 +4648,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/UpdateHub&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/UpdateHub"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;UpdateHub&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"UpdateHub"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4678,19 +4679,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/DeleteHub&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/DeleteHub"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;DeleteHub&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"DeleteHub"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4711,19 +4712,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/ListHubSpokes&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/ListHubSpokes"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;ListHubSpokes&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"ListHubSpokes"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4743,19 +4744,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/ListSpokes&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/ListSpokes"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;ListSpokes&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"ListSpokes"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4771,19 +4772,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/GetSpoke&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/GetSpoke"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;GetSpoke&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"GetSpoke"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4802,19 +4803,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/CreateSpoke&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/CreateSpoke"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;CreateSpoke&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"CreateSpoke"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4833,19 +4834,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/UpdateSpoke&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/UpdateSpoke"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;UpdateSpoke&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"UpdateSpoke"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4867,19 +4868,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/RejectHubSpoke&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/RejectHubSpoke"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;RejectHubSpoke&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"RejectHubSpoke"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4899,19 +4900,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/AcceptHubSpoke&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/AcceptHubSpoke"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;AcceptHubSpoke&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"AcceptHubSpoke"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4930,19 +4931,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/DeleteSpoke&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/DeleteSpoke"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;DeleteSpoke&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"DeleteSpoke"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4958,19 +4959,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/GetRouteTable&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/GetRouteTable"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;GetRouteTable&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"GetRouteTable"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4986,19 +4987,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/GetRoute&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/GetRoute"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;GetRoute&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"GetRoute"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5017,19 +5018,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/ListRoutes&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/ListRoutes"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;ListRoutes&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"ListRoutes"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5048,19 +5049,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/ListRouteTables&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/ListRouteTables"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;ListRouteTables&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"ListRouteTables"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5076,19 +5077,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/GetGroup&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/GetGroup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;GetGroup&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"GetGroup"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5107,19 +5108,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.networkconnectivity.v1.HubService/ListGroups&quot;</span>,
+                <span class="string">"/google.cloud.networkconnectivity.v1.HubService/ListGroups"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.networkconnectivity.v1.HubService&quot;</span>,
-                        <span class="string">&quot;ListGroups&quot;</span>,
+                        <span class="string">"google.cloud.networkconnectivity.v1.HubService"</span>,
+                        <span class="string">"ListGroups"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

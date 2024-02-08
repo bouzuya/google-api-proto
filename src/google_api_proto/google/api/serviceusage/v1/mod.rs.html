@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/api/serviceusage/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/api/serviceusage/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -653,22 +654,22 @@
     ///
     /// A valid name would be:
     /// - projects/123/services/serviceusage.googleapis.com
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource name of the consumer.
     ///
     /// A valid name would be:
     /// - projects/123
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The service configuration of the available service.
     /// Some fields may be filtered out of the configuration in responses to
     /// the `ListServices` method. These fields are present only in responses to
     /// the `GetService` method.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;ServiceConfig&gt;,
     <span class="doccomment">/// Whether or not the service has been enabled for use by the consumer.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// The configuration of the service.
@@ -679,42 +680,42 @@
     ///
     /// An example DNS address would be:
     /// `calendar.googleapis.com`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The product title for this service.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of API interfaces exported by this service. Contains only the names,
     /// versions, and method names of the interfaces.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>apis: ::prost::alloc::vec::Vec&lt;::prost_types::Api&gt;,
     <span class="doccomment">/// Additional API documentation. Contains only the summary and the
     /// documentation URL.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>documentation: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::Documentation&gt;,
     <span class="doccomment">/// Quota configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>quota: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::Quota&gt;,
     <span class="doccomment">/// Auth configuration. Contains only the OAuth rules.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>authentication: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::Authentication&gt;,
     <span class="doccomment">/// Configuration controlling usage of this service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>usage: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::Usage&gt;,
     <span class="doccomment">/// Configuration for network endpoints. Contains only the names and aliases
     /// of the endpoints.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>endpoints: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::Endpoint&gt;,
     <span class="doccomment">/// Defines the monitored resources used by this service. This is required
     /// by the [Service.monitoring][google.api.Service.monitoring] and
     /// [Service.logging][google.api.Service.logging] configurations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"25"</span>)]
     </span><span class="kw">pub </span>monitored_resources: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::MonitoredResourceDescriptor,
     &gt;,
     <span class="doccomment">/// Monitoring configuration.
-    /// This should not include the &#39;producer_destinations&#39; field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;28&quot;</span>)]
+    /// This should not include the 'producer_destinations' field.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"28"</span>)]
     </span><span class="kw">pub </span>monitoring: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::Monitoring&gt;,
 }
 <span class="doccomment">/// The operation metadata returned for the batchend services operation.
@@ -723,7 +724,7 @@
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// The full name of the resources that this operation is directly
     /// associated with.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Whether or not a service has been enabled for use by a consumer.
@@ -745,19 +746,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-            State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-            State::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
+            State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+            State::Disabled =&gt; <span class="string">"DISABLED"</span>,
+            State::Enabled =&gt; <span class="string">"ENABLED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-            <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
+            <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+            <span class="string">"ENABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -777,7 +778,7 @@
     /// An example name would be:
     /// `projects/123/services/serviceusage.googleapis.com` where `123` is the
     /// project number.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for the `EnableService` method.
@@ -787,7 +788,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EnableServiceResponse {
     <span class="doccomment">/// The new state of the service after enabling.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::core::option::Option&lt;Service&gt;,
 }
 <span class="doccomment">/// Request message for the `DisableService` method.
@@ -801,17 +802,17 @@
     /// An example name would be:
     /// `projects/123/services/serviceusage.googleapis.com` where `123` is the
     /// project number.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Indicates if services that are enabled and which depend on this service
     /// should also be disabled. If not set, an error will be generated if any
     /// enabled services depend on the service to be disabled. When set, the
     /// service, and any enabled services that depend on it, will be disabled
     /// together.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>disable_dependent_services: bool,
     <span class="doccomment">/// Defines the behavior for checking service usage when disabling a service.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;disable_service_request::CheckIfServiceHasUsage&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"disable_service_request::CheckIfServiceHasUsage"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>check_if_service_has_usage: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `DisableServiceRequest`.
@@ -845,21 +846,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
                 CheckIfServiceHasUsage::Unspecified =&gt; {
-                    <span class="string">&quot;CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED&quot;
+                    <span class="string">"CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED"
                 </span>}
-                CheckIfServiceHasUsage::Skip =&gt; <span class="string">&quot;SKIP&quot;</span>,
-                CheckIfServiceHasUsage::Check =&gt; <span class="string">&quot;CHECK&quot;</span>,
+                CheckIfServiceHasUsage::Skip =&gt; <span class="string">"SKIP"</span>,
+                CheckIfServiceHasUsage::Check =&gt; <span class="string">"CHECK"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SKIP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
-                <span class="string">&quot;CHECK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Check),
+                <span class="string">"CHECK_IF_SERVICE_HAS_USAGE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SKIP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Skip),
+                <span class="string">"CHECK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Check),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -872,7 +873,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DisableServiceResponse {
     <span class="doccomment">/// The new state of the service after disabling.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::core::option::Option&lt;Service&gt;,
 }
 <span class="doccomment">/// Request message for the `GetService` method.
@@ -884,7 +885,7 @@
     /// An example name would be:
     /// `projects/123/services/serviceusage.googleapis.com` where `123` is the
     /// project number.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for the `ListServices` method.
@@ -895,20 +896,20 @@
     ///
     /// An example name would be:
     /// `projects/123` where `123` is the project number.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Requested size of the next page of data.
     /// Requested page size cannot exceed 200.
     /// If not set, the default page size is 50.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token identifying which result to start with, which is returned by a
     /// previous list call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Only list services that conform to the given filter.
     /// The allowed filter strings are `state:ENABLED` and `state:DISABLED`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for the `ListServices` method.
@@ -916,11 +917,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListServicesResponse {
     <span class="doccomment">/// The available services for the requested project.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>services: ::prost::alloc::vec::Vec&lt;Service&gt;,
     <span class="doccomment">/// Token that can be passed to `ListServices` to resume a paginated
     /// query.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for the `BatchEnableServices` method.
@@ -933,7 +934,7 @@
     /// `projects/123` where `123` is the project number.
     ///
     /// The `BatchEnableServices` method currently only supports projects.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The identifiers of the services to enable on the project.
     ///
@@ -946,7 +947,7 @@
     /// A single request can enable a maximum of 20 services at a time. If more
     /// than 20 services are specified, the request will fail, and no state changes
     /// will occur.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Response message for the `BatchEnableServices` method.
@@ -956,11 +957,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchEnableServicesResponse {
     <span class="doccomment">/// The new state of the services after enabling.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>services: ::prost::alloc::vec::Vec&lt;Service&gt;,
     <span class="doccomment">/// If allow_partial_success is true, and one or more services could not be
     /// enabled, this field contains the details about each failure.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>failures: ::prost::alloc::vec::Vec&lt;
         batch_enable_services_response::EnableFailure,
     &gt;,
@@ -972,10 +973,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>EnableFailure {
         <span class="doccomment">/// The service id of a service that could not be enabled.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>service_id: ::prost::alloc::string::String,
         <span class="doccomment">/// An error message describing why the service could not be enabled.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
     }
 }
@@ -988,7 +989,7 @@
     /// match this field. An example name would be: `projects/123` where `123` is
     /// the project number. The `BatchGetServices` method currently only supports
     /// projects.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Names of the services to retrieve.
     ///
@@ -996,7 +997,7 @@
     /// `projects/123/services/serviceusage.googleapis.com` where `123` is the
     /// project number.
     /// A single request can get a maximum of 30 services at a time.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Response message for the `BatchGetServices` method.
@@ -1004,7 +1005,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchGetServicesResponse {
     <span class="doccomment">/// The requested Service states.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>services: ::prost::alloc::vec::Vec&lt;Service&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1025,7 +1026,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1100,19 +1101,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1.ServiceUsage/EnableService&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1.ServiceUsage/EnableService"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;EnableService&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1.ServiceUsage"</span>,
+                        <span class="string">"EnableService"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1137,19 +1138,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1.ServiceUsage/DisableService&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1.ServiceUsage/DisableService"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;DisableService&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1.ServiceUsage"</span>,
+                        <span class="string">"DisableService"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1165,19 +1166,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1.ServiceUsage/GetService&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1.ServiceUsage/GetService"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;GetService&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1.ServiceUsage"</span>,
+                        <span class="string">"GetService"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1208,19 +1209,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1.ServiceUsage/ListServices&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1.ServiceUsage/ListServices"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;ListServices&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1.ServiceUsage"</span>,
+                        <span class="string">"ListServices"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1241,19 +1242,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1.ServiceUsage/BatchEnableServices&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1.ServiceUsage/BatchEnableServices"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;BatchEnableServices&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1.ServiceUsage"</span>,
+                        <span class="string">"BatchEnableServices"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1273,19 +1274,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.api.serviceusage.v1.ServiceUsage/BatchGetServices&quot;</span>,
+                <span class="string">"/google.api.serviceusage.v1.ServiceUsage/BatchGetServices"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.api.serviceusage.v1.ServiceUsage&quot;</span>,
-                        <span class="string">&quot;BatchGetServices&quot;</span>,
+                        <span class="string">"google.api.serviceusage.v1.ServiceUsage"</span>,
+                        <span class="string">"BatchGetServices"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

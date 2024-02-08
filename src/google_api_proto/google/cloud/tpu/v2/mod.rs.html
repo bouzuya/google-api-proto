@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/tpu/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/tpu/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1315,13 +1316,13 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GuestAttributes {
-    <span class="doccomment">/// The path to be queried. This can be the default namespace (&#39;/&#39;) or a
-    /// nested namespace (&#39;/\&lt;namespace\&gt;/&#39;) or a specified key
-    /// (&#39;/\&lt;namespace\&gt;/\&lt;key\&gt;&#39;)
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// The path to be queried. This can be the default namespace ('/') or a
+    /// nested namespace ('/\&lt;namespace\&gt;/') or a specified key
+    /// ('/\&lt;namespace\&gt;/\&lt;key\&gt;')
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>query_path: ::prost::alloc::string::String,
     <span class="doccomment">/// The value of the requested queried path.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>query_value: ::core::option::Option&lt;GuestAttributesValue&gt;,
 }
 <span class="doccomment">/// Array of guest attribute namespace/key/value tuples.
@@ -1329,7 +1330,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GuestAttributesValue {
     <span class="doccomment">/// The list of guest attributes entries.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>items: ::prost::alloc::vec::Vec&lt;GuestAttributesEntry&gt;,
 }
 <span class="doccomment">/// A guest attributes namespace/key/value entry.
@@ -1337,13 +1338,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GuestAttributesEntry {
     <span class="doccomment">/// Namespace for the guest attribute entry.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>namespace: ::prost::alloc::string::String,
     <span class="doccomment">/// Key for the guest attribute entry.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
     <span class="doccomment">/// Value for the guest attribute entry.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A node-attached disk resource.
@@ -1352,13 +1353,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AttachedDisk {
     <span class="doccomment">/// Specifies the full path to an existing disk.
-    /// For example: &quot;projects/my-project/zones/us-central1-c/disks/my-disk&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// For example: "projects/my-project/zones/us-central1-c/disks/my-disk".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>source_disk: ::prost::alloc::string::String,
     <span class="doccomment">/// The mode in which to attach this disk.
     /// If not specified, the default is READ_WRITE mode.
     /// Only applicable to data_disks.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;attached_disk::DiskMode&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"attached_disk::DiskMode"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `AttachedDisk`.
@@ -1391,19 +1392,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DiskMode::Unspecified =&gt; <span class="string">&quot;DISK_MODE_UNSPECIFIED&quot;</span>,
-                DiskMode::ReadWrite =&gt; <span class="string">&quot;READ_WRITE&quot;</span>,
-                DiskMode::ReadOnly =&gt; <span class="string">&quot;READ_ONLY&quot;</span>,
+                DiskMode::Unspecified =&gt; <span class="string">"DISK_MODE_UNSPECIFIED"</span>,
+                DiskMode::ReadWrite =&gt; <span class="string">"READ_WRITE"</span>,
+                DiskMode::ReadOnly =&gt; <span class="string">"READ_ONLY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DISK_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;READ_WRITE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadWrite),
-                <span class="string">&quot;READ_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadOnly),
+                <span class="string">"DISK_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"READ_WRITE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadWrite),
+                <span class="string">"READ_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadOnly),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1414,10 +1415,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SchedulingConfig {
     <span class="doccomment">/// Defines whether the node is preemptible.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>preemptible: bool,
     <span class="doccomment">/// Whether the node is created under a reservation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>reserved: bool,
 }
 <span class="doccomment">/// A network endpoint over which a TPU worker can be reached.
@@ -1425,13 +1426,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>NetworkEndpoint {
     <span class="doccomment">/// The internal IP address of this network endpoint.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>ip_address: ::prost::alloc::string::String,
     <span class="doccomment">/// The port of this network endpoint.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>port: i32,
     <span class="doccomment">/// The access config for the TPU worker.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>access_config: ::core::option::Option&lt;AccessConfig&gt;,
 }
 <span class="doccomment">/// An access config attached to the TPU worker.
@@ -1439,7 +1440,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AccessConfig {
     <span class="doccomment">/// Output only. An external IP address associated with the TPU worker.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>external_ip: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Network related configurations.
@@ -1447,23 +1448,23 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>NetworkConfig {
     <span class="doccomment">/// The name of the network for the TPU node. It must be a preexisting Google
-    /// Compute Engine network. If none is provided, &quot;default&quot; will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Compute Engine network. If none is provided, "default" will be used.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the subnetwork for the TPU node. It must be a preexisting
-    /// Google Compute Engine subnetwork. If none is provided, &quot;default&quot; will be
+    /// Google Compute Engine subnetwork. If none is provided, "default" will be
     /// used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
     <span class="doccomment">/// Indicates that external IP addresses would be associated with the TPU
     /// workers. If set to false, the specified subnetwork or network should have
     /// Private Google Access enabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>enable_external_ips: bool,
     <span class="doccomment">/// Allows the TPU node to send and receive packets with non-matching
     /// destination or source IPs. This is required if you plan to use the TPU
     /// workers to forward routes.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>can_ip_forward: bool,
 }
 <span class="doccomment">/// A service account.
@@ -1472,11 +1473,11 @@
 </span><span class="kw">pub struct </span>ServiceAccount {
     <span class="doccomment">/// Email address of the service account. If empty, default Compute service
     /// account will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
     <span class="doccomment">/// The list of scopes to be made available for this service account. If empty,
     /// access to all Cloud APIs will be allowed.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>scope: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A TPU instance.
@@ -1484,96 +1485,96 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Node {
     <span class="doccomment">/// Output only. Immutable. The name of the TPU.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The user-supplied description of the TPU. Maximum of 512 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The type of hardware accelerators associated with this node.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>accelerator_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The current state for the TPU Node.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;node::State&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"node::State"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. If this field is populated, it contains a description of why
     /// the TPU Node is unhealthy.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>health_description: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The runtime version running in the Node.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>runtime_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Network configurations for the TPU node.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;36&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"36"</span>)]
     </span><span class="kw">pub </span>network_config: ::core::option::Option&lt;NetworkConfig&gt;,
     <span class="doccomment">/// The CIDR block that the TPU node will use when selecting an IP address.
     /// This CIDR block must be a /29 block; the Compute Engine networks API
     /// forbids a smaller block, and using a larger block would be wasteful (a
     /// node can only consume one IP address). Errors will occur if the CIDR block
     /// has already been used for a currently existing TPU node, the CIDR block
-    /// conflicts with any subnetworks in the user&#39;s provided network, or the
+    /// conflicts with any subnetworks in the user's provided network, or the
     /// provided network is peered with another network that is using that CIDR
     /// block.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>cidr_block: ::prost::alloc::string::String,
     <span class="doccomment">/// The Google Cloud Platform Service Account to be used by the TPU node VMs.
     /// If None is specified, the default compute service account will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;37&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"37"</span>)]
     </span><span class="kw">pub </span>service_account: ::core::option::Option&lt;ServiceAccount&gt;,
     <span class="doccomment">/// Output only. The time when the node was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The scheduling options for this node.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>scheduling_config: ::core::option::Option&lt;SchedulingConfig&gt;,
     <span class="doccomment">/// Output only. The network endpoints where TPU workers can be accessed and
     /// sent work. It is recommended that runtime clients of the node reach out
     /// to the 0th entry in this map first.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>network_endpoints: ::prost::alloc::vec::Vec&lt;NetworkEndpoint&gt;,
     <span class="doccomment">/// The health status of the TPU node.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;node::Health&quot;</span>, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"node::Health"</span>, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>health: i32,
     <span class="doccomment">/// Resource labels to represent user-provided metadata.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"24"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Custom metadata to apply to the TPU Node.
     /// Can set startup-script and shutdown-script
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;34&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"34"</span>)]
     </span><span class="kw">pub </span>metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Tags to apply to the TPU Node. Tags are used to identify valid sources or
     /// targets for network firewalls.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;40&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"40"</span>)]
     </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. The unique identifier for the TPU Node.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;33&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"33"</span>)]
     </span><span class="kw">pub </span>id: i64,
     <span class="doccomment">/// The additional data disks for the Node.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;41&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"41"</span>)]
     </span><span class="kw">pub </span>data_disks: ::prost::alloc::vec::Vec&lt;AttachedDisk&gt;,
     <span class="doccomment">/// Output only. The API version that created this Node.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;node::ApiVersion&quot;</span>, tag = <span class="string">&quot;38&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"node::ApiVersion"</span>, tag = <span class="string">"38"</span>)]
     </span><span class="kw">pub </span>api_version: i32,
     <span class="doccomment">/// Output only. The Symptoms that have occurred to the TPU Node.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;39&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"39"</span>)]
     </span><span class="kw">pub </span>symptoms: ::prost::alloc::vec::Vec&lt;Symptom&gt;,
     <span class="doccomment">/// Shielded Instance options.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;45&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"45"</span>)]
     </span><span class="kw">pub </span>shielded_instance_config: ::core::option::Option&lt;ShieldedInstanceConfig&gt;,
     <span class="doccomment">/// The AccleratorConfig for the TPU Node.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;46&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"46"</span>)]
     </span><span class="kw">pub </span>accelerator_config: ::core::option::Option&lt;AcceleratorConfig&gt;,
     <span class="doccomment">/// Output only. The qualified name of the QueuedResource that requested this
     /// Node.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;47&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"47"</span>)]
     </span><span class="kw">pub </span>queued_resource: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Whether the Node belongs to a Multislice group.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;48&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"48"</span>)]
     </span><span class="kw">pub </span>multislice_node: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `Node`.
@@ -1605,7 +1606,7 @@
         <span class="doccomment">/// TPU node is being deleted.
         </span>Deleting = <span class="number">5</span>,
         <span class="doccomment">/// TPU node is being repaired and may be unusable. Details can be
-        /// found in the &#39;help_description&#39; field.
+        /// found in the 'help_description' field.
         </span>Repairing = <span class="number">6</span>,
         <span class="doccomment">/// TPU node is stopped.
         </span>Stopped = <span class="number">8</span>,
@@ -1630,43 +1631,43 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Restarting =&gt; <span class="string">&quot;RESTARTING&quot;</span>,
-                State::Reimaging =&gt; <span class="string">&quot;REIMAGING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Repairing =&gt; <span class="string">&quot;REPAIRING&quot;</span>,
-                State::Stopped =&gt; <span class="string">&quot;STOPPED&quot;</span>,
-                State::Stopping =&gt; <span class="string">&quot;STOPPING&quot;</span>,
-                State::Starting =&gt; <span class="string">&quot;STARTING&quot;</span>,
-                State::Preempted =&gt; <span class="string">&quot;PREEMPTED&quot;</span>,
-                State::Terminated =&gt; <span class="string">&quot;TERMINATED&quot;</span>,
-                State::Hiding =&gt; <span class="string">&quot;HIDING&quot;</span>,
-                State::Hidden =&gt; <span class="string">&quot;HIDDEN&quot;</span>,
-                State::Unhiding =&gt; <span class="string">&quot;UNHIDING&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Ready =&gt; <span class="string">"READY"</span>,
+                State::Restarting =&gt; <span class="string">"RESTARTING"</span>,
+                State::Reimaging =&gt; <span class="string">"REIMAGING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Repairing =&gt; <span class="string">"REPAIRING"</span>,
+                State::Stopped =&gt; <span class="string">"STOPPED"</span>,
+                State::Stopping =&gt; <span class="string">"STOPPING"</span>,
+                State::Starting =&gt; <span class="string">"STARTING"</span>,
+                State::Preempted =&gt; <span class="string">"PREEMPTED"</span>,
+                State::Terminated =&gt; <span class="string">"TERMINATED"</span>,
+                State::Hiding =&gt; <span class="string">"HIDING"</span>,
+                State::Hidden =&gt; <span class="string">"HIDDEN"</span>,
+                State::Unhiding =&gt; <span class="string">"UNHIDING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;RESTARTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Restarting),
-                <span class="string">&quot;REIMAGING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reimaging),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;REPAIRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Repairing),
-                <span class="string">&quot;STOPPED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopped),
-                <span class="string">&quot;STOPPING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopping),
-                <span class="string">&quot;STARTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Starting),
-                <span class="string">&quot;PREEMPTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preempted),
-                <span class="string">&quot;TERMINATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Terminated),
-                <span class="string">&quot;HIDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hiding),
-                <span class="string">&quot;HIDDEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hidden),
-                <span class="string">&quot;UNHIDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unhiding),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"READY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">"RESTARTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Restarting),
+                <span class="string">"REIMAGING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reimaging),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"REPAIRING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Repairing),
+                <span class="string">"STOPPED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopped),
+                <span class="string">"STOPPING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopping),
+                <span class="string">"STARTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Starting),
+                <span class="string">"PREEMPTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preempted),
+                <span class="string">"TERMINATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Terminated),
+                <span class="string">"HIDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hiding),
+                <span class="string">"HIDDEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hidden),
+                <span class="string">"UNHIDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unhiding),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1703,23 +1704,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Health::Unspecified =&gt; <span class="string">&quot;HEALTH_UNSPECIFIED&quot;</span>,
-                Health::Healthy =&gt; <span class="string">&quot;HEALTHY&quot;</span>,
-                Health::Timeout =&gt; <span class="string">&quot;TIMEOUT&quot;</span>,
-                Health::UnhealthyTensorflow =&gt; <span class="string">&quot;UNHEALTHY_TENSORFLOW&quot;</span>,
-                Health::UnhealthyMaintenance =&gt; <span class="string">&quot;UNHEALTHY_MAINTENANCE&quot;</span>,
+                Health::Unspecified =&gt; <span class="string">"HEALTH_UNSPECIFIED"</span>,
+                Health::Healthy =&gt; <span class="string">"HEALTHY"</span>,
+                Health::Timeout =&gt; <span class="string">"TIMEOUT"</span>,
+                Health::UnhealthyTensorflow =&gt; <span class="string">"UNHEALTHY_TENSORFLOW"</span>,
+                Health::UnhealthyMaintenance =&gt; <span class="string">"UNHEALTHY_MAINTENANCE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;HEALTH_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;HEALTHY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Healthy),
-                <span class="string">&quot;TIMEOUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Timeout),
-                <span class="string">&quot;UNHEALTHY_TENSORFLOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnhealthyTensorflow),
-                <span class="string">&quot;UNHEALTHY_MAINTENANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnhealthyMaintenance),
+                <span class="string">"HEALTH_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"HEALTHY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Healthy),
+                <span class="string">"TIMEOUT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Timeout),
+                <span class="string">"UNHEALTHY_TENSORFLOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnhealthyTensorflow),
+                <span class="string">"UNHEALTHY_MAINTENANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnhealthyMaintenance),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1754,23 +1755,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ApiVersion::Unspecified =&gt; <span class="string">&quot;API_VERSION_UNSPECIFIED&quot;</span>,
-                ApiVersion::V1Alpha1 =&gt; <span class="string">&quot;V1_ALPHA1&quot;</span>,
-                ApiVersion::V1 =&gt; <span class="string">&quot;V1&quot;</span>,
-                ApiVersion::V2Alpha1 =&gt; <span class="string">&quot;V2_ALPHA1&quot;</span>,
-                ApiVersion::V2 =&gt; <span class="string">&quot;V2&quot;</span>,
+                ApiVersion::Unspecified =&gt; <span class="string">"API_VERSION_UNSPECIFIED"</span>,
+                ApiVersion::V1Alpha1 =&gt; <span class="string">"V1_ALPHA1"</span>,
+                ApiVersion::V1 =&gt; <span class="string">"V1"</span>,
+                ApiVersion::V2Alpha1 =&gt; <span class="string">"V2_ALPHA1"</span>,
+                ApiVersion::V2 =&gt; <span class="string">"V2"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;API_VERSION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;V1_ALPHA1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V1Alpha1),
-                <span class="string">&quot;V1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V1),
-                <span class="string">&quot;V2_ALPHA1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2Alpha1),
-                <span class="string">&quot;V2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2),
+                <span class="string">"API_VERSION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"V1_ALPHA1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V1Alpha1),
+                <span class="string">"V1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V1),
+                <span class="string">"V2_ALPHA1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2Alpha1),
+                <span class="string">"V2" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1781,13 +1782,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListNodesRequest {
     <span class="doccomment">/// Required. The parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for [ListNodes][google.cloud.tpu.v2.Tpu.ListNodes].
@@ -1795,13 +1796,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListNodesResponse {
     <span class="doccomment">/// The listed nodes.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>nodes: ::prost::alloc::vec::Vec&lt;Node&gt;,
     <span class="doccomment">/// The next page token or empty if none.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request for [GetNode][google.cloud.tpu.v2.Tpu.GetNode].
@@ -1809,7 +1810,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetNodeRequest {
     <span class="doccomment">/// Required. The resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for [CreateNode][google.cloud.tpu.v2.Tpu.CreateNode].
@@ -1817,13 +1818,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateNodeRequest {
     <span class="doccomment">/// Required. The parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The unqualified resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>node_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The node.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>node: ::core::option::Option&lt;Node&gt;,
 }
 <span class="doccomment">/// Request for [DeleteNode][google.cloud.tpu.v2.Tpu.DeleteNode].
@@ -1831,7 +1832,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteNodeRequest {
     <span class="doccomment">/// Required. The resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for [StopNode][google.cloud.tpu.v2.Tpu.StopNode].
@@ -1839,7 +1840,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StopNodeRequest {
     <span class="doccomment">/// Required. The resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for [StartNode][google.cloud.tpu.v2.Tpu.StartNode].
@@ -1847,7 +1848,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StartNodeRequest {
     <span class="doccomment">/// Required. The resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for [UpdateNode][google.cloud.tpu.v2.Tpu.UpdateNode].
@@ -1857,10 +1858,10 @@
     <span class="doccomment">/// Required. Mask of fields from [Node][Tpu.Node] to update.
     /// Supported fields: [description, tags, labels, metadata,
     /// network_config.enable_external_ips].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. The node. Only fields specified in update_mask are updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>node: ::core::option::Option&lt;Node&gt;,
 }
 <span class="doccomment">/// The per-product per-project service identity for Cloud TPU service.
@@ -1868,7 +1869,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ServiceIdentity {
     <span class="doccomment">/// The email address of the service identity.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
@@ -1877,7 +1878,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateServiceIdentityRequest {
     <span class="doccomment">/// Required. The parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for
@@ -1886,7 +1887,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateServiceIdentityResponse {
     <span class="doccomment">/// ServiceIdentity that was created or retrieved.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>identity: ::core::option::Option&lt;ServiceIdentity&gt;,
 }
 <span class="doccomment">/// A accelerator type that a Node can be configured with.
@@ -1894,13 +1895,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AcceleratorType {
     <span class="doccomment">/// The resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The accelerator type.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
     <span class="doccomment">/// The accelerator config.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>accelerator_configs: ::prost::alloc::vec::Vec&lt;AcceleratorConfig&gt;,
 }
 <span class="doccomment">/// Request for [GetAcceleratorType][google.cloud.tpu.v2.Tpu.GetAcceleratorType].
@@ -1908,7 +1909,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetAcceleratorTypeRequest {
     <span class="doccomment">/// Required. The resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
@@ -1917,19 +1918,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAcceleratorTypesRequest {
     <span class="doccomment">/// Required. The parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// List filter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Sort results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for
@@ -1938,13 +1939,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAcceleratorTypesResponse {
     <span class="doccomment">/// The listed nodes.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>accelerator_types: ::prost::alloc::vec::Vec&lt;AcceleratorType&gt;,
     <span class="doccomment">/// The next page token or empty if none.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A runtime version that a Node can be configured with.
@@ -1952,10 +1953,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RuntimeVersion {
     <span class="doccomment">/// The resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The runtime version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for [GetRuntimeVersion][google.cloud.tpu.v2.Tpu.GetRuntimeVersion].
@@ -1963,7 +1964,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetRuntimeVersionRequest {
     <span class="doccomment">/// Required. The resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
@@ -1972,19 +1973,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRuntimeVersionsRequest {
     <span class="doccomment">/// Required. The parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// List filter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Sort results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for
@@ -1993,13 +1994,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRuntimeVersionsResponse {
     <span class="doccomment">/// The listed nodes.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>runtime_versions: ::prost::alloc::vec::Vec&lt;RuntimeVersion&gt;,
     <span class="doccomment">/// The next page token or empty if none.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Metadata describing an [Operation][google.longrunning.Operation]
@@ -2007,26 +2008,26 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Target of the operation - for example
     /// projects/project-1/connectivityTests/test-1
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_detail: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies if cancellation was requested for the operation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>cancel_requested: bool,
     <span class="doccomment">/// API version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A Symptom instance.
@@ -2034,16 +2035,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Symptom {
     <span class="doccomment">/// Timestamp when the Symptom is created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Type of the Symptom.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;symptom::SymptomType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"symptom::SymptomType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>symptom_type: i32,
     <span class="doccomment">/// Detailed information of the current Symptom.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>details: ::prost::alloc::string::String,
     <span class="doccomment">/// A string used to uniquely distinguish a worker within a TPU node.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>worker_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `Symptom`.
@@ -2071,7 +2072,7 @@
         </span>OutOfMemory = <span class="number">2</span>,
         <span class="doccomment">/// TPU runtime execution has timed out.
         </span>ExecuteTimedOut = <span class="number">3</span>,
-        <span class="doccomment">/// TPU runtime fails to construct a mesh that recognizes each TPU device&#39;s
+        <span class="doccomment">/// TPU runtime fails to construct a mesh that recognizes each TPU device's
         /// neighbors.
         </span>MeshBuildFail = <span class="number">4</span>,
         <span class="doccomment">/// TPU HBM is out of memory.
@@ -2084,27 +2085,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SymptomType::Unspecified =&gt; <span class="string">&quot;SYMPTOM_TYPE_UNSPECIFIED&quot;</span>,
-                SymptomType::LowMemory =&gt; <span class="string">&quot;LOW_MEMORY&quot;</span>,
-                SymptomType::OutOfMemory =&gt; <span class="string">&quot;OUT_OF_MEMORY&quot;</span>,
-                SymptomType::ExecuteTimedOut =&gt; <span class="string">&quot;EXECUTE_TIMED_OUT&quot;</span>,
-                SymptomType::MeshBuildFail =&gt; <span class="string">&quot;MESH_BUILD_FAIL&quot;</span>,
-                SymptomType::HbmOutOfMemory =&gt; <span class="string">&quot;HBM_OUT_OF_MEMORY&quot;</span>,
-                SymptomType::ProjectAbuse =&gt; <span class="string">&quot;PROJECT_ABUSE&quot;</span>,
+                SymptomType::Unspecified =&gt; <span class="string">"SYMPTOM_TYPE_UNSPECIFIED"</span>,
+                SymptomType::LowMemory =&gt; <span class="string">"LOW_MEMORY"</span>,
+                SymptomType::OutOfMemory =&gt; <span class="string">"OUT_OF_MEMORY"</span>,
+                SymptomType::ExecuteTimedOut =&gt; <span class="string">"EXECUTE_TIMED_OUT"</span>,
+                SymptomType::MeshBuildFail =&gt; <span class="string">"MESH_BUILD_FAIL"</span>,
+                SymptomType::HbmOutOfMemory =&gt; <span class="string">"HBM_OUT_OF_MEMORY"</span>,
+                SymptomType::ProjectAbuse =&gt; <span class="string">"PROJECT_ABUSE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SYMPTOM_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LOW_MEMORY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LowMemory),
-                <span class="string">&quot;OUT_OF_MEMORY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OutOfMemory),
-                <span class="string">&quot;EXECUTE_TIMED_OUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExecuteTimedOut),
-                <span class="string">&quot;MESH_BUILD_FAIL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MeshBuildFail),
-                <span class="string">&quot;HBM_OUT_OF_MEMORY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HbmOutOfMemory),
-                <span class="string">&quot;PROJECT_ABUSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectAbuse),
+                <span class="string">"SYMPTOM_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LOW_MEMORY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LowMemory),
+                <span class="string">"OUT_OF_MEMORY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OutOfMemory),
+                <span class="string">"EXECUTE_TIMED_OUT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExecuteTimedOut),
+                <span class="string">"MESH_BUILD_FAIL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MeshBuildFail),
+                <span class="string">"HBM_OUT_OF_MEMORY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HbmOutOfMemory),
+                <span class="string">"PROJECT_ABUSE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectAbuse),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2115,14 +2116,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetGuestAttributesRequest {
     <span class="doccomment">/// Required. The resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The guest attributes path to be queried.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>query_path: ::prost::alloc::string::String,
-    <span class="doccomment">/// The 0-based worker ID. If it is empty, all workers&#39; GuestAttributes will be
+    <span class="doccomment">/// The 0-based worker ID. If it is empty, all workers' GuestAttributes will be
     /// returned.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>worker_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Response for
@@ -2131,7 +2132,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetGuestAttributesResponse {
     <span class="doccomment">/// The guest attributes for the TPU workers.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>guest_attributes: ::prost::alloc::vec::Vec&lt;GuestAttributes&gt;,
 }
 <span class="doccomment">/// A TPU accelerator configuration.
@@ -2139,10 +2140,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AcceleratorConfig {
     <span class="doccomment">/// Required. Type of TPU.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;accelerator_config::Type&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"accelerator_config::Type"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Required. Topology of TPU in chips.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>topology: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `AcceleratorConfig`.
@@ -2175,21 +2176,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::V2 =&gt; <span class="string">&quot;V2&quot;</span>,
-                Type::V3 =&gt; <span class="string">&quot;V3&quot;</span>,
-                Type::V4 =&gt; <span class="string">&quot;V4&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::V2 =&gt; <span class="string">"V2"</span>,
+                Type::V3 =&gt; <span class="string">"V3"</span>,
+                Type::V4 =&gt; <span class="string">"V4"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;V2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2),
-                <span class="string">&quot;V3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V3),
-                <span class="string">&quot;V4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V4),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"V2" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2),
+                <span class="string">"V3" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V3),
+                <span class="string">"V4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V4),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2200,7 +2201,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ShieldedInstanceConfig {
     <span class="doccomment">/// Defines whether the instance has Secure Boot enabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enable_secure_boot: bool,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2219,7 +2220,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2294,16 +2295,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/ListNodes&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/ListNodes"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;ListNodes&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"ListNodes"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Gets the details of a node.
@@ -2317,16 +2318,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/GetNode&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/GetNode"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;GetNode&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"GetNode"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates a node.
@@ -2343,16 +2344,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/CreateNode&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/CreateNode"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;CreateNode&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"CreateNode"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Deletes a node.
@@ -2369,16 +2370,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/DeleteNode&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/DeleteNode"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;DeleteNode&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"DeleteNode"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Stops a node. This operation is only available with single TPU nodes.
@@ -2395,16 +2396,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/StopNode&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/StopNode"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;StopNode&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"StopNode"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Starts a node.
@@ -2421,16 +2422,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/StartNode&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/StartNode"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;StartNode&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"StartNode"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Updates the configurations of a node.
@@ -2447,16 +2448,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/UpdateNode&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/UpdateNode"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;UpdateNode&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"UpdateNode"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Generates the Cloud TPU service identity for the project.
@@ -2473,17 +2474,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/GenerateServiceIdentity&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/GenerateServiceIdentity"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;GenerateServiceIdentity&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"GenerateServiceIdentity"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2501,17 +2502,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/ListAcceleratorTypes&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/ListAcceleratorTypes"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;ListAcceleratorTypes&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"ListAcceleratorTypes"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2529,17 +2530,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/GetAcceleratorType&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/GetAcceleratorType"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;GetAcceleratorType&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"GetAcceleratorType"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2557,17 +2558,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/ListRuntimeVersions&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/ListRuntimeVersions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;ListRuntimeVersions&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"ListRuntimeVersions"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2582,16 +2583,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/GetRuntimeVersion&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/GetRuntimeVersion"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;GetRuntimeVersion&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"GetRuntimeVersion"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Retrieves the guest attributes for the node.
@@ -2608,17 +2609,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tpu.v2.Tpu/GetGuestAttributes&quot;</span>,
+                <span class="string">"/google.cloud.tpu.v2.Tpu/GetGuestAttributes"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.tpu.v2.Tpu&quot;</span>, <span class="string">&quot;GetGuestAttributes&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.tpu.v2.Tpu"</span>, <span class="string">"GetGuestAttributes"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}

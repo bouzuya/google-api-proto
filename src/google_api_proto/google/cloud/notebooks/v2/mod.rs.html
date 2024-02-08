@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/notebooks/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/notebooks/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1564,13 +1565,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Event {
     <span class="doccomment">/// Optional. Event report time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>report_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Event type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;event::EventType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"event::EventType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Optional. Event details. This field is used to pass event information.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>details: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1618,25 +1619,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EventType::Unspecified =&gt; <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot;</span>,
-                EventType::Idle =&gt; <span class="string">&quot;IDLE&quot;</span>,
-                EventType::Heartbeat =&gt; <span class="string">&quot;HEARTBEAT&quot;</span>,
-                EventType::Health =&gt; <span class="string">&quot;HEALTH&quot;</span>,
-                EventType::Maintenance =&gt; <span class="string">&quot;MAINTENANCE&quot;</span>,
-                EventType::MetadataChange =&gt; <span class="string">&quot;METADATA_CHANGE&quot;</span>,
+                EventType::Unspecified =&gt; <span class="string">"EVENT_TYPE_UNSPECIFIED"</span>,
+                EventType::Idle =&gt; <span class="string">"IDLE"</span>,
+                EventType::Heartbeat =&gt; <span class="string">"HEARTBEAT"</span>,
+                EventType::Health =&gt; <span class="string">"HEALTH"</span>,
+                EventType::Maintenance =&gt; <span class="string">"MAINTENANCE"</span>,
+                EventType::MetadataChange =&gt; <span class="string">"METADATA_CHANGE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;IDLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Idle),
-                <span class="string">&quot;HEARTBEAT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Heartbeat),
-                <span class="string">&quot;HEALTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Health),
-                <span class="string">&quot;MAINTENANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Maintenance),
-                <span class="string">&quot;METADATA_CHANGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetadataChange),
+                <span class="string">"EVENT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"IDLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Idle),
+                <span class="string">"HEARTBEAT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Heartbeat),
+                <span class="string">"HEALTH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Health),
+                <span class="string">"MAINTENANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Maintenance),
+                <span class="string">"METADATA_CHANGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetadataChange),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1649,16 +1650,16 @@
     <span class="doccomment">/// Optional. The name of the VPC that this VM instance is in.
     /// Format:
     /// `projects/{project_id}/global/networks/{network_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The name of the subnet that this VM instance is in.
     /// Format:
     /// `projects/{project_id}/regions/{region}/subnetworks/{subnetwork_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>subnet: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The type of vNIC to be used on this interface. This may be gVNIC
     /// or VirtioNet.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;network_interface::NicType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"network_interface::NicType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>nic_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `NetworkInterface`.
@@ -1690,19 +1691,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                NicType::Unspecified =&gt; <span class="string">&quot;NIC_TYPE_UNSPECIFIED&quot;</span>,
-                NicType::VirtioNet =&gt; <span class="string">&quot;VIRTIO_NET&quot;</span>,
-                NicType::Gvnic =&gt; <span class="string">&quot;GVNIC&quot;</span>,
+                NicType::Unspecified =&gt; <span class="string">"NIC_TYPE_UNSPECIFIED"</span>,
+                NicType::VirtioNet =&gt; <span class="string">"VIRTIO_NET"</span>,
+                NicType::Gvnic =&gt; <span class="string">"GVNIC"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;NIC_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;VIRTIO_NET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VirtioNet),
-                <span class="string">&quot;GVNIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gvnic),
+                <span class="string">"NIC_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"VIRTIO_NET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VirtioNet),
+                <span class="string">"GVNIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gvnic),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1715,10 +1716,10 @@
 </span><span class="kw">pub struct </span>VmImage {
     <span class="doccomment">/// Required. The name of the Google Cloud project that this VM image belongs
     /// to. Format: `{project_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
     <span class="doccomment">/// The reference to an external Compute Engine VM image.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;vm_image::Image&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"vm_image::Image"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>image: ::core::option::Option&lt;vm_image::Image&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `VmImage`.
@@ -1728,11 +1729,11 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Image {
         <span class="doccomment">/// Optional. Use VM image name to find the image.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>Name(::prost::alloc::string::String),
         <span class="doccomment">/// Optional. Use this VM image family to find the image; the newest image in
         /// this family will be used.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>Family(::prost::alloc::string::String),
     }
 }
@@ -1743,11 +1744,11 @@
 </span><span class="kw">pub struct </span>ContainerImage {
     <span class="doccomment">/// Required. The path to the container image repository. For example:
     /// `gcr.io/{project_id}/{image_name}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repository: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The tag of the container image. If not specified, this defaults
     /// to the latest tag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>tag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An accelerator configuration for a VM instance
@@ -1760,10 +1761,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AcceleratorConfig {
     <span class="doccomment">/// Optional. Type of this accelerator.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;accelerator_config::AcceleratorType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"accelerator_config::AcceleratorType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Optional. Count of cores of this accelerator.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>core_count: i64,
 }
 <span class="doccomment">/// Nested message and enum types in `AcceleratorConfig`.
@@ -1811,35 +1812,35 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AcceleratorType::Unspecified =&gt; <span class="string">&quot;ACCELERATOR_TYPE_UNSPECIFIED&quot;</span>,
-                AcceleratorType::NvidiaTeslaP100 =&gt; <span class="string">&quot;NVIDIA_TESLA_P100&quot;</span>,
-                AcceleratorType::NvidiaTeslaV100 =&gt; <span class="string">&quot;NVIDIA_TESLA_V100&quot;</span>,
-                AcceleratorType::NvidiaTeslaP4 =&gt; <span class="string">&quot;NVIDIA_TESLA_P4&quot;</span>,
-                AcceleratorType::NvidiaTeslaT4 =&gt; <span class="string">&quot;NVIDIA_TESLA_T4&quot;</span>,
-                AcceleratorType::NvidiaTeslaA100 =&gt; <span class="string">&quot;NVIDIA_TESLA_A100&quot;</span>,
-                AcceleratorType::NvidiaA10080gb =&gt; <span class="string">&quot;NVIDIA_A100_80GB&quot;</span>,
-                AcceleratorType::NvidiaL4 =&gt; <span class="string">&quot;NVIDIA_L4&quot;</span>,
-                AcceleratorType::NvidiaTeslaT4Vws =&gt; <span class="string">&quot;NVIDIA_TESLA_T4_VWS&quot;</span>,
-                AcceleratorType::NvidiaTeslaP100Vws =&gt; <span class="string">&quot;NVIDIA_TESLA_P100_VWS&quot;</span>,
-                AcceleratorType::NvidiaTeslaP4Vws =&gt; <span class="string">&quot;NVIDIA_TESLA_P4_VWS&quot;</span>,
+                AcceleratorType::Unspecified =&gt; <span class="string">"ACCELERATOR_TYPE_UNSPECIFIED"</span>,
+                AcceleratorType::NvidiaTeslaP100 =&gt; <span class="string">"NVIDIA_TESLA_P100"</span>,
+                AcceleratorType::NvidiaTeslaV100 =&gt; <span class="string">"NVIDIA_TESLA_V100"</span>,
+                AcceleratorType::NvidiaTeslaP4 =&gt; <span class="string">"NVIDIA_TESLA_P4"</span>,
+                AcceleratorType::NvidiaTeslaT4 =&gt; <span class="string">"NVIDIA_TESLA_T4"</span>,
+                AcceleratorType::NvidiaTeslaA100 =&gt; <span class="string">"NVIDIA_TESLA_A100"</span>,
+                AcceleratorType::NvidiaA10080gb =&gt; <span class="string">"NVIDIA_A100_80GB"</span>,
+                AcceleratorType::NvidiaL4 =&gt; <span class="string">"NVIDIA_L4"</span>,
+                AcceleratorType::NvidiaTeslaT4Vws =&gt; <span class="string">"NVIDIA_TESLA_T4_VWS"</span>,
+                AcceleratorType::NvidiaTeslaP100Vws =&gt; <span class="string">"NVIDIA_TESLA_P100_VWS"</span>,
+                AcceleratorType::NvidiaTeslaP4Vws =&gt; <span class="string">"NVIDIA_TESLA_P4_VWS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACCELERATOR_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NVIDIA_TESLA_P100&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP100),
-                <span class="string">&quot;NVIDIA_TESLA_V100&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaV100),
-                <span class="string">&quot;NVIDIA_TESLA_P4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP4),
-                <span class="string">&quot;NVIDIA_TESLA_T4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaT4),
-                <span class="string">&quot;NVIDIA_TESLA_A100&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaA100),
-                <span class="string">&quot;NVIDIA_A100_80GB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaA10080gb),
-                <span class="string">&quot;NVIDIA_L4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaL4),
-                <span class="string">&quot;NVIDIA_TESLA_T4_VWS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaT4Vws),
-                <span class="string">&quot;NVIDIA_TESLA_P100_VWS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP100Vws),
-                <span class="string">&quot;NVIDIA_TESLA_P4_VWS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP4Vws),
+                <span class="string">"ACCELERATOR_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NVIDIA_TESLA_P100" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP100),
+                <span class="string">"NVIDIA_TESLA_V100" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaV100),
+                <span class="string">"NVIDIA_TESLA_P4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP4),
+                <span class="string">"NVIDIA_TESLA_T4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaT4),
+                <span class="string">"NVIDIA_TESLA_A100" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaA100),
+                <span class="string">"NVIDIA_A100_80GB" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaA10080gb),
+                <span class="string">"NVIDIA_L4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaL4),
+                <span class="string">"NVIDIA_TESLA_T4_VWS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaT4Vws),
+                <span class="string">"NVIDIA_TESLA_P100_VWS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP100Vws),
+                <span class="string">"NVIDIA_TESLA_P4_VWS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NvidiaTeslaP4Vws),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1857,11 +1858,11 @@
     /// Secure Boot helps ensure that the system only runs authentic software by
     /// verifying the digital signature of all boot components, and halting the
     /// boot process if signature verification fails. Disabled by default.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enable_secure_boot: bool,
     <span class="doccomment">/// Optional. Defines whether the VM instance has the vTPM enabled. Enabled by
     /// default.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>enable_vtpm: bool,
     <span class="doccomment">/// Optional. Defines whether the VM instance has integrity monitoring enabled.
     ///
@@ -1869,7 +1870,7 @@
     /// instance. The attestation is performed against the integrity policy
     /// baseline. This baseline is initially derived from the implicitly trusted
     /// boot image when the VM instance is created. Enabled by default.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>enable_integrity_monitoring: bool,
 }
 <span class="doccomment">/// A GPU driver configuration
@@ -1878,13 +1879,13 @@
 </span><span class="kw">pub struct </span>GpuDriverConfig {
     <span class="doccomment">/// Optional. Whether the end user authorizes Google Cloud to install GPU
     /// driver on this VM instance. If this field is empty or set to false, the GPU
-    /// driver won&#39;t be installed. Only applicable to instances with GPUs.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    /// driver won't be installed. Only applicable to instances with GPUs.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enable_gpu_driver: bool,
     <span class="doccomment">/// Optional. Specify a custom Cloud Storage path where the GPU driver is
-    /// stored. If not specified, we&#39;ll automatically choose from official GPU
+    /// stored. If not specified, we'll automatically choose from official GPU
     /// drivers.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>custom_gpu_driver_path: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An instance-attached disk resource.
@@ -1893,21 +1894,21 @@
 </span><span class="kw">pub struct </span>DataDisk {
     <span class="doccomment">/// Optional. The size of the disk in GB attached to this VM instance, up to a
     /// maximum of 64000 GB (64 TB). If not specified, this defaults to 100.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>disk_size_gb: i64,
     <span class="doccomment">/// Optional. Input only. Indicates the type of the disk.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DiskType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DiskType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>disk_type: i32,
     <span class="doccomment">/// Optional. Input only. Disk encryption method used on the boot and data
     /// disks, defaults to GMEK.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DiskEncryption&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DiskEncryption"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>disk_encryption: i32,
     <span class="doccomment">/// Optional. Input only. The KMS key used to encrypt the disks, only
     /// applicable if disk_encryption is CMEK. Format:
     /// `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
     ///
     /// Learn more about using your own encryption keys.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>kms_key: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The definition of a boot disk.
@@ -1917,21 +1918,21 @@
     <span class="doccomment">/// Optional. The size of the boot disk in GB attached to this instance, up to
     /// a maximum of 64000 GB (64 TB). If not specified, this defaults to the
     /// recommended value of 150GB.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>disk_size_gb: i64,
     <span class="doccomment">/// Optional. Indicates the type of the disk.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DiskType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DiskType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>disk_type: i32,
     <span class="doccomment">/// Optional. Input only. Disk encryption method used on the boot and data
     /// disks, defaults to GMEK.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DiskEncryption&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DiskEncryption"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>disk_encryption: i32,
     <span class="doccomment">/// Optional. Input only. The KMS key used to encrypt the disks, only
     /// applicable if disk_encryption is CMEK. Format:
     /// `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
     ///
     /// Learn more about using your own encryption keys.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>kms_key: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A service account that acts as an identity.
@@ -1939,11 +1940,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ServiceAccount {
     <span class="doccomment">/// Optional. Email address of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The list of scopes to be made available for this service
     /// account. Set by the CLH to &lt;https://www.googleapis.com/auth/cloud-platform&gt;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>scopes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The definition of how to configure a VM instance outside of Resources and
@@ -1953,57 +1954,57 @@
 </span><span class="kw">pub struct </span>GceSetup {
     <span class="doccomment">/// Optional. The machine type of the VM instance.
     /// &lt;https://cloud.google.com/compute/docs/machine-resource&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The hardware accelerators used on this instance. If you use
     /// accelerators, make sure that your configuration has
     /// [enough vCPUs and memory to support the `machine_type` you have
     /// selected](&lt;https://cloud.google.com/compute/docs/gpus/#gpus-list&gt;).
     /// Currently supports only one accelerator configuration.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>accelerator_configs: ::prost::alloc::vec::Vec&lt;AcceleratorConfig&gt;,
     <span class="doccomment">/// Optional. The service account that serves as an identity for the VM
     /// instance. Currently supports only one service account.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>service_accounts: ::prost::alloc::vec::Vec&lt;ServiceAccount&gt;,
     <span class="doccomment">/// Optional. The boot disk for the VM.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>boot_disk: ::core::option::Option&lt;BootDisk&gt;,
     <span class="doccomment">/// Optional. Data disks attached to the VM instance.
     /// Currently supports only one data disk.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>data_disks: ::prost::alloc::vec::Vec&lt;DataDisk&gt;,
     <span class="doccomment">/// Optional. Shielded VM configuration.
     /// [Images using supported Shielded VM
     /// features](&lt;https://cloud.google.com/compute/docs/instances/modifying-shielded-vm&gt;).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>shielded_instance_config: ::core::option::Option&lt;ShieldedInstanceConfig&gt;,
     <span class="doccomment">/// Optional. The network interfaces for the VM.
     /// Supports only one interface.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>network_interfaces: ::prost::alloc::vec::Vec&lt;NetworkInterface&gt;,
     <span class="doccomment">/// Optional. If true, no external IP will be assigned to this VM instance.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>disable_public_ip: bool,
     <span class="doccomment">/// Optional. The Compute Engine tags to add to runtime (see [Tagging
     /// instances](&lt;https://cloud.google.com/compute/docs/label-or-tag-resources#tags&gt;)).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. Custom metadata to apply to this instance.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Optional. Flag to enable ip forwarding or not, default false/off.
     /// &lt;https://cloud.google.com/vpc/docs/using-routes#canipforward&gt;
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>enable_ip_forwarding: bool,
     <span class="doccomment">/// Optional. Configuration for GPU drivers.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>gpu_driver_config: ::core::option::Option&lt;GpuDriverConfig&gt;,
     <span class="doccomment">/// Type of the image; can be one of VM image, or container image.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;gce_setup::Image&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"gce_setup::Image"</span>, tags = <span class="string">"4, 5"</span>)]
     </span><span class="kw">pub </span>image: ::core::option::Option&lt;gce_setup::Image&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `GceSetup`.
@@ -2013,10 +2014,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Image {
         <span class="doccomment">/// Optional. Use a Compute Engine VM image to start the notebook instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>VmImage(<span class="kw">super</span>::VmImage),
         <span class="doccomment">/// Optional. Use a container image to start the notebook instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>ContainerImage(<span class="kw">super</span>::ContainerImage),
     }
 }
@@ -2036,19 +2037,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DiskEncryption::Unspecified =&gt; <span class="string">&quot;DISK_ENCRYPTION_UNSPECIFIED&quot;</span>,
-            DiskEncryption::Gmek =&gt; <span class="string">&quot;GMEK&quot;</span>,
-            DiskEncryption::Cmek =&gt; <span class="string">&quot;CMEK&quot;</span>,
+            DiskEncryption::Unspecified =&gt; <span class="string">"DISK_ENCRYPTION_UNSPECIFIED"</span>,
+            DiskEncryption::Gmek =&gt; <span class="string">"GMEK"</span>,
+            DiskEncryption::Cmek =&gt; <span class="string">"CMEK"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;DISK_ENCRYPTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;GMEK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gmek),
-            <span class="string">&quot;CMEK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cmek),
+            <span class="string">"DISK_ENCRYPTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"GMEK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gmek),
+            <span class="string">"CMEK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cmek),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2073,23 +2074,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DiskType::Unspecified =&gt; <span class="string">&quot;DISK_TYPE_UNSPECIFIED&quot;</span>,
-            DiskType::PdStandard =&gt; <span class="string">&quot;PD_STANDARD&quot;</span>,
-            DiskType::PdSsd =&gt; <span class="string">&quot;PD_SSD&quot;</span>,
-            DiskType::PdBalanced =&gt; <span class="string">&quot;PD_BALANCED&quot;</span>,
-            DiskType::PdExtreme =&gt; <span class="string">&quot;PD_EXTREME&quot;</span>,
+            DiskType::Unspecified =&gt; <span class="string">"DISK_TYPE_UNSPECIFIED"</span>,
+            DiskType::PdStandard =&gt; <span class="string">"PD_STANDARD"</span>,
+            DiskType::PdSsd =&gt; <span class="string">"PD_SSD"</span>,
+            DiskType::PdBalanced =&gt; <span class="string">"PD_BALANCED"</span>,
+            DiskType::PdExtreme =&gt; <span class="string">"PD_EXTREME"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;DISK_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;PD_STANDARD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PdStandard),
-            <span class="string">&quot;PD_SSD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PdSsd),
-            <span class="string">&quot;PD_BALANCED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PdBalanced),
-            <span class="string">&quot;PD_EXTREME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PdExtreme),
+            <span class="string">"DISK_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"PD_STANDARD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PdStandard),
+            <span class="string">"PD_SSD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PdSsd),
+            <span class="string">"PD_BALANCED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PdBalanced),
+            <span class="string">"PD_EXTREME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PdExtreme),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2100,31 +2101,31 @@
 </span><span class="kw">pub struct </span>UpgradeHistoryEntry {
     <span class="doccomment">/// Optional. The snapshot of the boot disk of this notebook instance before
     /// upgrade.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>snapshot: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The VM image before this instance upgrade.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>vm_image: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The container image before this instance upgrade.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>container_image: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The framework of this notebook instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>framework: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The version of the notebook instance before this upgrade.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The state of this instance upgrade history entry.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;upgrade_history_entry::State&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"upgrade_history_entry::State"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Immutable. The time that this instance upgrade history entry is created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Action. Rolloback or Upgrade.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;upgrade_history_entry::Action&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"upgrade_history_entry::Action"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>action: i32,
     <span class="doccomment">/// Optional. Target VM Version, like m63.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>target_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `UpgradeHistoryEntry`.
@@ -2157,21 +2158,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Started =&gt; <span class="string">"STARTED"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STARTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2202,19 +2203,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Action::Unspecified =&gt; <span class="string">&quot;ACTION_UNSPECIFIED&quot;</span>,
-                Action::Upgrade =&gt; <span class="string">&quot;UPGRADE&quot;</span>,
-                Action::Rollback =&gt; <span class="string">&quot;ROLLBACK&quot;</span>,
+                Action::Unspecified =&gt; <span class="string">"ACTION_UNSPECIFIED"</span>,
+                Action::Upgrade =&gt; <span class="string">"UPGRADE"</span>,
+                Action::Rollback =&gt; <span class="string">"ROLLBACK"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;UPGRADE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Upgrade),
-                <span class="string">&quot;ROLLBACK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rollback),
+                <span class="string">"ACTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"UPGRADE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Upgrade),
+                <span class="string">"ROLLBACK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rollback),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2226,69 +2227,69 @@
 </span><span class="kw">pub struct </span>Instance {
     <span class="doccomment">/// Output only. The name of this notebook instance. Format:
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The proxy endpoint that is used to access the Jupyter
     /// notebook.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>proxy_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Input only. The owner of this instance after creation. Format:
     /// `alias@example.com`
     ///
     /// Currently supports one owner only. If not specified, all of the service
-    /// account users of your VM instance&#39;s service account can use
+    /// account users of your VM instance's service account can use
     /// the instance.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>instance_owners: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. Email address of entity that sent original CreateInstance
     /// request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>creator: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The state of this instance.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;State&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"State"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The upgrade history of this instance.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>upgrade_history: ::prost::alloc::vec::Vec&lt;UpgradeHistoryEntry&gt;,
     <span class="doccomment">/// Output only. Unique ID of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Instance health_state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HealthState&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HealthState"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>health_state: i32,
     <span class="doccomment">/// Output only. Additional information about instance health.
     /// Example:
     ///
-    ///      healthInfo&quot;: {
-    ///        &quot;docker_proxy_agent_status&quot;: &quot;1&quot;,
-    ///        &quot;docker_status&quot;: &quot;1&quot;,
-    ///        &quot;jupyterlab_api_status&quot;: &quot;-1&quot;,
-    ///        &quot;jupyterlab_status&quot;: &quot;-1&quot;,
-    ///        &quot;updated&quot;: &quot;2020-10-18 09:40:03.573409&quot;
+    ///      healthInfo": {
+    ///        "docker_proxy_agent_status": "1",
+    ///        "docker_status": "1",
+    ///        "jupyterlab_api_status": "-1",
+    ///        "jupyterlab_status": "-1",
+    ///        "updated": "2020-10-18 09:40:03.573409"
     ///      }
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>health_info: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. Instance creation time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Instance update time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. If true, the notebook instance will not register with the proxy.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>disable_proxy_access: bool,
     <span class="doccomment">/// Optional. Labels to apply to this instance.
     /// These can be later modified by the UpdateInstance method.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Setup for the Notebook instance.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;instance::Infrastructure&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"instance::Infrastructure"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>infrastructure: ::core::option::Option&lt;instance::Infrastructure&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Instance`.
@@ -2299,7 +2300,7 @@
     </span><span class="kw">pub enum </span>Infrastructure {
         <span class="doccomment">/// Optional. Compute Engine setup for the notebook. Uses notebook-defined
         /// fields.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>GceSetup(<span class="kw">super</span>::GceSetup),
     }
 }
@@ -2336,35 +2337,35 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-            State::Starting =&gt; <span class="string">&quot;STARTING&quot;</span>,
-            State::Provisioning =&gt; <span class="string">&quot;PROVISIONING&quot;</span>,
-            State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-            State::Stopping =&gt; <span class="string">&quot;STOPPING&quot;</span>,
-            State::Stopped =&gt; <span class="string">&quot;STOPPED&quot;</span>,
-            State::Deleted =&gt; <span class="string">&quot;DELETED&quot;</span>,
-            State::Upgrading =&gt; <span class="string">&quot;UPGRADING&quot;</span>,
-            State::Initializing =&gt; <span class="string">&quot;INITIALIZING&quot;</span>,
-            State::Suspending =&gt; <span class="string">&quot;SUSPENDING&quot;</span>,
-            State::Suspended =&gt; <span class="string">&quot;SUSPENDED&quot;</span>,
+            State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+            State::Starting =&gt; <span class="string">"STARTING"</span>,
+            State::Provisioning =&gt; <span class="string">"PROVISIONING"</span>,
+            State::Active =&gt; <span class="string">"ACTIVE"</span>,
+            State::Stopping =&gt; <span class="string">"STOPPING"</span>,
+            State::Stopped =&gt; <span class="string">"STOPPED"</span>,
+            State::Deleted =&gt; <span class="string">"DELETED"</span>,
+            State::Upgrading =&gt; <span class="string">"UPGRADING"</span>,
+            State::Initializing =&gt; <span class="string">"INITIALIZING"</span>,
+            State::Suspending =&gt; <span class="string">"SUSPENDING"</span>,
+            State::Suspended =&gt; <span class="string">"SUSPENDED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;STARTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Starting),
-            <span class="string">&quot;PROVISIONING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Provisioning),
-            <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-            <span class="string">&quot;STOPPING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopping),
-            <span class="string">&quot;STOPPED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopped),
-            <span class="string">&quot;DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
-            <span class="string">&quot;UPGRADING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Upgrading),
-            <span class="string">&quot;INITIALIZING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
-            <span class="string">&quot;SUSPENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspending),
-            <span class="string">&quot;SUSPENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
+            <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"STARTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Starting),
+            <span class="string">"PROVISIONING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Provisioning),
+            <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+            <span class="string">"STOPPING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopping),
+            <span class="string">"STOPPED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopped),
+            <span class="string">"DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
+            <span class="string">"UPGRADING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Upgrading),
+            <span class="string">"INITIALIZING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Initializing),
+            <span class="string">"SUSPENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspending),
+            <span class="string">"SUSPENDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2395,23 +2396,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            HealthState::Unspecified =&gt; <span class="string">&quot;HEALTH_STATE_UNSPECIFIED&quot;</span>,
-            HealthState::Healthy =&gt; <span class="string">&quot;HEALTHY&quot;</span>,
-            HealthState::Unhealthy =&gt; <span class="string">&quot;UNHEALTHY&quot;</span>,
-            HealthState::AgentNotInstalled =&gt; <span class="string">&quot;AGENT_NOT_INSTALLED&quot;</span>,
-            HealthState::AgentNotRunning =&gt; <span class="string">&quot;AGENT_NOT_RUNNING&quot;</span>,
+            HealthState::Unspecified =&gt; <span class="string">"HEALTH_STATE_UNSPECIFIED"</span>,
+            HealthState::Healthy =&gt; <span class="string">"HEALTHY"</span>,
+            HealthState::Unhealthy =&gt; <span class="string">"UNHEALTHY"</span>,
+            HealthState::AgentNotInstalled =&gt; <span class="string">"AGENT_NOT_INSTALLED"</span>,
+            HealthState::AgentNotRunning =&gt; <span class="string">"AGENT_NOT_RUNNING"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;HEALTH_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;HEALTHY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Healthy),
-            <span class="string">&quot;UNHEALTHY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unhealthy),
-            <span class="string">&quot;AGENT_NOT_INSTALLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AgentNotInstalled),
-            <span class="string">&quot;AGENT_NOT_RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AgentNotRunning),
+            <span class="string">"HEALTH_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"HEALTHY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Healthy),
+            <span class="string">"UNHEALTHY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unhealthy),
+            <span class="string">"AGENT_NOT_INSTALLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AgentNotInstalled),
+            <span class="string">"AGENT_NOT_RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AgentNotRunning),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2425,31 +2426,31 @@
     ///
     /// Permissions:
     /// User Managed Notebooks:
-    /// - storage.buckets.writer: Must be given to the project&#39;s service account
+    /// - storage.buckets.writer: Must be given to the project's service account
     ///    attached to VM.
     /// Google Managed Notebooks:
-    /// - storage.buckets.writer: Must be given to the project&#39;s service account or
+    /// - storage.buckets.writer: Must be given to the project's service account or
     ///    user credentials attached to VM depending on authentication mode.
     ///
     /// Cloud Storage bucket Log file will be written to
     /// `gs://$GCS_BUCKET/$RELATIVE_PATH/$VM_DATE_$TIME.tar.gz`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gcs_bucket: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Defines the relative storage path in the Cloud Storage bucket
     /// where the diagnostic logs will be written: Default path will be the root
     /// directory of the Cloud Storage bucket
     /// (`gs://$GCS_BUCKET/$DATE_$TIME.tar.gz`) Example of full path where Log file
     /// will be written: `gs://$GCS_BUCKET/$RELATIVE_PATH/`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>relative_path: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Enables flag to repair service for instance
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>enable_repair_flag: bool,
     <span class="doccomment">/// Optional. Enables flag to capture packets from the instance for 30 seconds
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>enable_packet_capture_flag: bool,
     <span class="doccomment">/// Optional. Enables flag to copy all `/home/jupyter` folder contents
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>enable_copy_home_files_flag: bool,
 }
 <span class="doccomment">/// Represents the metadata of the long-running operation.
@@ -2457,32 +2458,32 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
     /// have [Operation.error][] value with a
     /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
     <span class="doccomment">/// API endpoint name of this operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>endpoint: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for listing notebook instances.
@@ -2491,21 +2492,21 @@
 </span><span class="kw">pub struct </span>ListInstancesRequest {
     <span class="doccomment">/// Required. Format:
     /// `parent=projects/{project_id}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum return size of the list call.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A previous returned page token that can be used to continue
     /// listing from the last result.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Sort results. Supported values are &quot;name&quot;, &quot;name desc&quot; or &quot;&quot;
+    <span class="doccomment">/// Optional. Sort results. Supported values are "name", "name desc" or ""
     /// (unsorted).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. List filter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for listing notebook instances.
@@ -2513,16 +2514,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListInstancesResponse {
     <span class="doccomment">/// A list of returned instances.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instances: ::prost::alloc::vec::Vec&lt;Instance&gt;,
     <span class="doccomment">/// Page token that can be used to continue listing from the last result in the
     /// next list call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached. For example,
-    /// \[&#39;us-west1-a&#39;, &#39;us-central1-b&#39;\].
+    /// \['us-west1-a', 'us-central1-b'\].
     /// A ListInstancesResponse will only contain either instances or unreachables,
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request for getting a notebook instance.
@@ -2531,7 +2532,7 @@
 </span><span class="kw">pub struct </span>GetInstanceRequest {
     <span class="doccomment">/// Required. Format:
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for creating a notebook instance.
@@ -2540,16 +2541,16 @@
 </span><span class="kw">pub struct </span>CreateInstanceRequest {
     <span class="doccomment">/// Required. Format:
     /// `parent=projects/{project_id}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. User-defined unique ID of this instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The instance to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>instance: ::core::option::Option&lt;Instance&gt;,
     <span class="doccomment">/// Optional. Idempotent request UUID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for updating a notebook instance.
@@ -2557,13 +2558,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateInstanceRequest {
     <span class="doccomment">/// Required. A representation of an instance.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance: ::core::option::Option&lt;Instance&gt;,
     <span class="doccomment">/// Required. Mask used to update an instance
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Optional. Idempotent request UUID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for deleting a notebook instance.
@@ -2572,10 +2573,10 @@
 </span><span class="kw">pub struct </span>DeleteInstanceRequest {
     <span class="doccomment">/// Required. Format:
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Idempotent request UUID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for starting a notebook instance
@@ -2584,7 +2585,7 @@
 </span><span class="kw">pub struct </span>StartInstanceRequest {
     <span class="doccomment">/// Required. Format:
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for stopping a notebook instance
@@ -2593,7 +2594,7 @@
 </span><span class="kw">pub struct </span>StopInstanceRequest {
     <span class="doccomment">/// Required. Format:
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for resetting a notebook instance
@@ -2602,7 +2603,7 @@
 </span><span class="kw">pub struct </span>ResetInstanceRequest {
     <span class="doccomment">/// Required. Format:
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for checking if a notebook instance is upgradeable.
@@ -2611,7 +2612,7 @@
 </span><span class="kw">pub struct </span>CheckInstanceUpgradabilityRequest {
     <span class="doccomment">/// Required. Format:
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>notebook_instance: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for checking if a notebook instance is upgradeable.
@@ -2619,19 +2620,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CheckInstanceUpgradabilityResponse {
     <span class="doccomment">/// If an instance is upgradeable.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>upgradeable: bool,
     <span class="doccomment">/// The version this instance will be upgraded to if calling the upgrade
     /// endpoint. This field will only be populated if field upgradeable is true.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>upgrade_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Additional information about upgrade.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>upgrade_info: ::prost::alloc::string::String,
     <span class="doccomment">/// The new image self link this instance will be upgraded to if calling the
     /// upgrade endpoint. This field will only be populated if field upgradeable
     /// is true.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>upgrade_image: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for upgrading a notebook instance
@@ -2640,7 +2641,7 @@
 </span><span class="kw">pub struct </span>UpgradeInstanceRequest {
     <span class="doccomment">/// Required. Format:
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for rollbacking a notebook instance
@@ -2649,14 +2650,14 @@
 </span><span class="kw">pub struct </span>RollbackInstanceRequest {
     <span class="doccomment">/// Required. Format:
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The snapshot for rollback.
-    /// Example: &quot;projects/test-project/global/snapshots/krwlzipynril&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// Example: "projects/test-project/global/snapshots/krwlzipynril".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>target_snapshot: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Output only. Revision Id
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>revision_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for creating a notebook instance diagnostic file.
@@ -2665,13 +2666,13 @@
 </span><span class="kw">pub struct </span>DiagnoseInstanceRequest {
     <span class="doccomment">/// Required. Format:
     /// `projects/{project_id}/locations/{location}/instances/{instance_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Defines flags that are used to run the diagnostic tool
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>diagnostic_config: ::core::option::Option&lt;DiagnosticConfig&gt;,
     <span class="doccomment">/// Optional. Maxmium amount of time in minutes before the operation times out.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>timeout_minutes: i32,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2688,7 +2689,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2763,19 +2764,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/ListInstances&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/ListInstances"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;ListInstances&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"ListInstances"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2791,19 +2792,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/GetInstance&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/GetInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;GetInstance&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"GetInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2822,19 +2823,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/CreateInstance&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/CreateInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;CreateInstance&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"CreateInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2853,19 +2854,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/UpdateInstance&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/UpdateInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;UpdateInstance&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"UpdateInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2884,19 +2885,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/DeleteInstance&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/DeleteInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;DeleteInstance&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"DeleteInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2915,19 +2916,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/StartInstance&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/StartInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;StartInstance&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"StartInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2946,19 +2947,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/StopInstance&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/StopInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;StopInstance&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"StopInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2977,19 +2978,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/ResetInstance&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/ResetInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;ResetInstance&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"ResetInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3008,19 +3009,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/CheckInstanceUpgradability&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/CheckInstanceUpgradability"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;CheckInstanceUpgradability&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"CheckInstanceUpgradability"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3039,19 +3040,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/UpgradeInstance&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/UpgradeInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;UpgradeInstance&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"UpgradeInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3070,19 +3071,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/RollbackInstance&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/RollbackInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;RollbackInstance&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"RollbackInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3101,19 +3102,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.notebooks.v2.NotebookService/DiagnoseInstance&quot;</span>,
+                <span class="string">"/google.cloud.notebooks.v2.NotebookService/DiagnoseInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.notebooks.v2.NotebookService&quot;</span>,
-                        <span class="string">&quot;DiagnoseInstance&quot;</span>,
+                        <span class="string">"google.cloud.notebooks.v2.NotebookService"</span>,
+                        <span class="string">"DiagnoseInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

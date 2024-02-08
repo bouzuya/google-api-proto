@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/pubsublite/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/pubsublite/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2775,7 +2776,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AttributeValues {
     <span class="doccomment">/// The list of values associated with a key.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost::bytes::Bytes&gt;,
 }
 <span class="doccomment">/// A message that is published by publishers and delivered to subscribers.
@@ -2785,19 +2786,19 @@
     <span class="doccomment">/// The key used for routing messages to partitions or for compaction (e.g.,
     /// keep the last N messages per key). If the key is empty, the message is
     /// routed to an arbitrary partition.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key: ::prost::bytes::Bytes,
     <span class="doccomment">/// The payload of the message.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data: ::prost::bytes::Bytes,
     <span class="doccomment">/// Optional attributes that can be used for message metadata/headers.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>attributes: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         AttributeValues,
     &gt;,
     <span class="doccomment">/// An optional, user-specified event time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// A cursor that describes the position of a message within a topic partition.
@@ -2806,7 +2807,7 @@
 </span><span class="kw">pub struct </span>Cursor {
     <span class="doccomment">/// The offset of a message within a topic partition. Must be greater than or
     /// equal 0.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>offset: i64,
 }
 <span class="doccomment">/// A message that has been stored and sequenced by the Pub/Sub Lite system.
@@ -2814,17 +2815,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SequencedMessage {
     <span class="doccomment">/// The position of a message within the partition where it is stored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cursor: ::core::option::Option&lt;Cursor&gt;,
     <span class="doccomment">/// The time when the message was received by the server when it was first
     /// published.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>publish_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The user message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>message: ::core::option::Option&lt;PubSubMessage&gt;,
     <span class="doccomment">/// The size in bytes of this message for flow control and quota purposes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>size_bytes: i64,
 }
 <span class="doccomment">/// Metadata about a reservation resource.
@@ -2834,7 +2835,7 @@
     <span class="doccomment">/// The name of the reservation.
     /// Structured like:
     /// projects/{project_number}/locations/{location}/reservations/{reservation_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The reserved throughput capacity. Every unit of throughput capacity is
     /// equivalent to 1 MiB/s of published messages or 2 MiB/s of subscribed
@@ -2843,7 +2844,7 @@
     /// Any topics which are declared as using capacity from a Reservation will
     /// consume resources from this reservation instead of being charged
     /// individually.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>throughput_capacity: i64,
 }
 <span class="doccomment">/// Metadata about a topic resource.
@@ -2853,21 +2854,21 @@
     <span class="doccomment">/// The name of the topic.
     /// Structured like:
     /// projects/{project_number}/locations/{location}/topics/{topic_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The settings for this topic&#39;s partitions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The settings for this topic's partitions.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>partition_config: ::core::option::Option&lt;topic::PartitionConfig&gt;,
-    <span class="doccomment">/// The settings for this topic&#39;s message retention.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The settings for this topic's message retention.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>retention_config: ::core::option::Option&lt;topic::RetentionConfig&gt;,
-    <span class="doccomment">/// The settings for this topic&#39;s Reservation usage.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// The settings for this topic's Reservation usage.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>reservation_config: ::core::option::Option&lt;topic::ReservationConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Topic`.
 </span><span class="kw">pub mod </span>topic {
-    <span class="doccomment">/// The settings for a topic&#39;s partitions.
+    <span class="doccomment">/// The settings for a topic's partitions.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PartitionConfig {
@@ -2877,10 +2878,10 @@
         /// but not decreased. Message ordering is not guaranteed across a topic
         /// resize. For more information see
         /// &lt;https://cloud.google.com/pubsub/lite/docs/topics#scaling_capacity&gt;
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>count: i64,
         <span class="doccomment">/// The throughput dimension of this topic.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;partition_config::Dimension&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"partition_config::Dimension"</span>, tags = <span class="string">"2, 3"</span>)]
         </span><span class="kw">pub </span>dimension: ::core::option::Option&lt;partition_config::Dimension&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `PartitionConfig`.
@@ -2891,11 +2892,11 @@
         </span><span class="kw">pub struct </span>Capacity {
             <span class="doccomment">/// Publish throughput capacity per partition in MiB/s.
             /// Must be &gt;= 4 and &lt;= 16.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>publish_mib_per_sec: i32,
             <span class="doccomment">/// Subscribe throughput capacity per partition in MiB/s.
             /// Must be &gt;= 4 and &lt;= 32.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>subscribe_mib_per_sec: i32,
         }
         <span class="doccomment">/// The throughput dimension of this topic.
@@ -2910,37 +2911,37 @@
             /// reflected in the cost of this topic; a topic with `scale` of 2 and
             /// count of 10 is charged for 20 partitions. This value must be in the
             /// range \[1,4\].
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
             </span>Scale(i32),
             <span class="doccomment">/// The capacity configuration.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
             </span>Capacity(Capacity),
         }
     }
-    <span class="doccomment">/// The settings for a topic&#39;s message retention.
+    <span class="doccomment">/// The settings for a topic's message retention.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>RetentionConfig {
         <span class="doccomment">/// The provisioned storage, in bytes, per partition. If the number of bytes
-        /// stored in any of the topic&#39;s partitions grows beyond this value, older
+        /// stored in any of the topic's partitions grows beyond this value, older
         /// messages will be dropped to make room for newer ones, regardless of the
         /// value of `period`.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>per_partition_bytes: i64,
         <span class="doccomment">/// How long a published message is retained. If unset, messages will be
         /// retained as long as the bytes retained for each partition is below
         /// `per_partition_bytes`.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>period: ::core::option::Option&lt;::prost_types::Duration&gt;,
     }
-    <span class="doccomment">/// The settings for this topic&#39;s Reservation usage.
+    <span class="doccomment">/// The settings for this topic's Reservation usage.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ReservationConfig {
-        <span class="doccomment">/// The Reservation to use for this topic&#39;s throughput capacity.
+        <span class="doccomment">/// The Reservation to use for this topic's throughput capacity.
         /// Structured like:
         /// projects/{project_number}/locations/{location}/reservations/{reservation_id}
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>throughput_reservation: ::prost::alloc::string::String,
     }
 }
@@ -2951,29 +2952,29 @@
     <span class="doccomment">/// The name of the subscription.
     /// Structured like:
     /// projects/{project_number}/locations/{location}/subscriptions/{subscription_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the topic this subscription is attached to.
     /// Structured like:
     /// projects/{project_number}/locations/{location}/topics/{topic_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>topic: ::prost::alloc::string::String,
-    <span class="doccomment">/// The settings for this subscription&#39;s message delivery.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The settings for this subscription's message delivery.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>delivery_config: ::core::option::Option&lt;subscription::DeliveryConfig&gt;,
     <span class="doccomment">/// If present, messages are automatically written from the Pub/Sub Lite topic
     /// associated with this subscription to a destination.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>export_config: ::core::option::Option&lt;ExportConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Subscription`.
 </span><span class="kw">pub mod </span>subscription {
-    <span class="doccomment">/// The settings for a subscription&#39;s message delivery.
+    <span class="doccomment">/// The settings for a subscription's message delivery.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>DeliveryConfig {
         <span class="doccomment">/// The DeliveryRequirement for this subscription.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;delivery_config::DeliveryRequirement&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"delivery_config::DeliveryRequirement"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>delivery_requirement: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `DeliveryConfig`.
@@ -3009,21 +3010,21 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
                     DeliveryRequirement::Unspecified =&gt; {
-                        <span class="string">&quot;DELIVERY_REQUIREMENT_UNSPECIFIED&quot;
+                        <span class="string">"DELIVERY_REQUIREMENT_UNSPECIFIED"
                     </span>}
-                    DeliveryRequirement::DeliverImmediately =&gt; <span class="string">&quot;DELIVER_IMMEDIATELY&quot;</span>,
-                    DeliveryRequirement::DeliverAfterStored =&gt; <span class="string">&quot;DELIVER_AFTER_STORED&quot;</span>,
+                    DeliveryRequirement::DeliverImmediately =&gt; <span class="string">"DELIVER_IMMEDIATELY"</span>,
+                    DeliveryRequirement::DeliverAfterStored =&gt; <span class="string">"DELIVER_AFTER_STORED"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;DELIVERY_REQUIREMENT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;DELIVER_IMMEDIATELY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeliverImmediately),
-                    <span class="string">&quot;DELIVER_AFTER_STORED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeliverAfterStored),
+                    <span class="string">"DELIVERY_REQUIREMENT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"DELIVER_IMMEDIATELY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeliverImmediately),
+                    <span class="string">"DELIVER_AFTER_STORED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeliverAfterStored),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -3037,11 +3038,11 @@
 </span><span class="kw">pub struct </span>ExportConfig {
     <span class="doccomment">/// The desired state of this export. Setting this to values other than
     /// `ACTIVE` and `PAUSED` will result in an error.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;export_config::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"export_config::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>desired_state: i32,
     <span class="doccomment">/// Output only. The current state of the export, which may be different to the
     /// desired state due to errors. This field is output only.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;export_config::State&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"export_config::State"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>current_state: i32,
     <span class="doccomment">/// Optional. The name of an optional Pub/Sub Lite topic to publish messages
     /// that can not be exported to the destination. For example, the message can
@@ -3052,10 +3053,10 @@
     /// projects/{project_number}/locations/{location}/topics/{topic_id}.
     /// Must be within the same project and location as the subscription. The topic
     /// may be changed or removed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>dead_letter_topic: ::prost::alloc::string::String,
     <span class="doccomment">/// The destination to export to. Required.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;export_config::Destination&quot;</span>, tags = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"export_config::Destination"</span>, tags = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;export_config::Destination&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ExportConfig`.
@@ -3067,7 +3068,7 @@
         <span class="doccomment">/// The name of the Pub/Sub topic.
         /// Structured like: projects/{project_number}/topics/{topic_id}.
         /// The topic may be changed.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>topic: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// The desired export state.
@@ -3100,23 +3101,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
-                State::PermissionDenied =&gt; <span class="string">&quot;PERMISSION_DENIED&quot;</span>,
-                State::NotFound =&gt; <span class="string">&quot;NOT_FOUND&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Paused =&gt; <span class="string">"PAUSED"</span>,
+                State::PermissionDenied =&gt; <span class="string">"PERMISSION_DENIED"</span>,
+                State::NotFound =&gt; <span class="string">"NOT_FOUND"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
-                <span class="string">&quot;PERMISSION_DENIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermissionDenied),
-                <span class="string">&quot;NOT_FOUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotFound),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"PAUSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
+                <span class="string">"PERMISSION_DENIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermissionDenied),
+                <span class="string">"NOT_FOUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotFound),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3127,7 +3128,7 @@
     </span><span class="kw">pub enum </span>Destination {
         <span class="doccomment">/// Messages are automatically written from the Pub/Sub Lite topic associated
         /// with this subscription to a Pub/Sub topic.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>PubsubConfig(PubSubConfig),
     }
 }
@@ -3137,7 +3138,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimeTarget {
     <span class="doccomment">/// The type of message time to query.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;time_target::Time&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"time_target::Time"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>time: ::core::option::Option&lt;time_target::Time&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TimeTarget`.
@@ -3149,14 +3150,14 @@
         <span class="doccomment">/// Request the cursor of the first message with publish time greater than or
         /// equal to `publish_time`. All messages thereafter are guaranteed to have
         /// publish times &gt;= `publish_time`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>PublishTime(::prost_types::Timestamp),
         <span class="doccomment">/// Request the cursor of the first message with event time greater than or
         /// equal to `event_time`. If messages are missing an event time, the publish
         /// time is used as a fallback. As event times are user supplied, subsequent
         /// messages may have event times less than `event_time` and should be
         /// filtered by the client, if necessary.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>EventTime(::prost_types::Timestamp),
     }
 }
@@ -3165,12 +3166,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InitialPublishRequest {
     <span class="doccomment">/// The topic to which messages will be written.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>topic: ::prost::alloc::string::String,
     <span class="doccomment">/// The partition within the topic to which messages will be written.
     /// Partitions are zero indexed, so `partition` must be in the range [0,
     /// topic.num_partitions).
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>partition: i64,
     <span class="doccomment">/// Unique identifier for a publisher client. If set, enables publish
     /// idempotency within a publisher client session.
@@ -3179,7 +3180,7 @@
     /// populated with a 128 bit uuid, generated by standard uuid algorithms like
     /// uuid1 or uuid4. The same identifier should be reused following
     /// disconnections with retryable stream errors.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>client_id: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Response to an InitialPublishRequest.
@@ -3191,7 +3192,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MessagePublishRequest {
     <span class="doccomment">/// The messages to publish.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>messages: ::prost::alloc::vec::Vec&lt;PubSubMessage&gt;,
     <span class="doccomment">/// The sequence number corresponding to the first message in `messages`.
     /// Messages within a batch are ordered and the sequence numbers of all
@@ -3204,7 +3205,7 @@
     /// the client only needs to specify the sequence number of the first message
     /// in a published batch. The server deduplicates messages with the same
     /// sequence number from the same publisher `client_id`.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>first_sequence_number: i64,
 }
 <span class="doccomment">/// Response to a MessagePublishRequest.
@@ -3213,7 +3214,7 @@
 </span><span class="kw">pub struct </span>MessagePublishResponse {
     <span class="doccomment">/// The cursor of the first published message in the batch. The cursors for any
     /// remaining messages in the batch are guaranteed to be sequential.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_cursor: ::core::option::Option&lt;Cursor&gt;,
     <span class="doccomment">/// Cursors for messages published in the batch. There will exist multiple
     /// ranges when cursors are not contiguous within the batch.
@@ -3223,7 +3224,7 @@
     /// could not be determined for messages within the range, as they were
     /// deduplicated and the necessary data was not available at publish time.
     /// These messages will have offsets when received by a subscriber.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>cursor_ranges: ::prost::alloc::vec::Vec&lt;message_publish_response::CursorRange&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MessagePublishResponse`.
@@ -3234,14 +3235,14 @@
     </span><span class="kw">pub struct </span>CursorRange {
         <span class="doccomment">/// The cursor of the message at the start index. The cursors for remaining
         /// messages up to the end index (exclusive) are sequential.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>start_cursor: ::core::option::Option&lt;<span class="kw">super</span>::Cursor&gt;,
         <span class="doccomment">/// Index of the message in the published batch that corresponds to the
         /// start cursor. Inclusive.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>start_index: i32,
         <span class="doccomment">/// Index of the last message in this range. Exclusive.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>end_index: i32,
     }
 }
@@ -3250,7 +3251,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PublishRequest {
     <span class="doccomment">/// The type of request this is.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;publish_request::RequestType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"publish_request::RequestType"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>request_type: ::core::option::Option&lt;publish_request::RequestType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PublishRequest`.
@@ -3260,10 +3261,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>RequestType {
         <span class="doccomment">/// Initial request on the stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>InitialRequest(<span class="kw">super</span>::InitialPublishRequest),
         <span class="doccomment">/// Request to publish messages.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>MessagePublishRequest(<span class="kw">super</span>::MessagePublishRequest),
     }
 }
@@ -3272,7 +3273,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PublishResponse {
     <span class="doccomment">/// The type of response this is.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;publish_response::ResponseType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"publish_response::ResponseType"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>response_type: ::core::option::Option&lt;publish_response::ResponseType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PublishResponse`.
@@ -3282,10 +3283,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ResponseType {
         <span class="doccomment">/// Initial response on the stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>InitialResponse(<span class="kw">super</span>::InitialPublishResponse),
         <span class="doccomment">/// Response to publishing messages.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>MessageResponse(<span class="kw">super</span>::MessagePublishResponse),
     }
 }
@@ -3306,7 +3307,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3387,19 +3388,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.PublisherService/Publish&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.PublisherService/Publish"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.PublisherService&quot;</span>,
-                        <span class="string">&quot;Publish&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.PublisherService"</span>,
+                        <span class="string">"Publish"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await
@@ -3411,18 +3412,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ComputeMessageStatsRequest {
     <span class="doccomment">/// Required. The topic for which we should compute message stats.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>topic: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The partition for which we should compute message stats.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>partition: i64,
     <span class="doccomment">/// The inclusive start of the range.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>start_cursor: ::core::option::Option&lt;Cursor&gt;,
     <span class="doccomment">/// The exclusive end of the range. The range is empty if end_cursor &lt;=
     /// start_cursor. Specifying a start_cursor before the first message and an
     /// end_cursor after the last message will retrieve all messages.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>end_cursor: ::core::option::Option&lt;Cursor&gt;,
 }
 <span class="doccomment">/// Response containing stats for messages in the requested topic and partition.
@@ -3430,20 +3431,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ComputeMessageStatsResponse {
     <span class="doccomment">/// The count of messages.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>message_count: i64,
     <span class="doccomment">/// The number of quota bytes accounted to these messages.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>message_bytes: i64,
     <span class="doccomment">/// The minimum publish timestamp across these messages. Note that publish
     /// timestamps within a partition are not guaranteed to be non-decreasing. The
     /// timestamp will be unset if there are no messages.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>minimum_publish_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The minimum event timestamp across these messages. For the purposes of this
     /// computation, if a message does not have an event time, we use the publish
     /// time. The timestamp will be unset if there are no messages.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>minimum_event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Compute the current head cursor for a partition.
@@ -3451,10 +3452,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ComputeHeadCursorRequest {
     <span class="doccomment">/// Required. The topic for which we should compute the head cursor.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>topic: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The partition for which we should compute the head cursor.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>partition: i64,
 }
 <span class="doccomment">/// Response containing the head cursor for the requested topic and partition.
@@ -3462,7 +3463,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ComputeHeadCursorResponse {
     <span class="doccomment">/// The head cursor.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>head_cursor: ::core::option::Option&lt;Cursor&gt;,
 }
 <span class="doccomment">/// Compute the corresponding cursor for a publish or event time in a topic
@@ -3471,14 +3472,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ComputeTimeCursorRequest {
     <span class="doccomment">/// Required. The topic for which we should compute the cursor.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>topic: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The partition for which we should compute the cursor.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>partition: i64,
     <span class="doccomment">/// Required. The target publish or event time. Specifying a future time will
     /// return an unset cursor.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::core::option::Option&lt;TimeTarget&gt;,
 }
 <span class="doccomment">/// Response containing the cursor corresponding to a publish or event time in a
@@ -3489,7 +3490,7 @@
     <span class="doccomment">/// If present, the cursor references the first message with time greater than
     /// or equal to the specified target time. If such a message cannot be found,
     /// the cursor will be unset (i.e. `cursor` is not present).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cursor: ::core::option::Option&lt;Cursor&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -3506,7 +3507,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3582,25 +3583,25 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.TopicStatsService/ComputeMessageStats&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.TopicStatsService/ComputeMessageStats"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.TopicStatsService&quot;</span>,
-                        <span class="string">&quot;ComputeMessageStats&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.TopicStatsService"</span>,
+                        <span class="string">"ComputeMessageStats"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Compute the head cursor for the partition.
-        /// The head cursor&#39;s offset is guaranteed to be less than or equal to all
+        /// The head cursor's offset is guaranteed to be less than or equal to all
         /// messages which have not yet been acknowledged as published, and
         /// greater than the offset of any message whose publish has already
         /// been acknowledged. It is zero if there have never been messages in the
@@ -3618,19 +3619,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.TopicStatsService/ComputeHeadCursor&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.TopicStatsService/ComputeHeadCursor"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.TopicStatsService&quot;</span>,
-                        <span class="string">&quot;ComputeHeadCursor&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.TopicStatsService"</span>,
+                        <span class="string">"ComputeHeadCursor"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3650,19 +3651,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.TopicStatsService/ComputeTimeCursor&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.TopicStatsService/ComputeTimeCursor"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.TopicStatsService&quot;</span>,
-                        <span class="string">&quot;ComputeTimeCursor&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.TopicStatsService"</span>,
+                        <span class="string">"ComputeTimeCursor"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3675,17 +3676,17 @@
 </span><span class="kw">pub struct </span>CreateTopicRequest {
     <span class="doccomment">/// Required. The parent location in which to create the topic.
     /// Structured like `projects/{project_number}/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Configuration of the topic to create. Its `name` field is
     /// ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>topic: ::core::option::Option&lt;Topic&gt;,
     <span class="doccomment">/// Required. The ID to use for the topic, which will become the final
-    /// component of the topic&#39;s name.
+    /// component of the topic's name.
     ///
     /// This value is structured like: `my-topic-name`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>topic_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for GetTopic.
@@ -3693,7 +3694,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTopicRequest {
     <span class="doccomment">/// Required. The name of the topic whose configuration to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for GetTopicPartitions.
@@ -3701,7 +3702,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTopicPartitionsRequest {
     <span class="doccomment">/// Required. The topic whose partition information to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for GetTopicPartitions.
@@ -3709,7 +3710,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TopicPartitions {
     <span class="doccomment">/// The number of partitions in the topic.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>partition_count: i64,
 }
 <span class="doccomment">/// Request for ListTopics.
@@ -3718,19 +3719,19 @@
 </span><span class="kw">pub struct </span>ListTopicsRequest {
     <span class="doccomment">/// Required. The parent whose topics are to be listed.
     /// Structured like `projects/{project_number}/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of topics to return. The service may return fewer than
     /// this value.
     /// If unset or zero, all topics for the parent will be returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListTopics` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListTopics` must match
     /// the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for ListTopics.
@@ -3739,11 +3740,11 @@
 </span><span class="kw">pub struct </span>ListTopicsResponse {
     <span class="doccomment">/// The list of topic in the requested parent. The order of the topics is
     /// unspecified.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>topics: ::prost::alloc::vec::Vec&lt;Topic&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page of
     /// results. If this field is omitted, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for UpdateTopic.
@@ -3751,10 +3752,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateTopicRequest {
     <span class="doccomment">/// Required. The topic to update. Its `name` field must be populated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>topic: ::core::option::Option&lt;Topic&gt;,
     <span class="doccomment">/// Required. A mask specifying the topic fields to change.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request for DeleteTopic.
@@ -3762,7 +3763,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteTopicRequest {
     <span class="doccomment">/// Required. The name of the topic to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for ListTopicSubscriptions.
@@ -3770,19 +3771,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTopicSubscriptionsRequest {
     <span class="doccomment">/// Required. The name of the topic whose subscriptions to list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of subscriptions to return. The service may return fewer
     /// than this value.
     /// If unset or zero, all subscriptions for the given topic will be returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListTopicSubscriptions` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListTopicSubscriptions`
     /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for ListTopicSubscriptions.
@@ -3791,11 +3792,11 @@
 </span><span class="kw">pub struct </span>ListTopicSubscriptionsResponse {
     <span class="doccomment">/// The names of subscriptions attached to the topic. The order of the
     /// subscriptions is unspecified.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subscriptions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page of
     /// results. If this field is omitted, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for CreateSubscription.
@@ -3804,22 +3805,22 @@
 </span><span class="kw">pub struct </span>CreateSubscriptionRequest {
     <span class="doccomment">/// Required. The parent location in which to create the subscription.
     /// Structured like `projects/{project_number}/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Configuration of the subscription to create. Its `name` field is
     /// ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>subscription: ::core::option::Option&lt;Subscription&gt;,
     <span class="doccomment">/// Required. The ID to use for the subscription, which will become the final
-    /// component of the subscription&#39;s name.
+    /// component of the subscription's name.
     ///
     /// This value is structured like: `my-sub-name`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>subscription_id: ::prost::alloc::string::String,
     <span class="doccomment">/// If true, the newly created subscription will only receive messages
     /// published after the subscription was created. Otherwise, the entire
     /// message backlog will be received on the subscription. Defaults to false.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>skip_backlog: bool,
 }
 <span class="doccomment">/// Request for GetSubscription.
@@ -3827,7 +3828,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetSubscriptionRequest {
     <span class="doccomment">/// Required. The name of the subscription whose configuration to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for ListSubscriptions.
@@ -3836,19 +3837,19 @@
 </span><span class="kw">pub struct </span>ListSubscriptionsRequest {
     <span class="doccomment">/// Required. The parent whose subscriptions are to be listed.
     /// Structured like `projects/{project_number}/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of subscriptions to return. The service may return fewer
     /// than this value.
     /// If unset or zero, all subscriptions for the parent will be returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListSubscriptions` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListSubscriptions` must
     /// match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for ListSubscriptions.
@@ -3857,11 +3858,11 @@
 </span><span class="kw">pub struct </span>ListSubscriptionsResponse {
     <span class="doccomment">/// The list of subscriptions in the requested parent. The order of the
     /// subscriptions is unspecified.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subscriptions: ::prost::alloc::vec::Vec&lt;Subscription&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page of
     /// results. If this field is omitted, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for UpdateSubscription.
@@ -3870,10 +3871,10 @@
 </span><span class="kw">pub struct </span>UpdateSubscriptionRequest {
     <span class="doccomment">/// Required. The subscription to update. Its `name` field must be populated.
     /// Topic field must not be populated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subscription: ::core::option::Option&lt;Subscription&gt;,
     <span class="doccomment">/// Required. A mask specifying the subscription fields to change.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request for DeleteSubscription.
@@ -3881,7 +3882,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteSubscriptionRequest {
     <span class="doccomment">/// Required. The name of the subscription to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for SeekSubscription.
@@ -3889,10 +3890,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SeekSubscriptionRequest {
     <span class="doccomment">/// Required. The name of the subscription to seek.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The target to seek to. Must be set.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;seek_subscription_request::Target&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"seek_subscription_request::Target"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>target: ::core::option::Option&lt;seek_subscription_request::Target&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SeekSubscriptionRequest`.
@@ -3924,19 +3925,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                NamedTarget::Unspecified =&gt; <span class="string">&quot;NAMED_TARGET_UNSPECIFIED&quot;</span>,
-                NamedTarget::Tail =&gt; <span class="string">&quot;TAIL&quot;</span>,
-                NamedTarget::Head =&gt; <span class="string">&quot;HEAD&quot;</span>,
+                NamedTarget::Unspecified =&gt; <span class="string">"NAMED_TARGET_UNSPECIFIED"</span>,
+                NamedTarget::Tail =&gt; <span class="string">"TAIL"</span>,
+                NamedTarget::Head =&gt; <span class="string">"HEAD"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;NAMED_TARGET_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;TAIL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tail),
-                <span class="string">&quot;HEAD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Head),
+                <span class="string">"NAMED_TARGET_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"TAIL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tail),
+                <span class="string">"HEAD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Head),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3946,12 +3947,12 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Target {
         <span class="doccomment">/// Seek to a named position with respect to the message backlog.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;NamedTarget&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"NamedTarget"</span>, tag = <span class="string">"2"</span>)]
         </span>NamedTarget(i32),
         <span class="doccomment">/// Seek to the first message whose publish or event time is greater than or
         /// equal to the specified query time. If no such message can be located,
         /// will seek to the end of the message backlog.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>TimeTarget(<span class="kw">super</span>::TimeTarget),
     }
 }
@@ -3964,19 +3965,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the operation finished running. Not set if the operation has not
     /// completed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Resource path for the target of the operation. For example, targets of
     /// seeks are subscription resources, structured like:
     /// projects/{project_number}/locations/{location}/subscriptions/{subscription_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for CreateReservation.
@@ -3985,17 +3986,17 @@
 </span><span class="kw">pub struct </span>CreateReservationRequest {
     <span class="doccomment">/// Required. The parent location in which to create the reservation.
     /// Structured like `projects/{project_number}/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Configuration of the reservation to create. Its `name` field is
     /// ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>reservation: ::core::option::Option&lt;Reservation&gt;,
     <span class="doccomment">/// Required. The ID to use for the reservation, which will become the final
-    /// component of the reservation&#39;s name.
+    /// component of the reservation's name.
     ///
     /// This value is structured like: `my-reservation-name`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>reservation_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for GetReservation.
@@ -4005,7 +4006,7 @@
     <span class="doccomment">/// Required. The name of the reservation whose configuration to return.
     /// Structured like:
     /// projects/{project_number}/locations/{location}/reservations/{reservation_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for ListReservations.
@@ -4014,19 +4015,19 @@
 </span><span class="kw">pub struct </span>ListReservationsRequest {
     <span class="doccomment">/// Required. The parent whose reservations are to be listed.
     /// Structured like `projects/{project_number}/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of reservations to return. The service may return fewer
     /// than this value. If unset or zero, all reservations for the parent will be
     /// returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListReservations` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListReservations` must
     /// match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for ListReservations.
@@ -4035,11 +4036,11 @@
 </span><span class="kw">pub struct </span>ListReservationsResponse {
     <span class="doccomment">/// The list of reservation in the requested parent. The order of the
     /// reservations is unspecified.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>reservations: ::prost::alloc::vec::Vec&lt;Reservation&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page of
     /// results. If this field is omitted, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for UpdateReservation.
@@ -4047,10 +4048,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateReservationRequest {
     <span class="doccomment">/// Required. The reservation to update. Its `name` field must be populated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>reservation: ::core::option::Option&lt;Reservation&gt;,
     <span class="doccomment">/// Required. A mask specifying the reservation fields to change.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request for DeleteReservation.
@@ -4060,7 +4061,7 @@
     <span class="doccomment">/// Required. The name of the reservation to delete.
     /// Structured like:
     /// projects/{project_number}/locations/{location}/reservations/{reservation_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for ListReservationTopics.
@@ -4070,19 +4071,19 @@
     <span class="doccomment">/// Required. The name of the reservation whose topics to list.
     /// Structured like:
     /// projects/{project_number}/locations/{location}/reservations/{reservation_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of topics to return. The service may return fewer
     /// than this value.
     /// If unset or zero, all topics for the given reservation will be returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListReservationTopics` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListReservationTopics`
     /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for ListReservationTopics.
@@ -4091,11 +4092,11 @@
 </span><span class="kw">pub struct </span>ListReservationTopicsResponse {
     <span class="doccomment">/// The names of topics attached to the reservation. The order of the
     /// topics is unspecified.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>topics: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page of
     /// results. If this field is omitted, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -4113,7 +4114,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4185,19 +4186,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/CreateTopic&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/CreateTopic"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;CreateTopic&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"CreateTopic"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4213,19 +4214,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/GetTopic&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/GetTopic"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;GetTopic&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"GetTopic"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4244,19 +4245,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/GetTopicPartitions&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/GetTopicPartitions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;GetTopicPartitions&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"GetTopicPartitions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4275,19 +4276,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/ListTopics&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/ListTopics"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;ListTopics&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"ListTopics"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4303,19 +4304,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/UpdateTopic&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/UpdateTopic"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;UpdateTopic&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"UpdateTopic"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4331,19 +4332,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/DeleteTopic&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/DeleteTopic"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;DeleteTopic&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"DeleteTopic"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4362,19 +4363,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/ListTopicSubscriptions&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/ListTopicSubscriptions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;ListTopicSubscriptions&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"ListTopicSubscriptions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4390,19 +4391,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/CreateSubscription&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/CreateSubscription"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;CreateSubscription&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"CreateSubscription"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4418,19 +4419,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/GetSubscription&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/GetSubscription"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;GetSubscription&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"GetSubscription"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4449,19 +4450,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/ListSubscriptions&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/ListSubscriptions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;ListSubscriptions&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"ListSubscriptions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4477,19 +4478,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/UpdateSubscription&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/UpdateSubscription"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;UpdateSubscription&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"UpdateSubscription"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4505,19 +4506,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/DeleteSubscription&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/DeleteSubscription"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;DeleteSubscription&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"DeleteSubscription"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4556,19 +4557,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/SeekSubscription&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/SeekSubscription"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;SeekSubscription&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"SeekSubscription"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4584,19 +4585,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/CreateReservation&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/CreateReservation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;CreateReservation&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"CreateReservation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4612,19 +4613,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/GetReservation&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/GetReservation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;GetReservation&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"GetReservation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4643,19 +4644,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/ListReservations&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/ListReservations"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;ListReservations&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"ListReservations"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4671,19 +4672,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/UpdateReservation&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/UpdateReservation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;UpdateReservation&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"UpdateReservation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4699,19 +4700,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/DeleteReservation&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/DeleteReservation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;DeleteReservation&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"DeleteReservation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4730,19 +4731,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.AdminService/ListReservationTopics&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.AdminService/ListReservationTopics"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.AdminService&quot;</span>,
-                        <span class="string">&quot;ListReservationTopics&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.AdminService"</span>,
+                        <span class="string">"ListReservationTopics"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4756,11 +4757,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InitialCommitCursorRequest {
     <span class="doccomment">/// The subscription for which to manage committed cursors.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subscription: ::prost::alloc::string::String,
     <span class="doccomment">/// The partition for which to manage committed cursors. Partitions are zero
     /// indexed, so `partition` must be in the range [0, topic.num_partitions).
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>partition: i64,
 }
 <span class="doccomment">/// Response to an InitialCommitCursorRequest.
@@ -4773,7 +4774,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SequencedCommitCursorRequest {
     <span class="doccomment">/// The new value for the committed cursor.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cursor: ::core::option::Option&lt;Cursor&gt;,
 }
 <span class="doccomment">/// Response to a SequencedCommitCursorRequest.
@@ -4783,7 +4784,7 @@
     <span class="doccomment">/// The number of outstanding SequencedCommitCursorRequests acknowledged by
     /// this response. Note that SequencedCommitCursorRequests are acknowledged in
     /// the order that they are received.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>acknowledged_commits: i64,
 }
 <span class="doccomment">/// A request sent from the client to the server on a stream.
@@ -4791,7 +4792,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StreamingCommitCursorRequest {
     <span class="doccomment">/// The type of request this is.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;streaming_commit_cursor_request::Request&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"streaming_commit_cursor_request::Request"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>request: ::core::option::Option&lt;streaming_commit_cursor_request::Request&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `StreamingCommitCursorRequest`.
@@ -4801,10 +4802,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Request {
         <span class="doccomment">/// Initial request on the stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Initial(<span class="kw">super</span>::InitialCommitCursorRequest),
         <span class="doccomment">/// Request to commit a new cursor value.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Commit(<span class="kw">super</span>::SequencedCommitCursorRequest),
     }
 }
@@ -4813,7 +4814,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StreamingCommitCursorResponse {
     <span class="doccomment">/// The type of request this is.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;streaming_commit_cursor_response::Request&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"streaming_commit_cursor_response::Request"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>request: ::core::option::Option&lt;streaming_commit_cursor_response::Request&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `StreamingCommitCursorResponse`.
@@ -4823,10 +4824,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Request {
         <span class="doccomment">/// Initial response on the stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Initial(<span class="kw">super</span>::InitialCommitCursorResponse),
         <span class="doccomment">/// Response to committing a new cursor value.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Commit(<span class="kw">super</span>::SequencedCommitCursorResponse),
     }
 }
@@ -4835,14 +4836,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommitCursorRequest {
     <span class="doccomment">/// The subscription for which to update the cursor.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subscription: ::prost::alloc::string::String,
     <span class="doccomment">/// The partition for which to update the cursor. Partitions are zero indexed,
     /// so `partition` must be in the range [0, topic.num_partitions).
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>partition: i64,
     <span class="doccomment">/// The new value for the committed cursor.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>cursor: ::core::option::Option&lt;Cursor&gt;,
 }
 <span class="doccomment">/// Response for CommitCursor.
@@ -4856,19 +4857,19 @@
     <span class="doccomment">/// Required. The subscription for which to retrieve cursors.
     /// Structured like
     /// `projects/{project_number}/locations/{location}/subscriptions/{subscription_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of cursors to return. The service may return fewer than
     /// this value.
     /// If unset or zero, all cursors for the parent will be returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListPartitionCursors` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListPartitionCursors`
     /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A pair of a Cursor and the partition it is for.
@@ -4876,10 +4877,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionCursor {
     <span class="doccomment">/// The partition this is for.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>partition: i64,
     <span class="doccomment">/// The value of the cursor.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>cursor: ::core::option::Option&lt;Cursor&gt;,
 }
 <span class="doccomment">/// Response for ListPartitionCursors
@@ -4887,11 +4888,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPartitionCursorsResponse {
     <span class="doccomment">/// The partition cursors from this request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>partition_cursors: ::prost::alloc::vec::Vec&lt;PartitionCursor&gt;,
     <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -4900,7 +4901,7 @@
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
     <span class="doccomment">/// The service that a subscriber client application uses to manage committed
-    /// cursors while receiving messsages. A cursor represents a subscriber&#39;s
+    /// cursors while receiving messsages. A cursor represents a subscriber's
     /// progress within a topic partition for a given subscription.
     </span><span class="attr">#[derive(Debug, Clone)]
     </span><span class="kw">pub struct </span>CursorServiceClient&lt;T&gt; {
@@ -4910,7 +4911,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4989,19 +4990,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.CursorService/StreamingCommitCursor&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.CursorService/StreamingCommitCursor"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.CursorService&quot;</span>,
-                        <span class="string">&quot;StreamingCommitCursor&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.CursorService"</span>,
+                        <span class="string">"StreamingCommitCursor"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await
@@ -5020,19 +5021,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.CursorService/CommitCursor&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.CursorService/CommitCursor"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.CursorService&quot;</span>,
-                        <span class="string">&quot;CommitCursor&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.CursorService"</span>,
+                        <span class="string">"CommitCursor"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5051,19 +5052,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.CursorService/ListPartitionCursors&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.CursorService/ListPartitionCursors"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.CursorService&quot;</span>,
-                        <span class="string">&quot;ListPartitionCursors&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.CursorService"</span>,
+                        <span class="string">"ListPartitionCursors"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5076,16 +5077,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InitialSubscribeRequest {
     <span class="doccomment">/// The subscription from which to receive messages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subscription: ::prost::alloc::string::String,
     <span class="doccomment">/// The partition from which to receive messages. Partitions are zero indexed,
     /// so `partition` must be in the range [0, topic.num_partitions).
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>partition: i64,
     <span class="doccomment">/// Optional. Initial target location within the message backlog. If not set,
     /// messages will be delivered from the commit cursor for the given
     /// subscription and partition.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>initial_location: ::core::option::Option&lt;SeekRequest&gt;,
 }
 <span class="doccomment">/// Response to an InitialSubscribeRequest.
@@ -5094,10 +5095,10 @@
 </span><span class="kw">pub struct </span>InitialSubscribeResponse {
     <span class="doccomment">/// The cursor from which the subscriber will start receiving messages once
     /// flow control tokens become available.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cursor: ::core::option::Option&lt;Cursor&gt;,
 }
-<span class="doccomment">/// Request to update the stream&#39;s delivery cursor based on the given target.
+<span class="doccomment">/// Request to update the stream's delivery cursor based on the given target.
 /// Resets the server available tokens to 0. SeekRequests past head result in
 /// stream breakage.
 ///
@@ -5107,7 +5108,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SeekRequest {
     <span class="doccomment">/// The target to seek to. Must be set.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;seek_request::Target&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"seek_request::Target"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>target: ::core::option::Option&lt;seek_request::Target&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SeekRequest`.
@@ -5140,19 +5141,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                NamedTarget::Unspecified =&gt; <span class="string">&quot;NAMED_TARGET_UNSPECIFIED&quot;</span>,
-                NamedTarget::Head =&gt; <span class="string">&quot;HEAD&quot;</span>,
-                NamedTarget::CommittedCursor =&gt; <span class="string">&quot;COMMITTED_CURSOR&quot;</span>,
+                NamedTarget::Unspecified =&gt; <span class="string">"NAMED_TARGET_UNSPECIFIED"</span>,
+                NamedTarget::Head =&gt; <span class="string">"HEAD"</span>,
+                NamedTarget::CommittedCursor =&gt; <span class="string">"COMMITTED_CURSOR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;NAMED_TARGET_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;HEAD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Head),
-                <span class="string">&quot;COMMITTED_CURSOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CommittedCursor),
+                <span class="string">"NAMED_TARGET_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"HEAD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Head),
+                <span class="string">"COMMITTED_CURSOR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CommittedCursor),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -5162,11 +5163,11 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Target {
         <span class="doccomment">/// A named target.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;NamedTarget&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"NamedTarget"</span>, tag = <span class="string">"1"</span>)]
         </span>NamedTarget(i32),
         <span class="doccomment">/// A target corresponding to the cursor, pointing to anywhere in the
         /// topic partition.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Cursor(<span class="kw">super</span>::Cursor),
     }
 }
@@ -5175,7 +5176,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SeekResponse {
     <span class="doccomment">/// The new delivery cursor for the current stream.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cursor: ::core::option::Option&lt;Cursor&gt;,
 }
 <span class="doccomment">/// Request to grant tokens to the server, requesting delivery of messages when
@@ -5184,10 +5185,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FlowControlRequest {
     <span class="doccomment">/// The number of message tokens to grant. Must be greater than or equal to 0.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>allowed_messages: i64,
     <span class="doccomment">/// The number of byte tokens to grant. Must be greater than or equal to 0.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>allowed_bytes: i64,
 }
 <span class="doccomment">/// A request sent from the client to the server on a stream.
@@ -5195,7 +5196,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SubscribeRequest {
     <span class="doccomment">/// The type of request this is.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;subscribe_request::Request&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"subscribe_request::Request"</span>, tags = <span class="string">"1, 2, 3"</span>)]
     </span><span class="kw">pub </span>request: ::core::option::Option&lt;subscribe_request::Request&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SubscribeRequest`.
@@ -5205,19 +5206,19 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Request {
         <span class="doccomment">/// Initial request on the stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Initial(<span class="kw">super</span>::InitialSubscribeRequest),
-        <span class="doccomment">/// Request to update the stream&#39;s delivery cursor.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        <span class="doccomment">/// Request to update the stream's delivery cursor.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Seek(<span class="kw">super</span>::SeekRequest),
         <span class="doccomment">/// Request to grant tokens to the server,
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>FlowControl(<span class="kw">super</span>::FlowControlRequest),
     }
 }
 <span class="doccomment">/// Response containing a list of messages. Upon delivering a MessageResponse to
 /// the client, the server:
-/// *  Updates the stream&#39;s delivery cursor to one greater than the cursor of the
+/// *  Updates the stream's delivery cursor to one greater than the cursor of the
 ///     last message in the list.
 /// *  Subtracts the total number of bytes and messages from the tokens available
 ///     to the server.
@@ -5225,7 +5226,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MessageResponse {
     <span class="doccomment">/// Messages from the topic partition.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>messages: ::prost::alloc::vec::Vec&lt;SequencedMessage&gt;,
 }
 <span class="doccomment">/// Response to SubscribeRequest.
@@ -5233,7 +5234,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SubscribeResponse {
     <span class="doccomment">/// The type of response this is.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;subscribe_response::Response&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"subscribe_response::Response"</span>, tags = <span class="string">"1, 2, 3"</span>)]
     </span><span class="kw">pub </span>response: ::core::option::Option&lt;subscribe_response::Response&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SubscribeResponse`.
@@ -5243,13 +5244,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Response {
         <span class="doccomment">/// Initial response on the stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Initial(<span class="kw">super</span>::InitialSubscribeResponse),
         <span class="doccomment">/// Response to a Seek operation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Seek(<span class="kw">super</span>::SeekResponse),
         <span class="doccomment">/// Response containing messages from the topic partition.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Messages(<span class="kw">super</span>::MessageResponse),
     }
 }
@@ -5261,7 +5262,7 @@
     <span class="doccomment">/// The subscription name. Structured like:
     /// projects/&lt;project number&gt;/locations/&lt;zone name&gt;/subscriptions/&lt;subscription
     /// id&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subscription: ::prost::alloc::string::String,
     <span class="doccomment">/// An opaque, unique client identifier. This field must be exactly 16 bytes
     /// long and is interpreted as an unsigned 128 bit integer. Other size values
@@ -5271,7 +5272,7 @@
     /// uuid1 or uuid4, which should be used to generate this number. The same
     /// identifier should be reused following disconnections with retryable stream
     /// errors.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>client_id: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// PartitionAssignments should not race with acknowledgements. There
@@ -5281,7 +5282,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionAssignment {
     <span class="doccomment">/// The list of partition numbers this subscriber is assigned to.
-    </span><span class="attr">#[prost(int64, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>partitions: ::prost::alloc::vec::Vec&lt;i64&gt;,
 }
 <span class="doccomment">/// Acknowledge receipt and handling of the previous assignment.
@@ -5297,7 +5298,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionAssignmentRequest {
     <span class="doccomment">/// The type of request this is.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;partition_assignment_request::Request&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"partition_assignment_request::Request"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>request: ::core::option::Option&lt;partition_assignment_request::Request&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PartitionAssignmentRequest`.
@@ -5307,10 +5308,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Request {
         <span class="doccomment">/// Initial request on the stream.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Initial(<span class="kw">super</span>::InitialPartitionAssignmentRequest),
         <span class="doccomment">/// Acknowledgement of a partition assignment.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Ack(<span class="kw">super</span>::PartitionAssignmentAck),
     }
 }
@@ -5329,7 +5330,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -5404,19 +5405,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.SubscriberService/Subscribe&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.SubscriberService/Subscribe"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.SubscriberService&quot;</span>,
-                        <span class="string">&quot;Subscribe&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.SubscriberService"</span>,
+                        <span class="string">"Subscribe"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await
@@ -5438,7 +5439,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -5523,19 +5524,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.pubsublite.v1.PartitionAssignmentService/AssignPartitions&quot;</span>,
+                <span class="string">"/google.cloud.pubsublite.v1.PartitionAssignmentService/AssignPartitions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.pubsublite.v1.PartitionAssignmentService&quot;</span>,
-                        <span class="string">&quot;AssignPartitions&quot;</span>,
+                        <span class="string">"google.cloud.pubsublite.v1.PartitionAssignmentService"</span>,
+                        <span class="string">"AssignPartitions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await

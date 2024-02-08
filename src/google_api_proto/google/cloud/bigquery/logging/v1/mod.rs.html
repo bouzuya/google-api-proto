@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -743,16 +744,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AuditData {
     <span class="doccomment">/// A job completion event.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>job_completed_event: ::core::option::Option&lt;JobCompletedEvent&gt;,
     <span class="doccomment">/// Information about the table access events.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>table_data_read_events: ::prost::alloc::vec::Vec&lt;TableDataReadEvent&gt;,
     <span class="doccomment">/// Request data for each BigQuery method.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;audit_data::Request&quot;</span>, tags = <span class="string">&quot;1, 16, 2, 3, 4, 5, 6, 7, 8, 20&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"audit_data::Request"</span>, tags = <span class="string">"1, 16, 2, 3, 4, 5, 6, 7, 8, 20"</span>)]
     </span><span class="kw">pub </span>request: ::core::option::Option&lt;audit_data::Request&gt;,
     <span class="doccomment">/// Response data for each BigQuery method.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;audit_data::Response&quot;</span>, tags = <span class="string">&quot;9, 10, 11, 12, 18, 13, 14, 15, 21&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"audit_data::Response"</span>, tags = <span class="string">"9, 10, 11, 12, 18, 13, 14, 15, 21"</span>)]
     </span><span class="kw">pub </span>response: ::core::option::Option&lt;audit_data::Response&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AuditData`.
@@ -762,34 +763,34 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Request {
         <span class="doccomment">/// Table insert request.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>TableInsertRequest(<span class="kw">super</span>::TableInsertRequest),
         <span class="doccomment">/// Table update request.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;16&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"16"</span>)]
         </span>TableUpdateRequest(<span class="kw">super</span>::TableUpdateRequest),
         <span class="doccomment">/// Dataset list request.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>DatasetListRequest(<span class="kw">super</span>::DatasetListRequest),
         <span class="doccomment">/// Dataset insert request.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>DatasetInsertRequest(<span class="kw">super</span>::DatasetInsertRequest),
         <span class="doccomment">/// Dataset update request.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>DatasetUpdateRequest(<span class="kw">super</span>::DatasetUpdateRequest),
         <span class="doccomment">/// Job insert request.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>JobInsertRequest(<span class="kw">super</span>::JobInsertRequest),
         <span class="doccomment">/// Job query request.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>JobQueryRequest(<span class="kw">super</span>::JobQueryRequest),
         <span class="doccomment">/// Job get query results request.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>JobGetQueryResultsRequest(<span class="kw">super</span>::JobGetQueryResultsRequest),
         <span class="doccomment">/// Table data-list request.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>TableDataListRequest(<span class="kw">super</span>::TableDataListRequest),
         <span class="doccomment">/// Iam policy request.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;20&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"20"</span>)]
         </span>SetIamPolicyRequest(
             <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::SetIamPolicyRequest,
         ),
@@ -799,32 +800,32 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Response {
         <span class="doccomment">/// Table insert response.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>TableInsertResponse(<span class="kw">super</span>::TableInsertResponse),
         <span class="doccomment">/// Table update response.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>TableUpdateResponse(<span class="kw">super</span>::TableUpdateResponse),
         <span class="doccomment">/// Dataset insert response.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"11"</span>)]
         </span>DatasetInsertResponse(<span class="kw">super</span>::DatasetInsertResponse),
         <span class="doccomment">/// Dataset update response.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"12"</span>)]
         </span>DatasetUpdateResponse(<span class="kw">super</span>::DatasetUpdateResponse),
         <span class="doccomment">/// Job insert response.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;18&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"18"</span>)]
         </span>JobInsertResponse(<span class="kw">super</span>::JobInsertResponse),
         <span class="doccomment">/// Job query response.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"13"</span>)]
         </span>JobQueryResponse(<span class="kw">super</span>::JobQueryResponse),
         <span class="doccomment">/// Job get query results response.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"14"</span>)]
         </span>JobGetQueryResultsResponse(<span class="kw">super</span>::JobGetQueryResultsResponse),
         <span class="doccomment">/// Deprecated: Job query-done response. Use this information for usage
         /// analysis.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;15&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"15"</span>)]
         </span>JobQueryDoneResponse(<span class="kw">super</span>::JobQueryDoneResponse),
         <span class="doccomment">/// Iam Policy.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;21&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"21"</span>)]
         </span>PolicyResponse(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy),
     }
 }
@@ -833,7 +834,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableInsertRequest {
     <span class="doccomment">/// The new table.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Table&gt;,
 }
 <span class="doccomment">/// Table update request.
@@ -841,7 +842,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableUpdateRequest {
     <span class="doccomment">/// The table to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Table&gt;,
 }
 <span class="doccomment">/// Table insert response.
@@ -849,7 +850,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableInsertResponse {
     <span class="doccomment">/// Final state of the inserted table.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Table&gt;,
 }
 <span class="doccomment">/// Table update response.
@@ -857,7 +858,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableUpdateResponse {
     <span class="doccomment">/// Final state of the updated table.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Table&gt;,
 }
 <span class="doccomment">/// Dataset list request.
@@ -865,7 +866,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DatasetListRequest {
     <span class="doccomment">/// Whether to list all datasets, including hidden ones.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>list_all: bool,
 }
 <span class="doccomment">/// Dataset insert request.
@@ -873,7 +874,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DatasetInsertRequest {
     <span class="doccomment">/// The dataset to be inserted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Dataset&gt;,
 }
 <span class="doccomment">/// Dataset insert response.
@@ -881,7 +882,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DatasetInsertResponse {
     <span class="doccomment">/// Final state of the inserted dataset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Dataset&gt;,
 }
 <span class="doccomment">/// Dataset update request.
@@ -889,7 +890,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DatasetUpdateRequest {
     <span class="doccomment">/// The dataset to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Dataset&gt;,
 }
 <span class="doccomment">/// Dataset update response.
@@ -897,7 +898,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DatasetUpdateResponse {
     <span class="doccomment">/// Final state of the updated dataset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Dataset&gt;,
 }
 <span class="doccomment">/// Job insert request.
@@ -905,7 +906,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobInsertRequest {
     <span class="doccomment">/// Job insert request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Job&gt;,
 }
 <span class="doccomment">/// Job insert response.
@@ -913,7 +914,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobInsertResponse {
     <span class="doccomment">/// Job insert response.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;Job&gt;,
 }
 <span class="doccomment">/// Job query request.
@@ -921,19 +922,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobQueryRequest {
     <span class="doccomment">/// The query.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of results.
-    </span><span class="attr">#[prost(uint32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(uint32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>max_results: u32,
     <span class="doccomment">/// The default dataset for tables that do not have a dataset specified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>default_dataset: ::core::option::Option&lt;DatasetName&gt;,
     <span class="doccomment">/// Project that the query should be charged to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// If true, don&#39;t actually run the job. Just check that it would run.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// If true, don't actually run the job. Just check that it would run.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>dry_run: bool,
 }
 <span class="doccomment">/// Job query response.
@@ -941,10 +942,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobQueryResponse {
     <span class="doccomment">/// The total number of rows in the full query result set.
-    </span><span class="attr">#[prost(uint64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>total_results: u64,
     <span class="doccomment">/// Information about the queried job.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>job: ::core::option::Option&lt;Job&gt;,
 }
 <span class="doccomment">/// Job getQueryResults request.
@@ -952,10 +953,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobGetQueryResultsRequest {
     <span class="doccomment">/// Maximum number of results to return.
-    </span><span class="attr">#[prost(uint32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(uint32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>max_results: u32,
     <span class="doccomment">/// Zero-based row number at which to start.
-    </span><span class="attr">#[prost(uint64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>start_row: u64,
 }
 <span class="doccomment">/// Job getQueryResults response.
@@ -963,12 +964,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobGetQueryResultsResponse {
     <span class="doccomment">/// Total number of results in query results.
-    </span><span class="attr">#[prost(uint64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>total_results: u64,
     <span class="doccomment">/// The job that was created to run the query.
     /// It completed if `job.status.state` is `DONE`.
     /// It failed if `job.status.errorResult` is also present.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>job: ::core::option::Option&lt;Job&gt;,
 }
 <span class="doccomment">/// Job getQueryDone response.
@@ -977,7 +978,7 @@
 </span><span class="kw">pub struct </span>JobQueryDoneResponse {
     <span class="doccomment">/// The job and status information.
     /// The job completed if `job.status.state` is `DONE`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>job: ::core::option::Option&lt;Job&gt;,
 }
 <span class="doccomment">/// Query job completed event.
@@ -985,10 +986,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobCompletedEvent {
     <span class="doccomment">/// Name of the event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>event_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Job information.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>job: ::core::option::Option&lt;Job&gt;,
 }
 <span class="doccomment">/// Table data read event. Only present for tables, not views, and is only
@@ -997,12 +998,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableDataReadEvent {
     <span class="doccomment">/// Name of the accessed table.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>table_name: ::core::option::Option&lt;TableName&gt;,
     <span class="doccomment">/// A list of referenced fields. This information is not included by default.
     /// To enable this in the logs, please contact BigQuery support or open a bug
     /// in the BigQuery issue tracker.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>referenced_fields: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Table data-list request.
@@ -1010,10 +1011,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableDataListRequest {
     <span class="doccomment">/// Starting row offset.
-    </span><span class="attr">#[prost(uint64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_row: u64,
     <span class="doccomment">/// Maximum number of results to return.
-    </span><span class="attr">#[prost(uint32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(uint32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>max_results: u32,
 }
 <span class="doccomment">/// Describes a BigQuery table.
@@ -1026,49 +1027,49 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Table {
     <span class="doccomment">/// The name of the table.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>table_name: ::core::option::Option&lt;TableName&gt;,
     <span class="doccomment">/// User-provided metadata for the table.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>info: ::core::option::Option&lt;TableInfo&gt;,
-    <span class="doccomment">/// A JSON representation of the table&#39;s schema.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    <span class="doccomment">/// A JSON representation of the table's schema.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>schema_json: ::prost::alloc::string::String,
     <span class="doccomment">/// If present, this is a virtual table defined by a SQL query.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>view: ::core::option::Option&lt;TableViewDefinition&gt;,
     <span class="doccomment">/// The expiration date for the table, after which the table
     /// is deleted and the storage reclaimed.
     /// If not present, the table persists indefinitely.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the table was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the table was last truncated
     /// by an operation with a `writeDisposition` of `WRITE_TRUNCATE`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>truncate_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the table was last modified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The table encryption information. Set when non-default encryption is used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>encryption: ::core::option::Option&lt;EncryptionInfo&gt;,
 }
 <span class="doccomment">/// User-provided metadata for a table.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableInfo {
-    <span class="doccomment">/// A short name for the table, such as`&quot;Analytics Data - Jan 2011&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// A short name for the table, such as`"Analytics Data - Jan 2011"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>friendly_name: ::prost::alloc::string::String,
     <span class="doccomment">/// A long description, perhaps several paragraphs,
     /// describing the table contents in detail.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Labels provided for the table.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1079,7 +1080,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableViewDefinition {
     <span class="doccomment">/// SQL query defining the view.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// BigQuery dataset information.
@@ -1089,40 +1090,40 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Dataset {
     <span class="doccomment">/// The name of the dataset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dataset_name: ::core::option::Option&lt;DatasetName&gt;,
     <span class="doccomment">/// User-provided metadata for the dataset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>info: ::core::option::Option&lt;DatasetInfo&gt;,
     <span class="doccomment">/// The time the dataset was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time the dataset was last modified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The access control list for the dataset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>acl: ::core::option::Option&lt;BigQueryAcl&gt;,
     <span class="doccomment">/// If this field is present, each table that does not specify an
     /// expiration time is assigned an expiration time by adding this
-    /// duration to the table&#39;s `createTime`.  If this field is empty,
+    /// duration to the table's `createTime`.  If this field is empty,
     /// there is no default table expiration time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>default_table_expire_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// User-provided metadata for a dataset.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DatasetInfo {
-    <span class="doccomment">/// A short name for the dataset, such as`&quot;Analytics Data 2011&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// A short name for the dataset, such as`"Analytics Data 2011"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>friendly_name: ::prost::alloc::string::String,
     <span class="doccomment">/// A long description, perhaps several paragraphs,
     /// describing the dataset contents in detail.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Labels provided for the dataset.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1133,7 +1134,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BigQueryAcl {
     <span class="doccomment">/// Access control entry list.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>entries: ::prost::alloc::vec::Vec&lt;big_query_acl::Entry&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `BigQueryAcl`.
@@ -1143,23 +1144,23 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Entry {
         <span class="doccomment">/// The granted role, which can be `READER`, `WRITER`, or `OWNER`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>role: ::prost::alloc::string::String,
         <span class="doccomment">/// Grants access to a group identified by an email address.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>group_email: ::prost::alloc::string::String,
         <span class="doccomment">/// Grants access to a user identified by an email address.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>user_email: ::prost::alloc::string::String,
         <span class="doccomment">/// Grants access to all members of a domain.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>domain: ::prost::alloc::string::String,
         <span class="doccomment">/// Grants access to special groups. Valid groups are `PROJECT_OWNERS`,
         /// `PROJECT_READERS`, `PROJECT_WRITERS` and `ALL_AUTHENTICATED_USERS`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>special_group: ::prost::alloc::string::String,
         <span class="doccomment">/// Grants access to a BigQuery View.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>view_name: ::core::option::Option&lt;<span class="kw">super</span>::TableName&gt;,
     }
 }
@@ -1168,16 +1169,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Job {
     <span class="doccomment">/// Job name.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>job_name: ::core::option::Option&lt;JobName&gt;,
     <span class="doccomment">/// Job configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>job_configuration: ::core::option::Option&lt;JobConfiguration&gt;,
     <span class="doccomment">/// Job status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>job_status: ::core::option::Option&lt;JobStatus&gt;,
     <span class="doccomment">/// Job statistics.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>job_statistics: ::core::option::Option&lt;JobStatistics&gt;,
 }
 <span class="doccomment">/// Job configuration information.
@@ -1186,17 +1187,17 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobConfiguration {
-    <span class="doccomment">/// If true, don&#39;t actually run the job. Just check that it would run.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
+    <span class="doccomment">/// If true, don't actually run the job. Just check that it would run.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>dry_run: bool,
     <span class="doccomment">/// Labels provided for the job.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Job configuration information.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;job_configuration::Configuration&quot;</span>, tags = <span class="string">&quot;5, 6, 7, 8&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"job_configuration::Configuration"</span>, tags = <span class="string">"5, 6, 7, 8"</span>)]
     </span><span class="kw">pub </span>configuration: ::core::option::Option&lt;job_configuration::Configuration&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `JobConfiguration`.
@@ -1206,36 +1207,36 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Query {
         <span class="doccomment">/// The SQL query to run.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
         <span class="doccomment">/// The table where results are written.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>destination_table: ::core::option::Option&lt;<span class="kw">super</span>::TableName&gt;,
         <span class="doccomment">/// Describes when a job is allowed to create a table:
         /// `CREATE_IF_NEEDED`, `CREATE_NEVER`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>create_disposition: ::prost::alloc::string::String,
         <span class="doccomment">/// Describes how writes affect existing tables:
         /// `WRITE_TRUNCATE`, `WRITE_APPEND`, `WRITE_EMPTY`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>write_disposition: ::prost::alloc::string::String,
         <span class="doccomment">/// If a table name is specified without a dataset in a query,
         /// this dataset will be added to table name.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>default_dataset: ::core::option::Option&lt;<span class="kw">super</span>::DatasetName&gt;,
         <span class="doccomment">/// Describes data sources outside BigQuery, if needed.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>table_definitions: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::TableDefinition&gt;,
         <span class="doccomment">/// Describes the priority given to the query:
         /// `QUERY_INTERACTIVE` or `QUERY_BATCH`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>query_priority: ::prost::alloc::string::String,
         <span class="doccomment">/// Result table encryption information. Set when non-default encryption is
         /// used.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>destination_table_encryption: ::core::option::Option&lt;<span class="kw">super</span>::EncryptionInfo&gt;,
         <span class="doccomment">/// Type of the statement (e.g. SELECT, INSERT, CREATE_TABLE, CREATE_MODEL..)
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
         </span><span class="kw">pub </span>statement_type: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Describes a load job, which loads data from an external source via
@@ -1245,25 +1246,25 @@
     </span><span class="kw">pub struct </span>Load {
         <span class="doccomment">/// URIs for the data to be imported. Only Google Cloud Storage URIs are
         /// supported.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>source_uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// The table schema in JSON format representation of a TableSchema.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>schema_json: ::prost::alloc::string::String,
         <span class="doccomment">/// The table where the imported data is written.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>destination_table: ::core::option::Option&lt;<span class="kw">super</span>::TableName&gt;,
         <span class="doccomment">/// Describes when a job is allowed to create a table:
         /// `CREATE_IF_NEEDED`, `CREATE_NEVER`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>create_disposition: ::prost::alloc::string::String,
         <span class="doccomment">/// Describes how writes affect existing tables:
         /// `WRITE_TRUNCATE`, `WRITE_APPEND`, `WRITE_EMPTY`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>write_disposition: ::prost::alloc::string::String,
         <span class="doccomment">/// Result table encryption information. Set when non-default encryption is
         /// used.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>destination_table_encryption: ::core::option::Option&lt;<span class="kw">super</span>::EncryptionInfo&gt;,
     }
     <span class="doccomment">/// Describes an extract job, which exports data to an external source
@@ -1272,10 +1273,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Extract {
         <span class="doccomment">/// Google Cloud Storage URIs where extracted data should be written.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>destination_uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// The source table.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>source_table: ::core::option::Option&lt;<span class="kw">super</span>::TableName&gt;,
     }
     <span class="doccomment">/// Describes a copy job, which copies an existing table to another table.
@@ -1283,22 +1284,22 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>TableCopy {
         <span class="doccomment">/// Source tables.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>source_tables: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::TableName&gt;,
         <span class="doccomment">/// Destination table.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>destination_table: ::core::option::Option&lt;<span class="kw">super</span>::TableName&gt;,
         <span class="doccomment">/// Describes when a job is allowed to create a table:
         /// `CREATE_IF_NEEDED`, `CREATE_NEVER`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>create_disposition: ::prost::alloc::string::String,
         <span class="doccomment">/// Describes how writes affect existing tables:
         /// `WRITE_TRUNCATE`, `WRITE_APPEND`, `WRITE_EMPTY`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>write_disposition: ::prost::alloc::string::String,
         <span class="doccomment">/// Result table encryption information. Set when non-default encryption is
         /// used.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>destination_table_encryption: ::core::option::Option&lt;<span class="kw">super</span>::EncryptionInfo&gt;,
     }
     <span class="doccomment">/// Job configuration information.
@@ -1306,16 +1307,16 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Configuration {
         <span class="doccomment">/// Query job information.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>Query(Query),
         <span class="doccomment">/// Load job information.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>Load(Load),
         <span class="doccomment">/// Extract job information.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>Extract(Extract),
         <span class="doccomment">/// TableCopy job information.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>TableCopy(TableCopy),
     }
 }
@@ -1324,10 +1325,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableDefinition {
     <span class="doccomment">/// Name of the table, used in queries.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Google Cloud Storage URIs for the data to be imported.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>source_uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Running state of a job.
@@ -1335,14 +1336,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobStatus {
     <span class="doccomment">/// State of a job: `PENDING`, `RUNNING`, or `DONE`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: ::prost::alloc::string::String,
     <span class="doccomment">/// If the job did not complete successfully, this field describes why.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Errors encountered during the running of the job. Do not necessarily mean
     /// that the job has completed or was unsuccessful.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>additional_errors: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status,
     &gt;,
@@ -1352,63 +1353,63 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobStatistics {
     <span class="doccomment">/// Time when the job was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Time when the job started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Time when the job ended.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Total bytes processed for a job.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>total_processed_bytes: i64,
-    <span class="doccomment">/// Processed bytes, adjusted by the job&#39;s CPU usage.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// Processed bytes, adjusted by the job's CPU usage.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>total_billed_bytes: i64,
     <span class="doccomment">/// The tier assigned by CPU-based billing.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>billing_tier: i32,
     <span class="doccomment">/// The total number of slot-ms consumed by the query job.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>total_slot_ms: i64,
     <span class="doccomment">/// Reservation usage. This field reported misleading information and will
     /// no longer be populated. Aggregate usage of all jobs submitted to a
     /// reservation should provide a more reliable indicator of reservation
     /// imbalance.
     </span><span class="attr">#[deprecated]
-    #[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    #[prost(message, repeated, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>reservation_usage: ::prost::alloc::vec::Vec&lt;
         job_statistics::ReservationResourceUsage,
     &gt;,
-    <span class="doccomment">/// Reservation name or &quot;unreserved&quot; for on-demand resource usage.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+    <span class="doccomment">/// Reservation name or "unreserved" for on-demand resource usage.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>reservation: ::prost::alloc::string::String,
     <span class="doccomment">/// The first N tables accessed by the query job. Older queries that
     /// reference a large number of tables may not have all of their
     /// tables in this list. You can use the total_tables_processed count to
     /// know how many total tables were read in the query. For new queries,
     /// there is currently no limit.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>referenced_tables: ::prost::alloc::vec::Vec&lt;TableName&gt;,
     <span class="doccomment">/// Total number of unique tables referenced in the query.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>total_tables_processed: i32,
     <span class="doccomment">/// The first N views accessed by the query job. Older queries that
     /// reference a large number of views may not have all of their
     /// views in this list. You can use the total_tables_processed count to
     /// know how many total tables were read in the query. For new queries,
     /// there is currently no limit.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>referenced_views: ::prost::alloc::vec::Vec&lt;TableName&gt;,
     <span class="doccomment">/// Total number of unique views referenced in the query.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>total_views_processed: i32,
     <span class="doccomment">/// Number of output rows produced by the query job.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>query_output_row_count: i64,
     <span class="doccomment">/// Total bytes loaded for an import job.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>total_load_output_bytes: i64,
 }
 <span class="doccomment">/// Nested message and enum types in `JobStatistics`.
@@ -1417,11 +1418,11 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ReservationResourceUsage {
-        <span class="doccomment">/// Reservation name or &quot;unreserved&quot; for on-demand resources usage.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        <span class="doccomment">/// Reservation name or "unreserved" for on-demand resources usage.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// Total slot milliseconds used by the reservation for a particular job.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>slot_ms: i64,
     }
 }
@@ -1430,10 +1431,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DatasetName {
     <span class="doccomment">/// The project ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The dataset ID within the project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dataset_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The fully-qualified name for a table.
@@ -1441,13 +1442,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableName {
     <span class="doccomment">/// The project ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The dataset ID within the project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dataset_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The table ID of the table within the dataset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>table_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The fully-qualified name for a job.
@@ -1455,13 +1456,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobName {
     <span class="doccomment">/// The project ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The job ID within the project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>job_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The job location.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Describes encryption properties for a table or a job
@@ -1469,7 +1470,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EncryptionInfo {
     <span class="doccomment">/// unique identifier for cloud kms key
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
 }
 </code></pre></div></section></main></body></html>

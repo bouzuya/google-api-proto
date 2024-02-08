@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/streetview/publish/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/streetview/publish/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1843,7 +1844,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UploadRef {
     <span class="doccomment">/// Required.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;upload_ref::FileSource&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"upload_ref::FileSource"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>file_source: ::core::option::Option&lt;upload_ref::FileSource&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `UploadRef`.
@@ -1854,8 +1855,8 @@
     </span><span class="kw">pub enum </span>FileSource {
         <span class="doccomment">/// An upload reference should be unique for each user. It follows
         /// the form:
-        /// &quot;&lt;https://streetviewpublish.googleapis.com/media/user/{account_id}/photo/{upload_reference}&quot;&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// "&lt;https://streetviewpublish.googleapis.com/media/user/{account_id}/photo/{upload_reference}"&gt;
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>UploadUrl(::prost::alloc::string::String),
     }
 }
@@ -1864,7 +1865,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PhotoId {
     <span class="doccomment">/// A unique identifier for a photo.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Level information containing level number and its corresponding name.
@@ -1874,12 +1875,12 @@
     <span class="doccomment">/// Optional. Floor number, used for ordering. 0 indicates the ground level, 1 indicates
     /// the first level above ground level, -1 indicates the first level under
     /// ground level. Non-integer values are OK.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>number: f64,
     <span class="doccomment">/// Required. A name assigned to this Level, restricted to 3 characters.
     /// Consider how the elevator buttons would be labeled for this level if there
     /// was an elevator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Raw pose measurement for an entity.
@@ -1892,37 +1893,37 @@
     /// latitude and longitude pair are not provided, the geolocation from the
     /// exif header is used. A latitude and longitude pair not provided in the
     /// photo or exif header causes the photo process to fail.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>lat_lng_pair: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
     <span class="doccomment">/// Altitude of the pose in meters above WGS84 ellipsoid.
     /// NaN indicates an unmeasured quantity.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>altitude: f64,
     <span class="doccomment">/// The following pose parameters pertain to the center of the photo. They
     /// match &lt;https://developers.google.com/streetview/spherical-metadata.&gt;
     /// Compass heading, measured at the center of the photo in degrees clockwise
     /// from North. Value must be &gt;=0 and &lt;360. NaN indicates an unmeasured
     /// quantity.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>heading: f64,
     <span class="doccomment">/// Pitch, measured at the center of the photo in degrees. Value must be &gt;=-90
     /// and &lt;= 90. A value of -90 means looking directly down, and a value of 90
     /// means looking directly up.
     /// NaN indicates an unmeasured quantity.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>pitch: f64,
     <span class="doccomment">/// Roll, measured in degrees. Value must be &gt;= 0 and &lt;360. A value of 0
     /// means level with the horizon.
     /// NaN indicates an unmeasured quantity.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>roll: f64,
     <span class="doccomment">/// Time of the GPS record since UTC epoch.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>gps_record_timestamp_unix_epoch: ::core::option::Option&lt;
         ::prost_types::Timestamp,
     &gt;,
     <span class="doccomment">/// Level (the floor in a building) used to configure vertical navigation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>level: ::core::option::Option&lt;Level&gt;,
     <span class="doccomment">/// The estimated horizontal accuracy of this pose in meters with 68%
     /// confidence (one standard deviation). For example, on Android, this value is
@@ -1930,7 +1931,7 @@
     /// &lt;https://developer.android.com/reference/android/location/Location#getAccuracy(&gt;).
     /// Other platforms have different methods of obtaining similar accuracy
     /// estimations.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>accuracy_meters: f32,
 }
 <span class="doccomment">/// IMU data from the device sensors.
@@ -1939,15 +1940,15 @@
 </span><span class="kw">pub struct </span>Imu {
     <span class="doccomment">/// The accelerometer measurements in meters/sec^2 with increasing timestamps
     /// from devices.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>accel_mpsps: ::prost::alloc::vec::Vec&lt;imu::Measurement3d&gt;,
     <span class="doccomment">/// The gyroscope measurements in radians/sec with increasing timestamps from
     /// devices.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gyro_rps: ::prost::alloc::vec::Vec&lt;imu::Measurement3d&gt;,
     <span class="doccomment">/// The magnetometer measurements of the magnetic field in microtesla (uT) with
     /// increasing timestamps from devices.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>mag_ut: ::prost::alloc::vec::Vec&lt;imu::Measurement3d&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Imu`.
@@ -1957,16 +1958,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Measurement3d {
         <span class="doccomment">/// The timestamp of the IMU measurement.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>capture_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// The sensor measurement in the x axis.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>x: f32,
         <span class="doccomment">/// The sensor measurement in the y axis.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>y: f32,
         <span class="doccomment">/// The sensor measurement in the z axis.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>z: f32,
     }
 }
@@ -1976,14 +1977,14 @@
 </span><span class="kw">pub struct </span>Place {
     <span class="doccomment">/// Place identifier, as described in
     /// &lt;https://developers.google.com/places/place-id.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>place_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The name of the place, localized to the language_code.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The language_code that the name is localized with. This should
     /// be the language_code specified in the request, but may be a fallback.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A connection is the link from a source photo to a destination photo.
@@ -1992,7 +1993,7 @@
 </span><span class="kw">pub struct </span>Connection {
     <span class="doccomment">/// Required. The destination of the connection from the containing photo to
     /// another photo.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>target: ::core::option::Option&lt;PhotoId&gt;,
 }
 <span class="doccomment">/// Photo is used to store 360 photos along with photo metadata.
@@ -2002,51 +2003,51 @@
     <span class="doccomment">/// Required. Output only. Required when updating a photo. Output only when creating a photo.
     /// Identifier for the photo, which is unique among all photos in
     /// Google.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>photo_id: ::core::option::Option&lt;PhotoId&gt;,
     <span class="doccomment">/// Input only. Required when creating a photo. Input only. The resource URL where the
     /// photo bytes are uploaded to.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>upload_reference: ::core::option::Option&lt;UploadRef&gt;,
     <span class="doccomment">/// Output only. The download URL for the photo bytes. This field is set only
     /// when
     /// [GetPhotoRequest.view][google.streetview.publish.v1.GetPhotoRequest.view]
     /// is set to
     /// [PhotoView.INCLUDE_DOWNLOAD_URL][google.streetview.publish.v1.PhotoView.INCLUDE_DOWNLOAD_URL].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>download_url: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The thumbnail URL for showing a preview of the given photo.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>thumbnail_url: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The share link for the photo.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>share_link: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Pose of the photo.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>pose: ::core::option::Option&lt;Pose&gt;,
     <span class="doccomment">/// Optional. Connections to other photos. A connection represents the link from this
     /// photo to another photo.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>connections: ::prost::alloc::vec::Vec&lt;Connection&gt;,
     <span class="doccomment">/// Optional. Absolute time when the photo was captured.
     /// When the photo has no exif timestamp, this is used to set a timestamp in
     /// the photo metadata.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>capture_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when the image was uploaded.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>upload_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Places where this photo belongs.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>places: ::prost::alloc::vec::Vec&lt;Place&gt;,
     <span class="doccomment">/// Output only. View count of the photo.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>view_count: i64,
     <span class="doccomment">/// Output only. Status of rights transfer on this photo.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;photo::TransferStatus&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"photo::TransferStatus"</span>, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>transfer_status: i32,
     <span class="doccomment">/// Output only. Status in Google Maps, whether this photo was published or rejected.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;photo::MapsPublishStatus&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"photo::MapsPublishStatus"</span>, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>maps_publish_status: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Photo`.
@@ -2089,29 +2090,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                TransferStatus::Unknown =&gt; <span class="string">&quot;TRANSFER_STATUS_UNKNOWN&quot;</span>,
-                TransferStatus::NeverTransferred =&gt; <span class="string">&quot;NEVER_TRANSFERRED&quot;</span>,
-                TransferStatus::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                TransferStatus::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
-                TransferStatus::Rejected =&gt; <span class="string">&quot;REJECTED&quot;</span>,
-                TransferStatus::Expired =&gt; <span class="string">&quot;EXPIRED&quot;</span>,
-                TransferStatus::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-                TransferStatus::ReceivedViaTransfer =&gt; <span class="string">&quot;RECEIVED_VIA_TRANSFER&quot;</span>,
+                TransferStatus::Unknown =&gt; <span class="string">"TRANSFER_STATUS_UNKNOWN"</span>,
+                TransferStatus::NeverTransferred =&gt; <span class="string">"NEVER_TRANSFERRED"</span>,
+                TransferStatus::Pending =&gt; <span class="string">"PENDING"</span>,
+                TransferStatus::Completed =&gt; <span class="string">"COMPLETED"</span>,
+                TransferStatus::Rejected =&gt; <span class="string">"REJECTED"</span>,
+                TransferStatus::Expired =&gt; <span class="string">"EXPIRED"</span>,
+                TransferStatus::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
+                TransferStatus::ReceivedViaTransfer =&gt; <span class="string">"RECEIVED_VIA_TRANSFER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TRANSFER_STATUS_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;NEVER_TRANSFERRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NeverTransferred),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
-                <span class="string">&quot;REJECTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rejected),
-                <span class="string">&quot;EXPIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expired),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-                <span class="string">&quot;RECEIVED_VIA_TRANSFER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReceivedViaTransfer),
+                <span class="string">"TRANSFER_STATUS_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"NEVER_TRANSFERRED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NeverTransferred),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"COMPLETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
+                <span class="string">"REJECTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rejected),
+                <span class="string">"EXPIRED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expired),
+                <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">"RECEIVED_VIA_TRANSFER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReceivedViaTransfer),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2142,23 +2143,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
                 MapsPublishStatus::UnspecifiedMapsPublishStatus =&gt; {
-                    <span class="string">&quot;UNSPECIFIED_MAPS_PUBLISH_STATUS&quot;
+                    <span class="string">"UNSPECIFIED_MAPS_PUBLISH_STATUS"
                 </span>}
-                MapsPublishStatus::Published =&gt; <span class="string">&quot;PUBLISHED&quot;</span>,
-                MapsPublishStatus::RejectedUnknown =&gt; <span class="string">&quot;REJECTED_UNKNOWN&quot;</span>,
+                MapsPublishStatus::Published =&gt; <span class="string">"PUBLISHED"</span>,
+                MapsPublishStatus::RejectedUnknown =&gt; <span class="string">"REJECTED_UNKNOWN"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNSPECIFIED_MAPS_PUBLISH_STATUS&quot; </span>=&gt; {
+                <span class="string">"UNSPECIFIED_MAPS_PUBLISH_STATUS" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnspecifiedMapsPublishStatus)
                 }
-                <span class="string">&quot;PUBLISHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Published),
-                <span class="string">&quot;REJECTED_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RejectedUnknown),
+                <span class="string">"PUBLISHED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Published),
+                <span class="string">"REJECTED_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RejectedUnknown),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2171,71 +2172,71 @@
     <span class="doccomment">/// Output only. Unique identifier for the photo sequence.
     /// This also acts as a long running operation ID if uploading is performed
     /// asynchronously.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Photos with increasing timestamps.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>photos: ::prost::alloc::vec::Vec&lt;Photo&gt;,
     <span class="doccomment">/// Input only. Required when creating photo sequence. The resource name
     /// where the bytes of the photo sequence (in the form of video) are uploaded.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>upload_reference: ::core::option::Option&lt;UploadRef&gt;,
     <span class="doccomment">/// Optional. Absolute time when the photo sequence starts to be captured.
     /// If the photo sequence is a video, this is the start time of the video.
     /// If this field is populated in input, it overrides the capture time in the
     /// video or XDM file.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>capture_time_override: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time this photo sequence was created in uSV Store service.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>upload_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Input only. Raw GPS measurements with increasing timestamps from the device that
-    /// aren&#39;t time synced with each photo.
+    /// aren't time synced with each photo.
     /// These raw measurements will be used to infer the pose of each frame.
     /// Required in input when InputType is VIDEO and raw GPS measurements are not
     /// in Camera Motion Metadata Track (CAMM).
     /// User can indicate which takes precedence using gps_source if raw GPS
     /// measurements are provided in both raw_gps_timeline and
     /// Camera Motion Metadata Track (CAMM).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>raw_gps_timeline: ::prost::alloc::vec::Vec&lt;Pose&gt;,
     <span class="doccomment">/// Input only. If both raw_gps_timeline and
     /// the Camera Motion Metadata Track (CAMM) contain GPS measurements,
     /// indicate which takes precedence.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;photo_sequence::GpsSource&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"photo_sequence::GpsSource"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>gps_source: i32,
     <span class="doccomment">/// Input only. Three axis IMU data for the collection.
     /// If this data is too large to put in the request, then it should be put in
     /// the CAMM track for the video. This data always takes precedence over the
     /// equivalent CAMM data, if it exists.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>imu: ::core::option::Option&lt;Imu&gt;,
     <span class="doccomment">/// Output only. The processing state of this sequence.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ProcessingState&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ProcessingState"</span>, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>processing_state: i32,
     <span class="doccomment">/// Output only. If this sequence has processing_state = FAILED, this will contain the
     /// reason why it failed. If the processing_state is any other value, this
     /// field will be unset.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ProcessingFailureReason&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ProcessingFailureReason"</span>, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>failure_reason: i32,
     <span class="doccomment">/// Output only. If this sequence has `failure_reason` set, this may contain additional
     /// details about the failure.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>failure_details: ::core::option::Option&lt;ProcessingFailureDetails&gt;,
     <span class="doccomment">/// Output only. The computed distance of the photo sequence in meters.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>distance_meters: f64,
     <span class="doccomment">/// Output only. A rectangular box that encapsulates every image in this photo sequence.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>sequence_bounds: ::core::option::Option&lt;LatLngBounds&gt;,
     <span class="doccomment">/// Output only. The total number of views that all the published images in this
     /// PhotoSequence have received.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>view_count: i64,
     <span class="doccomment">/// Output only. The filename of the upload. Does not include the directory path. Only
     /// available if the sequence was uploaded on a platform that provides the
     /// filename.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>filename: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `PhotoSequence`.
@@ -2264,17 +2265,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                GpsSource::PhotoSequence =&gt; <span class="string">&quot;PHOTO_SEQUENCE&quot;</span>,
-                GpsSource::CameraMotionMetadataTrack =&gt; <span class="string">&quot;CAMERA_MOTION_METADATA_TRACK&quot;</span>,
+                GpsSource::PhotoSequence =&gt; <span class="string">"PHOTO_SEQUENCE"</span>,
+                GpsSource::CameraMotionMetadataTrack =&gt; <span class="string">"CAMERA_MOTION_METADATA_TRACK"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PHOTO_SEQUENCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PhotoSequence),
-                <span class="string">&quot;CAMERA_MOTION_METADATA_TRACK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CameraMotionMetadataTrack),
+                <span class="string">"PHOTO_SEQUENCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PhotoSequence),
+                <span class="string">"CAMERA_MOTION_METADATA_TRACK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CameraMotionMetadataTrack),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2285,10 +2286,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LatLngBounds {
     <span class="doccomment">/// The southwest corner of these bounds.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>southwest: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
     <span class="doccomment">/// The northeast corner of these bounds.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>northeast: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
 }
 <span class="doccomment">/// Additional details to accompany the ProcessingFailureReason enum.
@@ -2300,7 +2301,7 @@
 </span><span class="kw">pub struct </span>ProcessingFailureDetails {
     <span class="doccomment">/// Only one set of details will be set, and must match the corresponding enum
     /// in ProcessingFailureReason.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;processing_failure_details::Details&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"processing_failure_details::Details"</span>, tags = <span class="string">"1, 2, 3, 4"</span>)]
     </span><span class="kw">pub </span>details: ::core::option::Option&lt;processing_failure_details::Details&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ProcessingFailureDetails`.
@@ -2311,16 +2312,16 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Details {
         <span class="doccomment">/// See InsufficientGpsFailureDetails.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>InsufficientGpsDetails(<span class="kw">super</span>::InsufficientGpsFailureDetails),
         <span class="doccomment">/// See GpsDataGapFailureDetails.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>GpsDataGapDetails(<span class="kw">super</span>::GpsDataGapFailureDetails),
         <span class="doccomment">/// See ImuDataGapFailureDetails.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>ImuDataGapDetails(<span class="kw">super</span>::ImuDataGapFailureDetails),
         <span class="doccomment">/// See NotOutdoorsFailureDetails.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>NotOutdoorsDetails(<span class="kw">super</span>::NotOutdoorsFailureDetails),
     }
 }
@@ -2329,7 +2330,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InsufficientGpsFailureDetails {
     <span class="doccomment">/// The number of GPS points that were found in the video.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gps_points_found: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// Details related to ProcessingFailureReason#GPS_DATA_GAP.
@@ -2339,10 +2340,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GpsDataGapFailureDetails {
     <span class="doccomment">/// The duration of the gap in GPS data that was found.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gap_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Relative time (from the start of the video stream) when the gap started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gap_start_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Details related to ProcessingFailureReason#IMU_DATA_GAP.
@@ -2352,10 +2353,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImuDataGapFailureDetails {
     <span class="doccomment">/// The duration of the gap in IMU data that was found.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gap_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Relative time (from the start of the video stream) when the gap started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gap_start_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Details related to ProcessingFailureReason#NOT_OUTDOORS.
@@ -2365,7 +2366,7 @@
 </span><span class="kw">pub struct </span>NotOutdoorsFailureDetails {
     <span class="doccomment">/// Relative time (from the start of the video stream) when an indoor frame was
     /// found.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// The processing state of the sequence. The states move as follows:
@@ -2403,23 +2404,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ProcessingState::Unspecified =&gt; <span class="string">&quot;PROCESSING_STATE_UNSPECIFIED&quot;</span>,
-            ProcessingState::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-            ProcessingState::Processing =&gt; <span class="string">&quot;PROCESSING&quot;</span>,
-            ProcessingState::Processed =&gt; <span class="string">&quot;PROCESSED&quot;</span>,
-            ProcessingState::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+            ProcessingState::Unspecified =&gt; <span class="string">"PROCESSING_STATE_UNSPECIFIED"</span>,
+            ProcessingState::Pending =&gt; <span class="string">"PENDING"</span>,
+            ProcessingState::Processing =&gt; <span class="string">"PROCESSING"</span>,
+            ProcessingState::Processed =&gt; <span class="string">"PROCESSED"</span>,
+            ProcessingState::Failed =&gt; <span class="string">"FAILED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;PROCESSING_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-            <span class="string">&quot;PROCESSING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Processing),
-            <span class="string">&quot;PROCESSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Processed),
-            <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+            <span class="string">"PROCESSING_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+            <span class="string">"PROCESSING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Processing),
+            <span class="string">"PROCESSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Processed),
+            <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2431,7 +2432,7 @@
 </span><span class="kw">pub enum </span>ProcessingFailureReason {
     <span class="doccomment">/// The failure reason is unspecified, this is the default value.
     </span>Unspecified = <span class="number">0</span>,
-    <span class="doccomment">/// Video frame&#39;s resolution is too small.
+    <span class="doccomment">/// Video frame's resolution is too small.
     </span>LowResolution = <span class="number">1</span>,
     <span class="doccomment">/// This video has been uploaded before.
     </span>Duplicate = <span class="number">2</span>,
@@ -2484,67 +2485,67 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             ProcessingFailureReason::Unspecified =&gt; {
-                <span class="string">&quot;PROCESSING_FAILURE_REASON_UNSPECIFIED&quot;
+                <span class="string">"PROCESSING_FAILURE_REASON_UNSPECIFIED"
             </span>}
-            ProcessingFailureReason::LowResolution =&gt; <span class="string">&quot;LOW_RESOLUTION&quot;</span>,
-            ProcessingFailureReason::Duplicate =&gt; <span class="string">&quot;DUPLICATE&quot;</span>,
-            ProcessingFailureReason::InsufficientGps =&gt; <span class="string">&quot;INSUFFICIENT_GPS&quot;</span>,
-            ProcessingFailureReason::NoOverlapGps =&gt; <span class="string">&quot;NO_OVERLAP_GPS&quot;</span>,
-            ProcessingFailureReason::InvalidGps =&gt; <span class="string">&quot;INVALID_GPS&quot;</span>,
+            ProcessingFailureReason::LowResolution =&gt; <span class="string">"LOW_RESOLUTION"</span>,
+            ProcessingFailureReason::Duplicate =&gt; <span class="string">"DUPLICATE"</span>,
+            ProcessingFailureReason::InsufficientGps =&gt; <span class="string">"INSUFFICIENT_GPS"</span>,
+            ProcessingFailureReason::NoOverlapGps =&gt; <span class="string">"NO_OVERLAP_GPS"</span>,
+            ProcessingFailureReason::InvalidGps =&gt; <span class="string">"INVALID_GPS"</span>,
             ProcessingFailureReason::FailedToRefinePositions =&gt; {
-                <span class="string">&quot;FAILED_TO_REFINE_POSITIONS&quot;
+                <span class="string">"FAILED_TO_REFINE_POSITIONS"
             </span>}
-            ProcessingFailureReason::Takedown =&gt; <span class="string">&quot;TAKEDOWN&quot;</span>,
-            ProcessingFailureReason::CorruptVideo =&gt; <span class="string">&quot;CORRUPT_VIDEO&quot;</span>,
-            ProcessingFailureReason::Internal =&gt; <span class="string">&quot;INTERNAL&quot;</span>,
-            ProcessingFailureReason::InvalidVideoFormat =&gt; <span class="string">&quot;INVALID_VIDEO_FORMAT&quot;</span>,
-            ProcessingFailureReason::InvalidVideoDimensions =&gt; <span class="string">&quot;INVALID_VIDEO_DIMENSIONS&quot;</span>,
-            ProcessingFailureReason::InvalidCaptureTime =&gt; <span class="string">&quot;INVALID_CAPTURE_TIME&quot;</span>,
-            ProcessingFailureReason::GpsDataGap =&gt; <span class="string">&quot;GPS_DATA_GAP&quot;</span>,
-            ProcessingFailureReason::JumpyGps =&gt; <span class="string">&quot;JUMPY_GPS&quot;</span>,
-            ProcessingFailureReason::InvalidImu =&gt; <span class="string">&quot;INVALID_IMU&quot;</span>,
-            ProcessingFailureReason::InsufficientImu =&gt; <span class="string">&quot;INSUFFICIENT_IMU&quot;</span>,
+            ProcessingFailureReason::Takedown =&gt; <span class="string">"TAKEDOWN"</span>,
+            ProcessingFailureReason::CorruptVideo =&gt; <span class="string">"CORRUPT_VIDEO"</span>,
+            ProcessingFailureReason::Internal =&gt; <span class="string">"INTERNAL"</span>,
+            ProcessingFailureReason::InvalidVideoFormat =&gt; <span class="string">"INVALID_VIDEO_FORMAT"</span>,
+            ProcessingFailureReason::InvalidVideoDimensions =&gt; <span class="string">"INVALID_VIDEO_DIMENSIONS"</span>,
+            ProcessingFailureReason::InvalidCaptureTime =&gt; <span class="string">"INVALID_CAPTURE_TIME"</span>,
+            ProcessingFailureReason::GpsDataGap =&gt; <span class="string">"GPS_DATA_GAP"</span>,
+            ProcessingFailureReason::JumpyGps =&gt; <span class="string">"JUMPY_GPS"</span>,
+            ProcessingFailureReason::InvalidImu =&gt; <span class="string">"INVALID_IMU"</span>,
+            ProcessingFailureReason::InsufficientImu =&gt; <span class="string">"INSUFFICIENT_IMU"</span>,
             ProcessingFailureReason::InsufficientOverlapTimeSeries =&gt; {
-                <span class="string">&quot;INSUFFICIENT_OVERLAP_TIME_SERIES&quot;
+                <span class="string">"INSUFFICIENT_OVERLAP_TIME_SERIES"
             </span>}
-            ProcessingFailureReason::ImuDataGap =&gt; <span class="string">&quot;IMU_DATA_GAP&quot;</span>,
-            ProcessingFailureReason::UnsupportedCamera =&gt; <span class="string">&quot;UNSUPPORTED_CAMERA&quot;</span>,
-            ProcessingFailureReason::NotOutdoors =&gt; <span class="string">&quot;NOT_OUTDOORS&quot;</span>,
+            ProcessingFailureReason::ImuDataGap =&gt; <span class="string">"IMU_DATA_GAP"</span>,
+            ProcessingFailureReason::UnsupportedCamera =&gt; <span class="string">"UNSUPPORTED_CAMERA"</span>,
+            ProcessingFailureReason::NotOutdoors =&gt; <span class="string">"NOT_OUTDOORS"</span>,
             ProcessingFailureReason::InsufficientVideoFrames =&gt; {
-                <span class="string">&quot;INSUFFICIENT_VIDEO_FRAMES&quot;
+                <span class="string">"INSUFFICIENT_VIDEO_FRAMES"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;PROCESSING_FAILURE_REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;LOW_RESOLUTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LowResolution),
-            <span class="string">&quot;DUPLICATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Duplicate),
-            <span class="string">&quot;INSUFFICIENT_GPS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientGps),
-            <span class="string">&quot;NO_OVERLAP_GPS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoOverlapGps),
-            <span class="string">&quot;INVALID_GPS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidGps),
-            <span class="string">&quot;FAILED_TO_REFINE_POSITIONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailedToRefinePositions),
-            <span class="string">&quot;TAKEDOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Takedown),
-            <span class="string">&quot;CORRUPT_VIDEO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CorruptVideo),
-            <span class="string">&quot;INTERNAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Internal),
-            <span class="string">&quot;INVALID_VIDEO_FORMAT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidVideoFormat),
-            <span class="string">&quot;INVALID_VIDEO_DIMENSIONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidVideoDimensions),
-            <span class="string">&quot;INVALID_CAPTURE_TIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidCaptureTime),
-            <span class="string">&quot;GPS_DATA_GAP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GpsDataGap),
-            <span class="string">&quot;JUMPY_GPS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::JumpyGps),
-            <span class="string">&quot;INVALID_IMU&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidImu),
-            <span class="string">&quot;INSUFFICIENT_IMU&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientImu),
-            <span class="string">&quot;INSUFFICIENT_OVERLAP_TIME_SERIES&quot; </span>=&gt; {
+            <span class="string">"PROCESSING_FAILURE_REASON_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"LOW_RESOLUTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LowResolution),
+            <span class="string">"DUPLICATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Duplicate),
+            <span class="string">"INSUFFICIENT_GPS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientGps),
+            <span class="string">"NO_OVERLAP_GPS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoOverlapGps),
+            <span class="string">"INVALID_GPS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidGps),
+            <span class="string">"FAILED_TO_REFINE_POSITIONS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailedToRefinePositions),
+            <span class="string">"TAKEDOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Takedown),
+            <span class="string">"CORRUPT_VIDEO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CorruptVideo),
+            <span class="string">"INTERNAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Internal),
+            <span class="string">"INVALID_VIDEO_FORMAT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidVideoFormat),
+            <span class="string">"INVALID_VIDEO_DIMENSIONS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidVideoDimensions),
+            <span class="string">"INVALID_CAPTURE_TIME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidCaptureTime),
+            <span class="string">"GPS_DATA_GAP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GpsDataGap),
+            <span class="string">"JUMPY_GPS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::JumpyGps),
+            <span class="string">"INVALID_IMU" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidImu),
+            <span class="string">"INSUFFICIENT_IMU" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientImu),
+            <span class="string">"INSUFFICIENT_OVERLAP_TIME_SERIES" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientOverlapTimeSeries)
             }
-            <span class="string">&quot;IMU_DATA_GAP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImuDataGap),
-            <span class="string">&quot;UNSUPPORTED_CAMERA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedCamera),
-            <span class="string">&quot;NOT_OUTDOORS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotOutdoors),
-            <span class="string">&quot;INSUFFICIENT_VIDEO_FRAMES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientVideoFrames),
+            <span class="string">"IMU_DATA_GAP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImuDataGap),
+            <span class="string">"UNSUPPORTED_CAMERA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedCamera),
+            <span class="string">"NOT_OUTDOORS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotOutdoors),
+            <span class="string">"INSUFFICIENT_VIDEO_FRAMES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientVideoFrames),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2554,7 +2555,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreatePhotoRequest {
     <span class="doccomment">/// Required. Photo to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>photo: ::core::option::Option&lt;Photo&gt;,
 }
 <span class="doccomment">/// Request to get a [Photo][google.streetview.publish.v1.Photo].
@@ -2570,18 +2571,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetPhotoRequest {
     <span class="doccomment">/// Required. ID of the [Photo][google.streetview.publish.v1.Photo].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>photo_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Specifies if a download URL for the photo bytes should be returned in the
     /// [Photo][google.streetview.publish.v1.Photo] response.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;PhotoView&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"PhotoView"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>view: i32,
-    <span class="doccomment">/// The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;. For more
+    <span class="doccomment">/// The BCP-47 language code, such as "en-US" or "sr-Latn". For more
     /// information, see
     /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
-    /// If language_code is unspecified, the user&#39;s language preference for Google
+    /// If language_code is unspecified, the user's language preference for Google
     /// services is used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to get one or more [Photos][google.streetview.publish.v1.Photo].
@@ -2598,18 +2599,18 @@
     <span class="doccomment">/// Required. IDs of the [Photos][google.streetview.publish.v1.Photo]. For HTTP
     /// GET requests, the URL query parameter should be
     /// `photoIds=&lt;id1&gt;&amp;photoIds=&lt;id2&gt;&amp;...`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>photo_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Required. Specifies if a download URL for the photo bytes should be returned in the
     /// Photo response.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;PhotoView&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"PhotoView"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>view: i32,
-    <span class="doccomment">/// Optional. The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;. For more
+    <span class="doccomment">/// Optional. The BCP-47 language code, such as "en-US" or "sr-Latn". For more
     /// information, see
     /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
-    /// If language_code is unspecified, the user&#39;s language preference for Google
+    /// If language_code is unspecified, the user's language preference for Google
     /// services is used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response to batch get of [Photos][google.streetview.publish.v1.Photo].
@@ -2620,7 +2621,7 @@
     /// [Photo][google.streetview.publish.v1.Photo] requested, in the same order as
     /// the requests in
     /// [BatchGetPhotos][google.streetview.publish.v1.StreetViewPublishService.BatchGetPhotos].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>results: ::prost::alloc::vec::Vec&lt;PhotoResponse&gt;,
 }
 <span class="doccomment">/// Response payload for a single
@@ -2634,11 +2635,11 @@
 </span><span class="kw">pub struct </span>PhotoResponse {
     <span class="doccomment">/// The status for the operation to get or update a single photo in the batch
     /// request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// The [Photo][google.streetview.publish.v1.Photo] resource, if the request
     /// was successful.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>photo: ::core::option::Option&lt;Photo&gt;,
 }
 <span class="doccomment">/// Request to list all photos that belong to the user sending the request.
@@ -2654,42 +2655,42 @@
 /// * `pageToken` is the next page token value returned from a previous
 /// [ListPhotos][google.streetview.publish.v1.StreetViewPublishService.ListPhotos]
 ///      request, if any.
-/// * `filter` allows filtering by a given parameter. &#39;placeId&#39; is the only
+/// * `filter` allows filtering by a given parameter. 'placeId' is the only
 /// parameter supported at the moment.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPhotosRequest {
     <span class="doccomment">/// Required. Specifies if a download URL for the photos bytes should be returned in the
     /// Photos response.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;PhotoView&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"PhotoView"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>view: i32,
     <span class="doccomment">/// Optional. The maximum number of photos to return.
     /// `pageSize` must be non-negative. If `pageSize` is zero or is not provided,
     /// the default page size of 100 is used.
     /// The number of photos returned in the response may be less than `pageSize`
     /// if the number of photos that belong to the user is less than `pageSize`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. The
     /// [nextPageToken][google.streetview.publish.v1.ListPhotosResponse.next_page_token]
     /// value returned from a previous
     /// [ListPhotos][google.streetview.publish.v1.StreetViewPublishService.ListPhotos]
     /// request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The filter expression. For example: `placeId=ChIJj61dQgK6j4AR4GeTYWZsKWw`.
     ///
     /// The filters supported are: `placeId`, `min_latitude`, `max_latitude`,
     /// `min_longitude`, and `max_longitude`. See &lt;https://google.aip.dev/160&gt; for
     /// more information.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. The BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;. For more
+    <span class="doccomment">/// Optional. The BCP-47 language code, such as "en-US" or "sr-Latn". For more
     /// information, see
     /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
-    /// If language_code is unspecified, the user&#39;s language preference for Google
+    /// If language_code is unspecified, the user's language preference for Google
     /// services is used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response to list all photos that belong to a user.
@@ -2699,11 +2700,11 @@
     <span class="doccomment">/// List of photos. The
     /// [pageSize][google.streetview.publish.v1.ListPhotosRequest.page_size] field
     /// in the request determines the number of items returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>photos: ::prost::alloc::vec::Vec&lt;Photo&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to update the metadata of a
@@ -2714,7 +2715,7 @@
 </span><span class="kw">pub struct </span>UpdatePhotoRequest {
     <span class="doccomment">/// Required. [Photo][google.streetview.publish.v1.Photo] object containing the
     /// new metadata.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>photo: ::core::option::Option&lt;Photo&gt;,
     <span class="doccomment">/// Required. Mask that identifies fields on the photo metadata to update.
     /// If not present, the old [Photo][google.streetview.publish.v1.Photo]
@@ -2742,7 +2743,7 @@
     /// [updateMask][google.streetview.publish.v1.UpdatePhotoRequest.update_mask]
     /// contains `connections` and `UpdatePhotoRequest.photo.connections` is empty,
     /// all connections are removed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request to update the metadata of photos.
@@ -2752,7 +2753,7 @@
 </span><span class="kw">pub struct </span>BatchUpdatePhotosRequest {
     <span class="doccomment">/// Required. List of
     /// [UpdatePhotoRequests][google.streetview.publish.v1.UpdatePhotoRequest].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_photo_requests: ::prost::alloc::vec::Vec&lt;UpdatePhotoRequest&gt;,
 }
 <span class="doccomment">/// Response to batch update of metadata of one or more
@@ -2763,7 +2764,7 @@
     <span class="doccomment">/// List of results for each individual
     /// [Photo][google.streetview.publish.v1.Photo] updated, in the same order as
     /// the request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>results: ::prost::alloc::vec::Vec&lt;PhotoResponse&gt;,
 }
 <span class="doccomment">/// Request to delete a [Photo][google.streetview.publish.v1.Photo].
@@ -2771,7 +2772,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeletePhotoRequest {
     <span class="doccomment">/// Required. ID of the [Photo][google.streetview.publish.v1.Photo].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>photo_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to delete multiple [Photos][google.streetview.publish.v1.Photo].
@@ -2781,7 +2782,7 @@
     <span class="doccomment">/// Required. IDs of the [Photos][google.streetview.publish.v1.Photo]. HTTP
     /// GET requests require the following syntax for the URL query parameter:
     /// `photoIds=&lt;id1&gt;&amp;photoIds=&lt;id2&gt;&amp;...`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>photo_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request to create a
@@ -2791,11 +2792,11 @@
 </span><span class="kw">pub struct </span>CreatePhotoSequenceRequest {
     <span class="doccomment">/// Required. [PhotoSequence][google.streetview.publish.v1.PhotoSequence] to
     /// create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>photo_sequence: ::core::option::Option&lt;PhotoSequence&gt;,
     <span class="doccomment">/// Required. The input form of
     /// [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;create_photo_sequence_request::InputType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"create_photo_sequence_request::InputType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>input_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `CreatePhotoSequenceRequest`.
@@ -2826,19 +2827,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                InputType::Unspecified =&gt; <span class="string">&quot;INPUT_TYPE_UNSPECIFIED&quot;</span>,
-                InputType::Video =&gt; <span class="string">&quot;VIDEO&quot;</span>,
-                InputType::Xdm =&gt; <span class="string">&quot;XDM&quot;</span>,
+                InputType::Unspecified =&gt; <span class="string">"INPUT_TYPE_UNSPECIFIED"</span>,
+                InputType::Video =&gt; <span class="string">"VIDEO"</span>,
+                InputType::Xdm =&gt; <span class="string">"XDM"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;INPUT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;VIDEO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Video),
-                <span class="string">&quot;XDM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Xdm),
+                <span class="string">"INPUT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"VIDEO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Video),
+                <span class="string">"XDM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Xdm),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2860,20 +2861,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetPhotoSequenceRequest {
     <span class="doccomment">/// Required. ID of the photo sequence.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sequence_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies if a download URL for the photo sequence should be returned in
     /// `download_url` of individual photos in the
     /// [PhotoSequence][google.streetview.publish.v1.PhotoSequence] response.
     /// &gt; Note: Currently not implemented.
     </span><span class="attr">#[deprecated]
-    #[prost(enumeration = <span class="string">&quot;PhotoView&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    #[prost(enumeration = <span class="string">"PhotoView"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>view: i32,
     <span class="doccomment">/// Optional. The filter expression. For example: `published_status=PUBLISHED`.
     ///
     /// The filters supported are: `published_status`.  See
     /// &lt;https://google.aip.dev/160&gt; for more information.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to delete a
@@ -2883,7 +2884,7 @@
 </span><span class="kw">pub struct </span>DeletePhotoSequenceRequest {
     <span class="doccomment">/// Required. ID of the
     /// [PhotoSequence][google.streetview.publish.v1.PhotoSequence].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sequence_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response to batch delete of one or more
@@ -2893,7 +2894,7 @@
 </span><span class="kw">pub struct </span>BatchDeletePhotosResponse {
     <span class="doccomment">/// The status for the operation to delete a single
     /// [Photo][google.streetview.publish.v1.Photo] in the batch request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>status: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// Request to list all photo sequences that belong to the user sending the
@@ -2914,14 +2915,14 @@
     /// The number of photo sequences returned in the response may be less than
     /// `pageSize` if the number of matches is less than `pageSize`.
     /// This is currently unimplemented but is in process.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. The
     /// [nextPageToken][google.streetview.publish.v1.ListPhotosResponse.next_page_token]
     /// value returned from a previous
     /// [ListPhotoSequences][google.streetview.publish.v1.StreetViewPublishService.ListPhotoSequences]
     /// request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The filter expression. For example: `imagery_type=SPHERICAL`.
     ///
@@ -2930,8 +2931,8 @@
     /// `filename_query`. See &lt;https://google.aip.dev/160&gt; for more information.
     /// Filename queries should sent as a Phrase in order to support multple words
     /// and special characters by adding escaped quotes. Ex:
-    /// filename_query=&quot;example of a phrase.mp4&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// filename_query="example of a phrase.mp4"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response to list all photo sequences that belong to a user.
@@ -2956,13 +2957,13 @@
     ///    [PhotoSequence][google.streetview.publish.v1.PhotoSequence] message,
     ///    In each sequence, only
     ///    [Id][google.streetview.publish.v1.PhotoSequence.id] is populated.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>photo_sequences: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation,
     &gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Specifies which view of the [Photo][google.streetview.publish.v1.Photo]
@@ -2981,17 +2982,17 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            PhotoView::Basic =&gt; <span class="string">&quot;BASIC&quot;</span>,
-            PhotoView::IncludeDownloadUrl =&gt; <span class="string">&quot;INCLUDE_DOWNLOAD_URL&quot;</span>,
+            PhotoView::Basic =&gt; <span class="string">"BASIC"</span>,
+            PhotoView::IncludeDownloadUrl =&gt; <span class="string">"INCLUDE_DOWNLOAD_URL"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-            <span class="string">&quot;INCLUDE_DOWNLOAD_URL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IncludeDownloadUrl),
+            <span class="string">"BASIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+            <span class="string">"INCLUDE_DOWNLOAD_URL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IncludeDownloadUrl),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -3010,7 +3011,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3103,19 +3104,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/StartUpload&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/StartUpload"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;StartUpload&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"StartUpload"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3149,19 +3150,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/CreatePhoto&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/CreatePhoto"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;CreatePhoto&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"CreatePhoto"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3187,19 +3188,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/GetPhoto&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/GetPhoto"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;GetPhoto&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"GetPhoto"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3233,19 +3234,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/BatchGetPhotos&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/BatchGetPhotos"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;BatchGetPhotos&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"BatchGetPhotos"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3268,19 +3269,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/ListPhotos&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/ListPhotos"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;ListPhotos&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"ListPhotos"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3312,19 +3313,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/UpdatePhoto&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/UpdatePhoto"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;UpdatePhoto&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"UpdatePhoto"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3375,19 +3376,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/BatchUpdatePhotos&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/BatchUpdatePhotos"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;BatchUpdatePhotos&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"BatchUpdatePhotos"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3409,19 +3410,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/DeletePhoto&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/DeletePhoto"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;DeletePhoto&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"DeletePhoto"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3455,19 +3456,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/BatchDeletePhotos&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/BatchDeletePhotos"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;BatchDeletePhotos&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"BatchDeletePhotos"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3492,19 +3493,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/StartPhotoSequenceUpload&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/StartPhotoSequenceUpload"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;StartPhotoSequenceUpload&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"StartPhotoSequenceUpload"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3538,19 +3539,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/CreatePhotoSequence&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/CreatePhotoSequence"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;CreatePhotoSequence&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"CreatePhotoSequence"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3590,19 +3591,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/GetPhotoSequence&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/GetPhotoSequence"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;GetPhotoSequence&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"GetPhotoSequence"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3622,19 +3623,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/ListPhotoSequences&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/ListPhotoSequences"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;ListPhotoSequences&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"ListPhotoSequences"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3659,19 +3660,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.streetview.publish.v1.StreetViewPublishService/DeletePhotoSequence&quot;</span>,
+                <span class="string">"/google.streetview.publish.v1.StreetViewPublishService/DeletePhotoSequence"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.streetview.publish.v1.StreetViewPublishService&quot;</span>,
-                        <span class="string">&quot;DeletePhotoSequence&quot;</span>,
+                        <span class="string">"google.streetview.publish.v1.StreetViewPublishService"</span>,
+                        <span class="string">"DeletePhotoSequence"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

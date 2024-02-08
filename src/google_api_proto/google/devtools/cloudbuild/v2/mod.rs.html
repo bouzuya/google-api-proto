@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/cloudbuild/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/cloudbuild/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1204,28 +1205,28 @@
 </span><span class="kw">pub struct </span>Connection {
     <span class="doccomment">/// Immutable. The resource name of the connection, in the format
     /// `projects/{project}/locations/{location}/connections/{connection_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Server assigned timestamp for when the connection was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server assigned timestamp for when the connection was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Installation state of the Connection.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>installation_state: ::core::option::Option&lt;InstallationState&gt;,
     <span class="doccomment">/// If disabled is set to true, functionality is disabled for this connection.
     /// Repository based API methods and webhooks processing for repositories in
     /// this connection will be disabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>disabled: bool,
     <span class="doccomment">/// Output only. Set to true when the connection is being set up or updated in
     /// the background.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>reconciling: bool,
     <span class="doccomment">/// Allows clients to store small amounts of arbitrary data.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1233,10 +1234,10 @@
     <span class="doccomment">/// This checksum is computed by the server based on the value of other
     /// fields, and may be sent on update and delete requests to ensure the
     /// client has an up-to-date value before proceeding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Configuration for the connection depending on the type of provider.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;connection::ConnectionConfig&quot;</span>, tags = <span class="string">&quot;5, 6, 7&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"connection::ConnectionConfig"</span>, tags = <span class="string">"5, 6, 7"</span>)]
     </span><span class="kw">pub </span>connection_config: ::core::option::Option&lt;connection::ConnectionConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Connection`.
@@ -1246,14 +1247,14 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ConnectionConfig {
         <span class="doccomment">/// Configuration for connections to github.com.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>GithubConfig(<span class="kw">super</span>::GitHubConfig),
         <span class="doccomment">/// Configuration for connections to an instance of GitHub Enterprise.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>GithubEnterpriseConfig(<span class="kw">super</span>::GitHubEnterpriseConfig),
         <span class="doccomment">/// Configuration for connections to gitlab.com or an instance of GitLab
         /// Enterprise.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>GitlabConfig(<span class="kw">super</span>::GitLabConfig),
     }
 }
@@ -1264,15 +1265,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InstallationState {
     <span class="doccomment">/// Output only. Current step of the installation process.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;installation_state::Stage&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"installation_state::Stage"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>stage: i32,
     <span class="doccomment">/// Output only. Message of what the user should do next to continue the
     /// installation. Empty string if the installation is already complete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Link to follow for next action. Empty string if the
     /// installation is already complete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>action_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `InstallationState`.
@@ -1308,23 +1309,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Stage::Unspecified =&gt; <span class="string">&quot;STAGE_UNSPECIFIED&quot;</span>,
-                Stage::PendingCreateApp =&gt; <span class="string">&quot;PENDING_CREATE_APP&quot;</span>,
-                Stage::PendingUserOauth =&gt; <span class="string">&quot;PENDING_USER_OAUTH&quot;</span>,
-                Stage::PendingInstallApp =&gt; <span class="string">&quot;PENDING_INSTALL_APP&quot;</span>,
-                Stage::Complete =&gt; <span class="string">&quot;COMPLETE&quot;</span>,
+                Stage::Unspecified =&gt; <span class="string">"STAGE_UNSPECIFIED"</span>,
+                Stage::PendingCreateApp =&gt; <span class="string">"PENDING_CREATE_APP"</span>,
+                Stage::PendingUserOauth =&gt; <span class="string">"PENDING_USER_OAUTH"</span>,
+                Stage::PendingInstallApp =&gt; <span class="string">"PENDING_INSTALL_APP"</span>,
+                Stage::Complete =&gt; <span class="string">"COMPLETE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STAGE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING_CREATE_APP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PendingCreateApp),
-                <span class="string">&quot;PENDING_USER_OAUTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PendingUserOauth),
-                <span class="string">&quot;PENDING_INSTALL_APP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PendingInstallApp),
-                <span class="string">&quot;COMPLETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complete),
+                <span class="string">"STAGE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PENDING_CREATE_APP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PendingCreateApp),
+                <span class="string">"PENDING_USER_OAUTH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PendingUserOauth),
+                <span class="string">"PENDING_INSTALL_APP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PendingInstallApp),
+                <span class="string">"COMPLETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complete),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1336,13 +1337,13 @@
 </span><span class="kw">pub struct </span>FetchLinkableRepositoriesRequest {
     <span class="doccomment">/// Required. The name of the Connection.
     /// Format: `projects/*/locations/*/connections/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>connection: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of results to return in the list. Default to 20.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page start.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for FetchLinkableRepositories.
@@ -1350,10 +1351,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FetchLinkableRepositoriesResponse {
     <span class="doccomment">/// repositories ready to be created.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repositories: ::prost::alloc::vec::Vec&lt;Repository&gt;,
     <span class="doccomment">/// A token identifying a page of results the server should return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration for connections to github.com.
@@ -1363,10 +1364,10 @@
     <span class="doccomment">/// OAuth credential of the account that authorized the Cloud Build GitHub App.
     /// It is recommended to use a robot account instead of a human user account.
     /// The OAuth token must be tied to the Cloud Build GitHub App.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>authorizer_credential: ::core::option::Option&lt;OAuthCredential&gt;,
     <span class="doccomment">/// GitHub App installation id.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>app_installation_id: i64,
 }
 <span class="doccomment">/// Configuration for connections to an instance of GitHub Enterprise.
@@ -1374,40 +1375,40 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GitHubEnterpriseConfig {
     <span class="doccomment">/// Required. The URI of the GitHub Enterprise host this connection is for.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>host_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. API Key used for authentication of webhook events.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>api_key: ::prost::alloc::string::String,
     <span class="doccomment">/// Id of the GitHub App created from the manifest.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>app_id: i64,
     <span class="doccomment">/// The URL-friendly name of the GitHub App.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>app_slug: ::prost::alloc::string::String,
     <span class="doccomment">/// SecretManager resource containing the private key of the GitHub App,
     /// formatted as `projects/*/secrets/*/versions/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>private_key_secret_version: ::prost::alloc::string::String,
     <span class="doccomment">/// SecretManager resource containing the webhook secret of the GitHub App,
     /// formatted as `projects/*/secrets/*/versions/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>webhook_secret_secret_version: ::prost::alloc::string::String,
     <span class="doccomment">/// ID of the installation of the GitHub App.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>app_installation_id: i64,
     <span class="doccomment">/// Configuration for using Service Directory to privately connect to a GitHub
     /// Enterprise server. This should only be set if the GitHub Enterprise server
     /// is hosted on-premises and not reachable by public internet. If this field
     /// is left empty, calls to the GitHub Enterprise server will be made over the
     /// public internet.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>service_directory_config: ::core::option::Option&lt;ServiceDirectoryConfig&gt;,
     <span class="doccomment">/// SSL certificate to use for requests to GitHub Enterprise.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>ssl_ca: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. GitHub Enterprise version installed at the host_uri.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>server_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Configuration for connections to gitlab.com or an instance of GitLab
@@ -1417,33 +1418,33 @@
 </span><span class="kw">pub struct </span>GitLabConfig {
     <span class="doccomment">/// The URI of the GitLab Enterprise host this connection is for.
     /// If not specified, the default value is &lt;https://gitlab.com.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>host_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Immutable. SecretManager resource containing the webhook secret
     /// of a GitLab Enterprise project, formatted as
     /// `projects/*/secrets/*/versions/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>webhook_secret_secret_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A GitLab personal access token with the minimum `read_api` scope
     /// access.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>read_authorizer_credential: ::core::option::Option&lt;UserCredential&gt;,
     <span class="doccomment">/// Required. A GitLab personal access token with the `api` scope access.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>authorizer_credential: ::core::option::Option&lt;UserCredential&gt;,
     <span class="doccomment">/// Configuration for using Service Directory to privately connect to a GitLab
     /// Enterprise server. This should only be set if the GitLab Enterprise server
     /// is hosted on-premises and not reachable by public internet. If this field
     /// is left empty, calls to the GitLab Enterprise server will be made over the
     /// public internet.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>service_directory_config: ::core::option::Option&lt;ServiceDirectoryConfig&gt;,
     <span class="doccomment">/// SSL certificate to use for requests to GitLab Enterprise.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>ssl_ca: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Version of the GitLab Enterprise server running on the
     /// `host_uri`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>server_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// ServiceDirectoryConfig represents Service Directory configuration for a
@@ -1454,7 +1455,7 @@
     <span class="doccomment">/// Required. The Service Directory service name.
     /// Format:
     /// projects/{project}/locations/{location}/namespaces/{namespace}/services/{service}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A repository associated to a parent connection.
@@ -1463,19 +1464,19 @@
 </span><span class="kw">pub struct </span>Repository {
     <span class="doccomment">/// Immutable. Resource name of the repository, in the format
     /// `projects/*/locations/*/connections/*/repositories/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Git Clone HTTPS URI.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>remote_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Server assigned timestamp for when the connection was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server assigned timestamp for when the connection was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Allows clients to store small amounts of arbitrary data.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1483,10 +1484,10 @@
     <span class="doccomment">/// This checksum is computed by the server based on the value of other
     /// fields, and may be sent on update and delete requests to ensure the
     /// client has an up-to-date value before proceeding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. External ID of the webhook created for the repository.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>webhook_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents an OAuth token of the account that authorized the Connection,
@@ -1496,10 +1497,10 @@
 </span><span class="kw">pub struct </span>OAuthCredential {
     <span class="doccomment">/// A SecretManager resource containing the OAuth token that authorizes
     /// the Cloud Build connection. Format: `projects/*/secrets/*/versions/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>oauth_token_secret_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The username associated to this token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents a personal access token that authorized the Connection,
@@ -1510,10 +1511,10 @@
     <span class="doccomment">/// Required. A SecretManager resource containing the user token that
     /// authorizes the Cloud Build connection. Format:
     /// `projects/*/secrets/*/versions/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>user_token_secret_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The username associated to this token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for creating a Connection
@@ -1522,16 +1523,16 @@
 </span><span class="kw">pub struct </span>CreateConnectionRequest {
     <span class="doccomment">/// Required. Project and location where the connection will be created.
     /// Format: `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Connection to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>connection: ::core::option::Option&lt;Connection&gt;,
     <span class="doccomment">/// Required. The ID to use for the Connection, which will become the final
-    /// component of the Connection&#39;s resource name. Names must be unique
+    /// component of the Connection's resource name. Names must be unique
     /// per-project per-location. Allows alphanumeric characters and any of
-    /// -._~%!$&amp;&#39;()*+,;=@.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// -._~%!$&amp;'()*+,;=@.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>connection_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for getting the details of a Connection.
@@ -1540,7 +1541,7 @@
 </span><span class="kw">pub struct </span>GetConnectionRequest {
     <span class="doccomment">/// Required. The name of the Connection to retrieve.
     /// Format: `projects/*/locations/*/connections/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for requesting list of Connections.
@@ -1549,13 +1550,13 @@
 </span><span class="kw">pub struct </span>ListConnectionsRequest {
     <span class="doccomment">/// Required. The parent, which owns this collection of Connections.
     /// Format: `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of results to return in the list.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page start.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for response to listing Connections.
@@ -1563,10 +1564,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListConnectionsResponse {
     <span class="doccomment">/// The list of Connections.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>connections: ::prost::alloc::vec::Vec&lt;Connection&gt;,
     <span class="doccomment">/// A token identifying a page of results the server should return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for updating a Connection.
@@ -1574,22 +1575,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateConnectionRequest {
     <span class="doccomment">/// Required. The Connection to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>connection: ::core::option::Option&lt;Connection&gt;,
     <span class="doccomment">/// The list of fields to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// If set to true, and the connection is not found a new connection
     /// will be created. In this situation `update_mask` is ignored.
     /// The creation will succeed only if the input connection has all the
     /// necessary information (e.g a github_config with both  user_oauth_token and
     /// installation_id properties).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
     <span class="doccomment">/// The current etag of the connection.
     /// If an etag is provided and does not match the current etag of the
     /// connection, update will be blocked and an ABORTED error will be returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for deleting a Connection.
@@ -1598,15 +1599,15 @@
 </span><span class="kw">pub struct </span>DeleteConnectionRequest {
     <span class="doccomment">/// Required. The name of the Connection to delete.
     /// Format: `projects/*/locations/*/connections/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The current etag of the connection.
     /// If an etag is provided and does not match the current etag of the
     /// connection, deletion will be blocked and an ABORTED error will be returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// If set, validate the request, but do not actually post it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Message for creating a Repository.
@@ -1616,16 +1617,16 @@
     <span class="doccomment">/// Required. The connection to contain the repository. If the request is part
     /// of a BatchCreateRepositoriesRequest, this field should be empty or match
     /// the parent specified there.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The repository to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>repository: ::core::option::Option&lt;Repository&gt;,
     <span class="doccomment">/// Required. The ID to use for the repository, which will become the final
-    /// component of the repository&#39;s resource name. This ID should be unique in
+    /// component of the repository's resource name. This ID should be unique in
     /// the connection. Allows alphanumeric characters and any of
-    /// -._~%!$&amp;&#39;()*+,;=@.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// -._~%!$&amp;'()*+,;=@.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>repository_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for creating repositoritories in batch.
@@ -1636,10 +1637,10 @@
     /// Format: projects/*/locations/*/connections/*
     /// The parent field in the CreateRepositoryRequest messages
     /// must either be empty or match this field.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The request messages specifying the repositories to create.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>requests: ::prost::alloc::vec::Vec&lt;CreateRepositoryRequest&gt;,
 }
 <span class="doccomment">/// Message for response of creating repositories in batch.
@@ -1647,7 +1648,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCreateRepositoriesResponse {
     <span class="doccomment">/// Repository resources created.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repositories: ::prost::alloc::vec::Vec&lt;Repository&gt;,
 }
 <span class="doccomment">/// Message for getting the details of a Repository.
@@ -1656,7 +1657,7 @@
 </span><span class="kw">pub struct </span>GetRepositoryRequest {
     <span class="doccomment">/// Required. The name of the Repository to retrieve.
     /// Format: `projects/*/locations/*/connections/*/repositories/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for requesting list of Repositories.
@@ -1665,19 +1666,19 @@
 </span><span class="kw">pub struct </span>ListRepositoriesRequest {
     <span class="doccomment">/// Required. The parent, which owns this collection of Repositories.
     /// Format: `projects/*/locations/*/connections/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of results to return in the list.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page start.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// A filter expression that filters resources listed in the response.
     /// Expressions must follow API improvement proposal
     /// [AIP-160](&lt;https://google.aip.dev/160&gt;). e.g.
-    /// `remote_uri:&quot;&lt;https://github.com*&quot;`.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// `remote_uri:"&lt;https://github.com*"`.&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for response to listing Repositories.
@@ -1685,10 +1686,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRepositoriesResponse {
     <span class="doccomment">/// The list of Repositories.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repositories: ::prost::alloc::vec::Vec&lt;Repository&gt;,
     <span class="doccomment">/// A token identifying a page of results the server should return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for deleting a Repository.
@@ -1697,15 +1698,15 @@
 </span><span class="kw">pub struct </span>DeleteRepositoryRequest {
     <span class="doccomment">/// Required. The name of the Repository to delete.
     /// Format: `projects/*/locations/*/connections/*/repositories/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The current etag of the repository.
     /// If an etag is provided and does not match the current etag of the
     /// repository, deletion will be blocked and an ABORTED error will be returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// If set, validate the request, but do not actually post it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Message for fetching SCM read/write token.
@@ -1714,7 +1715,7 @@
 </span><span class="kw">pub struct </span>FetchReadWriteTokenRequest {
     <span class="doccomment">/// Required. The resource name of the repository in the format
     /// `projects/*/locations/*/connections/*/repositories/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repository: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for fetching SCM read token.
@@ -1723,7 +1724,7 @@
 </span><span class="kw">pub struct </span>FetchReadTokenRequest {
     <span class="doccomment">/// Required. The resource name of the repository in the format
     /// `projects/*/locations/*/connections/*/repositories/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repository: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for responding to get read token.
@@ -1731,10 +1732,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FetchReadTokenResponse {
     <span class="doccomment">/// The token content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>token: ::prost::alloc::string::String,
     <span class="doccomment">/// Expiration timestamp. Can be empty if unknown or non-expiring.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>expiration_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Message for responding to get read/write token.
@@ -1742,10 +1743,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FetchReadWriteTokenResponse {
     <span class="doccomment">/// The token content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>token: ::prost::alloc::string::String,
     <span class="doccomment">/// Expiration timestamp. Can be empty if unknown or non-expiring.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>expiration_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// RPC request object accepted by the ProcessWebhook RPC method.
@@ -1754,14 +1755,14 @@
 </span><span class="kw">pub struct </span>ProcessWebhookRequest {
     <span class="doccomment">/// Required. Project and location where the webhook will be received.
     /// Format: `projects/*/locations/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// HTTP request body.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>body: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::api::HttpBody&gt;,
     <span class="doccomment">/// Arbitrary additional key to find the maching repository for a webhook event
     /// if needed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>webhook_key: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for fetching git refs
@@ -1770,10 +1771,10 @@
 </span><span class="kw">pub struct </span>FetchGitRefsRequest {
     <span class="doccomment">/// Required. The resource name of the repository in the format
     /// `projects/*/locations/*/connections/*/repositories/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repository: ::prost::alloc::string::String,
     <span class="doccomment">/// Type of refs to fetch
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;fetch_git_refs_request::RefType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"fetch_git_refs_request::RefType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>ref_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `FetchGitRefsRequest`.
@@ -1804,19 +1805,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RefType::Unspecified =&gt; <span class="string">&quot;REF_TYPE_UNSPECIFIED&quot;</span>,
-                RefType::Tag =&gt; <span class="string">&quot;TAG&quot;</span>,
-                RefType::Branch =&gt; <span class="string">&quot;BRANCH&quot;</span>,
+                RefType::Unspecified =&gt; <span class="string">"REF_TYPE_UNSPECIFIED"</span>,
+                RefType::Tag =&gt; <span class="string">"TAG"</span>,
+                RefType::Branch =&gt; <span class="string">"BRANCH"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;REF_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;TAG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tag),
-                <span class="string">&quot;BRANCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Branch),
+                <span class="string">"REF_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"TAG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tag),
+                <span class="string">"BRANCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Branch),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1827,7 +1828,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FetchGitRefsResponse {
     <span class="doccomment">/// Name of the refs fetched.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>ref_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1844,7 +1845,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1919,19 +1920,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/CreateConnection&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/CreateConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;CreateConnection&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"CreateConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1947,19 +1948,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/GetConnection&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/GetConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;GetConnection&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"GetConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1978,19 +1979,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/ListConnections&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/ListConnections"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;ListConnections&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"ListConnections"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2009,19 +2010,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/UpdateConnection&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/UpdateConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;UpdateConnection&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"UpdateConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2040,19 +2041,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/DeleteConnection&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/DeleteConnection"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;DeleteConnection&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"DeleteConnection"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2071,19 +2072,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/CreateRepository&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/CreateRepository"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;CreateRepository&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"CreateRepository"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2102,19 +2103,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/BatchCreateRepositories&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/BatchCreateRepositories"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;BatchCreateRepositories&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"BatchCreateRepositories"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2130,19 +2131,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/GetRepository&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/GetRepository"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;GetRepository&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"GetRepository"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2161,19 +2162,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/ListRepositories&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/ListRepositories"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;ListRepositories&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"ListRepositories"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2192,19 +2193,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/DeleteRepository&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/DeleteRepository"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;DeleteRepository&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"DeleteRepository"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2223,19 +2224,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/FetchReadWriteToken&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/FetchReadWriteToken"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;FetchReadWriteToken&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"FetchReadWriteToken"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2254,19 +2255,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/FetchReadToken&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/FetchReadToken"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;FetchReadToken&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"FetchReadToken"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2286,19 +2287,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/FetchLinkableRepositories&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/FetchLinkableRepositories"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;FetchLinkableRepositories&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"FetchLinkableRepositories"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2317,19 +2318,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudbuild.v2.RepositoryManager/FetchGitRefs&quot;</span>,
+                <span class="string">"/google.devtools.cloudbuild.v2.RepositoryManager/FetchGitRefs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudbuild.v2.RepositoryManager&quot;</span>,
-                        <span class="string">&quot;FetchGitRefs&quot;</span>,
+                        <span class="string">"google.devtools.cloudbuild.v2.RepositoryManager"</span>,
+                        <span class="string">"FetchGitRefs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2341,29 +2342,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
     /// have [Operation.error][] value with a
     /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the custom metadata of the RunWorkflow long-running operation.
@@ -2371,29 +2372,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RunWorkflowCustomOperationMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
     /// have [Operation.error][] value with a
     /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. ID of the pipeline run created by RunWorkflow.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>pipeline_run_id: ::prost::alloc::string::String,
 }
 </code></pre></div></section></main></body></html>

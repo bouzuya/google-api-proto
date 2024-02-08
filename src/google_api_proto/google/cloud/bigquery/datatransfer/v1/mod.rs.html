@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/datatransfer/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/datatransfer/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1716,7 +1717,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EmailPreferences {
     <span class="doccomment">/// If true, email notifications will be sent on transfer run failures.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enable_failure_email: bool,
 }
 <span class="doccomment">/// Options customizing the data transfer schedule.
@@ -1727,20 +1728,20 @@
     /// will be disabled. The runs can be started on ad-hoc basis using
     /// StartManualTransferRuns API. When automatic scheduling is disabled, the
     /// TransferConfig.schedule field will be ignored.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>disable_auto_scheduling: bool,
     <span class="doccomment">/// Specifies time to start scheduling transfer runs. The first run will be
     /// scheduled at or after the start time according to a recurrence pattern
     /// defined in the schedule string. The start time can be changed at any
     /// moment. The time when a data transfer can be trigerred manually is not
     /// limited by this option.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Defines time to stop scheduling transfer runs. A transfer run cannot be
     /// scheduled at or after the end time. The end time can be changed at any
     /// moment. The time when a data transfer can be trigerred manually is not
     /// limited by this option.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Information about a user.
@@ -1748,7 +1749,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UserInfo {
     <span class="doccomment">/// E-mail address of the user.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>email: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Represents a data transfer configuration. A transfer configuration
@@ -1767,21 +1768,21 @@
     /// where `config_id` is usually a UUID, even though it is not
     /// guaranteed or required. The name is ignored when creating a transfer
     /// config.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// User specified display name for the data transfer.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Data source ID. This cannot be changed once data transfer is created. The
     /// full list of available data source IDs can be returned through an API call:
     /// &lt;https://cloud.google.com/bigquery-transfer/docs/reference/datatransfer/rest/v1/projects.locations.dataSources/list&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>data_source_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Parameters specific to each data source. For more information see the
-    /// bq tab in the &#39;Setting up a data transfer&#39; section for each data source.
+    /// bq tab in the 'Setting up a data transfer' section for each data source.
     /// For example the parameters for Cloud Storage transfers are listed here:
     /// &lt;https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>params: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// Data transfer schedule.
     /// If the data source does not support a custom schedule, this should be
@@ -1797,10 +1798,10 @@
     ///
     /// NOTE: The minimum interval time between recurring transfers depends on the
     /// data source; refer to the documentation for your data source.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>schedule: ::prost::alloc::string::String,
     <span class="doccomment">/// Options customizing the data transfer schedule.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"24"</span>)]
     </span><span class="kw">pub </span>schedule_options: ::core::option::Option&lt;ScheduleOptions&gt;,
     <span class="doccomment">/// The number of days to look back to automatically refresh the data.
     /// For example, if `data_refresh_window_days = 10`, then every day
@@ -1808,52 +1809,52 @@
     /// for just \[today-1\].
     /// Only valid if the data source supports the feature. Set the value to  0
     /// to use the default value.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>data_refresh_window_days: i32,
     <span class="doccomment">/// Is this config disabled. When set to true, no runs are scheduled
     /// for a given transfer.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>disabled: bool,
     <span class="doccomment">/// Output only. Data transfer modification time. Ignored by server on input.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Next time when data transfer will run.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>next_run_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. State of the most recently updated transfer run.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TransferState&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TransferState"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Deprecated. Unique ID of the user on whose behalf transfer is done.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>user_id: i64,
     <span class="doccomment">/// Output only. Region in which BigQuery dataset is located.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>dataset_region: ::prost::alloc::string::String,
     <span class="doccomment">/// Pub/Sub topic where notifications will be sent after transfer runs
     /// associated with this transfer config finish.
     ///
     /// The format for specifying a pubsub topic is:
     /// `projects/{project}/topics/{topic}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>notification_pubsub_topic: ::prost::alloc::string::String,
     <span class="doccomment">/// Email notifications will be sent according to these preferences
     /// to the email address of the user who owns this transfer config.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>email_preferences: ::core::option::Option&lt;EmailPreferences&gt;,
     <span class="doccomment">/// Output only. Information about the user whose credentials are used to
     /// transfer data. Populated only for `transferConfigs.get` requests. In case
     /// the user information is not available, this field will not be populated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;27&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"27"</span>)]
     </span><span class="kw">pub </span>owner_info: ::core::option::Option&lt;UserInfo&gt;,
     <span class="doccomment">/// The encryption configuration part. Currently, it is only used for the
     /// optional KMS key name. The BigQuery service account of your project must be
     /// granted permissions to use the key. Read methods will return the key name
     /// applied in effect. Write methods will apply the key if it is present, or
     /// otherwise try to apply project default keys if it is absent.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"28"</span>)]
     </span><span class="kw">pub </span>encryption_configuration: ::core::option::Option&lt;EncryptionConfiguration&gt;,
     <span class="doccomment">/// The desination of the transfer config.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;transfer_config::Destination&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"transfer_config::Destination"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;transfer_config::Destination&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TransferConfig`.
@@ -1863,7 +1864,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Destination {
         <span class="doccomment">/// The BigQuery target dataset id.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>DestinationDatasetId(::prost::alloc::string::String),
     }
 }
@@ -1872,7 +1873,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EncryptionConfiguration {
     <span class="doccomment">/// The name of the KMS key used for encrypting BigQuery data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>kms_key_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Represents a data transfer run.
@@ -1883,66 +1884,66 @@
     /// Transfer run names have the form
     /// `projects/{project_id}/locations/{location}/transferConfigs/{config_id}/runs/{run_id}`.
     /// The name is ignored when creating a transfer run.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Minimum time after which a transfer run can be started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>schedule_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// For batch transfer runs, specifies the date and time of the data should be
     /// ingested.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>run_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Status of the transfer run.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>error_status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Output only. Time when transfer run was started.
     /// Parameter ignored by server for input requests.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when transfer run ended.
     /// Parameter ignored by server for input requests.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Last time the data transfer run state was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Parameters specific to each data source. For more information
-    /// see the bq tab in the &#39;Setting up a data transfer&#39; section for each data
+    /// see the bq tab in the 'Setting up a data transfer' section for each data
     /// source. For example the parameters for Cloud Storage transfers are listed
     /// here:
     /// &lt;https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>params: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// Output only. Data source id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>data_source_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Data transfer run state. Ignored for input requests.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TransferState&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TransferState"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Deprecated. Unique ID of the user on whose behalf transfer is done.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>user_id: i64,
     <span class="doccomment">/// Output only. Describes the schedule of this transfer run if it was
     /// created as part of a regular schedule. For batch transfer runs that are
     /// scheduled manually, this is empty.
     /// NOTE: the system might choose to delay the schedule depending on the
-    /// current load, so `schedule_time` doesn&#39;t always match this.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    /// current load, so `schedule_time` doesn't always match this.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>schedule: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Pub/Sub topic where a notification will be sent after this
     /// transfer run finishes.
     ///
     /// The format for specifying a pubsub topic is:
     /// `projects/{project}/topics/{topic}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>notification_pubsub_topic: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Email notifications will be sent according to these
     /// preferences to the email address of the user who owns the transfer config
     /// this run was derived from.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"25"</span>)]
     </span><span class="kw">pub </span>email_preferences: ::core::option::Option&lt;EmailPreferences&gt;,
     <span class="doccomment">/// Data transfer destination.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;transfer_run::Destination&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"transfer_run::Destination"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;transfer_run::Destination&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TransferRun`.
@@ -1952,7 +1953,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Destination {
         <span class="doccomment">/// Output only. The BigQuery target dataset id.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>DestinationDatasetId(::prost::alloc::string::String),
     }
 }
@@ -1961,13 +1962,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TransferMessage {
     <span class="doccomment">/// Time when message was logged.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>message_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Message severity.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transfer_message::MessageSeverity&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"transfer_message::MessageSeverity"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>severity: i32,
     <span class="doccomment">/// Message text.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>message_text: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `TransferMessage`.
@@ -2000,21 +2001,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                MessageSeverity::Unspecified =&gt; <span class="string">&quot;MESSAGE_SEVERITY_UNSPECIFIED&quot;</span>,
-                MessageSeverity::Info =&gt; <span class="string">&quot;INFO&quot;</span>,
-                MessageSeverity::Warning =&gt; <span class="string">&quot;WARNING&quot;</span>,
-                MessageSeverity::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+                MessageSeverity::Unspecified =&gt; <span class="string">"MESSAGE_SEVERITY_UNSPECIFIED"</span>,
+                MessageSeverity::Info =&gt; <span class="string">"INFO"</span>,
+                MessageSeverity::Warning =&gt; <span class="string">"WARNING"</span>,
+                MessageSeverity::Error =&gt; <span class="string">"ERROR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MESSAGE_SEVERITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INFO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Info),
-                <span class="string">&quot;WARNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"MESSAGE_SEVERITY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"INFO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Info),
+                <span class="string">"WARNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2028,7 +2029,7 @@
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// Batch data transfer.
     </span>Batch = <span class="number">1</span>,
-    <span class="doccomment">/// Streaming data transfer. Streaming data source currently doesn&#39;t
+    <span class="doccomment">/// Streaming data transfer. Streaming data source currently doesn't
     /// support multiple transfer configs per project.
     </span>Streaming = <span class="number">2</span>,
 }
@@ -2037,19 +2038,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            TransferType::Unspecified =&gt; <span class="string">&quot;TRANSFER_TYPE_UNSPECIFIED&quot;</span>,
-            TransferType::Batch =&gt; <span class="string">&quot;BATCH&quot;</span>,
-            TransferType::Streaming =&gt; <span class="string">&quot;STREAMING&quot;</span>,
+            TransferType::Unspecified =&gt; <span class="string">"TRANSFER_TYPE_UNSPECIFIED"</span>,
+            TransferType::Batch =&gt; <span class="string">"BATCH"</span>,
+            TransferType::Streaming =&gt; <span class="string">"STREAMING"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;TRANSFER_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;BATCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Batch),
-            <span class="string">&quot;STREAMING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Streaming),
+            <span class="string">"TRANSFER_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"BATCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Batch),
+            <span class="string">"STREAMING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Streaming),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2077,25 +2078,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            TransferState::Unspecified =&gt; <span class="string">&quot;TRANSFER_STATE_UNSPECIFIED&quot;</span>,
-            TransferState::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-            TransferState::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-            TransferState::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-            TransferState::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-            TransferState::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+            TransferState::Unspecified =&gt; <span class="string">"TRANSFER_STATE_UNSPECIFIED"</span>,
+            TransferState::Pending =&gt; <span class="string">"PENDING"</span>,
+            TransferState::Running =&gt; <span class="string">"RUNNING"</span>,
+            TransferState::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+            TransferState::Failed =&gt; <span class="string">"FAILED"</span>,
+            TransferState::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;TRANSFER_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-            <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-            <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-            <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-            <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+            <span class="string">"TRANSFER_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+            <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+            <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+            <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+            <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2105,54 +2106,54 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DataSourceParameter {
     <span class="doccomment">/// Parameter identifier.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>param_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Parameter display name in the user interface.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Parameter description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Parameter type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;data_source_parameter::Type&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"data_source_parameter::Type"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Is parameter required.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>required: bool,
     <span class="doccomment">/// Deprecated. This field has no effect.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>repeated: bool,
     <span class="doccomment">/// Regular expression which can be used for parameter validation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>validation_regex: ::prost::alloc::string::String,
     <span class="doccomment">/// All possible values for the parameter.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>allowed_values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// For integer and double values specifies minimum allowed value.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>min_value: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// For integer and double values specifies maximum allowed value.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>max_value: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Deprecated. This field has no effect.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>fields: ::prost::alloc::vec::Vec&lt;DataSourceParameter&gt;,
     <span class="doccomment">/// Description of the requirements for this field, in case the user input does
     /// not fulfill the regex pattern or min/max values.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>validation_description: ::prost::alloc::string::String,
     <span class="doccomment">/// URL to a help document to further explain the naming requirements.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>validation_help_url: ::prost::alloc::string::String,
     <span class="doccomment">/// Cannot be changed after initial creation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>immutable: bool,
     <span class="doccomment">/// Deprecated. This field has no effect.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>recurse: bool,
     <span class="doccomment">/// If true, it should not be used in new transfers, and it should not be
     /// visible to users.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>deprecated: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `DataSourceParameter`.
@@ -2194,29 +2195,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::String =&gt; <span class="string">&quot;STRING&quot;</span>,
-                Type::Integer =&gt; <span class="string">&quot;INTEGER&quot;</span>,
-                Type::Double =&gt; <span class="string">&quot;DOUBLE&quot;</span>,
-                Type::Boolean =&gt; <span class="string">&quot;BOOLEAN&quot;</span>,
-                Type::Record =&gt; <span class="string">&quot;RECORD&quot;</span>,
-                Type::PlusPage =&gt; <span class="string">&quot;PLUS_PAGE&quot;</span>,
-                Type::List =&gt; <span class="string">&quot;LIST&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::String =&gt; <span class="string">"STRING"</span>,
+                Type::Integer =&gt; <span class="string">"INTEGER"</span>,
+                Type::Double =&gt; <span class="string">"DOUBLE"</span>,
+                Type::Boolean =&gt; <span class="string">"BOOLEAN"</span>,
+                Type::Record =&gt; <span class="string">"RECORD"</span>,
+                Type::PlusPage =&gt; <span class="string">"PLUS_PAGE"</span>,
+                Type::List =&gt; <span class="string">"LIST"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
-                <span class="string">&quot;INTEGER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Integer),
-                <span class="string">&quot;DOUBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Double),
-                <span class="string">&quot;BOOLEAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Boolean),
-                <span class="string">&quot;RECORD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Record),
-                <span class="string">&quot;PLUS_PAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PlusPage),
-                <span class="string">&quot;LIST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::List),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STRING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
+                <span class="string">"INTEGER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Integer),
+                <span class="string">"DOUBLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Double),
+                <span class="string">"BOOLEAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Boolean),
+                <span class="string">"RECORD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Record),
+                <span class="string">"PLUS_PAGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PlusPage),
+                <span class="string">"LIST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::List),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2227,74 +2228,74 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DataSource {
     <span class="doccomment">/// Output only. Data source resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Data source id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data_source_id: ::prost::alloc::string::String,
     <span class="doccomment">/// User friendly data source name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// User friendly data source description string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Data source client id which should be used to receive refresh token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>client_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Api auth scopes for which refresh token needs to be obtained. These are
     /// scopes needed by a data source to prepare data and ingest them into
     /// BigQuery, e.g., &lt;https://www.googleapis.com/auth/bigquery&gt;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>scopes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Deprecated. This field has no effect.
     </span><span class="attr">#[deprecated]
-    #[prost(enumeration = <span class="string">&quot;TransferType&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    #[prost(enumeration = <span class="string">"TransferType"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>transfer_type: i32,
     <span class="doccomment">/// Deprecated. This field has no effect.
     </span><span class="attr">#[deprecated]
-    #[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    #[prost(bool, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>supports_multiple_transfers: bool,
     <span class="doccomment">/// The number of seconds to wait for an update from the data source
     /// before the Data Transfer Service marks the transfer as FAILED.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>update_deadline_seconds: i32,
     <span class="doccomment">/// Default data transfer schedule.
     /// Examples of valid schedules include:
     /// `1st,3rd monday of month 15:30`,
     /// `every wed,fri of jan,jun 13:15`, and
     /// `first sunday of quarter 00:00`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>default_schedule: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies whether the data source supports a user defined schedule, or
     /// operates on the default schedule.
     /// When set to `true`, user can override default schedule.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>supports_custom_schedule: bool,
     <span class="doccomment">/// Data source parameters.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>parameters: ::prost::alloc::vec::Vec&lt;DataSourceParameter&gt;,
     <span class="doccomment">/// Url for the help document for this data source.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>help_url: ::prost::alloc::string::String,
     <span class="doccomment">/// Indicates the type of authorization.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;data_source::AuthorizationType&quot;</span>, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"data_source::AuthorizationType"</span>, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>authorization_type: i32,
     <span class="doccomment">/// Specifies whether the data source supports automatic data refresh for the
-    /// past few days, and how it&#39;s supported.
+    /// past few days, and how it's supported.
     /// For some data sources, data might not be complete until a few days later,
-    /// so it&#39;s useful to refresh data automatically.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;data_source::DataRefreshType&quot;</span>, tag = <span class="string">&quot;15&quot;</span>)]
+    /// so it's useful to refresh data automatically.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"data_source::DataRefreshType"</span>, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>data_refresh_type: i32,
     <span class="doccomment">/// Default data refresh window on days.
     /// Only meaningful when `data_refresh_type` = `SLIDING_WINDOW`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>default_data_refresh_window_days: i32,
     <span class="doccomment">/// Disables backfilling and manual run scheduling
     /// for the data source.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>manual_runs_disabled: bool,
     <span class="doccomment">/// The minimum interval for scheduler to schedule runs.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>minimum_schedule_interval: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DataSource`.
@@ -2329,25 +2330,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AuthorizationType::Unspecified =&gt; <span class="string">&quot;AUTHORIZATION_TYPE_UNSPECIFIED&quot;</span>,
-                AuthorizationType::AuthorizationCode =&gt; <span class="string">&quot;AUTHORIZATION_CODE&quot;</span>,
+                AuthorizationType::Unspecified =&gt; <span class="string">"AUTHORIZATION_TYPE_UNSPECIFIED"</span>,
+                AuthorizationType::AuthorizationCode =&gt; <span class="string">"AUTHORIZATION_CODE"</span>,
                 AuthorizationType::GooglePlusAuthorizationCode =&gt; {
-                    <span class="string">&quot;GOOGLE_PLUS_AUTHORIZATION_CODE&quot;
+                    <span class="string">"GOOGLE_PLUS_AUTHORIZATION_CODE"
                 </span>}
-                AuthorizationType::FirstPartyOauth =&gt; <span class="string">&quot;FIRST_PARTY_OAUTH&quot;</span>,
+                AuthorizationType::FirstPartyOauth =&gt; <span class="string">"FIRST_PARTY_OAUTH"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;AUTHORIZATION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AUTHORIZATION_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthorizationCode),
-                <span class="string">&quot;GOOGLE_PLUS_AUTHORIZATION_CODE&quot; </span>=&gt; {
+                <span class="string">"AUTHORIZATION_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AUTHORIZATION_CODE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthorizationCode),
+                <span class="string">"GOOGLE_PLUS_AUTHORIZATION_CODE" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::GooglePlusAuthorizationCode)
                 }
-                <span class="string">&quot;FIRST_PARTY_OAUTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FirstPartyOauth),
+                <span class="string">"FIRST_PARTY_OAUTH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FirstPartyOauth),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2366,7 +2367,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>DataRefreshType {
-        <span class="doccomment">/// The data source won&#39;t support data auto refresh, which is default value.
+        <span class="doccomment">/// The data source won't support data auto refresh, which is default value.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// The data source supports data auto refresh, and runs will be scheduled
         /// for the past few days. Does not allow custom values to be set for each
@@ -2382,19 +2383,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DataRefreshType::Unspecified =&gt; <span class="string">&quot;DATA_REFRESH_TYPE_UNSPECIFIED&quot;</span>,
-                DataRefreshType::SlidingWindow =&gt; <span class="string">&quot;SLIDING_WINDOW&quot;</span>,
-                DataRefreshType::CustomSlidingWindow =&gt; <span class="string">&quot;CUSTOM_SLIDING_WINDOW&quot;</span>,
+                DataRefreshType::Unspecified =&gt; <span class="string">"DATA_REFRESH_TYPE_UNSPECIFIED"</span>,
+                DataRefreshType::SlidingWindow =&gt; <span class="string">"SLIDING_WINDOW"</span>,
+                DataRefreshType::CustomSlidingWindow =&gt; <span class="string">"CUSTOM_SLIDING_WINDOW"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DATA_REFRESH_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SLIDING_WINDOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SlidingWindow),
-                <span class="string">&quot;CUSTOM_SLIDING_WINDOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomSlidingWindow),
+                <span class="string">"DATA_REFRESH_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SLIDING_WINDOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SlidingWindow),
+                <span class="string">"CUSTOM_SLIDING_WINDOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomSlidingWindow),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2407,7 +2408,7 @@
     <span class="doccomment">/// Required. The field will contain name of the resource requested, for
     /// example: `projects/{project_id}/dataSources/{data_source_id}` or
     /// `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to list supported data sources and their data transfer settings.
@@ -2417,17 +2418,17 @@
     <span class="doccomment">/// Required. The BigQuery project id for which data sources should be
     /// returned. Must be in the form: `projects/{project_id}` or
     /// `projects/{project_id}/locations/{location_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Pagination token, which can be used to request a specific page
     /// of `ListDataSourcesRequest` list results. For multiple-page
     /// results, `ListDataSourcesResponse` outputs
     /// a `next_page` token, which can be used as the
     /// `page_token` value to request the next page of list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Page size. The default page size is the maximum value of 1000 results.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// Returns list of supported data sources and their metadata.
@@ -2435,13 +2436,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDataSourcesResponse {
     <span class="doccomment">/// List of supported data sources and their transfer settings.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>data_sources: ::prost::alloc::vec::Vec&lt;DataSource&gt;,
     <span class="doccomment">/// Output only. The next-pagination token. For multiple-page list results,
     /// this token can be used as the
     /// `ListDataSourcesRequest.page_token`
     /// to request the next page of list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to create a data transfer configuration. If new credentials are
@@ -2458,16 +2459,16 @@
     /// projects/{project_id}/locations/{location_id} or projects/{project_id}. If
     /// specified location and location of the destination bigquery dataset do not
     /// match - the request will fail.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Data transfer configuration to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>transfer_config: ::core::option::Option&lt;TransferConfig&gt;,
     <span class="doccomment">/// Optional OAuth2 authorization code to use with this transfer configuration.
-    /// This is required only if `transferConfig.dataSourceId` is &#39;youtube_channel&#39;
+    /// This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
     /// and new credentials are needed, as indicated by `CheckValidCreds`. In order
     /// to obtain authorization_code, make a request to the following URL:
-    /// &lt;pre class=&quot;prettyprint&quot; suppresswarning=&quot;true&quot;&gt;
+    /// &lt;pre class="prettyprint" suppresswarning="true"&gt;
     /// &lt;https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=authorization_code&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;&gt;
     /// &lt;/pre&gt;
     /// * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
@@ -2477,13 +2478,13 @@
     ///
     /// Note that this should not be set when `service_account_name` is used to
     /// create the transfer config.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>authorization_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional version info. This is required only if
-    /// `transferConfig.dataSourceId` is not &#39;youtube_channel&#39; and new credentials
+    /// `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
     /// are needed, as indicated by `CheckValidCreds`. In order to obtain version
     /// info, make a request to the following URL:
-    /// &lt;pre class=&quot;prettyprint&quot; suppresswarning=&quot;true&quot;&gt;
+    /// &lt;pre class="prettyprint" suppresswarning="true"&gt;
     /// &lt;https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=version_info&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;&gt;
     /// &lt;/pre&gt;
     /// * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
@@ -2493,10 +2494,10 @@
     ///
     /// Note that this should not be set when `service_account_name` is used to
     /// create the transfer config.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>version_info: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional service account email. If this field is set, the transfer config
-    /// will be created with this service account&#39;s credentials. It requires that
+    /// will be created with this service account's credentials. It requires that
     /// the requesting user calling this API has permissions to act as this service
     /// account.
     ///
@@ -2504,7 +2505,7 @@
     /// creating a transfer config. For the latest list of data sources, read about
     /// [using service
     /// accounts](&lt;https://cloud.google.com/bigquery-transfer/docs/use-service-accounts&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>service_account_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to update a transfer configuration. To update the user id of the
@@ -2513,13 +2514,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateTransferConfigRequest {
     <span class="doccomment">/// Required. Data transfer configuration to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transfer_config: ::core::option::Option&lt;TransferConfig&gt;,
     <span class="doccomment">/// Optional OAuth2 authorization code to use with this transfer configuration.
-    /// This is required only if `transferConfig.dataSourceId` is &#39;youtube_channel&#39;
+    /// This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
     /// and new credentials are needed, as indicated by `CheckValidCreds`. In order
     /// to obtain authorization_code, make a request to the following URL:
-    /// &lt;pre class=&quot;prettyprint&quot; suppresswarning=&quot;true&quot;&gt;
+    /// &lt;pre class="prettyprint" suppresswarning="true"&gt;
     /// &lt;https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=authorization_code&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;&gt;
     /// &lt;/pre&gt;
     /// * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
@@ -2529,16 +2530,16 @@
     ///
     /// Note that this should not be set when `service_account_name` is used to
     /// update the transfer config.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>authorization_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Required list of fields to be updated in this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Optional version info. This is required only if
-    /// `transferConfig.dataSourceId` is not &#39;youtube_channel&#39; and new credentials
+    /// `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
     /// are needed, as indicated by `CheckValidCreds`. In order to obtain version
     /// info, make a request to the following URL:
-    /// &lt;pre class=&quot;prettyprint&quot; suppresswarning=&quot;true&quot;&gt;
+    /// &lt;pre class="prettyprint" suppresswarning="true"&gt;
     /// &lt;https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=version_info&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;&gt;
     /// &lt;/pre&gt;
     /// * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
@@ -2548,10 +2549,10 @@
     ///
     /// Note that this should not be set when `service_account_name` is used to
     /// update the transfer config.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>version_info: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional service account email. If this field is set, the transfer config
-    /// will be created with this service account&#39;s credentials. It requires that
+    /// will be created with this service account's credentials. It requires that
     /// the requesting user calling this API has permissions to act as this service
     /// account.
     ///
@@ -2559,7 +2560,7 @@
     /// creating a transfer config. For the latest list of data sources, read about
     /// [using service
     /// accounts](&lt;https://cloud.google.com/bigquery-transfer/docs/use-service-accounts&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>service_account_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to get data transfer information.
@@ -2569,7 +2570,7 @@
     <span class="doccomment">/// Required. The field will contain name of the resource requested, for
     /// example: `projects/{project_id}/transferConfigs/{config_id}` or
     /// `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to delete data transfer information. All associated transfer runs
@@ -2580,7 +2581,7 @@
     <span class="doccomment">/// Required. The field will contain name of the resource requested, for
     /// example: `projects/{project_id}/transferConfigs/{config_id}` or
     /// `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to get data transfer run information.
@@ -2591,7 +2592,7 @@
     /// example: `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
     /// or
     /// `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to delete data transfer run information.
@@ -2602,7 +2603,7 @@
     /// example: `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
     /// or
     /// `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to list data transfers configured for a BigQuery project.
@@ -2612,20 +2613,20 @@
     <span class="doccomment">/// Required. The BigQuery project id for which transfer configs
     /// should be returned: `projects/{project_id}` or
     /// `projects/{project_id}/locations/{location_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// When specified, only configurations of requested data sources are returned.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data_source_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Pagination token, which can be used to request a specific page
     /// of `ListTransfersRequest` list results. For multiple-page
     /// results, `ListTransfersResponse` outputs
     /// a `next_page` token, which can be used as the
     /// `page_token` value to request the next page of list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Page size. The default page size is the maximum value of 1000 results.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// The returned list of pipelines in the project.
@@ -2633,13 +2634,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTransferConfigsResponse {
     <span class="doccomment">/// Output only. The stored pipeline transfer configurations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transfer_configs: ::prost::alloc::vec::Vec&lt;TransferConfig&gt;,
     <span class="doccomment">/// Output only. The next-pagination token. For multiple-page list results,
     /// this token can be used as the
     /// `ListTransferConfigsRequest.page_token`
     /// to request the next page of list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to list data transfer runs.
@@ -2650,23 +2651,23 @@
     /// retrieved. Format of transfer configuration resource name is:
     /// `projects/{project_id}/transferConfigs/{config_id}` or
     /// `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// When specified, only transfer runs with requested states are returned.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TransferState&quot;</span>, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TransferState"</span>, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>states: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Pagination token, which can be used to request a specific page
     /// of `ListTransferRunsRequest` list results. For multiple-page
     /// results, `ListTransferRunsResponse` outputs
     /// a `next_page` token, which can be used as the
     /// `page_token` value to request the next page of list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Page size. The default page size is the maximum value of 1000 results.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Indicates how run attempts are to be pulled.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;list_transfer_runs_request::RunAttempt&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"list_transfer_runs_request::RunAttempt"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>run_attempt: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ListTransferRunsRequest`.
@@ -2695,17 +2696,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RunAttempt::Unspecified =&gt; <span class="string">&quot;RUN_ATTEMPT_UNSPECIFIED&quot;</span>,
-                RunAttempt::Latest =&gt; <span class="string">&quot;LATEST&quot;</span>,
+                RunAttempt::Unspecified =&gt; <span class="string">"RUN_ATTEMPT_UNSPECIFIED"</span>,
+                RunAttempt::Latest =&gt; <span class="string">"LATEST"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RUN_ATTEMPT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LATEST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Latest),
+                <span class="string">"RUN_ATTEMPT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LATEST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Latest),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2716,13 +2717,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTransferRunsResponse {
     <span class="doccomment">/// Output only. The stored pipeline transfer runs.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transfer_runs: ::prost::alloc::vec::Vec&lt;TransferRun&gt;,
     <span class="doccomment">/// Output only. The next-pagination token. For multiple-page list results,
     /// this token can be used as the
     /// `ListTransferRunsRequest.page_token`
     /// to request the next page of list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to get user facing log messages associated with data transfer run.
@@ -2732,21 +2733,21 @@
     <span class="doccomment">/// Required. Transfer run name in the form:
     /// `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
     /// `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Pagination token, which can be used to request a specific page
     /// of `ListTransferLogsRequest` list results. For multiple-page
     /// results, `ListTransferLogsResponse` outputs
     /// a `next_page` token, which can be used as the
     /// `page_token` value to request the next page of list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Page size. The default page size is the maximum value of 1000 results.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Message types to return. If not populated - INFO, WARNING and ERROR
     /// messages are returned.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transfer_message::MessageSeverity&quot;</span>, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"transfer_message::MessageSeverity"</span>, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>message_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
 <span class="doccomment">/// The returned list transfer run messages.
@@ -2754,13 +2755,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTransferLogsResponse {
     <span class="doccomment">/// Output only. The stored pipeline transfer messages.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transfer_messages: ::prost::alloc::vec::Vec&lt;TransferMessage&gt;,
     <span class="doccomment">/// Output only. The next-pagination token. For multiple-page list results,
     /// this token can be used as the
     /// `GetTransferRunLogRequest.page_token`
     /// to request the next page of list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to determine whether the user has valid credentials. This method
@@ -2775,7 +2776,7 @@
     <span class="doccomment">/// Required. The data source in the form:
     /// `projects/{project_id}/dataSources/{data_source_id}` or
     /// `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A response indicating whether the credentials exist and are valid.
@@ -2783,7 +2784,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CheckValidCredsResponse {
     <span class="doccomment">/// If set to `true`, the credentials exist and are valid.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>has_valid_creds: bool,
 }
 <span class="doccomment">/// A request to schedule transfer runs for a time range.
@@ -2793,15 +2794,15 @@
     <span class="doccomment">/// Required. Transfer configuration name in the form:
     /// `projects/{project_id}/transferConfigs/{config_id}` or
     /// `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Start time of the range of transfer runs. For example,
-    /// `&quot;2017-05-25T00:00:00+00:00&quot;`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// `"2017-05-25T00:00:00+00:00"`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. End time of the range of transfer runs. For example,
-    /// `&quot;2017-05-30T00:00:00+00:00&quot;`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// `"2017-05-30T00:00:00+00:00"`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// A response to schedule transfer runs for a time range.
@@ -2809,7 +2810,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ScheduleTransferRunsResponse {
     <span class="doccomment">/// The transfer runs that were scheduled.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>runs: ::prost::alloc::vec::Vec&lt;TransferRun&gt;,
 }
 <span class="doccomment">/// A request to start manual transfer runs.
@@ -2819,11 +2820,11 @@
     <span class="doccomment">/// Transfer configuration name in the form:
     /// `projects/{project_id}/transferConfigs/{config_id}` or
     /// `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The requested time specification - this can be a time range or a specific
     /// run_time.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;start_manual_transfer_runs_request::Time&quot;</span>, tags = <span class="string">&quot;3, 4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"start_manual_transfer_runs_request::Time"</span>, tags = <span class="string">"3, 4"</span>)]
     </span><span class="kw">pub </span>time: ::core::option::Option&lt;start_manual_transfer_runs_request::Time&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `StartManualTransferRunsRequest`.
@@ -2834,16 +2835,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>TimeRange {
         <span class="doccomment">/// Start time of the range of transfer runs. For example,
-        /// `&quot;2017-05-25T00:00:00+00:00&quot;`. The start_time must be strictly less than
+        /// `"2017-05-25T00:00:00+00:00"`. The start_time must be strictly less than
         /// the end_time. Creates transfer runs where run_time is in the range
         /// between start_time (inclusive) and end_time (exclusive).
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// End time of the range of transfer runs. For example,
-        /// `&quot;2017-05-30T00:00:00+00:00&quot;`. The end_time must not be in the future.
+        /// `"2017-05-30T00:00:00+00:00"`. The end_time must not be in the future.
         /// Creates transfer runs where run_time is in the range between start_time
         /// (inclusive) and end_time (exclusive).
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     }
     <span class="doccomment">/// The requested time specification - this can be a time range or a specific
@@ -2855,13 +2856,13 @@
         /// that are scheduled to be transferred by the scheduled transfer run.
         /// requested_time_range must be a past time and cannot include future time
         /// values.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>RequestedTimeRange(TimeRange),
         <span class="doccomment">/// A run_time timestamp for historical data files or reports
         /// that are scheduled to be transferred by the scheduled transfer run.
         /// requested_run_time must be a past time and cannot include future time
         /// values.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>RequestedRunTime(::prost_types::Timestamp),
     }
 }
@@ -2870,20 +2871,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StartManualTransferRunsResponse {
     <span class="doccomment">/// The transfer runs that were created.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>runs: ::prost::alloc::vec::Vec&lt;TransferRun&gt;,
 }
 <span class="doccomment">/// A request to enroll a set of data sources so they are visible in the
-/// BigQuery UI&#39;s `Transfer` tab.
+/// BigQuery UI's `Transfer` tab.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EnrollDataSourcesRequest {
     <span class="doccomment">/// The name of the project resource in the form: `projects/{project_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Data sources that are enrolled. It is required to provide at least one
     /// data source id.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data_source_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2900,7 +2901,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2972,19 +2973,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/GetDataSource&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/GetDataSource"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;GetDataSource&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"GetDataSource"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3003,19 +3004,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/ListDataSources&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/ListDataSources"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;ListDataSources&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"ListDataSources"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3031,19 +3032,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/CreateTransferConfig&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/CreateTransferConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;CreateTransferConfig&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"CreateTransferConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3060,19 +3061,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/UpdateTransferConfig&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/UpdateTransferConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;UpdateTransferConfig&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"UpdateTransferConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3089,19 +3090,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/DeleteTransferConfig&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/DeleteTransferConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;DeleteTransferConfig&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"DeleteTransferConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3117,19 +3118,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/GetTransferConfig&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/GetTransferConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;GetTransferConfig&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"GetTransferConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3149,19 +3150,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/ListTransferConfigs&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/ListTransferConfigs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;ListTransferConfigs&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"ListTransferConfigs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3184,19 +3185,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/ScheduleTransferRuns&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/ScheduleTransferRuns"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;ScheduleTransferRuns&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"ScheduleTransferRuns"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3218,19 +3219,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/StartManualTransferRuns&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/StartManualTransferRuns"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;StartManualTransferRuns&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"StartManualTransferRuns"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3246,19 +3247,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/GetTransferRun&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/GetTransferRun"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;GetTransferRun&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"GetTransferRun"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3274,19 +3275,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/DeleteTransferRun&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/DeleteTransferRun"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;DeleteTransferRun&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"DeleteTransferRun"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3305,19 +3306,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/ListTransferRuns&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/ListTransferRuns"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;ListTransferRuns&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"ListTransferRuns"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3336,19 +3337,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/ListTransferLogs&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/ListTransferLogs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;ListTransferLogs&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"ListTransferLogs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3368,19 +3369,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/CheckValidCreds&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/CheckValidCreds"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;CheckValidCreds&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"CheckValidCreds"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3403,19 +3404,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.datatransfer.v1.DataTransferService/EnrollDataSources&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.datatransfer.v1.DataTransferService/EnrollDataSources"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.datatransfer.v1.DataTransferService&quot;</span>,
-                        <span class="string">&quot;EnrollDataSources&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.datatransfer.v1.DataTransferService"</span>,
+                        <span class="string">"EnrollDataSources"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

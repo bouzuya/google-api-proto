@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/osconfig/agentendpoint/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/osconfig/agentendpoint/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2583,14 +2584,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Inventory {
     <span class="doccomment">/// Base level operating system information for the VM.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>os_info: ::core::option::Option&lt;inventory::OsInfo&gt;,
     <span class="doccomment">/// A list of installed packages currently on the VM.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>installed_packages: ::prost::alloc::vec::Vec&lt;inventory::SoftwarePackage&gt;,
     <span class="doccomment">/// A list of software updates available for the VM as reported by the update
     /// managers.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>available_packages: ::prost::alloc::vec::Vec&lt;inventory::SoftwarePackage&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Inventory`.
@@ -2600,31 +2601,31 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>OsInfo {
         <span class="doccomment">/// The VM hostname.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>hostname: ::prost::alloc::string::String,
         <span class="doccomment">/// The operating system long name.
-        /// For example &#39;Debian GNU/Linux 9&#39; or &#39;Microsoft Window Server 2019
-        /// Datacenter&#39;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        /// For example 'Debian GNU/Linux 9' or 'Microsoft Window Server 2019
+        /// Datacenter'.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>long_name: ::prost::alloc::string::String,
         <span class="doccomment">/// The operating system short name.
-        /// For example, &#39;windows&#39; or &#39;debian&#39;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        /// For example, 'windows' or 'debian'.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>short_name: ::prost::alloc::string::String,
         <span class="doccomment">/// The version of the operating system.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
         <span class="doccomment">/// The system architecture of the operating system.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>architecture: ::prost::alloc::string::String,
         <span class="doccomment">/// The kernel version of the operating system.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>kernel_version: ::prost::alloc::string::String,
         <span class="doccomment">/// The kernel release of the operating system.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>kernel_release: ::prost::alloc::string::String,
         <span class="doccomment">/// The current version of the OS Config agent running on the VM.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>osconfig_agent_version: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Software package information of the operating system.
@@ -2632,7 +2633,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>SoftwarePackage {
         <span class="doccomment">/// Information about the different types of software packages.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;software_package::Details&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5, 6, 7, 8, 9&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"software_package::Details"</span>, tags = <span class="string">"1, 2, 3, 4, 5, 6, 7, 8, 9"</span>)]
         </span><span class="kw">pub </span>details: ::core::option::Option&lt;software_package::Details&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `SoftwarePackage`.
@@ -2644,44 +2645,44 @@
             <span class="doccomment">/// Yum package info.
             /// For details about the yum package manager, see
             /// &lt;https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/ch-yum.&gt;
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
             </span>YumPackage(<span class="kw">super</span>::VersionedPackage),
             <span class="doccomment">/// Details of an APT package.
             /// For details about the apt package manager, see
             /// &lt;https://wiki.debian.org/Apt.&gt;
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>AptPackage(<span class="kw">super</span>::VersionedPackage),
             <span class="doccomment">/// Details of a Zypper package.
             /// For details about the Zypper package manager, see
             /// &lt;https://en.opensuse.org/SDB:Zypper_manual.&gt;
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
             </span>ZypperPackage(<span class="kw">super</span>::VersionedPackage),
             <span class="doccomment">/// Details of a Googet package.
             ///   For details about the googet package manager, see
             ///   &lt;https://github.com/google/googet.&gt;
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
             </span>GoogetPackage(<span class="kw">super</span>::VersionedPackage),
             <span class="doccomment">/// Details of a Zypper patch.
             /// For details about the Zypper package manager, see
             /// &lt;https://en.opensuse.org/SDB:Zypper_manual.&gt;
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
             </span>ZypperPatch(<span class="kw">super</span>::ZypperPatch),
             <span class="doccomment">/// Details of a Windows Update package.
             /// See &lt;https://docs.microsoft.com/en-us/windows/win32/api/_wua/&gt; for
             /// information about Windows Update.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
             </span>WuaPackage(<span class="kw">super</span>::WindowsUpdatePackage),
             <span class="doccomment">/// Details of a Windows Quick Fix engineering package.
             /// See
             /// &lt;https://docs.microsoft.com/en-us/windows/win32/cimwin32prov/win32-quickfixengineering&gt;
             /// for info in Windows Quick Fix Engineering.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
             </span>QfePackage(<span class="kw">super</span>::WindowsQuickFixEngineeringPackage),
             <span class="doccomment">/// Details of a COS package.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
             </span>CosPackage(<span class="kw">super</span>::VersionedPackage),
             <span class="doccomment">/// Details of Windows Application.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
             </span>WindowsApplication(<span class="kw">super</span>::WindowsApplication),
         }
     }
@@ -2691,13 +2692,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>VersionedPackage {
         <span class="doccomment">/// The name of the package.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>package_name: ::prost::alloc::string::String,
         <span class="doccomment">/// The system architecture this package is intended for.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>architecture: ::prost::alloc::string::String,
         <span class="doccomment">/// The version of the package.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Details related to a Zypper Patch.
@@ -2705,16 +2706,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ZypperPatch {
         <span class="doccomment">/// The name of the patch.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>patch_name: ::prost::alloc::string::String,
         <span class="doccomment">/// The category of the patch.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>category: ::prost::alloc::string::String,
         <span class="doccomment">/// The severity specified for this patch
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>severity: ::prost::alloc::string::String,
         <span class="doccomment">/// Any summary information provided about this patch.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>summary: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Details related to a Windows Update package.
@@ -2726,36 +2727,36 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>WindowsUpdatePackage {
         <span class="doccomment">/// The localized title of the update package.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
         <span class="doccomment">/// The localized description of the update package.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
         <span class="doccomment">/// The categories that are associated with this update package.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>categories: ::prost::alloc::vec::Vec&lt;
             windows_update_package::WindowsUpdateCategory,
         &gt;,
         <span class="doccomment">/// A collection of Microsoft Knowledge Base article IDs that are associated
         /// with the update package.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>kb_article_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// A hyperlink to the language-specific support information for the update.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>support_url: ::prost::alloc::string::String,
         <span class="doccomment">/// A collection of URLs that provide more information about the update
         /// package.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>more_info_urls: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// Gets the identifier of an update package.  Stays the same across
         /// revisions.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>update_id: ::prost::alloc::string::String,
         <span class="doccomment">/// The revision number of this update package.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>revision_number: i32,
         <span class="doccomment">/// The last published date of the update, in (UTC) date and time.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
         </span><span class="kw">pub </span>last_deployment_change_time: ::core::option::Option&lt;
             ::prost_types::Timestamp,
         &gt;,
@@ -2767,10 +2768,10 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>WindowsUpdateCategory {
             <span class="doccomment">/// The identifier of the windows update category.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
             <span class="doccomment">/// The name of the windows update category.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         }
     }
@@ -2782,16 +2783,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>WindowsQuickFixEngineeringPackage {
         <span class="doccomment">/// A short textual description of the QFE update.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>caption: ::prost::alloc::string::String,
         <span class="doccomment">/// A textual description of the QFE update.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
         <span class="doccomment">/// Unique identifier associated with a particular QFE update.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>hot_fix_id: ::prost::alloc::string::String,
         <span class="doccomment">/// Date that the QFE update was installed.  Mapped from installed_on field.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>install_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     }
     <span class="doccomment">/// Details about Windows Application - based on Windows Registry.
@@ -2801,21 +2802,21 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>WindowsApplication {
         <span class="doccomment">/// DisplayName field from Windows Registry.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
         <span class="doccomment">/// DisplayVersion field from Windows Registry.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>display_version: ::prost::alloc::string::String,
         <span class="doccomment">/// Publisher field from Windows Registry.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>publisher: ::prost::alloc::string::String,
         <span class="doccomment">/// Installation date field from Windows Registry.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>install_date: ::core::option::Option&lt;
             <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date,
         &gt;,
         <span class="doccomment">/// HelpLink field from Windows Registry.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>help_link: ::prost::alloc::string::String,
     }
 }
@@ -2825,14 +2826,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OsPolicyResourceConfigStep {
     <span class="doccomment">/// Configuration step type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;os_policy_resource_config_step::Type&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"os_policy_resource_config_step::Type"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Outcome of the configuration step.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;os_policy_resource_config_step::Outcome&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"os_policy_resource_config_step::Outcome"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>outcome: i32,
     <span class="doccomment">/// An error message recorded during the execution of this step.
     /// Only populated when outcome is FAILED.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `OSPolicyResourceConfigStep`.
@@ -2873,25 +2874,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Validation =&gt; <span class="string">&quot;VALIDATION&quot;</span>,
-                Type::DesiredStateCheck =&gt; <span class="string">&quot;DESIRED_STATE_CHECK&quot;</span>,
-                Type::DesiredStateEnforcement =&gt; <span class="string">&quot;DESIRED_STATE_ENFORCEMENT&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::Validation =&gt; <span class="string">"VALIDATION"</span>,
+                Type::DesiredStateCheck =&gt; <span class="string">"DESIRED_STATE_CHECK"</span>,
+                Type::DesiredStateEnforcement =&gt; <span class="string">"DESIRED_STATE_ENFORCEMENT"</span>,
                 Type::DesiredStateCheckPostEnforcement =&gt; {
-                    <span class="string">&quot;DESIRED_STATE_CHECK_POST_ENFORCEMENT&quot;
+                    <span class="string">"DESIRED_STATE_CHECK_POST_ENFORCEMENT"
                 </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;VALIDATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Validation),
-                <span class="string">&quot;DESIRED_STATE_CHECK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DesiredStateCheck),
-                <span class="string">&quot;DESIRED_STATE_ENFORCEMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DesiredStateEnforcement),
-                <span class="string">&quot;DESIRED_STATE_CHECK_POST_ENFORCEMENT&quot; </span>=&gt; {
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"VALIDATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Validation),
+                <span class="string">"DESIRED_STATE_CHECK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DesiredStateCheck),
+                <span class="string">"DESIRED_STATE_ENFORCEMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DesiredStateEnforcement),
+                <span class="string">"DESIRED_STATE_CHECK_POST_ENFORCEMENT" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::DesiredStateCheckPostEnforcement)
                 }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -2924,19 +2925,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Outcome::Unspecified =&gt; <span class="string">&quot;OUTCOME_UNSPECIFIED&quot;</span>,
-                Outcome::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                Outcome::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                Outcome::Unspecified =&gt; <span class="string">"OUTCOME_UNSPECIFIED"</span>,
+                Outcome::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                Outcome::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;OUTCOME_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"OUTCOME_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2947,17 +2948,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OsPolicyResourceCompliance {
     <span class="doccomment">/// The id of the OS policy resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>os_policy_resource_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Ordered list of configuration steps taken by the agent for the OS policy
     /// resource.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>config_steps: ::prost::alloc::vec::Vec&lt;OsPolicyResourceConfigStep&gt;,
     <span class="doccomment">/// Compliance state of the OS policy resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OsPolicyComplianceState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"OsPolicyComplianceState"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Resource specific output.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;os_policy_resource_compliance::Output&quot;</span>, tags = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"os_policy_resource_compliance::Output"</span>, tags = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>output: ::core::option::Option&lt;os_policy_resource_compliance::Output&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `OSPolicyResourceCompliance`.
@@ -2968,7 +2969,7 @@
     </span><span class="kw">pub struct </span>ExecResourceOutput {
         <span class="doccomment">/// Output from Enforcement phase output file (if run).
         /// Output size is limited to 100K bytes.
-        </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>enforcement_output: ::prost::bytes::Bytes,
     }
     <span class="doccomment">/// Resource specific output.
@@ -2976,7 +2977,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Output {
         <span class="doccomment">/// ExecResource specific output.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>ExecResourceOutput(ExecResourceOutput),
     }
 }
@@ -3001,27 +3002,27 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             OsPolicyComplianceState::Unspecified =&gt; {
-                <span class="string">&quot;OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED&quot;
+                <span class="string">"OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED"
             </span>}
-            OsPolicyComplianceState::Compliant =&gt; <span class="string">&quot;COMPLIANT&quot;</span>,
-            OsPolicyComplianceState::NonCompliant =&gt; <span class="string">&quot;NON_COMPLIANT&quot;</span>,
-            OsPolicyComplianceState::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
+            OsPolicyComplianceState::Compliant =&gt; <span class="string">"COMPLIANT"</span>,
+            OsPolicyComplianceState::NonCompliant =&gt; <span class="string">"NON_COMPLIANT"</span>,
+            OsPolicyComplianceState::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
             OsPolicyComplianceState::NoOsPoliciesApplicable =&gt; {
-                <span class="string">&quot;NO_OS_POLICIES_APPLICABLE&quot;
+                <span class="string">"NO_OS_POLICIES_APPLICABLE"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;COMPLIANT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Compliant),
-            <span class="string">&quot;NON_COMPLIANT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonCompliant),
-            <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-            <span class="string">&quot;NO_OS_POLICIES_APPLICABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoOsPoliciesApplicable),
+            <span class="string">"OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"COMPLIANT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Compliant),
+            <span class="string">"NON_COMPLIANT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonCompliant),
+            <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+            <span class="string">"NO_OS_POLICIES_APPLICABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoOsPoliciesApplicable),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -3048,10 +3049,10 @@
         /// * Must be between 1-63 characters.
         /// * Must end with a number or a letter.
         /// * Must be unique within the OS policy.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
         <span class="doccomment">/// Resource type.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;resource::ResourceType&quot;</span>, tags = <span class="string">&quot;2, 3, 4, 5&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"resource::ResourceType"</span>, tags = <span class="string">"2, 3, 4, 5"</span>)]
         </span><span class="kw">pub </span>resource_type: ::core::option::Option&lt;resource::ResourceType&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Resource`.
@@ -3065,10 +3066,10 @@
             ///
             /// Remote: A checksum must be specified.
             /// Cloud Storage: An object generation number must be specified.
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
             </span><span class="kw">pub </span>allow_insecure: bool,
             <span class="doccomment">/// A specific type of file.
-            </span><span class="attr">#[prost(oneof = <span class="string">&quot;file::Type&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+            </span><span class="attr">#[prost(oneof = <span class="string">"file::Type"</span>, tags = <span class="string">"1, 2, 3"</span>)]
             </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;file::Type&gt;,
         }
         <span class="doccomment">/// Nested message and enum types in `File`.
@@ -3079,10 +3080,10 @@
             </span><span class="kw">pub struct </span>Remote {
                 <span class="doccomment">/// Required. URI from which to fetch the object. It should contain both the
                 /// protocol and path following the format `{protocol}://{location}`.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
                 <span class="doccomment">/// SHA256 checksum of the remote file.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>sha256_checksum: ::prost::alloc::string::String,
             }
             <span class="doccomment">/// Specifies a file available as a Cloud Storage Object.
@@ -3090,13 +3091,13 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>Gcs {
                 <span class="doccomment">/// Required. Bucket of the Cloud Storage object.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>bucket: ::prost::alloc::string::String,
                 <span class="doccomment">/// Required. Name of the Cloud Storage object.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>object: ::prost::alloc::string::String,
                 <span class="doccomment">/// Generation number of the Cloud Storage object.
-                </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
                 </span><span class="kw">pub </span>generation: i64,
             }
             <span class="doccomment">/// A specific type of file.
@@ -3104,13 +3105,13 @@
             #[derive(Clone, PartialEq, ::prost::Oneof)]
             </span><span class="kw">pub enum </span>Type {
                 <span class="doccomment">/// A generic remote file.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
                 </span>Remote(Remote),
                 <span class="doccomment">/// A Cloud Storage object.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
                 </span>Gcs(Gcs),
                 <span class="doccomment">/// A local path to use.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
                 </span>LocalPath(::prost::alloc::string::String),
             }
         }
@@ -3120,12 +3121,12 @@
         </span><span class="kw">pub struct </span>PackageResource {
             <span class="doccomment">/// Required. The desired state the agent should maintain for this package. The
             /// default is to ensure the package is installed.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;package_resource::DesiredState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(enumeration = <span class="string">"package_resource::DesiredState"</span>, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>desired_state: i32,
             <span class="doccomment">/// A system package.
             </span><span class="attr">#[prost(
-                oneof = <span class="string">&quot;package_resource::SystemPackage&quot;</span>,
-                tags = <span class="string">&quot;2, 3, 4, 5, 6, 7, 8&quot;
+                oneof = <span class="string">"package_resource::SystemPackage"</span>,
+                tags = <span class="string">"2, 3, 4, 5, 6, 7, 8"
             </span>)]
             </span><span class="kw">pub </span>system_package: ::core::option::Option&lt;package_resource::SystemPackage&gt;,
         }
@@ -3136,13 +3137,13 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>Deb {
                 <span class="doccomment">/// Required. A deb package.
-                </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>source: ::core::option::Option&lt;<span class="kw">super</span>::File&gt;,
                 <span class="doccomment">/// Whether dependencies should also be installed.
                 /// install when false: `dpkg -i package`
                 /// install when true: `apt-get update &amp;&amp; apt-get -y install
                 /// package.deb`
-                </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>pull_deps: bool,
             }
             <span class="doccomment">/// A package managed by APT.
@@ -3152,7 +3153,7 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>Apt {
                 <span class="doccomment">/// Required. Package name.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
             }
             <span class="doccomment">/// An RPM package file. RPM packages only support INSTALLED state.
@@ -3160,13 +3161,13 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>Rpm {
                 <span class="doccomment">/// Required. An rpm package.
-                </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>source: ::core::option::Option&lt;<span class="kw">super</span>::File&gt;,
                 <span class="doccomment">/// Whether dependencies should also be installed.
                 /// install when false: `rpm --upgrade --replacepkgs package.rpm`
                 /// install when true: `yum -y install package.rpm` or
                 /// `zypper -y install package.rpm`
-                </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>pull_deps: bool,
             }
             <span class="doccomment">/// A package managed by YUM.
@@ -3176,7 +3177,7 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>Yum {
                 <span class="doccomment">/// Required. Package name.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
             }
             <span class="doccomment">/// A package managed by Zypper.
@@ -3186,7 +3187,7 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>Zypper {
                 <span class="doccomment">/// Required. Package name.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
             }
             <span class="doccomment">/// A package managed by GooGet.
@@ -3196,7 +3197,7 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>GooGet {
                 <span class="doccomment">/// Required. Package name.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
             }
             <span class="doccomment">/// An MSI package. MSI packages only support INSTALLED state.
@@ -3204,13 +3205,13 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>Msi {
                 <span class="doccomment">/// Required. The MSI package.
-                </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>source: ::core::option::Option&lt;<span class="kw">super</span>::File&gt;,
                 <span class="doccomment">/// Additional properties to use during installation.
                 /// This should be in the format of Property=Setting.
-                /// Appended to the defaults of &quot;ACTION=INSTALL
-                /// REBOOT=ReallySuppress&quot;.
-                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+                /// Appended to the defaults of "ACTION=INSTALL
+                /// REBOOT=ReallySuppress".
+                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>properties: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
             }
             <span class="doccomment">/// The desired state that the OS Config agent maintains on the VM.
@@ -3240,19 +3241,19 @@
                 ///
                 /// The values are not transformed in any way and thus are considered stable
                 /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                     <span class="kw">match </span><span class="self">self </span>{
-                        DesiredState::Unspecified =&gt; <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot;</span>,
-                        DesiredState::Installed =&gt; <span class="string">&quot;INSTALLED&quot;</span>,
-                        DesiredState::Removed =&gt; <span class="string">&quot;REMOVED&quot;</span>,
+                        DesiredState::Unspecified =&gt; <span class="string">"DESIRED_STATE_UNSPECIFIED"</span>,
+                        DesiredState::Installed =&gt; <span class="string">"INSTALLED"</span>,
+                        DesiredState::Removed =&gt; <span class="string">"REMOVED"</span>,
                     }
                 }
                 <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
                 </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                     <span class="kw">match </span>value {
-                        <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                        <span class="string">&quot;INSTALLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Installed),
-                        <span class="string">&quot;REMOVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Removed),
+                        <span class="string">"DESIRED_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                        <span class="string">"INSTALLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Installed),
+                        <span class="string">"REMOVED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Removed),
                         <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                     }
                 }
@@ -3262,25 +3263,25 @@
             #[derive(Clone, PartialEq, ::prost::Oneof)]
             </span><span class="kw">pub enum </span>SystemPackage {
                 <span class="doccomment">/// A package managed by Apt.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
                 </span>Apt(Apt),
                 <span class="doccomment">/// A deb package file.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
                 </span>Deb(Deb),
                 <span class="doccomment">/// A package managed by YUM.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
                 </span>Yum(Yum),
                 <span class="doccomment">/// A package managed by Zypper.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
                 </span>Zypper(Zypper),
                 <span class="doccomment">/// An rpm package file.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
                 </span>Rpm(Rpm),
                 <span class="doccomment">/// A package managed by GooGet.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
                 </span>Googet(GooGet),
                 <span class="doccomment">/// An MSI package.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
                 </span>Msi(Msi),
             }
         }
@@ -3289,7 +3290,7 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>RepositoryResource {
             <span class="doccomment">/// A specific type of repository.
-            </span><span class="attr">#[prost(oneof = <span class="string">&quot;repository_resource::Repository&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
+            </span><span class="attr">#[prost(oneof = <span class="string">"repository_resource::Repository"</span>, tags = <span class="string">"1, 2, 3, 4"</span>)]
             </span><span class="kw">pub </span>repository: ::core::option::Option&lt;repository_resource::Repository&gt;,
         }
         <span class="doccomment">/// Nested message and enum types in `RepositoryResource`.
@@ -3302,21 +3303,21 @@
             </span><span class="kw">pub struct </span>AptRepository {
                 <span class="doccomment">/// Required. Type of archive files in this repository. The default behavior is
                 /// DEB.
-                </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apt_repository::ArchiveType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(enumeration = <span class="string">"apt_repository::ArchiveType"</span>, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>archive_type: i32,
                 <span class="doccomment">/// Required. URI for this repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
                 <span class="doccomment">/// Required. Distribution of this repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
                 </span><span class="kw">pub </span>distribution: ::prost::alloc::string::String,
                 <span class="doccomment">/// Required. List of components for this repository. Must contain at least one
                 /// item.
-                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
                 </span><span class="kw">pub </span>components: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
                 <span class="doccomment">/// URI of the key file for this repository. The agent maintains a
                 /// keyring at /etc/apt/trusted.gpg.d/osconfig_agent_managed.gpg.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
                 </span><span class="kw">pub </span>gpg_key: ::prost::alloc::string::String,
             }
             <span class="doccomment">/// Nested message and enum types in `AptRepository`.
@@ -3347,19 +3348,19 @@
                     ///
                     /// The values are not transformed in any way and thus are considered stable
                     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                         <span class="kw">match </span><span class="self">self </span>{
-                            ArchiveType::Unspecified =&gt; <span class="string">&quot;ARCHIVE_TYPE_UNSPECIFIED&quot;</span>,
-                            ArchiveType::Deb =&gt; <span class="string">&quot;DEB&quot;</span>,
-                            ArchiveType::DebSrc =&gt; <span class="string">&quot;DEB_SRC&quot;</span>,
+                            ArchiveType::Unspecified =&gt; <span class="string">"ARCHIVE_TYPE_UNSPECIFIED"</span>,
+                            ArchiveType::Deb =&gt; <span class="string">"DEB"</span>,
+                            ArchiveType::DebSrc =&gt; <span class="string">"DEB_SRC"</span>,
                         }
                     }
                     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
                     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                         <span class="kw">match </span>value {
-                            <span class="string">&quot;ARCHIVE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                            <span class="string">&quot;DEB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deb),
-                            <span class="string">&quot;DEB_SRC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DebSrc),
+                            <span class="string">"ARCHIVE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                            <span class="string">"DEB" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deb),
+                            <span class="string">"DEB_SRC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DebSrc),
                             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                         }
                     }
@@ -3375,16 +3376,16 @@
                 /// id` in the yum config file and also the `display_name` if
                 /// `display_name` is omitted. This id is also used as the unique
                 /// identifier when checking for resource conflicts.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
                 <span class="doccomment">/// The display name of the repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
                 <span class="doccomment">/// Required. The location of the repository directory.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
                 </span><span class="kw">pub </span>base_url: ::prost::alloc::string::String,
                 <span class="doccomment">/// URIs of GPG keys.
-                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
                 </span><span class="kw">pub </span>gpg_keys: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
             }
             <span class="doccomment">/// Represents a single zypper package repository. These are added to a
@@ -3397,16 +3398,16 @@
                 /// id` in the zypper config file and also the `display_name` if
                 /// `display_name` is omitted. This id is also used as the unique
                 /// identifier when checking for GuestPolicy conflicts.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
                 <span class="doccomment">/// The display name of the repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
                 <span class="doccomment">/// Required. The location of the repository directory.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
                 </span><span class="kw">pub </span>base_url: ::prost::alloc::string::String,
                 <span class="doccomment">/// URIs of GPG keys.
-                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
                 </span><span class="kw">pub </span>gpg_keys: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
             }
             <span class="doccomment">/// Represents a Goo package repository. These are added to a repo file
@@ -3416,10 +3417,10 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>GooRepository {
                 <span class="doccomment">/// Required. The name of the repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
                 <span class="doccomment">/// Required. The url of the repository.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
             }
             <span class="doccomment">/// A specific type of repository.
@@ -3427,16 +3428,16 @@
             #[derive(Clone, PartialEq, ::prost::Oneof)]
             </span><span class="kw">pub enum </span>Repository {
                 <span class="doccomment">/// An Apt Repository.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
                 </span>Apt(AptRepository),
                 <span class="doccomment">/// A Yum Repository.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
                 </span>Yum(YumRepository),
                 <span class="doccomment">/// A Zypper Repository.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
                 </span>Zypper(ZypperRepository),
                 <span class="doccomment">/// A Goo Repository.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
                 </span>Goo(GooRepository),
             }
         }
@@ -3445,15 +3446,15 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>ExecResource {
             <span class="doccomment">/// Required. What to run to validate this resource is in the desired state.
-            /// An exit code of 100 indicates &quot;in desired state&quot;, and exit code of 101
-            /// indicates &quot;not in desired state&quot;. Any other exit code indicates a
+            /// An exit code of 100 indicates "in desired state", and exit code of 101
+            /// indicates "not in desired state". Any other exit code indicates a
             /// failure running validate.
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>validate: ::core::option::Option&lt;exec_resource::Exec&gt;,
             <span class="doccomment">/// What to run to bring this resource into the desired state.
-            /// A exit code of 100 indicates &quot;success&quot;, any other exit code idicates a
+            /// A exit code of 100 indicates "success", any other exit code idicates a
             /// failure running enforce.
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>enforce: ::core::option::Option&lt;exec_resource::Exec&gt;,
         }
         <span class="doccomment">/// Nested message and enum types in `ExecResource`.
@@ -3463,10 +3464,10 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>Exec {
                 <span class="doccomment">/// Optional arguments to pass to the source during execution.
-                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
                 </span><span class="kw">pub </span>args: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
                 <span class="doccomment">/// Required. The script interpreter to use.
-                </span><span class="attr">#[prost(enumeration = <span class="string">&quot;exec::Interpreter&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="attr">#[prost(enumeration = <span class="string">"exec::Interpreter"</span>, tag = <span class="string">"4"</span>)]
                 </span><span class="kw">pub </span>interpreter: i32,
                 <span class="doccomment">/// Only recorded for enforce Exec.
                 /// Path to an output file (that is created by this Exec) whose
@@ -3474,10 +3475,10 @@
                 /// successful run. Absence or failure to read this file will result in
                 /// this ExecResource being non-compliant. Output file size is limited to
                 /// 100K bytes.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
                 </span><span class="kw">pub </span>output_file_path: ::prost::alloc::string::String,
                 <span class="doccomment">/// What to execute.
-                </span><span class="attr">#[prost(oneof = <span class="string">&quot;exec::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+                </span><span class="attr">#[prost(oneof = <span class="string">"exec::Source"</span>, tags = <span class="string">"1, 2"</span>)]
                 </span><span class="kw">pub </span>source: ::core::option::Option&lt;exec::Source&gt;,
             }
             <span class="doccomment">/// Nested message and enum types in `Exec`.
@@ -3515,21 +3516,21 @@
                     ///
                     /// The values are not transformed in any way and thus are considered stable
                     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                         <span class="kw">match </span><span class="self">self </span>{
-                            Interpreter::Unspecified =&gt; <span class="string">&quot;INTERPRETER_UNSPECIFIED&quot;</span>,
-                            Interpreter::None =&gt; <span class="string">&quot;NONE&quot;</span>,
-                            Interpreter::Shell =&gt; <span class="string">&quot;SHELL&quot;</span>,
-                            Interpreter::Powershell =&gt; <span class="string">&quot;POWERSHELL&quot;</span>,
+                            Interpreter::Unspecified =&gt; <span class="string">"INTERPRETER_UNSPECIFIED"</span>,
+                            Interpreter::None =&gt; <span class="string">"NONE"</span>,
+                            Interpreter::Shell =&gt; <span class="string">"SHELL"</span>,
+                            Interpreter::Powershell =&gt; <span class="string">"POWERSHELL"</span>,
                         }
                     }
                     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
                     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                         <span class="kw">match </span>value {
-                            <span class="string">&quot;INTERPRETER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                            <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
-                            <span class="string">&quot;SHELL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shell),
-                            <span class="string">&quot;POWERSHELL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Powershell),
+                            <span class="string">"INTERPRETER_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                            <span class="string">"NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+                            <span class="string">"SHELL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shell),
+                            <span class="string">"POWERSHELL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Powershell),
                             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                         }
                     }
@@ -3539,10 +3540,10 @@
                 #[derive(Clone, PartialEq, ::prost::Oneof)]
                 </span><span class="kw">pub enum </span>Source {
                     <span class="doccomment">/// A remote or local file.
-                    </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+                    </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
                     </span>File(<span class="kw">super</span>::<span class="kw">super</span>::File),
                     <span class="doccomment">/// An inline script.
-                    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
                     </span>Script(::prost::alloc::string::String),
                 }
             }
@@ -3552,10 +3553,10 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>FileResource {
             <span class="doccomment">/// Required. The absolute path of the file.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
             <span class="doccomment">/// Required. Desired state of the file.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;file_resource::DesiredState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(enumeration = <span class="string">"file_resource::DesiredState"</span>, tag = <span class="string">"4"</span>)]
             </span><span class="kw">pub </span>state: i32,
             <span class="doccomment">/// Consists of three octal digits which represent, in
             /// order, the permissions of the owner, group, and other users for the
@@ -3570,10 +3571,10 @@
             /// read and execute: 5
             /// read and write: 6
             /// read only: 4
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
             </span><span class="kw">pub </span>permissions: ::prost::alloc::string::String,
             <span class="doccomment">/// The source for the contents of the file.
-            </span><span class="attr">#[prost(oneof = <span class="string">&quot;file_resource::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+            </span><span class="attr">#[prost(oneof = <span class="string">"file_resource::Source"</span>, tags = <span class="string">"1, 2"</span>)]
             </span><span class="kw">pub </span>source: ::core::option::Option&lt;file_resource::Source&gt;,
         }
         <span class="doccomment">/// Nested message and enum types in `FileResource`.
@@ -3607,21 +3608,21 @@
                 ///
                 /// The values are not transformed in any way and thus are considered stable
                 /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                     <span class="kw">match </span><span class="self">self </span>{
-                        DesiredState::Unspecified =&gt; <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot;</span>,
-                        DesiredState::Present =&gt; <span class="string">&quot;PRESENT&quot;</span>,
-                        DesiredState::Absent =&gt; <span class="string">&quot;ABSENT&quot;</span>,
-                        DesiredState::ContentsMatch =&gt; <span class="string">&quot;CONTENTS_MATCH&quot;</span>,
+                        DesiredState::Unspecified =&gt; <span class="string">"DESIRED_STATE_UNSPECIFIED"</span>,
+                        DesiredState::Present =&gt; <span class="string">"PRESENT"</span>,
+                        DesiredState::Absent =&gt; <span class="string">"ABSENT"</span>,
+                        DesiredState::ContentsMatch =&gt; <span class="string">"CONTENTS_MATCH"</span>,
                     }
                 }
                 <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
                 </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                     <span class="kw">match </span>value {
-                        <span class="string">&quot;DESIRED_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                        <span class="string">&quot;PRESENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Present),
-                        <span class="string">&quot;ABSENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Absent),
-                        <span class="string">&quot;CONTENTS_MATCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ContentsMatch),
+                        <span class="string">"DESIRED_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                        <span class="string">"PRESENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Present),
+                        <span class="string">"ABSENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Absent),
+                        <span class="string">"CONTENTS_MATCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ContentsMatch),
                         <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                     }
                 }
@@ -3631,10 +3632,10 @@
             #[derive(Clone, PartialEq, ::prost::Oneof)]
             </span><span class="kw">pub enum </span>Source {
                 <span class="doccomment">/// A remote or local source.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
                 </span>File(<span class="kw">super</span>::File),
                 <span class="doccomment">/// A a file with this content.
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
                 </span>Content(::prost::alloc::string::String),
             }
         }
@@ -3643,16 +3644,16 @@
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>ResourceType {
             <span class="doccomment">/// Package resource
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>Pkg(PackageResource),
             <span class="doccomment">/// Package repository resource
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
             </span>Repository(RepositoryResource),
             <span class="doccomment">/// Exec resource
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
             </span>Exec(ExecResource),
             <span class="doccomment">/// File resource
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
             </span>File(FileResource),
         }
     }
@@ -3685,19 +3686,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
-                Mode::Validation =&gt; <span class="string">&quot;VALIDATION&quot;</span>,
-                Mode::Enforcement =&gt; <span class="string">&quot;ENFORCEMENT&quot;</span>,
+                Mode::Unspecified =&gt; <span class="string">"MODE_UNSPECIFIED"</span>,
+                Mode::Validation =&gt; <span class="string">"VALIDATION"</span>,
+                Mode::Enforcement =&gt; <span class="string">"ENFORCEMENT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;VALIDATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Validation),
-                <span class="string">&quot;ENFORCEMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enforcement),
+                <span class="string">"MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"VALIDATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Validation),
+                <span class="string">"ENFORCEMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enforcement),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3709,36 +3710,36 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PatchConfig {
     <span class="doccomment">/// Post-patch reboot settings.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;patch_config::RebootConfig&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"patch_config::RebootConfig"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>reboot_config: i32,
     <span class="doccomment">/// Retry strategy can be defined to have the agent retry patching
     /// during the window if patching fails. If omitted, the agent will use its
     /// default retry strategy.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>retry_strategy: ::core::option::Option&lt;RetryStrategy&gt;,
     <span class="doccomment">/// Apt update settings. Use this override the default apt patch rules.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>apt: ::core::option::Option&lt;AptSettings&gt;,
     <span class="doccomment">/// Yum update settings. Use this override the default yum patch rules.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>yum: ::core::option::Option&lt;YumSettings&gt;,
     <span class="doccomment">/// Goo update settings. Use this override the default goo patch rules.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>goo: ::core::option::Option&lt;GooSettings&gt;,
     <span class="doccomment">/// Zypper update settings. Use this override the default zypper patch rules.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>zypper: ::core::option::Option&lt;ZypperSettings&gt;,
     <span class="doccomment">/// Windows update settings. Use this override the default windows patch rules.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>windows_update: ::core::option::Option&lt;WindowsUpdateSettings&gt;,
     <span class="doccomment">/// The ExecStep to run before the patch update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>pre_step: ::core::option::Option&lt;ExecStep&gt;,
     <span class="doccomment">/// The ExecStep to run after the patch update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>post_step: ::core::option::Option&lt;ExecStep&gt;,
     <span class="doccomment">/// Allows the patch job to run on Managed instance groups (MIGs).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>mig_instances_allowed: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `PatchConfig`.
@@ -3774,21 +3775,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RebootConfig::Unspecified =&gt; <span class="string">&quot;REBOOT_CONFIG_UNSPECIFIED&quot;</span>,
-                RebootConfig::Default =&gt; <span class="string">&quot;DEFAULT&quot;</span>,
-                RebootConfig::Always =&gt; <span class="string">&quot;ALWAYS&quot;</span>,
-                RebootConfig::Never =&gt; <span class="string">&quot;NEVER&quot;</span>,
+                RebootConfig::Unspecified =&gt; <span class="string">"REBOOT_CONFIG_UNSPECIFIED"</span>,
+                RebootConfig::Default =&gt; <span class="string">"DEFAULT"</span>,
+                RebootConfig::Always =&gt; <span class="string">"ALWAYS"</span>,
+                RebootConfig::Never =&gt; <span class="string">"NEVER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;REBOOT_CONFIG_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DEFAULT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Default),
-                <span class="string">&quot;ALWAYS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Always),
-                <span class="string">&quot;NEVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Never),
+                <span class="string">"REBOOT_CONFIG_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DEFAULT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Default),
+                <span class="string">"ALWAYS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Always),
+                <span class="string">"NEVER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Never),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3801,16 +3802,16 @@
 </span><span class="kw">pub struct </span>AptSettings {
     <span class="doccomment">/// By changing the type to DIST, the patching will be performed
     /// using `apt-get dist-upgrade` instead.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apt_settings::Type&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"apt_settings::Type"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// List of packages to exclude from update.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>excludes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// An exclusive list of packages to be updated. These are the only packages
     /// that will be updated. If these packages are not installed, they will be
     /// ignored. This field cannot be specified with any other patch configuration
     /// fields.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>exclusive_packages: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AptSettings`.
@@ -3841,19 +3842,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Dist =&gt; <span class="string">&quot;DIST&quot;</span>,
-                Type::Upgrade =&gt; <span class="string">&quot;UPGRADE&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::Dist =&gt; <span class="string">"DIST"</span>,
+                Type::Upgrade =&gt; <span class="string">"UPGRADE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DIST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dist),
-                <span class="string">&quot;UPGRADE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Upgrade),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DIST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dist),
+                <span class="string">"UPGRADE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Upgrade),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3868,20 +3869,20 @@
 </span><span class="kw">pub struct </span>YumSettings {
     <span class="doccomment">/// Adds the `--security` flag to `yum update`. Not supported on
     /// all platforms.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>security: bool,
     <span class="doccomment">/// Will cause patch to run `yum update-minimal` instead.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>minimal: bool,
     <span class="doccomment">/// List of packages to exclude from update. These packages will be excluded by
     /// using the yum `--exclude` flag.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>excludes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// An exclusive list of packages to be updated. These are the only packages
     /// that will be updated. If these packages are not installed, they will be
     /// ignored. This field must not be specified with any other patch
     /// configuration fields.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>exclusive_packages: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Googet patching is performed by running `googet update`.
@@ -3894,26 +3895,26 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ZypperSettings {
     <span class="doccomment">/// Adds the `--with-optional` flag to `zypper patch`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>with_optional: bool,
     <span class="doccomment">/// Adds the `--with-update` flag, to `zypper patch`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>with_update: bool,
     <span class="doccomment">/// Install only patches with these categories.
     /// Common categories include security, recommended, and feature.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>categories: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Install only patches with these severities.
     /// Common severities include critical, important, moderate, and low.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>severities: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// List of patches to exclude from update.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>excludes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// An exclusive list of patches to be updated. These are the only patches
-    /// that will be installed using &#39;zypper patch patch:&lt;patch_name&gt;&#39; command.
+    /// that will be installed using 'zypper patch patch:&lt;patch_name&gt;' command.
     /// This field must not be used with any other patch configuration fields.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>exclusive_patches: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Windows patching is performed using the Windows Update Agent.
@@ -3923,18 +3924,18 @@
     <span class="doccomment">/// Only apply updates of these windows update classifications. If empty, all
     /// updates will be applied.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;windows_update_settings::Classification&quot;</span>,
+        enumeration = <span class="string">"windows_update_settings::Classification"</span>,
         repeated,
-        tag = <span class="string">&quot;1&quot;
+        tag = <span class="string">"1"
     </span>)]
     </span><span class="kw">pub </span>classifications: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// List of KBs to exclude from update.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>excludes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// An exclusive list of kbs to be updated. These are the only patches
     /// that will be updated. This field must not be used with other
     /// patch configurations.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>exclusive_patches: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `WindowsUpdateSettings`.
@@ -3957,40 +3958,40 @@
     </span><span class="kw">pub enum </span>Classification {
         <span class="doccomment">/// Invalid. If classifications are included, they must be specified.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// &quot;A widely released fix for a specific problem that addresses a critical,
-        /// non-security-related bug.&quot; \[1\]
+        <span class="doccomment">/// "A widely released fix for a specific problem that addresses a critical,
+        /// non-security-related bug." \[1\]
         </span>Critical = <span class="number">1</span>,
-        <span class="doccomment">/// &quot;A widely released fix for a product-specific, security-related
+        <span class="doccomment">/// "A widely released fix for a product-specific, security-related
         /// vulnerability. Security vulnerabilities are rated by their severity. The
         /// severity rating is indicated in the Microsoft security bulletin as
-        /// critical, important, moderate, or low.&quot; \[1\]
+        /// critical, important, moderate, or low." \[1\]
         </span>Security = <span class="number">2</span>,
-        <span class="doccomment">/// &quot;A widely released and frequent software update that contains additions
+        <span class="doccomment">/// "A widely released and frequent software update that contains additions
         /// to a product’s definition database. Definition databases are often used
         /// to detect objects that have specific attributes, such as malicious code,
-        /// phishing websites, or junk mail.&quot; \[1\]
+        /// phishing websites, or junk mail." \[1\]
         </span>Definition = <span class="number">3</span>,
-        <span class="doccomment">/// &quot;Software that controls the input and output of a device.&quot; \[1\]
+        <span class="doccomment">/// "Software that controls the input and output of a device." \[1\]
         </span>Driver = <span class="number">4</span>,
-        <span class="doccomment">/// &quot;New product functionality that is first distributed outside the context
+        <span class="doccomment">/// "New product functionality that is first distributed outside the context
         /// of a product release and that is typically included in the next full
-        /// product release.&quot; \[1\]
+        /// product release." \[1\]
         </span>FeaturePack = <span class="number">5</span>,
-        <span class="doccomment">/// &quot;A tested, cumulative set of all hotfixes, security updates, critical
+        <span class="doccomment">/// "A tested, cumulative set of all hotfixes, security updates, critical
         /// updates, and updates. Additionally, service packs may contain additional
         /// fixes for problems that are found internally since the release of the
         /// product. Service packs my also contain a limited number of
-        /// customer-requested design changes or features.&quot; \[1\]
+        /// customer-requested design changes or features." \[1\]
         </span>ServicePack = <span class="number">6</span>,
-        <span class="doccomment">/// &quot;A utility or feature that helps complete a task or set of tasks.&quot; \[1\]
+        <span class="doccomment">/// "A utility or feature that helps complete a task or set of tasks." \[1\]
         </span>Tool = <span class="number">7</span>,
-        <span class="doccomment">/// &quot;A tested, cumulative set of hotfixes, security updates, critical
+        <span class="doccomment">/// "A tested, cumulative set of hotfixes, security updates, critical
         /// updates, and updates that are packaged together for easy deployment. A
         /// rollup generally targets a specific area, such as security, or a
-        /// component of a product, such as Internet Information Services (IIS).&quot; \[1\]
+        /// component of a product, such as Internet Information Services (IIS)." \[1\]
         </span>UpdateRollup = <span class="number">8</span>,
-        <span class="doccomment">/// &quot;A widely released fix for a specific problem. An update addresses a
-        /// noncritical, non-security-related bug.&quot; \[1\]
+        <span class="doccomment">/// "A widely released fix for a specific problem. An update addresses a
+        /// noncritical, non-security-related bug." \[1\]
         </span>Update = <span class="number">9</span>,
     }
     <span class="kw">impl </span>Classification {
@@ -3998,33 +3999,33 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Classification::Unspecified =&gt; <span class="string">&quot;CLASSIFICATION_UNSPECIFIED&quot;</span>,
-                Classification::Critical =&gt; <span class="string">&quot;CRITICAL&quot;</span>,
-                Classification::Security =&gt; <span class="string">&quot;SECURITY&quot;</span>,
-                Classification::Definition =&gt; <span class="string">&quot;DEFINITION&quot;</span>,
-                Classification::Driver =&gt; <span class="string">&quot;DRIVER&quot;</span>,
-                Classification::FeaturePack =&gt; <span class="string">&quot;FEATURE_PACK&quot;</span>,
-                Classification::ServicePack =&gt; <span class="string">&quot;SERVICE_PACK&quot;</span>,
-                Classification::Tool =&gt; <span class="string">&quot;TOOL&quot;</span>,
-                Classification::UpdateRollup =&gt; <span class="string">&quot;UPDATE_ROLLUP&quot;</span>,
-                Classification::Update =&gt; <span class="string">&quot;UPDATE&quot;</span>,
+                Classification::Unspecified =&gt; <span class="string">"CLASSIFICATION_UNSPECIFIED"</span>,
+                Classification::Critical =&gt; <span class="string">"CRITICAL"</span>,
+                Classification::Security =&gt; <span class="string">"SECURITY"</span>,
+                Classification::Definition =&gt; <span class="string">"DEFINITION"</span>,
+                Classification::Driver =&gt; <span class="string">"DRIVER"</span>,
+                Classification::FeaturePack =&gt; <span class="string">"FEATURE_PACK"</span>,
+                Classification::ServicePack =&gt; <span class="string">"SERVICE_PACK"</span>,
+                Classification::Tool =&gt; <span class="string">"TOOL"</span>,
+                Classification::UpdateRollup =&gt; <span class="string">"UPDATE_ROLLUP"</span>,
+                Classification::Update =&gt; <span class="string">"UPDATE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CLASSIFICATION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CRITICAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
-                <span class="string">&quot;SECURITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Security),
-                <span class="string">&quot;DEFINITION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Definition),
-                <span class="string">&quot;DRIVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Driver),
-                <span class="string">&quot;FEATURE_PACK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FeaturePack),
-                <span class="string">&quot;SERVICE_PACK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServicePack),
-                <span class="string">&quot;TOOL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tool),
-                <span class="string">&quot;UPDATE_ROLLUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UpdateRollup),
-                <span class="string">&quot;UPDATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
+                <span class="string">"CLASSIFICATION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CRITICAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
+                <span class="string">"SECURITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Security),
+                <span class="string">"DEFINITION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Definition),
+                <span class="string">"DRIVER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Driver),
+                <span class="string">"FEATURE_PACK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FeaturePack),
+                <span class="string">"SERVICE_PACK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServicePack),
+                <span class="string">"TOOL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tool),
+                <span class="string">"UPDATE_ROLLUP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UpdateRollup),
+                <span class="string">"UPDATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4036,7 +4037,7 @@
 </span><span class="kw">pub struct </span>RetryStrategy {
     <span class="doccomment">/// If true, the agent will continue to try and patch until the window has
     /// ended.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enabled: bool,
 }
 <span class="doccomment">/// A step that runs an executable for a PatchJob.
@@ -4044,10 +4045,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecStep {
     <span class="doccomment">/// The ExecStepConfig for all Linux VMs targeted by the PatchJob.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>linux_exec_step_config: ::core::option::Option&lt;ExecStepConfig&gt;,
     <span class="doccomment">/// The ExecStepConfig for all Windows VMs targeted by the PatchJob.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>windows_exec_step_config: ::core::option::Option&lt;ExecStepConfig&gt;,
 }
 <span class="doccomment">/// Common configurations for an ExecStep.
@@ -4056,16 +4057,16 @@
 </span><span class="kw">pub struct </span>ExecStepConfig {
     <span class="doccomment">/// Defaults to \[0\]. A list of possible return values that the
     /// execution can return to indicate a success.
-    </span><span class="attr">#[prost(int32, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>allowed_success_codes: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// The script interpreter to use to run the script. If no interpreter is
     /// specified the script will be executed directly, which will likely
     /// only succeed for scripts with shebang lines.
     /// [Wikipedia shebang](&lt;https://en.wikipedia.org/wiki/Shebang_(Unix&gt;)).
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;exec_step_config::Interpreter&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"exec_step_config::Interpreter"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>interpreter: i32,
     <span class="doccomment">/// Location of the executable.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;exec_step_config::Executable&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"exec_step_config::Executable"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>executable: ::core::option::Option&lt;exec_step_config::Executable&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ExecStepConfig`.
@@ -4101,21 +4102,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Interpreter::Unspecified =&gt; <span class="string">&quot;INTERPRETER_UNSPECIFIED&quot;</span>,
-                Interpreter::None =&gt; <span class="string">&quot;NONE&quot;</span>,
-                Interpreter::Shell =&gt; <span class="string">&quot;SHELL&quot;</span>,
-                Interpreter::Powershell =&gt; <span class="string">&quot;POWERSHELL&quot;</span>,
+                Interpreter::Unspecified =&gt; <span class="string">"INTERPRETER_UNSPECIFIED"</span>,
+                Interpreter::None =&gt; <span class="string">"NONE"</span>,
+                Interpreter::Shell =&gt; <span class="string">"SHELL"</span>,
+                Interpreter::Powershell =&gt; <span class="string">"POWERSHELL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;INTERPRETER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
-                <span class="string">&quot;SHELL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shell),
-                <span class="string">&quot;POWERSHELL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Powershell),
+                <span class="string">"INTERPRETER_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+                <span class="string">"SHELL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Shell),
+                <span class="string">"POWERSHELL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Powershell),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4125,10 +4126,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Executable {
         <span class="doccomment">/// An absolute path to the executable on the VM.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>LocalPath(::prost::alloc::string::String),
         <span class="doccomment">/// A GCS object containing the executable.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>GcsObject(<span class="kw">super</span>::GcsObject),
     }
 }
@@ -4137,14 +4138,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GcsObject {
     <span class="doccomment">/// Bucket of the GCS object.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bucket: ::prost::alloc::string::String,
     <span class="doccomment">/// Name of the GCS object.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>object: ::prost::alloc::string::String,
     <span class="doccomment">/// Generation number of the GCS object. This is used to ensure that the
     /// ExecStep specified by this PatchJob does not change.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>generation_number: i64,
 }
 <span class="doccomment">/// A unit of work to be performed by the agent.
@@ -4152,7 +4153,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Task {
     <span class="doccomment">/// Unique task id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>task_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of task to perform.
     ///
@@ -4161,19 +4162,19 @@
     /// APPLY_PATCHES = ApplyPatchesTask
     /// EXEC_STEP = ExecStepTask
     /// APPLY_CONFIG_TASK = ApplyConfigTask
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TaskType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TaskType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>task_type: i32,
     <span class="doccomment">/// Current directive to the agent.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TaskDirective&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TaskDirective"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>task_directive: i32,
     <span class="doccomment">/// Labels describing the task.  Used for logging by the agent.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>service_labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Specific details about the current task to perform.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;task::TaskDetails&quot;</span>, tags = <span class="string">&quot;4, 5, 7&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"task::TaskDetails"</span>, tags = <span class="string">"4, 5, 7"</span>)]
     </span><span class="kw">pub </span>task_details: ::core::option::Option&lt;task::TaskDetails&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Task`.
@@ -4183,13 +4184,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>TaskDetails {
         <span class="doccomment">/// Details about the apply patches task to perform.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>ApplyPatchesTask(<span class="kw">super</span>::ApplyPatchesTask),
         <span class="doccomment">/// Details about the exec step task to perform.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>ExecStepTask(<span class="kw">super</span>::ExecStepTask),
         <span class="doccomment">/// Details about the apply config step task to perform.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>ApplyConfigTask(<span class="kw">super</span>::ApplyConfigTask),
     }
 }
@@ -4198,11 +4199,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ApplyPatchesTask {
     <span class="doccomment">/// Specific information about how patches should be applied.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>patch_config: ::core::option::Option&lt;PatchConfig&gt;,
     <span class="doccomment">/// If true, the agent will report its status as it goes through the motions
-    /// but won&#39;t actually run any updates or perform any reboots.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    /// but won't actually run any updates or perform any reboots.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>dry_run: bool,
 }
 <span class="doccomment">/// Information reported from the agent about applying patches execution.
@@ -4210,7 +4211,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ApplyPatchesTaskProgress {
     <span class="doccomment">/// Required. The current state of this patch execution.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apply_patches_task_progress::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"apply_patches_task_progress::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ApplyPatchesTaskProgress`.
@@ -4245,23 +4246,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
-                State::DownloadingPatches =&gt; <span class="string">&quot;DOWNLOADING_PATCHES&quot;</span>,
-                State::ApplyingPatches =&gt; <span class="string">&quot;APPLYING_PATCHES&quot;</span>,
-                State::Rebooting =&gt; <span class="string">&quot;REBOOTING&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Started =&gt; <span class="string">"STARTED"</span>,
+                State::DownloadingPatches =&gt; <span class="string">"DOWNLOADING_PATCHES"</span>,
+                State::ApplyingPatches =&gt; <span class="string">"APPLYING_PATCHES"</span>,
+                State::Rebooting =&gt; <span class="string">"REBOOTING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
-                <span class="string">&quot;DOWNLOADING_PATCHES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DownloadingPatches),
-                <span class="string">&quot;APPLYING_PATCHES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyingPatches),
-                <span class="string">&quot;REBOOTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rebooting),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STARTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
+                <span class="string">"DOWNLOADING_PATCHES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DownloadingPatches),
+                <span class="string">"APPLYING_PATCHES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyingPatches),
+                <span class="string">"REBOOTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rebooting),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4272,7 +4273,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ApplyPatchesTaskOutput {
     <span class="doccomment">/// Required. The final state of this task.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apply_patches_task_output::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"apply_patches_task_output::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ApplyPatchesTaskOutput`.
@@ -4305,21 +4306,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::SucceededRebootRequired =&gt; <span class="string">&quot;SUCCEEDED_REBOOT_REQUIRED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::SucceededRebootRequired =&gt; <span class="string">"SUCCEEDED_REBOOT_REQUIRED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;SUCCEEDED_REBOOT_REQUIRED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SucceededRebootRequired),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"SUCCEEDED_REBOOT_REQUIRED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SucceededRebootRequired),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4330,7 +4331,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecStepTask {
     <span class="doccomment">/// Details of the exec step to run.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>exec_step: ::core::option::Option&lt;ExecStep&gt;,
 }
 <span class="doccomment">/// Information reported from the agent about the exec step execution.
@@ -4338,7 +4339,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecStepTaskProgress {
     <span class="doccomment">/// Required. The current state of this exec step.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;exec_step_task_progress::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"exec_step_task_progress::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ExecStepTaskProgress`.
@@ -4367,17 +4368,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Started =&gt; <span class="string">"STARTED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STARTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4388,10 +4389,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecStepTaskOutput {
     <span class="doccomment">/// Required. The final state of the exec step.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;exec_step_task_output::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"exec_step_task_output::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Required. The exit code received from the script which ran as part of the exec step.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>exit_code: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ExecStepTaskOutput`.
@@ -4424,21 +4425,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
-                State::TimedOut =&gt; <span class="string">&quot;TIMED_OUT&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Completed =&gt; <span class="string">"COMPLETED"</span>,
+                State::TimedOut =&gt; <span class="string">"TIMED_OUT"</span>,
+                State::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
-                <span class="string">&quot;TIMED_OUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimedOut),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"COMPLETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
+                <span class="string">"TIMED_OUT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimedOut),
+                <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4450,7 +4451,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ApplyConfigTask {
     <span class="doccomment">/// List of os policies to be applied for the instance.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>os_policies: ::prost::alloc::vec::Vec&lt;apply_config_task::OsPolicy&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ApplyConfigTask`.
@@ -4461,21 +4462,21 @@
     </span><span class="kw">pub struct </span>OsPolicy {
         <span class="doccomment">/// User provided policy id.
         /// Used for reporting and logging by the agent.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
         <span class="doccomment">/// The policy mode
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::os_policy::Mode&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::os_policy::Mode"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>mode: i32,
         <span class="doccomment">/// Reference to the `OSPolicyAssignment` API resource that this `OSPolicy`
         /// belongs to.
         /// Format:
         /// projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}
         /// Used for reporting and logging by the agent.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>os_policy_assignment: ::prost::alloc::string::String,
         <span class="doccomment">/// List of resources associated with the policy to be set to their
         /// desired state.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>resources: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::os_policy::Resource&gt;,
     }
 }
@@ -4485,7 +4486,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ApplyConfigTaskProgress {
     <span class="doccomment">/// The current state of this task.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apply_config_task_progress::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"apply_config_task_progress::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ApplyConfigTaskProgress`.
@@ -4516,19 +4517,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
-                State::ApplyingConfig =&gt; <span class="string">&quot;APPLYING_CONFIG&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Started =&gt; <span class="string">"STARTED"</span>,
+                State::ApplyingConfig =&gt; <span class="string">"APPLYING_CONFIG"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
-                <span class="string">&quot;APPLYING_CONFIG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyingConfig),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STARTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
+                <span class="string">"APPLYING_CONFIG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyingConfig),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4540,10 +4541,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ApplyConfigTaskOutput {
     <span class="doccomment">/// Required. The final state of this task.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apply_config_task_output::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"apply_config_task_output::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Results of applying desired state config for the OS policies.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>os_policy_results: ::prost::alloc::vec::Vec&lt;
         apply_config_task_output::OsPolicyResult,
     &gt;,
@@ -4555,17 +4556,17 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>OsPolicyResult {
         <span class="doccomment">/// The OS policy id
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>os_policy_id: ::prost::alloc::string::String,
         <span class="doccomment">/// Reference to the `OSPolicyAssignment` API resource that this `OSPolicy`
         /// belongs to.
         /// Format:
         /// projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id@revision_id}
         /// Used for reporting and logging by the agent.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>os_policy_assignment: ::prost::alloc::string::String,
         <span class="doccomment">/// Results of applying desired state config for the OS policy resources.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>os_policy_resource_compliances: ::prost::alloc::vec::Vec&lt;
             <span class="kw">super</span>::OsPolicyResourceCompliance,
         &gt;,
@@ -4598,21 +4599,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4636,19 +4637,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            TaskDirective::Unspecified =&gt; <span class="string">&quot;TASK_DIRECTIVE_UNSPECIFIED&quot;</span>,
-            TaskDirective::Continue =&gt; <span class="string">&quot;CONTINUE&quot;</span>,
-            TaskDirective::Stop =&gt; <span class="string">&quot;STOP&quot;</span>,
+            TaskDirective::Unspecified =&gt; <span class="string">"TASK_DIRECTIVE_UNSPECIFIED"</span>,
+            TaskDirective::Continue =&gt; <span class="string">"CONTINUE"</span>,
+            TaskDirective::Stop =&gt; <span class="string">"STOP"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;TASK_DIRECTIVE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;CONTINUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Continue),
-            <span class="string">&quot;STOP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stop),
+            <span class="string">"TASK_DIRECTIVE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"CONTINUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Continue),
+            <span class="string">"STOP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stop),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4671,21 +4672,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            TaskType::Unspecified =&gt; <span class="string">&quot;TASK_TYPE_UNSPECIFIED&quot;</span>,
-            TaskType::ApplyPatches =&gt; <span class="string">&quot;APPLY_PATCHES&quot;</span>,
-            TaskType::ExecStepTask =&gt; <span class="string">&quot;EXEC_STEP_TASK&quot;</span>,
-            TaskType::ApplyConfigTask =&gt; <span class="string">&quot;APPLY_CONFIG_TASK&quot;</span>,
+            TaskType::Unspecified =&gt; <span class="string">"TASK_TYPE_UNSPECIFIED"</span>,
+            TaskType::ApplyPatches =&gt; <span class="string">"APPLY_PATCHES"</span>,
+            TaskType::ExecStepTask =&gt; <span class="string">"EXEC_STEP_TASK"</span>,
+            TaskType::ApplyConfigTask =&gt; <span class="string">"APPLY_CONFIG_TASK"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;TASK_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;APPLY_PATCHES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyPatches),
-            <span class="string">&quot;EXEC_STEP_TASK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExecStepTask),
-            <span class="string">&quot;APPLY_CONFIG_TASK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyConfigTask),
+            <span class="string">"TASK_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"APPLY_PATCHES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyPatches),
+            <span class="string">"EXEC_STEP_TASK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExecStepTask),
+            <span class="string">"APPLY_CONFIG_TASK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyConfigTask),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4696,11 +4697,11 @@
 </span><span class="kw">pub struct </span>ReceiveTaskNotificationRequest {
     <span class="doccomment">/// Required. This is the Compute Engine instance identity token described in
     /// &lt;https://cloud.google.com/compute/docs/instances/verifying-instance-identity&gt;
-    /// where the audience is &#39;osconfig.googleapis.com&#39; and the format is &#39;full&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// where the audience is 'osconfig.googleapis.com' and the format is 'full'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The version of the agent making the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>agent_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The streaming rpc message that will notify the agent when it has a task
@@ -4714,8 +4715,8 @@
 </span><span class="kw">pub struct </span>StartNextTaskRequest {
     <span class="doccomment">/// Required. This is the Compute Engine instance identity token described in
     /// &lt;https://cloud.google.com/compute/docs/instances/verifying-instance-identity&gt;
-    /// where the audience is &#39;osconfig.googleapis.com&#39; and the format is &#39;full&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// where the audience is 'osconfig.googleapis.com' and the format is 'full'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A response message that contains the details of the task to work on.
@@ -4724,7 +4725,7 @@
 </span><span class="kw">pub struct </span>StartNextTaskResponse {
     <span class="doccomment">/// The details of the task that should be worked on.  Can be empty if there
     /// is no new task to work on.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>task: ::core::option::Option&lt;Task&gt;,
 }
 <span class="doccomment">/// A request message for reporting the progress of current task.
@@ -4733,11 +4734,11 @@
 </span><span class="kw">pub struct </span>ReportTaskProgressRequest {
     <span class="doccomment">/// Required. This is the Compute Engine instance identity token described in
     /// &lt;https://cloud.google.com/compute/docs/instances/verifying-instance-identity&gt;
-    /// where the audience is &#39;osconfig.googleapis.com&#39; and the format is &#39;full&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// where the audience is 'osconfig.googleapis.com' and the format is 'full'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Unique identifier of the task this applies to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>task_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The type of task to report progress on.
     ///
@@ -4746,10 +4747,10 @@
     /// APPLY_PATCHES = ApplyPatchesTaskProgress
     /// EXEC_STEP = Progress not supported for this type.
     /// APPLY_CONFIG_TASK = ApplyConfigTaskProgress
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TaskType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TaskType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>task_type: i32,
     <span class="doccomment">/// Intermediate progress of the current task.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;report_task_progress_request::Progress&quot;</span>, tags = <span class="string">&quot;4, 5, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"report_task_progress_request::Progress"</span>, tags = <span class="string">"4, 5, 6"</span>)]
     </span><span class="kw">pub </span>progress: ::core::option::Option&lt;report_task_progress_request::Progress&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ReportTaskProgressRequest`.
@@ -4759,13 +4760,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Progress {
         <span class="doccomment">/// Details about the progress of the apply patches task.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>ApplyPatchesTaskProgress(<span class="kw">super</span>::ApplyPatchesTaskProgress),
         <span class="doccomment">/// Details about the progress of the exec step task.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>ExecStepTaskProgress(<span class="kw">super</span>::ExecStepTaskProgress),
         <span class="doccomment">/// Details about the progress of the apply config task.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>ApplyConfigTaskProgress(<span class="kw">super</span>::ApplyConfigTaskProgress),
     }
 }
@@ -4774,7 +4775,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReportTaskProgressResponse {
     <span class="doccomment">/// Instructs agent to continue or not.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TaskDirective&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TaskDirective"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>task_directive: i32,
 }
 <span class="doccomment">/// A request message for signaling the completion of a task execution.
@@ -4783,11 +4784,11 @@
 </span><span class="kw">pub struct </span>ReportTaskCompleteRequest {
     <span class="doccomment">/// Required. This is the Compute Engine instance identity token described in
     /// &lt;https://cloud.google.com/compute/docs/instances/verifying-instance-identity&gt;
-    /// where the audience is &#39;osconfig.googleapis.com&#39; and the format is &#39;full&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// where the audience is 'osconfig.googleapis.com' and the format is 'full'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Unique identifier of the task this applies to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>task_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The type of task to report completed.
     ///
@@ -4796,13 +4797,13 @@
     /// APPLY_PATCHES = ApplyPatchesTaskOutput
     /// EXEC_STEP = ExecStepTaskOutput
     /// APPLY_CONFIG_TASK = ApplyConfigTaskOutput
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TaskType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TaskType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>task_type: i32,
     <span class="doccomment">/// Descriptive error message if the task execution ended in error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Final output details of the current task.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;report_task_complete_request::Output&quot;</span>, tags = <span class="string">&quot;5, 6, 7&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"report_task_complete_request::Output"</span>, tags = <span class="string">"5, 6, 7"</span>)]
     </span><span class="kw">pub </span>output: ::core::option::Option&lt;report_task_complete_request::Output&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ReportTaskCompleteRequest`.
@@ -4812,13 +4813,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Output {
         <span class="doccomment">/// Final output details of the apply patches task;
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>ApplyPatchesTaskOutput(<span class="kw">super</span>::ApplyPatchesTaskOutput),
         <span class="doccomment">/// Final output details of the exec step task;
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>ExecStepTaskOutput(<span class="kw">super</span>::ExecStepTaskOutput),
         <span class="doccomment">/// Final output details of the apply config task;
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>ApplyConfigTaskOutput(<span class="kw">super</span>::ApplyConfigTaskOutput),
     }
 }
@@ -4832,32 +4833,32 @@
 </span><span class="kw">pub struct </span>RegisterAgentRequest {
     <span class="doccomment">/// Required. This is the Compute Engine instance identity token described in
     /// &lt;https://cloud.google.com/compute/docs/instances/verifying-instance-identity&gt;
-    /// where the audience is &#39;osconfig.googleapis.com&#39; and the format is &#39;full&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// where the audience is 'osconfig.googleapis.com' and the format is 'full'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The version of the agent.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>agent_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The capabilities supported by the agent. Supported values are:
     /// PATCH_GA
     /// GUEST_POLICY_BETA
     /// CONFIG_V1
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>supported_capabilities: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The operating system long name.
-    /// For example &#39;Debian GNU/Linux 9&#39; or &#39;Microsoft Window Server 2019
-    /// Datacenter&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// For example 'Debian GNU/Linux 9' or 'Microsoft Window Server 2019
+    /// Datacenter'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>os_long_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The operating system short name.
-    /// For example, &#39;windows&#39; or &#39;debian&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    /// For example, 'windows' or 'debian'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>os_short_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The version of the operating system.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>os_version: ::prost::alloc::string::String,
     <span class="doccomment">/// The system architecture of the operating system.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>os_architecture: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response message after the agent registered.
@@ -4870,18 +4871,18 @@
 </span><span class="kw">pub struct </span>ReportInventoryRequest {
     <span class="doccomment">/// Required. This is the Compute Engine instance identity token described in
     /// &lt;https://cloud.google.com/compute/docs/instances/verifying-instance-identity&gt;
-    /// where the audience is &#39;osconfig.googleapis.com&#39; and the format is &#39;full&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// where the audience is 'osconfig.googleapis.com' and the format is 'full'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. This is a client created checksum that should be generated based on the
     /// contents of the reported inventory.  This will be used by the service to
     /// determine if it has the latest version of inventory.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>inventory_checksum: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. This is the details of the inventory.  Should only be provided if the
     /// inventory has changed since the last report, or if instructed by the
     /// service to provide full inventory.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>inventory: ::core::option::Option&lt;Inventory&gt;,
 }
 <span class="doccomment">/// The response message after the agent has reported inventory.
@@ -4889,7 +4890,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReportInventoryResponse {
     <span class="doccomment">/// If true, the full inventory should be reported back to the server.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>report_full_inventory: bool,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -4906,7 +4907,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4983,19 +4984,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/ReceiveTaskNotification&quot;</span>,
+                <span class="string">"/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/ReceiveTaskNotification"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.osconfig.agentendpoint.v1.AgentEndpointService&quot;</span>,
-                        <span class="string">&quot;ReceiveTaskNotification&quot;</span>,
+                        <span class="string">"google.cloud.osconfig.agentendpoint.v1.AgentEndpointService"</span>,
+                        <span class="string">"ReceiveTaskNotification"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.server_streaming(req, path, codec).<span class="kw">await
@@ -5014,19 +5015,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/StartNextTask&quot;</span>,
+                <span class="string">"/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/StartNextTask"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.osconfig.agentendpoint.v1.AgentEndpointService&quot;</span>,
-                        <span class="string">&quot;StartNextTask&quot;</span>,
+                        <span class="string">"google.cloud.osconfig.agentendpoint.v1.AgentEndpointService"</span>,
+                        <span class="string">"StartNextTask"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5045,19 +5046,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/ReportTaskProgress&quot;</span>,
+                <span class="string">"/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/ReportTaskProgress"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.osconfig.agentendpoint.v1.AgentEndpointService&quot;</span>,
-                        <span class="string">&quot;ReportTaskProgress&quot;</span>,
+                        <span class="string">"google.cloud.osconfig.agentendpoint.v1.AgentEndpointService"</span>,
+                        <span class="string">"ReportTaskProgress"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5077,19 +5078,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/ReportTaskComplete&quot;</span>,
+                <span class="string">"/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/ReportTaskComplete"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.osconfig.agentendpoint.v1.AgentEndpointService&quot;</span>,
-                        <span class="string">&quot;ReportTaskComplete&quot;</span>,
+                        <span class="string">"google.cloud.osconfig.agentendpoint.v1.AgentEndpointService"</span>,
+                        <span class="string">"ReportTaskComplete"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5108,19 +5109,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/RegisterAgent&quot;</span>,
+                <span class="string">"/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/RegisterAgent"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.osconfig.agentendpoint.v1.AgentEndpointService&quot;</span>,
-                        <span class="string">&quot;RegisterAgent&quot;</span>,
+                        <span class="string">"google.cloud.osconfig.agentendpoint.v1.AgentEndpointService"</span>,
+                        <span class="string">"RegisterAgent"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5139,19 +5140,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/ReportInventory&quot;</span>,
+                <span class="string">"/google.cloud.osconfig.agentendpoint.v1.AgentEndpointService/ReportInventory"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.osconfig.agentendpoint.v1.AgentEndpointService&quot;</span>,
-                        <span class="string">&quot;ReportInventory&quot;</span>,
+                        <span class="string">"google.cloud.osconfig.agentendpoint.v1.AgentEndpointService"</span>,
+                        <span class="string">"ReportInventory"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

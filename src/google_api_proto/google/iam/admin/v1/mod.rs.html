@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/iam/admin/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/iam/admin/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2552,7 +2553,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AuditData {
     <span class="doccomment">/// The permission_delta when when creating or updating a Role.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>permission_delta: ::core::option::Option&lt;audit_data::PermissionDelta&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AuditData`.
@@ -2563,10 +2564,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PermissionDelta {
         <span class="doccomment">/// Added permissions.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>added_permissions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// Removed permissions.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>removed_permissions: ::prost::alloc::vec::Vec&lt;
             ::prost::alloc::string::String,
         &gt;,
@@ -2605,10 +2606,10 @@
     /// `projects/-/serviceAccounts/fake@example.com`, which does not exist, the
     /// response contains an HTTP `403 Forbidden` error instead of a `404 Not
     /// Found` error.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The ID of the project that owns the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The unique, stable numeric ID for the service account.
     ///
@@ -2616,28 +2617,28 @@
     /// account. For example, if you delete a service account, then create a new
     /// service account with the same name, the new service account has a different
     /// unique ID than the deleted service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>unique_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The email address of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A user-specified, human-readable name for the service account. The maximum
     /// length is 100 UTF-8 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. Do not use.
     </span><span class="attr">#[deprecated]
-    #[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    #[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::bytes::Bytes,
     <span class="doccomment">/// Optional. A user-specified, human-readable description of the service account. The
     /// maximum length is 256 UTF-8 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The OAuth 2.0 client ID for the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>oauth2_client_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Whether the service account is disabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>disabled: bool,
 }
 <span class="doccomment">/// The service account create request.
@@ -2646,18 +2647,18 @@
 </span><span class="kw">pub struct </span>CreateServiceAccountRequest {
     <span class="doccomment">/// Required. The resource name of the project associated with the service
     /// accounts, such as `projects/my-project-123`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The account id that is used to generate the service account
     /// email address and a stable unique id. It is unique within a project,
     /// must be 6-30 characters long, and match the regular expression
     /// `[a-z](\[-a-z0-9\]*[a-z0-9])` to comply with RFC1035.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>account_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The [ServiceAccount][google.iam.admin.v1.ServiceAccount] resource to
     /// create. Currently, only the following values are user assignable:
     /// `display_name` and `description`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>service_account: ::core::option::Option&lt;ServiceAccount&gt;,
 }
 <span class="doccomment">/// The service account list request.
@@ -2666,7 +2667,7 @@
 </span><span class="kw">pub struct </span>ListServiceAccountsRequest {
     <span class="doccomment">/// Required. The resource name of the project associated with the service
     /// accounts, such as `projects/my-project-123`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional limit on the number of service accounts to include in the
     /// response. Further accounts can subsequently be obtained by including the
@@ -2674,11 +2675,11 @@
     /// in a subsequent request.
     ///
     /// The default is 20, and the maximum is 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional pagination token returned in an earlier
     /// [ListServiceAccountsResponse.next_page_token][google.iam.admin.v1.ListServiceAccountsResponse.next_page_token].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The service account list response.
@@ -2686,12 +2687,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListServiceAccountsResponse {
     <span class="doccomment">/// The list of matching service accounts.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>accounts: ::prost::alloc::vec::Vec&lt;ServiceAccount&gt;,
     <span class="doccomment">/// To retrieve the next page of results, set
     /// [ListServiceAccountsRequest.page_token][google.iam.admin.v1.ListServiceAccountsRequest.page_token]
     /// to this value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The service account get request.
@@ -2703,7 +2704,7 @@
     /// Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The service account delete request.
@@ -2715,7 +2716,7 @@
     /// Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The service account patch request.
@@ -2728,9 +2729,9 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PatchServiceAccountRequest {
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_account: ::core::option::Option&lt;ServiceAccount&gt;,
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The service account undelete request.
@@ -2741,14 +2742,14 @@
     /// `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_UNIQUE_ID}`.
     /// Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
     /// the account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UndeleteServiceAccountResponse {
     <span class="doccomment">/// Metadata for the restored service account.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>restored_account: ::core::option::Option&lt;ServiceAccount&gt;,
 }
 <span class="doccomment">/// The service account enable request.
@@ -2760,7 +2761,7 @@
     /// Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The service account disable request.
@@ -2772,7 +2773,7 @@
     /// Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The service account keys list request.
@@ -2785,15 +2786,15 @@
     /// Using `-` as a wildcard for the `PROJECT_ID`, will infer the project from
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Filters the types of keys the user wants to include in the list
     /// response. Duplicate key types are not allowed. If no key type
     /// is provided, all keys are returned.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;list_service_account_keys_request::KeyType&quot;</span>,
+        enumeration = <span class="string">"list_service_account_keys_request::KeyType"</span>,
         repeated,
-        tag = <span class="string">&quot;2&quot;
+        tag = <span class="string">"2"
     </span>)]
     </span><span class="kw">pub </span>key_types: ::prost::alloc::vec::Vec&lt;i32&gt;,
 }
@@ -2827,19 +2828,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                KeyType::Unspecified =&gt; <span class="string">&quot;KEY_TYPE_UNSPECIFIED&quot;</span>,
-                KeyType::UserManaged =&gt; <span class="string">&quot;USER_MANAGED&quot;</span>,
-                KeyType::SystemManaged =&gt; <span class="string">&quot;SYSTEM_MANAGED&quot;</span>,
+                KeyType::Unspecified =&gt; <span class="string">"KEY_TYPE_UNSPECIFIED"</span>,
+                KeyType::UserManaged =&gt; <span class="string">"USER_MANAGED"</span>,
+                KeyType::SystemManaged =&gt; <span class="string">"SYSTEM_MANAGED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;KEY_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;USER_MANAGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserManaged),
-                <span class="string">&quot;SYSTEM_MANAGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SystemManaged),
+                <span class="string">"KEY_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"USER_MANAGED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserManaged),
+                <span class="string">"SYSTEM_MANAGED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SystemManaged),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2850,7 +2851,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListServiceAccountKeysResponse {
     <span class="doccomment">/// The public keys for the service account.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>keys: ::prost::alloc::vec::Vec&lt;ServiceAccountKey&gt;,
 }
 <span class="doccomment">/// The service account key get by id request.
@@ -2863,11 +2864,11 @@
     /// Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The output format of the public key. The default is `TYPE_NONE`, which
     /// means that the public key is not returned.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ServiceAccountPublicKeyType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ServiceAccountPublicKeyType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>public_key_type: i32,
 }
 <span class="doccomment">/// Represents a service account key.
@@ -2882,7 +2883,7 @@
 ///
 /// System-managed keys are automatically rotated by Google, and are used for
 /// signing for a maximum of two weeks. The rotation process is probabilistic,
-/// and usage of the new key will gradually ramp up and down over the key&#39;s
+/// and usage of the new key will gradually ramp up and down over the key's
 /// lifetime.
 ///
 /// If you cache the public key set for a service account, we recommend that you
@@ -2899,7 +2900,7 @@
 </span><span class="kw">pub struct </span>ServiceAccountKey {
     <span class="doccomment">/// The resource name of the service account key in the following format
     /// `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}/keys/{key}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The output format for the private key.
     /// Only provided in `CreateServiceAccountKey` responses, not
@@ -2907,40 +2908,40 @@
     ///
     /// Google never exposes system-managed private keys, and never retains
     /// user-managed private keys.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ServiceAccountPrivateKeyType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ServiceAccountPrivateKeyType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>private_key_type: i32,
     <span class="doccomment">/// Specifies the algorithm (and possibly key size) for the key.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ServiceAccountKeyAlgorithm&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ServiceAccountKeyAlgorithm"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>key_algorithm: i32,
     <span class="doccomment">/// The private key data. Only provided in `CreateServiceAccountKey`
     /// responses. Make sure to keep the private key data secure because it
     /// allows for the assertion of the service account identity.
     /// When base64 decoded, the private key data can be used to authenticate with
     /// Google API client libraries and with
-    /// &lt;a href=&quot;/sdk/gcloud/reference/auth/activate-service-account&quot;&gt;gcloud
+    /// &lt;a href="/sdk/gcloud/reference/auth/activate-service-account"&gt;gcloud
     /// auth activate-service-account&lt;/a&gt;.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>private_key_data: ::prost::bytes::Bytes,
     <span class="doccomment">/// The public key data. Only provided in `GetServiceAccountKey` responses.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>public_key_data: ::prost::bytes::Bytes,
     <span class="doccomment">/// The key can be used after this timestamp.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>valid_after_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The key can be used before this timestamp.
     /// For system-managed key pairs, this timestamp is the end time for the
     /// private key signing operation. The public key could still be used
     /// for verification for a few hours after this time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>valid_before_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The key origin.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ServiceAccountKeyOrigin&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ServiceAccountKeyOrigin"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>key_origin: i32,
     <span class="doccomment">/// The key type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;list_service_account_keys_request::KeyType&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"list_service_account_keys_request::KeyType"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>key_type: i32,
     <span class="doccomment">/// The key status.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>disabled: bool,
 }
 <span class="doccomment">/// The service account key create request.
@@ -2952,17 +2953,17 @@
     /// Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The output format of the private key. The default value is
     /// `TYPE_GOOGLE_CREDENTIALS_FILE`, which is the Google Credentials File
     /// format.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ServiceAccountPrivateKeyType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ServiceAccountPrivateKeyType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>private_key_type: i32,
     <span class="doccomment">/// Which type of key and algorithm to use for the key.
     /// The default is currently a 2K RSA key.  However this may change in the
     /// future.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ServiceAccountKeyAlgorithm&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ServiceAccountKeyAlgorithm"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>key_algorithm: i32,
 }
 <span class="doccomment">/// The service account key upload request.
@@ -2974,13 +2975,13 @@
     /// Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The public key to associate with the service account. Must be an RSA public
     /// key that is wrapped in an X.509 v3 certificate. Include the first line,
     /// `-----BEGIN CERTIFICATE-----`, and the last line,
     /// `-----END CERTIFICATE-----`.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>public_key_data: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// The service account key delete request.
@@ -2992,7 +2993,7 @@
     /// Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The service account key disable request.
@@ -3005,7 +3006,7 @@
     /// Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The service account key enable request.
@@ -3018,7 +3019,7 @@
     /// Using `-` as a wildcard for the `PROJECT_ID` will infer the project from
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Deprecated. [Migrate to Service Account Credentials
@@ -3037,14 +3038,14 @@
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
     </span><span class="attr">#[deprecated]
-    #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    #[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Deprecated. [Migrate to Service Account Credentials
     /// API](&lt;https://cloud.google.com/iam/help/credentials/migrate-api&gt;).
     ///
     /// The bytes to sign.
     </span><span class="attr">#[deprecated]
-    #[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    #[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>bytes_to_sign: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Deprecated. [Migrate to Service Account Credentials
@@ -3059,14 +3060,14 @@
     ///
     /// The id of the key used to sign the blob.
     </span><span class="attr">#[deprecated]
-    #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    #[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. [Migrate to Service Account Credentials
     /// API](&lt;https://cloud.google.com/iam/help/credentials/migrate-api&gt;).
     ///
     /// The signed blob.
     </span><span class="attr">#[deprecated]
-    #[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    #[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>signature: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Deprecated. [Migrate to Service Account Credentials
@@ -3085,13 +3086,13 @@
     /// the account. The `ACCOUNT` value can be the `email` address or the
     /// `unique_id` of the service account.
     </span><span class="attr">#[deprecated]
-    #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    #[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Deprecated. [Migrate to Service Account Credentials
     /// API](&lt;https://cloud.google.com/iam/help/credentials/migrate-api&gt;).
     ///
     /// The JWT payload to sign. Must be a serialized JSON object that contains a
-    /// JWT Claims Set. For example: `{&quot;sub&quot;: &quot;user@example.com&quot;, &quot;iat&quot;: 313435}`
+    /// JWT Claims Set. For example: `{"sub": "user@example.com", "iat": 313435}`
     ///
     /// If the JWT Claims Set contains an expiration time (`exp`) claim, it must be
     /// an integer timestamp that is not in the past and no more than 12 hours in
@@ -3101,7 +3102,7 @@
     /// this claim is added automatically, with a timestamp that is 1 hour in the
     /// future.
     </span><span class="attr">#[deprecated]
-    #[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    #[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>payload: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Deprecated. [Migrate to Service Account Credentials
@@ -3116,14 +3117,14 @@
     ///
     /// The id of the key used to sign the JWT.
     </span><span class="attr">#[deprecated]
-    #[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    #[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated. [Migrate to Service Account Credentials
     /// API](&lt;https://cloud.google.com/iam/help/credentials/migrate-api&gt;).
     ///
     /// The signed JWT.
     </span><span class="attr">#[deprecated]
-    #[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    #[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>signed_jwt: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A role in the Identity and Access Management API.
@@ -3137,34 +3138,34 @@
     /// When Role is used in output and other input such as UpdateRole, the role
     /// name is the complete path, e.g., roles/logging.viewer for predefined roles
     /// and organizations/{ORGANIZATION_ID}/roles/logging.viewer for custom roles.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A human-readable title for the role.  Typically this
     /// is limited to 100 UTF-8 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A human-readable description for the role.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// The names of the permissions this role grants when bound in an IAM policy.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>included_permissions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The current launch stage of the role. If the `ALPHA` launch stage has been
     /// selected for a role, the `stage` field will not be included in the
     /// returned definition for the role.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;role::RoleLaunchStage&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"role::RoleLaunchStage"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>stage: i32,
     <span class="doccomment">/// Used to perform a consistent read-modify-write.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::bytes::Bytes,
     <span class="doccomment">/// The current deleted state of the role. This field is read only.
     /// It will be ignored in calls to CreateRole and UpdateRole.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>deleted: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `Role`.
 </span><span class="kw">pub mod </span>role {
-    <span class="doccomment">/// A stage representing a role&#39;s lifecycle phase.
+    <span class="doccomment">/// A stage representing a role's lifecycle phase.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -3199,25 +3200,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RoleLaunchStage::Alpha =&gt; <span class="string">&quot;ALPHA&quot;</span>,
-                RoleLaunchStage::Beta =&gt; <span class="string">&quot;BETA&quot;</span>,
-                RoleLaunchStage::Ga =&gt; <span class="string">&quot;GA&quot;</span>,
-                RoleLaunchStage::Deprecated =&gt; <span class="string">&quot;DEPRECATED&quot;</span>,
-                RoleLaunchStage::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                RoleLaunchStage::Eap =&gt; <span class="string">&quot;EAP&quot;</span>,
+                RoleLaunchStage::Alpha =&gt; <span class="string">"ALPHA"</span>,
+                RoleLaunchStage::Beta =&gt; <span class="string">"BETA"</span>,
+                RoleLaunchStage::Ga =&gt; <span class="string">"GA"</span>,
+                RoleLaunchStage::Deprecated =&gt; <span class="string">"DEPRECATED"</span>,
+                RoleLaunchStage::Disabled =&gt; <span class="string">"DISABLED"</span>,
+                RoleLaunchStage::Eap =&gt; <span class="string">"EAP"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ALPHA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Alpha),
-                <span class="string">&quot;BETA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Beta),
-                <span class="string">&quot;GA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ga),
-                <span class="string">&quot;DEPRECATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deprecated),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;EAP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Eap),
+                <span class="string">"ALPHA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Alpha),
+                <span class="string">"BETA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Beta),
+                <span class="string">"GA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ga),
+                <span class="string">"DEPRECATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deprecated),
+                <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">"EAP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Eap),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3232,18 +3233,18 @@
     /// The name follows the Google Cloud Platform resource format.
     /// For example, a Cloud Platform project with id `my-project` will be named
     /// `//cloudresourcemanager.googleapis.com/projects/my-project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>full_resource_name: ::prost::alloc::string::String,
-    <span class="attr">#[prost(enumeration = <span class="string">&quot;RoleView&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="attr">#[prost(enumeration = <span class="string">"RoleView"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>view: i32,
     <span class="doccomment">/// Optional limit on the number of roles to include in the response.
     ///
     /// The default is 300, and the maximum is 1,000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional pagination token returned in an earlier
     /// QueryGrantableRolesResponse.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The grantable role query response.
@@ -3251,27 +3252,27 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryGrantableRolesResponse {
     <span class="doccomment">/// The list of matching roles.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>roles: ::prost::alloc::vec::Vec&lt;Role&gt;,
     <span class="doccomment">/// To retrieve the next page of results, set
     /// `QueryGrantableRolesRequest.page_token` to this value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to get all roles defined under a resource.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRolesRequest {
-    <span class="doccomment">/// The `parent` parameter&#39;s value depends on the target resource for the
+    <span class="doccomment">/// The `parent` parameter's value depends on the target resource for the
     /// request, namely
     /// [`roles`](&lt;https://cloud.google.com/iam/reference/rest/v1/roles&gt;),
     /// [`projects`](&lt;https://cloud.google.com/iam/reference/rest/v1/projects.roles&gt;),
     /// or
     /// [`organizations`](&lt;https://cloud.google.com/iam/reference/rest/v1/organizations.roles&gt;).
-    /// Each resource type&#39;s `parent` value format is described below:
+    /// Each resource type's `parent` value format is described below:
     ///
     /// * [`roles.list()`](&lt;https://cloud.google.com/iam/reference/rest/v1/roles/list&gt;): An empty string.
-    ///    This method doesn&#39;t require a resource; it simply returns all
+    ///    This method doesn't require a resource; it simply returns all
     ///    [predefined
     ///    roles](&lt;https://cloud.google.com/iam/docs/understanding-roles#predefined_roles&gt;)
     ///    in Cloud IAM. Example request URL: `&lt;https://iam.googleapis.com/v1/roles`&gt;
@@ -3292,24 +3293,24 @@
     ///
     /// Note: Wildcard (*) values are invalid; you must specify a complete project
     /// ID or organization ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional limit on the number of roles to include in the response.
     ///
     /// The default is 300, and the maximum is 1,000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional pagination token returned in an earlier ListRolesResponse.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional view for the returned Role objects. When `FULL` is specified,
     /// the `includedPermissions` field is returned, which includes a list of all
     /// permissions in the role. The default value is `BASIC`, which does not
     /// return the `includedPermissions` field.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;RoleView&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"RoleView"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>view: i32,
     <span class="doccomment">/// Include Roles that have been deleted.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>show_deleted: bool,
 }
 <span class="doccomment">/// The response containing the roles defined under a resource.
@@ -3317,24 +3318,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRolesResponse {
     <span class="doccomment">/// The Roles defined on this resource.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>roles: ::prost::alloc::vec::Vec&lt;Role&gt;,
     <span class="doccomment">/// To retrieve the next page of results, set
     /// `ListRolesRequest.page_token` to this value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to get the definition of an existing role.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetRoleRequest {
-    <span class="doccomment">/// The `name` parameter&#39;s value depends on the target resource for the
+    <span class="doccomment">/// The `name` parameter's value depends on the target resource for the
     /// request, namely
     /// [`roles`](&lt;https://cloud.google.com/iam/reference/rest/v1/roles&gt;),
     /// [`projects`](&lt;https://cloud.google.com/iam/reference/rest/v1/projects.roles&gt;),
     /// or
     /// [`organizations`](&lt;https://cloud.google.com/iam/reference/rest/v1/organizations.roles&gt;).
-    /// Each resource type&#39;s `name` value format is described below:
+    /// Each resource type's `name` value format is described below:
     ///
     /// * [`roles.get()`](&lt;https://cloud.google.com/iam/reference/rest/v1/roles/get&gt;): `roles/{ROLE_NAME}`.
     ///    This method returns results from all
@@ -3359,19 +3360,19 @@
     ///
     /// Note: Wildcard (*) values are invalid; you must specify a complete project
     /// ID or organization ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to create a new role.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateRoleRequest {
-    <span class="doccomment">/// The `parent` parameter&#39;s value depends on the target resource for the
+    <span class="doccomment">/// The `parent` parameter's value depends on the target resource for the
     /// request, namely
     /// [`projects`](&lt;https://cloud.google.com/iam/reference/rest/v1/projects.roles&gt;)
     /// or
     /// [`organizations`](&lt;https://cloud.google.com/iam/reference/rest/v1/organizations.roles&gt;).
-    /// Each resource type&#39;s `parent` value format is described below:
+    /// Each resource type's `parent` value format is described below:
     ///
     /// * [`projects.roles.create()`](&lt;https://cloud.google.com/iam/reference/rest/v1/projects.roles/create&gt;):
     ///    `projects/{PROJECT_ID}`. This method creates project-level
@@ -3389,29 +3390,29 @@
     ///
     /// Note: Wildcard (*) values are invalid; you must specify a complete project
     /// ID or organization ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The role ID to use for this role.
     ///
     /// A role ID may contain alphanumeric characters, underscores (`_`), and
     /// periods (`.`). It must contain a minimum of 3 characters and a maximum of
     /// 64 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>role_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The Role resource to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>role: ::core::option::Option&lt;Role&gt;,
 }
 <span class="doccomment">/// The request to update a role.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateRoleRequest {
-    <span class="doccomment">/// The `name` parameter&#39;s value depends on the target resource for the
+    <span class="doccomment">/// The `name` parameter's value depends on the target resource for the
     /// request, namely
     /// [`projects`](&lt;https://cloud.google.com/iam/reference/rest/v1/projects.roles&gt;)
     /// or
     /// [`organizations`](&lt;https://cloud.google.com/iam/reference/rest/v1/organizations.roles&gt;).
-    /// Each resource type&#39;s `name` value format is described below:
+    /// Each resource type's `name` value format is described below:
     ///
     /// * [`projects.roles.patch()`](&lt;https://cloud.google.com/iam/reference/rest/v1/projects.roles/patch&gt;):
     ///    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method updates only
@@ -3429,25 +3430,25 @@
     ///
     /// Note: Wildcard (*) values are invalid; you must specify a complete project
     /// ID or organization ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The updated role.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>role: ::core::option::Option&lt;Role&gt;,
     <span class="doccomment">/// A mask describing which fields in the Role have changed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The request to delete an existing role.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteRoleRequest {
-    <span class="doccomment">/// The `name` parameter&#39;s value depends on the target resource for the
+    <span class="doccomment">/// The `name` parameter's value depends on the target resource for the
     /// request, namely
     /// [`projects`](&lt;https://cloud.google.com/iam/reference/rest/v1/projects.roles&gt;)
     /// or
     /// [`organizations`](&lt;https://cloud.google.com/iam/reference/rest/v1/organizations.roles&gt;).
-    /// Each resource type&#39;s `name` value format is described below:
+    /// Each resource type's `name` value format is described below:
     ///
     /// * [`projects.roles.delete()`](&lt;https://cloud.google.com/iam/reference/rest/v1/projects.roles/delete&gt;):
     ///    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method deletes only
@@ -3465,22 +3466,22 @@
     ///
     /// Note: Wildcard (*) values are invalid; you must specify a complete project
     /// ID or organization ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Used to perform a consistent read-modify-write.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// The request to undelete an existing role.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UndeleteRoleRequest {
-    <span class="doccomment">/// The `name` parameter&#39;s value depends on the target resource for the
+    <span class="doccomment">/// The `name` parameter's value depends on the target resource for the
     /// request, namely
     /// [`projects`](&lt;https://cloud.google.com/iam/reference/rest/v1/projects.roles&gt;)
     /// or
     /// [`organizations`](&lt;https://cloud.google.com/iam/reference/rest/v1/organizations.roles&gt;).
-    /// Each resource type&#39;s `name` value format is described below:
+    /// Each resource type's `name` value format is described below:
     ///
     /// * [`projects.roles.undelete()`](&lt;https://cloud.google.com/iam/reference/rest/v1/projects.roles/undelete&gt;):
     ///    `projects/{PROJECT_ID}/roles/{CUSTOM_ROLE_ID}`. This method undeletes
@@ -3498,10 +3499,10 @@
     ///
     /// Note: Wildcard (*) values are invalid; you must specify a complete project
     /// ID or organization ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Used to perform a consistent read-modify-write.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// A permission which can be included by a role.
@@ -3509,35 +3510,35 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Permission {
     <span class="doccomment">/// The name of this Permission.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The title of this Permission.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// A brief description of what this Permission is used for.
     /// This permission can ONLY be used in predefined roles.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="attr">#[deprecated]
-    #[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    #[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>only_in_predefined_roles: bool,
     <span class="doccomment">/// The current launch stage of the permission.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;permission::PermissionLaunchStage&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"permission::PermissionLaunchStage"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>stage: i32,
     <span class="doccomment">/// The current custom role support level.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;permission::CustomRolesSupportLevel&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"permission::CustomRolesSupportLevel"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>custom_roles_support_level: i32,
     <span class="doccomment">/// The service API associated with the permission is not enabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_disabled: bool,
     <span class="doccomment">/// The preferred name for this permission. If present, then this permission is
     /// an alias of, and equivalent to, the listed primary_permission.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>primary_permission: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `Permission`.
 </span><span class="kw">pub mod </span>permission {
-    <span class="doccomment">/// A stage representing a permission&#39;s lifecycle phase.
+    <span class="doccomment">/// A stage representing a permission's lifecycle phase.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -3565,21 +3566,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                PermissionLaunchStage::Alpha =&gt; <span class="string">&quot;ALPHA&quot;</span>,
-                PermissionLaunchStage::Beta =&gt; <span class="string">&quot;BETA&quot;</span>,
-                PermissionLaunchStage::Ga =&gt; <span class="string">&quot;GA&quot;</span>,
-                PermissionLaunchStage::Deprecated =&gt; <span class="string">&quot;DEPRECATED&quot;</span>,
+                PermissionLaunchStage::Alpha =&gt; <span class="string">"ALPHA"</span>,
+                PermissionLaunchStage::Beta =&gt; <span class="string">"BETA"</span>,
+                PermissionLaunchStage::Ga =&gt; <span class="string">"GA"</span>,
+                PermissionLaunchStage::Deprecated =&gt; <span class="string">"DEPRECATED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ALPHA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Alpha),
-                <span class="string">&quot;BETA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Beta),
-                <span class="string">&quot;GA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ga),
-                <span class="string">&quot;DEPRECATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deprecated),
+                <span class="string">"ALPHA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Alpha),
+                <span class="string">"BETA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Beta),
+                <span class="string">"GA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ga),
+                <span class="string">"DEPRECATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deprecated),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3610,19 +3611,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                CustomRolesSupportLevel::Supported =&gt; <span class="string">&quot;SUPPORTED&quot;</span>,
-                CustomRolesSupportLevel::Testing =&gt; <span class="string">&quot;TESTING&quot;</span>,
-                CustomRolesSupportLevel::NotSupported =&gt; <span class="string">&quot;NOT_SUPPORTED&quot;</span>,
+                CustomRolesSupportLevel::Supported =&gt; <span class="string">"SUPPORTED"</span>,
+                CustomRolesSupportLevel::Testing =&gt; <span class="string">"TESTING"</span>,
+                CustomRolesSupportLevel::NotSupported =&gt; <span class="string">"NOT_SUPPORTED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SUPPORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Supported),
-                <span class="string">&quot;TESTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Testing),
-                <span class="string">&quot;NOT_SUPPORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotSupported),
+                <span class="string">"SUPPORTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Supported),
+                <span class="string">"TESTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Testing),
+                <span class="string">"NOT_SUPPORTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotSupported),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3638,16 +3639,16 @@
     /// The name follows the Google Cloud Platform resource format.
     /// For example, a Cloud Platform project with id `my-project` will be named
     /// `//cloudresourcemanager.googleapis.com/projects/my-project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>full_resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional limit on the number of permissions to include in the response.
     ///
     /// The default is 100, and the maximum is 1,000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional pagination token returned in an earlier
     /// QueryTestablePermissionsRequest.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response containing permissions which can be tested on a resource.
@@ -3655,11 +3656,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryTestablePermissionsResponse {
     <span class="doccomment">/// The Permissions testable on the requested resource.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>permissions: ::prost::alloc::vec::Vec&lt;Permission&gt;,
     <span class="doccomment">/// To retrieve the next page of results, set
     /// `QueryTestableRolesRequest.page_token` to this value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to get the list of auditable services for a resource.
@@ -3672,7 +3673,7 @@
     /// The name follows the Google Cloud Platform resource format.
     /// For example, a Cloud Platform project with id `my-project` will be named
     /// `//cloudresourcemanager.googleapis.com/projects/my-project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>full_resource_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A response containing a list of auditable services for a resource.
@@ -3680,7 +3681,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryAuditableServicesResponse {
     <span class="doccomment">/// The auditable services for a resource.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>services: ::prost::alloc::vec::Vec&lt;
         query_auditable_services_response::AuditableService,
     &gt;,
@@ -3692,8 +3693,8 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AuditableService {
         <span class="doccomment">/// Public name of the service.
-        /// For example, the service name for Cloud IAM is &#39;iam.googleapis.com&#39;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// For example, the service name for Cloud IAM is 'iam.googleapis.com'.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     }
 }
@@ -3710,10 +3711,10 @@
     /// The resource name is not used to read the policy instance from the Cloud
     /// IAM database. The candidate policy for lint has to be provided in the same
     /// request object.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>full_resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Cloud IAM object to be linted.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;lint_policy_request::LintObject&quot;</span>, tags = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"lint_policy_request::LintObject"</span>, tags = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>lint_object: ::core::option::Option&lt;lint_policy_request::LintObject&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `LintPolicyRequest`.
@@ -3723,7 +3724,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>LintObject {
         <span class="doccomment">/// \[google.iam.v1.Binding.condition\] [google.iam.v1.Binding.condition] object to be linted.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>Condition(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Expr),
     }
 }
@@ -3732,14 +3733,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LintResult {
     <span class="doccomment">/// The validation unit level.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;lint_result::Level&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"lint_result::Level"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>level: i32,
     <span class="doccomment">/// The validation unit name, for instance
-    /// &quot;lintValidationUnits/ConditionComplexityCheck&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// "lintValidationUnits/ConditionComplexityCheck".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>validation_unit_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The validation unit severity.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;lint_result::Severity&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"lint_result::Severity"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>severity: i32,
     <span class="doccomment">/// The name of the field for which this lint result is about.
     ///
@@ -3748,15 +3749,15 @@
     /// to lint in the request. For example, the `field_name` value
     /// `condition.expression` identifies a lint result for the `expression` field
     /// of the provided condition.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>field_name: ::prost::alloc::string::String,
     <span class="doccomment">/// 0-based character position of problematic construct within the object
     /// identified by `field_name`. Currently, this is populated only for condition
     /// expression.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>location_offset: i32,
     <span class="doccomment">/// Human readable debug message associated with the issue.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>debug_message: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `LintResult`.
@@ -3787,17 +3788,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Level::Unspecified =&gt; <span class="string">&quot;LEVEL_UNSPECIFIED&quot;</span>,
-                Level::Condition =&gt; <span class="string">&quot;CONDITION&quot;</span>,
+                Level::Unspecified =&gt; <span class="string">"LEVEL_UNSPECIFIED"</span>,
+                Level::Condition =&gt; <span class="string">"CONDITION"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;LEVEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CONDITION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Condition),
+                <span class="string">"LEVEL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CONDITION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Condition),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3825,7 +3826,7 @@
         <span class="doccomment">/// Any issue which is severe enough but does not cause an error.
         /// For example, suspicious constructs in the input object will not
         /// necessarily fail `setPolicy`, but there is a high likelihood that they
-        /// won&#39;t behave as expected during policy evaluation in `checkPolicy`.
+        /// won't behave as expected during policy evaluation in `checkPolicy`.
         /// This includes the following common scenarios:
         ///
         /// - Unsatisfiable condition: Expired timestamp in date/time condition.
@@ -3849,25 +3850,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Severity::Unspecified =&gt; <span class="string">&quot;SEVERITY_UNSPECIFIED&quot;</span>,
-                Severity::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-                Severity::Warning =&gt; <span class="string">&quot;WARNING&quot;</span>,
-                Severity::Notice =&gt; <span class="string">&quot;NOTICE&quot;</span>,
-                Severity::Info =&gt; <span class="string">&quot;INFO&quot;</span>,
-                Severity::Deprecated =&gt; <span class="string">&quot;DEPRECATED&quot;</span>,
+                Severity::Unspecified =&gt; <span class="string">"SEVERITY_UNSPECIFIED"</span>,
+                Severity::Error =&gt; <span class="string">"ERROR"</span>,
+                Severity::Warning =&gt; <span class="string">"WARNING"</span>,
+                Severity::Notice =&gt; <span class="string">"NOTICE"</span>,
+                Severity::Info =&gt; <span class="string">"INFO"</span>,
+                Severity::Deprecated =&gt; <span class="string">"DEPRECATED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SEVERITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="string">&quot;WARNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
-                <span class="string">&quot;NOTICE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Notice),
-                <span class="string">&quot;INFO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Info),
-                <span class="string">&quot;DEPRECATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deprecated),
+                <span class="string">"SEVERITY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"WARNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
+                <span class="string">"NOTICE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Notice),
+                <span class="string">"INFO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Info),
+                <span class="string">"DEPRECATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deprecated),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3879,7 +3880,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LintPolicyResponse {
     <span class="doccomment">/// List of lint results sorted by `severity` in descending order.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>lint_results: ::prost::alloc::vec::Vec&lt;LintResult&gt;,
 }
 <span class="doccomment">/// Supported key algorithms.
@@ -3898,19 +3899,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ServiceAccountKeyAlgorithm::KeyAlgUnspecified =&gt; <span class="string">&quot;KEY_ALG_UNSPECIFIED&quot;</span>,
-            ServiceAccountKeyAlgorithm::KeyAlgRsa1024 =&gt; <span class="string">&quot;KEY_ALG_RSA_1024&quot;</span>,
-            ServiceAccountKeyAlgorithm::KeyAlgRsa2048 =&gt; <span class="string">&quot;KEY_ALG_RSA_2048&quot;</span>,
+            ServiceAccountKeyAlgorithm::KeyAlgUnspecified =&gt; <span class="string">"KEY_ALG_UNSPECIFIED"</span>,
+            ServiceAccountKeyAlgorithm::KeyAlgRsa1024 =&gt; <span class="string">"KEY_ALG_RSA_1024"</span>,
+            ServiceAccountKeyAlgorithm::KeyAlgRsa2048 =&gt; <span class="string">"KEY_ALG_RSA_2048"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;KEY_ALG_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyAlgUnspecified),
-            <span class="string">&quot;KEY_ALG_RSA_1024&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyAlgRsa1024),
-            <span class="string">&quot;KEY_ALG_RSA_2048&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyAlgRsa2048),
+            <span class="string">"KEY_ALG_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyAlgUnspecified),
+            <span class="string">"KEY_ALG_RSA_1024" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyAlgRsa1024),
+            <span class="string">"KEY_ALG_RSA_2048" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyAlgRsa2048),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -3933,21 +3934,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ServiceAccountPrivateKeyType::TypeUnspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-            ServiceAccountPrivateKeyType::TypePkcs12File =&gt; <span class="string">&quot;TYPE_PKCS12_FILE&quot;</span>,
+            ServiceAccountPrivateKeyType::TypeUnspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+            ServiceAccountPrivateKeyType::TypePkcs12File =&gt; <span class="string">"TYPE_PKCS12_FILE"</span>,
             ServiceAccountPrivateKeyType::TypeGoogleCredentialsFile =&gt; {
-                <span class="string">&quot;TYPE_GOOGLE_CREDENTIALS_FILE&quot;
+                <span class="string">"TYPE_GOOGLE_CREDENTIALS_FILE"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypeUnspecified),
-            <span class="string">&quot;TYPE_PKCS12_FILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypePkcs12File),
-            <span class="string">&quot;TYPE_GOOGLE_CREDENTIALS_FILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypeGoogleCredentialsFile),
+            <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypeUnspecified),
+            <span class="string">"TYPE_PKCS12_FILE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypePkcs12File),
+            <span class="string">"TYPE_GOOGLE_CREDENTIALS_FILE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypeGoogleCredentialsFile),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -3968,19 +3969,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ServiceAccountPublicKeyType::TypeNone =&gt; <span class="string">&quot;TYPE_NONE&quot;</span>,
-            ServiceAccountPublicKeyType::TypeX509PemFile =&gt; <span class="string">&quot;TYPE_X509_PEM_FILE&quot;</span>,
-            ServiceAccountPublicKeyType::TypeRawPublicKey =&gt; <span class="string">&quot;TYPE_RAW_PUBLIC_KEY&quot;</span>,
+            ServiceAccountPublicKeyType::TypeNone =&gt; <span class="string">"TYPE_NONE"</span>,
+            ServiceAccountPublicKeyType::TypeX509PemFile =&gt; <span class="string">"TYPE_X509_PEM_FILE"</span>,
+            ServiceAccountPublicKeyType::TypeRawPublicKey =&gt; <span class="string">"TYPE_RAW_PUBLIC_KEY"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;TYPE_NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypeNone),
-            <span class="string">&quot;TYPE_X509_PEM_FILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypeX509PemFile),
-            <span class="string">&quot;TYPE_RAW_PUBLIC_KEY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypeRawPublicKey),
+            <span class="string">"TYPE_NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypeNone),
+            <span class="string">"TYPE_X509_PEM_FILE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypeX509PemFile),
+            <span class="string">"TYPE_RAW_PUBLIC_KEY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TypeRawPublicKey),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4001,19 +4002,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ServiceAccountKeyOrigin::OriginUnspecified =&gt; <span class="string">&quot;ORIGIN_UNSPECIFIED&quot;</span>,
-            ServiceAccountKeyOrigin::UserProvided =&gt; <span class="string">&quot;USER_PROVIDED&quot;</span>,
-            ServiceAccountKeyOrigin::GoogleProvided =&gt; <span class="string">&quot;GOOGLE_PROVIDED&quot;</span>,
+            ServiceAccountKeyOrigin::OriginUnspecified =&gt; <span class="string">"ORIGIN_UNSPECIFIED"</span>,
+            ServiceAccountKeyOrigin::UserProvided =&gt; <span class="string">"USER_PROVIDED"</span>,
+            ServiceAccountKeyOrigin::GoogleProvided =&gt; <span class="string">"GOOGLE_PROVIDED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;ORIGIN_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OriginUnspecified),
-            <span class="string">&quot;USER_PROVIDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserProvided),
-            <span class="string">&quot;GOOGLE_PROVIDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleProvided),
+            <span class="string">"ORIGIN_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OriginUnspecified),
+            <span class="string">"USER_PROVIDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserProvided),
+            <span class="string">"GOOGLE_PROVIDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleProvided),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4033,17 +4034,17 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            RoleView::Basic =&gt; <span class="string">&quot;BASIC&quot;</span>,
-            RoleView::Full =&gt; <span class="string">&quot;FULL&quot;</span>,
+            RoleView::Basic =&gt; <span class="string">"BASIC"</span>,
+            RoleView::Full =&gt; <span class="string">"FULL"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-            <span class="string">&quot;FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
+            <span class="string">"BASIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+            <span class="string">"FULL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4090,7 +4091,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4165,17 +4166,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/ListServiceAccounts&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/ListServiceAccounts"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;ListServiceAccounts&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"ListServiceAccounts"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4190,16 +4191,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/GetServiceAccount&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/GetServiceAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;GetServiceAccount&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"GetServiceAccount"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates a [ServiceAccount][google.iam.admin.v1.ServiceAccount].
@@ -4213,17 +4214,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/CreateServiceAccount&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/CreateServiceAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;CreateServiceAccount&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"CreateServiceAccount"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4243,17 +4244,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/UpdateServiceAccount&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/UpdateServiceAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;UpdateServiceAccount&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"UpdateServiceAccount"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4268,17 +4269,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/PatchServiceAccount&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/PatchServiceAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;PatchServiceAccount&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"PatchServiceAccount"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4307,17 +4308,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/DeleteServiceAccount&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/DeleteServiceAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;DeleteServiceAccount&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"DeleteServiceAccount"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4342,17 +4343,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/UndeleteServiceAccount&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/UndeleteServiceAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;UndeleteServiceAccount&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"UndeleteServiceAccount"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4374,17 +4375,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/EnableServiceAccount&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/EnableServiceAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;EnableServiceAccount&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"EnableServiceAccount"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4414,17 +4415,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/DisableServiceAccount&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/DisableServiceAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;DisableServiceAccount&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"DisableServiceAccount"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4442,17 +4443,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/ListServiceAccountKeys&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/ListServiceAccountKeys"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;ListServiceAccountKeys&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"ListServiceAccountKeys"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4470,17 +4471,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/GetServiceAccountKey&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/GetServiceAccountKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;GetServiceAccountKey&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"GetServiceAccountKey"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4498,17 +4499,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/CreateServiceAccountKey&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/CreateServiceAccountKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;CreateServiceAccountKey&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"CreateServiceAccountKey"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4530,17 +4531,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/UploadServiceAccountKey&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/UploadServiceAccountKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;UploadServiceAccountKey&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"UploadServiceAccountKey"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4557,17 +4558,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/DeleteServiceAccountKey&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/DeleteServiceAccountKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;DeleteServiceAccountKey&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"DeleteServiceAccountKey"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4583,19 +4584,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/DisableServiceAccountKey&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/DisableServiceAccountKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>,
-                        <span class="string">&quot;DisableServiceAccountKey&quot;</span>,
+                        <span class="string">"google.iam.admin.v1.IAM"</span>,
+                        <span class="string">"DisableServiceAccountKey"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4611,17 +4612,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/EnableServiceAccountKey&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/EnableServiceAccountKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;EnableServiceAccountKey&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"EnableServiceAccountKey"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4646,16 +4647,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/SignBlob&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/SignBlob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;SignBlob&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"SignBlob"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// **Note:** This method is deprecated. Use the
@@ -4680,16 +4681,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/SignJwt&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/SignJwt"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;SignJwt&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"SignJwt"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Gets the IAM policy that is attached to a [ServiceAccount][google.iam.admin.v1.ServiceAccount]. This IAM
@@ -4699,7 +4700,7 @@
         /// any roles on other resources. To check whether a service account has role
         /// grants on a resource, use the `getIamPolicy` method for that resource. For
         /// example, to view the role grants for a project, call the Resource Manager
-        /// API&#39;s
+        /// API's
         /// [`projects.getIamPolicy`](https://cloud.google.com/resource-manager/reference/rest/v1/projects/getIamPolicy)
         /// method.
         </span><span class="kw">pub async fn </span>get_iam_policy(
@@ -4717,16 +4718,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/GetIamPolicy&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/GetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;GetIamPolicy&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"GetIamPolicy"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Sets the IAM policy that is attached to a [ServiceAccount][google.iam.admin.v1.ServiceAccount].
@@ -4738,10 +4739,10 @@
         /// This method does not enable the service account to access other resources.
         /// To grant roles to a service account on a resource, follow these steps:
         ///
-        /// 1. Call the resource&#39;s `getIamPolicy` method to get its current IAM policy.
+        /// 1. Call the resource's `getIamPolicy` method to get its current IAM policy.
         /// 2. Edit the policy so that it binds the service account to an IAM role for
         /// the resource.
-        /// 3. Call the resource&#39;s `setIamPolicy` method to update its IAM policy.
+        /// 3. Call the resource's `setIamPolicy` method to update its IAM policy.
         ///
         /// For detailed instructions, see
         /// [Manage access to project, folders, and
@@ -4763,16 +4764,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/SetIamPolicy&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/SetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;SetIamPolicy&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"SetIamPolicy"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Tests whether the caller has the specified permissions on a
@@ -4792,17 +4793,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/TestIamPermissions&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/TestIamPermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;TestIamPermissions&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"TestIamPermissions"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4822,17 +4823,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/QueryGrantableRoles&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/QueryGrantableRoles"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;QueryGrantableRoles&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"QueryGrantableRoles"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4851,16 +4852,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/ListRoles&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/ListRoles"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;ListRoles&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"ListRoles"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Gets the definition of a [Role][google.iam.admin.v1.Role].
@@ -4874,16 +4875,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/GetRole&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/GetRole"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;GetRole&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"GetRole"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates a new custom [Role][google.iam.admin.v1.Role].
@@ -4897,16 +4898,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/CreateRole&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/CreateRole"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;CreateRole&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"CreateRole"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Updates the definition of a custom [Role][google.iam.admin.v1.Role].
@@ -4920,16 +4921,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/UpdateRole&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/UpdateRole"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;UpdateRole&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"UpdateRole"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Deletes a custom [Role][google.iam.admin.v1.Role].
@@ -4959,16 +4960,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/DeleteRole&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/DeleteRole"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;DeleteRole&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"DeleteRole"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Undeletes a custom [Role][google.iam.admin.v1.Role].
@@ -4982,16 +4983,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/UndeleteRole&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/UndeleteRole"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;UndeleteRole&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"UndeleteRole"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Lists every permission that you can test on a resource. A permission is
@@ -5010,19 +5011,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/QueryTestablePermissions&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/QueryTestablePermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>,
-                        <span class="string">&quot;QueryTestablePermissions&quot;</span>,
+                        <span class="string">"google.iam.admin.v1.IAM"</span>,
+                        <span class="string">"QueryTestablePermissions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5045,17 +5046,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/QueryAuditableServices&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/QueryAuditableServices"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;QueryAuditableServices&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"QueryAuditableServices"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -5078,16 +5079,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.iam.admin.v1.IAM/LintPolicy&quot;</span>,
+                <span class="string">"/google.iam.admin.v1.IAM/LintPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.iam.admin.v1.IAM&quot;</span>, <span class="string">&quot;LintPolicy&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.iam.admin.v1.IAM"</span>, <span class="string">"LintPolicy"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
     }

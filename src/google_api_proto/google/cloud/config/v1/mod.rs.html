@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/config/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/config/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2578,53 +2579,53 @@
 </span><span class="kw">pub struct </span>Deployment {
     <span class="doccomment">/// Resource name of the deployment.
     /// Format: `projects/{project}/locations/{location}/deployments/{deployment}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Time when the deployment was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when the deployment was last modified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// User-defined metadata for the deployment.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. Current state of the deployment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;deployment::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"deployment::State"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Revision name that was most recently applied.
     /// Format: `projects/{project}/locations/{location}/deployments/{deployment}/
     /// revisions/{revision}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>latest_revision: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Additional information regarding the current state.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>state_detail: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Error code describing errors that may have occurred.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;deployment::ErrorCode&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"deployment::ErrorCode"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>error_code: i32,
     <span class="doccomment">/// Output only. Location of artifacts from a DeleteDeployment operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>delete_results: ::core::option::Option&lt;ApplyResults&gt;,
     <span class="doccomment">/// Output only. Cloud Build instance UUID associated with deleting this
     /// deployment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>delete_build: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Location of Cloud Build logs in Google Cloud Storage,
     /// populated when deleting this deployment. Format: `gs://{bucket}/{object}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>delete_logs: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Errors encountered when deleting this deployment.
     /// Errors are truncated to 10 entries, see `delete_results` and `error_logs`
     /// for full details.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>tf_errors: ::prost::alloc::vec::Vec&lt;TerraformError&gt;,
     <span class="doccomment">/// Output only. Location of Terraform error logs in Google Cloud Storage.
     /// Format: `gs://{bucket}/{object}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>error_logs: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. User-defined location of Cloud Build logs and artifacts in Google
     /// Cloud Storage. Format: `gs://{bucket}/{folder}`
@@ -2635,12 +2636,12 @@
     /// - The bucket needs to be in the same project as the deployment
     /// - The path cannot be within the path of `gcs_source`
     /// - The field cannot be updated, including changing its presence
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>artifacts_gcs_bucket: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. User-specified Service Account (SA) credentials to be used when
     /// actuating resources.
     /// Format: `projects/{projectID}/serviceAccounts/{serviceAccount}`
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>service_account: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// By default, Infra Manager will return a failure when
     /// Terraform encounters a 409 code (resource conflict error) during actuation.
@@ -2649,20 +2650,20 @@
     /// supported resource types) and continue actuation.
     ///
     /// Not all resource types are supported, refer to documentation.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>import_existing_resources: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// Optional. The user-specified Cloud Build worker pool resource in which the
     /// Cloud Build job will execute. Format:
     /// `projects/{project}/locations/{location}/workerPools/{workerPoolId}`.
     /// If this field is unspecified, the default Cloud Build worker pool will be
     /// used.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>worker_pool: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. Current lock state of the deployment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;deployment::LockState&quot;</span>, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"deployment::LockState"</span>, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>lock_state: i32,
     <span class="doccomment">/// Blueprint to deploy.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;deployment::Blueprint&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"deployment::Blueprint"</span>, tags = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>blueprint: ::core::option::Option&lt;deployment::Blueprint&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Deployment`.
@@ -2704,29 +2705,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Suspended =&gt; <span class="string">&quot;SUSPENDED&quot;</span>,
-                State::Deleted =&gt; <span class="string">&quot;DELETED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Suspended =&gt; <span class="string">"SUSPENDED"</span>,
+                State::Deleted =&gt; <span class="string">"DELETED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;SUSPENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
-                <span class="string">&quot;DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"SUSPENDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
+                <span class="string">"DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2768,31 +2769,31 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ErrorCode::Unspecified =&gt; <span class="string">&quot;ERROR_CODE_UNSPECIFIED&quot;</span>,
-                ErrorCode::RevisionFailed =&gt; <span class="string">&quot;REVISION_FAILED&quot;</span>,
-                ErrorCode::CloudBuildPermissionDenied =&gt; <span class="string">&quot;CLOUD_BUILD_PERMISSION_DENIED&quot;</span>,
-                ErrorCode::DeleteBuildApiFailed =&gt; <span class="string">&quot;DELETE_BUILD_API_FAILED&quot;</span>,
-                ErrorCode::DeleteBuildRunFailed =&gt; <span class="string">&quot;DELETE_BUILD_RUN_FAILED&quot;</span>,
+                ErrorCode::Unspecified =&gt; <span class="string">"ERROR_CODE_UNSPECIFIED"</span>,
+                ErrorCode::RevisionFailed =&gt; <span class="string">"REVISION_FAILED"</span>,
+                ErrorCode::CloudBuildPermissionDenied =&gt; <span class="string">"CLOUD_BUILD_PERMISSION_DENIED"</span>,
+                ErrorCode::DeleteBuildApiFailed =&gt; <span class="string">"DELETE_BUILD_API_FAILED"</span>,
+                ErrorCode::DeleteBuildRunFailed =&gt; <span class="string">"DELETE_BUILD_RUN_FAILED"</span>,
                 ErrorCode::BucketCreationPermissionDenied =&gt; {
-                    <span class="string">&quot;BUCKET_CREATION_PERMISSION_DENIED&quot;
+                    <span class="string">"BUCKET_CREATION_PERMISSION_DENIED"
                 </span>}
-                ErrorCode::BucketCreationFailed =&gt; <span class="string">&quot;BUCKET_CREATION_FAILED&quot;</span>,
+                ErrorCode::BucketCreationFailed =&gt; <span class="string">"BUCKET_CREATION_FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ERROR_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;REVISION_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RevisionFailed),
-                <span class="string">&quot;CLOUD_BUILD_PERMISSION_DENIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudBuildPermissionDenied),
-                <span class="string">&quot;DELETE_BUILD_API_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeleteBuildApiFailed),
-                <span class="string">&quot;DELETE_BUILD_RUN_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeleteBuildRunFailed),
-                <span class="string">&quot;BUCKET_CREATION_PERMISSION_DENIED&quot; </span>=&gt; {
+                <span class="string">"ERROR_CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"REVISION_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RevisionFailed),
+                <span class="string">"CLOUD_BUILD_PERMISSION_DENIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudBuildPermissionDenied),
+                <span class="string">"DELETE_BUILD_API_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeleteBuildApiFailed),
+                <span class="string">"DELETE_BUILD_RUN_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeleteBuildRunFailed),
+                <span class="string">"BUCKET_CREATION_PERMISSION_DENIED" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::BucketCreationPermissionDenied)
                 }
-                <span class="string">&quot;BUCKET_CREATION_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BucketCreationFailed),
+                <span class="string">"BUCKET_CREATION_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BucketCreationFailed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2831,27 +2832,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                LockState::Unspecified =&gt; <span class="string">&quot;LOCK_STATE_UNSPECIFIED&quot;</span>,
-                LockState::Locked =&gt; <span class="string">&quot;LOCKED&quot;</span>,
-                LockState::Unlocked =&gt; <span class="string">&quot;UNLOCKED&quot;</span>,
-                LockState::Locking =&gt; <span class="string">&quot;LOCKING&quot;</span>,
-                LockState::Unlocking =&gt; <span class="string">&quot;UNLOCKING&quot;</span>,
-                LockState::LockFailed =&gt; <span class="string">&quot;LOCK_FAILED&quot;</span>,
-                LockState::UnlockFailed =&gt; <span class="string">&quot;UNLOCK_FAILED&quot;</span>,
+                LockState::Unspecified =&gt; <span class="string">"LOCK_STATE_UNSPECIFIED"</span>,
+                LockState::Locked =&gt; <span class="string">"LOCKED"</span>,
+                LockState::Unlocked =&gt; <span class="string">"UNLOCKED"</span>,
+                LockState::Locking =&gt; <span class="string">"LOCKING"</span>,
+                LockState::Unlocking =&gt; <span class="string">"UNLOCKING"</span>,
+                LockState::LockFailed =&gt; <span class="string">"LOCK_FAILED"</span>,
+                LockState::UnlockFailed =&gt; <span class="string">"UNLOCK_FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;LOCK_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LOCKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locked),
-                <span class="string">&quot;UNLOCKED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unlocked),
-                <span class="string">&quot;LOCKING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locking),
-                <span class="string">&quot;UNLOCKING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unlocking),
-                <span class="string">&quot;LOCK_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LockFailed),
-                <span class="string">&quot;UNLOCK_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnlockFailed),
+                <span class="string">"LOCK_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LOCKED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locked),
+                <span class="string">"UNLOCKED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unlocked),
+                <span class="string">"LOCKING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locking),
+                <span class="string">"UNLOCKING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unlocking),
+                <span class="string">"LOCK_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LockFailed),
+                <span class="string">"UNLOCK_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnlockFailed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2860,9 +2861,9 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Blueprint {
-        <span class="doccomment">/// A blueprint described using Terraform&#39;s HashiCorp Configuration Language
+        <span class="doccomment">/// A blueprint described using Terraform's HashiCorp Configuration Language
         /// as a root module.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>TerraformBlueprint(<span class="kw">super</span>::TerraformBlueprint),
     }
 }
@@ -2872,13 +2873,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TerraformBlueprint {
     <span class="doccomment">/// Input variable values for the Terraform blueprint.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>input_values: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         TerraformVariable,
     &gt;,
     <span class="doccomment">/// Location of the source configs.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;terraform_blueprint::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"terraform_blueprint::Source"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;terraform_blueprint::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TerraformBlueprint`.
@@ -2892,10 +2893,10 @@
         ///
         /// URI may also specify an object version for zipped objects.
         /// Format: `gs://{bucket}/{object}#{version}`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>GcsSource(::prost::alloc::string::String),
         <span class="doccomment">/// Required. URI of a public Git repo.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>GitSource(<span class="kw">super</span>::GitSource),
     }
 }
@@ -2904,7 +2905,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TerraformVariable {
     <span class="doccomment">/// Input variable value.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>input_value: ::core::option::Option&lt;::prost_types::Value&gt;,
 }
 <span class="doccomment">/// Outputs and artifacts from applying a deployment.
@@ -2913,14 +2914,14 @@
 </span><span class="kw">pub struct </span>ApplyResults {
     <span class="doccomment">/// Location of a blueprint copy and other manifests in Google Cloud Storage.
     /// Format: `gs://{bucket}/{object}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
     <span class="doccomment">/// Location of artifacts (e.g. logs) in Google Cloud Storage.
     /// Format: `gs://{bucket}/{object}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>artifacts: ::prost::alloc::string::String,
     <span class="doccomment">/// Map of output name to output info.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>outputs: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         TerraformOutput,
@@ -2932,10 +2933,10 @@
 </span><span class="kw">pub struct </span>TerraformOutput {
     <span class="doccomment">/// Identifies whether Terraform has set this output as a potential
     /// sensitive value.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sensitive: bool,
     <span class="doccomment">/// Value of output.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;::prost_types::Value&gt;,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2943,150 +2944,150 @@
 </span><span class="kw">pub struct </span>ListDeploymentsRequest {
     <span class="doccomment">/// Required. The parent in whose context the Deployments are listed. The
     /// parent value is in the format:
-    /// &#39;projects/{project_id}/locations/{location}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// When requesting a page of resources, &#39;page_size&#39; specifies number of
+    <span class="doccomment">/// When requesting a page of resources, 'page_size' specifies number of
     /// resources to return. If unspecified or set to 0, all resources will be
     /// returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Token returned by previous call to &#39;ListDeployments&#39; which specifies the
+    <span class="doccomment">/// Token returned by previous call to 'ListDeployments' which specifies the
     /// position in the list from where to continue listing the resources.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Lists the Deployments that match the filter expression. A filter
     /// expression filters the resources listed in the response. The expression
-    /// must be of the form &#39;{field} {operator} {value}&#39; where operators: &#39;&lt;&#39;, &#39;&gt;&#39;,
-    /// &#39;&lt;=&#39;, &#39;&gt;=&#39;, &#39;!=&#39;, &#39;=&#39;, &#39;:&#39; are supported (colon &#39;:&#39; represents a HAS
+    /// must be of the form '{field} {operator} {value}' where operators: '&lt;', '&gt;',
+    /// '&lt;=', '&gt;=', '!=', '=', ':' are supported (colon ':' represents a HAS
     /// operator which is roughly synonymous with equality). {field} can refer to a
     /// proto or JSON field, or a synthetic field. Field names can be camelCase or
     /// snake_case.
     ///
     /// Examples:
     /// - Filter by name:
-    ///    name = &quot;projects/foo/locations/us-central1/deployments/bar
+    ///    name = "projects/foo/locations/us-central1/deployments/bar
     ///
     /// - Filter by labels:
-    ///    - Resources that have a key called &#39;foo&#39;
+    ///    - Resources that have a key called 'foo'
     ///      labels.foo:*
-    ///    - Resources that have a key called &#39;foo&#39; whose value is &#39;bar&#39;
+    ///    - Resources that have a key called 'foo' whose value is 'bar'
     ///      labels.foo = bar
     ///
     /// - Filter by state:
     ///    - Deployments in CREATING state.
     ///      state=CREATING
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Field to use to sort the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDeploymentsResponse {
     <span class="doccomment">/// List of [Deployment][google.cloud.config.v1.Deployment]s.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>deployments: ::prost::alloc::vec::Vec&lt;Deployment&gt;,
     <span class="doccomment">/// Token to be supplied to the next ListDeployments request via `page_token`
     /// to obtain the next set of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetDeploymentRequest {
     <span class="doccomment">/// Required. The name of the deployment. Format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// A request to list Revisions passed to a &#39;ListRevisions&#39; call.
+<span class="doccomment">/// A request to list Revisions passed to a 'ListRevisions' call.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRevisionsRequest {
     <span class="doccomment">/// Required. The parent in whose context the Revisions are listed. The parent
     /// value is in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// When requesting a page of resources, `page_size` specifies number of
     /// resources to return. If unspecified or set to 0, all resources will be
     /// returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Token returned by previous call to &#39;ListRevisions&#39; which specifies the
+    <span class="doccomment">/// Token returned by previous call to 'ListRevisions' which specifies the
     /// position in the list from where to continue listing the resources.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Lists the Revisions that match the filter expression. A filter
     /// expression filters the resources listed in the response. The expression
-    /// must be of the form &#39;{field} {operator} {value}&#39; where operators: &#39;&lt;&#39;, &#39;&gt;&#39;,
-    /// &#39;&lt;=&#39;, &#39;&gt;=&#39;, &#39;!=&#39;, &#39;=&#39;, &#39;:&#39; are supported (colon &#39;:&#39; represents a HAS
+    /// must be of the form '{field} {operator} {value}' where operators: '&lt;', '&gt;',
+    /// '&lt;=', '&gt;=', '!=', '=', ':' are supported (colon ':' represents a HAS
     /// operator which is roughly synonymous with equality). {field} can refer to a
     /// proto or JSON field, or a synthetic field. Field names can be camelCase or
     /// snake_case.
     ///
     /// Examples:
     /// - Filter by name:
-    ///    name = &quot;projects/foo/locations/us-central1/deployments/dep/revisions/bar
+    ///    name = "projects/foo/locations/us-central1/deployments/dep/revisions/bar
     ///
     /// - Filter by labels:
-    ///    - Resources that have a key called &#39;foo&#39;
+    ///    - Resources that have a key called 'foo'
     ///      labels.foo:*
-    ///    - Resources that have a key called &#39;foo&#39; whose value is &#39;bar&#39;
+    ///    - Resources that have a key called 'foo' whose value is 'bar'
     ///      labels.foo = bar
     ///
     /// - Filter by state:
     ///    - Revisions in CREATING state.
     ///      state=CREATING
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Field to use to sort the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// A response to a &#39;ListRevisions&#39; call. Contains a list of Revisions.
+<span class="doccomment">/// A response to a 'ListRevisions' call. Contains a list of Revisions.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRevisionsResponse {
     <span class="doccomment">/// List of [Revision][google.cloud.config.v1.Revision]s.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>revisions: ::prost::alloc::vec::Vec&lt;Revision&gt;,
-    <span class="doccomment">/// A token to request the next page of resources from the &#39;ListRevisions&#39;
+    <span class="doccomment">/// A token to request the next page of resources from the 'ListRevisions'
     /// method. The value of an empty string means that there are no more resources
     /// to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
-<span class="doccomment">/// A request to get a Revision from a &#39;GetRevision&#39; call.
+<span class="doccomment">/// A request to get a Revision from a 'GetRevision' call.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetRevisionRequest {
     <span class="doccomment">/// Required. The name of the Revision in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}/revisions/{revision}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}/revisions/{revision}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateDeploymentRequest {
     <span class="doccomment">/// Required. The parent in whose context the Deployment is created. The parent
-    /// value is in the format: &#39;projects/{project_id}/locations/{location}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// value is in the format: 'projects/{project_id}/locations/{location}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Deployment ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>deployment_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. [Deployment][google.cloud.config.v1.Deployment] resource to be
     /// created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>deployment: ::core::option::Option&lt;Deployment&gt;,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -3101,7 +3102,7 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3113,14 +3114,14 @@
     /// The fields specified in the update_mask are relative to the resource, not
     /// the full request. A field will be overwritten if it is in the mask. If the
     /// user does not provide a mask then all fields will be overwritten.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. [Deployment][google.cloud.config.v1.Deployment] to update.
     ///
-    /// The deployment&#39;s `name` field is used to identify the resource to be
+    /// The deployment's `name` field is used to identify the resource to be
     /// updated. Format:
     /// `projects/{project}/locations/{location}/deployments/{deployment}`
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>deployment: ::core::option::Option&lt;Deployment&gt;,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -3135,15 +3136,15 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteDeploymentRequest {
     <span class="doccomment">/// Required. The name of the Deployment in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -3158,17 +3159,17 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set to true, any revisions for this deployment will also be
     /// deleted. (Otherwise, the request will only work if the deployment has no
     /// revisions.)
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>force: bool,
     <span class="doccomment">/// Optional. Policy on how resources actuated by the deployment should be
     /// deleted. If unspecified, the default behavior is to delete the underlying
     /// resources.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;delete_deployment_request::DeletePolicy&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"delete_deployment_request::DeletePolicy"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>delete_policy: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `DeleteDeploymentRequest`.
@@ -3199,19 +3200,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DeletePolicy::Unspecified =&gt; <span class="string">&quot;DELETE_POLICY_UNSPECIFIED&quot;</span>,
-                DeletePolicy::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
-                DeletePolicy::Abandon =&gt; <span class="string">&quot;ABANDON&quot;</span>,
+                DeletePolicy::Unspecified =&gt; <span class="string">"DELETE_POLICY_UNSPECIFIED"</span>,
+                DeletePolicy::Delete =&gt; <span class="string">"DELETE"</span>,
+                DeletePolicy::Abandon =&gt; <span class="string">"ABANDON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DELETE_POLICY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
-                <span class="string">&quot;ABANDON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Abandon),
+                <span class="string">"DELETE_POLICY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+                <span class="string">"ABANDON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Abandon),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3222,33 +3223,33 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. Time when the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation of the
     /// operation. Operations that have successfully been cancelled have
     /// [Operation.error][] value with a
     /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Ephemeral metadata about the state of an operation for a particular
     /// resource.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;operation_metadata::ResourceMetadata&quot;</span>, tags = <span class="string">&quot;8, 9&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"operation_metadata::ResourceMetadata"</span>, tags = <span class="string">"8, 9"</span>)]
     </span><span class="kw">pub </span>resource_metadata: ::core::option::Option&lt;operation_metadata::ResourceMetadata&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `OperationMetadata`.
@@ -3259,15 +3260,15 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ResourceMetadata {
         <span class="doccomment">/// Output only. Metadata about the deployment operation state.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>DeploymentMetadata(<span class="kw">super</span>::DeploymentOperationMetadata),
         <span class="doccomment">/// Output only. Metadata about the preview operation state.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>PreviewMetadata(<span class="kw">super</span>::PreviewOperationMetadata),
     }
 }
-<span class="doccomment">/// A child resource of a Deployment generated by a &#39;CreateDeployment&#39; or
-/// &#39;UpdateDeployment&#39; call. Each Revision contains metadata pertaining to a
+<span class="doccomment">/// A child resource of a Deployment generated by a 'CreateDeployment' or
+/// 'UpdateDeployment' call. Each Revision contains metadata pertaining to a
 /// snapshot of a particular Deployment.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3275,49 +3276,49 @@
     <span class="doccomment">/// Revision name. Format:
     /// `projects/{project}/locations/{location}/deployments/{deployment}/
     /// revisions/{revision}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Time when the revision was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when the revision was last modified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The action which created this revision
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;revision::Action&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"revision::Action"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>action: i32,
     <span class="doccomment">/// Output only. Current state of the revision.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;revision::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"revision::State"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Outputs and artifacts from applying a deployment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>apply_results: ::core::option::Option&lt;ApplyResults&gt;,
     <span class="doccomment">/// Output only. Additional info regarding the current state.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>state_detail: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Code describing any errors that may have occurred.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;revision::ErrorCode&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"revision::ErrorCode"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>error_code: i32,
     <span class="doccomment">/// Output only. Cloud Build instance UUID associated with this revision.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>build: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Location of Revision operation logs in
     /// `gs://{bucket}/{object}` format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>logs: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Errors encountered when creating or updating this deployment.
     /// Errors are truncated to 10 entries, see `delete_results` and `error_logs`
     /// for full details.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>tf_errors: ::prost::alloc::vec::Vec&lt;TerraformError&gt;,
     <span class="doccomment">/// Output only. Location of Terraform error logs in Google Cloud Storage.
     /// Format: `gs://{bucket}/{object}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>error_logs: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. User-specified Service Account (SA) to be used as credential
     /// to manage resources. Format:
     /// `projects/{projectID}/serviceAccounts/{serviceAccount}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. By default, Infra Manager will return a failure when
     /// Terraform encounters a 409 code (resource conflict error) during actuation.
@@ -3326,17 +3327,17 @@
     /// supported resource types) and continue actuation.
     ///
     /// Not all resource types are supported, refer to documentation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>import_existing_resources: bool,
     <span class="doccomment">/// Output only. The user-specified Cloud Build worker pool resource in which
     /// the Cloud Build job will execute. Format:
     /// `projects/{project}/locations/{location}/workerPools/{workerPoolId}`.
     /// If this field is unspecified, the default Cloud Build worker pool will be
     /// used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>worker_pool: ::prost::alloc::string::String,
     <span class="doccomment">/// Blueprint that was deployed.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;revision::Blueprint&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"revision::Blueprint"</span>, tags = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>blueprint: ::core::option::Option&lt;revision::Blueprint&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Revision`.
@@ -3369,21 +3370,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Action::Unspecified =&gt; <span class="string">&quot;ACTION_UNSPECIFIED&quot;</span>,
-                Action::Create =&gt; <span class="string">&quot;CREATE&quot;</span>,
-                Action::Update =&gt; <span class="string">&quot;UPDATE&quot;</span>,
-                Action::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
+                Action::Unspecified =&gt; <span class="string">"ACTION_UNSPECIFIED"</span>,
+                Action::Create =&gt; <span class="string">"CREATE"</span>,
+                Action::Update =&gt; <span class="string">"UPDATE"</span>,
+                Action::Delete =&gt; <span class="string">"DELETE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
-                <span class="string">&quot;UPDATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
-                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+                <span class="string">"ACTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
+                <span class="string">"UPDATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
+                <span class="string">"DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3416,21 +3417,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Applying =&gt; <span class="string">&quot;APPLYING&quot;</span>,
-                State::Applied =&gt; <span class="string">&quot;APPLIED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Applying =&gt; <span class="string">"APPLYING"</span>,
+                State::Applied =&gt; <span class="string">"APPLIED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;APPLYING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Applying),
-                <span class="string">&quot;APPLIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Applied),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"APPLYING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Applying),
+                <span class="string">"APPLIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Applied),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3465,21 +3466,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ErrorCode::Unspecified =&gt; <span class="string">&quot;ERROR_CODE_UNSPECIFIED&quot;</span>,
-                ErrorCode::CloudBuildPermissionDenied =&gt; <span class="string">&quot;CLOUD_BUILD_PERMISSION_DENIED&quot;</span>,
-                ErrorCode::ApplyBuildApiFailed =&gt; <span class="string">&quot;APPLY_BUILD_API_FAILED&quot;</span>,
-                ErrorCode::ApplyBuildRunFailed =&gt; <span class="string">&quot;APPLY_BUILD_RUN_FAILED&quot;</span>,
+                ErrorCode::Unspecified =&gt; <span class="string">"ERROR_CODE_UNSPECIFIED"</span>,
+                ErrorCode::CloudBuildPermissionDenied =&gt; <span class="string">"CLOUD_BUILD_PERMISSION_DENIED"</span>,
+                ErrorCode::ApplyBuildApiFailed =&gt; <span class="string">"APPLY_BUILD_API_FAILED"</span>,
+                ErrorCode::ApplyBuildRunFailed =&gt; <span class="string">"APPLY_BUILD_RUN_FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ERROR_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CLOUD_BUILD_PERMISSION_DENIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudBuildPermissionDenied),
-                <span class="string">&quot;APPLY_BUILD_API_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyBuildApiFailed),
-                <span class="string">&quot;APPLY_BUILD_RUN_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyBuildRunFailed),
+                <span class="string">"ERROR_CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CLOUD_BUILD_PERMISSION_DENIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudBuildPermissionDenied),
+                <span class="string">"APPLY_BUILD_API_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyBuildApiFailed),
+                <span class="string">"APPLY_BUILD_RUN_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ApplyBuildRunFailed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3488,9 +3489,9 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Blueprint {
-        <span class="doccomment">/// Output only. A blueprint described using Terraform&#39;s HashiCorp
+        <span class="doccomment">/// Output only. A blueprint described using Terraform's HashiCorp
         /// Configuration Language as a root module.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>TerraformBlueprint(<span class="kw">super</span>::TerraformBlueprint),
     }
 }
@@ -3500,18 +3501,18 @@
 </span><span class="kw">pub struct </span>TerraformError {
     <span class="doccomment">/// Address of the resource associated with the error,
     /// e.g. `google_compute_network.vpc_network`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource_address: ::prost::alloc::string::String,
     <span class="doccomment">/// HTTP response code returned from Google Cloud Platform APIs when Terraform
     /// fails to provision the resource. If unset or 0, no HTTP response code was
     /// returned by Terraform.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>http_response_code: i32,
     <span class="doccomment">/// A human-readable error description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>error_description: ::prost::alloc::string::String,
     <span class="doccomment">/// Original error response from underlying Google API, if available.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// A set of files in a Git repository.
@@ -3519,15 +3520,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GitSource {
     <span class="doccomment">/// Optional. Repository URL.
-    /// Example: &#39;&lt;https://github.com/kubernetes/examples.git&#39;&gt;
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Example: '&lt;https://github.com/kubernetes/examples.git'&gt;
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repo: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. Subdirectory inside the repository.
-    /// Example: &#39;staging/my-package&#39;
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// Example: 'staging/my-package'
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>directory: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. Git reference (e.g. branch or tag).
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>r#ref: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Ephemeral metadata content describing the state of a deployment operation.
@@ -3535,17 +3536,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeploymentOperationMetadata {
     <span class="doccomment">/// The current step the deployment operation is running.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;deployment_operation_metadata::DeploymentStep&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"deployment_operation_metadata::DeploymentStep"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>step: i32,
     <span class="doccomment">/// Outputs and artifacts from applying a deployment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>apply_results: ::core::option::Option&lt;ApplyResults&gt;,
     <span class="doccomment">/// Output only. Cloud Build instance UUID associated with this operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>build: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Location of Deployment operations logs in
     /// `gs://{bucket}/{object}` format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>logs: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `DeploymentOperationMetadata`.
@@ -3593,35 +3594,35 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DeploymentStep::Unspecified =&gt; <span class="string">&quot;DEPLOYMENT_STEP_UNSPECIFIED&quot;</span>,
-                DeploymentStep::PreparingStorageBucket =&gt; <span class="string">&quot;PREPARING_STORAGE_BUCKET&quot;</span>,
-                DeploymentStep::DownloadingBlueprint =&gt; <span class="string">&quot;DOWNLOADING_BLUEPRINT&quot;</span>,
-                DeploymentStep::RunningTfInit =&gt; <span class="string">&quot;RUNNING_TF_INIT&quot;</span>,
-                DeploymentStep::RunningTfPlan =&gt; <span class="string">&quot;RUNNING_TF_PLAN&quot;</span>,
-                DeploymentStep::RunningTfApply =&gt; <span class="string">&quot;RUNNING_TF_APPLY&quot;</span>,
-                DeploymentStep::RunningTfDestroy =&gt; <span class="string">&quot;RUNNING_TF_DESTROY&quot;</span>,
-                DeploymentStep::RunningTfValidate =&gt; <span class="string">&quot;RUNNING_TF_VALIDATE&quot;</span>,
-                DeploymentStep::UnlockingDeployment =&gt; <span class="string">&quot;UNLOCKING_DEPLOYMENT&quot;</span>,
-                DeploymentStep::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                DeploymentStep::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                DeploymentStep::Unspecified =&gt; <span class="string">"DEPLOYMENT_STEP_UNSPECIFIED"</span>,
+                DeploymentStep::PreparingStorageBucket =&gt; <span class="string">"PREPARING_STORAGE_BUCKET"</span>,
+                DeploymentStep::DownloadingBlueprint =&gt; <span class="string">"DOWNLOADING_BLUEPRINT"</span>,
+                DeploymentStep::RunningTfInit =&gt; <span class="string">"RUNNING_TF_INIT"</span>,
+                DeploymentStep::RunningTfPlan =&gt; <span class="string">"RUNNING_TF_PLAN"</span>,
+                DeploymentStep::RunningTfApply =&gt; <span class="string">"RUNNING_TF_APPLY"</span>,
+                DeploymentStep::RunningTfDestroy =&gt; <span class="string">"RUNNING_TF_DESTROY"</span>,
+                DeploymentStep::RunningTfValidate =&gt; <span class="string">"RUNNING_TF_VALIDATE"</span>,
+                DeploymentStep::UnlockingDeployment =&gt; <span class="string">"UNLOCKING_DEPLOYMENT"</span>,
+                DeploymentStep::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                DeploymentStep::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DEPLOYMENT_STEP_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PREPARING_STORAGE_BUCKET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreparingStorageBucket),
-                <span class="string">&quot;DOWNLOADING_BLUEPRINT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DownloadingBlueprint),
-                <span class="string">&quot;RUNNING_TF_INIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfInit),
-                <span class="string">&quot;RUNNING_TF_PLAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfPlan),
-                <span class="string">&quot;RUNNING_TF_APPLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfApply),
-                <span class="string">&quot;RUNNING_TF_DESTROY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfDestroy),
-                <span class="string">&quot;RUNNING_TF_VALIDATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfValidate),
-                <span class="string">&quot;UNLOCKING_DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnlockingDeployment),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"DEPLOYMENT_STEP_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PREPARING_STORAGE_BUCKET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreparingStorageBucket),
+                <span class="string">"DOWNLOADING_BLUEPRINT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DownloadingBlueprint),
+                <span class="string">"RUNNING_TF_INIT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfInit),
+                <span class="string">"RUNNING_TF_PLAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfPlan),
+                <span class="string">"RUNNING_TF_APPLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfApply),
+                <span class="string">"RUNNING_TF_DESTROY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfDestroy),
+                <span class="string">"RUNNING_TF_VALIDATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfValidate),
+                <span class="string">"UNLOCKING_DEPLOYMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnlockingDeployment),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3635,25 +3636,25 @@
     <span class="doccomment">/// Output only. Resource name.
     /// Format:
     /// `projects/{project}/locations/{location}/deployments/{deployment}/revisions/{revision}/resources/{resource}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Terraform-specific info if this resource was created using
     /// Terraform.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>terraform_info: ::core::option::Option&lt;ResourceTerraformInfo&gt;,
     <span class="doccomment">/// Output only. Map of Cloud Asset Inventory (CAI) type to CAI info (e.g. CAI
     /// ID). CAI type format follows
     /// &lt;https://cloud.google.com/asset-inventory/docs/supported-asset-types&gt;
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>cai_assets: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ResourceCaiInfo,
     &gt;,
     <span class="doccomment">/// Output only. Intent of the resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;resource::Intent&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"resource::Intent"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>intent: i32,
     <span class="doccomment">/// Output only. Current state of the resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;resource::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"resource::State"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Resource`.
@@ -3690,25 +3691,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Intent::Unspecified =&gt; <span class="string">&quot;INTENT_UNSPECIFIED&quot;</span>,
-                Intent::Create =&gt; <span class="string">&quot;CREATE&quot;</span>,
-                Intent::Update =&gt; <span class="string">&quot;UPDATE&quot;</span>,
-                Intent::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
-                Intent::Recreate =&gt; <span class="string">&quot;RECREATE&quot;</span>,
-                Intent::Unchanged =&gt; <span class="string">&quot;UNCHANGED&quot;</span>,
+                Intent::Unspecified =&gt; <span class="string">"INTENT_UNSPECIFIED"</span>,
+                Intent::Create =&gt; <span class="string">"CREATE"</span>,
+                Intent::Update =&gt; <span class="string">"UPDATE"</span>,
+                Intent::Delete =&gt; <span class="string">"DELETE"</span>,
+                Intent::Recreate =&gt; <span class="string">"RECREATE"</span>,
+                Intent::Unchanged =&gt; <span class="string">"UNCHANGED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;INTENT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
-                <span class="string">&quot;UPDATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
-                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
-                <span class="string">&quot;RECREATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Recreate),
-                <span class="string">&quot;UNCHANGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unchanged),
+                <span class="string">"INTENT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
+                <span class="string">"UPDATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Update),
+                <span class="string">"DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+                <span class="string">"RECREATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Recreate),
+                <span class="string">"UNCHANGED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unchanged),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3743,23 +3744,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Planned =&gt; <span class="string">&quot;PLANNED&quot;</span>,
-                State::InProgress =&gt; <span class="string">&quot;IN_PROGRESS&quot;</span>,
-                State::Reconciled =&gt; <span class="string">&quot;RECONCILED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Planned =&gt; <span class="string">"PLANNED"</span>,
+                State::InProgress =&gt; <span class="string">"IN_PROGRESS"</span>,
+                State::Reconciled =&gt; <span class="string">"RECONCILED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PLANNED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Planned),
-                <span class="string">&quot;IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgress),
-                <span class="string">&quot;RECONCILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reconciled),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PLANNED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Planned),
+                <span class="string">"IN_PROGRESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InProgress),
+                <span class="string">"RECONCILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reconciled),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3771,13 +3772,13 @@
 </span><span class="kw">pub struct </span>ResourceTerraformInfo {
     <span class="doccomment">/// TF resource address that uniquely identifies this resource within this
     /// deployment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>address: ::prost::alloc::string::String,
     <span class="doccomment">/// TF resource type
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
     <span class="doccomment">/// ID attribute of the TF resource
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// CAI info of a Resource.
@@ -3786,69 +3787,69 @@
 </span><span class="kw">pub struct </span>ResourceCaiInfo {
     <span class="doccomment">/// CAI resource name in the format following
     /// &lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>full_resource_name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// A request to get a Resource from a &#39;GetResource&#39; call.
+<span class="doccomment">/// A request to get a Resource from a 'GetResource' call.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetResourceRequest {
     <span class="doccomment">/// Required. The name of the Resource in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}/revisions/{revision}/resource/{resource}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}/revisions/{revision}/resource/{resource}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// A request to list Resources passed to a &#39;ListResources&#39; call.
+<span class="doccomment">/// A request to list Resources passed to a 'ListResources' call.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListResourcesRequest {
     <span class="doccomment">/// Required. The parent in whose context the Resources are listed. The parent
     /// value is in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}/revisions/{revision}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}/revisions/{revision}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// When requesting a page of resources, &#39;page_size&#39; specifies number of
+    <span class="doccomment">/// When requesting a page of resources, 'page_size' specifies number of
     /// resources to return. If unspecified or set to 0, all resources will be
     /// returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Token returned by previous call to &#39;ListResources&#39; which specifies the
+    <span class="doccomment">/// Token returned by previous call to 'ListResources' which specifies the
     /// position in the list from where to continue listing the resources.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Lists the Resources that match the filter expression. A filter
     /// expression filters the resources listed in the response. The expression
-    /// must be of the form &#39;{field} {operator} {value}&#39; where operators: &#39;&lt;&#39;, &#39;&gt;&#39;,
-    /// &#39;&lt;=&#39;,
-    /// &#39;&gt;=&#39;,
-    /// &#39;!=&#39;, &#39;=&#39;, &#39;:&#39; are supported (colon &#39;:&#39; represents a HAS operator which is
+    /// must be of the form '{field} {operator} {value}' where operators: '&lt;', '&gt;',
+    /// '&lt;=',
+    /// '&gt;=',
+    /// '!=', '=', ':' are supported (colon ':' represents a HAS operator which is
     /// roughly synonymous with equality). {field} can refer to a proto or JSON
     /// field, or a synthetic field. Field names can be camelCase or snake_case.
     ///
     /// Examples:
     /// - Filter by name:
     ///    name =
-    ///    &quot;projects/foo/locations/us-central1/deployments/dep/revisions/bar/resources/baz
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    ///    "projects/foo/locations/us-central1/deployments/dep/revisions/bar/resources/baz
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Field to use to sort the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// A response to a &#39;ListResources&#39; call. Contains a list of Resources.
+<span class="doccomment">/// A response to a 'ListResources' call. Contains a list of Resources.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListResourcesResponse {
     <span class="doccomment">/// List of [Resources][]s.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resources: ::prost::alloc::vec::Vec&lt;Resource&gt;,
-    <span class="doccomment">/// A token to request the next page of resources from the &#39;ListResources&#39;
+    <span class="doccomment">/// A token to request the next page of resources from the 'ListResources'
     /// method. The value of an empty string means that there are no more resources
     /// to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Contains info about a Terraform state file
@@ -3857,94 +3858,94 @@
 </span><span class="kw">pub struct </span>Statefile {
     <span class="doccomment">/// Output only. Cloud Storage signed URI used for downloading or uploading the
     /// state file.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>signed_uri: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// A request to export a state file passed to a &#39;ExportDeploymentStatefile&#39;
+<span class="doccomment">/// A request to export a state file passed to a 'ExportDeploymentStatefile'
 /// call.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExportDeploymentStatefileRequest {
     <span class="doccomment">/// Required. The parent in whose context the statefile is listed. The parent
     /// value is in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If this flag is set to true, the exported deployment state file
     /// will be the draft state. This will enable the draft file to be validated
     /// before copying it over to the working state on unlock.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>draft: bool,
 }
-<span class="doccomment">/// A request to export a state file passed to a &#39;ExportRevisionStatefile&#39;
+<span class="doccomment">/// A request to export a state file passed to a 'ExportRevisionStatefile'
 /// call.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExportRevisionStatefileRequest {
     <span class="doccomment">/// Required. The parent in whose context the statefile is listed. The parent
     /// value is in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}/revisions/{revision}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}/revisions/{revision}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// A request to import a state file passed to a &#39;ImportStatefile&#39; call.
+<span class="doccomment">/// A request to import a state file passed to a 'ImportStatefile' call.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportStatefileRequest {
     <span class="doccomment">/// Required. The parent in whose context the statefile is listed. The parent
     /// value is in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Lock ID of the lock file to verify that the user who is importing
     /// the state file previously locked the Deployment.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>lock_id: i64,
     <span class="doccomment">/// Optional.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>skip_draft: bool,
 }
-<span class="doccomment">/// A request to delete a state file passed to a &#39;DeleteStatefile&#39; call.
+<span class="doccomment">/// A request to delete a state file passed to a 'DeleteStatefile' call.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteStatefileRequest {
     <span class="doccomment">/// Required. The name of the deployment in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Lock ID of the lock file to verify that the user who is deleting
     /// the state file previously locked the Deployment.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>lock_id: i64,
 }
-<span class="doccomment">/// A request to lock a deployment passed to a &#39;LockDeployment&#39; call.
+<span class="doccomment">/// A request to lock a deployment passed to a 'LockDeployment' call.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LockDeploymentRequest {
     <span class="doccomment">/// Required. The name of the deployment in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// A request to unlock a state file passed to a &#39;UnlockDeployment&#39; call.
+<span class="doccomment">/// A request to unlock a state file passed to a 'UnlockDeployment' call.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UnlockDeploymentRequest {
     <span class="doccomment">/// Required. The name of the deployment in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Lock ID of the lock file to be unlocked.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>lock_id: i64,
 }
-<span class="doccomment">/// A request to get a state file lock info passed to a &#39;ExportLockInfo&#39; call.
+<span class="doccomment">/// A request to get a state file lock info passed to a 'ExportLockInfo' call.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExportLockInfoRequest {
     <span class="doccomment">/// Required. The name of the deployment in the format:
-    /// &#39;projects/{project_id}/locations/{location}/deployments/{deployment}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/deployments/{deployment}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Details about the lock which locked the deployment.
@@ -3952,22 +3953,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LockInfo {
     <span class="doccomment">/// Unique ID for the lock to be overridden with generation ID in the backend.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>lock_id: i64,
     <span class="doccomment">/// Terraform operation, provided by the caller.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>operation: ::prost::alloc::string::String,
     <span class="doccomment">/// Extra information to store with the lock, provided by the caller.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>info: ::prost::alloc::string::String,
     <span class="doccomment">/// user@hostname when available
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>who: ::prost::alloc::string::String,
     <span class="doccomment">/// Terraform version
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// Time that the lock was taken.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// A preview represents a set of actions Infra Manager would perform
@@ -3979,33 +3980,33 @@
     <span class="doccomment">/// Identifier. Resource name of the preview. Resource name can be user
     /// provided or server generated ID if unspecified. Format:
     /// `projects/{project}/locations/{location}/previews/{preview}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Time the preview was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. User-defined labels for the preview.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. Current state of the preview.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;preview::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"preview::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Optional. Optional deployment reference. If specified, the preview will be
-    /// performed using the provided deployment&#39;s current state and use any
+    /// performed using the provided deployment's current state and use any
     /// relevant fields from the deployment unless explicitly specified in the
     /// preview create request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>deployment: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Current mode of preview.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;preview::PreviewMode&quot;</span>, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"preview::PreviewMode"</span>, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>preview_mode: i32,
     <span class="doccomment">/// Optional. Optional service account. If omitted, the deployment resource
     /// reference must be provided, and the service account attached to the
     /// deployment will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. User-defined location of Cloud Build logs, artifacts, and
     /// in Google Cloud Storage.
@@ -4017,7 +4018,7 @@
     /// - The path cannot be within the path of `gcs_source`
     /// If omitted and deployment resource ref provided has artifacts_gcs_bucket
     /// defined, that artifact bucket is used.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>artifacts_gcs_bucket: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. The user-specified Worker Pool resource in which the Cloud Build
     /// job will execute. Format
@@ -4025,34 +4026,34 @@
     /// field is unspecified, the default Cloud Build worker pool will be used. If
     /// omitted and deployment resource ref provided has worker_pool defined, that
     /// worker pool is used.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>worker_pool: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. Code describing any errors that may have occurred.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;preview::ErrorCode&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"preview::ErrorCode"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>error_code: i32,
     <span class="doccomment">/// Output only. Additional information regarding the current state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>error_status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Output only. Cloud Build instance UUID associated with this preview.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>build: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Summary of errors encountered during Terraform preview.
     /// It has a size limit of 10, i.e. only top 10 errors will be summarized here.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>tf_errors: ::prost::alloc::vec::Vec&lt;TerraformError&gt;,
     <span class="doccomment">/// Output only. Link to tf-error.ndjson file, which contains the full list of
     /// the errors encountered during a Terraform preview.
     /// Format: `gs://{bucket}/{object}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>error_logs: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Artifacts from preview.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>preview_artifacts: ::core::option::Option&lt;PreviewArtifacts&gt;,
     <span class="doccomment">/// Output only. Location of preview logs in `gs://{bucket}/{object}` format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>logs: ::prost::alloc::string::String,
     <span class="doccomment">/// Blueprint to preview.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;preview::Blueprint&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"preview::Blueprint"</span>, tags = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>blueprint: ::core::option::Option&lt;preview::Blueprint&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Preview`.
@@ -4094,29 +4095,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Applying =&gt; <span class="string">&quot;APPLYING&quot;</span>,
-                State::Stale =&gt; <span class="string">&quot;STALE&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Deleted =&gt; <span class="string">&quot;DELETED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Applying =&gt; <span class="string">"APPLYING"</span>,
+                State::Stale =&gt; <span class="string">"STALE"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Deleted =&gt; <span class="string">"DELETED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;APPLYING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Applying),
-                <span class="string">&quot;STALE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stale),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"APPLYING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Applying),
+                <span class="string">"STALE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stale),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4148,19 +4149,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                PreviewMode::Unspecified =&gt; <span class="string">&quot;PREVIEW_MODE_UNSPECIFIED&quot;</span>,
-                PreviewMode::Default =&gt; <span class="string">&quot;DEFAULT&quot;</span>,
-                PreviewMode::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
+                PreviewMode::Unspecified =&gt; <span class="string">"PREVIEW_MODE_UNSPECIFIED"</span>,
+                PreviewMode::Default =&gt; <span class="string">"DEFAULT"</span>,
+                PreviewMode::Delete =&gt; <span class="string">"DELETE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PREVIEW_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DEFAULT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Default),
-                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+                <span class="string">"PREVIEW_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DEFAULT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Default),
+                <span class="string">"DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4199,35 +4200,35 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ErrorCode::Unspecified =&gt; <span class="string">&quot;ERROR_CODE_UNSPECIFIED&quot;</span>,
-                ErrorCode::CloudBuildPermissionDenied =&gt; <span class="string">&quot;CLOUD_BUILD_PERMISSION_DENIED&quot;</span>,
+                ErrorCode::Unspecified =&gt; <span class="string">"ERROR_CODE_UNSPECIFIED"</span>,
+                ErrorCode::CloudBuildPermissionDenied =&gt; <span class="string">"CLOUD_BUILD_PERMISSION_DENIED"</span>,
                 ErrorCode::BucketCreationPermissionDenied =&gt; {
-                    <span class="string">&quot;BUCKET_CREATION_PERMISSION_DENIED&quot;
+                    <span class="string">"BUCKET_CREATION_PERMISSION_DENIED"
                 </span>}
-                ErrorCode::BucketCreationFailed =&gt; <span class="string">&quot;BUCKET_CREATION_FAILED&quot;</span>,
+                ErrorCode::BucketCreationFailed =&gt; <span class="string">"BUCKET_CREATION_FAILED"</span>,
                 ErrorCode::DeploymentLockAcquireFailed =&gt; {
-                    <span class="string">&quot;DEPLOYMENT_LOCK_ACQUIRE_FAILED&quot;
+                    <span class="string">"DEPLOYMENT_LOCK_ACQUIRE_FAILED"
                 </span>}
-                ErrorCode::PreviewBuildApiFailed =&gt; <span class="string">&quot;PREVIEW_BUILD_API_FAILED&quot;</span>,
-                ErrorCode::PreviewBuildRunFailed =&gt; <span class="string">&quot;PREVIEW_BUILD_RUN_FAILED&quot;</span>,
+                ErrorCode::PreviewBuildApiFailed =&gt; <span class="string">"PREVIEW_BUILD_API_FAILED"</span>,
+                ErrorCode::PreviewBuildRunFailed =&gt; <span class="string">"PREVIEW_BUILD_RUN_FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ERROR_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CLOUD_BUILD_PERMISSION_DENIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudBuildPermissionDenied),
-                <span class="string">&quot;BUCKET_CREATION_PERMISSION_DENIED&quot; </span>=&gt; {
+                <span class="string">"ERROR_CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CLOUD_BUILD_PERMISSION_DENIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudBuildPermissionDenied),
+                <span class="string">"BUCKET_CREATION_PERMISSION_DENIED" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::BucketCreationPermissionDenied)
                 }
-                <span class="string">&quot;BUCKET_CREATION_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BucketCreationFailed),
-                <span class="string">&quot;DEPLOYMENT_LOCK_ACQUIRE_FAILED&quot; </span>=&gt; {
+                <span class="string">"BUCKET_CREATION_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BucketCreationFailed),
+                <span class="string">"DEPLOYMENT_LOCK_ACQUIRE_FAILED" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeploymentLockAcquireFailed)
                 }
-                <span class="string">&quot;PREVIEW_BUILD_API_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreviewBuildApiFailed),
-                <span class="string">&quot;PREVIEW_BUILD_RUN_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreviewBuildRunFailed),
+                <span class="string">"PREVIEW_BUILD_API_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreviewBuildApiFailed),
+                <span class="string">"PREVIEW_BUILD_RUN_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreviewBuildRunFailed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4237,7 +4238,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Blueprint {
         <span class="doccomment">/// The terraform blueprint to preview.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>TerraformBlueprint(<span class="kw">super</span>::TerraformBlueprint),
     }
 }
@@ -4246,16 +4247,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PreviewOperationMetadata {
     <span class="doccomment">/// The current step the preview operation is running.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;preview_operation_metadata::PreviewStep&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"preview_operation_metadata::PreviewStep"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>step: i32,
     <span class="doccomment">/// Artifacts from preview.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>preview_artifacts: ::core::option::Option&lt;PreviewArtifacts&gt;,
     <span class="doccomment">/// Output only. Location of preview logs in `gs://{bucket}/{object}` format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>logs: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Cloud Build instance UUID associated with this preview.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>build: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `PreviewOperationMetadata`.
@@ -4301,33 +4302,33 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                PreviewStep::Unspecified =&gt; <span class="string">&quot;PREVIEW_STEP_UNSPECIFIED&quot;</span>,
-                PreviewStep::PreparingStorageBucket =&gt; <span class="string">&quot;PREPARING_STORAGE_BUCKET&quot;</span>,
-                PreviewStep::DownloadingBlueprint =&gt; <span class="string">&quot;DOWNLOADING_BLUEPRINT&quot;</span>,
-                PreviewStep::RunningTfInit =&gt; <span class="string">&quot;RUNNING_TF_INIT&quot;</span>,
-                PreviewStep::RunningTfPlan =&gt; <span class="string">&quot;RUNNING_TF_PLAN&quot;</span>,
-                PreviewStep::FetchingDeployment =&gt; <span class="string">&quot;FETCHING_DEPLOYMENT&quot;</span>,
-                PreviewStep::LockingDeployment =&gt; <span class="string">&quot;LOCKING_DEPLOYMENT&quot;</span>,
-                PreviewStep::UnlockingDeployment =&gt; <span class="string">&quot;UNLOCKING_DEPLOYMENT&quot;</span>,
-                PreviewStep::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                PreviewStep::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                PreviewStep::Unspecified =&gt; <span class="string">"PREVIEW_STEP_UNSPECIFIED"</span>,
+                PreviewStep::PreparingStorageBucket =&gt; <span class="string">"PREPARING_STORAGE_BUCKET"</span>,
+                PreviewStep::DownloadingBlueprint =&gt; <span class="string">"DOWNLOADING_BLUEPRINT"</span>,
+                PreviewStep::RunningTfInit =&gt; <span class="string">"RUNNING_TF_INIT"</span>,
+                PreviewStep::RunningTfPlan =&gt; <span class="string">"RUNNING_TF_PLAN"</span>,
+                PreviewStep::FetchingDeployment =&gt; <span class="string">"FETCHING_DEPLOYMENT"</span>,
+                PreviewStep::LockingDeployment =&gt; <span class="string">"LOCKING_DEPLOYMENT"</span>,
+                PreviewStep::UnlockingDeployment =&gt; <span class="string">"UNLOCKING_DEPLOYMENT"</span>,
+                PreviewStep::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                PreviewStep::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PREVIEW_STEP_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PREPARING_STORAGE_BUCKET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreparingStorageBucket),
-                <span class="string">&quot;DOWNLOADING_BLUEPRINT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DownloadingBlueprint),
-                <span class="string">&quot;RUNNING_TF_INIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfInit),
-                <span class="string">&quot;RUNNING_TF_PLAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfPlan),
-                <span class="string">&quot;FETCHING_DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FetchingDeployment),
-                <span class="string">&quot;LOCKING_DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LockingDeployment),
-                <span class="string">&quot;UNLOCKING_DEPLOYMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnlockingDeployment),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"PREVIEW_STEP_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PREPARING_STORAGE_BUCKET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreparingStorageBucket),
+                <span class="string">"DOWNLOADING_BLUEPRINT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DownloadingBlueprint),
+                <span class="string">"RUNNING_TF_INIT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfInit),
+                <span class="string">"RUNNING_TF_PLAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RunningTfPlan),
+                <span class="string">"FETCHING_DEPLOYMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FetchingDeployment),
+                <span class="string">"LOCKING_DEPLOYMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LockingDeployment),
+                <span class="string">"UNLOCKING_DEPLOYMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnlockingDeployment),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4339,11 +4340,11 @@
 </span><span class="kw">pub struct </span>PreviewArtifacts {
     <span class="doccomment">/// Output only. Location of a blueprint copy and other content in Google Cloud
     /// Storage. Format: `gs://{bucket}/{object}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Location of artifacts in Google Cloud Storage.
     /// Format: `gs://{bucket}/{object}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>artifacts: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to create a preview.
@@ -4351,14 +4352,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreatePreviewRequest {
     <span class="doccomment">/// Required. The parent in whose context the Preview is created. The parent
-    /// value is in the format: &#39;projects/{project_id}/locations/{location}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// value is in the format: 'projects/{project_id}/locations/{location}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The preview ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>preview_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. [Preview][google.cloud.config.v1.Preview] resource to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>preview: ::core::option::Option&lt;Preview&gt;,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -4373,7 +4374,7 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to get details about a preview.
@@ -4381,8 +4382,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetPreviewRequest {
     <span class="doccomment">/// Required. The name of the preview. Format:
-    /// &#39;projects/{project_id}/locations/{location}/previews/{preview}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/previews/{preview}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to list all previews for a given project and location.
@@ -4390,44 +4391,44 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPreviewsRequest {
     <span class="doccomment">/// Required. The parent in whose context the Previews are listed. The parent
-    /// value is in the format: &#39;projects/{project_id}/locations/{location}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// value is in the format: 'projects/{project_id}/locations/{location}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. When requesting a page of resources, &#39;page_size&#39; specifies number
+    <span class="doccomment">/// Optional. When requesting a page of resources, 'page_size' specifies number
     /// of resources to return. If unspecified or set to 0, all resources will be
     /// returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// Optional. Token returned by previous call to &#39;ListDeployments&#39; which
+    <span class="doccomment">/// Optional. Token returned by previous call to 'ListDeployments' which
     /// specifies the position in the list from where to continue listing the
     /// resources.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Lists the Deployments that match the filter expression. A filter
     /// expression filters the resources listed in the response. The expression
-    /// must be of the form &#39;{field} {operator} {value}&#39; where operators: &#39;&lt;&#39;, &#39;&gt;&#39;,
-    /// &#39;&lt;=&#39;, &#39;&gt;=&#39;, &#39;!=&#39;, &#39;=&#39;, &#39;:&#39; are supported (colon &#39;:&#39; represents a HAS
+    /// must be of the form '{field} {operator} {value}' where operators: '&lt;', '&gt;',
+    /// '&lt;=', '&gt;=', '!=', '=', ':' are supported (colon ':' represents a HAS
     /// operator which is roughly synonymous with equality). {field} can refer to a
     /// proto or JSON field, or a synthetic field. Field names can be camelCase or
     /// snake_case.
     ///
     /// Examples:
     /// - Filter by name:
-    ///    name = &quot;projects/foo/locations/us-central1/deployments/bar
+    ///    name = "projects/foo/locations/us-central1/deployments/bar
     ///
     /// - Filter by labels:
-    ///    - Resources that have a key called &#39;foo&#39;
+    ///    - Resources that have a key called 'foo'
     ///      labels.foo:*
-    ///    - Resources that have a key called &#39;foo&#39; whose value is &#39;bar&#39;
+    ///    - Resources that have a key called 'foo' whose value is 'bar'
     ///      labels.foo = bar
     ///
     /// - Filter by state:
     ///    - Deployments in CREATING state.
     ///      state=CREATING
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Field to use to sort the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A response to a `ListPreviews` call. Contains a list of Previews.
@@ -4435,14 +4436,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPreviewsResponse {
     <span class="doccomment">/// List of [Previews][]s.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>previews: ::prost::alloc::vec::Vec&lt;Preview&gt;,
     <span class="doccomment">/// Token to be supplied to the next ListPreviews request via `page_token`
     /// to obtain the next set of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A request to delete a preview.
@@ -4450,8 +4451,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeletePreviewRequest {
     <span class="doccomment">/// Required. The name of the Preview in the format:
-    /// &#39;projects/{project_id}/locations/{location}/previews/{preview}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/previews/{preview}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -4466,7 +4467,7 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to export preview results.
@@ -4475,8 +4476,8 @@
 </span><span class="kw">pub struct </span>ExportPreviewResultRequest {
     <span class="doccomment">/// Required. The preview whose results should be exported. The preview value
     /// is in the format:
-    /// &#39;projects/{project_id}/locations/{location}/previews/{preview}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{project_id}/locations/{location}/previews/{preview}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A response to `ExportPreviewResult` call. Contains preview results.
@@ -4484,7 +4485,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExportPreviewResultResponse {
     <span class="doccomment">/// Output only. Signed URLs for accessing the plan files.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>result: ::core::option::Option&lt;PreviewResult&gt;,
 }
 <span class="doccomment">/// Contains a signed Cloud Storage URLs.
@@ -4492,10 +4493,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PreviewResult {
     <span class="doccomment">/// Output only. Plan binary signed URL
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>binary_signed_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Plan JSON signed URL
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>json_signed_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -4513,7 +4514,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4589,17 +4590,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/ListDeployments&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/ListDeployments"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;ListDeployments&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"ListDeployments"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4614,17 +4615,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/GetDeployment&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/GetDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;GetDeployment&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"GetDeployment"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4642,17 +4643,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/CreateDeployment&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/CreateDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;CreateDeployment&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"CreateDeployment"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4670,17 +4671,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/UpdateDeployment&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/UpdateDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;UpdateDeployment&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"UpdateDeployment"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4698,17 +4699,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/DeleteDeployment&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/DeleteDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;DeleteDeployment&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"DeleteDeployment"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4726,17 +4727,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/ListRevisions&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/ListRevisions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;ListRevisions&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"ListRevisions"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4751,16 +4752,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/GetRevision&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/GetRevision"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;GetRevision&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"GetRevision"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Gets details about a [Resource][google.cloud.config.v1.Resource] deployed
@@ -4775,16 +4776,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/GetResource&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/GetResource"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;GetResource&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"GetResource"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Lists [Resource][google.cloud.config.v1.Resource]s in a given revision.
@@ -4801,17 +4802,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/ListResources&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/ListResources"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;ListResources&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"ListResources"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4826,19 +4827,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/ExportDeploymentStatefile&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/ExportDeploymentStatefile"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.config.v1.Config&quot;</span>,
-                        <span class="string">&quot;ExportDeploymentStatefile&quot;</span>,
+                        <span class="string">"google.cloud.config.v1.Config"</span>,
+                        <span class="string">"ExportDeploymentStatefile"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4854,19 +4855,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/ExportRevisionStatefile&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/ExportRevisionStatefile"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.config.v1.Config&quot;</span>,
-                        <span class="string">&quot;ExportRevisionStatefile&quot;</span>,
+                        <span class="string">"google.cloud.config.v1.Config"</span>,
+                        <span class="string">"ExportRevisionStatefile"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4883,17 +4884,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/ImportStatefile&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/ImportStatefile"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;ImportStatefile&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"ImportStatefile"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4908,17 +4909,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/DeleteStatefile&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/DeleteStatefile"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;DeleteStatefile&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"DeleteStatefile"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4936,17 +4937,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/LockDeployment&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/LockDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;LockDeployment&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"LockDeployment"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4964,17 +4965,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/UnlockDeployment&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/UnlockDeployment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;UnlockDeployment&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"UnlockDeployment"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -4989,17 +4990,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/ExportLockInfo&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/ExportLockInfo"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;ExportLockInfo&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"ExportLockInfo"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -5017,17 +5018,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/CreatePreview&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/CreatePreview"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;CreatePreview&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"CreatePreview"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -5042,16 +5043,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/GetPreview&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/GetPreview"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;GetPreview&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"GetPreview"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Lists [Preview][google.cloud.config.v1.Preview]s in a given project and
@@ -5069,17 +5070,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/ListPreviews&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/ListPreviews"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;ListPreviews&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"ListPreviews"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -5097,17 +5098,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/DeletePreview&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/DeletePreview"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.config.v1.Config&quot;</span>, <span class="string">&quot;DeletePreview&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.config.v1.Config"</span>, <span class="string">"DeletePreview"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -5125,19 +5126,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.config.v1.Config/ExportPreviewResult&quot;</span>,
+                <span class="string">"/google.cloud.config.v1.Config/ExportPreviewResult"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.config.v1.Config&quot;</span>,
-                        <span class="string">&quot;ExportPreviewResult&quot;</span>,
+                        <span class="string">"google.cloud.config.v1.Config"</span>,
+                        <span class="string">"ExportPreviewResult"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

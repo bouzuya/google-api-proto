@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/networkanalyzer/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/networkanalyzer/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -542,7 +543,7 @@
 </pre></div><pre class="rust"><code><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>IpUtilizationInfo {
-    <span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>subnet_ip_utilization: ::prost::alloc::vec::Vec&lt;
         ip_utilization_info::SubnetIpUtilization,
     &gt;,
@@ -553,17 +554,17 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>SubnetIpUtilization {
         <span class="doccomment">/// URI of subnet.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>subnet_uri: ::prost::alloc::string::String,
         <span class="doccomment">/// Secondary range name. If the range is the primary range of the subnet,
         /// this field is empty.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>secondary_range_name: ::prost::alloc::string::String,
         <span class="doccomment">/// Total number of usable IP addresses in the IP range.
-        </span><span class="attr">#[prost(uint64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(uint64, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>total_usable_addresses: u64,
         <span class="doccomment">/// The ratio of allocated IP addresses from the total usable addresses.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>allocation_ratio: f64,
     }
 }
@@ -572,40 +573,40 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Report {
     <span class="doccomment">/// The unique identifier of the report.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Priority of the report.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;report::Priority&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"report::Priority"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>priority: i32,
     <span class="doccomment">/// Type of the report.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;report::Type&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"report::Type"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Status of the report.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;report::ReportStatus&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"report::ReportStatus"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>status: i32,
     <span class="doccomment">/// The timestamp when the report was first discovered by Network Analyzer.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>first_report_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Cause code of the report.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ReportCauseCode&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ReportCauseCode"</span>, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>cause_code: i32,
     <span class="doccomment">/// The resource that are reported with the report.
     /// Contains the fully qualified resource name.
     /// e.g.,
     /// `//compute.googleapis.com/projects/{project_id}/global/networks/{network}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Location associated with the report. It can be global or GCP regions
     /// and zones. e.g., &lt;https://cloud.google.com/compute/docs/regions-zones/&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
     <span class="doccomment">/// URI to the documentation of the report.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>report_documentation_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// The groups of the report. One report may be present in multiple groups.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;report::ReportGroup&quot;</span>, repeated, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"report::ReportGroup"</span>, repeated, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>report_groups: ::prost::alloc::vec::Vec&lt;i32&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;report::Content&quot;</span>, tags = <span class="string">&quot;19&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"report::Content"</span>, tags = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>content: ::core::option::Option&lt;report::Content&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Report`.
@@ -635,23 +636,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Priority::SeverityUnspecified =&gt; <span class="string">&quot;SEVERITY_UNSPECIFIED&quot;</span>,
-                Priority::Critical =&gt; <span class="string">&quot;CRITICAL&quot;</span>,
-                Priority::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
-                Priority::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
-                Priority::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
+                Priority::SeverityUnspecified =&gt; <span class="string">"SEVERITY_UNSPECIFIED"</span>,
+                Priority::Critical =&gt; <span class="string">"CRITICAL"</span>,
+                Priority::High =&gt; <span class="string">"HIGH"</span>,
+                Priority::Medium =&gt; <span class="string">"MEDIUM"</span>,
+                Priority::Low =&gt; <span class="string">"LOW"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SEVERITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeverityUnspecified),
-                <span class="string">&quot;CRITICAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
-                <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
-                <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-                <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+                <span class="string">"SEVERITY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeverityUnspecified),
+                <span class="string">"CRITICAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
+                <span class="string">"HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+                <span class="string">"MEDIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+                <span class="string">"LOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -680,21 +681,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::ReportTypeUnspecified =&gt; <span class="string">&quot;REPORT_TYPE_UNSPECIFIED&quot;</span>,
-                Type::Info =&gt; <span class="string">&quot;INFO&quot;</span>,
-                Type::Warning =&gt; <span class="string">&quot;WARNING&quot;</span>,
-                Type::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+                Type::ReportTypeUnspecified =&gt; <span class="string">"REPORT_TYPE_UNSPECIFIED"</span>,
+                Type::Info =&gt; <span class="string">"INFO"</span>,
+                Type::Warning =&gt; <span class="string">"WARNING"</span>,
+                Type::Error =&gt; <span class="string">"ERROR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;REPORT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReportTypeUnspecified),
-                <span class="string">&quot;INFO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Info),
-                <span class="string">&quot;WARNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"REPORT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReportTypeUnspecified),
+                <span class="string">"INFO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Info),
+                <span class="string">"WARNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -723,21 +724,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ReportStatus::Unspecified =&gt; <span class="string">&quot;REPORT_STATUS_UNSPECIFIED&quot;</span>,
-                ReportStatus::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                ReportStatus::Fixed =&gt; <span class="string">&quot;FIXED&quot;</span>,
-                ReportStatus::Dismissed =&gt; <span class="string">&quot;DISMISSED&quot;</span>,
+                ReportStatus::Unspecified =&gt; <span class="string">"REPORT_STATUS_UNSPECIFIED"</span>,
+                ReportStatus::Active =&gt; <span class="string">"ACTIVE"</span>,
+                ReportStatus::Fixed =&gt; <span class="string">"FIXED"</span>,
+                ReportStatus::Dismissed =&gt; <span class="string">"DISMISSED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;REPORT_STATUS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;FIXED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Fixed),
-                <span class="string">&quot;DISMISSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dismissed),
+                <span class="string">"REPORT_STATUS_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"FIXED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Fixed),
+                <span class="string">"DISMISSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dismissed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -768,25 +769,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ReportGroup::CategoryUnspecified =&gt; <span class="string">&quot;CATEGORY_UNSPECIFIED&quot;</span>,
-                ReportGroup::VpcNetwork =&gt; <span class="string">&quot;VPC_NETWORK&quot;</span>,
-                ReportGroup::NetworkServices =&gt; <span class="string">&quot;NETWORK_SERVICES&quot;</span>,
-                ReportGroup::KubernetesEngine =&gt; <span class="string">&quot;KUBERNETES_ENGINE&quot;</span>,
-                ReportGroup::HybridConnectivity =&gt; <span class="string">&quot;HYBRID_CONNECTIVITY&quot;</span>,
-                ReportGroup::ManagedServices =&gt; <span class="string">&quot;MANAGED_SERVICES&quot;</span>,
+                ReportGroup::CategoryUnspecified =&gt; <span class="string">"CATEGORY_UNSPECIFIED"</span>,
+                ReportGroup::VpcNetwork =&gt; <span class="string">"VPC_NETWORK"</span>,
+                ReportGroup::NetworkServices =&gt; <span class="string">"NETWORK_SERVICES"</span>,
+                ReportGroup::KubernetesEngine =&gt; <span class="string">"KUBERNETES_ENGINE"</span>,
+                ReportGroup::HybridConnectivity =&gt; <span class="string">"HYBRID_CONNECTIVITY"</span>,
+                ReportGroup::ManagedServices =&gt; <span class="string">"MANAGED_SERVICES"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CategoryUnspecified),
-                <span class="string">&quot;VPC_NETWORK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcNetwork),
-                <span class="string">&quot;NETWORK_SERVICES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NetworkServices),
-                <span class="string">&quot;KUBERNETES_ENGINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KubernetesEngine),
-                <span class="string">&quot;HYBRID_CONNECTIVITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HybridConnectivity),
-                <span class="string">&quot;MANAGED_SERVICES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ManagedServices),
+                <span class="string">"CATEGORY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CategoryUnspecified),
+                <span class="string">"VPC_NETWORK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcNetwork),
+                <span class="string">"NETWORK_SERVICES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NetworkServices),
+                <span class="string">"KUBERNETES_ENGINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KubernetesEngine),
+                <span class="string">"HYBRID_CONNECTIVITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HybridConnectivity),
+                <span class="string">"MANAGED_SERVICES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ManagedServices),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -794,7 +795,7 @@
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Content {
-        <span class="attr">#[prost(message, tag = <span class="string">&quot;19&quot;</span>)]
+        <span class="attr">#[prost(message, tag = <span class="string">"19"</span>)]
         </span>IpUtilizationInfo(<span class="kw">super</span>::IpUtilizationInfo),
     }
 }
@@ -849,229 +850,229 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ReportCauseCode::Unspecified =&gt; <span class="string">&quot;REPORT_CAUSE_CODE_UNSPECIFIED&quot;</span>,
+            ReportCauseCode::Unspecified =&gt; <span class="string">"REPORT_CAUSE_CODE_UNSPECIFIED"</span>,
             ReportCauseCode::RouteInvalidNextHopVmIpForwardingDisabled =&gt; {
-                <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_VM_IP_FORWARDING_DISABLED&quot;
+                <span class="string">"ROUTE_INVALID_NEXT_HOP_VM_IP_FORWARDING_DISABLED"
             </span>}
             ReportCauseCode::RouteInvalidNextHopVmDeleted =&gt; {
-                <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_VM_DELETED&quot;
+                <span class="string">"ROUTE_INVALID_NEXT_HOP_VM_DELETED"
             </span>}
             ReportCauseCode::RouteInvalidNextHopVmStopped =&gt; {
-                <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_VM_STOPPED&quot;
+                <span class="string">"ROUTE_INVALID_NEXT_HOP_VM_STOPPED"
             </span>}
             ReportCauseCode::RouteInvalidNextHopIlbMisconfigured =&gt; {
-                <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_ILB_MISCONFIGURED&quot;
+                <span class="string">"ROUTE_INVALID_NEXT_HOP_ILB_MISCONFIGURED"
             </span>}
             ReportCauseCode::RouteInvalidNextHopVpnTunnelDeleted =&gt; {
-                <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_VPN_TUNNEL_DELETED&quot;
+                <span class="string">"ROUTE_INVALID_NEXT_HOP_VPN_TUNNEL_DELETED"
             </span>}
             ReportCauseCode::RouteInvalidNextHopIlbBackendIpForwardingDisabled =&gt; {
-                <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_ILB_BACKEND_IP_FORWARDING_DISABLED&quot;
+                <span class="string">"ROUTE_INVALID_NEXT_HOP_ILB_BACKEND_IP_FORWARDING_DISABLED"
             </span>}
             ReportCauseCode::IpUtilizationIpAllocationRatioHigh =&gt; {
-                <span class="string">&quot;IP_UTILIZATION_IP_ALLOCATION_RATIO_HIGH&quot;
+                <span class="string">"IP_UTILIZATION_IP_ALLOCATION_RATIO_HIGH"
             </span>}
             ReportCauseCode::IpUtilizationIpAllocationSummary =&gt; {
-                <span class="string">&quot;IP_UTILIZATION_IP_ALLOCATION_SUMMARY&quot;
+                <span class="string">"IP_UTILIZATION_IP_ALLOCATION_SUMMARY"
             </span>}
             ReportCauseCode::GkeNodeToControlPlaneBlockedByRoutingIssue =&gt; {
-                <span class="string">&quot;GKE_NODE_TO_CONTROL_PLANE_BLOCKED_BY_ROUTING_ISSUE&quot;
+                <span class="string">"GKE_NODE_TO_CONTROL_PLANE_BLOCKED_BY_ROUTING_ISSUE"
             </span>}
             ReportCauseCode::GkeNodeToControlPlanePublicEndpointBlockedByEgressFirewall =&gt; {
-                <span class="string">&quot;GKE_NODE_TO_CONTROL_PLANE_PUBLIC_ENDPOINT_BLOCKED_BY_EGRESS_FIREWALL&quot;
+                <span class="string">"GKE_NODE_TO_CONTROL_PLANE_PUBLIC_ENDPOINT_BLOCKED_BY_EGRESS_FIREWALL"
             </span>}
             ReportCauseCode::GkeNodeToControlPlanePrivateEndpointBlockedByEgressFirewall =&gt; {
-                <span class="string">&quot;GKE_NODE_TO_CONTROL_PLANE_PRIVATE_ENDPOINT_BLOCKED_BY_EGRESS_FIREWALL&quot;
+                <span class="string">"GKE_NODE_TO_CONTROL_PLANE_PRIVATE_ENDPOINT_BLOCKED_BY_EGRESS_FIREWALL"
             </span>}
             ReportCauseCode::GkeControlPlaneToNodeBlockedByRoutingIssue =&gt; {
-                <span class="string">&quot;GKE_CONTROL_PLANE_TO_NODE_BLOCKED_BY_ROUTING_ISSUE&quot;
+                <span class="string">"GKE_CONTROL_PLANE_TO_NODE_BLOCKED_BY_ROUTING_ISSUE"
             </span>}
             ReportCauseCode::GkeControlPlaneToNodeBlockedByIngressFirewallOnNode =&gt; {
-                <span class="string">&quot;GKE_CONTROL_PLANE_TO_NODE_BLOCKED_BY_INGRESS_FIREWALL_ON_NODE&quot;
+                <span class="string">"GKE_CONTROL_PLANE_TO_NODE_BLOCKED_BY_INGRESS_FIREWALL_ON_NODE"
             </span>}
             ReportCauseCode::GkeIpUtilizationPodRangesAllocationHigh =&gt; {
-                <span class="string">&quot;GKE_IP_UTILIZATION_POD_RANGES_ALLOCATION_HIGH&quot;
+                <span class="string">"GKE_IP_UTILIZATION_POD_RANGES_ALLOCATION_HIGH"
             </span>}
             ReportCauseCode::GkeIpUtilizationPodRangesAllocationLimitesAutoscaling =&gt; {
-                <span class="string">&quot;GKE_IP_UTILIZATION_POD_RANGES_ALLOCATION_LIMITES_AUTOSCALING&quot;
+                <span class="string">"GKE_IP_UTILIZATION_POD_RANGES_ALLOCATION_LIMITES_AUTOSCALING"
             </span>}
             ReportCauseCode::GkeNodeServiceAccountServiceAccountDisabled =&gt; {
-                <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_SERVICE_ACCOUNT_DISABLED&quot;
+                <span class="string">"GKE_NODE_SERVICE_ACCOUNT_SERVICE_ACCOUNT_DISABLED"
             </span>}
             ReportCauseCode::GkeNodeServiceAccountDefaultServiceAccountUsed =&gt; {
-                <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_DEFAULT_SERVICE_ACCOUNT_USED&quot;
+                <span class="string">"GKE_NODE_SERVICE_ACCOUNT_DEFAULT_SERVICE_ACCOUNT_USED"
             </span>}
             ReportCauseCode::GkeNodeServiceAccountBadOauthScopes =&gt; {
-                <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_BAD_OAUTH_SCOPES&quot;
+                <span class="string">"GKE_NODE_SERVICE_ACCOUNT_BAD_OAUTH_SCOPES"
             </span>}
             ReportCauseCode::CloudSqlPrivateIpBlockedByEgressFirewall =&gt; {
-                <span class="string">&quot;CLOUD_SQL_PRIVATE_IP_BLOCKED_BY_EGRESS_FIREWALL&quot;
+                <span class="string">"CLOUD_SQL_PRIVATE_IP_BLOCKED_BY_EGRESS_FIREWALL"
             </span>}
             ReportCauseCode::CloudSqlPrivateIpBlockedByRoutingIssue =&gt; {
-                <span class="string">&quot;CLOUD_SQL_PRIVATE_IP_BLOCKED_BY_ROUTING_ISSUE&quot;
+                <span class="string">"CLOUD_SQL_PRIVATE_IP_BLOCKED_BY_ROUTING_ISSUE"
             </span>}
             ReportCauseCode::CloudSqlPrivateIpInstanceNotRunning =&gt; {
-                <span class="string">&quot;CLOUD_SQL_PRIVATE_IP_INSTANCE_NOT_RUNNING&quot;
+                <span class="string">"CLOUD_SQL_PRIVATE_IP_INSTANCE_NOT_RUNNING"
             </span>}
             ReportCauseCode::DynamicRouteShadowedFullyShadowedBySubnetRoute =&gt; {
-                <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_SUBNET_ROUTE&quot;
+                <span class="string">"DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_SUBNET_ROUTE"
             </span>}
             ReportCauseCode::DynamicRouteShadowedFullyShadowedByPeeringSubnetRoute =&gt; {
-                <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_PEERING_SUBNET_ROUTE&quot;
+                <span class="string">"DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_PEERING_SUBNET_ROUTE"
             </span>}
             ReportCauseCode::DynamicRouteShadowedFullyShadowedByStaticRoute =&gt; {
-                <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_STATIC_ROUTE&quot;
+                <span class="string">"DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_STATIC_ROUTE"
             </span>}
             ReportCauseCode::DynamicRouteShadowedFullyShadowedByPeeringStaticRoute =&gt; {
-                <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_PEERING_STATIC_ROUTE&quot;
+                <span class="string">"DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_PEERING_STATIC_ROUTE"
             </span>}
             ReportCauseCode::DynamicRouteShadowedPartiallyShadowedBySubnetRoute =&gt; {
-                <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_SUBNET_ROUTE&quot;
+                <span class="string">"DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_SUBNET_ROUTE"
             </span>}
             ReportCauseCode::DynamicRouteShadowedPartiallyShadowedByPeeringSubnetRoute =&gt; {
-                <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_PEERING_SUBNET_ROUTE&quot;
+                <span class="string">"DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_PEERING_SUBNET_ROUTE"
             </span>}
             ReportCauseCode::DynamicRouteShadowedPartiallyShadowedByStaticRoute =&gt; {
-                <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_STATIC_ROUTE&quot;
+                <span class="string">"DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_STATIC_ROUTE"
             </span>}
             ReportCauseCode::DynamicRouteShadowedPartiallyShadowedByPeeringStaticRoute =&gt; {
-                <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_PEERING_STATIC_ROUTE&quot;
+                <span class="string">"DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_PEERING_STATIC_ROUTE"
             </span>}
             ReportCauseCode::LoadBalancerHealthCheckFirewallHealthCheckFirewallNotConfigured =&gt; {
-                <span class="string">&quot;LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_FIREWALL_NOT_CONFIGURED&quot;
+                <span class="string">"LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_FIREWALL_NOT_CONFIGURED"
             </span>}
             ReportCauseCode::LoadBalancerHealthCheckFirewallHealthCheckRangeBlocked =&gt; {
-                <span class="string">&quot;LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_RANGE_BLOCKED&quot;
+                <span class="string">"LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_RANGE_BLOCKED"
             </span>}
             ReportCauseCode::LoadBalancerHealthCheckFirewallFirewallConfigInconsistent =&gt; {
-                <span class="string">&quot;LOAD_BALANCER_HEALTH_CHECK_FIREWALL_FIREWALL_CONFIG_INCONSISTENT&quot;
+                <span class="string">"LOAD_BALANCER_HEALTH_CHECK_FIREWALL_FIREWALL_CONFIG_INCONSISTENT"
             </span>}
             ReportCauseCode::LoadBalancerHealthCheckFirewallHealthCheckRangePartiallyBlocked =&gt; {
-                <span class="string">&quot;LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_RANGE_PARTIALLY_BLOCKED&quot;
+                <span class="string">"LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_RANGE_PARTIALLY_BLOCKED"
             </span>}
             ReportCauseCode::LoadBalancerBestPracticesBackendServiceBalancingModeBreaksSessionAffinity =&gt; {
-                <span class="string">&quot;LOAD_BALANCER_BEST_PRACTICES_BACKEND_SERVICE_BALANCING_MODE_BREAKS_SESSION_AFFINITY&quot;
+                <span class="string">"LOAD_BALANCER_BEST_PRACTICES_BACKEND_SERVICE_BALANCING_MODE_BREAKS_SESSION_AFFINITY"
             </span>}
             ReportCauseCode::LoadBalancerBestPracticesBackendServiceHealthCheckPortMismatch =&gt; {
-                <span class="string">&quot;LOAD_BALANCER_BEST_PRACTICES_BACKEND_SERVICE_HEALTH_CHECK_PORT_MISMATCH&quot;
+                <span class="string">"LOAD_BALANCER_BEST_PRACTICES_BACKEND_SERVICE_HEALTH_CHECK_PORT_MISMATCH"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;REPORT_CAUSE_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_VM_IP_FORWARDING_DISABLED&quot; </span>=&gt; {
+            <span class="string">"REPORT_CAUSE_CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"ROUTE_INVALID_NEXT_HOP_VM_IP_FORWARDING_DISABLED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::RouteInvalidNextHopVmIpForwardingDisabled)
             }
-            <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_VM_DELETED&quot; </span>=&gt; {
+            <span class="string">"ROUTE_INVALID_NEXT_HOP_VM_DELETED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::RouteInvalidNextHopVmDeleted)
             }
-            <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_VM_STOPPED&quot; </span>=&gt; {
+            <span class="string">"ROUTE_INVALID_NEXT_HOP_VM_STOPPED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::RouteInvalidNextHopVmStopped)
             }
-            <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_ILB_MISCONFIGURED&quot; </span>=&gt; {
+            <span class="string">"ROUTE_INVALID_NEXT_HOP_ILB_MISCONFIGURED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::RouteInvalidNextHopIlbMisconfigured)
             }
-            <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_VPN_TUNNEL_DELETED&quot; </span>=&gt; {
+            <span class="string">"ROUTE_INVALID_NEXT_HOP_VPN_TUNNEL_DELETED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::RouteInvalidNextHopVpnTunnelDeleted)
             }
-            <span class="string">&quot;ROUTE_INVALID_NEXT_HOP_ILB_BACKEND_IP_FORWARDING_DISABLED&quot; </span>=&gt; {
+            <span class="string">"ROUTE_INVALID_NEXT_HOP_ILB_BACKEND_IP_FORWARDING_DISABLED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::RouteInvalidNextHopIlbBackendIpForwardingDisabled)
             }
-            <span class="string">&quot;IP_UTILIZATION_IP_ALLOCATION_RATIO_HIGH&quot; </span>=&gt; {
+            <span class="string">"IP_UTILIZATION_IP_ALLOCATION_RATIO_HIGH" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::IpUtilizationIpAllocationRatioHigh)
             }
-            <span class="string">&quot;IP_UTILIZATION_IP_ALLOCATION_SUMMARY&quot; </span>=&gt; {
+            <span class="string">"IP_UTILIZATION_IP_ALLOCATION_SUMMARY" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::IpUtilizationIpAllocationSummary)
             }
-            <span class="string">&quot;GKE_NODE_TO_CONTROL_PLANE_BLOCKED_BY_ROUTING_ISSUE&quot; </span>=&gt; {
+            <span class="string">"GKE_NODE_TO_CONTROL_PLANE_BLOCKED_BY_ROUTING_ISSUE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeNodeToControlPlaneBlockedByRoutingIssue)
             }
-            <span class="string">&quot;GKE_NODE_TO_CONTROL_PLANE_PUBLIC_ENDPOINT_BLOCKED_BY_EGRESS_FIREWALL&quot; </span>=&gt; {
+            <span class="string">"GKE_NODE_TO_CONTROL_PLANE_PUBLIC_ENDPOINT_BLOCKED_BY_EGRESS_FIREWALL" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeNodeToControlPlanePublicEndpointBlockedByEgressFirewall)
             }
-            <span class="string">&quot;GKE_NODE_TO_CONTROL_PLANE_PRIVATE_ENDPOINT_BLOCKED_BY_EGRESS_FIREWALL&quot; </span>=&gt; {
+            <span class="string">"GKE_NODE_TO_CONTROL_PLANE_PRIVATE_ENDPOINT_BLOCKED_BY_EGRESS_FIREWALL" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeNodeToControlPlanePrivateEndpointBlockedByEgressFirewall)
             }
-            <span class="string">&quot;GKE_CONTROL_PLANE_TO_NODE_BLOCKED_BY_ROUTING_ISSUE&quot; </span>=&gt; {
+            <span class="string">"GKE_CONTROL_PLANE_TO_NODE_BLOCKED_BY_ROUTING_ISSUE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeControlPlaneToNodeBlockedByRoutingIssue)
             }
-            <span class="string">&quot;GKE_CONTROL_PLANE_TO_NODE_BLOCKED_BY_INGRESS_FIREWALL_ON_NODE&quot; </span>=&gt; {
+            <span class="string">"GKE_CONTROL_PLANE_TO_NODE_BLOCKED_BY_INGRESS_FIREWALL_ON_NODE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeControlPlaneToNodeBlockedByIngressFirewallOnNode)
             }
-            <span class="string">&quot;GKE_IP_UTILIZATION_POD_RANGES_ALLOCATION_HIGH&quot; </span>=&gt; {
+            <span class="string">"GKE_IP_UTILIZATION_POD_RANGES_ALLOCATION_HIGH" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeIpUtilizationPodRangesAllocationHigh)
             }
-            <span class="string">&quot;GKE_IP_UTILIZATION_POD_RANGES_ALLOCATION_LIMITES_AUTOSCALING&quot; </span>=&gt; {
+            <span class="string">"GKE_IP_UTILIZATION_POD_RANGES_ALLOCATION_LIMITES_AUTOSCALING" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeIpUtilizationPodRangesAllocationLimitesAutoscaling)
             }
-            <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_SERVICE_ACCOUNT_DISABLED&quot; </span>=&gt; {
+            <span class="string">"GKE_NODE_SERVICE_ACCOUNT_SERVICE_ACCOUNT_DISABLED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeNodeServiceAccountServiceAccountDisabled)
             }
-            <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_DEFAULT_SERVICE_ACCOUNT_USED&quot; </span>=&gt; {
+            <span class="string">"GKE_NODE_SERVICE_ACCOUNT_DEFAULT_SERVICE_ACCOUNT_USED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeNodeServiceAccountDefaultServiceAccountUsed)
             }
-            <span class="string">&quot;GKE_NODE_SERVICE_ACCOUNT_BAD_OAUTH_SCOPES&quot; </span>=&gt; {
+            <span class="string">"GKE_NODE_SERVICE_ACCOUNT_BAD_OAUTH_SCOPES" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::GkeNodeServiceAccountBadOauthScopes)
             }
-            <span class="string">&quot;CLOUD_SQL_PRIVATE_IP_BLOCKED_BY_EGRESS_FIREWALL&quot; </span>=&gt; {
+            <span class="string">"CLOUD_SQL_PRIVATE_IP_BLOCKED_BY_EGRESS_FIREWALL" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudSqlPrivateIpBlockedByEgressFirewall)
             }
-            <span class="string">&quot;CLOUD_SQL_PRIVATE_IP_BLOCKED_BY_ROUTING_ISSUE&quot; </span>=&gt; {
+            <span class="string">"CLOUD_SQL_PRIVATE_IP_BLOCKED_BY_ROUTING_ISSUE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudSqlPrivateIpBlockedByRoutingIssue)
             }
-            <span class="string">&quot;CLOUD_SQL_PRIVATE_IP_INSTANCE_NOT_RUNNING&quot; </span>=&gt; {
+            <span class="string">"CLOUD_SQL_PRIVATE_IP_INSTANCE_NOT_RUNNING" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudSqlPrivateIpInstanceNotRunning)
             }
-            <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_SUBNET_ROUTE&quot; </span>=&gt; {
+            <span class="string">"DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_SUBNET_ROUTE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::DynamicRouteShadowedFullyShadowedBySubnetRoute)
             }
-            <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_PEERING_SUBNET_ROUTE&quot; </span>=&gt; {
+            <span class="string">"DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_PEERING_SUBNET_ROUTE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::DynamicRouteShadowedFullyShadowedByPeeringSubnetRoute)
             }
-            <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_STATIC_ROUTE&quot; </span>=&gt; {
+            <span class="string">"DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_STATIC_ROUTE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::DynamicRouteShadowedFullyShadowedByStaticRoute)
             }
-            <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_PEERING_STATIC_ROUTE&quot; </span>=&gt; {
+            <span class="string">"DYNAMIC_ROUTE_SHADOWED_FULLY_SHADOWED_BY_PEERING_STATIC_ROUTE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::DynamicRouteShadowedFullyShadowedByPeeringStaticRoute)
             }
-            <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_SUBNET_ROUTE&quot; </span>=&gt; {
+            <span class="string">"DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_SUBNET_ROUTE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::DynamicRouteShadowedPartiallyShadowedBySubnetRoute)
             }
-            <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_PEERING_SUBNET_ROUTE&quot; </span>=&gt; {
+            <span class="string">"DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_PEERING_SUBNET_ROUTE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::DynamicRouteShadowedPartiallyShadowedByPeeringSubnetRoute)
             }
-            <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_STATIC_ROUTE&quot; </span>=&gt; {
+            <span class="string">"DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_STATIC_ROUTE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::DynamicRouteShadowedPartiallyShadowedByStaticRoute)
             }
-            <span class="string">&quot;DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_PEERING_STATIC_ROUTE&quot; </span>=&gt; {
+            <span class="string">"DYNAMIC_ROUTE_SHADOWED_PARTIALLY_SHADOWED_BY_PEERING_STATIC_ROUTE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::DynamicRouteShadowedPartiallyShadowedByPeeringStaticRoute)
             }
-            <span class="string">&quot;LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_FIREWALL_NOT_CONFIGURED&quot; </span>=&gt; {
+            <span class="string">"LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_FIREWALL_NOT_CONFIGURED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(
                     <span class="self">Self</span>::LoadBalancerHealthCheckFirewallHealthCheckFirewallNotConfigured,
                 )
             }
-            <span class="string">&quot;LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_RANGE_BLOCKED&quot; </span>=&gt; {
+            <span class="string">"LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_RANGE_BLOCKED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::LoadBalancerHealthCheckFirewallHealthCheckRangeBlocked)
             }
-            <span class="string">&quot;LOAD_BALANCER_HEALTH_CHECK_FIREWALL_FIREWALL_CONFIG_INCONSISTENT&quot; </span>=&gt; {
+            <span class="string">"LOAD_BALANCER_HEALTH_CHECK_FIREWALL_FIREWALL_CONFIG_INCONSISTENT" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::LoadBalancerHealthCheckFirewallFirewallConfigInconsistent)
             }
-            <span class="string">&quot;LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_RANGE_PARTIALLY_BLOCKED&quot; </span>=&gt; {
+            <span class="string">"LOAD_BALANCER_HEALTH_CHECK_FIREWALL_HEALTH_CHECK_RANGE_PARTIALLY_BLOCKED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(
                     <span class="self">Self</span>::LoadBalancerHealthCheckFirewallHealthCheckRangePartiallyBlocked,
                 )
             }
-            <span class="string">&quot;LOAD_BALANCER_BEST_PRACTICES_BACKEND_SERVICE_BALANCING_MODE_BREAKS_SESSION_AFFINITY&quot; </span>=&gt; {
+            <span class="string">"LOAD_BALANCER_BEST_PRACTICES_BACKEND_SERVICE_BALANCING_MODE_BREAKS_SESSION_AFFINITY" </span>=&gt; {
                 <span class="prelude-val">Some</span>(
                     <span class="self">Self</span>::LoadBalancerBestPracticesBackendServiceBalancingModeBreaksSessionAffinity,
                 )
             }
-            <span class="string">&quot;LOAD_BALANCER_BEST_PRACTICES_BACKEND_SERVICE_HEALTH_CHECK_PORT_MISMATCH&quot; </span>=&gt; {
+            <span class="string">"LOAD_BALANCER_BEST_PRACTICES_BACKEND_SERVICE_HEALTH_CHECK_PORT_MISMATCH" </span>=&gt; {
                 <span class="prelude-val">Some</span>(
                     <span class="self">Self</span>::LoadBalancerBestPracticesBackendServiceHealthCheckPortMismatch,
                 )

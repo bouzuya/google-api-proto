@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -761,714 +762,714 @@
 <a href="#761" id="761">761</a>
 <a href="#762" id="762">762</a>
 <a href="#763" id="763">763</a>
-</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-accessapproval-v1&quot;</span>))]
+</pre></div><pre class="rust"><code><span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-accessapproval-v1"</span>))]
 </span><span class="kw">pub mod </span>accessapproval;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-advisorynotifications-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-advisorynotifications-v1"</span>))]
 </span><span class="kw">pub mod </span>advisorynotifications;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-aiplatform-logging&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1-schema-predict-instance&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1-schema-predict-params&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1-schema-predict-prediction&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1-schema-trainingjob-definition&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema-predict-instance&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema-predict-params&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema-predict-prediction&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema-trainingjob-definition&quot;</span>,
+        feature = <span class="string">"google-cloud-aiplatform-logging"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1-schema-predict-instance"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1-schema-predict-params"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1-schema-predict-prediction"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1-schema-trainingjob-definition"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1beta1-schema"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1beta1-schema-predict-instance"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1beta1-schema-predict-params"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1beta1-schema-predict-prediction"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1beta1-schema-trainingjob-definition"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>aiplatform;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-alloydb-connectors-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-alloydb-connectors-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-alloydb-connectors-v1beta&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-alloydb-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-alloydb-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-alloydb-v1beta&quot;</span>,
+        feature = <span class="string">"google-cloud-alloydb-connectors-v1"</span>,
+        feature = <span class="string">"google-cloud-alloydb-connectors-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-alloydb-connectors-v1beta"</span>,
+        feature = <span class="string">"google-cloud-alloydb-v1"</span>,
+        feature = <span class="string">"google-cloud-alloydb-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-alloydb-v1beta"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>alloydb;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-apigateway-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-apigateway-v1"</span>))]
 </span><span class="kw">pub mod </span>apigateway;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-apigeeconnect-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-apigeeconnect-v1"</span>))]
 </span><span class="kw">pub mod </span>apigeeconnect;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-apigeeregistry-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-apigeeregistry-v1"</span>))]
 </span><span class="kw">pub mod </span>apigeeregistry;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-asset-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-asset-v1p1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-asset-v1p2beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-asset-v1p5beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-asset-v1p7beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-asset-v1"</span>,
+        feature = <span class="string">"google-cloud-asset-v1p1beta1"</span>,
+        feature = <span class="string">"google-cloud-asset-v1p2beta1"</span>,
+        feature = <span class="string">"google-cloud-asset-v1p5beta1"</span>,
+        feature = <span class="string">"google-cloud-asset-v1p7beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>asset;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-assuredworkloads-regulatoryintercept-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-assuredworkloads-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-assuredworkloads-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-assuredworkloads-regulatoryintercept-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-assuredworkloads-v1"</span>,
+        feature = <span class="string">"google-cloud-assuredworkloads-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>assuredworkloads;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-audit&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-audit"</span>))]
 </span><span class="kw">pub mod </span>audit;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-automl-v1&quot;</span>, feature = <span class="string">&quot;google-cloud-automl-v1beta1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-automl-v1"</span>, feature = <span class="string">"google-cloud-automl-v1beta1"</span>))]
 </span><span class="kw">pub mod </span>automl;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-backupdr-logging-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-backupdr-logging-v1"</span>))]
 </span><span class="kw">pub mod </span>backupdr;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-baremetalsolution-v2&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-baremetalsolution-v2"</span>))]
 </span><span class="kw">pub mod </span>baremetalsolution;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-batch-v1&quot;</span>, feature = <span class="string">&quot;google-cloud-batch-v1alpha&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-batch-v1"</span>, feature = <span class="string">"google-cloud-batch-v1alpha"</span>))]
 </span><span class="kw">pub mod </span>batch;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-beyondcorp-appconnections-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-beyondcorp-appconnectors-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-beyondcorp-appgateways-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-beyondcorp-clientconnectorservices-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-beyondcorp-clientgateways-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-beyondcorp-appconnections-v1"</span>,
+        feature = <span class="string">"google-cloud-beyondcorp-appconnectors-v1"</span>,
+        feature = <span class="string">"google-cloud-beyondcorp-appgateways-v1"</span>,
+        feature = <span class="string">"google-cloud-beyondcorp-clientconnectorservices-v1"</span>,
+        feature = <span class="string">"google-cloud-beyondcorp-clientgateways-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>beyondcorp;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-bigquery-analyticshub-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-biglake-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-biglake-v1alpha1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-connection-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-connection-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-dataexchange-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-datapolicies-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-datapolicies-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-datatransfer-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-migration-v2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-migration-v2alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-reservation-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-storage-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-storage-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-bigquery-storage-v1beta2&quot;</span>,
+        feature = <span class="string">"google-cloud-bigquery-analyticshub-v1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-biglake-v1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-biglake-v1alpha1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-connection-v1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-connection-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-dataexchange-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-datapolicies-v1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-datapolicies-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-datatransfer-v1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-migration-v2"</span>,
+        feature = <span class="string">"google-cloud-bigquery-migration-v2alpha"</span>,
+        feature = <span class="string">"google-cloud-bigquery-reservation-v1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-storage-v1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-storage-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-bigquery-storage-v1beta2"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>bigquery;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-billing-budgets-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-billing-budgets-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-billing-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-billing-budgets-v1"</span>,
+        feature = <span class="string">"google-cloud-billing-budgets-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-billing-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>billing;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-binaryauthorization-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-binaryauthorization-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-binaryauthorization-v1"</span>,
+        feature = <span class="string">"google-cloud-binaryauthorization-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>binaryauthorization;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-certificatemanager-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-certificatemanager-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-certificatemanager-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-certificatemanager-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>certificatemanager;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-channel-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-channel-v1"</span>))]
 </span><span class="kw">pub mod </span>channel;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-clouddms-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-clouddms-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-clouddms-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-clouddms-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>clouddms;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-cloudsetup-logging-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-cloudsetup-logging-v1"</span>))]
 </span><span class="kw">pub mod </span>cloudsetup;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-commerce-consumer-procurement-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-commerce-consumer-procurement-v1alpha1&quot;</span>,
+        feature = <span class="string">"google-cloud-commerce-consumer-procurement-v1"</span>,
+        feature = <span class="string">"google-cloud-commerce-consumer-procurement-v1alpha1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>commerce;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-common&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-common"</span>))]
 </span><span class="kw">pub mod </span>common;
 <span class="attr">#[cfg(
-    any(feature = <span class="string">&quot;google-cloud-compute-v1&quot;</span>, feature = <span class="string">&quot;google-cloud-compute-v1small&quot;</span>)
+    any(feature = <span class="string">"google-cloud-compute-v1"</span>, feature = <span class="string">"google-cloud-compute-v1small"</span>)
 )]
 </span><span class="kw">pub mod </span>compute;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-confidentialcomputing-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-confidentialcomputing-v1alpha1&quot;</span>,
+        feature = <span class="string">"google-cloud-confidentialcomputing-v1"</span>,
+        feature = <span class="string">"google-cloud-confidentialcomputing-v1alpha1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>confidentialcomputing;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-config-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-config-v1"</span>))]
 </span><span class="kw">pub mod </span>config;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-connectors-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-connectors-v1"</span>))]
 </span><span class="kw">pub mod </span>connectors;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-contactcenterinsights-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-contactcenterinsights-v1"</span>))]
 </span><span class="kw">pub mod </span>contactcenterinsights;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-contentwarehouse-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-contentwarehouse-v1"</span>))]
 </span><span class="kw">pub mod </span>contentwarehouse;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-datacatalog-lineage-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-datacatalog-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-datacatalog-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-datacatalog-lineage-v1"</span>,
+        feature = <span class="string">"google-cloud-datacatalog-v1"</span>,
+        feature = <span class="string">"google-cloud-datacatalog-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>datacatalog;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-dataform-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-dataform-v1alpha2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-dataform-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-dataform-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-dataform-v1alpha2"</span>,
+        feature = <span class="string">"google-cloud-dataform-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>dataform;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-datafusion-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-datafusion-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-datafusion-v1"</span>,
+        feature = <span class="string">"google-cloud-datafusion-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>datafusion;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-datalabeling-v1beta1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-datalabeling-v1beta1"</span>))]
 </span><span class="kw">pub mod </span>datalabeling;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-datapipelines-logging-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-datapipelines-logging-v1"</span>))]
 </span><span class="kw">pub mod </span>datapipelines;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-dataplex-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-dataplex-v1"</span>))]
 </span><span class="kw">pub mod </span>dataplex;
 <span class="attr">#[cfg(
-    any(feature = <span class="string">&quot;google-cloud-dataproc-logging&quot;</span>, feature = <span class="string">&quot;google-cloud-dataproc-v1&quot;</span>)
+    any(feature = <span class="string">"google-cloud-dataproc-logging"</span>, feature = <span class="string">"google-cloud-dataproc-v1"</span>)
 )]
 </span><span class="kw">pub mod </span>dataproc;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-dataqna-v1alpha&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-dataqna-v1alpha"</span>))]
 </span><span class="kw">pub mod </span>dataqna;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-datastream-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-datastream-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-datastream-v1alpha1&quot;</span>,
+        feature = <span class="string">"google-cloud-datastream-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-datastream-v1"</span>,
+        feature = <span class="string">"google-cloud-datastream-v1alpha1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>datastream;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-deploy-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-deploy-v1"</span>))]
 </span><span class="kw">pub mod </span>deploy;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-dialogflow-cx-v3&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-dialogflow-cx-v3beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-dialogflow-v2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-dialogflow-v2beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-dialogflow-cx-v3"</span>,
+        feature = <span class="string">"google-cloud-dialogflow-cx-v3beta1"</span>,
+        feature = <span class="string">"google-cloud-dialogflow-v2"</span>,
+        feature = <span class="string">"google-cloud-dialogflow-v2beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>dialogflow;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-discoveryengine-logging&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-discoveryengine-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-discoveryengine-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-discoveryengine-v1beta&quot;</span>,
+        feature = <span class="string">"google-cloud-discoveryengine-logging"</span>,
+        feature = <span class="string">"google-cloud-discoveryengine-v1"</span>,
+        feature = <span class="string">"google-cloud-discoveryengine-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-discoveryengine-v1beta"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>discoveryengine;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-documentai-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-documentai-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-documentai-v1beta2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-documentai-v1beta3&quot;</span>,
+        feature = <span class="string">"google-cloud-documentai-v1"</span>,
+        feature = <span class="string">"google-cloud-documentai-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-documentai-v1beta2"</span>,
+        feature = <span class="string">"google-cloud-documentai-v1beta3"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>documentai;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-domains-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-domains-v1alpha2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-domains-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-domains-v1"</span>,
+        feature = <span class="string">"google-cloud-domains-v1alpha2"</span>,
+        feature = <span class="string">"google-cloud-domains-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>domains;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-edgecontainer-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-edgecontainer-v1"</span>))]
 </span><span class="kw">pub mod </span>edgecontainer;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-edgenetwork-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-edgenetwork-v1"</span>))]
 </span><span class="kw">pub mod </span>edgenetwork;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-enterpriseknowledgegraph-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-enterpriseknowledgegraph-v1"</span>))]
 </span><span class="kw">pub mod </span>enterpriseknowledgegraph;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-essentialcontacts-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-essentialcontacts-v1"</span>))]
 </span><span class="kw">pub mod </span>essentialcontacts;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-eventarc-publishing-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-eventarc-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-eventarc-publishing-v1"</span>,
+        feature = <span class="string">"google-cloud-eventarc-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>eventarc;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-filestore-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-filestore-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-filestore-v1"</span>,
+        feature = <span class="string">"google-cloud-filestore-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>filestore;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-functions-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-functions-v2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-functions-v2alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-functions-v2beta&quot;</span>,
+        feature = <span class="string">"google-cloud-functions-v1"</span>,
+        feature = <span class="string">"google-cloud-functions-v2"</span>,
+        feature = <span class="string">"google-cloud-functions-v2alpha"</span>,
+        feature = <span class="string">"google-cloud-functions-v2beta"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>functions;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-gkebackup-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkebackup-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-gkebackup-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-gkebackup-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>gkebackup;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-gkeconnect-gateway-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkeconnect-gateway-v1alpha1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkeconnect-gateway-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-gkeconnect-gateway-v1"</span>,
+        feature = <span class="string">"google-cloud-gkeconnect-gateway-v1alpha1"</span>,
+        feature = <span class="string">"google-cloud-gkeconnect-gateway-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>gkeconnect;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-gkehub-cloudauditlogging-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-configmanagement-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-configmanagement-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-configmanagement-v1beta&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-metering-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-metering-v1beta&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-multiclusteringress-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-multiclusteringress-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-multiclusteringress-v1beta&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-servicemesh-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-v1alpha2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-v1beta&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gkehub-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-gkehub-cloudauditlogging-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-gkehub-configmanagement-v1"</span>,
+        feature = <span class="string">"google-cloud-gkehub-configmanagement-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-gkehub-configmanagement-v1beta"</span>,
+        feature = <span class="string">"google-cloud-gkehub-metering-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-gkehub-metering-v1beta"</span>,
+        feature = <span class="string">"google-cloud-gkehub-multiclusteringress-v1"</span>,
+        feature = <span class="string">"google-cloud-gkehub-multiclusteringress-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-gkehub-multiclusteringress-v1beta"</span>,
+        feature = <span class="string">"google-cloud-gkehub-servicemesh-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-gkehub-v1"</span>,
+        feature = <span class="string">"google-cloud-gkehub-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-gkehub-v1alpha2"</span>,
+        feature = <span class="string">"google-cloud-gkehub-v1beta"</span>,
+        feature = <span class="string">"google-cloud-gkehub-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>gkehub;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-gkemulticloud-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-gkemulticloud-v1"</span>))]
 </span><span class="kw">pub mod </span>gkemulticloud;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-gsuiteaddons-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-gsuiteaddons-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-gsuiteaddons-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-gsuiteaddons-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>gsuiteaddons;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-healthcare-logging&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-healthcare-logging"</span>))]
 </span><span class="kw">pub mod </span>healthcare;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-iap-v1&quot;</span>, feature = <span class="string">&quot;google-cloud-iap-v1beta1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-iap-v1"</span>, feature = <span class="string">"google-cloud-iap-v1beta1"</span>))]
 </span><span class="kw">pub mod </span>iap;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-identitytoolkit-logging&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-identitytoolkit-v2&quot;</span>,
+        feature = <span class="string">"google-cloud-identitytoolkit-logging"</span>,
+        feature = <span class="string">"google-cloud-identitytoolkit-v2"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>identitytoolkit;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-ids-logging-v1&quot;</span>, feature = <span class="string">&quot;google-cloud-ids-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-ids-logging-v1"</span>, feature = <span class="string">"google-cloud-ids-v1"</span>))]
 </span><span class="kw">pub mod </span>ids;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-integrations-v1alpha&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-integrations-v1alpha"</span>))]
 </span><span class="kw">pub mod </span>integrations;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-iot-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-iot-v1"</span>))]
 </span><span class="kw">pub mod </span>iot;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-kms-inventory-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-kms-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-kms-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-kms-inventory-v1"</span>,
+        feature = <span class="string">"google-cloud-kms-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-kms-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>kms;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-language-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-language-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-language-v1beta2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-language-v2&quot;</span>,
+        feature = <span class="string">"google-cloud-language-v1"</span>,
+        feature = <span class="string">"google-cloud-language-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-language-v1beta2"</span>,
+        feature = <span class="string">"google-cloud-language-v2"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>language;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-lifesciences-v2beta&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-lifesciences-v2beta"</span>))]
 </span><span class="kw">pub mod </span>lifesciences;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-location&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-location"</span>))]
 </span><span class="kw">pub mod </span>location;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-managedidentities-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-managedidentities-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-managedidentities-v1"</span>,
+        feature = <span class="string">"google-cloud-managedidentities-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>managedidentities;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-mediatranslation-v1alpha1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-mediatranslation-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-mediatranslation-v1alpha1"</span>,
+        feature = <span class="string">"google-cloud-mediatranslation-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>mediatranslation;
 <span class="attr">#[cfg(
-    any(feature = <span class="string">&quot;google-cloud-memcache-v1&quot;</span>, feature = <span class="string">&quot;google-cloud-memcache-v1beta2&quot;</span>)
+    any(feature = <span class="string">"google-cloud-memcache-v1"</span>, feature = <span class="string">"google-cloud-memcache-v1beta2"</span>)
 )]
 </span><span class="kw">pub mod </span>memcache;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-metastore-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-metastore-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-metastore-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-metastore-v1beta&quot;</span>,
+        feature = <span class="string">"google-cloud-metastore-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-metastore-v1"</span>,
+        feature = <span class="string">"google-cloud-metastore-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-metastore-v1beta"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>metastore;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-migrationcenter-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-migrationcenter-v1"</span>))]
 </span><span class="kw">pub mod </span>migrationcenter;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-netapp-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-netapp-v1"</span>))]
 </span><span class="kw">pub mod </span>netapp;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-networkanalyzer-logging-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-networkanalyzer-logging-v1"</span>))]
 </span><span class="kw">pub mod </span>networkanalyzer;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-networkconnectivity-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-networkconnectivity-v1alpha1&quot;</span>,
+        feature = <span class="string">"google-cloud-networkconnectivity-v1"</span>,
+        feature = <span class="string">"google-cloud-networkconnectivity-v1alpha1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>networkconnectivity;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-networkmanagement-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-networkmanagement-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-networkmanagement-v1"</span>,
+        feature = <span class="string">"google-cloud-networkmanagement-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>networkmanagement;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-networksecurity-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-networksecurity-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-networksecurity-v1"</span>,
+        feature = <span class="string">"google-cloud-networksecurity-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>networksecurity;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-networkservices-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-networkservices-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-networkservices-v1"</span>,
+        feature = <span class="string">"google-cloud-networkservices-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>networkservices;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-notebooks-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-notebooks-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-notebooks-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-notebooks-v2&quot;</span>,
+        feature = <span class="string">"google-cloud-notebooks-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-notebooks-v1"</span>,
+        feature = <span class="string">"google-cloud-notebooks-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-notebooks-v2"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>notebooks;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-optimization-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-optimization-v1"</span>))]
 </span><span class="kw">pub mod </span>optimization;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-orchestration-airflow-service-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-orchestration-airflow-service-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-orchestration-airflow-service-v1"</span>,
+        feature = <span class="string">"google-cloud-orchestration-airflow-service-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>orchestration;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-orgpolicy-v1&quot;</span>, feature = <span class="string">&quot;google-cloud-orgpolicy-v2&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-orgpolicy-v1"</span>, feature = <span class="string">"google-cloud-orgpolicy-v2"</span>))]
 </span><span class="kw">pub mod </span>orgpolicy;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-osconfig-agentendpoint-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-osconfig-agentendpoint-v1beta&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-osconfig-logging&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-osconfig-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-osconfig-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-osconfig-v1beta&quot;</span>,
+        feature = <span class="string">"google-cloud-osconfig-agentendpoint-v1"</span>,
+        feature = <span class="string">"google-cloud-osconfig-agentendpoint-v1beta"</span>,
+        feature = <span class="string">"google-cloud-osconfig-logging"</span>,
+        feature = <span class="string">"google-cloud-osconfig-v1"</span>,
+        feature = <span class="string">"google-cloud-osconfig-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-osconfig-v1beta"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>osconfig;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-oslogin-common&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-oslogin-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-oslogin-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-oslogin-v1beta&quot;</span>,
+        feature = <span class="string">"google-cloud-oslogin-common"</span>,
+        feature = <span class="string">"google-cloud-oslogin-v1"</span>,
+        feature = <span class="string">"google-cloud-oslogin-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-oslogin-v1beta"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>oslogin;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-paymentgateway-issuerswitch-accountmanager-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-paymentgateway-issuerswitch-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-paymentgateway-issuerswitch-accountmanager-v1"</span>,
+        feature = <span class="string">"google-cloud-paymentgateway-issuerswitch-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>paymentgateway;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-phishingprotection-v1beta1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-phishingprotection-v1beta1"</span>))]
 </span><span class="kw">pub mod </span>phishingprotection;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-policysimulator-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-policysimulator-v1"</span>))]
 </span><span class="kw">pub mod </span>policysimulator;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-policytroubleshooter-iam-v3&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-policytroubleshooter-iam-v3beta&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-policytroubleshooter-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-policytroubleshooter-iam-v3"</span>,
+        feature = <span class="string">"google-cloud-policytroubleshooter-iam-v3beta"</span>,
+        feature = <span class="string">"google-cloud-policytroubleshooter-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>policytroubleshooter;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-privatecatalog-v1beta1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-privatecatalog-v1beta1"</span>))]
 </span><span class="kw">pub mod </span>privatecatalog;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-pubsublite-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-pubsublite-v1"</span>))]
 </span><span class="kw">pub mod </span>pubsublite;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-rapidmigrationassessment-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-rapidmigrationassessment-v1"</span>))]
 </span><span class="kw">pub mod </span>rapidmigrationassessment;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-recaptchaenterprise-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-recaptchaenterprise-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-recaptchaenterprise-v1"</span>,
+        feature = <span class="string">"google-cloud-recaptchaenterprise-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>recaptchaenterprise;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-recommendationengine-v1beta1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-recommendationengine-v1beta1"</span>))]
 </span><span class="kw">pub mod </span>recommendationengine;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-recommender-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-recommender-logging-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-recommender-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-recommender-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-recommender-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-recommender-logging-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-recommender-v1"</span>,
+        feature = <span class="string">"google-cloud-recommender-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>recommender;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-redis-cluster-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-redis-cluster-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-redis-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-redis-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-redis-cluster-v1"</span>,
+        feature = <span class="string">"google-cloud-redis-cluster-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-redis-v1"</span>,
+        feature = <span class="string">"google-cloud-redis-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>redis;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-resourcemanager-v2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-resourcemanager-v3&quot;</span>,
+        feature = <span class="string">"google-cloud-resourcemanager-v2"</span>,
+        feature = <span class="string">"google-cloud-resourcemanager-v3"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>resourcemanager;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-resourcesettings-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-resourcesettings-v1"</span>))]
 </span><span class="kw">pub mod </span>resourcesettings;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-retail-logging&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-retail-v2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-retail-v2alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-retail-v2beta&quot;</span>,
+        feature = <span class="string">"google-cloud-retail-logging"</span>,
+        feature = <span class="string">"google-cloud-retail-v2"</span>,
+        feature = <span class="string">"google-cloud-retail-v2alpha"</span>,
+        feature = <span class="string">"google-cloud-retail-v2beta"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>retail;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-run-v2&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-run-v2"</span>))]
 </span><span class="kw">pub mod </span>run;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-runtimeconfig-v1beta1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-runtimeconfig-v1beta1"</span>))]
 </span><span class="kw">pub mod </span>runtimeconfig;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-saasaccelerator-management-logs-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-saasaccelerator-management-logs-v1"</span>))]
 </span><span class="kw">pub mod </span>saasaccelerator;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-scheduler-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-scheduler-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-scheduler-v1"</span>,
+        feature = <span class="string">"google-cloud-scheduler-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>scheduler;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-secretmanager-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-secretmanager-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-secretmanager-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-secretmanager-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>secretmanager;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-secrets-v1beta1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-secrets-v1beta1"</span>))]
 </span><span class="kw">pub mod </span>secrets;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-securesourcemanager-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-securesourcemanager-v1"</span>))]
 </span><span class="kw">pub mod </span>securesourcemanager;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-security-privateca-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-security-privateca-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-security-publicca-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-security-privateca-v1"</span>,
+        feature = <span class="string">"google-cloud-security-privateca-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-security-publicca-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>security;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-securitycenter-settings-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-securitycenter-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-securitycenter-v1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-securitycenter-v1p1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-securitycenter-settings-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-securitycenter-v1"</span>,
+        feature = <span class="string">"google-cloud-securitycenter-v1beta1"</span>,
+        feature = <span class="string">"google-cloud-securitycenter-v1p1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>securitycenter;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-securitycentermanagement-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-securitycentermanagement-v1"</span>))]
 </span><span class="kw">pub mod </span>securitycentermanagement;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-securityposture-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-securityposture-v1"</span>))]
 </span><span class="kw">pub mod </span>securityposture;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-sensitiveaction-logging-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-sensitiveaction-logging-v1"</span>))]
 </span><span class="kw">pub mod </span>sensitiveaction;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-servicedirectory-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-servicedirectory-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-servicedirectory-v1"</span>,
+        feature = <span class="string">"google-cloud-servicedirectory-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>servicedirectory;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-servicehealth-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-servicehealth-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-servicehealth-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-servicehealth-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>servicehealth;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-shell-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-shell-v1"</span>))]
 </span><span class="kw">pub mod </span>shell;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-speech-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-speech-v1p1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-speech-v2&quot;</span>,
+        feature = <span class="string">"google-cloud-speech-v1"</span>,
+        feature = <span class="string">"google-cloud-speech-v1p1beta1"</span>,
+        feature = <span class="string">"google-cloud-speech-v2"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>speech;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-sql-v1&quot;</span>, feature = <span class="string">&quot;google-cloud-sql-v1beta4&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-sql-v1"</span>, feature = <span class="string">"google-cloud-sql-v1beta4"</span>))]
 </span><span class="kw">pub mod </span>sql;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-storageinsights-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-storageinsights-v1"</span>))]
 </span><span class="kw">pub mod </span>storageinsights;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-stream-logging-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-stream-logging-v1"</span>))]
 </span><span class="kw">pub mod </span>stream;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-support-v2&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-support-v2"</span>))]
 </span><span class="kw">pub mod </span>support;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-talent-v4&quot;</span>, feature = <span class="string">&quot;google-cloud-talent-v4beta1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-talent-v4"</span>, feature = <span class="string">"google-cloud-talent-v4beta1"</span>))]
 </span><span class="kw">pub mod </span>talent;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-tasks-v2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-tasks-v2beta2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-tasks-v2beta3&quot;</span>,
+        feature = <span class="string">"google-cloud-tasks-v2"</span>,
+        feature = <span class="string">"google-cloud-tasks-v2beta2"</span>,
+        feature = <span class="string">"google-cloud-tasks-v2beta3"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>tasks;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-telcoautomation-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-telcoautomation-v1alpha1&quot;</span>,
+        feature = <span class="string">"google-cloud-telcoautomation-v1"</span>,
+        feature = <span class="string">"google-cloud-telcoautomation-v1alpha1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>telcoautomation;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-texttospeech-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-texttospeech-v1beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-texttospeech-v1"</span>,
+        feature = <span class="string">"google-cloud-texttospeech-v1beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>texttospeech;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-timeseriesinsights-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-timeseriesinsights-v1"</span>))]
 </span><span class="kw">pub mod </span>timeseriesinsights;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-tpu-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-tpu-v2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-tpu-v2alpha1&quot;</span>,
+        feature = <span class="string">"google-cloud-tpu-v1"</span>,
+        feature = <span class="string">"google-cloud-tpu-v2"</span>,
+        feature = <span class="string">"google-cloud-tpu-v2alpha1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>tpu;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-translation-v3&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-translation-v3beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-translation-v3"</span>,
+        feature = <span class="string">"google-cloud-translation-v3beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>translation;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-video-livestream-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-video-livestream-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-video-stitcher-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-video-transcoder-v1&quot;</span>,
+        feature = <span class="string">"google-cloud-video-livestream-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-video-livestream-v1"</span>,
+        feature = <span class="string">"google-cloud-video-stitcher-v1"</span>,
+        feature = <span class="string">"google-cloud-video-transcoder-v1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>video;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-videointelligence-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-videointelligence-v1beta2&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-videointelligence-v1p1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-videointelligence-v1p2beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-videointelligence-v1p3beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-videointelligence-v1"</span>,
+        feature = <span class="string">"google-cloud-videointelligence-v1beta2"</span>,
+        feature = <span class="string">"google-cloud-videointelligence-v1p1beta1"</span>,
+        feature = <span class="string">"google-cloud-videointelligence-v1p2beta1"</span>,
+        feature = <span class="string">"google-cloud-videointelligence-v1p3beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>videointelligence;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-vision-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-vision-v1p1beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-vision-v1p2beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-vision-v1p3beta1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-vision-v1p4beta1&quot;</span>,
+        feature = <span class="string">"google-cloud-vision-v1"</span>,
+        feature = <span class="string">"google-cloud-vision-v1p1beta1"</span>,
+        feature = <span class="string">"google-cloud-vision-v1p2beta1"</span>,
+        feature = <span class="string">"google-cloud-vision-v1p3beta1"</span>,
+        feature = <span class="string">"google-cloud-vision-v1p4beta1"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>vision;
 <span class="attr">#[cfg(
-    any(feature = <span class="string">&quot;google-cloud-visionai-v1&quot;</span>, feature = <span class="string">&quot;google-cloud-visionai-v1alpha1&quot;</span>)
+    any(feature = <span class="string">"google-cloud-visionai-v1"</span>, feature = <span class="string">"google-cloud-visionai-v1alpha1"</span>)
 )]
 </span><span class="kw">pub mod </span>visionai;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-vmmigration-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-vmmigration-v1"</span>))]
 </span><span class="kw">pub mod </span>vmmigration;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-vmwareengine-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-vmwareengine-v1"</span>))]
 </span><span class="kw">pub mod </span>vmwareengine;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-vpcaccess-v1&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-vpcaccess-v1"</span>))]
 </span><span class="kw">pub mod </span>vpcaccess;
 <span class="attr">#[cfg(
-    any(feature = <span class="string">&quot;google-cloud-webrisk-v1&quot;</span>, feature = <span class="string">&quot;google-cloud-webrisk-v1beta1&quot;</span>)
+    any(feature = <span class="string">"google-cloud-webrisk-v1"</span>, feature = <span class="string">"google-cloud-webrisk-v1beta1"</span>)
 )]
 </span><span class="kw">pub mod </span>webrisk;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-websecurityscanner-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-websecurityscanner-v1alpha&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-websecurityscanner-v1beta&quot;</span>,
+        feature = <span class="string">"google-cloud-websecurityscanner-v1"</span>,
+        feature = <span class="string">"google-cloud-websecurityscanner-v1alpha"</span>,
+        feature = <span class="string">"google-cloud-websecurityscanner-v1beta"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>websecurityscanner;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-workflows-executions-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-workflows-executions-v1beta&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-workflows-type&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-workflows-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-workflows-v1beta&quot;</span>,
+        feature = <span class="string">"google-cloud-workflows-executions-v1"</span>,
+        feature = <span class="string">"google-cloud-workflows-executions-v1beta"</span>,
+        feature = <span class="string">"google-cloud-workflows-type"</span>,
+        feature = <span class="string">"google-cloud-workflows-v1"</span>,
+        feature = <span class="string">"google-cloud-workflows-v1beta"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>workflows;
 <span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-workstations-logging-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-workstations-v1&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-workstations-v1beta&quot;</span>,
+        feature = <span class="string">"google-cloud-workstations-logging-v1"</span>,
+        feature = <span class="string">"google-cloud-workstations-v1"</span>,
+        feature = <span class="string">"google-cloud-workstations-v1beta"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>workstations;
@@ -1503,23 +1504,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            OperationResponseMapping::Undefined =&gt; <span class="string">&quot;UNDEFINED&quot;</span>,
-            OperationResponseMapping::Name =&gt; <span class="string">&quot;NAME&quot;</span>,
-            OperationResponseMapping::Status =&gt; <span class="string">&quot;STATUS&quot;</span>,
-            OperationResponseMapping::ErrorCode =&gt; <span class="string">&quot;ERROR_CODE&quot;</span>,
-            OperationResponseMapping::ErrorMessage =&gt; <span class="string">&quot;ERROR_MESSAGE&quot;</span>,
+            OperationResponseMapping::Undefined =&gt; <span class="string">"UNDEFINED"</span>,
+            OperationResponseMapping::Name =&gt; <span class="string">"NAME"</span>,
+            OperationResponseMapping::Status =&gt; <span class="string">"STATUS"</span>,
+            OperationResponseMapping::ErrorCode =&gt; <span class="string">"ERROR_CODE"</span>,
+            OperationResponseMapping::ErrorMessage =&gt; <span class="string">"ERROR_MESSAGE"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;UNDEFINED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undefined),
-            <span class="string">&quot;NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Name),
-            <span class="string">&quot;STATUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Status),
-            <span class="string">&quot;ERROR_CODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorCode),
-            <span class="string">&quot;ERROR_MESSAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorMessage),
+            <span class="string">"UNDEFINED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Undefined),
+            <span class="string">"NAME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Name),
+            <span class="string">"STATUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Status),
+            <span class="string">"ERROR_CODE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorCode),
+            <span class="string">"ERROR_MESSAGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorMessage),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }

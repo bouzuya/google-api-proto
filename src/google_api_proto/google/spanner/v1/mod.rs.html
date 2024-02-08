@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/spanner/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/spanner/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3079,12 +3080,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommitResponse {
     <span class="doccomment">/// The Cloud Spanner timestamp at which the transaction committed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>commit_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The statistics about this Commit. Not returned by default.
     /// For more information, see
     /// [CommitRequest.return_commit_stats][google.spanner.v1.CommitRequest.return_commit_stats].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>commit_stats: ::core::option::Option&lt;commit_response::CommitStats&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CommitResponse`.
@@ -3100,7 +3101,7 @@
         /// [limit](&lt;https://cloud.google.com/spanner/quotas#limits_for_creating_reading_updating_and_deleting_data&gt;).
         /// If the number of mutations exceeds the limit, the server returns
         /// [INVALID_ARGUMENT](&lt;https://cloud.google.com/spanner/docs/reference/rest/v1/Code#ENUM_VALUES.INVALID_ARGUMENT&gt;).
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>mutation_count: i64,
     }
 }
@@ -3123,20 +3124,20 @@
 ///
 /// The following keys name rows in this table:
 ///
-///      \[&quot;Bob&quot;, &quot;2014-09-23&quot;\]
-///      \[&quot;Alfred&quot;, &quot;2015-06-12&quot;\]
+///      \["Bob", "2014-09-23"\]
+///      \["Alfred", "2015-06-12"\]
 ///
-/// Since the `UserEvents` table&#39;s `PRIMARY KEY` clause names two
+/// Since the `UserEvents` table's `PRIMARY KEY` clause names two
 /// columns, each `UserEvents` key has two elements; the first is the
 /// `UserName`, and the second is the `EventDate`.
 ///
 /// Key ranges with multiple components are interpreted
-/// lexicographically by component using the table or index key&#39;s declared
+/// lexicographically by component using the table or index key's declared
 /// sort order. For example, the following range returns all events for
-/// user `&quot;Bob&quot;` that occurred in the year 2015:
+/// user `"Bob"` that occurred in the year 2015:
 ///
-///      &quot;start_closed&quot;: \[&quot;Bob&quot;, &quot;2015-01-01&quot;\]
-///      &quot;end_closed&quot;: \[&quot;Bob&quot;, &quot;2015-12-31&quot;\]
+///      "start_closed": \["Bob", "2015-01-01"\]
+///      "end_closed": \["Bob", "2015-12-31"\]
 ///
 /// Start and end keys can omit trailing key components. This affects the
 /// inclusion and exclusion of rows that exactly match the provided key
@@ -3144,37 +3145,37 @@
 /// provided components are included; if the key is open, then rows
 /// that exactly match are not included.
 ///
-/// For example, the following range includes all events for `&quot;Bob&quot;` that
+/// For example, the following range includes all events for `"Bob"` that
 /// occurred during and after the year 2000:
 ///
-///      &quot;start_closed&quot;: \[&quot;Bob&quot;, &quot;2000-01-01&quot;\]
-///      &quot;end_closed&quot;: \[&quot;Bob&quot;\]
+///      "start_closed": \["Bob", "2000-01-01"\]
+///      "end_closed": \["Bob"\]
 ///
-/// The next example retrieves all events for `&quot;Bob&quot;`:
+/// The next example retrieves all events for `"Bob"`:
 ///
-///      &quot;start_closed&quot;: \[&quot;Bob&quot;\]
-///      &quot;end_closed&quot;: \[&quot;Bob&quot;\]
+///      "start_closed": \["Bob"\]
+///      "end_closed": \["Bob"\]
 ///
 /// To retrieve events before the year 2000:
 ///
-///      &quot;start_closed&quot;: \[&quot;Bob&quot;\]
-///      &quot;end_open&quot;: \[&quot;Bob&quot;, &quot;2000-01-01&quot;\]
+///      "start_closed": \["Bob"\]
+///      "end_open": \["Bob", "2000-01-01"\]
 ///
 /// The following range includes all rows in the table:
 ///
-///      &quot;start_closed&quot;: \[\]
-///      &quot;end_closed&quot;: \[\]
+///      "start_closed": \[\]
+///      "end_closed": \[\]
 ///
 /// This range returns all users whose `UserName` begins with any
 /// character from A to C:
 ///
-///      &quot;start_closed&quot;: \[&quot;A&quot;\]
-///      &quot;end_open&quot;: \[&quot;D&quot;\]
+///      "start_closed": \["A"\]
+///      "end_open": \["D"\]
 ///
 /// This range returns all users whose `UserName` begins with B:
 ///
-///      &quot;start_closed&quot;: \[&quot;B&quot;\]
-///      &quot;end_open&quot;: \[&quot;C&quot;\]
+///      "start_closed": \["B"\]
+///      "end_open": \["C"\]
 ///
 /// Key ranges honor column sort order. For example, suppose a table is
 /// defined as follows:
@@ -3187,8 +3188,8 @@
 /// The following range retrieves all rows with key values between 1
 /// and 100 inclusive:
 ///
-///      &quot;start_closed&quot;: \[&quot;100&quot;\]
-///      &quot;end_closed&quot;: \[&quot;1&quot;\]
+///      "start_closed": \["100"\]
+///      "end_closed": \["1"\]
 ///
 /// Note that 100 is passed as the start, and 1 is passed as the end,
 /// because `Key` is a descending column in the schema.
@@ -3196,10 +3197,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>KeyRange {
     <span class="doccomment">/// The start key must be provided. It can be either closed or open.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;key_range::StartKeyType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"key_range::StartKeyType"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>start_key_type: ::core::option::Option&lt;key_range::StartKeyType&gt;,
     <span class="doccomment">/// The end key must be provided. It can be either closed or open.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;key_range::EndKeyType&quot;</span>, tags = <span class="string">&quot;3, 4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"key_range::EndKeyType"</span>, tags = <span class="string">"3, 4"</span>)]
     </span><span class="kw">pub </span>end_key_type: ::core::option::Option&lt;key_range::EndKeyType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `KeyRange`.
@@ -3210,11 +3211,11 @@
     </span><span class="kw">pub enum </span>StartKeyType {
         <span class="doccomment">/// If the start is closed, then the range includes all rows whose
         /// first `len(start_closed)` key columns exactly match `start_closed`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>StartClosed(::prost_types::ListValue),
         <span class="doccomment">/// If the start is open, then the range excludes rows whose first
         /// `len(start_open)` key columns exactly match `start_open`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>StartOpen(::prost_types::ListValue),
     }
     <span class="doccomment">/// The end key must be provided. It can be either closed or open.
@@ -3223,11 +3224,11 @@
     </span><span class="kw">pub enum </span>EndKeyType {
         <span class="doccomment">/// If the end is closed, then the range includes all rows whose
         /// first `len(end_closed)` key columns exactly match `end_closed`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>EndClosed(::prost_types::ListValue),
         <span class="doccomment">/// If the end is open, then the range excludes rows whose first
         /// `len(end_open)` key columns exactly match `end_open`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>EndOpen(::prost_types::ListValue),
     }
 }
@@ -3245,16 +3246,16 @@
     /// many elements as there are columns in the primary or index key
     /// with which this `KeySet` is used.  Individual key values are
     /// encoded as described [here][google.spanner.v1.TypeCode].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>keys: ::prost::alloc::vec::Vec&lt;::prost_types::ListValue&gt;,
     <span class="doccomment">/// A list of key ranges. See [KeyRange][google.spanner.v1.KeyRange] for more information about
     /// key range specifications.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>ranges: ::prost::alloc::vec::Vec&lt;KeyRange&gt;,
     <span class="doccomment">/// For convenience `all` can be set to `true` to indicate that this
     /// `KeySet` matches all keys in the table or index. Note that any keys
     /// specified in `keys` or `ranges` are only yielded once.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>all: bool,
 }
 <span class="doccomment">/// A modification to one or more Cloud Spanner rows.  Mutations can be
@@ -3264,7 +3265,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Mutation {
     <span class="doccomment">/// Required. The operation to perform.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;mutation::Operation&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"mutation::Operation"</span>, tags = <span class="string">"1, 2, 3, 4, 5"</span>)]
     </span><span class="kw">pub </span>operation: ::core::option::Option&lt;mutation::Operation&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Mutation`.
@@ -3275,14 +3276,14 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Write {
         <span class="doccomment">/// Required. The table whose rows will be written.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
         <span class="doccomment">/// The names of the columns in [table][google.spanner.v1.Mutation.Write.table] to be written.
         ///
         /// The list of columns must contain enough columns to allow
         /// Cloud Spanner to derive values for all primary key columns in the
         /// row(s) to be modified.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>columns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// The values to be written. `values` can contain more than one
         /// list of values. If it does, then multiple rows are written, one
@@ -3292,7 +3293,7 @@
         /// `Mutation`s, each containing one `values` entry and repeating
         /// [table][google.spanner.v1.Mutation.Write.table] and [columns][google.spanner.v1.Mutation.Write.columns]. Individual values in each list are
         /// encoded as described [here][google.spanner.v1.TypeCode].
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost_types::ListValue&gt;,
     }
     <span class="doccomment">/// Arguments to [delete][google.spanner.v1.Mutation.delete] operations.
@@ -3300,15 +3301,15 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Delete {
         <span class="doccomment">/// Required. The table whose rows will be deleted.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
         <span class="doccomment">/// Required. The primary keys of the rows within [table][google.spanner.v1.Mutation.Delete.table] to delete.  The
         /// primary keys must be specified in the order in which they appear in the
-        /// `PRIMARY KEY()` clause of the table&#39;s equivalent DDL statement (the DDL
+        /// `PRIMARY KEY()` clause of the table's equivalent DDL statement (the DDL
         /// statement used to create the table).
         /// Delete is idempotent. The transaction will succeed even if some or all
         /// rows do not exist.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>key_set: ::core::option::Option&lt;<span class="kw">super</span>::KeySet&gt;,
     }
     <span class="doccomment">/// Required. The operation to perform.
@@ -3317,11 +3318,11 @@
     </span><span class="kw">pub enum </span>Operation {
         <span class="doccomment">/// Insert new rows in a table. If any of the rows already exist,
         /// the write or transaction fails with error `ALREADY_EXISTS`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Insert(Write),
         <span class="doccomment">/// Update existing rows in a table. If any of the rows does not
         /// already exist, the transaction fails with error `NOT_FOUND`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Update(Write),
         <span class="doccomment">/// Like [insert][google.spanner.v1.Mutation.insert], except that if the row already exists, then
         /// its column values are overwritten with the ones provided. Any
@@ -3330,7 +3331,7 @@
         /// When using [insert_or_update][google.spanner.v1.Mutation.insert_or_update], just as when using [insert][google.spanner.v1.Mutation.insert], all `NOT
         /// NULL` columns in the table must be given a value. This holds true
         /// even when the row already exists and will therefore actually be updated.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>InsertOrUpdate(Write),
         <span class="doccomment">/// Like [insert][google.spanner.v1.Mutation.insert], except that if the row already exists, it is
         /// deleted, and the column values provided are inserted
@@ -3341,11 +3342,11 @@
         /// `ON DELETE CASCADE` annotation, then replacing a parent row
         /// also deletes the child rows. Otherwise, you must delete the
         /// child rows before you replace the parent row.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>Replace(Write),
         <span class="doccomment">/// Delete rows from a table. Succeeds whether or not the named
         /// rows were present.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>Delete(Delete),
     }
 }
@@ -3353,40 +3354,40 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PlanNode {
-    <span class="doccomment">/// The `PlanNode`&#39;s index in [node list][google.spanner.v1.QueryPlan.plan_nodes].
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// The `PlanNode`'s index in [node list][google.spanner.v1.QueryPlan.plan_nodes].
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>index: i32,
     <span class="doccomment">/// Used to determine the type of node. May be needed for visualizing
     /// different kinds of nodes differently. For example, If the node is a
     /// [SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR] node, it will have a condensed representation
     /// which can be used to directly embed a description of the node in its
     /// parent.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;plan_node::Kind&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"plan_node::Kind"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>kind: i32,
     <span class="doccomment">/// The display name for the node.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// List of child node `index`es and their relationship to this parent.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>child_links: ::prost::alloc::vec::Vec&lt;plan_node::ChildLink&gt;,
     <span class="doccomment">/// Condensed representation for [SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR] nodes.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>short_representation: ::core::option::Option&lt;plan_node::ShortRepresentation&gt;,
     <span class="doccomment">/// Attributes relevant to the node contained in a group of key-value pairs.
     /// For example, a Parameter Reference node could have the following
     /// information in its metadata:
     ///
     ///      {
-    ///        &quot;parameter_reference&quot;: &quot;param1&quot;,
-    ///        &quot;parameter_type&quot;: &quot;array&quot;
+    ///        "parameter_reference": "param1",
+    ///        "parameter_type": "array"
     ///      }
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// The execution statistics associated with the node, contained in a group of
     /// key-value pairs. Only present if the plan was returned as a result of a
     /// profile query. For example, number of executions, number of rows/time per
     /// execution etc.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>execution_stats: ::core::option::Option&lt;::prost_types::Struct&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PlanNode`.
@@ -3397,13 +3398,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ChildLink {
         <span class="doccomment">/// The node to which the link points.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>child_index: i32,
         <span class="doccomment">/// The type of the link. For example, in Hash Joins this could be used to
         /// distinguish between the build child and the probe child, or in the case
         /// of the child being an output variable, to represent the tag associated
         /// with the output variable.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
         <span class="doccomment">/// Only present if the child node is [SCALAR][google.spanner.v1.PlanNode.Kind.SCALAR] and corresponds
         /// to an output variable of the parent node. The field carries the name of
@@ -3413,7 +3414,7 @@
         /// created for each column that is read by the operator. The corresponding
         /// `variable` fields will be set to the variable names assigned to the
         /// columns.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>variable: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Condensed representation of a node and its subtree. Only present for
@@ -3422,14 +3423,14 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ShortRepresentation {
         <span class="doccomment">/// A string representation of the expression subtree rooted at this node.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
         <span class="doccomment">/// A mapping of (subquery variable name) -&gt; (subquery node id) for cases
         /// where the `description` string of this node references a `SCALAR`
         /// subquery contained in the expression subtree rooted at this node. The
         /// referenced `SCALAR` subquery may not necessarily be a direct child of
         /// this node.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, int32&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(btree_map = <span class="string">"string, int32"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>subqueries: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             i32,
@@ -3467,19 +3468,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Kind::Unspecified =&gt; <span class="string">&quot;KIND_UNSPECIFIED&quot;</span>,
-                Kind::Relational =&gt; <span class="string">&quot;RELATIONAL&quot;</span>,
-                Kind::Scalar =&gt; <span class="string">&quot;SCALAR&quot;</span>,
+                Kind::Unspecified =&gt; <span class="string">"KIND_UNSPECIFIED"</span>,
+                Kind::Relational =&gt; <span class="string">"RELATIONAL"</span>,
+                Kind::Scalar =&gt; <span class="string">"SCALAR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;KIND_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RELATIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Relational),
-                <span class="string">&quot;SCALAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scalar),
+                <span class="string">"KIND_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RELATIONAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Relational),
+                <span class="string">"SCALAR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scalar),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3490,9 +3491,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryPlan {
     <span class="doccomment">/// The nodes in the query plan. Plan nodes are returned in pre-order starting
-    /// with the plan root. Each [PlanNode][google.spanner.v1.PlanNode]&#39;s `id` corresponds to its index in
+    /// with the plan root. Each [PlanNode][google.spanner.v1.PlanNode]'s `id` corresponds to its index in
     /// `plan_nodes`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>plan_nodes: ::prost::alloc::vec::Vec&lt;PlanNode&gt;,
 }
 <span class="doccomment">/// Transactions:
@@ -3558,7 +3559,7 @@
 /// [Commit][google.spanner.v1.Spanner.Commit] or
 /// [Rollback][google.spanner.v1.Spanner.Rollback]. Long periods of
 /// inactivity at the client may cause Cloud Spanner to release a
-/// transaction&#39;s locks and abort it.
+/// transaction's locks and abort it.
 ///
 /// Conceptually, a read-write transaction consists of zero or more
 /// reads or SQL statements followed by
@@ -3576,7 +3577,7 @@
 /// that the transaction has not modified any user data in Cloud Spanner.
 ///
 /// Unless the transaction commits, Cloud Spanner makes no guarantees about
-/// how long the transaction&#39;s locks were held for. It is an error to
+/// how long the transaction's locks were held for. It is an error to
 /// use Cloud Spanner locks for any sort of mutual exclusion other than
 /// between Cloud Spanner transactions themselves.
 ///
@@ -3585,7 +3586,7 @@
 /// When a transaction aborts, the application can choose to retry the
 /// whole transaction again. To maximize the chances of successfully
 /// committing the retry, the client should execute the retry in the
-/// same session as the original attempt. The original session&#39;s lock
+/// same session as the original attempt. The original session's lock
 /// priority increases with each consecutive abort, meaning that each
 /// attempt has a slightly better chance of success than the previous.
 ///
@@ -3601,7 +3602,7 @@
 /// A transaction is considered idle if it has no outstanding reads or
 /// SQL queries and has not started a read or SQL query within the last 10
 /// seconds. Idle transactions can be aborted by Cloud Spanner so that they
-/// don&#39;t hold on to locks indefinitely. If an idle transaction is aborted, the
+/// don't hold on to locks indefinitely. If an idle transaction is aborted, the
 /// commit will fail with error `ABORTED`.
 ///
 /// If this behavior is undesirable, periodically executing a simple
@@ -3678,7 +3679,7 @@
 /// The timestamp can either be expressed as an absolute Cloud Spanner commit
 /// timestamp or a staleness relative to the current time.
 ///
-/// These modes do not require a &quot;negotiation phase&quot; to pick a
+/// These modes do not require a "negotiation phase" to pick a
 /// timestamp. As a result, they execute slightly faster than the
 /// equivalent boundedly stale concurrency modes. On the other hand,
 /// boundedly stale reads usually return fresher results.
@@ -3724,7 +3725,7 @@
 ///
 /// Cloud Spanner continuously garbage collects deleted and overwritten data
 /// in the background to reclaim storage space. This process is known
-/// as &quot;version GC&quot;. By default, version GC reclaims versions after they
+/// as "version GC". By default, version GC reclaims versions after they
 /// are one hour old. Because of this, Cloud Spanner cannot perform reads
 /// at read timestamps more than one hour in the past. This
 /// restriction also applies to in-progress reads and/or SQL queries whose
@@ -3823,7 +3824,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TransactionOptions {
     <span class="doccomment">/// Required. The type of transaction.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;transaction_options::Mode&quot;</span>, tags = <span class="string">&quot;1, 3, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"transaction_options::Mode"</span>, tags = <span class="string">"1, 3, 2"</span>)]
     </span><span class="kw">pub </span>mode: ::core::option::Option&lt;transaction_options::Mode&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TransactionOptions`.
@@ -3834,7 +3835,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ReadWrite {
         <span class="doccomment">/// Read lock mode for the transaction.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;read_write::ReadLockMode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"read_write::ReadLockMode"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>read_lock_mode: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `ReadWrite`.
@@ -3874,19 +3875,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    ReadLockMode::Unspecified =&gt; <span class="string">&quot;READ_LOCK_MODE_UNSPECIFIED&quot;</span>,
-                    ReadLockMode::Pessimistic =&gt; <span class="string">&quot;PESSIMISTIC&quot;</span>,
-                    ReadLockMode::Optimistic =&gt; <span class="string">&quot;OPTIMISTIC&quot;</span>,
+                    ReadLockMode::Unspecified =&gt; <span class="string">"READ_LOCK_MODE_UNSPECIFIED"</span>,
+                    ReadLockMode::Pessimistic =&gt; <span class="string">"PESSIMISTIC"</span>,
+                    ReadLockMode::Optimistic =&gt; <span class="string">"OPTIMISTIC"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;READ_LOCK_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;PESSIMISTIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pessimistic),
-                    <span class="string">&quot;OPTIMISTIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Optimistic),
+                    <span class="string">"READ_LOCK_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"PESSIMISTIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pessimistic),
+                    <span class="string">"OPTIMISTIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Optimistic),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -3903,10 +3904,10 @@
         <span class="doccomment">/// If true, the Cloud Spanner-selected read timestamp is included in
         /// the [Transaction][google.spanner.v1.Transaction] message that describes
         /// the transaction.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>return_read_timestamp: bool,
         <span class="doccomment">/// How to choose the timestamp for the read-only transaction.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;read_only::TimestampBound&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"read_only::TimestampBound"</span>, tags = <span class="string">"1, 2, 3, 4, 5"</span>)]
         </span><span class="kw">pub </span>timestamp_bound: ::core::option::Option&lt;read_only::TimestampBound&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `ReadOnly`.
@@ -3917,7 +3918,7 @@
         </span><span class="kw">pub enum </span>TimestampBound {
             <span class="doccomment">/// Read at a timestamp where all previously committed transactions
             /// are visible.
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
             </span>Strong(bool),
             <span class="doccomment">/// Executes all reads at a timestamp &gt;= `min_read_timestamp`.
             ///
@@ -3927,15 +3928,15 @@
             ///
             /// Note that this option can only be used in single-use transactions.
             ///
-            /// A timestamp in RFC3339 UTC \&quot;Zulu\&quot; format, accurate to nanoseconds.
-            /// Example: `&quot;2014-10-02T15:01:23.045123456Z&quot;`.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            /// A timestamp in RFC3339 UTC \"Zulu\" format, accurate to nanoseconds.
+            /// Example: `"2014-10-02T15:01:23.045123456Z"`.
+            </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>MinReadTimestamp(::prost_types::Timestamp),
             <span class="doccomment">/// Read data at a timestamp &gt;= `NOW - max_staleness`
             /// seconds. Guarantees that all writes that have committed more
             /// than the specified number of seconds ago are visible. Because
             /// Cloud Spanner chooses the exact timestamp, this mode works even if
-            /// the client&#39;s local clock is substantially skewed from Cloud Spanner
+            /// the client's local clock is substantially skewed from Cloud Spanner
             /// commit timestamps.
             ///
             /// Useful for reading the freshest data available at a nearby
@@ -3944,34 +3945,34 @@
             ///
             /// Note that this option can only be used in single-use
             /// transactions.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
             </span>MaxStaleness(::prost_types::Duration),
             <span class="doccomment">/// Executes all reads at the given timestamp. Unlike other modes,
             /// reads at a specific timestamp are repeatable; the same read at
             /// the same timestamp always returns the same data. If the
             /// timestamp is in the future, the read will block until the
-            /// specified timestamp, modulo the read&#39;s deadline.
+            /// specified timestamp, modulo the read's deadline.
             ///
             /// Useful for large scale consistent reads such as mapreduces, or
             /// for coordinating many reads against a consistent snapshot of the
             /// data.
             ///
-            /// A timestamp in RFC3339 UTC \&quot;Zulu\&quot; format, accurate to nanoseconds.
-            /// Example: `&quot;2014-10-02T15:01:23.045123456Z&quot;`.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+            /// A timestamp in RFC3339 UTC \"Zulu\" format, accurate to nanoseconds.
+            /// Example: `"2014-10-02T15:01:23.045123456Z"`.
+            </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
             </span>ReadTimestamp(::prost_types::Timestamp),
             <span class="doccomment">/// Executes all reads at a timestamp that is `exact_staleness`
             /// old. The timestamp is chosen soon after the read is started.
             ///
             /// Guarantees that all writes that have committed more than the
             /// specified number of seconds ago are visible. Because Cloud Spanner
-            /// chooses the exact timestamp, this mode works even if the client&#39;s
+            /// chooses the exact timestamp, this mode works even if the client's
             /// local clock is substantially skewed from Cloud Spanner commit
             /// timestamps.
             ///
             /// Useful for reading at nearby replicas without the distributed
             /// timestamp negotiation overhead of `max_staleness`.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
             </span>ExactStaleness(::prost_types::Duration),
         }
     }
@@ -3984,21 +3985,21 @@
         /// Authorization to begin a read-write transaction requires
         /// `spanner.databases.beginOrRollbackReadWriteTransaction` permission
         /// on the `session` resource.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>ReadWrite(ReadWrite),
         <span class="doccomment">/// Partitioned DML transaction.
         ///
         /// Authorization to begin a Partitioned DML transaction requires
         /// `spanner.databases.beginPartitionedDmlTransaction` permission
         /// on the `session` resource.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>PartitionedDml(PartitionedDml),
         <span class="doccomment">/// Transaction will not write.
         ///
         /// Authorization to begin a read-only transaction requires
         /// `spanner.databases.beginReadOnlyTransaction` permission
         /// on the `session` resource.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>ReadOnly(ReadOnly),
     }
 }
@@ -4014,15 +4015,15 @@
     ///
     /// Single-use read-only transactions do not have IDs, because
     /// single-use transactions do not support multiple requests.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::bytes::Bytes,
     <span class="doccomment">/// For snapshot read-only transactions, the read timestamp chosen
     /// for the transaction. Not returned by default: see
     /// [TransactionOptions.ReadOnly.return_read_timestamp][google.spanner.v1.TransactionOptions.ReadOnly.return_read_timestamp].
     ///
-    /// A timestamp in RFC3339 UTC \&quot;Zulu\&quot; format, accurate to nanoseconds.
-    /// Example: `&quot;2014-10-02T15:01:23.045123456Z&quot;`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// A timestamp in RFC3339 UTC \"Zulu\" format, accurate to nanoseconds.
+    /// Example: `"2014-10-02T15:01:23.045123456Z"`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>read_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// This message is used to select the transaction in which a
@@ -4036,7 +4037,7 @@
 </span><span class="kw">pub struct </span>TransactionSelector {
     <span class="doccomment">/// If no fields are set, the default is a single use transaction
     /// with strong concurrency.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;transaction_selector::Selector&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"transaction_selector::Selector"</span>, tags = <span class="string">"1, 2, 3"</span>)]
     </span><span class="kw">pub </span>selector: ::core::option::Option&lt;transaction_selector::Selector&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TransactionSelector`.
@@ -4049,16 +4050,16 @@
         <span class="doccomment">/// Execute the read or SQL query in a temporary transaction.
         /// This is the most efficient way to execute a transaction that
         /// consists of a single SQL query.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>SingleUse(<span class="kw">super</span>::TransactionOptions),
         <span class="doccomment">/// Execute the read or SQL query in a previously-started transaction.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"2"</span>)]
         </span>Id(::prost::bytes::Bytes),
         <span class="doccomment">/// Begin a new transaction and execute this read or SQL query in
         /// it. The transaction ID of the new transaction is returned in
         /// [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
         /// which is a [Transaction][google.spanner.v1.Transaction].
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Begin(<span class="kw">super</span>::TransactionOptions),
     }
 }
@@ -4068,30 +4069,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Type {
     <span class="doccomment">/// Required. The [TypeCode][google.spanner.v1.TypeCode] for this type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TypeCode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TypeCode"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// If [code][google.spanner.v1.Type.code] == [ARRAY][google.spanner.v1.TypeCode.ARRAY], then `array_element_type`
     /// is the type of the array elements.
-    </span><span class="attr">#[prost(message, optional, boxed, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, boxed, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>array_element_type: ::core::option::Option&lt;::prost::alloc::boxed::Box&lt;Type&gt;&gt;,
     <span class="doccomment">/// If [code][google.spanner.v1.Type.code] == [STRUCT][google.spanner.v1.TypeCode.STRUCT], then `struct_type`
-    /// provides type information for the struct&#39;s fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// provides type information for the struct's fields.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>struct_type: ::core::option::Option&lt;StructType&gt;,
     <span class="doccomment">/// The [TypeAnnotationCode][google.spanner.v1.TypeAnnotationCode] that disambiguates SQL type that Spanner will
     /// use to represent values of this type during query processing. This is
     /// necessary for some type codes because a single [TypeCode][google.spanner.v1.TypeCode] can be mapped
     /// to different SQL types depending on the SQL dialect. [type_annotation][google.spanner.v1.Type.type_annotation]
-    /// typically is not needed to process the content of a value (it doesn&#39;t
+    /// typically is not needed to process the content of a value (it doesn't
     /// affect serialization) and clients can ignore it on the read path.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TypeAnnotationCode&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TypeAnnotationCode"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>type_annotation: i32,
     <span class="doccomment">/// If [code][google.spanner.v1.Type.code] ==
     /// [PROTO][google.spanner.v1.TypeCode.PROTO] or
     /// [code][google.spanner.v1.Type.code] ==
     /// [ENUM][google.spanner.v1.TypeCode.ENUM], then `proto_type_fqn` is the fully
     /// qualified name of the proto type representing the proto/enum definition.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>proto_type_fqn: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// `StructType` defines the fields of a [STRUCT][google.spanner.v1.TypeCode.STRUCT] type.
@@ -4104,7 +4105,7 @@
     /// fields in the [StructType][google.spanner.v1.StructType]. In turn, the order of fields
     /// matches the order of columns in a read request, or the order of
     /// fields in the `SELECT` clause of a query.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>fields: ::prost::alloc::vec::Vec&lt;struct_type::Field&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `StructType`.
@@ -4114,16 +4115,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Field {
         <span class="doccomment">/// The name of the field. For reads, this is the column name. For
-        /// SQL queries, it is the column alias (e.g., `&quot;Word&quot;` in the
-        /// query `&quot;SELECT &#39;hello&#39; AS Word&quot;`), or the column name (e.g.,
-        /// `&quot;ColName&quot;` in the query `&quot;SELECT ColName FROM Table&quot;`). Some
-        /// columns might have an empty name (e.g., `&quot;SELECT
-        /// UPPER(ColName)&quot;`). Note that a query result can contain
+        /// SQL queries, it is the column alias (e.g., `"Word"` in the
+        /// query `"SELECT 'hello' AS Word"`), or the column name (e.g.,
+        /// `"ColName"` in the query `"SELECT ColName FROM Table"`). Some
+        /// columns might have an empty name (e.g., `"SELECT
+        /// UPPER(ColName)"`). Note that a query result can contain
         /// multiple fields with the same name.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// The type of the field.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;<span class="kw">super</span>::Type&gt;,
     }
 }
@@ -4143,18 +4144,18 @@
     </span>Bool = <span class="number">1</span>,
     <span class="doccomment">/// Encoded as `string`, in decimal format.
     </span>Int64 = <span class="number">2</span>,
-    <span class="doccomment">/// Encoded as `number`, or the strings `&quot;NaN&quot;`, `&quot;Infinity&quot;`, or
-    /// `&quot;-Infinity&quot;`.
+    <span class="doccomment">/// Encoded as `number`, or the strings `"NaN"`, `"Infinity"`, or
+    /// `"-Infinity"`.
     </span>Float64 = <span class="number">3</span>,
-    <span class="doccomment">/// Encoded as `number`, or the strings `&quot;NaN&quot;`, `&quot;Infinity&quot;`, or
-    /// `&quot;-Infinity&quot;`.
+    <span class="doccomment">/// Encoded as `number`, or the strings `"NaN"`, `"Infinity"`, or
+    /// `"-Infinity"`.
     </span>Float32 = <span class="number">15</span>,
     <span class="doccomment">/// Encoded as `string` in RFC 3339 timestamp format. The time zone
-    /// must be present, and must be `&quot;Z&quot;`.
+    /// must be present, and must be `"Z"`.
     ///
     /// If the schema has the column option
     /// `allow_commit_timestamp=true`, the placeholder string
-    /// `&quot;spanner.commit_timestamp()&quot;` can be used to instruct the system
+    /// `"spanner.commit_timestamp()"` can be used to instruct the system
     /// to insert the commit timestamp associated with the transaction
     /// commit.
     </span>Timestamp = <span class="number">4</span>,
@@ -4180,7 +4181,7 @@
     /// Scientific notation:
     /// &lt;br&gt;`\[+-\]Digits\[.[Digits\]][ExponentIndicator\[+-\]Digits]` or
     /// &lt;br&gt;`[+-][Digits].Digits\[ExponentIndicator[+-\]Digits]`
-    /// &lt;br&gt;(ExponentIndicator is `&quot;e&quot;` or `&quot;E&quot;`)
+    /// &lt;br&gt;(ExponentIndicator is `"e"` or `"E"`)
     </span>Numeric = <span class="number">10</span>,
     <span class="doccomment">/// Encoded as a JSON-formatted `string` as described in RFC 7159. The
     /// following rules are applied when parsing JSON input:
@@ -4202,43 +4203,43 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            TypeCode::Unspecified =&gt; <span class="string">&quot;TYPE_CODE_UNSPECIFIED&quot;</span>,
-            TypeCode::Bool =&gt; <span class="string">&quot;BOOL&quot;</span>,
-            TypeCode::Int64 =&gt; <span class="string">&quot;INT64&quot;</span>,
-            TypeCode::Float64 =&gt; <span class="string">&quot;FLOAT64&quot;</span>,
-            TypeCode::Float32 =&gt; <span class="string">&quot;FLOAT32&quot;</span>,
-            TypeCode::Timestamp =&gt; <span class="string">&quot;TIMESTAMP&quot;</span>,
-            TypeCode::Date =&gt; <span class="string">&quot;DATE&quot;</span>,
-            TypeCode::String =&gt; <span class="string">&quot;STRING&quot;</span>,
-            TypeCode::Bytes =&gt; <span class="string">&quot;BYTES&quot;</span>,
-            TypeCode::Array =&gt; <span class="string">&quot;ARRAY&quot;</span>,
-            TypeCode::Struct =&gt; <span class="string">&quot;STRUCT&quot;</span>,
-            TypeCode::Numeric =&gt; <span class="string">&quot;NUMERIC&quot;</span>,
-            TypeCode::Json =&gt; <span class="string">&quot;JSON&quot;</span>,
-            TypeCode::Proto =&gt; <span class="string">&quot;PROTO&quot;</span>,
-            TypeCode::Enum =&gt; <span class="string">&quot;ENUM&quot;</span>,
+            TypeCode::Unspecified =&gt; <span class="string">"TYPE_CODE_UNSPECIFIED"</span>,
+            TypeCode::Bool =&gt; <span class="string">"BOOL"</span>,
+            TypeCode::Int64 =&gt; <span class="string">"INT64"</span>,
+            TypeCode::Float64 =&gt; <span class="string">"FLOAT64"</span>,
+            TypeCode::Float32 =&gt; <span class="string">"FLOAT32"</span>,
+            TypeCode::Timestamp =&gt; <span class="string">"TIMESTAMP"</span>,
+            TypeCode::Date =&gt; <span class="string">"DATE"</span>,
+            TypeCode::String =&gt; <span class="string">"STRING"</span>,
+            TypeCode::Bytes =&gt; <span class="string">"BYTES"</span>,
+            TypeCode::Array =&gt; <span class="string">"ARRAY"</span>,
+            TypeCode::Struct =&gt; <span class="string">"STRUCT"</span>,
+            TypeCode::Numeric =&gt; <span class="string">"NUMERIC"</span>,
+            TypeCode::Json =&gt; <span class="string">"JSON"</span>,
+            TypeCode::Proto =&gt; <span class="string">"PROTO"</span>,
+            TypeCode::Enum =&gt; <span class="string">"ENUM"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;TYPE_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;BOOL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bool),
-            <span class="string">&quot;INT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int64),
-            <span class="string">&quot;FLOAT64&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Float64),
-            <span class="string">&quot;FLOAT32&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Float32),
-            <span class="string">&quot;TIMESTAMP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Timestamp),
-            <span class="string">&quot;DATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
-            <span class="string">&quot;STRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
-            <span class="string">&quot;BYTES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bytes),
-            <span class="string">&quot;ARRAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Array),
-            <span class="string">&quot;STRUCT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Struct),
-            <span class="string">&quot;NUMERIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Numeric),
-            <span class="string">&quot;JSON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Json),
-            <span class="string">&quot;PROTO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Proto),
-            <span class="string">&quot;ENUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enum),
+            <span class="string">"TYPE_CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"BOOL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bool),
+            <span class="string">"INT64" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Int64),
+            <span class="string">"FLOAT64" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Float64),
+            <span class="string">"FLOAT32" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Float32),
+            <span class="string">"TIMESTAMP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Timestamp),
+            <span class="string">"DATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
+            <span class="string">"STRING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::String),
+            <span class="string">"BYTES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bytes),
+            <span class="string">"ARRAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Array),
+            <span class="string">"STRUCT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Struct),
+            <span class="string">"NUMERIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Numeric),
+            <span class="string">"JSON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Json),
+            <span class="string">"PROTO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Proto),
+            <span class="string">"ENUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enum),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4246,7 +4247,7 @@
 <span class="doccomment">/// `TypeAnnotationCode` is used as a part of [Type][google.spanner.v1.Type] to
 /// disambiguate SQL types that should be used for a given Cloud Spanner value.
 /// Disambiguation is needed because the same Cloud Spanner type can be mapped to
-/// different SQL types depending on SQL dialect. TypeAnnotationCode doesn&#39;t
+/// different SQL types depending on SQL dialect. TypeAnnotationCode doesn't
 /// affect the way value is serialized.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -4277,21 +4278,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            TypeAnnotationCode::Unspecified =&gt; <span class="string">&quot;TYPE_ANNOTATION_CODE_UNSPECIFIED&quot;</span>,
-            TypeAnnotationCode::PgNumeric =&gt; <span class="string">&quot;PG_NUMERIC&quot;</span>,
-            TypeAnnotationCode::PgJsonb =&gt; <span class="string">&quot;PG_JSONB&quot;</span>,
-            TypeAnnotationCode::PgOid =&gt; <span class="string">&quot;PG_OID&quot;</span>,
+            TypeAnnotationCode::Unspecified =&gt; <span class="string">"TYPE_ANNOTATION_CODE_UNSPECIFIED"</span>,
+            TypeAnnotationCode::PgNumeric =&gt; <span class="string">"PG_NUMERIC"</span>,
+            TypeAnnotationCode::PgJsonb =&gt; <span class="string">"PG_JSONB"</span>,
+            TypeAnnotationCode::PgOid =&gt; <span class="string">"PG_OID"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;TYPE_ANNOTATION_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;PG_NUMERIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PgNumeric),
-            <span class="string">&quot;PG_JSONB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PgJsonb),
-            <span class="string">&quot;PG_OID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PgOid),
+            <span class="string">"TYPE_ANNOTATION_CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"PG_NUMERIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PgNumeric),
+            <span class="string">"PG_JSONB" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PgJsonb),
+            <span class="string">"PG_OID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PgOid),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4302,7 +4303,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResultSet {
     <span class="doccomment">/// Metadata about the result set, such as row type information.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;ResultSetMetadata&gt;,
     <span class="doccomment">/// Each element in `rows` is a row whose format is defined by
     /// [metadata.row_type][google.spanner.v1.ResultSetMetadata.row_type]. The ith element
@@ -4310,7 +4311,7 @@
     /// [metadata.row_type][google.spanner.v1.ResultSetMetadata.row_type]. Elements are
     /// encoded based on type as described
     /// [here][google.spanner.v1.TypeCode].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>rows: ::prost::alloc::vec::Vec&lt;::prost_types::ListValue&gt;,
     <span class="doccomment">/// Query plan and execution statistics for the SQL statement that
     /// produced this result set. These can be requested by setting
@@ -4320,7 +4321,7 @@
     /// [ExecuteSqlRequest.QueryMode.PLAN][google.spanner.v1.ExecuteSqlRequest.QueryMode.PLAN] [ExecuteSqlRequest.query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode].
     /// Other fields may or may not be populated, based on the
     /// [ExecuteSqlRequest.query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>stats: ::core::option::Option&lt;ResultSetStats&gt;,
 }
 <span class="doccomment">/// Partial results from a streaming read or SQL query. Streaming reads and
@@ -4331,7 +4332,7 @@
 </span><span class="kw">pub struct </span>PartialResultSet {
     <span class="doccomment">/// Metadata about the result set, such as row type information.
     /// Only present in the first response.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;ResultSetMetadata&gt;,
     <span class="doccomment">/// A streamed result set consists of a stream of values, which might
     /// be split into many `PartialResultSet` messages to accommodate
@@ -4342,7 +4343,7 @@
     /// Most values are encoded based on type as described
     /// [here][google.spanner.v1.TypeCode].
     ///
-    /// It is possible that the last value in values is &quot;chunked&quot;,
+    /// It is possible that the last value in values is "chunked",
     /// meaning that the rest of the value is sent in subsequent
     /// `PartialResultSet`(s). This is denoted by the [chunked_value][google.spanner.v1.PartialResultSet.chunked_value]
     /// field. Two or more chunked values can be merged to form a
@@ -4360,65 +4361,65 @@
     /// Some examples of merging:
     ///
     ///      # Strings are concatenated.
-    ///      &quot;foo&quot;, &quot;bar&quot; =&gt; &quot;foobar&quot;
+    ///      "foo", "bar" =&gt; "foobar"
     ///
     ///      # Lists of non-strings are concatenated.
     ///      \[2, 3\], \[4\] =&gt; \[2, 3, 4\]
     ///
     ///      # Lists are concatenated, but the last and first elements are merged
     ///      # because they are strings.
-    ///      \[&quot;a&quot;, &quot;b&quot;\], \[&quot;c&quot;, &quot;d&quot;\] =&gt; \[&quot;a&quot;, &quot;bc&quot;, &quot;d&quot;\]
+    ///      \["a", "b"\], \["c", "d"\] =&gt; \["a", "bc", "d"\]
     ///
     ///      # Lists are concatenated, but the last and first elements are merged
     ///      # because they are lists. Recursively, the last and first elements
     ///      # of the inner lists are merged because they are strings.
-    ///      \[&quot;a&quot;, [&quot;b&quot;, &quot;c&quot;]\], \[[&quot;d&quot;\], &quot;e&quot;] =&gt; \[&quot;a&quot;, [&quot;b&quot;, &quot;cd&quot;\], &quot;e&quot;]
+    ///      \["a", ["b", "c"]\], \[["d"\], "e"] =&gt; \["a", ["b", "cd"\], "e"]
     ///
     ///      # Non-overlapping object fields are combined.
-    ///      {&quot;a&quot;: &quot;1&quot;}, {&quot;b&quot;: &quot;2&quot;} =&gt; {&quot;a&quot;: &quot;1&quot;, &quot;b&quot;: 2&quot;}
+    ///      {"a": "1"}, {"b": "2"} =&gt; {"a": "1", "b": 2"}
     ///
     ///      # Overlapping object fields are merged.
-    ///      {&quot;a&quot;: &quot;1&quot;}, {&quot;a&quot;: &quot;2&quot;} =&gt; {&quot;a&quot;: &quot;12&quot;}
+    ///      {"a": "1"}, {"a": "2"} =&gt; {"a": "12"}
     ///
     ///      # Examples of merging objects containing lists of strings.
-    ///      {&quot;a&quot;: \[&quot;1&quot;\]}, {&quot;a&quot;: \[&quot;2&quot;\]} =&gt; {&quot;a&quot;: \[&quot;12&quot;\]}
+    ///      {"a": \["1"\]}, {"a": \["2"\]} =&gt; {"a": \["12"\]}
     ///
     /// For a more complete example, suppose a streaming SQL query is
     /// yielding a result set whose rows contain a single string
     /// field. The following `PartialResultSet`s might be yielded:
     ///
     ///      {
-    ///        &quot;metadata&quot;: { ... }
-    ///        &quot;values&quot;: \[&quot;Hello&quot;, &quot;W&quot;\]
-    ///        &quot;chunked_value&quot;: true
-    ///        &quot;resume_token&quot;: &quot;Af65...&quot;
+    ///        "metadata": { ... }
+    ///        "values": \["Hello", "W"\]
+    ///        "chunked_value": true
+    ///        "resume_token": "Af65..."
     ///      }
     ///      {
-    ///        &quot;values&quot;: \[&quot;orl&quot;\]
-    ///        &quot;chunked_value&quot;: true
-    ///        &quot;resume_token&quot;: &quot;Bqp2...&quot;
+    ///        "values": \["orl"\]
+    ///        "chunked_value": true
+    ///        "resume_token": "Bqp2..."
     ///      }
     ///      {
-    ///        &quot;values&quot;: \[&quot;d&quot;\]
-    ///        &quot;resume_token&quot;: &quot;Zx1B...&quot;
+    ///        "values": \["d"\]
+    ///        "resume_token": "Zx1B..."
     ///      }
     ///
     /// This sequence of `PartialResultSet`s encodes two rows, one
-    /// containing the field value `&quot;Hello&quot;`, and a second containing the
-    /// field value `&quot;World&quot; = &quot;W&quot; + &quot;orl&quot; + &quot;d&quot;`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    /// containing the field value `"Hello"`, and a second containing the
+    /// field value `"World" = "W" + "orl" + "d"`.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// If true, then the final value in [values][google.spanner.v1.PartialResultSet.values] is chunked, and must
     /// be combined with more values from subsequent `PartialResultSet`s
     /// to obtain a complete field value.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>chunked_value: bool,
     <span class="doccomment">/// Streaming calls might be interrupted for a variety of reasons, such
     /// as TCP connection loss. If this occurs, the stream of results can
     /// be resumed by re-sending the original request and including
     /// `resume_token`. Note that executing any other transaction in the
     /// same session invalidates the token.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>resume_token: ::prost::bytes::Bytes,
     <span class="doccomment">/// Query plan and execution statistics for the statement that produced this
     /// streaming result set. These can be requested by setting
@@ -4426,7 +4427,7 @@
     /// only once with the last response in the stream.
     /// This field will also be present in the last response for DML
     /// statements.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>stats: ::core::option::Option&lt;ResultSetStats&gt;,
 }
 <span class="doccomment">/// Metadata about a [ResultSet][google.spanner.v1.ResultSet] or [PartialResultSet][google.spanner.v1.PartialResultSet].
@@ -4434,30 +4435,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResultSetMetadata {
     <span class="doccomment">/// Indicates the field names and types for the rows in the result
-    /// set.  For example, a SQL query like `&quot;SELECT UserId, UserName FROM
-    /// Users&quot;` could return a `row_type` value like:
+    /// set.  For example, a SQL query like `"SELECT UserId, UserName FROM
+    /// Users"` could return a `row_type` value like:
     ///
-    ///      &quot;fields&quot;: [
-    ///        { &quot;name&quot;: &quot;UserId&quot;, &quot;type&quot;: { &quot;code&quot;: &quot;INT64&quot; } },
-    ///        { &quot;name&quot;: &quot;UserName&quot;, &quot;type&quot;: { &quot;code&quot;: &quot;STRING&quot; } },
+    ///      "fields": [
+    ///        { "name": "UserId", "type": { "code": "INT64" } },
+    ///        { "name": "UserName", "type": { "code": "STRING" } },
     ///      ]
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>row_type: ::core::option::Option&lt;StructType&gt;,
     <span class="doccomment">/// If the read or SQL query began a transaction as a side-effect, the
     /// information about the new transaction is yielded here.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;Transaction&gt;,
     <span class="doccomment">/// A SQL query can be parameterized. In PLAN mode, these parameters can be
     /// undeclared. This indicates the field names and types for those undeclared
-    /// parameters in the SQL query. For example, a SQL query like `&quot;SELECT * FROM
-    /// Users where UserId = @userId and UserName = @userName &quot;` could return a
+    /// parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+    /// Users where UserId = @userId and UserName = @userName "` could return a
     /// `undeclared_parameters` value like:
     ///
-    ///      &quot;fields&quot;: [
-    ///        { &quot;name&quot;: &quot;UserId&quot;, &quot;type&quot;: { &quot;code&quot;: &quot;INT64&quot; } },
-    ///        { &quot;name&quot;: &quot;UserName&quot;, &quot;type&quot;: { &quot;code&quot;: &quot;STRING&quot; } },
+    ///      "fields": [
+    ///        { "name": "UserId", "type": { "code": "INT64" } },
+    ///        { "name": "UserName", "type": { "code": "STRING" } },
     ///      ]
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>undeclared_parameters: ::core::option::Option&lt;StructType&gt;,
 }
 <span class="doccomment">/// Additional statistics about a [ResultSet][google.spanner.v1.ResultSet] or [PartialResultSet][google.spanner.v1.PartialResultSet].
@@ -4465,21 +4466,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ResultSetStats {
     <span class="doccomment">/// [QueryPlan][google.spanner.v1.QueryPlan] for the query associated with this result.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>query_plan: ::core::option::Option&lt;QueryPlan&gt;,
     <span class="doccomment">/// Aggregated statistics from the execution of the query. Only present when
     /// the query is profiled. For example, a query could return the statistics as
     /// follows:
     ///
     ///      {
-    ///        &quot;rows_returned&quot;: &quot;3&quot;,
-    ///        &quot;elapsed_time&quot;: &quot;1.22 secs&quot;,
-    ///        &quot;cpu_time&quot;: &quot;1.19 secs&quot;
+    ///        "rows_returned": "3",
+    ///        "elapsed_time": "1.22 secs",
+    ///        "cpu_time": "1.19 secs"
     ///      }
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>query_stats: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// The number of rows modified by the DML statement.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;result_set_stats::RowCount&quot;</span>, tags = <span class="string">&quot;3, 4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"result_set_stats::RowCount"</span>, tags = <span class="string">"3, 4"</span>)]
     </span><span class="kw">pub </span>row_count: ::core::option::Option&lt;result_set_stats::RowCount&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ResultSetStats`.
@@ -4489,11 +4490,11 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>RowCount {
         <span class="doccomment">/// Standard DML returns an exact count of rows that were modified.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
         </span>RowCountExact(i64),
         <span class="doccomment">/// Partitioned DML does not offer exactly-once semantics, so it
         /// returns a lower bound of the rows modified.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
         </span>RowCountLowerBound(i64),
     }
 }
@@ -4502,10 +4503,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateSessionRequest {
     <span class="doccomment">/// Required. The database in which the new session is created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>database: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The session to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>session: ::core::option::Option&lt;Session&gt;,
 }
 <span class="doccomment">/// The request for
@@ -4514,10 +4515,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCreateSessionsRequest {
     <span class="doccomment">/// Required. The database in which the new sessions are created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>database: ::prost::alloc::string::String,
     <span class="doccomment">/// Parameters to be applied to each created session.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>session_template: ::core::option::Option&lt;Session&gt;,
     <span class="doccomment">/// Required. The number of sessions to be created in this batch call.
     /// The API may return fewer than the requested number of sessions. If a
@@ -4525,7 +4526,7 @@
     /// calls to BatchCreateSessions (adjusting
     /// [session_count][google.spanner.v1.BatchCreateSessionsRequest.session_count]
     /// as necessary).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>session_count: i32,
 }
 <span class="doccomment">/// The response for
@@ -4534,7 +4535,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCreateSessionsResponse {
     <span class="doccomment">/// The freshly created sessions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>session: ::prost::alloc::vec::Vec&lt;Session&gt;,
 }
 <span class="doccomment">/// A session in the Cloud Spanner API.
@@ -4542,7 +4543,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Session {
     <span class="doccomment">/// Output only. The name of the session. This is always system-assigned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The labels for the session.
     ///
@@ -4553,20 +4554,20 @@
     ///   * No more than 64 labels can be associated with a given session.
     ///
     /// See &lt;https://goo.gl/xmQnxf&gt; for more information on and examples of labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. The timestamp when the session is created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The approximate timestamp when the session is last used. It is
     /// typically earlier than the actual last use time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>approximate_last_use_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The database role which created this session.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>creator_role: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for [GetSession][google.spanner.v1.Spanner.GetSession].
@@ -4574,7 +4575,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetSessionRequest {
     <span class="doccomment">/// Required. The name of the session to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for [ListSessions][google.spanner.v1.Spanner.ListSessions].
@@ -4582,17 +4583,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSessionsRequest {
     <span class="doccomment">/// Required. The database in which to list sessions.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>database: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of sessions to be returned in the response. If 0 or less, defaults
-    /// to the server&#39;s maximum allowed page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    /// to the server's maximum allowed page size.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// If non-empty, `page_token` should contain a
     /// [next_page_token][google.spanner.v1.ListSessionsResponse.next_page_token]
     /// from a previous
     /// [ListSessionsResponse][google.spanner.v1.ListSessionsResponse].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression for filtering the results of the request. Filter rules are
     /// case insensitive. The fields eligible for filtering are:
@@ -4601,10 +4602,10 @@
     ///
     /// Some examples of using filters are:
     ///
-    ///    * `labels.env:*` --&gt; The session has the label &quot;env&quot;.
-    ///    * `labels.env:dev` --&gt; The session has the label &quot;env&quot; and the value of
-    ///                         the label contains the string &quot;dev&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    ///    * `labels.env:*` --&gt; The session has the label "env".
+    ///    * `labels.env:dev` --&gt; The session has the label "env" and the value of
+    ///                         the label contains the string "dev".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for [ListSessions][google.spanner.v1.Spanner.ListSessions].
@@ -4612,12 +4613,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListSessionsResponse {
     <span class="doccomment">/// The list of requested sessions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sessions: ::prost::alloc::vec::Vec&lt;Session&gt;,
     <span class="doccomment">/// `next_page_token` can be sent in a subsequent
     /// [ListSessions][google.spanner.v1.Spanner.ListSessions] call to fetch more
     /// of the matching sessions.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for [DeleteSession][google.spanner.v1.Spanner.DeleteSession].
@@ -4625,7 +4626,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteSessionRequest {
     <span class="doccomment">/// Required. The name of the session to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Common request options for various APIs.
@@ -4633,32 +4634,32 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RequestOptions {
     <span class="doccomment">/// Priority for the request.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;request_options::Priority&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"request_options::Priority"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>priority: i32,
     <span class="doccomment">/// A per-request tag which can be applied to queries or reads, used for
     /// statistics collection.
     /// Both request_tag and transaction_tag can be specified for a read or query
     /// that belongs to a transaction.
-    /// This field is ignored for requests where it&#39;s not applicable (e.g.
+    /// This field is ignored for requests where it's not applicable (e.g.
     /// CommitRequest).
     /// Legal characters for `request_tag` values are all printable characters
     /// (ASCII 32 - 126) and the length of a request_tag is limited to 50
     /// characters. Values that exceed this limit are truncated.
     /// Any leading underscore (_) characters will be removed from the string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_tag: ::prost::alloc::string::String,
     <span class="doccomment">/// A tag used for statistics collection about this transaction.
     /// Both request_tag and transaction_tag can be specified for a read or query
     /// that belongs to a transaction.
     /// The value of transaction_tag should be the same for all requests belonging
     /// to the same transaction.
-    /// If this request doesn&#39;t belong to any transaction, transaction_tag will be
+    /// If this request doesn't belong to any transaction, transaction_tag will be
     /// ignored.
     /// Legal characters for `transaction_tag` values are all printable characters
     /// (ASCII 32 - 126) and the length of a transaction_tag is limited to 50
     /// characters. Values that exceed this limit are truncated.
     /// Any leading underscore (_) characters will be removed from the string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>transaction_tag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `RequestOptions`.
@@ -4706,21 +4707,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Priority::Unspecified =&gt; <span class="string">&quot;PRIORITY_UNSPECIFIED&quot;</span>,
-                Priority::Low =&gt; <span class="string">&quot;PRIORITY_LOW&quot;</span>,
-                Priority::Medium =&gt; <span class="string">&quot;PRIORITY_MEDIUM&quot;</span>,
-                Priority::High =&gt; <span class="string">&quot;PRIORITY_HIGH&quot;</span>,
+                Priority::Unspecified =&gt; <span class="string">"PRIORITY_UNSPECIFIED"</span>,
+                Priority::Low =&gt; <span class="string">"PRIORITY_LOW"</span>,
+                Priority::Medium =&gt; <span class="string">"PRIORITY_MEDIUM"</span>,
+                Priority::High =&gt; <span class="string">"PRIORITY_HIGH"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PRIORITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PRIORITY_LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
-                <span class="string">&quot;PRIORITY_MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-                <span class="string">&quot;PRIORITY_HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+                <span class="string">"PRIORITY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PRIORITY_LOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+                <span class="string">"PRIORITY_MEDIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+                <span class="string">"PRIORITY_HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4737,7 +4738,7 @@
     <span class="doccomment">/// Required. Replicas indicates the order in which replicas should be
     /// considered. At most one of either include_replicas or exclude_replicas
     /// should be present in the message.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;directed_read_options::Replicas&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"directed_read_options::Replicas"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>replicas: ::core::option::Option&lt;directed_read_options::Replicas&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DirectedReadOptions`.
@@ -4752,22 +4753,22 @@
     ///
     /// Some examples of using replica_selectors are:
     ///
-    ///    * `location:us-east1` --&gt; The &quot;us-east1&quot; replica(s) of any available type
+    ///    * `location:us-east1` --&gt; The "us-east1" replica(s) of any available type
     ///                              will be used to process the request.
-    ///    * `type:READ_ONLY`    --&gt; The &quot;READ_ONLY&quot; type replica(s) in nearest
+    ///    * `type:READ_ONLY`    --&gt; The "READ_ONLY" type replica(s) in nearest
     /// .                            available location will be used to process the
     ///                              request.
-    ///    * `location:us-east1 type:READ_ONLY` --&gt; The &quot;READ_ONLY&quot; type replica(s)
-    ///                           in location &quot;us-east1&quot; will be used to process
+    ///    * `location:us-east1 type:READ_ONLY` --&gt; The "READ_ONLY" type replica(s)
+    ///                           in location "us-east1" will be used to process
     ///                           the request.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ReplicaSelection {
-        <span class="doccomment">/// The location or region of the serving requests, e.g. &quot;us-east1&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        <span class="doccomment">/// The location or region of the serving requests, e.g. "us-east1".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
         <span class="doccomment">/// The type of replica.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;replica_selection::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"replica_selection::Type"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>r#type: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `ReplicaSelection`.
@@ -4798,19 +4799,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                    Type::ReadWrite =&gt; <span class="string">&quot;READ_WRITE&quot;</span>,
-                    Type::ReadOnly =&gt; <span class="string">&quot;READ_ONLY&quot;</span>,
+                    Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                    Type::ReadWrite =&gt; <span class="string">"READ_WRITE"</span>,
+                    Type::ReadOnly =&gt; <span class="string">"READ_ONLY"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;READ_WRITE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadWrite),
-                    <span class="string">&quot;READ_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadOnly),
+                    <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"READ_WRITE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadWrite),
+                    <span class="string">"READ_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadOnly),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -4822,12 +4823,12 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>IncludeReplicas {
         <span class="doccomment">/// The directed read replica selector.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>replica_selections: ::prost::alloc::vec::Vec&lt;ReplicaSelection&gt;,
         <span class="doccomment">/// If true, Spanner will not route requests to a replica outside the
         /// include_replicas list when all of the specified replicas are unavailable
         /// or unhealthy. Default value is `false`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>auto_failover_disabled: bool,
     }
     <span class="doccomment">/// An ExcludeReplicas contains a repeated set of ReplicaSelection that should
@@ -4836,7 +4837,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ExcludeReplicas {
         <span class="doccomment">/// The directed read replica selector.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>replica_selections: ::prost::alloc::vec::Vec&lt;ReplicaSelection&gt;,
     }
     <span class="doccomment">/// Required. Replicas indicates the order in which replicas should be
@@ -4850,11 +4851,11 @@
         /// true and all replicas are exhausted without finding a healthy replica,
         /// Spanner will wait for a replica in the list to become available, requests
         /// may fail due to `DEADLINE_EXCEEDED` errors.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>IncludeReplicas(IncludeReplicas),
         <span class="doccomment">/// Exclude_replicas indicates that should be excluded from serving
         /// requests. Spanner will not route requests to the replicas in this list.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>ExcludeReplicas(ExcludeReplicas),
     }
 }
@@ -4864,7 +4865,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecuteSqlRequest {
     <span class="doccomment">/// Required. The session in which the SQL query should be performed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>session: ::prost::alloc::string::String,
     <span class="doccomment">/// The transaction to use.
     ///
@@ -4876,10 +4877,10 @@
     /// must either supply an existing transaction ID or begin a new transaction.
     ///
     /// Partitioned DML requires an existing Partitioned DML transaction ID.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;TransactionSelector&gt;,
     <span class="doccomment">/// Required. The SQL string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>sql: ::prost::alloc::string::String,
     <span class="doccomment">/// Parameter names and values that bind to placeholders in the SQL string.
     ///
@@ -4891,10 +4892,10 @@
     /// Parameters can appear anywhere that a literal value is expected.  The same
     /// parameter name can be used more than once, for example:
     ///
-    /// `&quot;WHERE id &gt; @msg_id AND id &lt; @msg_id + 100&quot;`
+    /// `"WHERE id &gt; @msg_id AND id &lt; @msg_id + 100"`
     ///
     /// It is an error to execute a SQL statement with unbound parameters.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>params: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// It is not always possible for Cloud Spanner to infer the right SQL type
     /// from a JSON value.  For example, values of type `BYTES` and values
@@ -4905,7 +4906,7 @@
     /// SQL type for some or all of the SQL statement parameters. See the
     /// definition of [Type][google.spanner.v1.Type] for more information
     /// about SQL types.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>param_types: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         Type,
@@ -4916,7 +4917,7 @@
     /// interruption. Doing this enables the new SQL statement execution to resume
     /// where the last one left off. The rest of the request parameters must
     /// exactly match the request that yielded this token.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>resume_token: ::prost::bytes::Bytes,
     <span class="doccomment">/// Used to control the amount of debugging information returned in
     /// [ResultSetStats][google.spanner.v1.ResultSetStats]. If
@@ -4924,13 +4925,13 @@
     /// set, [query_mode][google.spanner.v1.ExecuteSqlRequest.query_mode] can only
     /// be set to
     /// [QueryMode.NORMAL][google.spanner.v1.ExecuteSqlRequest.QueryMode.NORMAL].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;execute_sql_request::QueryMode&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"execute_sql_request::QueryMode"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>query_mode: i32,
     <span class="doccomment">/// If present, results will be restricted to the specified partition
     /// previously created using PartitionQuery().  There must be an exact
     /// match for the values of fields common to this message and the
     /// PartitionQueryRequest message used to create this partition_token.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>partition_token: ::prost::bytes::Bytes,
     <span class="doccomment">/// A per-transaction sequence number used to identify this request. This field
     /// makes each request idempotent such that if the request is received multiple
@@ -4942,23 +4943,23 @@
     /// handled requests will yield the same response as the first execution.
     ///
     /// Required for DML statements. Ignored for queries.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>seqno: i64,
     <span class="doccomment">/// Query optimizer configuration to use for the given query.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>query_options: ::core::option::Option&lt;execute_sql_request::QueryOptions&gt;,
     <span class="doccomment">/// Common options for this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>request_options: ::core::option::Option&lt;RequestOptions&gt;,
     <span class="doccomment">/// Directed read options for this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>directed_read_options: ::core::option::Option&lt;DirectedReadOptions&gt;,
     <span class="doccomment">/// If this is for a partitioned query and this field is set to `true`, the
     /// request is executed with Spanner Data Boost independent compute resources.
     ///
     /// If the field is set to `true` but the request does not set
     /// `partition_token`, the API returns an `INVALID_ARGUMENT` error.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>data_boost_enabled: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `ExecuteSqlRequest`.
@@ -4989,7 +4990,7 @@
         /// for more information on managing the query optimizer.
         ///
         /// The `optimizer_version` statement hint has precedence over this setting.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>optimizer_version: ::prost::alloc::string::String,
         <span class="doccomment">/// An option to control the selection of optimizer statistics package.
         ///
@@ -5015,7 +5016,7 @@
         /// Executing a SQL statement with an invalid optimizer statistics package
         /// or with a statistics package that allows garbage collection fails with
         /// an `INVALID_ARGUMENT` error.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>optimizer_statistics_package: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Mode in which the statement must be processed.
@@ -5046,19 +5047,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                QueryMode::Normal =&gt; <span class="string">&quot;NORMAL&quot;</span>,
-                QueryMode::Plan =&gt; <span class="string">&quot;PLAN&quot;</span>,
-                QueryMode::Profile =&gt; <span class="string">&quot;PROFILE&quot;</span>,
+                QueryMode::Normal =&gt; <span class="string">"NORMAL"</span>,
+                QueryMode::Plan =&gt; <span class="string">"PLAN"</span>,
+                QueryMode::Profile =&gt; <span class="string">"PROFILE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;NORMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
-                <span class="string">&quot;PLAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Plan),
-                <span class="string">&quot;PROFILE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Profile),
+                <span class="string">"NORMAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
+                <span class="string">"PLAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Plan),
+                <span class="string">"PROFILE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Profile),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -5069,14 +5070,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecuteBatchDmlRequest {
     <span class="doccomment">/// Required. The session in which the DML statements should be performed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>session: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The transaction to use. Must be a read-write transaction.
     ///
     /// To protect against replays, single-use transactions are not supported. The
     /// caller must either supply an existing transaction ID or begin a new
     /// transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;TransactionSelector&gt;,
     <span class="doccomment">/// Required. The list of statements to execute in this batch. Statements are
     /// executed serially, such that the effects of statement `i` are visible to
@@ -5084,7 +5085,7 @@
     /// the first failed statement; the remaining statements are not executed.
     ///
     /// Callers must provide at least one statement.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>statements: ::prost::alloc::vec::Vec&lt;execute_batch_dml_request::Statement&gt;,
     <span class="doccomment">/// Required. A per-transaction sequence number used to identify this request.
     /// This field makes each request idempotent such that if the request is
@@ -5094,10 +5095,10 @@
     /// transaction. If a request arrives for the first time with an out-of-order
     /// sequence number, the transaction may be aborted. Replays of previously
     /// handled requests will yield the same response as the first execution.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>seqno: i64,
     <span class="doccomment">/// Common options for this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>request_options: ::core::option::Option&lt;RequestOptions&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ExecuteBatchDmlRequest`.
@@ -5107,7 +5108,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Statement {
         <span class="doccomment">/// Required. The DML string.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>sql: ::prost::alloc::string::String,
         <span class="doccomment">/// Parameter names and values that bind to placeholders in the DML string.
         ///
@@ -5118,10 +5119,10 @@
         /// Parameters can appear anywhere that a literal value is expected.  The
         /// same parameter name can be used more than once, for example:
         ///
-        /// `&quot;WHERE id &gt; @msg_id AND id &lt; @msg_id + 100&quot;`
+        /// `"WHERE id &gt; @msg_id AND id &lt; @msg_id + 100"`
         ///
         /// It is an error to execute a SQL statement with unbound parameters.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>params: ::core::option::Option&lt;::prost_types::Struct&gt;,
         <span class="doccomment">/// It is not always possible for Cloud Spanner to infer the right SQL type
         /// from a JSON value.  For example, values of type `BYTES` and values
@@ -5133,7 +5134,7 @@
         /// SQL type for some or all of the SQL statement parameters. See the
         /// definition of [Type][google.spanner.v1.Type] for more information
         /// about SQL types.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>param_types: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             <span class="kw">super</span>::Type,
@@ -5183,11 +5184,11 @@
     ///
     /// Only the first [ResultSet][google.spanner.v1.ResultSet] in the response
     /// contains valid [ResultSetMetadata][google.spanner.v1.ResultSetMetadata].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>result_sets: ::prost::alloc::vec::Vec&lt;ResultSet&gt;,
     <span class="doccomment">/// If all DML statements are executed successfully, the status is `OK`.
     /// Otherwise, the error status of the first failed statement.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// Options for a PartitionQueryRequest and
@@ -5201,7 +5202,7 @@
     /// The desired data size for each partition generated.  The default for this
     /// option is currently 1 GiB.  This is only a hint. The actual size of each
     /// partition may be smaller or larger than this size request.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>partition_size_bytes: i64,
     <span class="doccomment">/// **Note:** This hint is currently ignored by PartitionQuery and
     /// PartitionRead requests.
@@ -5211,7 +5212,7 @@
     /// is currently 10,000. The maximum value is currently 200,000.  This is only
     /// a hint.  The actual number of partitions returned may be smaller or larger
     /// than this maximum count request.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>max_partitions: i64,
 }
 <span class="doccomment">/// The request for [PartitionQuery][google.spanner.v1.Spanner.PartitionQuery]
@@ -5219,11 +5220,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionQueryRequest {
     <span class="doccomment">/// Required. The session used to create the partitions.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>session: ::prost::alloc::string::String,
     <span class="doccomment">/// Read only snapshot transactions are supported, read/write and single use
     /// transactions are not.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;TransactionSelector&gt;,
     <span class="doccomment">/// Required. The query request to generate partitions for. The request will
     /// fail if the query is not root partitionable. For a query to be root
@@ -5237,7 +5238,7 @@
     /// DELETE. Use
     /// [ExecuteStreamingSql][google.spanner.v1.Spanner.ExecuteStreamingSql] with a
     /// PartitionedDml transaction for large, partition-friendly DML operations.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>sql: ::prost::alloc::string::String,
     <span class="doccomment">/// Parameter names and values that bind to placeholders in the SQL string.
     ///
@@ -5248,10 +5249,10 @@
     /// Parameters can appear anywhere that a literal value is expected.  The same
     /// parameter name can be used more than once, for example:
     ///
-    /// `&quot;WHERE id &gt; @msg_id AND id &lt; @msg_id + 100&quot;`
+    /// `"WHERE id &gt; @msg_id AND id &lt; @msg_id + 100"`
     ///
     /// It is an error to execute a SQL statement with unbound parameters.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>params: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// It is not always possible for Cloud Spanner to infer the right SQL type
     /// from a JSON value.  For example, values of type `BYTES` and values
@@ -5262,13 +5263,13 @@
     /// SQL type for some or all of the SQL query parameters. See the
     /// definition of [Type][google.spanner.v1.Type] for more information
     /// about SQL types.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>param_types: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         Type,
     &gt;,
     <span class="doccomment">/// Additional options that affect how many partitions are created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>partition_options: ::core::option::Option&lt;PartitionOptions&gt;,
 }
 <span class="doccomment">/// The request for [PartitionRead][google.spanner.v1.Spanner.PartitionRead]
@@ -5276,14 +5277,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionReadRequest {
     <span class="doccomment">/// Required. The session used to create the partitions.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>session: ::prost::alloc::string::String,
     <span class="doccomment">/// Read only snapshot transactions are supported, read/write and single use
     /// transactions are not.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;TransactionSelector&gt;,
     <span class="doccomment">/// Required. The name of the table in the database to be read.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
     <span class="doccomment">/// If non-empty, the name of an index on
     /// [table][google.spanner.v1.PartitionReadRequest.table]. This index is used
@@ -5291,11 +5292,11 @@
     /// [key_set][google.spanner.v1.PartitionReadRequest.key_set] and sorting
     /// result rows. See [key_set][google.spanner.v1.PartitionReadRequest.key_set]
     /// for further information.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>index: ::prost::alloc::string::String,
     <span class="doccomment">/// The columns of [table][google.spanner.v1.PartitionReadRequest.table] to be
     /// returned for each row matching this request.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>columns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Required. `key_set` identifies the rows to be yielded. `key_set` names the
     /// primary keys of the rows in
@@ -5307,10 +5308,10 @@
     ///
     /// It is not an error for the `key_set` to name rows that do not
     /// exist in the database. Read yields nothing for nonexistent rows.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>key_set: ::core::option::Option&lt;KeySet&gt;,
     <span class="doccomment">/// Additional options that affect how many partitions are created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>partition_options: ::core::option::Option&lt;PartitionOptions&gt;,
 }
 <span class="doccomment">/// Information returned for each partition returned in a
@@ -5321,7 +5322,7 @@
     <span class="doccomment">/// This token can be passed to Read, StreamingRead, ExecuteSql, or
     /// ExecuteStreamingSql requests to restrict the results to those identified by
     /// this partition token.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>partition_token: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// The response for [PartitionQuery][google.spanner.v1.Spanner.PartitionQuery]
@@ -5330,10 +5331,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionResponse {
     <span class="doccomment">/// Partitions created by this request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>partitions: ::prost::alloc::vec::Vec&lt;Partition&gt;,
     <span class="doccomment">/// Transaction created by this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;Transaction&gt;,
 }
 <span class="doccomment">/// The request for [Read][google.spanner.v1.Spanner.Read] and
@@ -5342,14 +5343,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReadRequest {
     <span class="doccomment">/// Required. The session in which the read should be performed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>session: ::prost::alloc::string::String,
     <span class="doccomment">/// The transaction to use. If none is provided, the default is a
     /// temporary read-only transaction with strong concurrency.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;TransactionSelector&gt;,
     <span class="doccomment">/// Required. The name of the table in the database to be read.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
     <span class="doccomment">/// If non-empty, the name of an index on
     /// [table][google.spanner.v1.ReadRequest.table]. This index is used instead of
@@ -5357,11 +5358,11 @@
     /// [key_set][google.spanner.v1.ReadRequest.key_set] and sorting result rows.
     /// See [key_set][google.spanner.v1.ReadRequest.key_set] for further
     /// information.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>index: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The columns of [table][google.spanner.v1.ReadRequest.table] to be
     /// returned for each row matching this request.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>columns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Required. `key_set` identifies the rows to be yielded. `key_set` names the
     /// primary keys of the rows in [table][google.spanner.v1.ReadRequest.table] to
@@ -5379,12 +5380,12 @@
     ///
     /// It is not an error for the `key_set` to name rows that do not
     /// exist in the database. Read yields nothing for nonexistent rows.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>key_set: ::core::option::Option&lt;KeySet&gt;,
     <span class="doccomment">/// If greater than zero, only the first `limit` rows are yielded. If `limit`
     /// is zero, the default is no limit. A limit cannot be specified if
     /// `partition_token` is set.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>limit: i64,
     <span class="doccomment">/// If this request is resuming a previously interrupted read,
     /// `resume_token` should be copied from the last
@@ -5392,26 +5393,26 @@
     /// interruption. Doing this enables the new read to resume where the last read
     /// left off. The rest of the request parameters must exactly match the request
     /// that yielded this token.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>resume_token: ::prost::bytes::Bytes,
     <span class="doccomment">/// If present, results will be restricted to the specified partition
     /// previously created using PartitionRead().    There must be an exact
     /// match for the values of fields common to this message and the
     /// PartitionReadRequest message used to create this partition_token.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>partition_token: ::prost::bytes::Bytes,
     <span class="doccomment">/// Common options for this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>request_options: ::core::option::Option&lt;RequestOptions&gt;,
     <span class="doccomment">/// Directed read options for this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>directed_read_options: ::core::option::Option&lt;DirectedReadOptions&gt;,
     <span class="doccomment">/// If this is for a partitioned read and this field is set to `true`, the
     /// request is executed with Spanner Data Boost independent compute resources.
     ///
     /// If the field is set to `true` but the request does not set
     /// `partition_token`, the API returns an `INVALID_ARGUMENT` error.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>data_boost_enabled: bool,
 }
 <span class="doccomment">/// The request for
@@ -5420,17 +5421,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BeginTransactionRequest {
     <span class="doccomment">/// Required. The session in which the transaction runs.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>session: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Options for the new transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>options: ::core::option::Option&lt;TransactionOptions&gt;,
     <span class="doccomment">/// Common options for this request.
     /// Priority is ignored for this request. Setting the priority in this
     /// request_options struct will not do anything. To set the priority for a
     /// transaction, set it on the reads and writes that are part of this
     /// transaction instead.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_options: ::core::option::Option&lt;RequestOptions&gt;,
 }
 <span class="doccomment">/// The request for [Commit][google.spanner.v1.Spanner.Commit].
@@ -5438,30 +5439,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommitRequest {
     <span class="doccomment">/// Required. The session in which the transaction to be committed is running.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>session: ::prost::alloc::string::String,
     <span class="doccomment">/// The mutations to be executed when this transaction commits. All
     /// mutations are applied atomically, in the order they appear in
     /// this list.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>mutations: ::prost::alloc::vec::Vec&lt;Mutation&gt;,
     <span class="doccomment">/// If `true`, then statistics related to the transaction will be included in
     /// the [CommitResponse][google.spanner.v1.CommitResponse.commit_stats].
     /// Default value is `false`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>return_commit_stats: bool,
     <span class="doccomment">/// Optional. The amount of latency this request is willing to incur in order
     /// to improve throughput. If this field is not set, Spanner assumes requests
     /// are relatively latency sensitive and automatically determines an
     /// appropriate delay time. You can specify a batching delay value between 0
     /// and 500 ms.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>max_commit_delay: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Common options for this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>request_options: ::core::option::Option&lt;RequestOptions&gt;,
     <span class="doccomment">/// Required. The transaction in which to commit.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;commit_request::Transaction&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"commit_request::Transaction"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>transaction: ::core::option::Option&lt;commit_request::Transaction&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CommitRequest`.
@@ -5471,7 +5472,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Transaction {
         <span class="doccomment">/// Commit a previously-started transaction.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"2"</span>)]
         </span>TransactionId(::prost::bytes::Bytes),
         <span class="doccomment">/// Execute mutations in a temporary transaction. Note that unlike
         /// commit of a previously-started transaction, commit with a
@@ -5482,7 +5483,7 @@
         /// executed more than once. If this is undesirable, use
         /// [BeginTransaction][google.spanner.v1.Spanner.BeginTransaction] and
         /// [Commit][google.spanner.v1.Spanner.Commit] instead.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>SingleUseTransaction(<span class="kw">super</span>::TransactionOptions),
     }
 }
@@ -5491,10 +5492,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RollbackRequest {
     <span class="doccomment">/// Required. The session in which the transaction to roll back is running.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>session: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The transaction to roll back.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>transaction_id: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// The request for [BatchWrite][google.spanner.v1.Spanner.BatchWrite].
@@ -5502,13 +5503,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchWriteRequest {
     <span class="doccomment">/// Required. The session in which the batch request is to be run.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>session: ::prost::alloc::string::String,
     <span class="doccomment">/// Common options for this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_options: ::core::option::Option&lt;RequestOptions&gt;,
     <span class="doccomment">/// Required. The groups of mutations to be applied.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>mutation_groups: ::prost::alloc::vec::Vec&lt;batch_write_request::MutationGroup&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `BatchWriteRequest`.
@@ -5520,7 +5521,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>MutationGroup {
         <span class="doccomment">/// Required. The mutations in this group.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>mutations: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::Mutation&gt;,
     }
 }
@@ -5530,14 +5531,14 @@
 </span><span class="kw">pub struct </span>BatchWriteResponse {
     <span class="doccomment">/// The mutation groups applied in this batch. The values index into the
     /// `mutation_groups` field in the corresponding `BatchWriteRequest`.
-    </span><span class="attr">#[prost(int32, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>indexes: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// An `OK` status indicates success. Any other status indicates a failure.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// The commit timestamp of the transaction that applied this batch.
     /// Present if `status` is `OK`, absent otherwise.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>commit_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -5557,7 +5558,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -5636,7 +5637,7 @@
         /// requests to it return `NOT_FOUND`.
         ///
         /// Idle sessions can be kept alive by sending a trivial SQL query
-        /// periodically, e.g., `&quot;SELECT 1&quot;`.
+        /// periodically, e.g., `"SELECT 1"`.
         </span><span class="kw">pub async fn </span>create_session(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::CreateSessionRequest&gt;,
@@ -5647,16 +5648,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/CreateSession&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/CreateSession"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;CreateSession&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"CreateSession"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates multiple new sessions.
@@ -5676,17 +5677,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/BatchCreateSessions&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/BatchCreateSessions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;BatchCreateSessions&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"BatchCreateSessions"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -5703,16 +5704,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/GetSession&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/GetSession"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;GetSession&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"GetSession"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Lists all sessions in a given database.
@@ -5729,16 +5730,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/ListSessions&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/ListSessions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;ListSessions&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"ListSessions"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Ends a session, releasing server resources associated with it. This will
@@ -5754,16 +5755,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/DeleteSession&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/DeleteSession"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;DeleteSession&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"DeleteSession"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Executes an SQL statement, returning all results in a single reply. This
@@ -5789,16 +5790,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/ExecuteSql&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/ExecuteSql"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;ExecuteSql&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"ExecuteSql"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Like [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql], except returns the
@@ -5819,17 +5820,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/ExecuteStreamingSql&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/ExecuteStreamingSql"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;ExecuteStreamingSql&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"ExecuteStreamingSql"</span>),
                 );
             <span class="self">self</span>.inner.server_streaming(req, path, codec).<span class="kw">await
         </span>}
@@ -5858,16 +5859,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/ExecuteBatchDml&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/ExecuteBatchDml"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;ExecuteBatchDml&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"ExecuteBatchDml"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Reads rows from the database using key lookups and scans, as a
@@ -5894,16 +5895,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/Read&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/Read"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;Read&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"Read"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Like [Read][google.spanner.v1.Spanner.Read], except returns the result set
@@ -5924,16 +5925,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/StreamingRead&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/StreamingRead"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;StreamingRead&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"StreamingRead"</span>));
             <span class="self">self</span>.inner.server_streaming(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Begins a new transaction. This step can often be skipped:
@@ -5951,17 +5952,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/BeginTransaction&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/BeginTransaction"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;BeginTransaction&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"BeginTransaction"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -5989,16 +5990,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/Commit&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/Commit"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;Commit&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"Commit"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Rolls back a transaction, releasing any locks it holds. It is a good
@@ -6020,16 +6021,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/Rollback&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/Rollback"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;Rollback&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"Rollback"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates a set of partition tokens that can be used to execute a query
@@ -6057,16 +6058,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/PartitionQuery&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/PartitionQuery"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;PartitionQuery&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"PartitionQuery"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates a set of partition tokens that can be used to execute a read
@@ -6096,16 +6097,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/PartitionRead&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/PartitionRead"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;PartitionRead&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"PartitionRead"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Batches the supplied mutation groups in a collection of efficient
@@ -6121,7 +6122,7 @@
         /// may have undesirable effects. For example, replays of an insert mutation
         /// may produce an already exists error or if you use generated or commit
         /// timestamp-based keys, it may result in additional rows being added to the
-        /// mutation&#39;s table. We recommend structuring your mutation groups to be
+        /// mutation's table. We recommend structuring your mutation groups to be
         /// idempotent to avoid this issue.
         </span><span class="kw">pub async fn </span>batch_write(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -6136,16 +6137,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.v1.Spanner/BatchWrite&quot;</span>,
+                <span class="string">"/google.spanner.v1.Spanner/BatchWrite"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.spanner.v1.Spanner&quot;</span>, <span class="string">&quot;BatchWrite&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.spanner.v1.Spanner"</span>, <span class="string">"BatchWrite"</span>));
             <span class="self">self</span>.inner.server_streaming(req, path, codec).<span class="kw">await
         </span>}
     }

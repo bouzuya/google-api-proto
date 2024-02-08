@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/identity/accesscontextmanager/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/identity/accesscontextmanager/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2376,25 +2377,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AccessLevel {
     <span class="doccomment">/// Required. Resource name for the Access Level. The `short_name` component
-    /// must begin with a letter and only include alphanumeric and &#39;_&#39;. Format:
+    /// must begin with a letter and only include alphanumeric and '_'. Format:
     /// `accessPolicies/{access_policy}/accessLevels/{access_level}`. The maximum
     /// length of the `access_level` component is 50 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Human readable title. Must be unique within the Policy.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// Description of the `AccessLevel` and its use. Does not affect behavior.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Time the `AccessLevel` was created in UTC.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time the `AccessLevel` was updated in UTC.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. Describes the necessary conditions for the level to apply.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;access_level::Level&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"access_level::Level"</span>, tags = <span class="string">"4, 5"</span>)]
     </span><span class="kw">pub </span>level: ::core::option::Option&lt;access_level::Level&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AccessLevel`.
@@ -2404,10 +2405,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Level {
         <span class="doccomment">/// A `BasicLevel` composed of `Conditions`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>Basic(<span class="kw">super</span>::BasicLevel),
         <span class="doccomment">/// A `CustomLevel` written in the Common Expression Language.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>Custom(<span class="kw">super</span>::CustomLevel),
     }
 }
@@ -2416,14 +2417,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BasicLevel {
     <span class="doccomment">/// Required. A list of requirements for the `AccessLevel` to be granted.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>conditions: ::prost::alloc::vec::Vec&lt;Condition&gt;,
     <span class="doccomment">/// How the `conditions` list should be combined to determine if a request is
     /// granted this `AccessLevel`. If AND is used, each `Condition` in
     /// `conditions` must be satisfied for the `AccessLevel` to be applied. If OR
     /// is used, at least one `Condition` in `conditions` must be satisfied for the
     /// `AccessLevel` to be applied. Default behavior is AND.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;basic_level::ConditionCombiningFunction&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"basic_level::ConditionCombiningFunction"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>combining_function: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `BasicLevel`.
@@ -2453,17 +2454,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ConditionCombiningFunction::And =&gt; <span class="string">&quot;AND&quot;</span>,
-                ConditionCombiningFunction::Or =&gt; <span class="string">&quot;OR&quot;</span>,
+                ConditionCombiningFunction::And =&gt; <span class="string">"AND"</span>,
+                ConditionCombiningFunction::Or =&gt; <span class="string">"OR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;AND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::And),
-                <span class="string">&quot;OR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Or),
+                <span class="string">"AND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::And),
+                <span class="string">"OR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Or),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2480,28 +2481,28 @@
     <span class="doccomment">/// CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for
     /// a CIDR IP address block, the specified IP address portion must be properly
     /// truncated (i.e. all the host bits must be zero) or the input is considered
-    /// malformed. For example, &quot;192.0.2.0/24&quot; is accepted but &quot;192.0.2.1/24&quot; is
-    /// not. Similarly, for IPv6, &quot;2001:db8::/32&quot; is accepted whereas
-    /// &quot;2001:db8::1/32&quot; is not. The originating IP of a request must be in one of
+    /// malformed. For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is
+    /// not. Similarly, for IPv6, "2001:db8::/32" is accepted whereas
+    /// "2001:db8::1/32" is not. The originating IP of a request must be in one of
     /// the listed subnets in order for this Condition to be true. If empty, all IP
     /// addresses are allowed.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>ip_subnetworks: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Device specific restrictions, all restrictions must hold for the
     /// Condition to be true. If not specified, all devices are allowed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>device_policy: ::core::option::Option&lt;DevicePolicy&gt;,
     <span class="doccomment">/// A list of other access levels defined in the same `Policy`, referenced by
     /// resource name. Referencing an `AccessLevel` which does not exist is an
     /// error. All access levels listed must be granted for the Condition
     /// to be true. Example:
-    /// &quot;`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME&quot;`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    /// "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>required_access_levels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Whether to negate the Condition. If true, the Condition becomes a NAND over
     /// its non-empty fields, each field must be false for the Condition overall to
     /// be satisfied. Defaults to false.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>negate: bool,
     <span class="doccomment">/// The request must be made by one of the provided user or service
     /// accounts. Groups are not supported.
@@ -2509,11 +2510,11 @@
     /// `user:{emailid}`
     /// `serviceAccount:{emailid}`
     /// If not specified, a request may come from any user.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>members: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The request must originate from one of the provided countries/regions.
     /// Must be valid ISO 3166-1 alpha-2 codes.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>regions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// `CustomLevel` is an `AccessLevel` using the Cloud Common Expression Language
@@ -2523,7 +2524,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CustomLevel {
     <span class="doccomment">/// Required. A Cloud CEL expression evaluating to a boolean.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>expr: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Expr&gt;,
 }
 <span class="doccomment">/// `DevicePolicy` specifies device specific restrictions necessary to acquire a
@@ -2540,23 +2541,23 @@
 </span><span class="kw">pub struct </span>DevicePolicy {
     <span class="doccomment">/// Whether or not screenlock is required for the DevicePolicy to be true.
     /// Defaults to `false`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>require_screenlock: bool,
     <span class="doccomment">/// Allowed encryptions statuses, an empty list allows all statuses.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::r#type::DeviceEncryptionStatus&quot;</span>, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"super::r#type::DeviceEncryptionStatus"</span>, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>allowed_encryption_statuses: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Allowed OS versions, an empty list allows all types and all versions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>os_constraints: ::prost::alloc::vec::Vec&lt;OsConstraint&gt;,
     <span class="doccomment">/// Allowed device management levels, an empty list allows all management
     /// levels.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::r#type::DeviceManagementLevel&quot;</span>, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"super::r#type::DeviceManagementLevel"</span>, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>allowed_device_management_levels: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Whether the device needs to be approved by the customer admin.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>require_admin_approval: bool,
     <span class="doccomment">/// Whether the device needs to be corp owned.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>require_corp_owned: bool,
 }
 <span class="doccomment">/// A restriction on the OS type and version of devices making requests.
@@ -2564,18 +2565,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OsConstraint {
     <span class="doccomment">/// Required. The allowed OS type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::r#type::OsType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"super::r#type::OsType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>os_type: i32,
     <span class="doccomment">/// The minimum allowed OS version. If not set, any version of this OS
-    /// satisfies the constraint. Format: `&quot;major.minor.patch&quot;`.
-    /// Examples: `&quot;10.5.301&quot;`, `&quot;9.2.1&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// satisfies the constraint. Format: `"major.minor.patch"`.
+    /// Examples: `"10.5.301"`, `"9.2.1"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>minimum_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Only allows requests from devices with a verified Chrome OS.
     /// Verifications includes requirements that the device is enterprise-managed,
     /// conformant to domain policies, and the caller has permission to call
     /// the API targeted by the request.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>require_verified_chrome_os: bool,
 }
 <span class="doccomment">/// `AccessPolicy` is a container for `AccessLevels` (which define the necessary
@@ -2588,19 +2589,19 @@
 </span><span class="kw">pub struct </span>AccessPolicy {
     <span class="doccomment">/// Output only. Resource name of the `AccessPolicy`. Format:
     /// `accessPolicies/{access_policy}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The parent of this `AccessPolicy` in the Cloud Resource
     /// Hierarchy. Currently immutable once created. Format:
     /// `organizations/{organization_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Human readable title. Does not affect behavior.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// The scopes of a policy define which resources an ACM policy can restrict,
     /// and where ACM resources can be referenced.
-    /// For example, a policy with scopes=\[&quot;folders/123&quot;\] has the following
+    /// For example, a policy with scopes=\["folders/123"\] has the following
     /// behavior:
     /// - vpcsc perimeters can only restrict projects within folders/123
     /// - access levels can only be referenced by resources within folders/123.
@@ -2608,23 +2609,23 @@
     /// an ACM policy, and there are no limitations on where ACM resources can be
     /// referenced.
     /// Only one policy can include a given scope (attempting to create a second
-    /// policy which includes &quot;folders/123&quot; will result in an error).
+    /// policy which includes "folders/123" will result in an error).
     /// Currently, scopes cannot be modified after a policy is created.
     /// Currently, policies can only have a single scope.
     /// Format: list of `folders/{folder_number}` or `projects/{project_number}`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>scopes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. Time the `AccessPolicy` was created in UTC.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time the `AccessPolicy` was updated in UTC.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. An opaque identifier for the current version of the
     /// `AccessPolicy`. This will always be a strongly validated etag, meaning that
     /// two Access Polices will be identical if and only if their etags are
     /// identical. Clients should not expect this to be in any specific format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// `ServicePerimeter` describes a set of Google Cloud resources which can freely
@@ -2641,23 +2642,23 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ServicePerimeter {
     <span class="doccomment">/// Required. Resource name for the ServicePerimeter.  The `short_name`
-    /// component must begin with a letter and only include alphanumeric and &#39;_&#39;.
+    /// component must begin with a letter and only include alphanumeric and '_'.
     /// Format:
     /// `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Human readable title. Must be unique within the Policy.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// Description of the `ServicePerimeter` and its use. Does not affect
     /// behavior.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Time the `ServicePerimeter` was created in UTC.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time the `ServicePerimeter` was updated in UTC.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Perimeter type indicator. A single project is
     /// allowed to be a member of single regular perimeter, but multiple service
@@ -2665,30 +2666,30 @@
     /// without being included in regular perimeter. For perimeter bridges,
     /// the restricted service list as well as access level lists must be
     /// empty.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;service_perimeter::PerimeterType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"service_perimeter::PerimeterType"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>perimeter_type: i32,
     <span class="doccomment">/// Current ServicePerimeter configuration. Specifies sets of resources,
     /// restricted services and access levels that determine perimeter
     /// content and boundaries.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;ServicePerimeterConfig&gt;,
     <span class="doccomment">/// Proposed (or dry run) ServicePerimeter configuration. This configuration
     /// allows to specify and test ServicePerimeter configuration without enforcing
     /// actual access restrictions. Only allowed to be set when the
-    /// &quot;use_explicit_dry_run_spec&quot; flag is set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    /// "use_explicit_dry_run_spec" flag is set.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>spec: ::core::option::Option&lt;ServicePerimeterConfig&gt;,
     <span class="doccomment">/// Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly
     /// exists  for all Service Perimeters, and that spec is identical to the
     /// status for those Service Perimeters. When this flag is set, it inhibits the
     /// generation of the implicit spec, thereby allowing the user to explicitly
-    /// provide a configuration (&quot;spec&quot;) to use in a dry-run version of the Service
+    /// provide a configuration ("spec") to use in a dry-run version of the Service
     /// Perimeter. This allows the user to test changes to the enforced config
-    /// (&quot;status&quot;) without actually enforcing them. This testing is done through
+    /// ("status") without actually enforcing them. This testing is done through
     /// analyzing the differences between currently enforced and suggested
     /// restrictions. use_explicit_dry_run_spec must bet set to True if any of the
     /// fields in the spec are set to non-default values.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>use_explicit_dry_run_spec: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `ServicePerimeter`.
@@ -2731,17 +2732,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                PerimeterType::Regular =&gt; <span class="string">&quot;PERIMETER_TYPE_REGULAR&quot;</span>,
-                PerimeterType::Bridge =&gt; <span class="string">&quot;PERIMETER_TYPE_BRIDGE&quot;</span>,
+                PerimeterType::Regular =&gt; <span class="string">"PERIMETER_TYPE_REGULAR"</span>,
+                PerimeterType::Bridge =&gt; <span class="string">"PERIMETER_TYPE_BRIDGE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PERIMETER_TYPE_REGULAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Regular),
-                <span class="string">&quot;PERIMETER_TYPE_BRIDGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bridge),
+                <span class="string">"PERIMETER_TYPE_REGULAR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Regular),
+                <span class="string">"PERIMETER_TYPE_BRIDGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bridge),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2754,7 +2755,7 @@
 </span><span class="kw">pub struct </span>ServicePerimeterConfig {
     <span class="doccomment">/// A list of Google Cloud resources that are inside of the service perimeter.
     /// Currently only projects are allowed. Format: `projects/{project_number}`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resources: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A list of `AccessLevel` resource names that allow resources within the
     /// `ServicePerimeter` to be accessed from the internet. `AccessLevels` listed
@@ -2762,18 +2763,18 @@
     /// nonexistent `AccessLevel` is a syntax error. If no `AccessLevel` names are
     /// listed, resources within the perimeter can only be accessed via Google
     /// Cloud calls with request origins within the perimeter. Example:
-    /// `&quot;accessPolicies/MY_POLICY/accessLevels/MY_LEVEL&quot;`.
+    /// `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`.
     /// For Service Perimeter Bridge, must be empty.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>access_levels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Google Cloud services that are subject to the Service Perimeter
     /// restrictions. For example, if `storage.googleapis.com` is specified, access
-    /// to the storage buckets inside the perimeter must meet the perimeter&#39;s
+    /// to the storage buckets inside the perimeter must meet the perimeter's
     /// access restrictions.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>restricted_services: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Configuration for APIs allowed within Perimeter.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>vpc_accessible_services: ::core::option::Option&lt;
         service_perimeter_config::VpcAccessibleServices,
     &gt;,
@@ -2785,7 +2786,7 @@
     /// Policy]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.IngressPolicy\]
     /// grants it. Must be empty for a perimeter bridge.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>ingress_policies: ::prost::alloc::vec::Vec&lt;
         service_perimeter_config::IngressPolicy,
     &gt;,
@@ -2797,7 +2798,7 @@
     /// \[EgressPolicy\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.EgressPolicy\]
     /// grants it. Must be empty for a perimeter bridge.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>egress_policies: ::prost::alloc::vec::Vec&lt;
         service_perimeter_config::EgressPolicy,
     &gt;,
@@ -2810,14 +2811,14 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>VpcAccessibleServices {
         <span class="doccomment">/// Whether to restrict API calls within the Service Perimeter to the list of
-        /// APIs specified in &#39;allowed_services&#39;.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        /// APIs specified in 'allowed_services'.
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>enable_restriction: bool,
         <span class="doccomment">/// The list of APIs usable within the Service Perimeter. Must be empty
-        /// unless &#39;enable_restriction&#39; is True. You can specify a list of individual
-        /// services, as well as include the &#39;RESTRICTED-SERVICES&#39; value, which
+        /// unless 'enable_restriction' is True. You can specify a list of individual
+        /// services, as well as include the 'RESTRICTED-SERVICES' value, which
         /// automatically includes all of the services protected by the perimeter.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>allowed_services: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// An allowed method or permission of a service specified in \[ApiOperation\]
@@ -2826,7 +2827,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>MethodSelector {
         <span class="doccomment">/// The API method name or Cloud IAM permission name to allow.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;method_selector::Kind&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"method_selector::Kind"</span>, tags = <span class="string">"1, 2"</span>)]
         </span><span class="kw">pub </span>kind: ::core::option::Option&lt;method_selector::Kind&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `MethodSelector`.
@@ -2840,12 +2841,12 @@
             /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.ApiOperation\].
             /// If `*` used as value for `method`, then ALL methods and permissions are
             /// allowed.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span>Method(::prost::alloc::string::String),
             <span class="doccomment">/// Value for `permission` should be a valid Cloud IAM permission for the
             /// corresponding `service_name` in \[ApiOperation\]
             /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.ApiOperation\].
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span>Permission(::prost::alloc::string::String),
         }
     }
@@ -2861,14 +2862,14 @@
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.ApiOperation\]
         /// with `service_name` field set to `*` will allow all methods AND
         /// permissions for all services.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>service_name: ::prost::alloc::string::String,
         <span class="doccomment">/// API methods or permissions to allow. Method or permission must belong to
         /// the service specified by `service_name` field. A single \[MethodSelector\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.MethodSelector\]
         /// entry with `*` specified for the `method` field will allow all methods
         /// AND permissions for the service specified in `service_name`.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>method_selectors: ::prost::alloc::vec::Vec&lt;MethodSelector&gt;,
     }
     <span class="doccomment">/// The source that \[IngressPolicy\]
@@ -2880,7 +2881,7 @@
         <span class="doccomment">/// Allowed ingress source. It can be one of \[AccessLevel\]
         /// \[google.identity.accesscontextmanager.v1.AccessLevel\] or Google
         /// Cloud resource.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;ingress_source::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"ingress_source::Source"</span>, tags = <span class="string">"1, 2"</span>)]
         </span><span class="kw">pub </span>source: ::core::option::Option&lt;ingress_source::Source&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `IngressSource`.
@@ -2909,7 +2910,7 @@
             /// specified for `access_level`, then all \[IngressSources\]
             /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.IngressSource\]
             /// will be allowed.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span>AccessLevel(::prost::alloc::string::String),
             <span class="doccomment">/// A Google Cloud resource that is allowed to ingress the perimeter.
             /// Requests from these resources will be allowed to access perimeter data.
@@ -2918,7 +2919,7 @@
             /// The project may be in any Google Cloud organization, not just the
             /// organization that the perimeter is defined in. `*` is not allowed, the
             /// case of allowing all Google Cloud resources only is not supported.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span>Resource(::prost::alloc::string::String),
         }
     }
@@ -2933,17 +2934,17 @@
         <span class="doccomment">/// Sources that this \[IngressPolicy\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.IngressPolicy\]
         /// authorizes access from.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>sources: ::prost::alloc::vec::Vec&lt;IngressSource&gt;,
         <span class="doccomment">/// A list of identities that are allowed access through this ingress
         /// policy. Should be in the format of email address. The email address
         /// should represent individual user or service account only.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>identities: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// Specifies the type of identities that are allowed access from outside the
         /// perimeter. If left unspecified, then members of `identities` field will
         /// be allowed access.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;IdentityType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"IdentityType"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>identity_type: i32,
     }
     <span class="doccomment">/// Defines the conditions under which an \[IngressPolicy\]
@@ -2964,7 +2965,7 @@
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.IngressFrom\]
         /// in this \[ServicePerimeter\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\].
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>operations: ::prost::alloc::vec::Vec&lt;ApiOperation&gt;,
         <span class="doccomment">/// A list of resources, currently only projects in the form
         /// `projects/&lt;projectnumber&gt;`, protected by this \[ServicePerimeter\]
@@ -2974,7 +2975,7 @@
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.IngressFrom\].
         /// If a single `*` is specified, then access to all resources inside the
         /// perimeter are allowed.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>resources: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// Policy for ingress into \[ServicePerimeter\]
@@ -3004,14 +3005,14 @@
         /// \[IngressPolicy\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.IngressPolicy\]
         /// to apply.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>ingress_from: ::core::option::Option&lt;IngressFrom&gt;,
         <span class="doccomment">/// Defines the conditions on the \[ApiOperation\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.ApiOperation\]
         /// and request destination that cause this \[IngressPolicy\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.IngressPolicy\]
         /// to apply.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>ingress_to: ::core::option::Option&lt;IngressTo&gt;,
     }
     <span class="doccomment">/// Defines the conditions under which an \[EgressPolicy\]
@@ -3031,12 +3032,12 @@
         <span class="doccomment">/// A list of identities that are allowed access through this \[EgressPolicy\].
         /// Should be in the format of email address. The email address should
         /// represent individual user or service account only.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>identities: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// Specifies the type of identities that are allowed access to outside the
         /// perimeter. If left unspecified, then members of `identities` field will
         /// be allowed access.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;IdentityType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"IdentityType"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>identity_type: i32,
     }
     <span class="doccomment">/// Defines the conditions under which an \[EgressPolicy\]
@@ -3065,7 +3066,7 @@
         /// specified for `resources`, then this \[EgressTo\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.EgressTo\]
         /// rule will authorize access to all resources outside the perimeter.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>resources: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// A list of \[ApiOperations\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.ApiOperation\]
@@ -3073,15 +3074,15 @@
         /// \[EgressFrom\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.EgressFrom\].
         /// A request matches if it uses an operation/service in this list.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>operations: ::prost::alloc::vec::Vec&lt;ApiOperation&gt;,
         <span class="doccomment">/// A list of external resources that are allowed to be accessed. Only AWS
         /// and Azure resources are supported. For Amazon S3, the supported format is
         /// s3://BUCKET_NAME. For Azure Storage, the supported format is
         /// azure://myaccount.blob.core.windows.net/CONTAINER_NAME. A request matches
         /// if it contains an external resource in this list (Example:
-        /// s3://bucket/path). Currently &#39;*&#39; is not allowed.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        /// s3://bucket/path). Currently '*' is not allowed.
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>external_resources: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// Policy for egress from perimeter.
@@ -3118,14 +3119,14 @@
         <span class="doccomment">/// Defines conditions on the source of a request causing this \[EgressPolicy\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.EgressPolicy\]
         /// to apply.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>egress_from: ::core::option::Option&lt;EgressFrom&gt;,
         <span class="doccomment">/// Defines the conditions on the \[ApiOperation\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.ApiOperation\]
         /// and destination resources that cause this \[EgressPolicy\]
         /// \[google.identity.accesscontextmanager.v1.ServicePerimeterConfig.EgressPolicy\]
         /// to apply.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>egress_to: ::core::option::Option&lt;EgressTo&gt;,
     }
     <span class="doccomment">/// Specifies the types of identities that are allowed access in either
@@ -3161,21 +3162,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                IdentityType::Unspecified =&gt; <span class="string">&quot;IDENTITY_TYPE_UNSPECIFIED&quot;</span>,
-                IdentityType::AnyIdentity =&gt; <span class="string">&quot;ANY_IDENTITY&quot;</span>,
-                IdentityType::AnyUserAccount =&gt; <span class="string">&quot;ANY_USER_ACCOUNT&quot;</span>,
-                IdentityType::AnyServiceAccount =&gt; <span class="string">&quot;ANY_SERVICE_ACCOUNT&quot;</span>,
+                IdentityType::Unspecified =&gt; <span class="string">"IDENTITY_TYPE_UNSPECIFIED"</span>,
+                IdentityType::AnyIdentity =&gt; <span class="string">"ANY_IDENTITY"</span>,
+                IdentityType::AnyUserAccount =&gt; <span class="string">"ANY_USER_ACCOUNT"</span>,
+                IdentityType::AnyServiceAccount =&gt; <span class="string">"ANY_SERVICE_ACCOUNT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;IDENTITY_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ANY_IDENTITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AnyIdentity),
-                <span class="string">&quot;ANY_USER_ACCOUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AnyUserAccount),
-                <span class="string">&quot;ANY_SERVICE_ACCOUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AnyServiceAccount),
+                <span class="string">"IDENTITY_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ANY_IDENTITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AnyIdentity),
+                <span class="string">"ANY_USER_ACCOUNT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AnyUserAccount),
+                <span class="string">"ANY_SERVICE_ACCOUNT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AnyServiceAccount),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3190,23 +3191,23 @@
     /// length and has only URI unreserved characters (as defined by
     /// [RFC 3986 Section 2.3](&lt;https://tools.ietf.org/html/rfc3986#section-2.3&gt;)).
     /// Should not be specified by the client during creation.
-    /// Example: &quot;organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Example: "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. Immutable. Google Group id whose members are subject to this binding&#39;s restrictions.
-    /// See &quot;id&quot; in the \[G Suite Directory API&#39;s Groups resource\]
+    <span class="doccomment">/// Required. Immutable. Google Group id whose members are subject to this binding's restrictions.
+    /// See "id" in the \[G Suite Directory API's Groups resource\]
     /// (&lt;https://developers.google.com/admin-sdk/directory/v1/reference/groups#resource&gt;).
-    /// If a group&#39;s email address/alias is changed, this resource will continue
+    /// If a group's email address/alias is changed, this resource will continue
     /// to point at the changed group. This field does not accept group email
     /// addresses or aliases.
-    /// Example: &quot;01d520gv4vjcrht&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// Example: "01d520gv4vjcrht"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>group_key: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Access level that a user must have to be granted access. Only one access
     /// level is supported, not multiple. This repeated field must have exactly
     /// one element.
-    /// Example: &quot;accessPolicies/9522/accessLevels/device_trusted&quot;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    /// Example: "accessPolicies/9522/accessLevels/device_trusted"
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>access_levels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A request to list all `AccessPolicies` for a container.
@@ -3218,14 +3219,14 @@
     ///
     /// Format:
     /// `organizations/{org_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of AccessPolicy instances to include in the list. Default 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Next page token for the next batch of AccessPolicy instances. Defaults to
     /// the first page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A response to `ListAccessPoliciesRequest`.
@@ -3233,11 +3234,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAccessPoliciesResponse {
     <span class="doccomment">/// List of the AccessPolicy instances.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>access_policies: ::prost::alloc::vec::Vec&lt;AccessPolicy&gt;,
     <span class="doccomment">/// The pagination token to retrieve the next page of results. If the value is
     /// empty, no further results remain.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to get a particular `AccessPolicy`.
@@ -3247,7 +3248,7 @@
     <span class="doccomment">/// Required. Resource name for the access policy to get.
     ///
     /// Format `accessPolicies/{policy_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to update an `AccessPolicy`.
@@ -3255,10 +3256,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateAccessPolicyRequest {
     <span class="doccomment">/// Required. The updated AccessPolicy.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>policy: ::core::option::Option&lt;AccessPolicy&gt;,
     <span class="doccomment">/// Required. Mask to control which fields get updated. Must be non-empty.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// A request to delete an `AccessPolicy`.
@@ -3268,7 +3269,7 @@
     <span class="doccomment">/// Required. Resource name for the access policy to delete.
     ///
     /// Format `accessPolicies/{policy_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to list all `AccessLevels` in an `AccessPolicy`.
@@ -3280,22 +3281,22 @@
     ///
     /// Format:
     /// `accessPolicies/{policy_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of \[Access Levels\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] to include in
     /// the list. Default 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Next page token for the next batch of \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] instances.
     /// Defaults to the first page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether to return `BasicLevels` in the Cloud Common Expression language, as
     /// `CustomLevels`, rather than as `BasicLevels`. Defaults to returning
     /// `AccessLevels` in the format they were defined.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LevelFormat&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"LevelFormat"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>access_level_format: i32,
 }
 <span class="doccomment">/// A response to `ListAccessLevelsRequest`.
@@ -3304,11 +3305,11 @@
 </span><span class="kw">pub struct </span>ListAccessLevelsResponse {
     <span class="doccomment">/// List of the \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] instances.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>access_levels: ::prost::alloc::vec::Vec&lt;AccessLevel&gt;,
     <span class="doccomment">/// The pagination token to retrieve the next page of results. If the value is
     /// empty, no further results remain.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to get a particular `AccessLevel`.
@@ -3320,7 +3321,7 @@
     ///
     /// Format:
     /// `accessPolicies/{policy_id}/accessLevels/{access_level_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether to return `BasicLevels` in the Cloud Common Expression
     /// Language rather than as `BasicLevels`. Defaults to AS_DEFINED, where
@@ -3330,7 +3331,7 @@
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] are returned as
     /// `CustomLevels`. In the CEL case, `BasicLevels` are translated to equivalent
     /// `CustomLevels`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LevelFormat&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"LevelFormat"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>access_level_format: i32,
 }
 <span class="doccomment">/// A request to create an `AccessLevel`.
@@ -3341,14 +3342,14 @@
     /// Level] \[google.identity.accesscontextmanager.v1.AccessLevel\].
     ///
     /// Format: `accessPolicies/{policy_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] to create.
     /// Syntactic correctness of the \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] is a
     /// precondition for creation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>access_level: ::core::option::Option&lt;AccessLevel&gt;,
 }
 <span class="doccomment">/// A request to update an `AccessLevel`.
@@ -3360,10 +3361,10 @@
     /// correctness of the \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] is a
     /// precondition for creation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>access_level: ::core::option::Option&lt;AccessLevel&gt;,
     <span class="doccomment">/// Required. Mask to control which fields get updated. Must be non-empty.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// A request to delete an `AccessLevel`.
@@ -3375,7 +3376,7 @@
     ///
     /// Format:
     /// `accessPolicies/{policy_id}/accessLevels/{access_level_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to replace all existing Access Levels in an Access Policy with
@@ -3388,7 +3389,7 @@
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\].
     ///
     /// Format: `accessPolicies/{policy_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The desired \[Access Levels\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] that should
@@ -3396,7 +3397,7 @@
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] in the
     /// \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>access_levels: ::prost::alloc::vec::Vec&lt;AccessLevel&gt;,
     <span class="doccomment">/// Optional. The etag for the version of the \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\] that this
@@ -3405,7 +3406,7 @@
     /// from the specified etag, then the replace operation will not be performed
     /// and the call will fail. This field is not required. If etag is not
     /// provided, the operation will be performed as if a valid etag is provided.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A response to ReplaceAccessLevelsRequest. This will be put inside of
@@ -3415,7 +3416,7 @@
 </span><span class="kw">pub struct </span>ReplaceAccessLevelsResponse {
     <span class="doccomment">/// List of the \[Access Level\]
     /// \[google.identity.accesscontextmanager.v1.AccessLevel\] instances.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>access_levels: ::prost::alloc::vec::Vec&lt;AccessLevel&gt;,
 }
 <span class="doccomment">/// A request to list all `ServicePerimeters` in an `AccessPolicy`.
@@ -3427,17 +3428,17 @@
     ///
     /// Format:
     /// `accessPolicies/{policy_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of \[Service Perimeters\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] to include
     /// in the list. Default 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Next page token for the next batch of \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] instances.
     /// Defaults to the first page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A response to `ListServicePerimetersRequest`.
@@ -3446,11 +3447,11 @@
 </span><span class="kw">pub struct </span>ListServicePerimetersResponse {
     <span class="doccomment">/// List of the \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] instances.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_perimeters: ::prost::alloc::vec::Vec&lt;ServicePerimeter&gt;,
     <span class="doccomment">/// The pagination token to retrieve the next page of results. If the value is
     /// empty, no further results remain.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to get a particular `ServicePerimeter`.
@@ -3462,7 +3463,7 @@
     ///
     /// Format:
     /// `accessPolicies/{policy_id}/servicePerimeters/{service_perimeters_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to create a `ServicePerimeter`.
@@ -3473,14 +3474,14 @@
     /// Perimeter] \[google.identity.accesscontextmanager.v1.ServicePerimeter\].
     ///
     /// Format: `accessPolicies/{policy_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] to create.
     /// Syntactic correctness of the \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] is a
     /// precondition for creation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service_perimeter: ::core::option::Option&lt;ServicePerimeter&gt;,
 }
 <span class="doccomment">/// A request to update a `ServicePerimeter`.
@@ -3489,10 +3490,10 @@
 </span><span class="kw">pub struct </span>UpdateServicePerimeterRequest {
     <span class="doccomment">/// Required. The updated `ServicePerimeter`. Syntactic correctness of the
     /// `ServicePerimeter` is a precondition for creation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_perimeter: ::core::option::Option&lt;ServicePerimeter&gt;,
     <span class="doccomment">/// Required. Mask to control which fields get updated. Must be non-empty.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// A request to delete a `ServicePerimeter`.
@@ -3504,7 +3505,7 @@
     ///
     /// Format:
     /// `accessPolicies/{policy_id}/servicePerimeters/{service_perimeter_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to replace all existing Service Perimeters in an Access Policy
@@ -3517,7 +3518,7 @@
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\].
     ///
     /// Format: `accessPolicies/{policy_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The desired \[Service Perimeters\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] that should
@@ -3525,7 +3526,7 @@
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] in the
     /// \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service_perimeters: ::prost::alloc::vec::Vec&lt;ServicePerimeter&gt;,
     <span class="doccomment">/// Optional. The etag for the version of the \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\] that this
@@ -3534,7 +3535,7 @@
     /// from the specified etag, then the replace operation will not be performed
     /// and the call will fail. This field is not required. If etag is not
     /// provided, the operation will be performed as if a valid etag is provided.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A response to ReplaceServicePerimetersRequest. This will be put inside of
@@ -3544,7 +3545,7 @@
 </span><span class="kw">pub struct </span>ReplaceServicePerimetersResponse {
     <span class="doccomment">/// List of the \[Service Perimeter\]
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] instances.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_perimeters: ::prost::alloc::vec::Vec&lt;ServicePerimeter&gt;,
 }
 <span class="doccomment">/// A request to commit dry-run specs in all \[Service Perimeters\]
@@ -3560,7 +3561,7 @@
     /// the commit operation.
     ///
     /// Format: `accessPolicies/{policy_id}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The etag for the version of the \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\] that this
@@ -3569,7 +3570,7 @@
     /// from the specified etag, then the commit operation will not be performed
     /// and the call will fail. This field is not required. If etag is not
     /// provided, the operation will be performed as if a valid etag is provided.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A response to CommitServicePerimetersRequest. This will be put inside of
@@ -3581,7 +3582,7 @@
     /// \[google.identity.accesscontextmanager.v1.ServicePerimeter\] instances in
     /// the \[Access Policy\]
     /// \[google.identity.accesscontextmanager.v1.AccessPolicy\].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_perimeters: ::prost::alloc::vec::Vec&lt;ServicePerimeter&gt;,
 }
 <span class="doccomment">/// Request of \[ListGcpUserAccessBindings\]
@@ -3589,18 +3590,18 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListGcpUserAccessBindingsRequest {
-    <span class="doccomment">/// Required. Example: &quot;organizations/256&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. Example: "organizations/256"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum number of items to return. The server may return fewer items.
     /// If left blank, the server may return any number of items.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. If left blank, returns the first page. To enumerate all items, use the
     /// \[next_page_token\]
     /// \[google.identity.accesscontextmanager.v1.ListGcpUserAccessBindingsResponse.next_page_token\]
     /// from your previous list operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response of \[ListGcpUserAccessBindings\]
@@ -3610,10 +3611,10 @@
 </span><span class="kw">pub struct </span>ListGcpUserAccessBindingsResponse {
     <span class="doccomment">/// \[GcpUserAccessBinding\]
     /// \[google.identity.accesscontextmanager.v1.GcpUserAccessBinding\]
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gcp_user_access_bindings: ::prost::alloc::vec::Vec&lt;GcpUserAccessBinding&gt;,
     <span class="doccomment">/// Token to get the next page of items. If blank, there are no more items.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request of \[GetGcpUserAccessBinding\]
@@ -3621,8 +3622,8 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetGcpUserAccessBindingRequest {
-    <span class="doccomment">/// Required. Example: &quot;organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. Example: "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request of \[CreateGcpUserAccessBinding\]
@@ -3630,12 +3631,12 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateGcpUserAccessBindingRequest {
-    <span class="doccomment">/// Required. Example: &quot;organizations/256&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. Example: "organizations/256"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. \[GcpUserAccessBinding\]
     /// \[google.identity.accesscontextmanager.v1.GcpUserAccessBinding\]
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gcp_user_access_binding: ::core::option::Option&lt;GcpUserAccessBinding&gt;,
 }
 <span class="doccomment">/// Request of \[UpdateGcpUserAccessBinding\]
@@ -3645,15 +3646,15 @@
 </span><span class="kw">pub struct </span>UpdateGcpUserAccessBindingRequest {
     <span class="doccomment">/// Required. \[GcpUserAccessBinding\]
     /// \[google.identity.accesscontextmanager.v1.GcpUserAccessBinding\]
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gcp_user_access_binding: ::core::option::Option&lt;GcpUserAccessBinding&gt;,
     <span class="doccomment">/// Required. Only the fields specified in this mask are updated. Because name and
     /// group_key cannot be changed, update_mask is required and must always be:
     ///
     /// update_mask {
-    /// paths: &quot;access_levels&quot;
+    /// paths: "access_levels"
     /// }
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request of \[DeleteGcpUserAccessBinding\]
@@ -3661,8 +3662,8 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteGcpUserAccessBindingRequest {
-    <span class="doccomment">/// Required. Example: &quot;organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. Example: "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Currently, a completed operation means nothing. In the future, this metadata
@@ -3671,7 +3672,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GcpUserAccessBindingOperationMetadata {}
-<span class="doccomment">/// Metadata of Access Context Manager&#39;s Long Running Operations.
+<span class="doccomment">/// Metadata of Access Context Manager's Long Running Operations.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AccessContextManagerOperationMetadata {}
@@ -3693,19 +3694,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            LevelFormat::Unspecified =&gt; <span class="string">&quot;LEVEL_FORMAT_UNSPECIFIED&quot;</span>,
-            LevelFormat::AsDefined =&gt; <span class="string">&quot;AS_DEFINED&quot;</span>,
-            LevelFormat::Cel =&gt; <span class="string">&quot;CEL&quot;</span>,
+            LevelFormat::Unspecified =&gt; <span class="string">"LEVEL_FORMAT_UNSPECIFIED"</span>,
+            LevelFormat::AsDefined =&gt; <span class="string">"AS_DEFINED"</span>,
+            LevelFormat::Cel =&gt; <span class="string">"CEL"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;LEVEL_FORMAT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;AS_DEFINED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AsDefined),
-            <span class="string">&quot;CEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cel),
+            <span class="string">"LEVEL_FORMAT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"AS_DEFINED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AsDefined),
+            <span class="string">"CEL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cel),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -3734,7 +3735,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3811,19 +3812,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/ListAccessPolicies&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/ListAccessPolicies"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;ListAccessPolicies&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"ListAccessPolicies"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3840,19 +3841,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/GetAccessPolicy&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/GetAccessPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;GetAccessPolicy&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"GetAccessPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3875,19 +3876,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/CreateAccessPolicy&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/CreateAccessPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;CreateAccessPolicy&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"CreateAccessPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3911,19 +3912,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/UpdateAccessPolicy&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/UpdateAccessPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;UpdateAccessPolicy&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"UpdateAccessPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3946,19 +3947,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/DeleteAccessPolicy&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/DeleteAccessPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;DeleteAccessPolicy&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"DeleteAccessPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3979,19 +3980,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/ListAccessLevels&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/ListAccessLevels"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;ListAccessLevels&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"ListAccessLevels"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4009,19 +4010,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/GetAccessLevel&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/GetAccessLevel"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;GetAccessLevel&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"GetAccessLevel"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4046,19 +4047,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/CreateAccessLevel&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/CreateAccessLevel"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;CreateAccessLevel&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"CreateAccessLevel"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4084,19 +4085,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/UpdateAccessLevel&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/UpdateAccessLevel"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;UpdateAccessLevel&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"UpdateAccessLevel"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4120,19 +4121,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/DeleteAccessLevel&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/DeleteAccessLevel"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;DeleteAccessLevel&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"DeleteAccessLevel"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4167,19 +4168,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/ReplaceAccessLevels&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/ReplaceAccessLevels"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;ReplaceAccessLevels&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"ReplaceAccessLevels"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4200,19 +4201,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/ListServicePerimeters&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/ListServicePerimeters"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;ListServicePerimeters&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"ListServicePerimeters"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4233,19 +4234,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/GetServicePerimeter&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/GetServicePerimeter"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;GetServicePerimeter&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"GetServicePerimeter"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4271,19 +4272,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/CreateServicePerimeter&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/CreateServicePerimeter"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;CreateServicePerimeter&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"CreateServicePerimeter"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4309,19 +4310,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/UpdateServicePerimeter&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/UpdateServicePerimeter"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;UpdateServicePerimeter&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"UpdateServicePerimeter"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4345,19 +4346,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/DeleteServicePerimeter&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/DeleteServicePerimeter"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;DeleteServicePerimeter&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"DeleteServicePerimeter"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4388,19 +4389,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/ReplaceServicePerimeters&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/ReplaceServicePerimeters"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;ReplaceServicePerimeters&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"ReplaceServicePerimeters"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4433,19 +4434,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/CommitServicePerimeters&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/CommitServicePerimeters"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;CommitServicePerimeters&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"CommitServicePerimeters"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4466,19 +4467,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/ListGcpUserAccessBindings&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/ListGcpUserAccessBindings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;ListGcpUserAccessBindings&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"ListGcpUserAccessBindings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4499,19 +4500,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/GetGcpUserAccessBinding&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/GetGcpUserAccessBinding"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;GetGcpUserAccessBinding&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"GetGcpUserAccessBinding"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4539,19 +4540,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/CreateGcpUserAccessBinding&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/CreateGcpUserAccessBinding"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;CreateGcpUserAccessBinding&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"CreateGcpUserAccessBinding"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4574,19 +4575,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/UpdateGcpUserAccessBinding&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/UpdateGcpUserAccessBinding"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;UpdateGcpUserAccessBinding&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"UpdateGcpUserAccessBinding"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4609,19 +4610,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/DeleteGcpUserAccessBinding&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/DeleteGcpUserAccessBinding"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;DeleteGcpUserAccessBinding&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"DeleteGcpUserAccessBinding"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4647,19 +4648,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/SetIamPolicy&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/SetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;SetIamPolicy&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"SetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4681,19 +4682,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/GetIamPolicy&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/GetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;GetIamPolicy&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"GetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4721,19 +4722,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.identity.accesscontextmanager.v1.AccessContextManager/TestIamPermissions&quot;</span>,
+                <span class="string">"/google.identity.accesscontextmanager.v1.AccessContextManager/TestIamPermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.identity.accesscontextmanager.v1.AccessContextManager&quot;</span>,
-                        <span class="string">&quot;TestIamPermissions&quot;</span>,
+                        <span class="string">"google.identity.accesscontextmanager.v1.AccessContextManager"</span>,
+                        <span class="string">"TestIamPermissions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

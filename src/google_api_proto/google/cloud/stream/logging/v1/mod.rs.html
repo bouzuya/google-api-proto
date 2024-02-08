@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/stream/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/stream/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -381,16 +382,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationEventLog {
     <span class="doccomment">/// Enum for type of event being logged.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OperationEventType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"OperationEventType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>event_type: i32,
     <span class="doccomment">/// Timestamp when the event occurred.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Operation resource identifier.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>operation: ::prost::alloc::string::String,
     <span class="doccomment">/// Artifact created as a result of the operation.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>operation_artifacts: ::prost::alloc::vec::Vec&lt;OperationArtifact&gt;,
 }
 <span class="doccomment">/// OperationArtifact contains the information about the artifact created as
@@ -399,10 +400,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationArtifact {
     <span class="doccomment">/// Type of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>artifact_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Location of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>artifact_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// SessionEventLog contains the time series data regarding the streaming session
@@ -413,13 +414,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SessionEventLog {
     <span class="doccomment">/// Enum for type of event being logged.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SessionEventType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"SessionEventType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>event_type: i32,
     <span class="doccomment">/// Timestamp when the event occurred.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Session identifier generated from the server.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>session_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// OperationEventType is the enum value for the state of operation.
@@ -462,97 +463,97 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            OperationEventType::Unspecified =&gt; <span class="string">&quot;OPERATION_EVENT_TYPE_UNSPECIFIED&quot;</span>,
+            OperationEventType::Unspecified =&gt; <span class="string">"OPERATION_EVENT_TYPE_UNSPECIFIED"</span>,
             OperationEventType::OperationEventCreateContentStarted =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_CREATE_CONTENT_STARTED&quot;
+                <span class="string">"OPERATION_EVENT_CREATE_CONTENT_STARTED"
             </span>}
             OperationEventType::OperationEventCreateContentEnded =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_CREATE_CONTENT_ENDED&quot;
+                <span class="string">"OPERATION_EVENT_CREATE_CONTENT_ENDED"
             </span>}
             OperationEventType::OperationEventBuildContentStarted =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_BUILD_CONTENT_STARTED&quot;
+                <span class="string">"OPERATION_EVENT_BUILD_CONTENT_STARTED"
             </span>}
             OperationEventType::OperationEventBuildContentEnded =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_BUILD_CONTENT_ENDED&quot;
+                <span class="string">"OPERATION_EVENT_BUILD_CONTENT_ENDED"
             </span>}
             OperationEventType::OperationEventUpdateContentStarted =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_UPDATE_CONTENT_STARTED&quot;
+                <span class="string">"OPERATION_EVENT_UPDATE_CONTENT_STARTED"
             </span>}
             OperationEventType::OperationEventUpdateContentEnded =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_UPDATE_CONTENT_ENDED&quot;
+                <span class="string">"OPERATION_EVENT_UPDATE_CONTENT_ENDED"
             </span>}
             OperationEventType::OperationEventDeleteContentStarted =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_DELETE_CONTENT_STARTED&quot;
+                <span class="string">"OPERATION_EVENT_DELETE_CONTENT_STARTED"
             </span>}
             OperationEventType::OperationEventDeleteContentEnded =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_DELETE_CONTENT_ENDED&quot;
+                <span class="string">"OPERATION_EVENT_DELETE_CONTENT_ENDED"
             </span>}
             OperationEventType::OperationEventCreateInstanceStarted =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_CREATE_INSTANCE_STARTED&quot;
+                <span class="string">"OPERATION_EVENT_CREATE_INSTANCE_STARTED"
             </span>}
             OperationEventType::OperationEventCreateInstanceEnded =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_CREATE_INSTANCE_ENDED&quot;
+                <span class="string">"OPERATION_EVENT_CREATE_INSTANCE_ENDED"
             </span>}
             OperationEventType::OperationEventUpdateInstanceStarted =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_UPDATE_INSTANCE_STARTED&quot;
+                <span class="string">"OPERATION_EVENT_UPDATE_INSTANCE_STARTED"
             </span>}
             OperationEventType::OperationEventUpdateInstanceEnded =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_UPDATE_INSTANCE_ENDED&quot;
+                <span class="string">"OPERATION_EVENT_UPDATE_INSTANCE_ENDED"
             </span>}
             OperationEventType::OperationEventDeleteInstanceStarted =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_DELETE_INSTANCE_STARTED&quot;
+                <span class="string">"OPERATION_EVENT_DELETE_INSTANCE_STARTED"
             </span>}
             OperationEventType::OperationEventDeleteInstanceEnded =&gt; {
-                <span class="string">&quot;OPERATION_EVENT_DELETE_INSTANCE_ENDED&quot;
+                <span class="string">"OPERATION_EVENT_DELETE_INSTANCE_ENDED"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;OPERATION_EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;OPERATION_EVENT_CREATE_CONTENT_STARTED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"OPERATION_EVENT_CREATE_CONTENT_STARTED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventCreateContentStarted)
             }
-            <span class="string">&quot;OPERATION_EVENT_CREATE_CONTENT_ENDED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_CREATE_CONTENT_ENDED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventCreateContentEnded)
             }
-            <span class="string">&quot;OPERATION_EVENT_BUILD_CONTENT_STARTED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_BUILD_CONTENT_STARTED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventBuildContentStarted)
             }
-            <span class="string">&quot;OPERATION_EVENT_BUILD_CONTENT_ENDED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_BUILD_CONTENT_ENDED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventBuildContentEnded)
             }
-            <span class="string">&quot;OPERATION_EVENT_UPDATE_CONTENT_STARTED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_UPDATE_CONTENT_STARTED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventUpdateContentStarted)
             }
-            <span class="string">&quot;OPERATION_EVENT_UPDATE_CONTENT_ENDED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_UPDATE_CONTENT_ENDED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventUpdateContentEnded)
             }
-            <span class="string">&quot;OPERATION_EVENT_DELETE_CONTENT_STARTED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_DELETE_CONTENT_STARTED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventDeleteContentStarted)
             }
-            <span class="string">&quot;OPERATION_EVENT_DELETE_CONTENT_ENDED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_DELETE_CONTENT_ENDED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventDeleteContentEnded)
             }
-            <span class="string">&quot;OPERATION_EVENT_CREATE_INSTANCE_STARTED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_CREATE_INSTANCE_STARTED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventCreateInstanceStarted)
             }
-            <span class="string">&quot;OPERATION_EVENT_CREATE_INSTANCE_ENDED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_CREATE_INSTANCE_ENDED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventCreateInstanceEnded)
             }
-            <span class="string">&quot;OPERATION_EVENT_UPDATE_INSTANCE_STARTED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_UPDATE_INSTANCE_STARTED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventUpdateInstanceStarted)
             }
-            <span class="string">&quot;OPERATION_EVENT_UPDATE_INSTANCE_ENDED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_UPDATE_INSTANCE_ENDED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventUpdateInstanceEnded)
             }
-            <span class="string">&quot;OPERATION_EVENT_DELETE_INSTANCE_STARTED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_DELETE_INSTANCE_STARTED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventDeleteInstanceStarted)
             }
-            <span class="string">&quot;OPERATION_EVENT_DELETE_INSTANCE_ENDED&quot; </span>=&gt; {
+            <span class="string">"OPERATION_EVENT_DELETE_INSTANCE_ENDED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::OperationEventDeleteInstanceEnded)
             }
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -613,137 +614,137 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            SessionEventType::Unspecified =&gt; <span class="string">&quot;SESSION_EVENT_TYPE_UNSPECIFIED&quot;</span>,
+            SessionEventType::Unspecified =&gt; <span class="string">"SESSION_EVENT_TYPE_UNSPECIFIED"</span>,
             SessionEventType::SessionEventServerStreamerShuttingDown =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_SHUTTING_DOWN&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_SHUTTING_DOWN"
             </span>}
             SessionEventType::SessionEventServerStreamerReady =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_READY&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_READY"
             </span>}
             SessionEventType::SessionEventServerStreamerBinaryStarted =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_BINARY_STARTED&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_BINARY_STARTED"
             </span>}
             SessionEventType::SessionEventServerStreamerReadPodImageNames =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_READ_POD_IMAGE_NAMES&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_READ_POD_IMAGE_NAMES"
             </span>}
             SessionEventType::SessionEventServerStreamerConnectedToGame =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_CONNECTED_TO_GAME&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_CONNECTED_TO_GAME"
             </span>}
             SessionEventType::SessionEventServerStreamerConnectedToClient =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_CONNECTED_TO_CLIENT&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_CONNECTED_TO_CLIENT"
             </span>}
             SessionEventType::SessionEventServerStreamerDisconnectedFromClient =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_DISCONNECTED_FROM_CLIENT&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_DISCONNECTED_FROM_CLIENT"
             </span>}
             SessionEventType::SessionEventServerStreamerReceivedCreateSessionRequest =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_RECEIVED_CREATE_SESSION_REQUEST&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_RECEIVED_CREATE_SESSION_REQUEST"
             </span>}
             SessionEventType::SessionEventServerStreamerGameMessageStreamClosed =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_MESSAGE_STREAM_CLOSED&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_MESSAGE_STREAM_CLOSED"
             </span>}
             SessionEventType::SessionEventServerStreamerGameFrameStreamClosed =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_FRAME_STREAM_CLOSED&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_FRAME_STREAM_CLOSED"
             </span>}
             SessionEventType::SessionEventServerStreamerGameMessageStreamError =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_MESSAGE_STREAM_ERROR&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_MESSAGE_STREAM_ERROR"
             </span>}
             SessionEventType::SessionEventServerStreamerGameAudioStreamError =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_AUDIO_STREAM_ERROR&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_AUDIO_STREAM_ERROR"
             </span>}
             SessionEventType::SessionEventServerStreamerGameAudioStreamClosed =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_AUDIO_STREAM_CLOSED&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_AUDIO_STREAM_CLOSED"
             </span>}
             SessionEventType::SessionEventServerStreamerGameFrameStreamError =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_FRAME_STREAM_ERROR&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_FRAME_STREAM_ERROR"
             </span>}
             SessionEventType::SessionEventServerGameDisconnectingAfterPausedTooLong =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_GAME_DISCONNECTING_AFTER_PAUSED_TOO_LONG&quot;
+                <span class="string">"SESSION_EVENT_SERVER_GAME_DISCONNECTING_AFTER_PAUSED_TOO_LONG"
             </span>}
             SessionEventType::SessionEventServerStreamerReceivedExperimentConfiguration =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_RECEIVED_EXPERIMENT_CONFIGURATION&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_RECEIVED_EXPERIMENT_CONFIGURATION"
             </span>}
             SessionEventType::SessionEventServerGameConnectedToLoggingService =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_GAME_CONNECTED_TO_LOGGING_SERVICE&quot;
+                <span class="string">"SESSION_EVENT_SERVER_GAME_CONNECTED_TO_LOGGING_SERVICE"
             </span>}
             SessionEventType::SessionEventServerStreamerDeterminedSessionOptions =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_DETERMINED_SESSION_OPTIONS&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_DETERMINED_SESSION_OPTIONS"
             </span>}
             SessionEventType::SessionEventServerStreamerKilledInMiddleOfSession =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_KILLED_IN_MIDDLE_OF_SESSION&quot;
+                <span class="string">"SESSION_EVENT_SERVER_STREAMER_KILLED_IN_MIDDLE_OF_SESSION"
             </span>}
             SessionEventType::SessionEventServerGameUpdatedFramePipeline =&gt; {
-                <span class="string">&quot;SESSION_EVENT_SERVER_GAME_UPDATED_FRAME_PIPELINE&quot;
+                <span class="string">"SESSION_EVENT_SERVER_GAME_UPDATED_FRAME_PIPELINE"
             </span>}
-            SessionEventType::SessionEventServerError =&gt; <span class="string">&quot;SESSION_EVENT_SERVER_ERROR&quot;</span>,
+            SessionEventType::SessionEventServerError =&gt; <span class="string">"SESSION_EVENT_SERVER_ERROR"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;SESSION_EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_SHUTTING_DOWN&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_SHUTTING_DOWN" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerShuttingDown)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_READY&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_READY" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerReady)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_BINARY_STARTED&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_BINARY_STARTED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerBinaryStarted)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_READ_POD_IMAGE_NAMES&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_READ_POD_IMAGE_NAMES" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerReadPodImageNames)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_CONNECTED_TO_GAME&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_CONNECTED_TO_GAME" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerConnectedToGame)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_CONNECTED_TO_CLIENT&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_CONNECTED_TO_CLIENT" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerConnectedToClient)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_DISCONNECTED_FROM_CLIENT&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_DISCONNECTED_FROM_CLIENT" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerDisconnectedFromClient)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_RECEIVED_CREATE_SESSION_REQUEST&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_RECEIVED_CREATE_SESSION_REQUEST" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerReceivedCreateSessionRequest)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_MESSAGE_STREAM_CLOSED&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_MESSAGE_STREAM_CLOSED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerGameMessageStreamClosed)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_FRAME_STREAM_CLOSED&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_FRAME_STREAM_CLOSED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerGameFrameStreamClosed)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_MESSAGE_STREAM_ERROR&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_MESSAGE_STREAM_ERROR" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerGameMessageStreamError)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_AUDIO_STREAM_ERROR&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_AUDIO_STREAM_ERROR" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerGameAudioStreamError)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_AUDIO_STREAM_CLOSED&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_AUDIO_STREAM_CLOSED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerGameAudioStreamClosed)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_GAME_FRAME_STREAM_ERROR&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_GAME_FRAME_STREAM_ERROR" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerGameFrameStreamError)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_GAME_DISCONNECTING_AFTER_PAUSED_TOO_LONG&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_GAME_DISCONNECTING_AFTER_PAUSED_TOO_LONG" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerGameDisconnectingAfterPausedTooLong)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_RECEIVED_EXPERIMENT_CONFIGURATION&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_RECEIVED_EXPERIMENT_CONFIGURATION" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerReceivedExperimentConfiguration)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_GAME_CONNECTED_TO_LOGGING_SERVICE&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_GAME_CONNECTED_TO_LOGGING_SERVICE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerGameConnectedToLoggingService)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_DETERMINED_SESSION_OPTIONS&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_DETERMINED_SESSION_OPTIONS" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerDeterminedSessionOptions)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_STREAMER_KILLED_IN_MIDDLE_OF_SESSION&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_STREAMER_KILLED_IN_MIDDLE_OF_SESSION" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerStreamerKilledInMiddleOfSession)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_GAME_UPDATED_FRAME_PIPELINE&quot; </span>=&gt; {
+            <span class="string">"SESSION_EVENT_SERVER_GAME_UPDATED_FRAME_PIPELINE" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerGameUpdatedFramePipeline)
             }
-            <span class="string">&quot;SESSION_EVENT_SERVER_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerError),
+            <span class="string">"SESSION_EVENT_SERVER_ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionEventServerError),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }

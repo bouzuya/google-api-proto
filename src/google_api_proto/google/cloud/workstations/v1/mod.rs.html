@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/workstations/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/workstations/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1890,26 +1891,26 @@
 </pre></div><pre class="rust"><code><span class="doccomment">/// A workstation cluster resource in the Cloud Workstations API.
 ///
 /// Defines a group of workstations in a particular region and the
-/// VPC network they&#39;re attached to.
+/// VPC network they're attached to.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>WorkstationCluster {
     <span class="doccomment">/// Full name of this workstation cluster.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Human-readable name for this workstation cluster.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A system-assigned unique identifier for this workstation
     /// cluster.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Indicates whether this workstation cluster is currently being
     /// updated to match its intended state.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>reconciling: bool,
     <span class="doccomment">/// Optional. Client-specified annotations.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1918,42 +1919,42 @@
     /// [Labels](&lt;https://cloud.google.com/workstations/docs/label-resources&gt;) that
     /// are applied to the workstation cluster and that are also propagated to the
     /// underlying Compute Engine resources.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. Time when this workstation cluster was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when this workstation cluster was most recently updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when this workstation cluster was soft-deleted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Checksum computed by the server. May be sent on update and delete
     /// requests to make sure that the client has an up-to-date value before
     /// proceeding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Immutable. Name of the Compute Engine network in which instances associated
     /// with this workstation cluster will be created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
     <span class="doccomment">/// Immutable. Name of the Compute Engine subnetwork in which instances
     /// associated with this workstation cluster will be created. Must be part of
     /// the subnetwork specified for this workstation cluster.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The private IP address of the control plane for this
     /// workstation cluster. Workstation VMs need access to this IP address to work
     /// with the service, so make sure that your firewall rules allow egress from
     /// the workstation VMs to this address.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>control_plane_ip: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Configuration for private workstation cluster.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>private_cluster_config: ::core::option::Option&lt;
         workstation_cluster::PrivateClusterConfig,
     &gt;,
@@ -1961,11 +1962,11 @@
     /// case it may require user action to restore full functionality. Details can
     /// be found in
     /// [conditions][google.cloud.workstations.v1.WorkstationCluster.conditions].
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>degraded: bool,
-    <span class="doccomment">/// Output only. Status conditions describing the workstation cluster&#39;s current
+    <span class="doccomment">/// Output only. Status conditions describing the workstation cluster's current
     /// state.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>conditions: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `WorkstationCluster`.
@@ -1975,26 +1976,26 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PrivateClusterConfig {
         <span class="doccomment">/// Immutable. Whether Workstations endpoint is private.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>enable_private_endpoint: bool,
         <span class="doccomment">/// Output only. Hostname for the workstation cluster. This field will be
         /// populated only when private endpoint is enabled. To access workstations
         /// in the workstation cluster, create a new DNS zone mapping this domain
         /// name to an internal IP address and a forwarding rule mapping that address
         /// to the service attachment.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>cluster_hostname: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. Service attachment URI for the workstation cluster. The
         /// service attachemnt is created when private endpoint is enabled. To access
         /// workstations in the workstation cluster, configure access to the managed
         /// service using [Private Service
         /// Connect](&lt;https://cloud.google.com/vpc/docs/configure-private-service-connect-services&gt;).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>service_attachment_uri: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. Additional projects that are allowed to attach to the
-        /// workstation cluster&#39;s service attachment. By default, the workstation
-        /// cluster&#39;s project and the VPC host project (if different) are allowed.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        /// workstation cluster's service attachment. By default, the workstation
+        /// cluster's project and the VPC host project (if different) are allowed.
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>allowed_projects: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
 }
@@ -2011,21 +2012,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>WorkstationConfig {
     <span class="doccomment">/// Full name of this workstation configuration.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Human-readable name for this workstation configuration.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A system-assigned unique identifier for this workstation
     /// configuration.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Indicates whether this workstation configuration is currently
     /// being updated to match its intended state.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>reconciling: bool,
     <span class="doccomment">/// Optional. Client-specified annotations.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2034,36 +2035,36 @@
     /// [Labels](&lt;https://cloud.google.com/workstations/docs/label-resources&gt;) that
     /// are applied to the workstation configuration and that are also propagated
     /// to the underlying Compute Engine resources.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. Time when this workstation configuration was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when this workstation configuration was most recently
     /// updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when this workstation configuration was soft-deleted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Checksum computed by the server. May be sent on update and delete
     /// requests to make sure that the client has an up-to-date value before
     /// proceeding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Number of seconds to wait before automatically stopping a
     /// workstation after it last received user traffic.
     ///
-    /// A value of `&quot;0s&quot;` indicates that Cloud Workstations VMs created with this
+    /// A value of `"0s"` indicates that Cloud Workstations VMs created with this
     /// configuration should never time out due to idleness.
     /// Provide
     /// [duration](&lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration&gt;)
-    /// terminated by `s` for seconds—for example, `&quot;7200s&quot;` (2 hours).
-    /// The default is `&quot;1200s&quot;` (20 minutes).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    /// terminated by `s` for seconds—for example, `"7200s"` (2 hours).
+    /// The default is `"1200s"` (20 minutes).
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>idle_timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Optional. Number of seconds that a workstation can run until it is
     /// automatically shut down. We recommend that workstations be shut down daily
@@ -2077,29 +2078,29 @@
     /// field shuts down VMs after the specified time, regardless of whether or not
     /// the VMs are idle.
     ///
-    /// Provide duration terminated by `s` for seconds—for example, `&quot;54000s&quot;`
-    /// (15 hours). Defaults to `&quot;43200s&quot;` (12 hours). A value of `&quot;0s&quot;` indicates
+    /// Provide duration terminated by `s` for seconds—for example, `"54000s"`
+    /// (15 hours). Defaults to `"43200s"` (12 hours). A value of `"0s"` indicates
     /// that workstations using this configuration should never time out. If
     /// [encryption_key][google.cloud.workstations.v1.WorkstationConfig.encryption_key]
-    /// is set, it must be greater than `&quot;0s&quot;` and less than
-    /// `&quot;86400s&quot;` (24 hours).
+    /// is set, it must be greater than `"0s"` and less than
+    /// `"86400s"` (24 hours).
     ///
-    /// Warning: A value of `&quot;0s&quot;` indicates that Cloud Workstations VMs created
+    /// Warning: A value of `"0s"` indicates that Cloud Workstations VMs created
     /// with this configuration have no maximum running time. This is strongly
     /// discouraged because you incur costs and will not pick up security updates.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>running_timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Optional. Runtime host for the workstation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>host: ::core::option::Option&lt;workstation_config::Host&gt;,
     <span class="doccomment">/// Optional. Directories to persist across workstation sessions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>persistent_directories: ::prost::alloc::vec::Vec&lt;
         workstation_config::PersistentDirectory,
     &gt;,
     <span class="doccomment">/// Optional. Container that runs upon startup for each workstation using this
     /// workstation configuration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>container: ::core::option::Option&lt;workstation_config::Container&gt;,
     <span class="doccomment">/// Immutable. Encrypts resources of this workstation configuration using a
     /// customer-managed encryption key (CMEK).
@@ -2119,32 +2120,32 @@
     /// stops within 7 hours.
     ///
     /// Immutable after the workstation configuration is created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>encryption_key: ::core::option::Option&lt;
         workstation_config::CustomerEncryptionKey,
     &gt;,
     <span class="doccomment">/// Optional. Readiness checks to perform when starting a workstation using
     /// this workstation configuration. Mark a workstation as running only after
     /// all specified readiness checks return 200 status codes.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>readiness_checks: ::prost::alloc::vec::Vec&lt;workstation_config::ReadinessCheck&gt;,
     <span class="doccomment">/// Optional. Immutable. Specifies the zones used to replicate the VM and disk
     /// resources within the region. If set, exactly two zones within the
-    /// workstation cluster&#39;s region must be specified—for example,
-    /// `\[&#39;us-central1-a&#39;, &#39;us-central1-f&#39;\]`. If this field is empty, two default
+    /// workstation cluster's region must be specified—for example,
+    /// `\['us-central1-a', 'us-central1-f'\]`. If this field is empty, two default
     /// zones within the region are used.
     ///
     /// Immutable after the workstation configuration is created.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>replica_zones: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. Whether this resource is degraded, in which case it may
     /// require user action to restore full functionality. See also the
     /// [conditions][google.cloud.workstations.v1.WorkstationConfig.conditions]
     /// field.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>degraded: bool,
     <span class="doccomment">/// Output only. Status conditions describing the current resource state.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>conditions: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `WorkstationConfig`.
@@ -2153,8 +2154,8 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Host {
-        <span class="doccomment">/// Type of host that will be used for the workstation&#39;s runtime.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;host::Config&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+        <span class="doccomment">/// Type of host that will be used for the workstation's runtime.
+        </span><span class="attr">#[prost(oneof = <span class="string">"host::Config"</span>, tags = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>config: ::core::option::Option&lt;host::Config&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Host`.
@@ -2164,11 +2165,11 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>GceInstance {
             <span class="doccomment">/// Optional. The type of machine to use for VM instances—for example,
-            /// `&quot;e2-standard-4&quot;`. For more information about machine types that
+            /// `"e2-standard-4"`. For more information about machine types that
             /// Cloud Workstations supports, see the list of
             /// [available machine
             /// types](&lt;https://cloud.google.com/workstations/docs/available-machine-types&gt;).
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
             <span class="doccomment">/// Optional. The email address of the service account for Cloud
             /// Workstations VMs created with this configuration. When specified, be
@@ -2180,21 +2181,21 @@
             /// If you as the administrator want to be able to `ssh` into the
             /// underlying VM, you need to set this value to a service account
             /// for which you have the `iam.serviceAccounts.actAs` permission.
-            /// Conversely, if you don&#39;t want anyone to be able to `ssh` into the
+            /// Conversely, if you don't want anyone to be able to `ssh` into the
             /// underlying VM, use a service account where no one has that
             /// permission.
             ///
             /// If not set, VMs run with a service account provided by the
             /// Cloud Workstations service, and the image must be publicly
             /// accessible.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
             <span class="doccomment">/// Optional. Scopes to grant to the
             /// [service_account][google.cloud.workstations.v1.WorkstationConfig.Host.GceInstance.service_account].
             /// Various scopes are automatically added based on feature usage. When
             /// specified, users of workstations under this configuration must have
             /// `iam.serviceAccounts.actAs` on the service account.
-            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>service_account_scopes: ::prost::alloc::vec::Vec&lt;
                 ::prost::alloc::string::String,
             &gt;,
@@ -2205,16 +2206,16 @@
             /// created with this configuration. These network tags enable the creation
             /// of [firewall
             /// rules](&lt;https://cloud.google.com/workstations/docs/configure-firewall-rules&gt;).
-            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
             </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
             <span class="doccomment">/// Optional. The number of VMs that the system should keep idle so that
             /// new workstations can be started quickly for new users. Defaults to `0`
             /// in the API.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
             </span><span class="kw">pub </span>pool_size: i32,
             <span class="doccomment">/// Output only. Number of instances currently available in the pool for
             /// faster workstation startup.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;12&quot;</span>)]
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"12"</span>)]
             </span><span class="kw">pub </span>pooled_instances: i32,
             <span class="doccomment">/// Optional. When set to true, disables public IP addresses for VMs. If
             /// you disable public IP addresses, you must set up Private Google Access
@@ -2223,7 +2224,7 @@
             /// Container Registry and Artifact Registry, make sure that you set
             /// up DNS records for domains `*.gcr.io` and `*.pkg.dev`.
             /// Defaults to false (VMs have public IP addresses).
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+            </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
             </span><span class="kw">pub </span>disable_public_ip_addresses: bool,
             <span class="doccomment">/// Optional. Whether to enable nested virtualization on Cloud Workstations
             /// VMs created under this workstation configuration.
@@ -2259,21 +2260,21 @@
             /// [Ubuntu
             /// LTS](&lt;https://cloud.google.com/compute/docs/images/os-details#ubuntu_lts&gt;)
             /// image.
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+            </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
             </span><span class="kw">pub </span>enable_nested_virtualization: bool,
             <span class="doccomment">/// Optional. A set of Compute Engine Shielded instance options.
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
             </span><span class="kw">pub </span>shielded_instance_config: ::core::option::Option&lt;
                 gce_instance::GceShieldedInstanceConfig,
             &gt;,
             <span class="doccomment">/// Optional. A set of Compute Engine Confidential VM instance options.
-            </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+            </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
             </span><span class="kw">pub </span>confidential_instance_config: ::core::option::Option&lt;
                 gce_instance::GceConfidentialInstanceConfig,
             &gt;,
             <span class="doccomment">/// Optional. The size of the boot disk for the VM in gigabytes (GB).
             /// The minimum boot disk size is `30` GB. Defaults to `50` GB.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"9"</span>)]
             </span><span class="kw">pub </span>boot_disk_size_gb: i32,
         }
         <span class="doccomment">/// Nested message and enum types in `GceInstance`.
@@ -2283,13 +2284,13 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>GceShieldedInstanceConfig {
                 <span class="doccomment">/// Optional. Whether the instance has Secure Boot enabled.
-                </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>enable_secure_boot: bool,
                 <span class="doccomment">/// Optional. Whether the instance has the vTPM enabled.
-                </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
                 </span><span class="kw">pub </span>enable_vtpm: bool,
                 <span class="doccomment">/// Optional. Whether the instance has integrity monitoring enabled.
-                </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
                 </span><span class="kw">pub </span>enable_integrity_monitoring: bool,
             }
             <span class="doccomment">/// A set of Compute Engine Confidential VM instance options.
@@ -2297,16 +2298,16 @@
             #[derive(Clone, PartialEq, ::prost::Message)]
             </span><span class="kw">pub struct </span>GceConfidentialInstanceConfig {
                 <span class="doccomment">/// Optional. Whether the instance has confidential compute enabled.
-                </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>enable_confidential_compute: bool,
             }
         }
-        <span class="doccomment">/// Type of host that will be used for the workstation&#39;s runtime.
+        <span class="doccomment">/// Type of host that will be used for the workstation's runtime.
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>Config {
             <span class="doccomment">/// Specifies a Compute Engine instance as the host.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
             </span>GceInstance(GceInstance),
         }
     }
@@ -2315,10 +2316,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PersistentDirectory {
         <span class="doccomment">/// Optional. Location of this directory in the running workstation.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>mount_path: ::prost::alloc::string::String,
         <span class="doccomment">/// How a persistent directory should be implemented.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;persistent_directory::DirectoryType&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"persistent_directory::DirectoryType"</span>, tags = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>directory_type: ::core::option::Option&lt;persistent_directory::DirectoryType&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `PersistentDirectory`.
@@ -2345,20 +2346,20 @@
             /// Defaults to `200`. If less than `200` GB, the
             /// [disk_type][google.cloud.workstations.v1.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.disk_type]
             /// must be
-            /// `&quot;pd-balanced&quot;` or `&quot;pd-ssd&quot;`.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+            /// `"pd-balanced"` or `"pd-ssd"`.
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>size_gb: i32,
             <span class="doccomment">/// Optional. Type of file system that the disk should be formatted with.
             /// The workstation image must support this file system type. Must be empty
             /// if
             /// [source_snapshot][google.cloud.workstations.v1.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.source_snapshot]
-            /// is set. Defaults to `&quot;ext4&quot;`.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            /// is set. Defaults to `"ext4"`.
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>fs_type: ::prost::alloc::string::String,
             <span class="doccomment">/// Optional. The [type of the persistent
             /// disk](&lt;https://cloud.google.com/compute/docs/disks#disk-types&gt;) for the
-            /// home directory. Defaults to `&quot;pd-standard&quot;`.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+            /// home directory. Defaults to `"pd-standard"`.
+            </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>disk_type: ::prost::alloc::string::String,
             <span class="doccomment">/// Optional. Name of the snapshot to use as the source for the disk. If
             /// set,
@@ -2366,14 +2367,14 @@
             /// and
             /// [fs_type][google.cloud.workstations.v1.WorkstationConfig.PersistentDirectory.GceRegionalPersistentDisk.fs_type]
             /// must be empty.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
             </span><span class="kw">pub </span>source_snapshot: ::prost::alloc::string::String,
             <span class="doccomment">/// Optional. Whether the persistent disk should be deleted when the
             /// workstation is deleted. Valid values are `DELETE` and `RETAIN`.
             /// Defaults to `DELETE`.
             </span><span class="attr">#[prost(
-                enumeration = <span class="string">&quot;gce_regional_persistent_disk::ReclaimPolicy&quot;</span>,
-                tag = <span class="string">&quot;4&quot;
+                enumeration = <span class="string">"gce_regional_persistent_disk::ReclaimPolicy"</span>,
+                tag = <span class="string">"4"
             </span>)]
             </span><span class="kw">pub </span>reclaim_policy: i32,
         }
@@ -2407,19 +2408,19 @@
                 ///
                 /// The values are not transformed in any way and thus are considered stable
                 /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+                </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                     <span class="kw">match </span><span class="self">self </span>{
-                        ReclaimPolicy::Unspecified =&gt; <span class="string">&quot;RECLAIM_POLICY_UNSPECIFIED&quot;</span>,
-                        ReclaimPolicy::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
-                        ReclaimPolicy::Retain =&gt; <span class="string">&quot;RETAIN&quot;</span>,
+                        ReclaimPolicy::Unspecified =&gt; <span class="string">"RECLAIM_POLICY_UNSPECIFIED"</span>,
+                        ReclaimPolicy::Delete =&gt; <span class="string">"DELETE"</span>,
+                        ReclaimPolicy::Retain =&gt; <span class="string">"RETAIN"</span>,
                     }
                 }
                 <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
                 </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                     <span class="kw">match </span>value {
-                        <span class="string">&quot;RECLAIM_POLICY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                        <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
-                        <span class="string">&quot;RETAIN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Retain),
+                        <span class="string">"RECLAIM_POLICY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                        <span class="string">"DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+                        <span class="string">"RETAIN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Retain),
                         <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                     }
                 }
@@ -2430,7 +2431,7 @@
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>DirectoryType {
             <span class="doccomment">/// A PersistentDirectory backed by a Compute Engine persistent disk.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>GcePd(GceRegionalPersistentDisk),
         }
     }
@@ -2450,27 +2451,27 @@
         /// must be specified in the workstation configuration and must have
         /// permission to pull the specified image. Otherwise, the image must be
         /// publicly accessible.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>image: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. If set, overrides the default ENTRYPOINT specified by the
         /// image.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>command: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// Optional. Arguments passed to the entrypoint.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>args: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// Optional. Environment variables passed to the container&#39;s entrypoint.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+        <span class="doccomment">/// Optional. Environment variables passed to the container's entrypoint.
+        </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>env: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             ::prost::alloc::string::String,
         &gt;,
         <span class="doccomment">/// Optional. If set, overrides the default DIR specified by the image.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>working_dir: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. If set, overrides the USER specified in the image with the
         /// given uid.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>run_as_user: i32,
     }
     <span class="doccomment">/// A customer-managed encryption key (CMEK) for the Compute Engine
@@ -2483,9 +2484,9 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>CustomerEncryptionKey {
         <span class="doccomment">/// Immutable. The name of the Google Cloud KMS encryption key. For example,
-        /// `&quot;projects/PROJECT_ID/locations/REGION/keyRings/KEY_RING/cryptoKeys/KEY_NAME&quot;`.
+        /// `"projects/PROJECT_ID/locations/REGION/keyRings/KEY_RING/cryptoKeys/KEY_NAME"`.
         /// The key must be in the same region as the workstation configuration.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>kms_key: ::prost::alloc::string::String,
         <span class="doccomment">/// Immutable. The service account to use with the specified
         /// KMS key. We recommend that you use a separate service account
@@ -2494,7 +2495,7 @@
         /// duties](&lt;https://cloud.google.com/kms/docs/separation-of-duties&gt;) and
         /// `gcloud kms keys add-iam-policy-binding`
         /// [`--member`](&lt;https://cloud.google.com/sdk/gcloud/reference/kms/keys/add-iam-policy-binding#--member&gt;).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>kms_key_service_account: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// A readiness check to be performed on a workstation.
@@ -2502,10 +2503,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ReadinessCheck {
         <span class="doccomment">/// Optional. Path to which the request should be sent.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. Port to which the request should be sent.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>port: i32,
     }
 }
@@ -2514,20 +2515,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Workstation {
     <span class="doccomment">/// Full name of this workstation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Human-readable name for this workstation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A system-assigned unique identifier for this workstation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Indicates whether this workstation is currently being updated
     /// to match its intended state.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>reconciling: bool,
     <span class="doccomment">/// Optional. Client-specified annotations.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2536,38 +2537,38 @@
     /// [Labels](&lt;https://cloud.google.com/workstations/docs/label-resources&gt;) that
     /// are applied to the workstation and that are also propagated to the
     /// underlying Compute Engine resources.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. Time when this workstation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when this workstation was most recently updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when this workstation was most recently successfully
-    /// started, regardless of the workstation&#39;s initial state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    /// started, regardless of the workstation's initial state.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when this workstation was soft-deleted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>delete_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Checksum computed by the server. May be sent on update and delete
     /// requests to make sure that the client has an up-to-date value before
     /// proceeding.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Current state of the workstation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;workstation::State&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"workstation::State"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Host to which clients can send HTTPS traffic that will be
     /// received by the workstation. Authorized traffic will be received to the
     /// workstation as HTTP on port 80. To send traffic to a different port,
     /// clients may prefix the host with the destination port in the format
     /// `{port}-{host}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>host: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `Workstation`.
@@ -2604,23 +2605,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Starting =&gt; <span class="string">&quot;STATE_STARTING&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;STATE_RUNNING&quot;</span>,
-                State::Stopping =&gt; <span class="string">&quot;STATE_STOPPING&quot;</span>,
-                State::Stopped =&gt; <span class="string">&quot;STATE_STOPPED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Starting =&gt; <span class="string">"STATE_STARTING"</span>,
+                State::Running =&gt; <span class="string">"STATE_RUNNING"</span>,
+                State::Stopping =&gt; <span class="string">"STATE_STOPPING"</span>,
+                State::Stopped =&gt; <span class="string">"STATE_STOPPED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STATE_STARTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Starting),
-                <span class="string">&quot;STATE_RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;STATE_STOPPING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopping),
-                <span class="string">&quot;STATE_STOPPED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopped),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STATE_STARTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Starting),
+                <span class="string">"STATE_RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"STATE_STOPPING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopping),
+                <span class="string">"STATE_STOPPED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopped),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2631,7 +2632,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetWorkstationClusterRequest {
     <span class="doccomment">/// Required. Name of the requested resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for ListWorkstationClusters.
@@ -2639,14 +2640,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListWorkstationClustersRequest {
     <span class="doccomment">/// Required. Parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. next_page_token value returned from a previous List request, if
     /// any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListWorkstationClusters.
@@ -2654,14 +2655,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListWorkstationClustersResponse {
     <span class="doccomment">/// The requested workstation clusters.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workstation_clusters: ::prost::alloc::vec::Vec&lt;WorkstationCluster&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Unreachable resources.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Message for creating a CreateWorkstationCluster.
@@ -2669,17 +2670,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateWorkstationClusterRequest {
     <span class="doccomment">/// Required. Parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. ID to use for the workstation cluster.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>workstation_cluster_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Workstation cluster to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>workstation_cluster: ::core::option::Option&lt;WorkstationCluster&gt;,
     <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
     /// actually apply it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Request message for UpdateWorkstationCluster.
@@ -2687,20 +2688,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateWorkstationClusterRequest {
     <span class="doccomment">/// Required. Workstation cluster to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workstation_cluster: ::core::option::Option&lt;WorkstationCluster&gt;,
     <span class="doccomment">/// Required. Mask that specifies which fields in the workstation cluster
     /// should be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
     /// actually apply it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
     <span class="doccomment">/// Optional. If set, and the workstation cluster is not found, a new
     /// workstation cluster will be created. In this situation, update_mask is
     /// ignored.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
 <span class="doccomment">/// Message for deleting a workstation cluster.
@@ -2708,20 +2709,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteWorkstationClusterRequest {
     <span class="doccomment">/// Required. Name of the workstation cluster to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
     /// apply it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
     <span class="doccomment">/// Optional. If set, the request will be rejected if the latest version of the
     /// workstation cluster on the server does not have this ETag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, any workstation configurations and workstations in the
     /// workstation cluster are also deleted. Otherwise, the request only
     /// works if the workstation cluster has no configurations or workstations.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>force: bool,
 }
 <span class="doccomment">/// Request message for GetWorkstationConfig.
@@ -2729,7 +2730,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetWorkstationConfigRequest {
     <span class="doccomment">/// Required. Name of the requested resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for ListWorkstationConfigs.
@@ -2737,14 +2738,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListWorkstationConfigsRequest {
     <span class="doccomment">/// Required. Parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. next_page_token value returned from a previous List request, if
     /// any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListWorkstationConfigs.
@@ -2752,14 +2753,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListWorkstationConfigsResponse {
     <span class="doccomment">/// The requested configs.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workstation_configs: ::prost::alloc::vec::Vec&lt;WorkstationConfig&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Unreachable resources.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for ListUsableWorkstationConfigs.
@@ -2767,14 +2768,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListUsableWorkstationConfigsRequest {
     <span class="doccomment">/// Required. Parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. next_page_token value returned from a previous List request, if
     /// any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListUsableWorkstationConfigs.
@@ -2782,14 +2783,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListUsableWorkstationConfigsResponse {
     <span class="doccomment">/// The requested configs.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workstation_configs: ::prost::alloc::vec::Vec&lt;WorkstationConfig&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Unreachable resources.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Message for creating a CreateWorkstationConfig.
@@ -2797,17 +2798,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateWorkstationConfigRequest {
     <span class="doccomment">/// Required. Parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. ID to use for the workstation configuration.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>workstation_config_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Config to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>workstation_config: ::core::option::Option&lt;WorkstationConfig&gt;,
     <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
     /// actually apply it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Request message for UpdateWorkstationConfig.
@@ -2815,20 +2816,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateWorkstationConfigRequest {
     <span class="doccomment">/// Required. Config to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workstation_config: ::core::option::Option&lt;WorkstationConfig&gt;,
     <span class="doccomment">/// Required. Mask specifying which fields in the workstation configuration
     /// should be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
     /// actually apply it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
     <span class="doccomment">/// Optional. If set and the workstation configuration is not found, a new
     /// workstation configuration will be created. In this situation,
     /// update_mask is ignored.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
 <span class="doccomment">/// Message for deleting a workstation configuration.
@@ -2836,20 +2837,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteWorkstationConfigRequest {
     <span class="doccomment">/// Required. Name of the workstation configuration to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
     /// actually apply it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
     <span class="doccomment">/// Optional. If set, the request is rejected if the latest version of the
     /// workstation configuration on the server does not have this ETag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, any workstations in the workstation configuration are
     /// also deleted. Otherwise, the request works only if the workstation
     /// configuration has no workstations.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>force: bool,
 }
 <span class="doccomment">/// Request message for GetWorkstation.
@@ -2857,7 +2858,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetWorkstationRequest {
     <span class="doccomment">/// Required. Name of the requested resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for ListWorkstations.
@@ -2865,14 +2866,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListWorkstationsRequest {
     <span class="doccomment">/// Required. Parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. next_page_token value returned from a previous List request, if
     /// any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListWorkstations.
@@ -2880,14 +2881,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListWorkstationsResponse {
     <span class="doccomment">/// The requested workstations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workstations: ::prost::alloc::vec::Vec&lt;Workstation&gt;,
     <span class="doccomment">/// Optional. Token to retrieve the next page of results, or empty if there are
     /// no more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Unreachable resources.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for ListUsableWorkstations.
@@ -2895,14 +2896,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListUsableWorkstationsRequest {
     <span class="doccomment">/// Required. Parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. next_page_token value returned from a previous List request, if
     /// any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListUsableWorkstations.
@@ -2910,14 +2911,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListUsableWorkstationsResponse {
     <span class="doccomment">/// The requested workstations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workstations: ::prost::alloc::vec::Vec&lt;Workstation&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Unreachable resources.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Message for creating a CreateWorkstation.
@@ -2925,17 +2926,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateWorkstationRequest {
     <span class="doccomment">/// Required. Parent resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. ID to use for the workstation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>workstation_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Workstation to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>workstation: ::core::option::Option&lt;Workstation&gt;,
     <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
     /// actually apply it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Request message for UpdateWorkstation.
@@ -2943,20 +2944,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateWorkstationRequest {
     <span class="doccomment">/// Required. Workstation to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workstation: ::core::option::Option&lt;Workstation&gt;,
     <span class="doccomment">/// Required. Mask specifying which fields in the workstation configuration
     /// should be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
     /// actually apply it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
     <span class="doccomment">/// Optional. If set and the workstation configuration is not found, a new
     /// workstation configuration is created. In this situation, update_mask
     /// is ignored.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
 <span class="doccomment">/// Request message for DeleteWorkstation.
@@ -2964,15 +2965,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteWorkstationRequest {
     <span class="doccomment">/// Required. Name of the workstation to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
     /// actually apply it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
     <span class="doccomment">/// Optional. If set, the request will be rejected if the latest version of the
     /// workstation on the server does not have this ETag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for StartWorkstation.
@@ -2980,15 +2981,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StartWorkstationRequest {
     <span class="doccomment">/// Required. Name of the workstation to start.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
     /// actually apply it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
     <span class="doccomment">/// Optional. If set, the request will be rejected if the latest version of the
     /// workstation on the server does not have this ETag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for StopWorkstation.
@@ -2996,15 +2997,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StopWorkstationRequest {
     <span class="doccomment">/// Required. Name of the workstation to stop.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, validate the request and preview the review, but do not
     /// actually apply it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
     <span class="doccomment">/// Optional. If set, the request will be rejected if the latest version of the
     /// workstation on the server does not have this ETag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for GenerateAccessToken.
@@ -3013,10 +3014,10 @@
 </span><span class="kw">pub struct </span>GenerateAccessTokenRequest {
     <span class="doccomment">/// Required. Name of the workstation for which the access token should be
     /// generated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workstation: ::prost::alloc::string::String,
     <span class="doccomment">/// Desired expiration or lifetime of the access token.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;generate_access_token_request::Expiration&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"generate_access_token_request::Expiration"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>expiration: ::core::option::Option&lt;generate_access_token_request::Expiration&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `GenerateAccessTokenRequest`.
@@ -3027,14 +3028,14 @@
     </span><span class="kw">pub enum </span>Expiration {
         <span class="doccomment">/// Desired expiration time of the access token. This value must
         /// be at most 24 hours in the future. If a value is not specified, the
-        /// token&#39;s expiration time will be set to a default value of 1 hour in the
+        /// token's expiration time will be set to a default value of 1 hour in the
         /// future.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>ExpireTime(::prost_types::Timestamp),
         <span class="doccomment">/// Desired lifetime duration of the access token. This value must
-        /// be at most 24 hours. If a value is not specified, the token&#39;s lifetime
+        /// be at most 24 hours. If a value is not specified, the token's lifetime
         /// will be set to a default value of 1 hour.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Ttl(::prost_types::Duration),
     }
 }
@@ -3044,12 +3045,12 @@
 </span><span class="kw">pub struct </span>GenerateAccessTokenResponse {
     <span class="doccomment">/// The generated bearer access token. To use this token, include it in an
     /// Authorization header of an HTTP request sent to the associated
-    /// workstation&#39;s hostname—for example, `Authorization: Bearer
+    /// workstation's hostname—for example, `Authorization: Bearer
     /// &lt;access_token&gt;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>access_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Time at which the generated token will expire.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Metadata for long-running operations.
@@ -3057,26 +3058,26 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. Time that the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time that the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -3093,7 +3094,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3168,19 +3169,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/GetWorkstationCluster&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/GetWorkstationCluster"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;GetWorkstationCluster&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"GetWorkstationCluster"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3199,19 +3200,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/ListWorkstationClusters&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/ListWorkstationClusters"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;ListWorkstationClusters&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"ListWorkstationClusters"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3230,19 +3231,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/CreateWorkstationCluster&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/CreateWorkstationCluster"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;CreateWorkstationCluster&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"CreateWorkstationCluster"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3261,19 +3262,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/UpdateWorkstationCluster&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/UpdateWorkstationCluster"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;UpdateWorkstationCluster&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"UpdateWorkstationCluster"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3292,19 +3293,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/DeleteWorkstationCluster&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/DeleteWorkstationCluster"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;DeleteWorkstationCluster&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"DeleteWorkstationCluster"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3323,19 +3324,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/GetWorkstationConfig&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/GetWorkstationConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;GetWorkstationConfig&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"GetWorkstationConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3354,25 +3355,25 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/ListWorkstationConfigs&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/ListWorkstationConfigs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;ListWorkstationConfigs&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"ListWorkstationConfigs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Returns all workstation configurations in the specified cluster on which
-        /// the caller has the &quot;workstations.workstation.create&quot; permission.
+        /// the caller has the "workstations.workstation.create" permission.
         </span><span class="kw">pub async fn </span>list_usable_workstation_configs(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListUsableWorkstationConfigsRequest&gt;,
@@ -3386,19 +3387,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/ListUsableWorkstationConfigs&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/ListUsableWorkstationConfigs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;ListUsableWorkstationConfigs&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"ListUsableWorkstationConfigs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3417,19 +3418,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/CreateWorkstationConfig&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/CreateWorkstationConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;CreateWorkstationConfig&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"CreateWorkstationConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3448,19 +3449,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/UpdateWorkstationConfig&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/UpdateWorkstationConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;UpdateWorkstationConfig&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"UpdateWorkstationConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3479,19 +3480,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/DeleteWorkstationConfig&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/DeleteWorkstationConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;DeleteWorkstationConfig&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"DeleteWorkstationConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3507,19 +3508,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/GetWorkstation&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/GetWorkstation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;GetWorkstation&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"GetWorkstation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3538,25 +3539,25 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/ListWorkstations&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/ListWorkstations"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;ListWorkstations&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"ListWorkstations"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Returns all workstations using the specified workstation configuration
-        /// on which the caller has the &quot;workstations.workstations.use&quot; permission.
+        /// on which the caller has the "workstations.workstations.use" permission.
         </span><span class="kw">pub async fn </span>list_usable_workstations(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListUsableWorkstationsRequest&gt;,
@@ -3570,19 +3571,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/ListUsableWorkstations&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/ListUsableWorkstations"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;ListUsableWorkstations&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"ListUsableWorkstations"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3601,19 +3602,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/CreateWorkstation&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/CreateWorkstation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;CreateWorkstation&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"CreateWorkstation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3632,19 +3633,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/UpdateWorkstation&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/UpdateWorkstation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;UpdateWorkstation&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"UpdateWorkstation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3663,19 +3664,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/DeleteWorkstation&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/DeleteWorkstation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;DeleteWorkstation&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"DeleteWorkstation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3694,19 +3695,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/StartWorkstation&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/StartWorkstation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;StartWorkstation&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"StartWorkstation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3725,19 +3726,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/StopWorkstation&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/StopWorkstation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;StopWorkstation&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"StopWorkstation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3757,19 +3758,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.workstations.v1.Workstations/GenerateAccessToken&quot;</span>,
+                <span class="string">"/google.cloud.workstations.v1.Workstations/GenerateAccessToken"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.workstations.v1.Workstations&quot;</span>,
-                        <span class="string">&quot;GenerateAccessToken&quot;</span>,
+                        <span class="string">"google.cloud.workstations.v1.Workstations"</span>,
+                        <span class="string">"GenerateAccessToken"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

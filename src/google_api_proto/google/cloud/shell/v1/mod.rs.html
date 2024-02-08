@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/shell/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/shell/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -638,8 +639,8 @@
 <a href="#638" id="638">638</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// A Cloud Shell environment, which is defined as the combination of a Docker
 /// image specifying what is installed on the environment and a home directory
-/// containing the user&#39;s data that will remain across sessions. Each user has
-/// at least an environment with the ID &quot;default&quot;.
+/// containing the user's data that will remain across sessions. Each user has
+/// at least an environment with the ID "default".
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Environment {
@@ -648,41 +649,41 @@
     /// email address of the user to whom this environment belongs, and
     /// `{environment_id}` is the identifier of this environment. For example,
     /// `users/someone@example.com/environments/default`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The environment&#39;s identifier, unique among the user&#39;s
+    <span class="doccomment">/// Output only. The environment's identifier, unique among the user's
     /// environments.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Immutable. Full path to the Docker image used to run this environment, e.g.
-    /// &quot;gcr.io/dev-con/cloud-devshell:latest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// "gcr.io/dev-con/cloud-devshell:latest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>docker_image: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Current execution state of this environment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;environment::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"environment::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Host to which clients can connect to initiate HTTPS or WSS
     /// connections with the environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>web_host: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Username that clients should use when initiating SSH sessions
     /// with the environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>ssh_username: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Host to which clients can connect to initiate SSH sessions
     /// with the environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>ssh_host: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Port to which clients can connect to initiate SSH sessions
     /// with the environment.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>ssh_port: i32,
     <span class="doccomment">/// Output only. Public keys associated with the environment. Clients can
     /// connect to this environment via SSH only if they possess a private key
     /// corresponding to at least one of these public keys. Keys can be added to or
     /// removed from the environment using the AddPublicKey and RemovePublicKey
     /// methods.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>public_keys: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Environment`.
@@ -701,9 +702,9 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// The environment&#39;s states is unknown.
+        <span class="doccomment">/// The environment's states is unknown.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The environment is not running and can&#39;t be connected to. Starting the
+        <span class="doccomment">/// The environment is not running and can't be connected to. Starting the
         /// environment will transition it to the PENDING state.
         </span>Suspended = <span class="number">1</span>,
         <span class="doccomment">/// The environment is being started but is not yet ready to accept
@@ -713,7 +714,7 @@
         /// automatically transition back to DISABLED after a period of inactivity or
         /// if another environment is started.
         </span>Running = <span class="number">3</span>,
-        <span class="doccomment">/// The environment is being deleted and can&#39;t be connected to.
+        <span class="doccomment">/// The environment is being deleted and can't be connected to.
         </span>Deleting = <span class="number">4</span>,
     }
     <span class="kw">impl </span>State {
@@ -721,23 +722,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Suspended =&gt; <span class="string">&quot;SUSPENDED&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Suspended =&gt; <span class="string">"SUSPENDED"</span>,
+                State::Pending =&gt; <span class="string">"PENDING"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUSPENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SUSPENDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suspended),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -750,7 +751,7 @@
 </span><span class="kw">pub struct </span>GetEnvironmentRequest {
     <span class="doccomment">/// Required. Name of the requested resource, for example `users/me/environments/default`
     /// or `users/someone@example.com/environments/default`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message included in the metadata field of operations returned from
@@ -771,16 +772,16 @@
     <span class="doccomment">/// Name of the resource that should be started, for example
     /// `users/me/environments/default` or
     /// `users/someone@example.com/environments/default`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The initial access token passed to the environment. If this is present and
     /// valid, the environment will be pre-authenticated with gcloud so that the
     /// user can run gcloud commands in Cloud Shell without having to log in. This
     /// code can be updated later by calling AuthorizeEnvironment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>access_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Public keys that should be added to the environment before it is started.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>public_keys: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -791,17 +792,17 @@
     <span class="doccomment">/// Name of the resource that should receive the credentials, for example
     /// `users/me/environments/default` or
     /// `users/someone@example.com/environments/default`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The OAuth access token that should be sent to the environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>access_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The OAuth ID token that should be sent to the environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>id_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The time when the credentials expire. If not set, defaults to one hour from
     /// when the server received the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Response message for
@@ -820,14 +821,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StartEnvironmentMetadata {
     <span class="doccomment">/// Current state of the environment being started.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;start_environment_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"start_environment_metadata::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `StartEnvironmentMetadata`.
 </span><span class="kw">pub mod </span>start_environment_metadata {
     <span class="doccomment">/// Possible states an environment might transition between during startup.
     /// These states are not normally actionable by clients, but may be used to
-    /// show a progress message to the user. An environment won&#39;t necessarily go
+    /// show a progress message to the user. An environment won't necessarily go
     /// through all of these states when starting. More states are likely to be
     /// added in the future.
     </span><span class="attr">#[derive(
@@ -843,12 +844,12 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// The environment&#39;s start state is unknown.
+        <span class="doccomment">/// The environment's start state is unknown.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// The environment is in the process of being started, but no additional
         /// details are available.
         </span>Starting = <span class="number">1</span>,
-        <span class="doccomment">/// Startup is waiting for the user&#39;s disk to be unarchived. This can happen
+        <span class="doccomment">/// Startup is waiting for the user's disk to be unarchived. This can happen
         /// when the user returns to Cloud Shell after not having used it for a
         /// while, and suggests that startup will take longer than normal.
         </span>UnarchivingDisk = <span class="number">2</span>,
@@ -867,23 +868,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Starting =&gt; <span class="string">&quot;STARTING&quot;</span>,
-                State::UnarchivingDisk =&gt; <span class="string">&quot;UNARCHIVING_DISK&quot;</span>,
-                State::AwaitingComputeResources =&gt; <span class="string">&quot;AWAITING_COMPUTE_RESOURCES&quot;</span>,
-                State::Finished =&gt; <span class="string">&quot;FINISHED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Starting =&gt; <span class="string">"STARTING"</span>,
+                State::UnarchivingDisk =&gt; <span class="string">"UNARCHIVING_DISK"</span>,
+                State::AwaitingComputeResources =&gt; <span class="string">"AWAITING_COMPUTE_RESOURCES"</span>,
+                State::Finished =&gt; <span class="string">"FINISHED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STARTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Starting),
-                <span class="string">&quot;UNARCHIVING_DISK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnarchivingDisk),
-                <span class="string">&quot;AWAITING_COMPUTE_RESOURCES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AwaitingComputeResources),
-                <span class="string">&quot;FINISHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finished),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STARTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Starting),
+                <span class="string">"UNARCHIVING_DISK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnarchivingDisk),
+                <span class="string">"AWAITING_COMPUTE_RESOURCES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AwaitingComputeResources),
+                <span class="string">"FINISHED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finished),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -896,7 +897,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StartEnvironmentResponse {
     <span class="doccomment">/// Environment that was started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::core::option::Option&lt;Environment&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -906,7 +907,7 @@
 </span><span class="kw">pub struct </span>AddPublicKeyRequest {
     <span class="doccomment">/// Environment this key should be added to, e.g.
     /// `users/me/environments/default`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::prost::alloc::string::String,
     <span class="doccomment">/// Key that should be added to the environment. Supported formats are
     /// `ssh-dss` (see RFC4253), `ssh-rsa` (see RFC4253), `ecdsa-sha2-nistp256`
@@ -914,7 +915,7 @@
     /// `ecdsa-sha2-nistp521` (see RFC5656). It should be structured as
     /// &amp;lt;format&amp;gt; &amp;lt;content&amp;gt;, where &amp;lt;content&amp;gt; part is encoded with
     /// Base64.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -923,7 +924,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AddPublicKeyResponse {
     <span class="doccomment">/// Key that was added to the environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message included in the metadata field of operations returned from
@@ -938,10 +939,10 @@
 </span><span class="kw">pub struct </span>RemovePublicKeyRequest {
     <span class="doccomment">/// Environment this key should be removed from, e.g.
     /// `users/me/environments/default`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>environment: ::prost::alloc::string::String,
     <span class="doccomment">/// Key that should be removed from the environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -960,7 +961,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudShellErrorDetails {
     <span class="doccomment">/// Code indicating the specific error the occurred.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;cloud_shell_error_details::CloudShellErrorCode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"cloud_shell_error_details::CloudShellErrorCode"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `CloudShellErrorDetails`.
@@ -1002,25 +1003,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                CloudShellErrorCode::Unspecified =&gt; <span class="string">&quot;CLOUD_SHELL_ERROR_CODE_UNSPECIFIED&quot;</span>,
-                CloudShellErrorCode::ImageUnavailable =&gt; <span class="string">&quot;IMAGE_UNAVAILABLE&quot;</span>,
-                CloudShellErrorCode::CloudShellDisabled =&gt; <span class="string">&quot;CLOUD_SHELL_DISABLED&quot;</span>,
-                CloudShellErrorCode::TosViolation =&gt; <span class="string">&quot;TOS_VIOLATION&quot;</span>,
-                CloudShellErrorCode::QuotaExceeded =&gt; <span class="string">&quot;QUOTA_EXCEEDED&quot;</span>,
-                CloudShellErrorCode::EnvironmentUnavailable =&gt; <span class="string">&quot;ENVIRONMENT_UNAVAILABLE&quot;</span>,
+                CloudShellErrorCode::Unspecified =&gt; <span class="string">"CLOUD_SHELL_ERROR_CODE_UNSPECIFIED"</span>,
+                CloudShellErrorCode::ImageUnavailable =&gt; <span class="string">"IMAGE_UNAVAILABLE"</span>,
+                CloudShellErrorCode::CloudShellDisabled =&gt; <span class="string">"CLOUD_SHELL_DISABLED"</span>,
+                CloudShellErrorCode::TosViolation =&gt; <span class="string">"TOS_VIOLATION"</span>,
+                CloudShellErrorCode::QuotaExceeded =&gt; <span class="string">"QUOTA_EXCEEDED"</span>,
+                CloudShellErrorCode::EnvironmentUnavailable =&gt; <span class="string">"ENVIRONMENT_UNAVAILABLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CLOUD_SHELL_ERROR_CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;IMAGE_UNAVAILABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImageUnavailable),
-                <span class="string">&quot;CLOUD_SHELL_DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudShellDisabled),
-                <span class="string">&quot;TOS_VIOLATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TosViolation),
-                <span class="string">&quot;QUOTA_EXCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::QuotaExceeded),
-                <span class="string">&quot;ENVIRONMENT_UNAVAILABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EnvironmentUnavailable),
+                <span class="string">"CLOUD_SHELL_ERROR_CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"IMAGE_UNAVAILABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImageUnavailable),
+                <span class="string">"CLOUD_SHELL_DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudShellDisabled),
+                <span class="string">"TOS_VIOLATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TosViolation),
+                <span class="string">"QUOTA_EXCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::QuotaExceeded),
+                <span class="string">"ENVIRONMENT_UNAVAILABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EnvironmentUnavailable),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1032,9 +1033,9 @@
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
     <span class="doccomment">/// API for interacting with Google Cloud Shell. Each user of Cloud Shell has at
-    /// least one environment, which has the ID &quot;default&quot;. Environment consists of a
+    /// least one environment, which has the ID "default". Environment consists of a
     /// Docker image defining what is installed on the environment and a home
-    /// directory containing the user&#39;s data that will remain across sessions.
+    /// directory containing the user's data that will remain across sessions.
     /// Clients use this API to start and fetch information about their environment,
     /// which can then be used to connect to that environment via a separate SSH
     /// client.
@@ -1046,7 +1047,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1118,19 +1119,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.shell.v1.CloudShellService/GetEnvironment&quot;</span>,
+                <span class="string">"/google.cloud.shell.v1.CloudShellService/GetEnvironment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.shell.v1.CloudShellService&quot;</span>,
-                        <span class="string">&quot;GetEnvironment&quot;</span>,
+                        <span class="string">"google.cloud.shell.v1.CloudShellService"</span>,
+                        <span class="string">"GetEnvironment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1154,19 +1155,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.shell.v1.CloudShellService/StartEnvironment&quot;</span>,
+                <span class="string">"/google.cloud.shell.v1.CloudShellService/StartEnvironment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.shell.v1.CloudShellService&quot;</span>,
-                        <span class="string">&quot;StartEnvironment&quot;</span>,
+                        <span class="string">"google.cloud.shell.v1.CloudShellService"</span>,
+                        <span class="string">"StartEnvironment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1188,19 +1189,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.shell.v1.CloudShellService/AuthorizeEnvironment&quot;</span>,
+                <span class="string">"/google.cloud.shell.v1.CloudShellService/AuthorizeEnvironment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.shell.v1.CloudShellService&quot;</span>,
-                        <span class="string">&quot;AuthorizeEnvironment&quot;</span>,
+                        <span class="string">"google.cloud.shell.v1.CloudShellService"</span>,
+                        <span class="string">"AuthorizeEnvironment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1221,19 +1222,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.shell.v1.CloudShellService/AddPublicKey&quot;</span>,
+                <span class="string">"/google.cloud.shell.v1.CloudShellService/AddPublicKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.shell.v1.CloudShellService&quot;</span>,
-                        <span class="string">&quot;AddPublicKey&quot;</span>,
+                        <span class="string">"google.cloud.shell.v1.CloudShellService"</span>,
+                        <span class="string">"AddPublicKey"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1255,19 +1256,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.shell.v1.CloudShellService/RemovePublicKey&quot;</span>,
+                <span class="string">"/google.cloud.shell.v1.CloudShellService/RemovePublicKey"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.shell.v1.CloudShellService&quot;</span>,
-                        <span class="string">&quot;RemovePublicKey&quot;</span>,
+                        <span class="string">"google.cloud.shell.v1.CloudShellService"</span>,
+                        <span class="string">"RemovePublicKey"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

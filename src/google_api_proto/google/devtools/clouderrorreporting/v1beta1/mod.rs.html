@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/clouderrorreporting/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/clouderrorreporting/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1110,18 +1111,18 @@
 </span><span class="kw">pub struct </span>ErrorGroup {
     <span class="doccomment">/// The group resource name.
     /// Example: &lt;code&gt;projects/my-project-123/groups/CNSgkpnppqKCUw&lt;/code&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Group IDs are unique for a given project. If the same kind of error
     /// occurs in different service contexts, it will receive the same group ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>group_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Associated tracking issues.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>tracking_issues: ::prost::alloc::vec::Vec&lt;TrackingIssue&gt;,
-    <span class="doccomment">/// Error group&#39;s resolution status.
+    <span class="doccomment">/// Error group's resolution status.
     /// An unspecified resolution status will be interpreted as OPEN
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ResolutionStatus&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ResolutionStatus"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>resolution_status: i32,
 }
 <span class="doccomment">/// Information related to tracking the progress on resolving the error.
@@ -1130,7 +1131,7 @@
 </span><span class="kw">pub struct </span>TrackingIssue {
     <span class="doccomment">/// A URL pointing to a related entry in an issue tracking system.
     /// Example: `&lt;https://github.com/user/project/issues/4`&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An error event which is returned by the Error Reporting system.
@@ -1140,16 +1141,16 @@
     <span class="doccomment">/// Time when the event occurred as provided in the error report.
     /// If the report did not contain a timestamp, the time the error was received
     /// by the Error Reporting system is used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The `ServiceContext` for which this error was reported.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service_context: ::core::option::Option&lt;ServiceContext&gt;,
     <span class="doccomment">/// The stack trace that was reported or logged by the service.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
     <span class="doccomment">/// Data about the context in which the error occurred.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>context: ::core::option::Option&lt;ErrorContext&gt;,
 }
 <span class="doccomment">/// Describes a running service that sends errors.
@@ -1164,20 +1165,20 @@
     ///
     /// Contains the service name for error reports extracted from Google
     /// App Engine logs or `default` if the App Engine default service is used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// Represents the source code version that the developer provided,
     /// which could represent a version label or a Git SHA-1 hash, for example.
     /// For App Engine standard environment, the version is set to the version of
     /// the app.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// Type of the MonitoredResource. List of possible values:
     /// &lt;https://cloud.google.com/monitoring/api/resources&gt;
     ///
     /// Value is set automatically for incoming errors and must not be set when
     /// reporting errors.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A description of the context in which an error occurred.
@@ -1189,7 +1190,7 @@
 </span><span class="kw">pub struct </span>ErrorContext {
     <span class="doccomment">/// The HTTP request which was processed when the error was
     /// triggered.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>http_request: ::core::option::Option&lt;HttpRequestContext&gt;,
     <span class="doccomment">/// The user who caused or was affected by the crash.
     /// This can be a user ID, an email address, or an arbitrary token that
@@ -1199,14 +1200,14 @@
     /// Error Reporting system will use other data, such as remote IP address, to
     /// distinguish affected users. See `affected_users_count` in
     /// `ErrorGroupStats`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>user: ::prost::alloc::string::String,
     <span class="doccomment">/// The location in the source code where the decision was made to
     /// report the error, usually the place where it was logged.
     /// For a logged exception this would be the source line where the
     /// exception is logged, usually close to the place where it was
     /// caught.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>report_location: ::core::option::Option&lt;SourceLocation&gt;,
 }
 <span class="doccomment">/// HTTP request data that is related to a reported error.
@@ -1217,25 +1218,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HttpRequestContext {
     <span class="doccomment">/// The type of HTTP request, such as `GET`, `POST`, etc.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>method: ::prost::alloc::string::String,
     <span class="doccomment">/// The URL of the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
     <span class="doccomment">/// The user agent information that is provided with the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>user_agent: ::prost::alloc::string::String,
     <span class="doccomment">/// The referrer information that is provided with the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>referrer: ::prost::alloc::string::String,
     <span class="doccomment">/// The HTTP response status code for the request.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>response_status_code: i32,
     <span class="doccomment">/// The IP address from which the request originated.
     /// This can be IPv4, IPv6, or a token which is derived from the
     /// IP address, depending on the data that has been provided
     /// in the error report.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>remote_ip: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Indicates a location in the source code of the service for which errors are
@@ -1247,15 +1248,15 @@
 </span><span class="kw">pub struct </span>SourceLocation {
     <span class="doccomment">/// The source code filename, which can include a truncated relative
     /// path, or a full path from a production machine.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>file_path: ::prost::alloc::string::String,
     <span class="doccomment">/// 1-based. 0 indicates that the line number is unknown.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>line_number: i32,
     <span class="doccomment">/// Human-readable name of a function or method.
     /// The value can include optional context like the class or package name.
     /// For example, `my.package.MyClass.method` in case of Java.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>function_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Resolution status of an error group.
@@ -1281,23 +1282,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ResolutionStatus::Unspecified =&gt; <span class="string">&quot;RESOLUTION_STATUS_UNSPECIFIED&quot;</span>,
-            ResolutionStatus::Open =&gt; <span class="string">&quot;OPEN&quot;</span>,
-            ResolutionStatus::Acknowledged =&gt; <span class="string">&quot;ACKNOWLEDGED&quot;</span>,
-            ResolutionStatus::Resolved =&gt; <span class="string">&quot;RESOLVED&quot;</span>,
-            ResolutionStatus::Muted =&gt; <span class="string">&quot;MUTED&quot;</span>,
+            ResolutionStatus::Unspecified =&gt; <span class="string">"RESOLUTION_STATUS_UNSPECIFIED"</span>,
+            ResolutionStatus::Open =&gt; <span class="string">"OPEN"</span>,
+            ResolutionStatus::Acknowledged =&gt; <span class="string">"ACKNOWLEDGED"</span>,
+            ResolutionStatus::Resolved =&gt; <span class="string">"RESOLVED"</span>,
+            ResolutionStatus::Muted =&gt; <span class="string">"MUTED"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;RESOLUTION_STATUS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;OPEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Open),
-            <span class="string">&quot;ACKNOWLEDGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Acknowledged),
-            <span class="string">&quot;RESOLVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resolved),
-            <span class="string">&quot;MUTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Muted),
+            <span class="string">"RESOLUTION_STATUS_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"OPEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Open),
+            <span class="string">"ACKNOWLEDGED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Acknowledged),
+            <span class="string">"RESOLVED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resolved),
+            <span class="string">"MUTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Muted),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1312,15 +1313,15 @@
     /// [Google Cloud Console](&lt;https://support.google.com/cloud/answer/6158840&gt;).
     ///
     /// Examples: `projects/my-project-123`, `projects/5551234`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. List all &lt;code&gt;ErrorGroupStats&lt;/code&gt; with these IDs.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>group_id: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. List only &lt;code&gt;ErrorGroupStats&lt;/code&gt; which belong to a service
     /// context that matches the filter.
     /// Data for all service contexts is returned if this field is not specified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>service_filter: ::core::option::Option&lt;ServiceContextFilter&gt;,
     <span class="doccomment">/// Optional. List data for the given time range.
     /// If not set, a default time range is used. The field
@@ -1330,32 +1331,32 @@
     /// range are returned, unless the request contains an explicit
     /// &lt;code&gt;group_id&lt;/code&gt; list. If a &lt;code&gt;group_id&lt;/code&gt; list is given, also
     /// &lt;code&gt;ErrorGroupStats&lt;/code&gt; with zero occurrences are returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>time_range: ::core::option::Option&lt;QueryTimeRange&gt;,
     <span class="doccomment">/// Optional. The preferred duration for a single returned `TimedCount`.
     /// If not set, no timed counts are returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>timed_count_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Optional. The alignment of the timed counts to be returned.
     /// Default is `ALIGNMENT_EQUAL_AT_END`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;TimedCountAlignment&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"TimedCountAlignment"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>alignment: i32,
     <span class="doccomment">/// Optional. Time where the timed counts shall be aligned if rounded
     /// alignment is chosen. Default is 00:00 UTC.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>alignment_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. The sort order in which the results are returned.
     /// Default is `COUNT_DESC`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ErrorGroupOrder&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ErrorGroupOrder"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>order: i32,
     <span class="doccomment">/// Optional. The maximum number of results to return per response.
     /// Default is 20.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A `next_page_token` provided by a previous response. To view
     /// additional results, pass this token along with the identical query
     /// parameters as the first request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Contains a set of requested error group stats.
@@ -1363,18 +1364,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListGroupStatsResponse {
     <span class="doccomment">/// The error group stats which match the given request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>error_group_stats: ::prost::alloc::vec::Vec&lt;ErrorGroupStats&gt;,
     <span class="doccomment">/// If non-empty, more results are available.
     /// Pass this token, along with the same query parameters as the first
     /// request, to view the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The timestamp specifies the start time to which the request was restricted.
     /// The start time is set based on the requested time range. It may be adjusted
     /// to a later time if a project has exceeded the storage quota and older data
     /// has been deleted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>time_range_begin: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Data extracted for a specific group based on certain filter criteria,
@@ -1383,11 +1384,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ErrorGroupStats {
     <span class="doccomment">/// Group data that is independent of the filter criteria.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>group: ::core::option::Option&lt;ErrorGroup&gt;,
     <span class="doccomment">/// Approximate total number of events in the given group that match
     /// the filter criteria.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>count: i64,
     <span class="doccomment">/// Approximate number of affected users in the given group that
     /// match the filter criteria.
@@ -1401,7 +1402,7 @@
     /// context that was provided in the error report. If more users are
     /// implicitly affected, such as due to a crash of the whole service,
     /// this is not reflected here.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>affected_users_count: i64,
     <span class="doccomment">/// Approximate number of occurrences over time.
     /// Timed counts returned by ListGroups are guaranteed to be:
@@ -1409,33 +1410,33 @@
     /// - Inside the requested time interval
     /// - Non-overlapping, and
     /// - Ordered by ascending time.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>timed_counts: ::prost::alloc::vec::Vec&lt;TimedCount&gt;,
     <span class="doccomment">/// Approximate first occurrence that was ever seen for this group
     /// and which matches the given filter criteria, ignoring the
     /// time_range that was specified in the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>first_seen_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Approximate last occurrence that was ever seen for this group and
     /// which matches the given filter criteria, ignoring the time_range
     /// that was specified in the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>last_seen_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Service contexts with a non-zero error count for the given filter
     /// criteria. This list can be truncated if multiple services are affected.
     /// Refer to `num_affected_services` for the total count.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>affected_services: ::prost::alloc::vec::Vec&lt;ServiceContext&gt;,
     <span class="doccomment">/// The total number of services with a non-zero error count for the given
     /// filter criteria.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>num_affected_services: i32,
     <span class="doccomment">/// An arbitrary event that is chosen as representative for the whole group.
     /// The representative event is intended to be used as a quick preview for
     /// the whole group. Events in the group are usually sufficiently similar
     /// to each other such that showing an arbitrary representative provides
     /// insight into the characteristics of the group as a whole.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>representative: ::core::option::Option&lt;ErrorEvent&gt;,
 }
 <span class="doccomment">/// The number of errors in a given time period.
@@ -1445,13 +1446,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimedCount {
     <span class="doccomment">/// Approximate number of occurrences in the given time period.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>count: i64,
     <span class="doccomment">/// Start of the time period to which `count` refers (included).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// End of the time period to which `count` refers (excluded).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Specifies a set of error events to return.
@@ -1464,26 +1465,26 @@
     /// ID](&lt;https://support.google.com/cloud/answer/6158840&gt;).
     ///
     /// Example: `projects/my-project-123`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The group for which events shall be returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>group_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. List only ErrorGroups which belong to a service context that
     /// matches the filter.
     /// Data for all service contexts is returned if this field is not specified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>service_filter: ::core::option::Option&lt;ServiceContextFilter&gt;,
     <span class="doccomment">/// Optional. List only data for the given time range.
     /// If not set a default time range is used. The field time_range_begin
     /// in the response will specify the beginning of this time range.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>time_range: ::core::option::Option&lt;QueryTimeRange&gt;,
     <span class="doccomment">/// Optional. The maximum number of results to return per response.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A `next_page_token` provided by a previous response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Contains a set of requested error events.
@@ -1491,15 +1492,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListEventsResponse {
     <span class="doccomment">/// The error events which match the given request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>error_events: ::prost::alloc::vec::Vec&lt;ErrorEvent&gt;,
     <span class="doccomment">/// If non-empty, more results are available.
     /// Pass this token, along with the same query parameters as the first
     /// request, to view the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The timestamp specifies the start time to which the request was restricted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>time_range_begin: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Requests might be rejected or the resulting timed count durations might be
@@ -1508,7 +1509,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryTimeRange {
     <span class="doccomment">/// Restricts the query to the specified time range.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;query_time_range::Period&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"query_time_range::Period"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>period: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `QueryTimeRange`.
@@ -1550,25 +1551,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Period::Unspecified =&gt; <span class="string">&quot;PERIOD_UNSPECIFIED&quot;</span>,
-                Period::Period1Hour =&gt; <span class="string">&quot;PERIOD_1_HOUR&quot;</span>,
-                Period::Period6Hours =&gt; <span class="string">&quot;PERIOD_6_HOURS&quot;</span>,
-                Period::Period1Day =&gt; <span class="string">&quot;PERIOD_1_DAY&quot;</span>,
-                Period::Period1Week =&gt; <span class="string">&quot;PERIOD_1_WEEK&quot;</span>,
-                Period::Period30Days =&gt; <span class="string">&quot;PERIOD_30_DAYS&quot;</span>,
+                Period::Unspecified =&gt; <span class="string">"PERIOD_UNSPECIFIED"</span>,
+                Period::Period1Hour =&gt; <span class="string">"PERIOD_1_HOUR"</span>,
+                Period::Period6Hours =&gt; <span class="string">"PERIOD_6_HOURS"</span>,
+                Period::Period1Day =&gt; <span class="string">"PERIOD_1_DAY"</span>,
+                Period::Period1Week =&gt; <span class="string">"PERIOD_1_WEEK"</span>,
+                Period::Period30Days =&gt; <span class="string">"PERIOD_30_DAYS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PERIOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PERIOD_1_HOUR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Period1Hour),
-                <span class="string">&quot;PERIOD_6_HOURS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Period6Hours),
-                <span class="string">&quot;PERIOD_1_DAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Period1Day),
-                <span class="string">&quot;PERIOD_1_WEEK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Period1Week),
-                <span class="string">&quot;PERIOD_30_DAYS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Period30Days),
+                <span class="string">"PERIOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PERIOD_1_HOUR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Period1Hour),
+                <span class="string">"PERIOD_6_HOURS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Period6Hours),
+                <span class="string">"PERIOD_1_DAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Period1Day),
+                <span class="string">"PERIOD_1_WEEK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Period1Week),
+                <span class="string">"PERIOD_30_DAYS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Period30Days),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1583,15 +1584,15 @@
 </span><span class="kw">pub struct </span>ServiceContextFilter {
     <span class="doccomment">/// Optional. The exact value to match against
     /// [`ServiceContext.service`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.service).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The exact value to match against
     /// [`ServiceContext.version`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.version).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The exact value to match against
     /// [`ServiceContext.resource_type`](/error-reporting/reference/rest/v1beta1/ServiceContext#FIELDS.resource_type).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Deletes all events in the project.
@@ -1604,7 +1605,7 @@
     /// ID](&lt;https://support.google.com/cloud/answer/6158840&gt;).
     ///
     /// Example: `projects/my-project-123`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for deleting error events.
@@ -1637,23 +1638,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             TimedCountAlignment::ErrorCountAlignmentUnspecified =&gt; {
-                <span class="string">&quot;ERROR_COUNT_ALIGNMENT_UNSPECIFIED&quot;
+                <span class="string">"ERROR_COUNT_ALIGNMENT_UNSPECIFIED"
             </span>}
-            TimedCountAlignment::AlignmentEqualRounded =&gt; <span class="string">&quot;ALIGNMENT_EQUAL_ROUNDED&quot;</span>,
-            TimedCountAlignment::AlignmentEqualAtEnd =&gt; <span class="string">&quot;ALIGNMENT_EQUAL_AT_END&quot;</span>,
+            TimedCountAlignment::AlignmentEqualRounded =&gt; <span class="string">"ALIGNMENT_EQUAL_ROUNDED"</span>,
+            TimedCountAlignment::AlignmentEqualAtEnd =&gt; <span class="string">"ALIGNMENT_EQUAL_AT_END"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;ERROR_COUNT_ALIGNMENT_UNSPECIFIED&quot; </span>=&gt; {
+            <span class="string">"ERROR_COUNT_ALIGNMENT_UNSPECIFIED" </span>=&gt; {
                 <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorCountAlignmentUnspecified)
             }
-            <span class="string">&quot;ALIGNMENT_EQUAL_ROUNDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignmentEqualRounded),
-            <span class="string">&quot;ALIGNMENT_EQUAL_AT_END&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignmentEqualAtEnd),
+            <span class="string">"ALIGNMENT_EQUAL_ROUNDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignmentEqualRounded),
+            <span class="string">"ALIGNMENT_EQUAL_AT_END" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignmentEqualAtEnd),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1679,23 +1680,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ErrorGroupOrder::GroupOrderUnspecified =&gt; <span class="string">&quot;GROUP_ORDER_UNSPECIFIED&quot;</span>,
-            ErrorGroupOrder::CountDesc =&gt; <span class="string">&quot;COUNT_DESC&quot;</span>,
-            ErrorGroupOrder::LastSeenDesc =&gt; <span class="string">&quot;LAST_SEEN_DESC&quot;</span>,
-            ErrorGroupOrder::CreatedDesc =&gt; <span class="string">&quot;CREATED_DESC&quot;</span>,
-            ErrorGroupOrder::AffectedUsersDesc =&gt; <span class="string">&quot;AFFECTED_USERS_DESC&quot;</span>,
+            ErrorGroupOrder::GroupOrderUnspecified =&gt; <span class="string">"GROUP_ORDER_UNSPECIFIED"</span>,
+            ErrorGroupOrder::CountDesc =&gt; <span class="string">"COUNT_DESC"</span>,
+            ErrorGroupOrder::LastSeenDesc =&gt; <span class="string">"LAST_SEEN_DESC"</span>,
+            ErrorGroupOrder::CreatedDesc =&gt; <span class="string">"CREATED_DESC"</span>,
+            ErrorGroupOrder::AffectedUsersDesc =&gt; <span class="string">"AFFECTED_USERS_DESC"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;GROUP_ORDER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GroupOrderUnspecified),
-            <span class="string">&quot;COUNT_DESC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CountDesc),
-            <span class="string">&quot;LAST_SEEN_DESC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LastSeenDesc),
-            <span class="string">&quot;CREATED_DESC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreatedDesc),
-            <span class="string">&quot;AFFECTED_USERS_DESC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AffectedUsersDesc),
+            <span class="string">"GROUP_ORDER_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GroupOrderUnspecified),
+            <span class="string">"COUNT_DESC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CountDesc),
+            <span class="string">"LAST_SEEN_DESC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LastSeenDesc),
+            <span class="string">"CREATED_DESC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreatedDesc),
+            <span class="string">"AFFECTED_USERS_DESC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AffectedUsersDesc),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1715,7 +1716,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1790,19 +1791,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouderrorreporting.v1beta1.ErrorStatsService/ListGroupStats&quot;</span>,
+                <span class="string">"/google.devtools.clouderrorreporting.v1beta1.ErrorStatsService/ListGroupStats"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouderrorreporting.v1beta1.ErrorStatsService&quot;</span>,
-                        <span class="string">&quot;ListGroupStats&quot;</span>,
+                        <span class="string">"google.devtools.clouderrorreporting.v1beta1.ErrorStatsService"</span>,
+                        <span class="string">"ListGroupStats"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1821,19 +1822,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouderrorreporting.v1beta1.ErrorStatsService/ListEvents&quot;</span>,
+                <span class="string">"/google.devtools.clouderrorreporting.v1beta1.ErrorStatsService/ListEvents"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouderrorreporting.v1beta1.ErrorStatsService&quot;</span>,
-                        <span class="string">&quot;ListEvents&quot;</span>,
+                        <span class="string">"google.devtools.clouderrorreporting.v1beta1.ErrorStatsService"</span>,
+                        <span class="string">"ListEvents"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1852,19 +1853,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouderrorreporting.v1beta1.ErrorStatsService/DeleteEvents&quot;</span>,
+                <span class="string">"/google.devtools.clouderrorreporting.v1beta1.ErrorStatsService/DeleteEvents"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouderrorreporting.v1beta1.ErrorStatsService&quot;</span>,
-                        <span class="string">&quot;DeleteEvents&quot;</span>,
+                        <span class="string">"google.devtools.clouderrorreporting.v1beta1.ErrorStatsService"</span>,
+                        <span class="string">"DeleteEvents"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1881,10 +1882,10 @@
     /// ID](&lt;https://support.google.com/cloud/answer/6158840&gt;).
     ///
     /// Example: // `projects/my-project-123`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The error event to be reported.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>event: ::core::option::Option&lt;ReportedErrorEvent&gt;,
 }
 <span class="doccomment">/// Response for reporting an individual error event.
@@ -1899,10 +1900,10 @@
     <span class="doccomment">/// Optional. Time when the event occurred.
     /// If not provided, the time when the event was received by the
     /// Error Reporting system will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. The service context in which this error has occurred.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service_context: ::core::option::Option&lt;ServiceContext&gt;,
     <span class="doccomment">/// Required. The error message.
     /// If no `context.reportLocation` is provided, the message must contain a
@@ -1928,10 +1929,10 @@
     /// [`(string)$exception`](&lt;http://php.net/manual/en/exception.tostring.php&gt;).
     /// * **Go**: Must be the return value of
     /// [`runtime.Stack()`](&lt;https://golang.org/pkg/runtime/debug/#Stack&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A description of the context in which the error occurred.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>context: ::core::option::Option&lt;ErrorContext&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1948,7 +1949,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2020,7 +2021,7 @@
         /// https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456`
         ///
         /// **Note:** [Error Reporting](/error-reporting) is a global service built
-        /// on Cloud Logging and doesn&#39;t analyze logs stored
+        /// on Cloud Logging and doesn't analyze logs stored
         /// in regional log buckets or logs routed to other Google Cloud projects.
         ///
         </span><span class="kw">pub async fn </span>report_error_event(
@@ -2036,19 +2037,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouderrorreporting.v1beta1.ReportErrorsService/ReportErrorEvent&quot;</span>,
+                <span class="string">"/google.devtools.clouderrorreporting.v1beta1.ReportErrorsService/ReportErrorEvent"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouderrorreporting.v1beta1.ReportErrorsService&quot;</span>,
-                        <span class="string">&quot;ReportErrorEvent&quot;</span>,
+                        <span class="string">"google.devtools.clouderrorreporting.v1beta1.ReportErrorsService"</span>,
+                        <span class="string">"ReportErrorEvent"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2065,7 +2066,7 @@
     /// to return a list of groups belonging to this project.
     ///
     /// Example: `projects/my-project-123/groups/my-group`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>group_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to replace the existing data for the given group.
@@ -2073,7 +2074,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateGroupRequest {
     <span class="doccomment">/// Required. The group which replaces the resource on the server.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>group: ::core::option::Option&lt;ErrorGroup&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2090,7 +2091,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2162,19 +2163,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouderrorreporting.v1beta1.ErrorGroupService/GetGroup&quot;</span>,
+                <span class="string">"/google.devtools.clouderrorreporting.v1beta1.ErrorGroupService/GetGroup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouderrorreporting.v1beta1.ErrorGroupService&quot;</span>,
-                        <span class="string">&quot;GetGroup&quot;</span>,
+                        <span class="string">"google.devtools.clouderrorreporting.v1beta1.ErrorGroupService"</span>,
+                        <span class="string">"GetGroup"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2191,19 +2192,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouderrorreporting.v1beta1.ErrorGroupService/UpdateGroup&quot;</span>,
+                <span class="string">"/google.devtools.clouderrorreporting.v1beta1.ErrorGroupService/UpdateGroup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouderrorreporting.v1beta1.ErrorGroupService&quot;</span>,
-                        <span class="string">&quot;UpdateGroup&quot;</span>,
+                        <span class="string">"google.devtools.clouderrorreporting.v1beta1.ErrorGroupService"</span>,
+                        <span class="string">"UpdateGroup"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/solar/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/maps/solar/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -905,12 +906,12 @@
 </span><span class="kw">pub struct </span>FindClosestBuildingInsightsRequest {
     <span class="doccomment">/// The longitude and latitude from which the API looks for the nearest known
     /// building.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
     <span class="doccomment">/// The minimum quality level allowed in the results. No result with
     /// lower quality than this will be returned. Not specifying this is
     /// equivalent to restricting to HIGH quality only.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ImageryQuality&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ImageryQuality"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>required_quality: i32,
 }
 <span class="doccomment">/// A bounding box in lat/lng coordinates.
@@ -918,10 +919,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LatLngBox {
     <span class="doccomment">/// The southwest corner of the box.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sw: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
     <span class="doccomment">/// The northeast corner of the box.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>ne: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
 }
 <span class="doccomment">/// Response message for `Solar.FindClosestBuildingInsights`.
@@ -931,44 +932,44 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BuildingInsights {
     <span class="doccomment">/// The resource name for the building, of the format `building/&lt;place ID&gt;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A point near the center of the building.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>center: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
     <span class="doccomment">/// The bounding box of the building.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>bounding_box: ::core::option::Option&lt;LatLngBox&gt;,
     <span class="doccomment">/// Date that the underlying imagery was acquired. This is approximate.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>imagery_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
     <span class="doccomment">/// When processing was completed on this imagery.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>imagery_processed_date: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date,
     &gt;,
     <span class="doccomment">/// Postal code (e.g., US zip code) this building is contained by.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>postal_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Administrative area 1 (e.g., in the US, the state) that contains this
-    /// building. For example, in the US, the abbreviation might be &quot;MA&quot; or &quot;CA.&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    /// building. For example, in the US, the abbreviation might be "MA" or "CA."
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>administrative_area: ::prost::alloc::string::String,
     <span class="doccomment">/// Statistical area (e.g., US census tract) this building is in.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>statistical_area: ::prost::alloc::string::String,
     <span class="doccomment">/// Region code for the country (or region) this building is in.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Solar potential of the building.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>solar_potential: ::core::option::Option&lt;SolarPotential&gt;,
     <span class="doccomment">/// The quality of the imagery used to compute the data for this building.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ImageryQuality&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ImageryQuality"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>imagery_quality: i32,
 }
 <span class="doccomment">/// Information about the solar potential of a building. A number of
-/// fields in this are defined in terms of &quot;panels&quot;. The fields
+/// fields in this are defined in terms of "panels". The fields
 /// \[panel_capacity_watts\]
 /// \[google.maps.solar.v1.SolarPotential.panel_capacity_watts\],
 /// \[panel_height_meters\]
@@ -982,42 +983,42 @@
 </span><span class="kw">pub struct </span>SolarPotential {
     <span class="doccomment">/// Size of the maximum array - that is, the maximum number of panels that
     /// can fit on the roof.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>max_array_panels_count: i32,
     <span class="doccomment">/// Capacity, in watts, of the panel used in the calculations.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>panel_capacity_watts: f32,
     <span class="doccomment">/// Height, in meters in portrait orientation, of the panel used in
     /// the calculations.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>panel_height_meters: f32,
     <span class="doccomment">/// Width, in meters in portrait orientation, of the panel used in
     /// the calculations.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>panel_width_meters: f32,
     <span class="doccomment">/// The expected lifetime, in years, of the solar panels. This is
     /// used in the financial calculations.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>panel_lifetime_years: i32,
     <span class="doccomment">/// Size, in square meters, of the maximum array.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>max_array_area_meters2: f32,
     <span class="doccomment">/// Maximum number of sunshine hours received per year, by any point
     /// on the roof. Sunshine hours are a measure of the total amount of
     /// insolation (energy) received per year. 1 sunshine hour = 1 kWh per kW
     /// (where kW refers to kW of capacity under Standard Testing Conditions).
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>max_sunshine_hours_per_year: f32,
     <span class="doccomment">/// Equivalent amount of CO2 produced per MWh of grid electricity. This
     /// is a measure of the carbon intensity of grid electricity displaced
     /// by solar electricity.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>carbon_offset_factor_kg_per_mwh: f32,
     <span class="doccomment">/// Total size and sunlight quantiles for the part of the roof that
     /// was assigned to some roof segment. Despite the name, this may not
     /// include the entire building. See \[building_stats\]
     /// \[google.maps.solar.v1.SolarPotential.building_stats\].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>whole_roof_stats: ::core::option::Option&lt;SizeAndSunshineStats&gt;,
     <span class="doccomment">/// Size and sunlight quantiles for the entire building, including
     /// parts of the roof that were not assigned to some roof segment.
@@ -1029,16 +1030,16 @@
     /// \[google.maps.solar.v1.SolarPotential.whole_roof_stats\] by
     /// the ratio of the ground areas of `building_stats` and
     /// `whole_roof_stats`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>building_stats: ::core::option::Option&lt;SizeAndSunshineStats&gt;,
     <span class="doccomment">/// Size and sunlight quantiles for each roof segment.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>roof_segment_stats: ::prost::alloc::vec::Vec&lt;RoofSegmentSizeAndSunshineStats&gt;,
     <span class="doccomment">/// Each \[SolarPanel\] [google.maps.solar.v1.SolarPanel]
     /// describes a single solar panel. They are listed in the order that
     /// the panel layout algorithm placed this. This is usually, though
     /// not always, in decreasing order of annual energy production.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>solar_panels: ::prost::alloc::vec::Vec&lt;SolarPanel&gt;,
     <span class="doccomment">/// Each \[SolarPanelConfig\]
     /// \[google.maps.solar.v1.SolarPanelConfig\] describes a
@@ -1047,7 +1048,7 @@
     /// \[panels_count\]
     /// \[google.maps.solar.v1.SolarPanelConfig.panels_count\]=N is
     /// based on the first N panels in the `solar_panels` list.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>solar_panel_configs: ::prost::alloc::vec::Vec&lt;SolarPanelConfig&gt;,
     <span class="doccomment">/// A \[FinancialAnalysis\]
     /// \[google.maps.solar.v1.FinancialAnalysis\] gives the savings
@@ -1056,7 +1057,7 @@
     /// monthly bill amount. This field will be empty for buildings in
     /// areas for which the Solar API does not have enough information to
     /// perform financial computations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>financial_analyses: ::prost::alloc::vec::Vec&lt;FinancialAnalysis&gt;,
 }
 <span class="doccomment">/// Information about the size and sunniness quantiles of a roof segment.
@@ -1065,28 +1066,28 @@
 </span><span class="kw">pub struct </span>RoofSegmentSizeAndSunshineStats {
     <span class="doccomment">/// Angle of the roof segment relative to the theoretical ground plane.
     /// 0 = parallel to the ground, 90 = perpendicular to the ground.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>pitch_degrees: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// Compass direction the roof segment is pointing in. 0 = North, 90 =
-    /// East, 180 = South. For a &quot;flat&quot; roof segment (`pitch_degrees` very
+    /// East, 180 = South. For a "flat" roof segment (`pitch_degrees` very
     /// near 0), azimuth is not well defined, so for consistency, we define it
     /// arbitrarily to be 0 (North).
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>azimuth_degrees: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// Total size and sunlight quantiles for the roof segment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>stats: ::core::option::Option&lt;SizeAndSunshineStats&gt;,
     <span class="doccomment">/// A point near the center of the roof segment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>center: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
     <span class="doccomment">/// The bounding box of the roof segment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>bounding_box: ::core::option::Option&lt;LatLngBox&gt;,
     <span class="doccomment">/// The height of the roof segment plane, in meters above sea level,
     /// at the point designated by `center`. Together with the pitch,
     /// azimuth, and center location, this fully defines the roof segment
     /// plane.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>plane_height_at_center_meters: ::core::option::Option&lt;f32&gt;,
 }
 <span class="doccomment">/// Size and sunniness quantiles of a roof, or part of a roof.
@@ -1095,7 +1096,7 @@
 </span><span class="kw">pub struct </span>SizeAndSunshineStats {
     <span class="doccomment">/// The area of the roof or roof segment, in m^2. This is the roof area
     /// (accounting for tilt), not the ground footprint area.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>area_meters2: f32,
     <span class="doccomment">/// Quantiles of the pointwise sunniness across the area. If there
     /// are N values here, this represents the (N-1)-iles. For example,
@@ -1103,10 +1104,10 @@
     /// 25%, 50%, 75%, max). Values are in annual kWh/kW like
     /// \[max_sunshine_hours_per_year\]
     /// \[google.maps.solar.v1.SolarPotential.max_sunshine_hours_per_year\].
-    </span><span class="attr">#[prost(float, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sunshine_quantiles: ::prost::alloc::vec::Vec&lt;f32&gt;,
     <span class="doccomment">/// The ground footprint area covered by the roof or roof segment, in m^2.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>ground_area_meters2: f32,
 }
 <span class="doccomment">/// SolarPanel describes the position, orientation, and production of a
@@ -1123,20 +1124,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SolarPanel {
     <span class="doccomment">/// The centre of the panel.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>center: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
     <span class="doccomment">/// The orientation of the panel.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;SolarPanelOrientation&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"SolarPanelOrientation"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>orientation: i32,
     <span class="doccomment">/// How much sunlight energy this layout captures over the course of a
     /// year, in DC kWh.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>yearly_energy_dc_kwh: f32,
     <span class="doccomment">/// Index in \[roof_segment_stats\]
     /// \[google.maps.solar.v1.SolarPotential.roof_segment_stats\]
     /// of the `RoofSegmentSizeAndSunshineStats` which corresponds to the
     /// roof segment that this panel is placed on.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>segment_index: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// SolarPanelConfig describes a particular placement of solar panels
@@ -1147,17 +1148,17 @@
     <span class="doccomment">/// Total number of panels. Note that this is redundant to (the sum
     /// of) the corresponding fields in \[roof_segment_summaries\]
     /// \[google.maps.solar.v1.SolarPanelConfig.roof_segment_summaries\].
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>panels_count: i32,
     <span class="doccomment">/// How much sunlight energy this layout captures over the course of a
     /// year, in DC kWh, assuming the panels described above.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>yearly_energy_dc_kwh: f32,
     <span class="doccomment">/// Information about the production of each roof segment that is carrying
     /// at least one panel in this layout. `roof_segment_summaries\[i\]` describes
     /// the i-th roof segment, including its size, expected production and
     /// orientation.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>roof_segment_summaries: ::prost::alloc::vec::Vec&lt;RoofSegmentSummary&gt;,
 }
 <span class="doccomment">/// Information about a roof segment on the building, with some number of
@@ -1167,25 +1168,25 @@
 </span><span class="kw">pub struct </span>RoofSegmentSummary {
     <span class="doccomment">/// Angle of the roof segment relative to the theoretical ground plane.
     /// 0 = parallel to the ground, 90 = perpendicular to the ground.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>pitch_degrees: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// Compass direction the roof segment is pointing in. 0 = North, 90 =
-    /// East, 180 = South. For a &quot;flat&quot; roof segment (`pitch_degrees` very
+    /// East, 180 = South. For a "flat" roof segment (`pitch_degrees` very
     /// near 0), azimuth is not well defined, so for consistency, we define it
     /// arbitrarily to be 0 (North).
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>azimuth_degrees: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// The total number of panels on this segment.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>panels_count: i32,
     <span class="doccomment">/// How much sunlight energy this part of the layout captures over the
     /// course of a year, in DC kWh, assuming the panels described above.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>yearly_energy_dc_kwh: f32,
     <span class="doccomment">/// Index in \[roof_segment_stats\]
     /// \[google.maps.solar.v1.SolarPotential.roof_segment_stats\]
     /// of the corresponding `RoofSegmentSizeAndSunshineStats`.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>segment_index: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// Analysis of the cost and benefits of the optimum solar layout for a
@@ -1194,36 +1195,36 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FinancialAnalysis {
     <span class="doccomment">/// The monthly electric bill this analysis assumes.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>monthly_bill: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// Whether this is the bill size selected to be the default bill for the
     /// area this building is in. Exactly one `FinancialAnalysis` in
     /// `BuildingSolarPotential` should have `default_bill` set.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>default_bill: bool,
     <span class="doccomment">/// How much electricity the house uses in an average month, based on the
     /// bill size and the local electricity rates.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>average_kwh_per_month: f32,
     <span class="doccomment">/// Index in \[solar_panel_configs\]
     /// \[google.maps.solar.v1.SolarPotential.solar_panel_configs\]
     /// of the optimum solar layout for this bill size. This can be -1
     /// indicating that there is no layout. In this case, the remaining
     /// submessages will be omitted.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>panel_config_index: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Financial information that applies regardless of the financing method
     /// used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>financial_details: ::core::option::Option&lt;FinancialDetails&gt;,
     <span class="doccomment">/// Cost and benefit of leasing the solar panels.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>leasing_savings: ::core::option::Option&lt;LeasingSavings&gt;,
     <span class="doccomment">/// Cost and benefit of buying the solar panels with cash.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>cash_purchase_savings: ::core::option::Option&lt;CashPurchaseSavings&gt;,
     <span class="doccomment">/// Cost and benefit of buying the solar panels by financing the purchase.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>financed_purchase_savings: ::core::option::Option&lt;FinancedPurchaseSavings&gt;,
 }
 <span class="doccomment">/// Details of a financial analysis. Some of these details are already
@@ -1243,78 +1244,78 @@
 </span><span class="kw">pub struct </span>FinancialDetails {
     <span class="doccomment">/// How many AC kWh we think the solar panels will generate in their first
     /// year.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>initial_ac_kwh_per_year: f32,
     <span class="doccomment">/// Utility bill for electricity not produced by solar, for the
     /// lifetime of the panels.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>remaining_lifetime_utility_bill: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money,
     &gt;,
     <span class="doccomment">/// Amount of money available from federal incentives; this applies if the
     /// user buys (with or without a loan) the panels.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>federal_incentive: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// Amount of money available from state incentives; this applies if the
     /// user buys (with or without a loan) the panels.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state_incentive: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// Amount of money available from utility incentives; this applies if the
     /// user buys (with or without a loan) the panels.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>utility_incentive: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// Amount of money the user will receive from Solar Renewable Energy
     /// Credits over the panel lifetime; this applies if the user buys
     /// (with or without a loan) the panels.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>lifetime_srec_total: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// Total cost of electricity the user would have paid over the
-    /// lifetime period if they didn&#39;t install solar.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    /// lifetime period if they didn't install solar.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>cost_of_electricity_without_solar: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money,
     &gt;,
     <span class="doccomment">/// Whether net metering is allowed.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>net_metering_allowed: bool,
-    <span class="doccomment">/// Percentage (0-100) of the user&#39;s power supplied by solar.
+    <span class="doccomment">/// Percentage (0-100) of the user's power supplied by solar.
     /// Valid for the first year but approximately correct for future years.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>solar_percentage: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// The percentage (0-100) of solar electricity production we assumed was
     /// exported to the grid, based on the first quarter of production. This
     /// affects the calculations if net metering is not allowed.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>percentage_exported_to_grid: ::core::option::Option&lt;f32&gt;,
 }
-<span class="doccomment">/// Financial information that&#39;s shared between different financing methods.
+<span class="doccomment">/// Financial information that's shared between different financing methods.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SavingsOverTime {
     <span class="doccomment">/// Savings in the first year after panel installation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>savings_year1: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// Savings in the first twenty years after panel installation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>savings_year20: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// Using the assumed discount rate, what is the present value of the
     /// cumulative 20-year savings?
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>present_value_of_savings_year20: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money,
     &gt;,
     <span class="doccomment">/// Savings in the entire panel lifetime.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>savings_lifetime: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// Using the assumed discount rate, what is the present value of the
     /// cumulative lifetime savings?
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>present_value_of_savings_lifetime: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money,
     &gt;,
     <span class="doccomment">/// Indicates whether this scenario is financially viable.  Will be false for
     /// scenarios with poor financial viability (e.g., money-losing).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>financially_viable: bool,
 }
 <span class="doccomment">/// Cost and benefit of leasing a particular configuration of solar panels
@@ -1325,20 +1326,20 @@
     <span class="doccomment">/// Whether leases are allowed in this juristiction (leases are not
     /// allowed in some states). If this field is false, then the values in
     /// this message should probably be ignored.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>leases_allowed: bool,
     <span class="doccomment">/// Whether leases are supported in this juristiction by the financial
     /// calculation engine. If this field is false, then the values in this
     /// message should probably be ignored. This is independent of
     /// `leases_allowed`: in some areas leases are allowed, but under conditions
-    /// that aren&#39;t handled by the financial models.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    /// that aren't handled by the financial models.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>leases_supported: bool,
     <span class="doccomment">/// Estimated annual leasing cost.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>annual_leasing_cost: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// How much is saved (or not) over the lifetime period.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>savings: ::core::option::Option&lt;SavingsOverTime&gt;,
 }
 <span class="doccomment">/// Cost and benefit of an outright purchase of a particular configuration
@@ -1348,22 +1349,22 @@
 </span><span class="kw">pub struct </span>CashPurchaseSavings {
     <span class="doccomment">/// Initial cost before tax incentives: the amount that must be paid
     /// out-of-pocket. Contrast with `upfront_cost`, which is after tax incentives.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>out_of_pocket_cost: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
-    <span class="doccomment">/// Initial cost after tax incentives: it&#39;s the amount that must be paid
+    <span class="doccomment">/// Initial cost after tax incentives: it's the amount that must be paid
     /// during first year. Contrast with `out_of_pocket_cost`, which is before tax
     /// incentives.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>upfront_cost: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// The value of all tax rebates.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>rebate_value: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// Number of years until payback occurs. A negative value means payback
     /// never occurs within the lifetime period.
-    </span><span class="attr">#[prost(float, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(float, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>payback_years: ::core::option::Option&lt;f32&gt;,
     <span class="doccomment">/// How much is saved (or not) over the lifetime period.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>savings: ::core::option::Option&lt;SavingsOverTime&gt;,
 }
 <span class="doccomment">/// Cost and benefit of using a loan to buy a particular configuration
@@ -1374,17 +1375,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FinancedPurchaseSavings {
     <span class="doccomment">/// Annual loan payments.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>annual_loan_payment: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// The value of all tax rebates (including Federal Investment Tax Credit
     /// (ITC)).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>rebate_value: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// The interest rate on loans assumed in this set of calculations.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>loan_interest_rate: f32,
     <span class="doccomment">/// How much is saved (or not) over the lifetime period.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>savings: ::core::option::Option&lt;SavingsOverTime&gt;,
 }
 <span class="doccomment">/// Request message for `Solar.GetDataLayers`.
@@ -1392,7 +1393,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetDataLayersRequest {
     <span class="doccomment">/// The longitude and latitude for the center of the region to get data for.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng&gt;,
     <span class="doccomment">/// The radius, in meters, defining the region surrounding that
     /// centre point for which data should be returned. The limitations
@@ -1403,15 +1404,15 @@
     ///    `radius_meters` &lt;= `pixel_size_meters * 1000`.
     /// * However, for values over 175m, the `DataLayerView` in the
     ///    request must not include monthly flux or hourly shade.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>radius_meters: f32,
     <span class="doccomment">/// The desired subset of the data to return.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DataLayerView&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DataLayerView"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>view: i32,
     <span class="doccomment">/// The minimum quality level allowed in the results. No result with
     /// lower quality than this will be returned. Not specifying this is
     /// equivalent to restricting to HIGH quality only.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ImageryQuality&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ImageryQuality"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>required_quality: i32,
     <span class="doccomment">/// The minimum scale, in meters per pixel, of the data to return.
     /// Values of 0.1 (the default, if this field is not set explicitly),
@@ -1420,7 +1421,7 @@
     /// the resolution specified by `pixel_size_meters`; imagery
     /// components whose normal resolution is equal to or greater than
     /// `pixel_size_meters` will be returned at that normal resolution.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>pixel_size_meters: f32,
 }
 <span class="doccomment">/// Information about the solar potential of a region. The actual data
@@ -1428,7 +1429,7 @@
 /// region, for which this message contains URLs: Each string in the
 /// `DataLayers` message contains a URL from which the
 /// corresponding GeoTIFF can be fetched. These URLs are valid for a
-/// few hours after they&#39;ve been generated. Most of the GeoTIFF files
+/// few hours after they've been generated. Most of the GeoTIFF files
 /// are at a resolution of 0.1m/pixel, but the monthly flux file is at
 /// 0.5m/pixel, and the hourly shade files are at 1m/pixel. If a
 /// `pixel_size_meters` value was specified in the
@@ -1440,24 +1441,24 @@
     <span class="doccomment">/// When the source imagery (from which all the other data are derived) in this
     /// region was taken. It is necessarily somewhat approximate, as the images may
     /// have been taken over more than one day.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>imagery_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
     <span class="doccomment">/// When processing was completed on this imagery.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>imagery_processed_date: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date,
     &gt;,
     <span class="doccomment">/// The URL for an image of the DSM (Digital Surface Model) of the region.
     /// Values are in meters above EGM96 geoid (i.e., sea level). Invalid locations
-    /// (where we don&#39;t have data) are stored as -9999.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// (where we don't have data) are stored as -9999.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>dsm_url: ::prost::alloc::string::String,
     <span class="doccomment">/// The URL for an image of RGB data (aerial photo) of the region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>rgb_url: ::prost::alloc::string::String,
     <span class="doccomment">/// The URL for the building mask image: one bit per pixel saying whether that
     /// pixel is considered to be part of a rooftop or not.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>mask_url: ::prost::alloc::string::String,
     <span class="doccomment">/// The URL for the annual flux map (annual sunlight on roofs) of the region.
     /// Values are kWh/kW/year. This is *unmasked flux*: flux is computed for every
@@ -1465,12 +1466,12 @@
     /// -9999: locations outside our coverage area will be invalid, and a few
     /// locations inside the coverage area, where we were unable to calculate flux,
     /// will also be invalid.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>annual_flux_url: ::prost::alloc::string::String,
     <span class="doccomment">/// The URL for the monthly flux map (sunlight on roofs, broken down by month)
     /// of the region. Values are kWh/kW/year. The GeoTIFF pointed to by this URL
     /// will contain twelve bands, corresponding to January...December, in order.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>monthly_flux_url: ::prost::alloc::string::String,
     <span class="doccomment">/// Twelve URLs for hourly shade, corresponding to January...December, in
     /// order. Each GeoTIFF will contain 24 bands, corresponding to the 24 hours of
@@ -1501,12 +1502,12 @@
     /// where `(x, y)` is spatial indexing, `\[month - 1\]` refers to
     /// fetching the `month - 1`st URL (indexing from zero), `\[hour\]` is
     /// indexing into the channels, and a final non-zero result means
-    /// &quot;sunny&quot;. There are no leap days, and DST doesn&#39;t exist (all days
-    /// are 24 hours long; noon is always &quot;standard time&quot; noon).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    /// "sunny". There are no leap days, and DST doesn't exist (all days
+    /// are 24 hours long; noon is always "standard time" noon).
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>hourly_shade_urls: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// The quality of the result&#39;s imagery.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ImageryQuality&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    <span class="doccomment">/// The quality of the result's imagery.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ImageryQuality"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>imagery_quality: i32,
 }
 <span class="doccomment">/// Request message for `Solar.GetGeoTiff`.
@@ -1514,7 +1515,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetGeoTiffRequest {
     <span class="doccomment">/// The ID of the asset being requested.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// What subset of the solar information to return.
@@ -1539,25 +1540,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DataLayerView::Unspecified =&gt; <span class="string">&quot;DATA_LAYER_VIEW_UNSPECIFIED&quot;</span>,
-            DataLayerView::DsmLayer =&gt; <span class="string">&quot;DSM_LAYER&quot;</span>,
-            DataLayerView::ImageryLayers =&gt; <span class="string">&quot;IMAGERY_LAYERS&quot;</span>,
-            DataLayerView::ImageryAndAnnualFluxLayers =&gt; <span class="string">&quot;IMAGERY_AND_ANNUAL_FLUX_LAYERS&quot;</span>,
-            DataLayerView::ImageryAndAllFluxLayers =&gt; <span class="string">&quot;IMAGERY_AND_ALL_FLUX_LAYERS&quot;</span>,
-            DataLayerView::FullLayers =&gt; <span class="string">&quot;FULL_LAYERS&quot;</span>,
+            DataLayerView::Unspecified =&gt; <span class="string">"DATA_LAYER_VIEW_UNSPECIFIED"</span>,
+            DataLayerView::DsmLayer =&gt; <span class="string">"DSM_LAYER"</span>,
+            DataLayerView::ImageryLayers =&gt; <span class="string">"IMAGERY_LAYERS"</span>,
+            DataLayerView::ImageryAndAnnualFluxLayers =&gt; <span class="string">"IMAGERY_AND_ANNUAL_FLUX_LAYERS"</span>,
+            DataLayerView::ImageryAndAllFluxLayers =&gt; <span class="string">"IMAGERY_AND_ALL_FLUX_LAYERS"</span>,
+            DataLayerView::FullLayers =&gt; <span class="string">"FULL_LAYERS"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;DATA_LAYER_VIEW_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;DSM_LAYER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DsmLayer),
-            <span class="string">&quot;IMAGERY_LAYERS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImageryLayers),
-            <span class="string">&quot;IMAGERY_AND_ANNUAL_FLUX_LAYERS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImageryAndAnnualFluxLayers),
-            <span class="string">&quot;IMAGERY_AND_ALL_FLUX_LAYERS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImageryAndAllFluxLayers),
-            <span class="string">&quot;FULL_LAYERS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FullLayers),
+            <span class="string">"DATA_LAYER_VIEW_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"DSM_LAYER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DsmLayer),
+            <span class="string">"IMAGERY_LAYERS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImageryLayers),
+            <span class="string">"IMAGERY_AND_ANNUAL_FLUX_LAYERS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImageryAndAnnualFluxLayers),
+            <span class="string">"IMAGERY_AND_ALL_FLUX_LAYERS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImageryAndAllFluxLayers),
+            <span class="string">"FULL_LAYERS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FullLayers),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1584,21 +1585,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            ImageryQuality::Unspecified =&gt; <span class="string">&quot;IMAGERY_QUALITY_UNSPECIFIED&quot;</span>,
-            ImageryQuality::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
-            ImageryQuality::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
-            ImageryQuality::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
+            ImageryQuality::Unspecified =&gt; <span class="string">"IMAGERY_QUALITY_UNSPECIFIED"</span>,
+            ImageryQuality::High =&gt; <span class="string">"HIGH"</span>,
+            ImageryQuality::Medium =&gt; <span class="string">"MEDIUM"</span>,
+            ImageryQuality::Low =&gt; <span class="string">"LOW"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;IMAGERY_QUALITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
-            <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-            <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+            <span class="string">"IMAGERY_QUALITY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+            <span class="string">"MEDIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+            <span class="string">"LOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1622,19 +1623,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            SolarPanelOrientation::Unspecified =&gt; <span class="string">&quot;SOLAR_PANEL_ORIENTATION_UNSPECIFIED&quot;</span>,
-            SolarPanelOrientation::Landscape =&gt; <span class="string">&quot;LANDSCAPE&quot;</span>,
-            SolarPanelOrientation::Portrait =&gt; <span class="string">&quot;PORTRAIT&quot;</span>,
+            SolarPanelOrientation::Unspecified =&gt; <span class="string">"SOLAR_PANEL_ORIENTATION_UNSPECIFIED"</span>,
+            SolarPanelOrientation::Landscape =&gt; <span class="string">"LANDSCAPE"</span>,
+            SolarPanelOrientation::Portrait =&gt; <span class="string">"PORTRAIT"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;SOLAR_PANEL_ORIENTATION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;LANDSCAPE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Landscape),
-            <span class="string">&quot;PORTRAIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Portrait),
+            <span class="string">"SOLAR_PANEL_ORIENTATION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"LANDSCAPE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Landscape),
+            <span class="string">"PORTRAIT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Portrait),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1653,7 +1654,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1730,19 +1731,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.maps.solar.v1.Solar/FindClosestBuildingInsights&quot;</span>,
+                <span class="string">"/google.maps.solar.v1.Solar/FindClosestBuildingInsights"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.maps.solar.v1.Solar&quot;</span>,
-                        <span class="string">&quot;FindClosestBuildingInsights&quot;</span>,
+                        <span class="string">"google.maps.solar.v1.Solar"</span>,
+                        <span class="string">"FindClosestBuildingInsights"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1760,16 +1761,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.maps.solar.v1.Solar/GetDataLayers&quot;</span>,
+                <span class="string">"/google.maps.solar.v1.Solar/GetDataLayers"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.maps.solar.v1.Solar&quot;</span>, <span class="string">&quot;GetDataLayers&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.maps.solar.v1.Solar"</span>, <span class="string">"GetDataLayers"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Returns an image by its ID.
@@ -1786,16 +1787,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.maps.solar.v1.Solar/GetGeoTiff&quot;</span>,
+                <span class="string">"/google.maps.solar.v1.Solar/GetGeoTiff"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.maps.solar.v1.Solar&quot;</span>, <span class="string">&quot;GetGeoTiff&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.maps.solar.v1.Solar"</span>, <span class="string">"GetGeoTiff"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
     }

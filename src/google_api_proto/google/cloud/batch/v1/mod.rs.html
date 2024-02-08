@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/batch/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/batch/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1829,7 +1830,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Volume {
     <span class="doccomment">/// The mount path for the volume, e.g. /mnt/disks/share.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>mount_path: ::prost::alloc::string::String,
     <span class="doccomment">/// For Google Cloud Storage (GCS), mount options are the options supported by
     /// the gcsfuse tool (&lt;https://github.com/GoogleCloudPlatform/gcsfuse&gt;).
@@ -1840,10 +1841,10 @@
     /// For other attached disks and Network File System (NFS), mount options are
     /// these supported by the mount command
     /// (&lt;https://man7.org/linux/man-pages/man8/mount.8.html&gt;).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>mount_options: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The source for the volume.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;volume::Source&quot;</span>, tags = <span class="string">&quot;1, 3, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"volume::Source"</span>, tags = <span class="string">"1, 3, 6"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;volume::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Volume`.
@@ -1854,17 +1855,17 @@
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// A Network File System (NFS) volume. For example, a
         /// Filestore file share.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Nfs(<span class="kw">super</span>::Nfs),
         <span class="doccomment">/// A Google Cloud Storage (GCS) volume.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Gcs(<span class="kw">super</span>::Gcs),
         <span class="doccomment">/// Device name of an attached disk volume, which should align with a
         /// device_name specified by
         /// job.allocation_policy.instances\[0\].policy.disks\[i\].device_name or
         /// defined by the given instance template in
         /// job.allocation_policy.instances\[0\].instance_template.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span>DeviceName(::prost::alloc::string::String),
     }
 }
@@ -1873,10 +1874,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Nfs {
     <span class="doccomment">/// The IP address of the NFS.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>server: ::prost::alloc::string::String,
-    <span class="doccomment">/// Remote source path exported from the NFS, e.g., &quot;/share&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Remote source path exported from the NFS, e.g., "/share".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>remote_path: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents a Google Cloud Storage volume.
@@ -1885,7 +1886,7 @@
 </span><span class="kw">pub struct </span>Gcs {
     <span class="doccomment">/// Remote path, either a bucket name or a subdirectory of a bucket, e.g.:
     /// bucket_name, bucket_name/subdirectory/
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>remote_path: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Compute resource requirements.
@@ -1904,7 +1905,7 @@
     /// For example, `1000` corresponds to 1 vCPU per task. If undefined, the
     /// default value is `2000`.
     ///
-    /// If you also define the VM&#39;s machine type using the `machineType` in
+    /// If you also define the VM's machine type using the `machineType` in
     /// [InstancePolicy](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy&gt;)
     /// field or inside the `instanceTemplate` in the
     /// [InstancePolicyOrTemplate](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate&gt;)
@@ -1916,13 +1917,13 @@
     /// vCPUs each, you are recommended to set `cpuMilli` no more than `2000`, or
     /// you are recommended to run two tasks on the same VM if you set `cpuMilli`
     /// to `1000` or less.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cpu_milli: i64,
     <span class="doccomment">/// Memory in MiB.
     ///
     /// `memoryMib` defines the amount of memory per task in MiB units.
     /// If undefined, the default value is `2000`.
-    /// If you also define the VM&#39;s machine type using the `machineType` in
+    /// If you also define the VM's machine type using the `machineType` in
     /// [InstancePolicy](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicy&gt;)
     /// field or inside the `instanceTemplate` in the
     /// [InstancePolicyOrTemplate](&lt;https://cloud.google.com/batch/docs/reference/rest/v1/projects.locations.jobs#instancepolicyortemplate&gt;)
@@ -1934,10 +1935,10 @@
     /// GiB each, you are recommended to set `memoryMib` to no more than `8192`,
     /// or you are recommended to run two tasks on the same VM if you set
     /// `memoryMib` to `4096` or less.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>memory_mib: i64,
     <span class="doccomment">/// Extra boot disk size in MiB for each task.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>boot_disk_mib: i64,
 }
 <span class="doccomment">/// Status event
@@ -1945,19 +1946,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StatusEvent {
     <span class="doccomment">/// Type of the event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
     <span class="doccomment">/// Description of the event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// The time this event occurred.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Task Execution
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>task_execution: ::core::option::Option&lt;TaskExecution&gt;,
     <span class="doccomment">/// Task State
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task_status::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task_status::State"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>task_state: i32,
 }
 <span class="doccomment">/// This Task Execution field includes detail information for
@@ -1967,7 +1968,7 @@
 </span><span class="kw">pub struct </span>TaskExecution {
     <span class="doccomment">/// When task is completed as the status of FAILED or SUCCEEDED,
     /// exit code is for one task execution result, default is 0 as success.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>exit_code: i32,
 }
 <span class="doccomment">/// Status of a task
@@ -1975,10 +1976,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TaskStatus {
     <span class="doccomment">/// Task state
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task_status::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task_status::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Detailed info about why the state is reached.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>status_events: ::prost::alloc::vec::Vec&lt;StatusEvent&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TaskStatus`.
@@ -2017,27 +2018,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                State::Assigned =&gt; <span class="string">&quot;ASSIGNED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Unexecuted =&gt; <span class="string">&quot;UNEXECUTED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Pending =&gt; <span class="string">"PENDING"</span>,
+                State::Assigned =&gt; <span class="string">"ASSIGNED"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Unexecuted =&gt; <span class="string">"UNEXECUTED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;ASSIGNED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Assigned),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;UNEXECUTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unexecuted),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"ASSIGNED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Assigned),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"UNEXECUTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unexecuted),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2052,42 +2053,42 @@
     /// caller. If provided, it will be used in logs and other outputs to identify
     /// the script, making it easier for users to understand the logs. If not
     /// provided the index of the runnable will be used for outputs.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Normally, a non-zero exit status causes the Task to fail. This flag allows
     /// execution of other Runnables to continue instead.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>ignore_exit_status: bool,
     <span class="doccomment">/// This flag allows a Runnable to continue running in the background while the
     /// Task executes subsequent Runnables. This is useful to provide services to
     /// other Runnables (or to provide debugging support tools like SSH servers).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>background: bool,
     <span class="doccomment">/// By default, after a Runnable fails, no further Runnable are executed. This
     /// flag indicates that this Runnable must be run even if the Task has already
     /// failed. This is useful for Runnables that copy output files off of the VM
     /// or for debugging.
     ///
-    /// The always_run flag does not override the Task&#39;s overall max_run_duration.
+    /// The always_run flag does not override the Task's overall max_run_duration.
     /// If the max_run_duration has expired then no further Runnables will execute,
     /// not even always_run Runnables.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>always_run: bool,
     <span class="doccomment">/// Environment variables for this Runnable (overrides variables set for the
     /// whole Task or TaskGroup).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>environment: ::core::option::Option&lt;Environment&gt;,
     <span class="doccomment">/// Timeout for this Runnable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Labels for this Runnable.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// The script or container to run.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;runnable::Executable&quot;</span>, tags = <span class="string">&quot;1, 2, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"runnable::Executable"</span>, tags = <span class="string">"1, 2, 6"</span>)]
     </span><span class="kw">pub </span>executable: ::core::option::Option&lt;runnable::Executable&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Runnable`.
@@ -2097,18 +2098,18 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Container {
         <span class="doccomment">/// The URI to pull the container image from.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>image_uri: ::prost::alloc::string::String,
         <span class="doccomment">/// Overrides the `CMD` specified in the container. If there is an ENTRYPOINT
         /// (either in the container image or with the entrypoint field below) then
         /// commands are appended as arguments to the ENTRYPOINT.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>commands: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// Overrides the `ENTRYPOINT` specified in the container.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>entrypoint: ::prost::alloc::string::String,
         <span class="doccomment">/// Volumes to mount (bind mount) from the host machine files or directories
-        /// into the container, formatted to match docker run&#39;s --volume option,
+        /// into the container, formatted to match docker run's --volume option,
         /// e.g. /foo:/bar, or /foo:/bar:ro
         ///
         /// If the `TaskSpec.Volumes` field is specified but this field is not, Batch
@@ -2118,27 +2119,27 @@
         /// read-write (rw) for other volume types, regardless of the original mount
         /// options specified in `TaskSpec.Volumes`. If you need different mount
         /// settings, you can explicitly configure them in this field.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>volumes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// Arbitrary additional options to include in the &quot;docker run&quot; command when
-        /// running this container, e.g. &quot;--network host&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+        <span class="doccomment">/// Arbitrary additional options to include in the "docker run" command when
+        /// running this container, e.g. "--network host".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>options: ::prost::alloc::string::String,
         <span class="doccomment">/// If set to true, external network access to and from container will be
         /// blocked, containers that are with block_external_network as true can
         /// still communicate with each other, network cannot be specified in the
         /// `container.options` field.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"9"</span>)]
         </span><span class="kw">pub </span>block_external_network: bool,
         <span class="doccomment">/// Optional username for logging in to a docker registry. If username
         /// matches `projects/*/secrets/*/versions/*` then Batch will read the
         /// username from the Secret Manager.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
         </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional password for logging in to a docker registry. If password
         /// matches `projects/*/secrets/*/versions/*` then Batch will read the
         /// password from the Secret Manager;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
         </span><span class="kw">pub </span>password: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. If set to true, this container runnable uses Image streaming.
         ///
@@ -2157,14 +2158,14 @@
         /// Image streaming with Batch, see the [`image-streaming`
         /// sample on
         /// GitHub](&lt;https://github.com/GoogleCloudPlatform/batch-samples/tree/main/api-samples/image-streaming&gt;).
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"12"</span>)]
         </span><span class="kw">pub </span>enable_image_streaming: bool,
     }
     <span class="doccomment">/// Script runnable.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Script {
-        <span class="attr">#[prost(oneof = <span class="string">&quot;script::Command&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+        <span class="attr">#[prost(oneof = <span class="string">"script::Command"</span>, tags = <span class="string">"1, 2"</span>)]
         </span><span class="kw">pub </span>command: ::core::option::Option&lt;script::Command&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Script`.
@@ -2181,7 +2182,7 @@
             /// script using`Python3`, `#!/usr/bin/env python3` should be the first
             /// line of the file.) Otherwise, the file will by default be excuted by
             /// `/bin/sh`.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span>Path(::prost::alloc::string::String),
             <span class="doccomment">/// Shell script text.
             ///
@@ -2190,7 +2191,7 @@
             /// `#!/bin/bash\n` should be added. To execute the script using`Python3`,
             /// `#!/usr/bin/env python3\n` should be added.) Otherwise, the script will
             /// by default be excuted by `/bin/sh`.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span>Text(::prost::alloc::string::String),
         }
     }
@@ -2200,7 +2201,7 @@
     </span><span class="kw">pub struct </span>Barrier {
         <span class="doccomment">/// Barriers are identified by their index in runnable list.
         /// Names are not required, but if present should be an identifier.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// The script or container to run.
@@ -2208,13 +2209,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Executable {
         <span class="doccomment">/// Container runnable.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Container(Container),
         <span class="doccomment">/// Script runnable.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Script(Script),
         <span class="doccomment">/// Barrier runnable.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>Barrier(Barrier),
     }
 }
@@ -2232,19 +2233,19 @@
     /// though this is likely to result in a non-zero exit status for the
     /// background runnable, these automatic kills are not treated as Task
     /// failures.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>runnables: ::prost::alloc::vec::Vec&lt;Runnable&gt;,
     <span class="doccomment">/// ComputeResource requirements.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>compute_resource: ::core::option::Option&lt;ComputeResource&gt;,
     <span class="doccomment">/// Maximum duration the task should run.
     /// The task will be killed and marked as FAILED if over this limit.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>max_run_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Maximum number of retries on failures.
     /// The default, 0, which means never retry.
     /// The valid value range is \[0, 10\].
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>max_retry_count: i32,
     <span class="doccomment">/// Lifecycle management schema when any task in a task group is failed.
     /// Currently we only support one lifecycle policy.
@@ -2254,19 +2255,19 @@
     /// policy, we consider it as the default policy.
     /// Default policy means if the exit code is 0, exit task.
     /// If task ends with non-zero exit code, retry the task with max_retry_count.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>lifecycle_policies: ::prost::alloc::vec::Vec&lt;LifecyclePolicy&gt;,
     <span class="doccomment">/// Deprecated: please use environment(non-plural) instead.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>environments: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Volumes to mount before running Tasks using this TaskSpec.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>volumes: ::prost::alloc::vec::Vec&lt;Volume&gt;,
     <span class="doccomment">/// Environment variables to set before running the Task.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>environment: ::core::option::Option&lt;Environment&gt;,
 }
 <span class="doccomment">/// LifecyclePolicy describes how to deal with task failures
@@ -2279,10 +2280,10 @@
     /// if we notice any exit code match and fail tasks if no match is found.
     /// Likewise, when FAIL_TASK is specified, we will fail tasks
     /// if we notice any exit code match and retry tasks if no match is found.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;lifecycle_policy::Action&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"lifecycle_policy::Action"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>action: i32,
     <span class="doccomment">/// Conditions that decide why a task failure is dealt with a specific action.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>action_condition: ::core::option::Option&lt;lifecycle_policy::ActionCondition&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `LifecyclePolicy`.
@@ -2295,7 +2296,7 @@
         /// If there are more than 1 exit codes,
         /// when task executes with any of the exit code in the list,
         /// the condition is met and the action will be executed.
-        </span><span class="attr">#[prost(int32, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>exit_codes: ::prost::alloc::vec::Vec&lt;i32&gt;,
     }
     <span class="doccomment">/// Action on task failures based on different conditions.
@@ -2324,19 +2325,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Action::Unspecified =&gt; <span class="string">&quot;ACTION_UNSPECIFIED&quot;</span>,
-                Action::RetryTask =&gt; <span class="string">&quot;RETRY_TASK&quot;</span>,
-                Action::FailTask =&gt; <span class="string">&quot;FAIL_TASK&quot;</span>,
+                Action::Unspecified =&gt; <span class="string">"ACTION_UNSPECIFIED"</span>,
+                Action::RetryTask =&gt; <span class="string">"RETRY_TASK"</span>,
+                Action::FailTask =&gt; <span class="string">"FAIL_TASK"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RETRY_TASK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RetryTask),
-                <span class="string">&quot;FAIL_TASK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailTask),
+                <span class="string">"ACTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RETRY_TASK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RetryTask),
+                <span class="string">"FAIL_TASK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailTask),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2347,13 +2348,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Task {
     <span class="doccomment">/// Task name.
-    /// The name is generated from the parent TaskGroup name and &#39;id&#39; field.
+    /// The name is generated from the parent TaskGroup name and 'id' field.
     /// For example:
-    /// &quot;projects/123456/locations/us-west1/jobs/job01/taskGroups/group01/tasks/task01&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/123456/locations/us-west1/jobs/job01/taskGroups/group01/tasks/task01".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Task Status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;TaskStatus&gt;,
 }
 <span class="doccomment">/// An Environment describes a collection of environment variables to set when
@@ -2362,7 +2363,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Environment {
     <span class="doccomment">/// A map of environment variable names to values.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>variables: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2370,14 +2371,14 @@
     <span class="doccomment">/// A map of environment variable names to Secret Manager secret names.
     /// The VM will access the named secrets to set the value of each environment
     /// variable.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>secret_variables: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// An encrypted JSON dictionary where the key/value pairs correspond to
     /// environment variable names and their values.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>encrypted_variables: ::core::option::Option&lt;environment::KmsEnvMap&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Environment`.
@@ -2386,10 +2387,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>KmsEnvMap {
         <span class="doccomment">/// The name of the KMS key that will be used to decrypt the cipher text.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>key_name: ::prost::alloc::string::String,
         <span class="doccomment">/// The value of the cipherText response from the `encrypt` method.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>cipher_text: ::prost::alloc::string::String,
     }
 }
@@ -2398,72 +2399,72 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Job {
     <span class="doccomment">/// Output only. Job name.
-    /// For example: &quot;projects/123456/locations/us-central1/jobs/job01&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// For example: "projects/123456/locations/us-central1/jobs/job01".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A system generated unique ID (in UUID4 format) for the Job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>uid: ::prost::alloc::string::String,
     <span class="doccomment">/// Priority of the Job.
     /// The valid value range is [0, 100). Default value is 0.
     /// Higher value indicates higher priority.
     /// A job with higher priority value is more likely to run earlier if all other
     /// requirements are satisfied.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>priority: i64,
     <span class="doccomment">/// Required. TaskGroups in the Job. Only one TaskGroup is supported now.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>task_groups: ::prost::alloc::vec::Vec&lt;TaskGroup&gt;,
     <span class="doccomment">/// Compute resource allocation for all TaskGroups in the Job.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>allocation_policy: ::core::option::Option&lt;AllocationPolicy&gt;,
     <span class="doccomment">/// Labels for the Job. Labels could be user provided or system generated.
     /// For example,
-    /// &quot;labels&quot;: {
-    ///     &quot;department&quot;: &quot;finance&quot;,
-    ///     &quot;environment&quot;: &quot;test&quot;
+    /// "labels": {
+    ///     "department": "finance",
+    ///     "environment": "test"
     ///   }
     /// You can assign up to 64 labels.  [Google Compute Engine label
     /// restrictions](&lt;https://cloud.google.com/compute/docs/labeling-resources#restrictions&gt;)
     /// apply.
-    /// Label names that start with &quot;goog-&quot; or &quot;google-&quot; are reserved.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    /// Label names that start with "goog-" or "google-" are reserved.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Output only. Job status. It is read only for users.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;JobStatus&gt;,
     <span class="doccomment">/// Output only. When the Job was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The last time the Job was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Log preservation policy for the Job.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>logs_policy: ::core::option::Option&lt;LogsPolicy&gt;,
     <span class="doccomment">/// Notification configurations.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>notifications: ::prost::alloc::vec::Vec&lt;JobNotification&gt;,
 }
-<span class="doccomment">/// LogsPolicy describes how outputs from a Job&#39;s Tasks (stdout/stderr) will be
+<span class="doccomment">/// LogsPolicy describes how outputs from a Job's Tasks (stdout/stderr) will be
 /// preserved.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LogsPolicy {
     <span class="doccomment">/// Where logs should be saved.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logs_policy::Destination&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"logs_policy::Destination"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>destination: i32,
     <span class="doccomment">/// The path to which logs are saved when the destination = PATH. This can be a
     /// local file path on the VM, or under the mount point of a Persistent Disk or
     /// Filestore, or a Cloud Storage path.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>logs_path: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Additional settings for Cloud Logging. It will only take effect
     /// when the destination of `LogsPolicy` is set to `CLOUD_LOGGING`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>cloud_logging_option: ::core::option::Option&lt;logs_policy::CloudLoggingOption&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `LogsPolicy`.
@@ -2481,7 +2482,7 @@
         /// type to the formerly used
         /// [`generic_task`](&lt;https://cloud.google.com/monitoring/api/resources#tag_generic_task&gt;)
         /// type.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>use_generic_task_monitored_resource: bool,
     }
     <span class="doccomment">/// The destination (if any) for logs.
@@ -2510,19 +2511,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Destination::Unspecified =&gt; <span class="string">&quot;DESTINATION_UNSPECIFIED&quot;</span>,
-                Destination::CloudLogging =&gt; <span class="string">&quot;CLOUD_LOGGING&quot;</span>,
-                Destination::Path =&gt; <span class="string">&quot;PATH&quot;</span>,
+                Destination::Unspecified =&gt; <span class="string">"DESTINATION_UNSPECIFIED"</span>,
+                Destination::CloudLogging =&gt; <span class="string">"CLOUD_LOGGING"</span>,
+                Destination::Path =&gt; <span class="string">"PATH"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DESTINATION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CLOUD_LOGGING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudLogging),
-                <span class="string">&quot;PATH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Path),
+                <span class="string">"DESTINATION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CLOUD_LOGGING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CloudLogging),
+                <span class="string">"PATH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Path),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2533,20 +2534,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>JobStatus {
     <span class="doccomment">/// Job state
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;job_status::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"job_status::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Job status events
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>status_events: ::prost::alloc::vec::Vec&lt;StatusEvent&gt;,
     <span class="doccomment">/// Aggregated task status for each TaskGroup in the Job.
     /// The map key is TaskGroup ID.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>task_groups: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         job_status::TaskGroupStatus,
     &gt;,
     <span class="doccomment">/// The duration of time that the Job spent in status RUNNING.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>run_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `JobStatus`.
@@ -2556,16 +2557,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>InstanceStatus {
         <span class="doccomment">/// The Compute Engine machine type.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
         <span class="doccomment">/// The VM instance provisioning model.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::allocation_policy::ProvisioningModel&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::allocation_policy::ProvisioningModel"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>provisioning_model: i32,
         <span class="doccomment">/// The max number of tasks can be assigned to this instance type.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>task_pack: i64,
         <span class="doccomment">/// The VM boot disk.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>boot_disk: ::core::option::Option&lt;<span class="kw">super</span>::allocation_policy::Disk&gt;,
     }
     <span class="doccomment">/// Aggregated task status for a TaskGroup.
@@ -2574,13 +2575,13 @@
     </span><span class="kw">pub struct </span>TaskGroupStatus {
         <span class="doccomment">/// Count of task in each state in the TaskGroup.
         /// The map key is task state name.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, int64&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(btree_map = <span class="string">"string, int64"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>counts: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             i64,
         &gt;,
         <span class="doccomment">/// Status of instances allocated for the TaskGroup.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>instances: ::prost::alloc::vec::Vec&lt;InstanceStatus&gt;,
     }
     <span class="doccomment">/// Valid Job states.
@@ -2621,27 +2622,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Queued =&gt; <span class="string">&quot;QUEUED&quot;</span>,
-                State::Scheduled =&gt; <span class="string">&quot;SCHEDULED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::DeletionInProgress =&gt; <span class="string">&quot;DELETION_IN_PROGRESS&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Queued =&gt; <span class="string">"QUEUED"</span>,
+                State::Scheduled =&gt; <span class="string">"SCHEDULED"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::DeletionInProgress =&gt; <span class="string">"DELETION_IN_PROGRESS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;QUEUED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Queued),
-                <span class="string">&quot;SCHEDULED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scheduled),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;DELETION_IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeletionInProgress),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"QUEUED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Queued),
+                <span class="string">"SCHEDULED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scheduled),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"DELETION_IN_PROGRESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DeletionInProgress),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2656,11 +2657,11 @@
     /// the job and billings will be charged to this project.
     /// If not specified, no Pub/Sub messages will be sent.
     /// Topic format: `projects/{project}/topics/{topic}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>pubsub_topic: ::prost::alloc::string::String,
     <span class="doccomment">/// The attribute requirements of messages to be sent to this Pub/Sub topic.
     /// Without this field, no message will be sent.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>message: ::core::option::Option&lt;job_notification::Message&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `JobNotification`.
@@ -2676,13 +2677,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Message {
         <span class="doccomment">/// The message type.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Type&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"Type"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>r#type: i32,
         <span class="doccomment">/// The new job state.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::job_status::State&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::job_status::State"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>new_job_state: i32,
         <span class="doccomment">/// The new task state.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::task_status::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::task_status::State"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>new_task_state: i32,
     }
     <span class="doccomment">/// The message type.
@@ -2711,38 +2712,38 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::JobStateChanged =&gt; <span class="string">&quot;JOB_STATE_CHANGED&quot;</span>,
-                Type::TaskStateChanged =&gt; <span class="string">&quot;TASK_STATE_CHANGED&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::JobStateChanged =&gt; <span class="string">"JOB_STATE_CHANGED"</span>,
+                Type::TaskStateChanged =&gt; <span class="string">"TASK_STATE_CHANGED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;JOB_STATE_CHANGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::JobStateChanged),
-                <span class="string">&quot;TASK_STATE_CHANGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TaskStateChanged),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"JOB_STATE_CHANGED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::JobStateChanged),
+                <span class="string">"TASK_STATE_CHANGED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TaskStateChanged),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
 }
-<span class="doccomment">/// A Job&#39;s resource allocation policy describes when, where, and how compute
+<span class="doccomment">/// A Job's resource allocation policy describes when, where, and how compute
 /// resources should be allocated for the Job.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AllocationPolicy {
     <span class="doccomment">/// Location where compute resources should be allocated for the Job.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;allocation_policy::LocationPolicy&gt;,
     <span class="doccomment">/// Describe instances that can be created by this AllocationPolicy.
     /// Only instances\[0\] is supported now.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>instances: ::prost::alloc::vec::Vec&lt;allocation_policy::InstancePolicyOrTemplate&gt;,
     <span class="doccomment">/// Service account that VMs will run as.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>service_account: ::core::option::Option&lt;ServiceAccount&gt;,
     <span class="doccomment">/// Labels applied to all VM instances and other resources
     /// created by AllocationPolicy.
@@ -2750,8 +2751,8 @@
     /// You can assign up to 64 labels. [Google Compute Engine label
     /// restrictions](&lt;https://cloud.google.com/compute/docs/labeling-resources#restrictions&gt;)
     /// apply.
-    /// Label names that start with &quot;goog-&quot; or &quot;google-&quot; are reserved.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    /// Label names that start with "goog-" or "google-" are reserved.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2761,17 +2762,17 @@
     /// If you define an instance template in the `InstancePolicyOrTemplate` field,
     /// Batch will use the network settings in the instance template instead of
     /// this field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>network: ::core::option::Option&lt;allocation_policy::NetworkPolicy&gt;,
     <span class="doccomment">/// The placement policy.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>placement: ::core::option::Option&lt;allocation_policy::PlacementPolicy&gt;,
     <span class="doccomment">/// Optional. Tags applied to the VM instances.
     ///
     /// The tags identify valid sources or targets for network firewalls.
     /// Each tag must be 1-63 characters long, and comply with
     /// [RFC1035](&lt;https://www.ietf.org/rfc/rfc1035.txt&gt;).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AllocationPolicy`.
@@ -2784,16 +2785,16 @@
         /// Each location can be a region or a zone.
         /// Only one region or multiple zones in one region is supported now.
         /// For example,
-        /// \[&quot;regions/us-central1&quot;\] allow VMs in any zones in region us-central1.
-        /// \[&quot;zones/us-central1-a&quot;, &quot;zones/us-central1-c&quot;\] only allow VMs
+        /// \["regions/us-central1"\] allow VMs in any zones in region us-central1.
+        /// \["zones/us-central1-a", "zones/us-central1-c"\] only allow VMs
         /// in zones us-central1-a and us-central1-c.
         ///
         /// All locations end up in different regions would cause errors.
         /// For example,
-        /// [&quot;regions/us-central1&quot;, &quot;zones/us-central1-a&quot;, &quot;zones/us-central1-b&quot;,
-        /// &quot;zones/us-west1-a&quot;] contains 2 regions &quot;us-central1&quot; and
-        /// &quot;us-west1&quot;. An error is expected in this case.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        /// ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+        /// "zones/us-west1-a"] contains 2 regions "us-central1" and
+        /// "us-west1". An error is expected in this case.
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>allowed_locations: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// A new persistent disk or a local ssd.
@@ -2804,10 +2805,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Disk {
         <span class="doccomment">/// Disk type as shown in `gcloud compute disk-types list`.
-        /// For example, local SSD uses type &quot;local-ssd&quot;.
-        /// Persistent disks and boot disks use &quot;pd-balanced&quot;, &quot;pd-extreme&quot;, &quot;pd-ssd&quot;
-        /// or &quot;pd-standard&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// For example, local SSD uses type "local-ssd".
+        /// Persistent disks and boot disks use "pd-balanced", "pd-extreme", "pd-ssd"
+        /// or "pd-standard".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
         <span class="doccomment">/// Disk size in GB.
         ///
@@ -2821,24 +2822,24 @@
         /// **Boot Disk**:
         /// Batch will calculate the boot disk size based on source
         /// image and task requirements if you do not speicify the size.
-        /// If both this field and the `boot_disk_mib` field in task spec&#39;s
+        /// If both this field and the `boot_disk_mib` field in task spec's
         /// `compute_resource` are defined, Batch will only honor this field.
-        /// Also, this field should be no smaller than the source disk&#39;s
+        /// Also, this field should be no smaller than the source disk's
         /// size when the `data_source` is set as `snapshot` or `image`.
         /// For example, if you set an image as the `data_source` field and the
-        /// image&#39;s default disk size 30 GB, you can only use this field to make the
+        /// image's default disk size 30 GB, you can only use this field to make the
         /// disk larger or equal to 30 GB.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>size_gb: i64,
-        <span class="doccomment">/// Local SSDs are available through both &quot;SCSI&quot; and &quot;NVMe&quot; interfaces.
-        /// If not indicated, &quot;NVMe&quot; will be the default one for local ssds.
+        <span class="doccomment">/// Local SSDs are available through both "SCSI" and "NVMe" interfaces.
+        /// If not indicated, "NVMe" will be the default one for local ssds.
         /// This field is ignored for persistent disks as the interface is chosen
         /// automatically. See
         /// &lt;https://cloud.google.com/compute/docs/disks/persistent-disks#choose_an_interface.&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>disk_interface: ::prost::alloc::string::String,
         <span class="doccomment">/// A data source from which a PD will be created.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;disk::DataSource&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"disk::DataSource"</span>, tags = <span class="string">"4, 5"</span>)]
         </span><span class="kw">pub </span>data_source: ::core::option::Option&lt;disk::DataSource&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Disk`.
@@ -2863,11 +2864,11 @@
             /// * `batch-cos`: use Batch Container-Optimized images.
             /// * `batch-hpc-centos`: use Batch HPC CentOS images.
             /// * `batch-hpc-rocky`: use Batch HPC Rocky Linux images.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
             </span>Image(::prost::alloc::string::String),
             <span class="doccomment">/// Name of a snapshot used as the data source.
             /// Snapshot is not supported as boot disk now.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
             </span>Snapshot(::prost::alloc::string::String),
         }
     }
@@ -2880,9 +2881,9 @@
         /// It is used by Runnable.volumes field to mount disks. So please specify
         /// the device_name if you want Batch to help mount the disk, and it should
         /// match the device_name field in volumes.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>device_name: ::prost::alloc::string::String,
-        <span class="attr">#[prost(oneof = <span class="string">&quot;attached_disk::Attached&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+        <span class="attr">#[prost(oneof = <span class="string">"attached_disk::Attached"</span>, tags = <span class="string">"1, 2"</span>)]
         </span><span class="kw">pub </span>attached: ::core::option::Option&lt;attached_disk::Attached&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `AttachedDisk`.
@@ -2890,10 +2891,10 @@
         <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>Attached {
-            <span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+            <span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
             </span>NewDisk(<span class="kw">super</span>::Disk),
             <span class="doccomment">/// Name of an existing PD.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span>ExistingDisk(::prost::alloc::string::String),
         }
     }
@@ -2901,25 +2902,25 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Accelerator {
-        <span class="doccomment">/// The accelerator type. For example, &quot;nvidia-tesla-t4&quot;.
+        <span class="doccomment">/// The accelerator type. For example, "nvidia-tesla-t4".
         /// See `gcloud compute accelerator-types list`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
         <span class="doccomment">/// The number of accelerators of this type.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>count: i64,
         <span class="doccomment">/// Deprecated: please use instances\[0\].install_gpu_drivers instead.
         </span><span class="attr">#[deprecated]
-        #[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        #[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>install_gpu_drivers: bool,
         <span class="doccomment">/// Optional. The NVIDIA GPU driver version that should be installed for this
         /// type.
         ///
-        /// You can define the specific driver version such as &quot;470.103.01&quot;,
+        /// You can define the specific driver version such as "470.103.01",
         /// following the driver version requirements in
         /// &lt;https://cloud.google.com/compute/docs/gpus/install-drivers-gpu#minimum-driver.&gt;
         /// Batch will install the specific accelerator driver if qualified.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>driver_version: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// InstancePolicy describes an instance type and resources attached to each VM
@@ -2928,39 +2929,39 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>InstancePolicy {
         <span class="doccomment">/// The Compute Engine machine type.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>machine_type: ::prost::alloc::string::String,
         <span class="doccomment">/// The minimum CPU platform.
         /// See
         /// &lt;https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform.&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>min_cpu_platform: ::prost::alloc::string::String,
         <span class="doccomment">/// The provisioning model.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ProvisioningModel&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"ProvisioningModel"</span>, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>provisioning_model: i32,
         <span class="doccomment">/// The accelerators attached to each VM instance.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>accelerators: ::prost::alloc::vec::Vec&lt;Accelerator&gt;,
         <span class="doccomment">/// Boot disk to be created and attached to each VM by this InstancePolicy.
         /// Boot disk will be deleted when the VM is deleted.
         /// Batch API now only supports booting from image.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
         </span><span class="kw">pub </span>boot_disk: ::core::option::Option&lt;Disk&gt;,
         <span class="doccomment">/// Non-boot disks to be attached for each VM created by this InstancePolicy.
         /// New disks will be deleted when the VM is deleted.
         /// A non-boot disk is a disk that can be of a device with a
         /// file system or a raw storage drive that is not ready for data
         /// storage and accessing.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>disks: ::prost::alloc::vec::Vec&lt;AttachedDisk&gt;,
         <span class="doccomment">/// Optional. If specified, VMs will consume only the specified reservation.
         /// If not specified (default), VMs will consume any applicable reservation.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
         </span><span class="kw">pub </span>reservation: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// InstancePolicyOrTemplate lets you define the type of resources to use for
     /// this job either with an InstancePolicy or an instance template.
-    /// If undefined, Batch picks the type of VM to use and doesn&#39;t include
+    /// If undefined, Batch picks the type of VM to use and doesn't include
     /// optional VM resources such as GPUs and extra disks.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2975,9 +2976,9 @@
         /// &lt;https://cloud.google.com/container-optimized-os/docs/release-notes.&gt; For
         /// non Container-Optimized Image cases, following
         /// &lt;https://github.com/GoogleCloudPlatform/compute-gpu-installation/blob/main/linux/install_gpu_driver.py.&gt;
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>install_gpu_drivers: bool,
-        <span class="attr">#[prost(oneof = <span class="string">&quot;instance_policy_or_template::PolicyTemplate&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+        <span class="attr">#[prost(oneof = <span class="string">"instance_policy_or_template::PolicyTemplate"</span>, tags = <span class="string">"1, 2"</span>)]
         </span><span class="kw">pub </span>policy_template: ::core::option::Option&lt;
             instance_policy_or_template::PolicyTemplate,
         &gt;,
@@ -2988,12 +2989,12 @@
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>PolicyTemplate {
             <span class="doccomment">/// InstancePolicy.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
             </span>Policy(<span class="kw">super</span>::InstancePolicy),
             <span class="doccomment">/// Name of an instance template used to create VMs.
-            /// Named the field as &#39;instance_template&#39; instead of &#39;template&#39; to avoid
+            /// Named the field as 'instance_template' instead of 'template' to avoid
             /// c++ keyword conflict.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span>InstanceTemplate(::prost::alloc::string::String),
         }
     }
@@ -3009,7 +3010,7 @@
         /// * &lt;https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}&gt;
         /// * projects/{project}/global/networks/{network}
         /// * global/networks/{network}
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>network: ::prost::alloc::string::String,
         <span class="doccomment">/// The URL of an existing subnetwork resource in the network.
         /// You can specify the subnetwork as a full or partial URL.
@@ -3019,7 +3020,7 @@
         /// * &lt;https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}&gt;
         /// * projects/{project}/regions/{region}/subnetworks/{subnetwork}
         /// * regions/{region}/subnetworks/{subnetwork}
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>subnetwork: ::prost::alloc::string::String,
         <span class="doccomment">/// Default is false (with an external IP address). Required if
         /// no external public IP address is attached to the VM. If no external
@@ -3028,7 +3029,7 @@
         /// &lt;https://cloud.google.com/vpc/docs/configure-private-google-access&gt; and
         /// &lt;https://cloud.google.com/nat/docs/gce-example#create-nat&gt; for more
         /// information.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>no_external_ip_address: bool,
     }
     <span class="doccomment">/// NetworkPolicy describes VM instance network configurations.
@@ -3036,7 +3037,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>NetworkPolicy {
         <span class="doccomment">/// Network configurations.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>network_interfaces: ::prost::alloc::vec::Vec&lt;NetworkInterface&gt;,
     }
     <span class="doccomment">/// PlacementPolicy describes a group placement policy for the VMs controlled
@@ -3048,14 +3049,14 @@
         /// want VMs to be located close to each other for low network latency
         /// between the VMs. No placement policy will be generated when collocation
         /// is UNSPECIFIED.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>collocation: ::prost::alloc::string::String,
         <span class="doccomment">/// When specified, causes the job to fail if more than max_distance logical
         /// switches are required between VMs. Batch uses the most compact possible
         /// placement of VMs even when max_distance is not specified. An explicit
         /// max_distance makes that level of compactness a strict requirement.
         /// Not yet implemented
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>max_distance: i64,
     }
     <span class="doccomment">/// Compute Engine VM instance provisioning model.
@@ -3091,21 +3092,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ProvisioningModel::Unspecified =&gt; <span class="string">&quot;PROVISIONING_MODEL_UNSPECIFIED&quot;</span>,
-                ProvisioningModel::Standard =&gt; <span class="string">&quot;STANDARD&quot;</span>,
-                ProvisioningModel::Spot =&gt; <span class="string">&quot;SPOT&quot;</span>,
-                ProvisioningModel::Preemptible =&gt; <span class="string">&quot;PREEMPTIBLE&quot;</span>,
+                ProvisioningModel::Unspecified =&gt; <span class="string">"PROVISIONING_MODEL_UNSPECIFIED"</span>,
+                ProvisioningModel::Standard =&gt; <span class="string">"STANDARD"</span>,
+                ProvisioningModel::Spot =&gt; <span class="string">"SPOT"</span>,
+                ProvisioningModel::Preemptible =&gt; <span class="string">"PREEMPTIBLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PROVISIONING_MODEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STANDARD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
-                <span class="string">&quot;SPOT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Spot),
-                <span class="string">&quot;PREEMPTIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preemptible),
+                <span class="string">"PROVISIONING_MODEL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STANDARD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
+                <span class="string">"SPOT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Spot),
+                <span class="string">"PREEMPTIBLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preemptible),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3118,25 +3119,25 @@
     <span class="doccomment">/// Output only. TaskGroup name.
     /// The system generates this field based on parent Job name.
     /// For example:
-    /// &quot;projects/123456/locations/us-west1/jobs/job01/taskGroups/group01&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/123456/locations/us-west1/jobs/job01/taskGroups/group01".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Tasks in the group share the same task spec.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>task_spec: ::core::option::Option&lt;TaskSpec&gt;,
     <span class="doccomment">/// Number of Tasks in the TaskGroup.
     /// Default is 1.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>task_count: i64,
     <span class="doccomment">/// Max number of tasks that can run in parallel.
     /// Default to min(task_count, parallel tasks per job limit).
     /// See: [Job Limits](&lt;https://cloud.google.com/batch/quotas#job_limits&gt;).
     /// Field parallelism must be 1 if the scheduling_policy is IN_ORDER.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>parallelism: i64,
     <span class="doccomment">/// Scheduling policy for Tasks in the TaskGroup.
     /// The default value is AS_SOON_AS_POSSIBLE.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task_group::SchedulingPolicy&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task_group::SchedulingPolicy"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>scheduling_policy: i32,
     <span class="doccomment">/// An array of environment variable mappings, which are passed to Tasks with
     /// matching indices. If task_environments is used then task_count should
@@ -3145,29 +3146,29 @@
     ///
     /// Tasks get a BATCH_TASK_INDEX and BATCH_TASK_COUNT environment variable, in
     /// addition to any environment variables set in task_environments, specifying
-    /// the number of Tasks in the Task&#39;s parent TaskGroup, and the specific Task&#39;s
+    /// the number of Tasks in the Task's parent TaskGroup, and the specific Task's
     /// index in the TaskGroup (0 through BATCH_TASK_COUNT - 1).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>task_environments: ::prost::alloc::vec::Vec&lt;Environment&gt;,
     <span class="doccomment">/// Max number of tasks that can be run on a VM at the same time.
     /// If not specified, the system will decide a value based on available
     /// compute resources on a VM and task requirements.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>task_count_per_node: i64,
     <span class="doccomment">/// When true, Batch will populate a file with a list of all VMs assigned to
     /// the TaskGroup and set the BATCH_HOSTS_FILE environment variable to the path
     /// of that file. Defaults to false.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>require_hosts_file: bool,
     <span class="doccomment">/// When true, Batch will configure SSH to allow passwordless login between
     /// VMs running the Batch tasks in the same TaskGroup.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>permissive_ssh: bool,
     <span class="doccomment">/// Optional. If not set or set to false, Batch will use root user to execute
     /// runnables. If set to true, Batch will make sure to run the runnables using
     /// non-root user. Currently, the non-root user Batch used is generated by OS
     /// login. Reference: &lt;https://cloud.google.com/compute/docs/oslogin&gt;
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>run_as_non_root: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `TaskGroup`.
@@ -3201,19 +3202,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SchedulingPolicy::Unspecified =&gt; <span class="string">&quot;SCHEDULING_POLICY_UNSPECIFIED&quot;</span>,
-                SchedulingPolicy::AsSoonAsPossible =&gt; <span class="string">&quot;AS_SOON_AS_POSSIBLE&quot;</span>,
-                SchedulingPolicy::InOrder =&gt; <span class="string">&quot;IN_ORDER&quot;</span>,
+                SchedulingPolicy::Unspecified =&gt; <span class="string">"SCHEDULING_POLICY_UNSPECIFIED"</span>,
+                SchedulingPolicy::AsSoonAsPossible =&gt; <span class="string">"AS_SOON_AS_POSSIBLE"</span>,
+                SchedulingPolicy::InOrder =&gt; <span class="string">"IN_ORDER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SCHEDULING_POLICY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AS_SOON_AS_POSSIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AsSoonAsPossible),
-                <span class="string">&quot;IN_ORDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InOrder),
+                <span class="string">"SCHEDULING_POLICY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AS_SOON_AS_POSSIBLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AsSoonAsPossible),
+                <span class="string">"IN_ORDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InOrder),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3227,11 +3228,11 @@
     /// Compute Engine service account for the project will be used. If instance
     /// template is being used, the service account has to be specified in the
     /// instance template and it has to match the email field here.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>email: ::prost::alloc::string::String,
     <span class="doccomment">/// List of scopes to be enabled for this service account on the VM, in
     /// addition to the cloud-platform API scope that will be added by default.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>scopes: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// CreateJob Request.
@@ -3239,22 +3240,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateJobRequest {
     <span class="doccomment">/// Required. The parent resource name where the Job will be created.
-    /// Pattern: &quot;projects/{project}/locations/{location}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Pattern: "projects/{project}/locations/{location}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// ID used to uniquely identify the Job within its parent scope.
     /// This field should contain at most 63 characters and must start with
     /// lowercase characters.
-    /// Only lowercase characters, numbers and &#39;-&#39; are accepted.
-    /// The &#39;-&#39; character cannot be the first or the last one.
+    /// Only lowercase characters, numbers and '-' are accepted.
+    /// The '-' character cannot be the first or the last one.
     /// A system generated ID will be used if the field is not set.
     ///
     /// The job.name field in the request will be ignored and the created resource
-    /// name of the Job will be &quot;{parent}/jobs/{job_id}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// name of the Job will be "{parent}/jobs/{job_id}".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>job_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Job to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>job: ::core::option::Option&lt;Job&gt;,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -3269,7 +3270,7 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// GetJob Request.
@@ -3277,7 +3278,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetJobRequest {
     <span class="doccomment">/// Required. Job name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// DeleteJob Request.
@@ -3285,10 +3286,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteJobRequest {
     <span class="doccomment">/// Job name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Reason for this deletion.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>reason: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. An optional request ID to identify requests. Specify a unique
     /// request ID so that if you must retry your request, the server will know to
@@ -3303,7 +3304,7 @@
     ///
     /// The request ID must be a valid UUID with the exception that zero UUID is
     /// not supported (00000000-0000-0000-0000-000000000000).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// ListJob Request.
@@ -3311,20 +3312,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListJobsRequest {
     <span class="doccomment">/// Parent path.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// List filter.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Sort results. Supported are &quot;name&quot;, &quot;name desc&quot;, &quot;create_time&quot;,
-    /// and &quot;create_time desc&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// Optional. Sort results. Supported are "name", "name desc", "create_time",
+    /// and "create_time desc".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
     <span class="doccomment">/// Page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// ListJob Response.
@@ -3332,13 +3333,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListJobsResponse {
     <span class="doccomment">/// Jobs.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>jobs: ::prost::alloc::vec::Vec&lt;Job&gt;,
     <span class="doccomment">/// Next page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// ListTasks Request.
@@ -3347,19 +3348,19 @@
 </span><span class="kw">pub struct </span>ListTasksRequest {
     <span class="doccomment">/// Required. Name of a TaskGroup from which Tasks are being requested.
     /// Pattern:
-    /// &quot;projects/{project}/locations/{location}/jobs/{job}/taskGroups/{task_group}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/{project}/locations/{location}/jobs/{job}/taskGroups/{task_group}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Task filter, null filter matches all Tasks.
     /// Filter string should be of the format State=TaskStatus.State e.g.
     /// State=RUNNING
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// ListTasks Response.
@@ -3367,13 +3368,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTasksResponse {
     <span class="doccomment">/// Tasks.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>tasks: ::prost::alloc::vec::Vec&lt;Task&gt;,
     <span class="doccomment">/// Next page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request for a single Task by name.
@@ -3381,7 +3382,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTaskRequest {
     <span class="doccomment">/// Required. Task name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the metadata of the long-running operation.
@@ -3389,29 +3390,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. The time the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time the operation finished running.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server-defined resource path for the target of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Name of the verb executed by the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Human-readable status of the operation, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Identifies whether the user has requested cancellation
     /// of the operation. Operations that have successfully been cancelled
     /// have [Operation.error][] value with a
     /// [google.rpc.Status.code][google.rpc.Status.code] of 1, corresponding to
     /// `Code.CANCELLED`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_cancellation: bool,
     <span class="doccomment">/// Output only. API version used to start the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -3430,7 +3431,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3502,17 +3503,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.batch.v1.BatchService/CreateJob&quot;</span>,
+                <span class="string">"/google.cloud.batch.v1.BatchService/CreateJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.batch.v1.BatchService&quot;</span>, <span class="string">&quot;CreateJob&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.batch.v1.BatchService"</span>, <span class="string">"CreateJob"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3527,16 +3528,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.batch.v1.BatchService/GetJob&quot;</span>,
+                <span class="string">"/google.cloud.batch.v1.BatchService/GetJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.batch.v1.BatchService&quot;</span>, <span class="string">&quot;GetJob&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.batch.v1.BatchService"</span>, <span class="string">"GetJob"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Delete a Job.
@@ -3553,17 +3554,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.batch.v1.BatchService/DeleteJob&quot;</span>,
+                <span class="string">"/google.cloud.batch.v1.BatchService/DeleteJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.batch.v1.BatchService&quot;</span>, <span class="string">&quot;DeleteJob&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.batch.v1.BatchService"</span>, <span class="string">"DeleteJob"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3581,17 +3582,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.batch.v1.BatchService/ListJobs&quot;</span>,
+                <span class="string">"/google.cloud.batch.v1.BatchService/ListJobs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.batch.v1.BatchService&quot;</span>, <span class="string">&quot;ListJobs&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.batch.v1.BatchService"</span>, <span class="string">"ListJobs"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3606,17 +3607,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.batch.v1.BatchService/GetTask&quot;</span>,
+                <span class="string">"/google.cloud.batch.v1.BatchService/GetTask"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.batch.v1.BatchService&quot;</span>, <span class="string">&quot;GetTask&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.batch.v1.BatchService"</span>, <span class="string">"GetTask"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3634,17 +3635,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.batch.v1.BatchService/ListTasks&quot;</span>,
+                <span class="string">"/google.cloud.batch.v1.BatchService/ListTasks"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.batch.v1.BatchService&quot;</span>, <span class="string">&quot;ListTasks&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.batch.v1.BatchService"</span>, <span class="string">"ListTasks"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/backupdr/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/backupdr/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -295,140 +296,140 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BackupRecoveryJobReportLog {
     <span class="doccomment">/// The job_name field displays the name of the job being reported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>job_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The job_name field displays the category of the job whether it is Backup or
     /// Recovery Job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>job_category: ::prost::alloc::string::String,
     <span class="doccomment">/// The job_type field displays the type of the job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>job_type: ::prost::alloc::string::String,
     <span class="doccomment">/// The log_backup field displays whether the backup taken is only for logs, DB
     /// or both.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>log_backup: ::prost::alloc::string::String,
     <span class="doccomment">/// The job_status field displays the status of the job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>job_status: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource_name field displays the name of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource_type field displays the type of the resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
     <span class="doccomment">/// The error_code field displays the error code.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>error_code: i32,
     <span class="doccomment">/// The error_message field displays the error message if the job is not
     /// successful.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
     <span class="doccomment">/// The job_initiation_failure_reason field displays the reason for failure,
     /// if the job was not run.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>job_initiation_failure_reason: ::prost::alloc::string::String,
     <span class="doccomment">/// The job_start_time field displays the timestamp when the job started.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>job_start_time: ::prost::alloc::string::String,
     <span class="doccomment">/// The job_end_time field displays the timestamp when the job ended.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>job_end_time: ::prost::alloc::string::String,
     <span class="doccomment">/// The job_queued_time field displays the timestamp when the job was
     /// queued for running.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>job_queued_time: ::prost::alloc::string::String,
     <span class="doccomment">/// The job_duration_in_hours field displays the duration in hours which the
     /// job took to complete.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>job_duration_in_hours: f64,
     <span class="doccomment">/// The hostname field displays the name of the host.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>hostname: ::prost::alloc::string::String,
     <span class="doccomment">/// The appliance_name field displays the name of the backup appliance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>appliance_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The backup_rule_policy_name field displays the policy name which is
     /// associated with this job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>backup_rule_policy_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The backup_plan_policy_template field displays the name of the backup plan
     /// for this application.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>backup_plan_policy_template: ::prost::alloc::string::String,
     <span class="doccomment">/// The backup_type field displays the type of backup taken: Log, Incremental
     /// or Full Copy.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>backup_type: ::prost::alloc::string::String,
     <span class="doccomment">/// The recovery_point field displays the timestamp of recovery point.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>recovery_point: ::prost::alloc::string::String,
     <span class="doccomment">/// The backup_consistency field displays whether the backup is crash
     /// consistent or application consistent.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>backup_consistency: ::prost::alloc::string::String,
     <span class="doccomment">/// The target_host_name field displays the target host name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>target_host_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The target_appliance_name field displays the target appliance name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>target_appliance_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The target_pool_name field displays target pool name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"24"</span>)]
     </span><span class="kw">pub </span>target_pool_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource_data_size_in_gib field displays resource data size in Gib.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"25"</span>)]
     </span><span class="kw">pub </span>resource_data_size_in_gib: f64,
     <span class="doccomment">/// The data_copied_in_gib field displays the amount of the data copied
     /// during backup in Gib.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;26&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"26"</span>)]
     </span><span class="kw">pub </span>data_copied_in_gib: f64,
     <span class="doccomment">/// The onvault_pool_storage_consumed_in_gib field displays the amount of
     /// onvault pool storage consumed in Gib.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;27&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"27"</span>)]
     </span><span class="kw">pub </span>onvault_pool_storage_consumed_in_gib: f64,
     <span class="doccomment">/// The pre_compress_in_gib field displays the size before compression in Gib.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"28"</span>)]
     </span><span class="kw">pub </span>pre_compress_in_gib: f64,
     <span class="doccomment">/// The compression_ratio field displays the ratio of post compression size to
     /// pre compression size.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;29&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"29"</span>)]
     </span><span class="kw">pub </span>compression_ratio: f64,
     <span class="doccomment">/// The data_change_rate field displays the percentage of data copied during
     /// backup to application size.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;30&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"30"</span>)]
     </span><span class="kw">pub </span>data_change_rate: f64,
     <span class="doccomment">/// The snapshot_disk_size_in_gib field displays the snapshot disk size in Gib.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;31&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"31"</span>)]
     </span><span class="kw">pub </span>snapshot_disk_size_in_gib: f64,
     <span class="doccomment">/// The data_written_in_gib field displays the amount of
     /// remote data written in Gib.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;32&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"32"</span>)]
     </span><span class="kw">pub </span>data_written_in_gib: f64,
     <span class="doccomment">/// The data_sent_in_gib field displays the amount of
     /// network data sent in Gib.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;33&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"33"</span>)]
     </span><span class="kw">pub </span>data_sent_in_gib: f64,
     <span class="doccomment">/// The job_id field displays the id of the job being reported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;34&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"34"</span>)]
     </span><span class="kw">pub </span>job_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The host_id field displays the host id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;35&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"35"</span>)]
     </span><span class="kw">pub </span>host_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The backup_rule_policy_id field displays the policy id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;36&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"36"</span>)]
     </span><span class="kw">pub </span>backup_rule_policy_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource_id field displays the resource id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;37&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"37"</span>)]
     </span><span class="kw">pub </span>resource_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The target_pool_id field displays the target pool id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;38&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"38"</span>)]
     </span><span class="kw">pub </span>target_pool_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The target_host_id field displays the target host id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;39&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"39"</span>)]
     </span><span class="kw">pub </span>target_host_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The target_appliance_id field displays the target appliance id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;40&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"40"</span>)]
     </span><span class="kw">pub </span>target_appliance_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// This is a UnprotectedResourceLogReport published as part of GCBDR
@@ -437,31 +438,31 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UnprotectedResourceReportLog {
     <span class="doccomment">/// Required. Name of the host where the application/resource resides.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>host_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name of the application/resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Type of the application/resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Name of the database instance for instance members.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>instance_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Date when the Appliance was Discovered first.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>discovered_on: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name of the appliance on which it was discovered.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>discovered_by: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Id of the Appliance
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>appliance_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Id of the application/resource
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>resource_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Id of the Host where the application/resource resides.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>host_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// This is a DailyScheduleComplianceReportLog published as part of GCBDR
@@ -470,52 +471,52 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DailyScheduleComplianceReportLog {
     <span class="doccomment">/// Required. Resource/App Name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Resource/App Type.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Policy Name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>backup_rule_policy_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Policy Template Name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>backup_plan_policy_template: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Name of the host where the app/resource resides.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>host_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Appliance Name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>appliance_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Date for which compliance is being reported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>date: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Backup Window Start time.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>backup_window_start_time: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. JobType of the policy.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>job_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Compliance status for the policy.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>status: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Description for the status reason.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>comment: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Resource/App Id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>resource_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Host Id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>host_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Policy Template Id
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>backup_plan_policy_template_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Policy Id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>backup_rule_policy_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Appliance Id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>appliance_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// This is a BackupStorageUtilizationReportLog published as part of GCBDR
@@ -524,25 +525,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BackupStorageUtilizationReportLog {
     <span class="doccomment">/// Optional. The appliance name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>appliance_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The storage resource type.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>storage_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The storage pool name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>pool_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Total capacity of the pool in GiB.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>total_capacity_in_gib: f64,
     <span class="doccomment">/// Required. Used capacity of the pool in GiB.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>used_capacity_in_gib: f64,
     <span class="doccomment">/// Required. Utilization percentage of a storage pool.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>utilization_percentage: f64,
     <span class="doccomment">/// Required. Appliance id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>appliance_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// This is an event
@@ -550,36 +551,36 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Event {
     <span class="doccomment">/// The event_time field displays the time when the event was reported
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>event_time: ::prost::alloc::string::String,
     <span class="doccomment">/// The srcid field displays unique id of the event occurred in the backup
     /// appliance
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>srcid: i64,
     <span class="doccomment">/// The errormessage field describes the detailed error associated with the
     /// event
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
     <span class="doccomment">/// The event_id field displays unique id associated with the error
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>event_id: i32,
     <span class="doccomment">/// The component field displays the source of the event
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>component: ::prost::alloc::string::String,
     <span class="doccomment">/// The appliance_id field displays unique id of the appliance on which event
     /// occurred
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>appliance_name: i64,
     <span class="doccomment">/// The appname field displays name of the application associated with the
     /// event
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>app_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The apptype field displays type of the application associated with the
     /// event
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>app_type: ::prost::alloc::string::String,
     <span class="doccomment">/// The jobname field displays name of the job associated with the event
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>job_name: ::prost::alloc::string::String,
 }
 </code></pre></div></section></main></body></html>

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/orgpolicy/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/orgpolicy/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -347,13 +348,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Policy {
     <span class="doccomment">/// Version of the `Policy`. Default version is 0;
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: i32,
     <span class="doccomment">/// The name of the `Constraint` the `Policy` is configuring, for example,
     /// `constraints/serviceuser.services`.
     ///
     /// Immutable after creation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>constraint: ::prost::alloc::string::String,
     <span class="doccomment">/// An opaque tag indicating the current version of the `Policy`, used for
     /// concurrency control.
@@ -370,13 +371,13 @@
     /// read-modify-write loop for concurrency control. Not setting the `etag`in a
     /// `SetOrgPolicy` request will result in an unconditional write of the
     /// `Policy`.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::bytes::Bytes,
     <span class="doccomment">/// The time stamp the `Policy` was previously updated. This is set by the
     /// server, not specified by the caller, and represents the last time a call to
     /// `SetOrgPolicy` was made for that `Policy`. Any value set by the client will
     /// be ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The field to populate is based on the `constraint_type` value in the
     /// `Constraint`.
@@ -390,7 +391,7 @@
     ///
     /// Attempting to set a `Policy` with a `policy_type` not set will result in an
     /// `invalid_argument` error.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;policy::PolicyType&quot;</span>, tags = <span class="string">&quot;5, 6, 7&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"policy::PolicyType"</span>, tags = <span class="string">"5, 6, 7"</span>)]
     </span><span class="kw">pub </span>policy_type: ::core::option::Option&lt;policy::PolicyType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Policy`.
@@ -404,12 +405,12 @@
     /// fields. This is achieved by using the `under:` and optional `is:` prefixes.
     /// The `under:` prefix is used to denote resource subtree values.
     /// The `is:` prefix is used to denote specific values, and is required only
-    /// if the value contains a &quot;:&quot;. Values prefixed with &quot;is:&quot; are treated the
+    /// if the value contains a ":". Values prefixed with "is:" are treated the
     /// same as values with no prefix.
     /// Ancestry subtrees must be in one of the following formats:
-    ///      - &quot;projects/&lt;project-id&gt;&quot;, e.g. &quot;projects/tokyo-rain-123&quot;
-    ///      - &quot;folders/&lt;folder-id&gt;&quot;, e.g. &quot;folders/1234&quot;
-    ///      - &quot;organizations/&lt;organization-id&gt;&quot;, e.g. &quot;organizations/1234&quot;
+    ///      - "projects/&lt;project-id&gt;", e.g. "projects/tokyo-rain-123"
+    ///      - "folders/&lt;folder-id&gt;", e.g. "folders/1234"
+    ///      - "organizations/&lt;organization-id&gt;", e.g. "organizations/1234"
     /// The `supports_under` field of the associated `Constraint`  defines whether
     /// ancestry prefixes can be used. You can set `allowed_values` and
     /// `denied_values` in the same `Policy` if `all_values` is
@@ -421,20 +422,20 @@
     </span><span class="kw">pub struct </span>ListPolicy {
         <span class="doccomment">/// List of values allowed  at this resource. Can only be set if `all_values`
         /// is set to `ALL_VALUES_UNSPECIFIED`.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>allowed_values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// List of values denied at this resource. Can only be set if `all_values`
         /// is set to `ALL_VALUES_UNSPECIFIED`.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>denied_values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
         <span class="doccomment">/// The policy all_values state.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;list_policy::AllValues&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"list_policy::AllValues"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>all_values: i32,
         <span class="doccomment">/// Optional. The Google Cloud Console will try to default to a configuration
         /// that matches the value specified in this `Policy`. If `suggested_value`
         /// is not set, it will inherit the value specified higher in the hierarchy,
         /// unless `inherit_from_parent` is `false`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>suggested_value: ::prost::alloc::string::String,
         <span class="doccomment">/// Determines the inheritance behavior for this `Policy`.
         ///
@@ -445,7 +446,7 @@
         /// added to the values inherited up the hierarchy.
         ///
         /// Setting `Policy` hierarchies that inherit both allowed values and denied
-        /// values isn&#39;t recommended in most circumstances to keep the configuration
+        /// values isn't recommended in most circumstances to keep the configuration
         /// simple and understandable. However, it is possible to set a `Policy` with
         /// `allowed_values` set that inherits a `Policy` with `denied_values` set.
         /// In this case, the values that are allowed must be in `allowed_values` and
@@ -465,31 +466,31 @@
         ///
         /// Example 1 (no inherited values):
         ///    `organizations/foo` has a `Policy` with values:
-        ///      {allowed_values: &quot;E1&quot; allowed_values:&quot;E2&quot;}
+        ///      {allowed_values: "E1" allowed_values:"E2"}
         ///    `projects/bar` has `inherit_from_parent` `false` and values:
-        ///      {allowed_values: &quot;E3&quot; allowed_values: &quot;E4&quot;}
+        ///      {allowed_values: "E3" allowed_values: "E4"}
         /// The accepted values at `organizations/foo` are `E1`, `E2`.
         /// The accepted values at `projects/bar` are `E3`, and `E4`.
         ///
         /// Example 2 (inherited values):
         ///    `organizations/foo` has a `Policy` with values:
-        ///      {allowed_values: &quot;E1&quot; allowed_values:&quot;E2&quot;}
+        ///      {allowed_values: "E1" allowed_values:"E2"}
         ///    `projects/bar` has a `Policy` with values:
-        ///      {value: &quot;E3&quot; value: &quot;E4&quot; inherit_from_parent: true}
+        ///      {value: "E3" value: "E4" inherit_from_parent: true}
         /// The accepted values at `organizations/foo` are `E1`, `E2`.
         /// The accepted values at `projects/bar` are `E1`, `E2`, `E3`, and `E4`.
         ///
         /// Example 3 (inheriting both allowed and denied values):
         ///    `organizations/foo` has a `Policy` with values:
-        ///      {allowed_values: &quot;E1&quot; allowed_values: &quot;E2&quot;}
+        ///      {allowed_values: "E1" allowed_values: "E2"}
         ///    `projects/bar` has a `Policy` with:
-        ///      {denied_values: &quot;E1&quot;}
+        ///      {denied_values: "E1"}
         /// The accepted values at `organizations/foo` are `E1`, `E2`.
         /// The value accepted at `projects/bar` is `E2`.
         ///
         /// Example 4 (RestoreDefault):
         ///    `organizations/foo` has a `Policy` with values:
-        ///      {allowed_values: &quot;E1&quot; allowed_values:&quot;E2&quot;}
+        ///      {allowed_values: "E1" allowed_values:"E2"}
         ///    `projects/bar` has a `Policy` with values:
         ///      {RestoreDefault: {}}
         /// The accepted values at `organizations/foo` are `E1`, `E2`.
@@ -506,7 +507,7 @@
         ///
         /// Example 6 (ListConstraint allowing all):
         ///    `organizations/foo` has a `Policy` with values:
-        ///      {allowed_values: &quot;E1&quot; allowed_values: &quot;E2&quot;}
+        ///      {allowed_values: "E1" allowed_values: "E2"}
         ///    `projects/bar` has a `Policy` with:
         ///      {all: ALLOW}
         /// The accepted values at `organizations/foo` are `E1`, E2`.
@@ -514,7 +515,7 @@
         ///
         /// Example 7 (ListConstraint allowing none):
         ///    `organizations/foo` has a `Policy` with values:
-        ///      {allowed_values: &quot;E1&quot; allowed_values: &quot;E2&quot;}
+        ///      {allowed_values: "E1" allowed_values: "E2"}
         ///    `projects/bar` has a `Policy` with:
         ///      {all: DENY}
         /// The accepted values at `organizations/foo` are `E1`, E2`.
@@ -524,16 +525,16 @@
         /// Given the following resource hierarchy
         ///    O1-&gt;{F1, F2}; F1-&gt;{P1}; F2-&gt;{P2, P3},
         ///    `organizations/foo` has a `Policy` with values:
-        ///      {allowed_values: &quot;under:organizations/O1&quot;}
+        ///      {allowed_values: "under:organizations/O1"}
         ///    `projects/bar` has a `Policy` with:
-        ///      {allowed_values: &quot;under:projects/P3&quot;}
-        ///      {denied_values: &quot;under:folders/F2&quot;}
+        ///      {allowed_values: "under:projects/P3"}
+        ///      {denied_values: "under:folders/F2"}
         /// The accepted values at `organizations/foo` are `organizations/O1`,
         ///    `folders/F1`, `folders/F2`, `projects/P1`, `projects/P2`,
         ///    `projects/P3`.
         /// The accepted values at `projects/bar` are `organizations/O1`,
         ///    `folders/F1`, `projects/P1`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>inherit_from_parent: bool,
     }
     <span class="doccomment">/// Nested message and enum types in `ListPolicy`.
@@ -572,19 +573,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    AllValues::Unspecified =&gt; <span class="string">&quot;ALL_VALUES_UNSPECIFIED&quot;</span>,
-                    AllValues::Allow =&gt; <span class="string">&quot;ALLOW&quot;</span>,
-                    AllValues::Deny =&gt; <span class="string">&quot;DENY&quot;</span>,
+                    AllValues::Unspecified =&gt; <span class="string">"ALL_VALUES_UNSPECIFIED"</span>,
+                    AllValues::Allow =&gt; <span class="string">"ALLOW"</span>,
+                    AllValues::Deny =&gt; <span class="string">"DENY"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;ALL_VALUES_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;ALLOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Allow),
-                    <span class="string">&quot;DENY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deny),
+                    <span class="string">"ALL_VALUES_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"ALLOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Allow),
+                    <span class="string">"DENY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deny),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -639,7 +640,7 @@
         /// The constraint at `organizations/foo` is enforced.
         /// The constraint at `projects/bar` is not enforced, because
         /// `constraint_default` for the `Constraint` is `ALLOW`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>enforced: bool,
     }
     <span class="doccomment">/// Ignores policies set above this resource and restores the
@@ -673,14 +674,14 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>PolicyType {
         <span class="doccomment">/// List of values either allowed or disallowed.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>ListPolicy(ListPolicy),
         <span class="doccomment">/// For boolean `Constraints`, whether to enforce the `Constraint` or not.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>BooleanPolicy(BooleanPolicy),
         <span class="doccomment">/// Restores the default behavior of the constraint; independent of
         /// `Constraint` type.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>RestoreDefault(RestoreDefault),
     }
 }

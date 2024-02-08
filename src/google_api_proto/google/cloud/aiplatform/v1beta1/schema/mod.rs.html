@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/aiplatform/v1beta1/schema/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/aiplatform/v1beta1/schema/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -512,13 +513,13 @@
 <a href="#512" id="512">512</a>
 </pre></div><pre class="rust"><code><span class="attr">#[cfg(
     any(
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema-predict-instance&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema-predict-params&quot;</span>,
-        feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema-predict-prediction&quot;</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1beta1-schema-predict-instance"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1beta1-schema-predict-params"</span>,
+        feature = <span class="string">"google-cloud-aiplatform-v1beta1-schema-predict-prediction"</span>,
     )
 )]
 </span><span class="kw">pub mod </span>predict;
-<span class="attr">#[cfg(any(feature = <span class="string">&quot;google-cloud-aiplatform-v1beta1-schema-trainingjob-definition&quot;</span>))]
+<span class="attr">#[cfg(any(feature = <span class="string">"google-cloud-aiplatform-v1beta1-schema-trainingjob-definition"</span>))]
 </span><span class="kw">pub mod </span>trainingjob;
 <span class="doccomment">/// The metadata of Datasets that contain Image DataItems.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -526,11 +527,11 @@
 </span><span class="kw">pub struct </span>ImageDatasetMetadata {
     <span class="doccomment">/// Points to a YAML file stored on Google Cloud Storage describing payload of
     /// the Image DataItems that belong to this Dataset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>data_item_schema_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Google Cloud Storage Bucket name that contains the blob data of this
     /// Dataset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gcs_bucket: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The metadata of Datasets that contain Text DataItems.
@@ -539,11 +540,11 @@
 </span><span class="kw">pub struct </span>TextDatasetMetadata {
     <span class="doccomment">/// Points to a YAML file stored on Google Cloud Storage describing payload of
     /// the Text DataItems that belong to this Dataset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>data_item_schema_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Google Cloud Storage Bucket name that contains the blob data of this
     /// Dataset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gcs_bucket: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The metadata of Datasets that contain Video DataItems.
@@ -552,28 +553,28 @@
 </span><span class="kw">pub struct </span>VideoDatasetMetadata {
     <span class="doccomment">/// Points to a YAML file stored on Google Cloud Storage describing payload of
     /// the Video DataItems that belong to this Dataset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>data_item_schema_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Google Cloud Storage Bucket name that contains the blob data of this
     /// Dataset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gcs_bucket: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The metadata of Datasets that contain tables data.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TablesDatasetMetadata {
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;tables_dataset_metadata::InputConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TablesDatasetMetadata`.
 </span><span class="kw">pub mod </span>tables_dataset_metadata {
-    <span class="doccomment">/// The tables Dataset&#39;s data source. The Dataset doesn&#39;t store the data
+    <span class="doccomment">/// The tables Dataset's data source. The Dataset doesn't store the data
     /// directly, but only pointer(s) to its data.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>InputConfig {
-        <span class="attr">#[prost(oneof = <span class="string">&quot;input_config::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+        <span class="attr">#[prost(oneof = <span class="string">"input_config::Source"</span>, tags = <span class="string">"1, 2"</span>)]
         </span><span class="kw">pub </span>source: ::core::option::Option&lt;input_config::Source&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `InputConfig`.
@@ -581,9 +582,9 @@
         <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>Source {
-            <span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+            <span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
             </span>GcsSource(<span class="kw">super</span>::GcsSource),
-            <span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            <span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>BigquerySource(<span class="kw">super</span>::BigQuerySource),
         }
     }
@@ -595,7 +596,7 @@
         /// If there are multiple files, the header is the first line of
         /// the lexicographically first file, the other files must either
         /// contain the exact same header or omit the header.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>uri: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -603,7 +604,7 @@
     </span><span class="kw">pub struct </span>BigQuerySource {
         <span class="doccomment">/// The URI of a BigQuery table.
         /// e.g. bq://projectId.bqDatasetId.bqTableId
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     }
 }
@@ -611,25 +612,25 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimeSeriesDatasetMetadata {
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;time_series_dataset_metadata::InputConfig&gt;,
     <span class="doccomment">/// The column name of the time series identifier column that identifies the
     /// time series.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>time_series_identifier_column: ::prost::alloc::string::String,
     <span class="doccomment">/// The column name of the time column that identifies time order in the time
     /// series.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>time_column: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `TimeSeriesDatasetMetadata`.
 </span><span class="kw">pub mod </span>time_series_dataset_metadata {
-    <span class="doccomment">/// The time series Dataset&#39;s data source. The Dataset doesn&#39;t store the data
+    <span class="doccomment">/// The time series Dataset's data source. The Dataset doesn't store the data
     /// directly, but only pointer(s) to its data.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>InputConfig {
-        <span class="attr">#[prost(oneof = <span class="string">&quot;input_config::Source&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+        <span class="attr">#[prost(oneof = <span class="string">"input_config::Source"</span>, tags = <span class="string">"1, 2"</span>)]
         </span><span class="kw">pub </span>source: ::core::option::Option&lt;input_config::Source&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `InputConfig`.
@@ -637,9 +638,9 @@
         <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>Source {
-            <span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+            <span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
             </span>GcsSource(<span class="kw">super</span>::GcsSource),
-            <span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            <span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>BigquerySource(<span class="kw">super</span>::BigQuerySource),
         }
     }
@@ -651,14 +652,14 @@
         /// If there are multiple files, the header is the first line of
         /// the lexicographically first file, the other files must either
         /// contain the exact same header or omit the header.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>uri: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>BigQuerySource {
         <span class="doccomment">/// The URI of a BigQuery table.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     }
 }
@@ -666,9 +667,9 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImageDataItem {
-    <span class="doccomment">/// Required. Google Cloud Storage URI points to the original image in user&#39;s bucket.
+    <span class="doccomment">/// Required. Google Cloud Storage URI points to the original image in user's bucket.
     /// The image is up to 30MB in size.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The mime type of the content of the image. Only the images in below listed
     /// mime types are supported.
@@ -679,16 +680,16 @@
     /// - image/bmp
     /// - image/tiff
     /// - image/vnd.microsoft.icon
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Payload of Video DataItem.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VideoDataItem {
-    <span class="doccomment">/// Required. Google Cloud Storage URI points to the original video in user&#39;s bucket.
+    <span class="doccomment">/// Required. Google Cloud Storage URI points to the original video in user's bucket.
     /// The video is up to 50 GB in size and up to 3 hour in duration.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The mime type of the content of the video. Only the videos in below listed
     /// mime types are supported.
@@ -696,16 +697,16 @@
     /// - video/mp4
     /// - video/avi
     /// - video/quicktime
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>mime_type: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Payload of Text DataItem.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TextDataItem {
-    <span class="doccomment">/// Output only. Google Cloud Storage URI points to the original text in user&#39;s bucket.
+    <span class="doccomment">/// Output only. Google Cloud Storage URI points to the original text in user's bucket.
     /// The text file is up to 10MB in size.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An entry of mapping between color and AnnotationSpec. The mapping is used in
@@ -714,15 +715,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnnotationSpecColor {
     <span class="doccomment">/// The color of the AnnotationSpec in a segmentation mask.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>color: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Color&gt;,
     <span class="doccomment">/// The display name of the AnnotationSpec represented by the color in the
     /// segmentation mask.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of the AnnotationSpec represented by the color in the segmentation
     /// mask.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A vertex represents a 2D point in the image.
@@ -732,10 +733,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Vertex {
     <span class="doccomment">/// X coordinate.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>x: f64,
     <span class="doccomment">/// Y coordinate.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>y: f64,
 }
 <span class="doccomment">/// Represents a line of JSONL in the batch prediction output file.
@@ -744,18 +745,18 @@
 </span><span class="kw">pub struct </span>PredictionResult {
     <span class="doccomment">/// The prediction result.
     /// Value is used here instead of Any so that JsonFormat does not append an
-    /// extra &quot;@type&quot; field when we convert the proto to JSON and so we can
+    /// extra "@type" field when we convert the proto to JSON and so we can
     /// represent array of objects.
     /// Do not set error if this is set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>prediction: ::core::option::Option&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// The error result.
     /// Do not set prediction if this is set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;prediction_result::Error&gt;,
     <span class="doccomment">/// Some identifier from the input so that the prediction can be mapped back to
     /// the input instance.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;prediction_result::Input&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"prediction_result::Input"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>input: ::core::option::Option&lt;prediction_result::Input&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PredictionResult`.
@@ -764,11 +765,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Error {
         <span class="doccomment">/// Error status. This will be serialized into the enum name e.g.
-        /// &quot;NOT_FOUND&quot;.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::super::super::super::rpc::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        /// "NOT_FOUND".
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::super::super::super::super::rpc::Code"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>status: i32,
         <span class="doccomment">/// Error message with additional details.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>message: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Some identifier from the input so that the prediction can be mapped back to
@@ -776,13 +777,13 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Input {
-        <span class="doccomment">/// User&#39;s input instance.
+        <span class="doccomment">/// User's input instance.
         /// Struct is used here instead of Any so that JsonFormat does not append an
-        /// extra &quot;@type&quot; field when we convert the proto to JSON.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        /// extra "@type" field when we convert the proto to JSON.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Instance(::prost_types::Struct),
         <span class="doccomment">/// Optional user-provided key from the input instance.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>Key(::prost::alloc::string::String),
     }
 }
@@ -791,10 +792,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImageClassificationAnnotation {
     <span class="doccomment">/// The resource Id of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The display name of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Annotation details specific to image object detection.
@@ -802,29 +803,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImageBoundingBoxAnnotation {
     <span class="doccomment">/// The resource Id of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The display name of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The leftmost coordinate of the bounding box.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>x_min: f64,
     <span class="doccomment">/// The rightmost coordinate of the bounding box.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>x_max: f64,
     <span class="doccomment">/// The topmost coordinate of the bounding box.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>y_min: f64,
     <span class="doccomment">/// The bottommost coordinate of the bounding box.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>y_max: f64,
 }
 <span class="doccomment">/// Annotation details specific to image segmentation.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImageSegmentationAnnotation {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;image_segmentation_annotation::Annotation&quot;</span>, tags = <span class="string">&quot;3, 4, 5&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"image_segmentation_annotation::Annotation"</span>, tags = <span class="string">"3, 4, 5"</span>)]
     </span><span class="kw">pub </span>annotation: ::core::option::Option&lt;image_segmentation_annotation::Annotation&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ImageSegmentationAnnotation`.
@@ -834,14 +835,14 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>MaskAnnotation {
         <span class="doccomment">/// Google Cloud Storage URI that points to the mask image. The image must be
-        /// in PNG format. It must have the same size as the DataItem&#39;s image. Each
+        /// in PNG format. It must have the same size as the DataItem's image. Each
         /// pixel in the image mask represents the AnnotationSpec which the pixel in
         /// the image DataItem belong to. Each color is mapped to one AnnotationSpec
         /// based on annotation_spec_colors.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>mask_gcs_uri: ::prost::alloc::string::String,
         <span class="doccomment">/// The mapping between color and AnnotationSpec for this Annotation.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>annotation_spec_colors: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::AnnotationSpecColor&gt;,
     }
     <span class="doccomment">/// Represents a polygon in image.
@@ -850,13 +851,13 @@
     </span><span class="kw">pub struct </span>PolygonAnnotation {
         <span class="doccomment">/// The vertexes are connected one by one and the last vertex is connected to
         /// the first one to represent a polygon.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>vertexes: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::Vertex&gt;,
         <span class="doccomment">/// The resource Id of the AnnotationSpec that this Annotation pertains to.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
         <span class="doccomment">/// The display name of the AnnotationSpec that this Annotation pertains to.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Represents a polyline in image.
@@ -865,13 +866,13 @@
     </span><span class="kw">pub struct </span>PolylineAnnotation {
         <span class="doccomment">/// The vertexes are connected one by one and the last vertex in not
         /// connected to the first one.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>vertexes: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::Vertex&gt;,
         <span class="doccomment">/// The resource Id of the AnnotationSpec that this Annotation pertains to.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
         <span class="doccomment">/// The display name of the AnnotationSpec that this Annotation pertains to.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     }
     <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -879,13 +880,13 @@
     </span><span class="kw">pub enum </span>Annotation {
         <span class="doccomment">/// Mask based segmentation annotation. Only one mask annotation can exist
         /// for one image.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>MaskAnnotation(MaskAnnotation),
         <span class="doccomment">/// Polygon annotation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>PolygonAnnotation(PolygonAnnotation),
         <span class="doccomment">/// Polyline annotation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>PolylineAnnotation(PolylineAnnotation),
     }
 }
@@ -894,10 +895,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TextClassificationAnnotation {
     <span class="doccomment">/// The resource Id of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The display name of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Annotation details specific to text extraction.
@@ -905,13 +906,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TextExtractionAnnotation {
     <span class="doccomment">/// The segment of the text content.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>text_segment: ::core::option::Option&lt;TextSegment&gt;,
     <span class="doccomment">/// The resource Id of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The display name of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The text segment inside of DataItem.
@@ -920,15 +921,15 @@
 </span><span class="kw">pub struct </span>TextSegment {
     <span class="doccomment">/// Zero-based character index of the first character of the text
     /// segment (counting characters from the beginning of the text).
-    </span><span class="attr">#[prost(uint64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_offset: u64,
     <span class="doccomment">/// Zero-based character index of the first character past the end of
     /// the text segment (counting character from the beginning of the text).
     /// The character at the end_offset is NOT included in the text segment.
-    </span><span class="attr">#[prost(uint64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(uint64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_offset: u64,
     <span class="doccomment">/// The text content in the segment for output only.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Annotation details specific to text sentiment.
@@ -936,16 +937,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TextSentimentAnnotation {
     <span class="doccomment">/// The sentiment score for text.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sentiment: i32,
     <span class="doccomment">/// The sentiment max score for text.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sentiment_max: i32,
     <span class="doccomment">/// The resource Id of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The display name of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Annotation details specific to video classification.
@@ -953,14 +954,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VideoClassificationAnnotation {
     <span class="doccomment">/// This Annotation applies to the time period represented by the TimeSegment.
-    /// If it&#39;s not set, the Annotation applies to the whole video.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    /// If it's not set, the Annotation applies to the whole video.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>time_segment: ::core::option::Option&lt;TimeSegment&gt;,
     <span class="doccomment">/// The resource Id of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The display name of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A time period inside of a DataItem that has a time dimension (e.g. video).
@@ -969,11 +970,11 @@
 </span><span class="kw">pub struct </span>TimeSegment {
     <span class="doccomment">/// Start of the time segment (inclusive), represented as the duration since
     /// the start of the DataItem.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// End of the time segment (exclusive), represented as the duration since the
     /// start of the DataItem.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Annotation details specific to video object tracking.
@@ -981,30 +982,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VideoObjectTrackingAnnotation {
     <span class="doccomment">/// A time (frame) of a video to which this annotation pertains.
-    /// Represented as the duration since the video&#39;s start.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Represented as the duration since the video's start.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The leftmost coordinate of the bounding box.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>x_min: f64,
     <span class="doccomment">/// The rightmost coordinate of the bounding box.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>x_max: f64,
     <span class="doccomment">/// The topmost coordinate of the bounding box.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>y_min: f64,
     <span class="doccomment">/// The bottommost coordinate of the bounding box.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>y_max: f64,
     <span class="doccomment">/// The instance of the object, expressed as a positive integer. Used to track
     /// the same object across different frames.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>instance_id: i64,
     <span class="doccomment">/// The resource Id of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The display name of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Annotation details specific to video action recognition.
@@ -1012,14 +1013,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VideoActionRecognitionAnnotation {
     <span class="doccomment">/// This Annotation applies to the time period represented by the TimeSegment.
-    /// If it&#39;s not set, the Annotation applies to the whole video.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    /// If it's not set, the Annotation applies to the whole video.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>time_segment: ::core::option::Option&lt;TimeSegment&gt;,
     <span class="doccomment">/// The resource Id of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>annotation_spec_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The display name of the AnnotationSpec that this Annotation pertains to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 </code></pre></div></section></main></body></html>

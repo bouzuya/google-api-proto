@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/type/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/type/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -978,11 +979,11 @@
 /// for simplicity of conversion to/from color representations in various
 /// languages over compactness. For example, the fields of this representation
 /// can be trivially provided to the constructor of `java.awt.Color` in Java; it
-/// can also be trivially provided to UIColor&#39;s `+colorWithRed:green:blue:alpha`
+/// can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
 /// method in iOS; and, with just a little work, it can be easily formatted into
 /// a CSS `rgba()` string in JavaScript.
 ///
-/// This reference page doesn&#39;t carry information about the absolute color
+/// This reference page doesn't carry information about the absolute color
 /// space
 /// that should be used to interpret the RGB value (e.g. sRGB, Adobe RGB,
 /// DCI-P3, BT.2020, etc.). By default, applications should assume the sRGB color
@@ -1076,25 +1077,25 @@
 ///         var green = Math.floor(greenFrac * 255);
 ///         var blue = Math.floor(blueFrac * 255);
 ///
-///         if (!(&#39;alpha&#39; in rgb_color)) {
+///         if (!('alpha' in rgb_color)) {
 ///            return rgbToCssColor(red, green, blue);
 ///         }
 ///
 ///         var alphaFrac = rgb_color.alpha.value || 0.0;
-///         var rgbParams = \[red, green, blue\].join(&#39;,&#39;);
-///         return \[&#39;rgba(&#39;, rgbParams, &#39;,&#39;, alphaFrac, &#39;)&#39;\].join(&#39;&#39;);
+///         var rgbParams = \[red, green, blue\].join(',');
+///         return \['rgba(', rgbParams, ',', alphaFrac, ')'\].join('');
 ///      };
 ///
 ///      var rgbToCssColor = function(red, green, blue) {
 ///        var rgbNumber = new Number((red &lt;&lt; 16) | (green &lt;&lt; 8) | blue);
 ///        var hexString = rgbNumber.toString(16);
 ///        var missingZeros = 6 - hexString.length;
-///        var resultBuilder = \[&#39;#&#39;\];
+///        var resultBuilder = \['#'\];
 ///        for (var i = 0; i &lt; missingZeros; i++) {
-///           resultBuilder.push(&#39;0&#39;);
+///           resultBuilder.push('0');
 ///        }
 ///        resultBuilder.push(hexString);
-///        return resultBuilder.join(&#39;&#39;);
+///        return resultBuilder.join('');
 ///      };
 ///
 ///      // ...
@@ -1102,13 +1103,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Color {
     <span class="doccomment">/// The amount of red in the color as a value in the interval \[0, 1\].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>red: f32,
     <span class="doccomment">/// The amount of green in the color as a value in the interval \[0, 1\].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>green: f32,
     <span class="doccomment">/// The amount of blue in the color as a value in the interval \[0, 1\].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>blue: f32,
     <span class="doccomment">/// The fraction of this color that should be applied to the pixel. That is,
     /// the final pixel color is defined by the equation:
@@ -1121,7 +1122,7 @@
     /// possible to distinguish between a default value and the value being unset.
     /// If omitted, this color object is rendered as a solid color
     /// (as if the alpha value had been explicitly given a value of 1.0).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>alpha: ::core::option::Option&lt;f32&gt;,
 }
 <span class="doccomment">/// Represents a textual expression in the Common Expression Language (CEL)
@@ -1130,27 +1131,27 @@
 ///
 /// Example (Comparison):
 ///
-///      title: &quot;Summary size limit&quot;
-///      description: &quot;Determines if a summary is less than 100 chars&quot;
-///      expression: &quot;document.summary.size() &lt; 100&quot;
+///      title: "Summary size limit"
+///      description: "Determines if a summary is less than 100 chars"
+///      expression: "document.summary.size() &lt; 100"
 ///
 /// Example (Equality):
 ///
-///      title: &quot;Requestor is owner&quot;
-///      description: &quot;Determines if requestor is the document owner&quot;
-///      expression: &quot;document.owner == request.auth.claims.email&quot;
+///      title: "Requestor is owner"
+///      description: "Determines if requestor is the document owner"
+///      expression: "document.owner == request.auth.claims.email"
 ///
 /// Example (Logic):
 ///
-///      title: &quot;Public documents&quot;
-///      description: &quot;Determine whether the document should be publicly visible&quot;
-///      expression: &quot;document.type != &#39;private&#39; &amp;&amp; document.type != &#39;internal&#39;&quot;
+///      title: "Public documents"
+///      description: "Determine whether the document should be publicly visible"
+///      expression: "document.type != 'private' &amp;&amp; document.type != 'internal'"
 ///
 /// Example (Data Manipulation):
 ///
-///      title: &quot;Notification string&quot;
-///      description: &quot;Create a notification string with a timestamp.&quot;
-///      expression: &quot;&#39;New message received at &#39; + string(document.create_time)&quot;
+///      title: "Notification string"
+///      description: "Create a notification string with a timestamp."
+///      expression: "'New message received at ' + string(document.create_time)"
 ///
 /// The exact variables and functions that may be referenced within an expression
 /// are determined by the service that evaluates it. See the service
@@ -1160,20 +1161,20 @@
 </span><span class="kw">pub struct </span>Expr {
     <span class="doccomment">/// Textual representation of an expression in Common Expression Language
     /// syntax.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>expression: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Title for the expression, i.e. a short string describing
     /// its purpose. This can be used e.g. in UIs which allow to enter the
     /// expression.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Description of the expression. This is a longer text which
     /// describes the expression, e.g. when hovered over it in a UI.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. String indicating the location of the expression for error
     /// reporting, e.g. a file name and a position in the file.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>location: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents a whole or partial calendar date, such as a birthday. The time of
@@ -1194,31 +1195,31 @@
 </span><span class="kw">pub struct </span>Date {
     <span class="doccomment">/// Year of the date. Must be from 1 to 9999, or 0 to specify a date without
     /// a year.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>year: i32,
     <span class="doccomment">/// Month of a year. Must be from 1 to 12, or 0 to specify a year without a
     /// month and day.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>month: i32,
     <span class="doccomment">/// Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
-    /// to specify a year by itself or a year and month where the day isn&#39;t
+    /// to specify a year by itself or a year and month where the day isn't
     /// significant.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>day: i32,
 }
 <span class="doccomment">/// An object that represents a latitude/longitude pair. This is expressed as a
 /// pair of doubles to represent degrees latitude and degrees longitude. Unless
 /// specified otherwise, this must conform to the
-/// &lt;a href=&quot;&lt;http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf&quot;&gt;WGS84&gt;
+/// &lt;a href="&lt;http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf"&gt;WGS84&gt;
 /// standard&lt;/a&gt;. Values must be within normalized ranges.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LatLng {
     <span class="doccomment">/// The latitude in degrees. It must be in the range \[-90.0, +90.0\].
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>latitude: f64,
     <span class="doccomment">/// The longitude in degrees. It must be in the range \[-180.0, +180.0\].
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>longitude: f64,
 }
 <span class="doccomment">/// Represents a fraction in terms of a numerator divided by a denominator.
@@ -1226,11 +1227,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Fraction {
     <span class="doccomment">/// The numerator in the fraction, e.g. 2 in 2/3.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>numerator: i64,
     <span class="doccomment">/// The value by which the numerator is divided, e.g. 3 in 2/3. Must be
     /// positive.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>denominator: i64,
 }
 <span class="doccomment">/// Represents civil time (or occasionally physical time).
@@ -1252,47 +1253,47 @@
 /// This type may also be used to represent a physical time if all the date and
 /// time fields are set and either case of the `time_offset` oneof is set.
 /// Consider using `Timestamp` message for physical time instead. If your use
-/// case also would like to store the user&#39;s timezone, that can be done in
+/// case also would like to store the user's timezone, that can be done in
 /// another field.
 ///
 /// This type is more flexible than some applications may want. Make sure to
-/// document and validate your application&#39;s limitations.
+/// document and validate your application's limitations.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DateTime {
     <span class="doccomment">/// Optional. Year of date. Must be from 1 to 9999, or 0 if specifying a
     /// datetime without a year.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>year: i32,
     <span class="doccomment">/// Required. Month of year. Must be from 1 to 12.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>month: i32,
     <span class="doccomment">/// Required. Day of month. Must be from 1 to 31 and valid for the year and
     /// month.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>day: i32,
     <span class="doccomment">/// Required. Hours of day in 24 hour format. Should be from 0 to 23. An API
-    /// may choose to allow the value &quot;24:00:00&quot; for scenarios like business
+    /// may choose to allow the value "24:00:00" for scenarios like business
     /// closing time.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>hours: i32,
     <span class="doccomment">/// Required. Minutes of hour of day. Must be from 0 to 59.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>minutes: i32,
     <span class="doccomment">/// Required. Seconds of minutes of the time. Must normally be from 0 to 59. An
     /// API may allow the value 60 if it allows leap-seconds.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>seconds: i32,
     <span class="doccomment">/// Required. Fractions of seconds in nanoseconds. Must be from 0 to
     /// 999,999,999.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>nanos: i32,
     <span class="doccomment">/// Optional. Specifies either the UTC offset or the time zone of the DateTime.
     /// Choose carefully between them, considering that time zone data may change
     /// in the future (for example, a country modifies their DST start/end dates,
     /// and future DateTimes in the affected range had already been stored).
     /// If omitted, the DateTime is considered to be in local time.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;date_time::TimeOffset&quot;</span>, tags = <span class="string">&quot;8, 9&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"date_time::TimeOffset"</span>, tags = <span class="string">"8, 9"</span>)]
     </span><span class="kw">pub </span>time_offset: ::core::option::Option&lt;date_time::TimeOffset&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DateTime`.
@@ -1308,10 +1309,10 @@
         <span class="doccomment">/// UTC offset. Must be whole seconds, between -18 hours and +18 hours.
         /// For example, a UTC offset of -4:00 would be represented as
         /// { seconds: -14400 }.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>UtcOffset(::prost_types::Duration),
         <span class="doccomment">/// Time zone.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>TimeZone(<span class="kw">super</span>::TimeZone),
     }
 }
@@ -1320,11 +1321,11 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimeZone {
-    <span class="doccomment">/// IANA Time Zone Database time zone, e.g. &quot;America/New_York&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// IANA Time Zone Database time zone, e.g. "America/New_York".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. IANA Time Zone Database version number, e.g. &quot;2019a&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Optional. IANA Time Zone Database version number, e.g. "2019a".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents a day of the week.
@@ -1353,29 +1354,29 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DayOfWeek::Unspecified =&gt; <span class="string">&quot;DAY_OF_WEEK_UNSPECIFIED&quot;</span>,
-            DayOfWeek::Monday =&gt; <span class="string">&quot;MONDAY&quot;</span>,
-            DayOfWeek::Tuesday =&gt; <span class="string">&quot;TUESDAY&quot;</span>,
-            DayOfWeek::Wednesday =&gt; <span class="string">&quot;WEDNESDAY&quot;</span>,
-            DayOfWeek::Thursday =&gt; <span class="string">&quot;THURSDAY&quot;</span>,
-            DayOfWeek::Friday =&gt; <span class="string">&quot;FRIDAY&quot;</span>,
-            DayOfWeek::Saturday =&gt; <span class="string">&quot;SATURDAY&quot;</span>,
-            DayOfWeek::Sunday =&gt; <span class="string">&quot;SUNDAY&quot;</span>,
+            DayOfWeek::Unspecified =&gt; <span class="string">"DAY_OF_WEEK_UNSPECIFIED"</span>,
+            DayOfWeek::Monday =&gt; <span class="string">"MONDAY"</span>,
+            DayOfWeek::Tuesday =&gt; <span class="string">"TUESDAY"</span>,
+            DayOfWeek::Wednesday =&gt; <span class="string">"WEDNESDAY"</span>,
+            DayOfWeek::Thursday =&gt; <span class="string">"THURSDAY"</span>,
+            DayOfWeek::Friday =&gt; <span class="string">"FRIDAY"</span>,
+            DayOfWeek::Saturday =&gt; <span class="string">"SATURDAY"</span>,
+            DayOfWeek::Sunday =&gt; <span class="string">"SUNDAY"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;DAY_OF_WEEK_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;MONDAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Monday),
-            <span class="string">&quot;TUESDAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tuesday),
-            <span class="string">&quot;WEDNESDAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Wednesday),
-            <span class="string">&quot;THURSDAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Thursday),
-            <span class="string">&quot;FRIDAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Friday),
-            <span class="string">&quot;SATURDAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Saturday),
-            <span class="string">&quot;SUNDAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sunday),
+            <span class="string">"DAY_OF_WEEK_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"MONDAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Monday),
+            <span class="string">"TUESDAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tuesday),
+            <span class="string">"WEDNESDAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Wednesday),
+            <span class="string">"THURSDAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Thursday),
+            <span class="string">"FRIDAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Friday),
+            <span class="string">"SATURDAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Saturday),
+            <span class="string">"SUNDAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sunday),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1385,11 +1386,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Money {
     <span class="doccomment">/// The three-letter currency code defined in ISO 4217.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
     <span class="doccomment">/// The whole units of the amount.
-    /// For example if `currencyCode` is `&quot;USD&quot;`, then 1 unit is one US dollar.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    /// For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>units: i64,
     <span class="doccomment">/// Number of nano (10^-9) units of the amount.
     /// The value must be between -999,999,999 and +999,999,999 inclusive.
@@ -1397,7 +1398,7 @@
     /// If `units` is zero, `nanos` can be positive, zero, or negative.
     /// If `units` is negative, `nanos` must be negative or zero.
     /// For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>nanos: i32,
 }
 <span class="doccomment">/// An object representing a phone number, suitable as an API wire format.
@@ -1405,7 +1406,7 @@
 /// This representation:
 ///
 ///   - should not be used for locale-specific formatting of a phone number, such
-///     as &quot;+1 (650) 253-0000 ext. 123&quot;
+///     as "+1 (650) 253-0000 ext. 123"
 ///
 ///   - is not designed for efficient storage
 ///   - may not be suitable for dialing - specialized libraries (see references)
@@ -1419,7 +1420,7 @@
 ///     com.google.type.PhoneNumber wireProto =
 ///         com.google.type.PhoneNumber.newBuilder().build();
 ///     com.google.i18n.phonenumbers.Phonenumber.PhoneNumber phoneNumber =
-///         PhoneNumberUtil.getInstance().parse(wireProto.getE164Number(), &quot;ZZ&quot;);
+///         PhoneNumberUtil.getInstance().parse(wireProto.getE164Number(), "ZZ");
 ///     if (!wireProto.getExtension().isEmpty()) {
 ///       phoneNumber.setExtension(wireProto.getExtension());
 ///     }
@@ -1429,21 +1430,21 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PhoneNumber {
-    <span class="doccomment">/// The phone number&#39;s extension. The extension is not standardized in ITU
+    <span class="doccomment">/// The phone number's extension. The extension is not standardized in ITU
     /// recommendations, except for being defined as a series of numbers with a
     /// maximum length of 40 digits. Other than digits, some other dialing
-    /// characters such as &#39;,&#39; (indicating a wait) or &#39;#&#39; may be stored here.
+    /// characters such as ',' (indicating a wait) or '#' may be stored here.
     ///
     /// Note that no regions currently use extensions with short codes, so this
     /// field is normally only set in conjunction with an E.164 number. It is held
     /// separately from the E.164 number to allow for short code extensions in the
     /// future.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>extension: ::prost::alloc::string::String,
     <span class="doccomment">/// Required.  Either a regular number, or a short code.  New fields may be
     /// added to the oneof below in the future, so clients should ignore phone
     /// numbers for which none of the fields they coded against are set.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;phone_number::Kind&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"phone_number::Kind"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>kind: ::core::option::Option&lt;phone_number::Kind&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PhoneNumber`.
@@ -1451,7 +1452,7 @@
     <span class="doccomment">/// An object representing a short code, which is a phone number that is
     /// typically much shorter than regular phone numbers and can be used to
     /// address messages in MMS and SMS systems, as well as for abbreviated dialing
-    /// (e.g. &quot;Text 611 to see how many minutes you have remaining on your plan.&quot;).
+    /// (e.g. "Text 611 to see how many minutes you have remaining on your plan.").
     ///
     /// Short codes are restricted to a region and are not internationally
     /// dialable, which means the same short code can exist in different regions,
@@ -1461,15 +1462,15 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ShortCode {
         <span class="doccomment">/// Required. The BCP-47 region code of the location where calls to this
-        /// short code can be made, such as &quot;US&quot; and &quot;BB&quot;.
+        /// short code can be made, such as "US" and "BB".
         ///
         /// Reference(s):
         ///   - &lt;http://www.unicode.org/reports/tr35/#unicode_region_subtag&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
-        <span class="doccomment">/// Required. The short code digits, without a leading plus (&#39;+&#39;) or country
-        /// calling code, e.g. &quot;611&quot;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        <span class="doccomment">/// Required. The short code digits, without a leading plus ('+') or country
+        /// calling code, e.g. "611".
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>number: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Required.  Either a regular number, or a short code.  New fields may be
@@ -1478,12 +1479,12 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Kind {
-        <span class="doccomment">/// The phone number, represented as a leading plus sign (&#39;+&#39;), followed by a
+        <span class="doccomment">/// The phone number, represented as a leading plus sign ('+'), followed by a
         /// phone number that uses a relaxed ITU E.164 format consisting of the
         /// country calling code (1 to 3 digits) and the subscriber number, with no
         /// additional spaces or formatting, e.g.:
-        ///   - correct: &quot;+15552220123&quot;
-        ///   - incorrect: &quot;+1 (555) 222-01234 x123&quot;.
+        ///   - correct: "+15552220123"
+        ///   - incorrect: "+1 (555) 222-01234 x123".
         ///
         /// The ITU E.164 format limits the latter to 12 digits, but in practice not
         /// all countries respect that, so we relax that restriction here.
@@ -1493,13 +1494,13 @@
         ///   - &lt;https://www.itu.int/rec/T-REC-E.164-201011-I&gt;
         ///   - &lt;https://en.wikipedia.org/wiki/E.164.&gt;
         ///   - &lt;https://en.wikipedia.org/wiki/List_of_country_calling_codes&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>E164Number(::prost::alloc::string::String),
         <span class="doccomment">/// A short code.
         ///
         /// Reference(s):
         ///   - &lt;https://en.wikipedia.org/wiki/Short_code&gt;
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>ShortCode(ShortCode),
     }
 }
@@ -1563,16 +1564,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Quaternion {
     <span class="doccomment">/// The x component.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>x: f64,
     <span class="doccomment">/// The y component.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>y: f64,
     <span class="doccomment">/// The z component.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>z: f64,
     <span class="doccomment">/// The scalar component.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>w: f64,
 }
 <span class="doccomment">/// Represents a time of day. The date and time zone are either not significant
@@ -1583,18 +1584,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimeOfDay {
     <span class="doccomment">/// Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
-    /// to allow the value &quot;24:00:00&quot; for scenarios like business closing time.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    /// to allow the value "24:00:00" for scenarios like business closing time.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>hours: i32,
     <span class="doccomment">/// Minutes of hour of day. Must be from 0 to 59.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>minutes: i32,
     <span class="doccomment">/// Seconds of minutes of the time. Must normally be from 0 to 59. An API may
     /// allow the value 60 if it allows leap-seconds.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>seconds: i32,
     <span class="doccomment">/// Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>nanos: i32,
 }
 <span class="doccomment">/// Represents a month in the Gregorian calendar.
@@ -1633,39 +1634,39 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            Month::Unspecified =&gt; <span class="string">&quot;MONTH_UNSPECIFIED&quot;</span>,
-            Month::January =&gt; <span class="string">&quot;JANUARY&quot;</span>,
-            Month::February =&gt; <span class="string">&quot;FEBRUARY&quot;</span>,
-            Month::March =&gt; <span class="string">&quot;MARCH&quot;</span>,
-            Month::April =&gt; <span class="string">&quot;APRIL&quot;</span>,
-            Month::May =&gt; <span class="string">&quot;MAY&quot;</span>,
-            Month::June =&gt; <span class="string">&quot;JUNE&quot;</span>,
-            Month::July =&gt; <span class="string">&quot;JULY&quot;</span>,
-            Month::August =&gt; <span class="string">&quot;AUGUST&quot;</span>,
-            Month::September =&gt; <span class="string">&quot;SEPTEMBER&quot;</span>,
-            Month::October =&gt; <span class="string">&quot;OCTOBER&quot;</span>,
-            Month::November =&gt; <span class="string">&quot;NOVEMBER&quot;</span>,
-            Month::December =&gt; <span class="string">&quot;DECEMBER&quot;</span>,
+            Month::Unspecified =&gt; <span class="string">"MONTH_UNSPECIFIED"</span>,
+            Month::January =&gt; <span class="string">"JANUARY"</span>,
+            Month::February =&gt; <span class="string">"FEBRUARY"</span>,
+            Month::March =&gt; <span class="string">"MARCH"</span>,
+            Month::April =&gt; <span class="string">"APRIL"</span>,
+            Month::May =&gt; <span class="string">"MAY"</span>,
+            Month::June =&gt; <span class="string">"JUNE"</span>,
+            Month::July =&gt; <span class="string">"JULY"</span>,
+            Month::August =&gt; <span class="string">"AUGUST"</span>,
+            Month::September =&gt; <span class="string">"SEPTEMBER"</span>,
+            Month::October =&gt; <span class="string">"OCTOBER"</span>,
+            Month::November =&gt; <span class="string">"NOVEMBER"</span>,
+            Month::December =&gt; <span class="string">"DECEMBER"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;MONTH_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;JANUARY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::January),
-            <span class="string">&quot;FEBRUARY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::February),
-            <span class="string">&quot;MARCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::March),
-            <span class="string">&quot;APRIL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::April),
-            <span class="string">&quot;MAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::May),
-            <span class="string">&quot;JUNE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::June),
-            <span class="string">&quot;JULY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::July),
-            <span class="string">&quot;AUGUST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::August),
-            <span class="string">&quot;SEPTEMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::September),
-            <span class="string">&quot;OCTOBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::October),
-            <span class="string">&quot;NOVEMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::November),
-            <span class="string">&quot;DECEMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::December),
+            <span class="string">"MONTH_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"JANUARY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::January),
+            <span class="string">"FEBRUARY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::February),
+            <span class="string">"MARCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::March),
+            <span class="string">"APRIL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::April),
+            <span class="string">"MAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::May),
+            <span class="string">"JUNE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::June),
+            <span class="string">"JULY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::July),
+            <span class="string">"AUGUST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::August),
+            <span class="string">"SEPTEMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::September),
+            <span class="string">"OCTOBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::October),
+            <span class="string">"NOVEMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::November),
+            <span class="string">"DECEMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::December),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1674,14 +1675,14 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LocalizedText {
-    <span class="doccomment">/// Localized string in the language corresponding to `language_code&#39; below.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Localized string in the language corresponding to `language_code' below.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
-    <span class="doccomment">/// The text&#39;s BCP-47 language code, such as &quot;en-US&quot; or &quot;sr-Latn&quot;.
+    <span class="doccomment">/// The text's BCP-47 language code, such as "en-US" or "sr-Latn".
     ///
     /// For more information, see
     /// &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents a postal address, e.g. for postal delivery or payments addresses.
@@ -1708,18 +1709,18 @@
     /// the latest revision.
     ///
     /// All new revisions **must** be backward compatible with old revisions.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>revision: i32,
     <span class="doccomment">/// Required. CLDR region code of the country/region of the address. This
     /// is never inferred and it is up to the user to ensure the value is
     /// correct. See &lt;http://cldr.unicode.org/&gt; and
     /// &lt;http://www.unicode.org/cldr/charts/30/supplemental/territory_information.html&gt;
-    /// for details. Example: &quot;CH&quot; for Switzerland.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// for details. Example: "CH" for Switzerland.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. BCP-47 language code of the contents of this address (if
     /// known). This is often the UI language of the input form or is expected
-    /// to match one of the languages used in the address&#39; country/region, or their
+    /// to match one of the languages used in the address' country/region, or their
     /// transliterated equivalents.
     /// This can affect formatting in certain countries, but is not critical
     /// to the correctness of the data and will never affect any validation or
@@ -1728,50 +1729,50 @@
     /// If this value is not known, it should be omitted (rather than specifying a
     /// possibly incorrect default).
     ///
-    /// Examples: &quot;zh-Hant&quot;, &quot;ja&quot;, &quot;ja-Latn&quot;, &quot;en&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// Examples: "zh-Hant", "ja", "ja-Latn", "en".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Postal code of the address. Not all countries use or require
     /// postal codes to be present, but where they are used, they may trigger
     /// additional validation with other parts of the address (e.g. state/zip
     /// validation in the U.S.A.).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>postal_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Additional, country-specific, sorting code. This is not used
     /// in most regions. Where it is used, the value is either a string like
-    /// &quot;CEDEX&quot;, optionally followed by a number (e.g. &quot;CEDEX 7&quot;), or just a number
-    /// alone, representing the &quot;sector code&quot; (Jamaica), &quot;delivery area indicator&quot;
-    /// (Malawi) or &quot;post office indicator&quot; (e.g. Côte d&#39;Ivoire).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    /// "CEDEX", optionally followed by a number (e.g. "CEDEX 7"), or just a number
+    /// alone, representing the "sector code" (Jamaica), "delivery area indicator"
+    /// (Malawi) or "post office indicator" (e.g. Côte d'Ivoire).
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>sorting_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Highest administrative subdivision which is used for postal
     /// addresses of a country or region.
     /// For example, this can be a state, a province, an oblast, or a prefecture.
     /// Specifically, for Spain this is the province and not the autonomous
-    /// community (e.g. &quot;Barcelona&quot; and not &quot;Catalonia&quot;).
-    /// Many countries don&#39;t use an administrative area in postal addresses. E.g.
+    /// community (e.g. "Barcelona" and not "Catalonia").
+    /// Many countries don't use an administrative area in postal addresses. E.g.
     /// in Switzerland this should be left unpopulated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>administrative_area: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Generally refers to the city/town portion of the address.
     /// Examples: US city, IT comune, UK post town.
     /// In regions of the world where localities are not well defined or do not fit
     /// into this structure well, leave locality empty and use address_lines.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>locality: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Sublocality of the address.
     /// For example, this can be neighborhoods, boroughs, districts.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>sublocality: ::prost::alloc::string::String,
     <span class="doccomment">/// Unstructured address lines describing the lower levels of an address.
     ///
     /// Because values in address_lines do not have type information and may
     /// sometimes contain multiple values in a single field (e.g.
-    /// &quot;Austin, TX&quot;), it is important that the line order is clear. The order of
-    /// address lines should be &quot;envelope order&quot; for the country/region of the
+    /// "Austin, TX"), it is important that the line order is clear. The order of
+    /// address lines should be "envelope order" for the country/region of the
     /// address. In places where this can vary (e.g. Japan), address_language is
-    /// used to make it explicit (e.g. &quot;ja&quot; for large-to-small ordering and
-    /// &quot;ja-Latn&quot; or &quot;en&quot; for small-to-large). This way, the most specific line of
+    /// used to make it explicit (e.g. "ja" for large-to-small ordering and
+    /// "ja-Latn" or "en" for small-to-large). This way, the most specific line of
     /// an address can be selected based on the language.
     ///
     /// The minimum permitted structural representation of an address consists
@@ -1785,15 +1786,15 @@
     /// then geocoding is the recommended way to handle completely unstructured
     /// addresses (as opposed to guessing which parts of the address should be
     /// localities or administrative areas).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>address_lines: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. The recipient at the address.
     /// This field may, under certain circumstances, contain multiline information.
-    /// For example, it might contain &quot;care of&quot; information.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    /// For example, it might contain "care of" information.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>recipients: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. The name of the organization at the address.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>organization: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents a time interval, encoded as a Timestamp start (inclusive) and a
@@ -1809,18 +1810,18 @@
     ///
     /// If specified, a Timestamp matching this interval will have to be the same
     /// or after the start.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Exclusive end of the interval.
     ///
     /// If specified, a Timestamp matching this interval will have to be before the
     /// end.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// A representation of a decimal value, such as 2.5. Clients may convert values
-/// into language-native decimal formats, such as Java&#39;s [BigDecimal][] or
-/// Python&#39;s [decimal.Decimal][].
+/// into language-native decimal formats, such as Java's [BigDecimal][] or
+/// Python's [decimal.Decimal][].
 ///
 /// \[BigDecimal\]:
 /// &lt;https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/math/BigDecimal.html&gt;
@@ -1832,7 +1833,7 @@
     ///
     /// The string representation consists of an optional sign, `+` (`U+002B`)
     /// or `-` (`U+002D`), followed by a sequence of zero or more decimal digits
-    /// (&quot;the integer&quot;), optionally followed by a fraction, optionally followed
+    /// ("the integer"), optionally followed by a fraction, optionally followed
     /// by an exponent.
     ///
     /// The fraction consists of a decimal point followed by zero or more decimal
@@ -1866,14 +1867,14 @@
     ///      DecimalString =
     ///        \[Sign\] Significand \[Exponent\];
     ///
-    ///      Sign = &#39;+&#39; | &#39;-&#39;;
+    ///      Sign = '+' | '-';
     ///
     ///      Significand =
-    ///        Digits \[&#39;.&#39;\] [Digits] | \[Digits\] &#39;.&#39; Digits;
+    ///        Digits \['.'\] [Digits] | \[Digits\] '.' Digits;
     ///
-    ///      Exponent = (&#39;e&#39; | &#39;E&#39;) \[Sign\] Digits;
+    ///      Exponent = ('e' | 'E') \[Sign\] Digits;
     ///
-    ///      Digits = { &#39;0&#39; | &#39;1&#39; | &#39;2&#39; | &#39;3&#39; | &#39;4&#39; | &#39;5&#39; | &#39;6&#39; | &#39;7&#39; | &#39;8&#39; | &#39;9&#39; };
+    ///      Digits = { '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' };
     ///
     /// Services **should** clearly document the range of supported values, the
     /// maximum supported precision (total number of digits), and, if applicable,
@@ -1888,12 +1889,12 @@
     ///
     /// Services **should** error with `400 Bad Request` (`INVALID_ARGUMENT` in
     /// gRPC) if the service receives a value outside of the supported range.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A `CalendarPeriod` represents the abstract concept of a time period that has
-/// a canonical start. Grammatically, &quot;the start of the current
-/// `CalendarPeriod`.&quot; All calendar times begin at midnight UTC.
+/// a canonical start. Grammatically, "the start of the current
+/// `CalendarPeriod`." All calendar times begin at midnight UTC.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>CalendarPeriod {
@@ -1923,29 +1924,29 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            CalendarPeriod::Unspecified =&gt; <span class="string">&quot;CALENDAR_PERIOD_UNSPECIFIED&quot;</span>,
-            CalendarPeriod::Day =&gt; <span class="string">&quot;DAY&quot;</span>,
-            CalendarPeriod::Week =&gt; <span class="string">&quot;WEEK&quot;</span>,
-            CalendarPeriod::Fortnight =&gt; <span class="string">&quot;FORTNIGHT&quot;</span>,
-            CalendarPeriod::Month =&gt; <span class="string">&quot;MONTH&quot;</span>,
-            CalendarPeriod::Quarter =&gt; <span class="string">&quot;QUARTER&quot;</span>,
-            CalendarPeriod::Half =&gt; <span class="string">&quot;HALF&quot;</span>,
-            CalendarPeriod::Year =&gt; <span class="string">&quot;YEAR&quot;</span>,
+            CalendarPeriod::Unspecified =&gt; <span class="string">"CALENDAR_PERIOD_UNSPECIFIED"</span>,
+            CalendarPeriod::Day =&gt; <span class="string">"DAY"</span>,
+            CalendarPeriod::Week =&gt; <span class="string">"WEEK"</span>,
+            CalendarPeriod::Fortnight =&gt; <span class="string">"FORTNIGHT"</span>,
+            CalendarPeriod::Month =&gt; <span class="string">"MONTH"</span>,
+            CalendarPeriod::Quarter =&gt; <span class="string">"QUARTER"</span>,
+            CalendarPeriod::Half =&gt; <span class="string">"HALF"</span>,
+            CalendarPeriod::Year =&gt; <span class="string">"YEAR"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;CALENDAR_PERIOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;DAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Day),
-            <span class="string">&quot;WEEK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Week),
-            <span class="string">&quot;FORTNIGHT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Fortnight),
-            <span class="string">&quot;MONTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Month),
-            <span class="string">&quot;QUARTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Quarter),
-            <span class="string">&quot;HALF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Half),
-            <span class="string">&quot;YEAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Year),
+            <span class="string">"CALENDAR_PERIOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"DAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Day),
+            <span class="string">"WEEK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Week),
+            <span class="string">"FORTNIGHT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Fortnight),
+            <span class="string">"MONTH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Month),
+            <span class="string">"QUARTER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Quarter),
+            <span class="string">"HALF" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Half),
+            <span class="string">"YEAR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Year),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }

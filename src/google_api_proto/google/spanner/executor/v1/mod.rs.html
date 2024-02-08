@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/spanner/executor/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/spanner/executor/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1887,10 +1888,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SpannerAsyncActionRequest {
     <span class="doccomment">/// Action id to uniquely identify this action request.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>action_id: i32,
     <span class="doccomment">/// The actual SpannerAction to perform.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>action: ::core::option::Option&lt;SpannerAction&gt;,
 }
 <span class="doccomment">/// Response from executor service.
@@ -1898,11 +1899,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SpannerAsyncActionResponse {
     <span class="doccomment">/// Action id corresponds to the request.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>action_id: i32,
     <span class="doccomment">/// If action results are split into multiple responses, only the last response
     /// can and should contain status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>outcome: ::core::option::Option&lt;SpannerActionOutcome&gt;,
 }
 <span class="doccomment">/// SpannerAction defines a primitive action that can be performed against
@@ -1914,13 +1915,13 @@
     <span class="doccomment">/// Database against which to perform action.
     /// In a context where a series of actions take place, an action may omit
     /// database path if it applies to the same database as the previous action.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>database_path: ::prost::alloc::string::String,
     <span class="doccomment">/// Action represents a spanner action kind, there will only be one action kind
     /// per SpannerAction.
     </span><span class="attr">#[prost(
-        oneof = <span class="string">&quot;spanner_action::Action&quot;</span>,
-        tags = <span class="string">&quot;10, 11, 20, 21, 22, 23, 24, 25, 27, 30, 40, 41, 42, 43, 44, 50&quot;
+        oneof = <span class="string">"spanner_action::Action"</span>,
+        tags = <span class="string">"10, 11, 20, 21, 22, 23, 24, 25, 27, 30, 40, 41, 42, 43, 44, 50"
     </span>)]
     </span><span class="kw">pub </span>action: ::core::option::Option&lt;spanner_action::Action&gt;,
 }
@@ -1932,53 +1933,53 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Action {
         <span class="doccomment">/// Action to start a transaction.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>Start(<span class="kw">super</span>::StartTransactionAction),
         <span class="doccomment">/// Action to finish a transaction.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"11"</span>)]
         </span>Finish(<span class="kw">super</span>::FinishTransactionAction),
         <span class="doccomment">/// Action to do a normal read.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;20&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"20"</span>)]
         </span>Read(<span class="kw">super</span>::ReadAction),
         <span class="doccomment">/// Action to do a query.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;21&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"21"</span>)]
         </span>Query(<span class="kw">super</span>::QueryAction),
         <span class="doccomment">/// Action to buffer a mutation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;22&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"22"</span>)]
         </span>Mutation(<span class="kw">super</span>::MutationAction),
         <span class="doccomment">/// Action to a DML.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;23&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"23"</span>)]
         </span>Dml(<span class="kw">super</span>::DmlAction),
         <span class="doccomment">/// Action to a batch DML.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;24&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"24"</span>)]
         </span>BatchDml(<span class="kw">super</span>::BatchDmlAction),
         <span class="doccomment">/// Action to write a mutation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;25&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"25"</span>)]
         </span>Write(<span class="kw">super</span>::WriteMutationsAction),
         <span class="doccomment">/// Action to a partitioned update.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;27&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"27"</span>)]
         </span>PartitionedUpdate(<span class="kw">super</span>::PartitionedUpdateAction),
         <span class="doccomment">/// Action that contains any administrative operation, like database,
         /// instance manipulation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;30&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"30"</span>)]
         </span>Admin(<span class="kw">super</span>::AdminAction),
         <span class="doccomment">/// Action to start a batch transaction.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;40&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"40"</span>)]
         </span>StartBatchTxn(<span class="kw">super</span>::StartBatchTransactionAction),
         <span class="doccomment">/// Action to close a batch transaction.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;41&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"41"</span>)]
         </span>CloseBatchTxn(<span class="kw">super</span>::CloseBatchTransactionAction),
         <span class="doccomment">/// Action to generate database partitions for batch read.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;42&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"42"</span>)]
         </span>GenerateDbPartitionsRead(<span class="kw">super</span>::GenerateDbPartitionsForReadAction),
         <span class="doccomment">/// Action to generate database partitions for batch query.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;43&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"43"</span>)]
         </span>GenerateDbPartitionsQuery(<span class="kw">super</span>::GenerateDbPartitionsForQueryAction),
         <span class="doccomment">/// Action to execute batch actions on generated partitions.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;44&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"44"</span>)]
         </span>ExecutePartition(<span class="kw">super</span>::ExecutePartitionAction),
         <span class="doccomment">/// Action to execute change stream query.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;50&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"50"</span>)]
         </span>ExecuteChangeStreamQuery(<span class="kw">super</span>::ExecuteChangeStreamQuery),
     }
 }
@@ -1987,19 +1988,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReadAction {
     <span class="doccomment">/// The table to read at.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
-    <span class="doccomment">/// The index to read at if it&#39;s an index read.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The index to read at if it's an index read.
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>index: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// List of columns must begin with the key columns used for the read.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>column: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Keys for performing this read.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>keys: ::core::option::Option&lt;KeySet&gt;,
     <span class="doccomment">/// Limit on number of rows to read. If set, must be positive.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>limit: i32,
 }
 <span class="doccomment">/// A SQL query request.
@@ -2007,10 +2008,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryAction {
     <span class="doccomment">/// The SQL string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sql: ::prost::alloc::string::String,
     <span class="doccomment">/// Parameters for the SQL string.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>params: ::prost::alloc::vec::Vec&lt;query_action::Parameter&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `QueryAction`.
@@ -2020,13 +2021,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Parameter {
         <span class="doccomment">/// Name of the parameter (with no leading @).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// Type of the parameter.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::v1::Type&gt;,
         <span class="doccomment">/// Value of the parameter.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>value: ::core::option::Option&lt;<span class="kw">super</span>::Value&gt;,
     }
 }
@@ -2035,11 +2036,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DmlAction {
     <span class="doccomment">/// DML statement.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update: ::core::option::Option&lt;QueryAction&gt;,
     <span class="doccomment">/// Whether to autocommit the transaction after executing the DML statement,
     /// if the Executor supports autocommit.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>autocommit_if_supported: ::core::option::Option&lt;bool&gt;,
 }
 <span class="doccomment">/// Batch of DML statements invoked using batched execution.
@@ -2047,7 +2048,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchDmlAction {
     <span class="doccomment">/// DML statements.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>updates: ::prost::alloc::vec::Vec&lt;QueryAction&gt;,
 }
 <span class="doccomment">/// Value represents a single value that can be read or written to/from
@@ -2056,10 +2057,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Value {
     <span class="doccomment">/// Type of array element. Only set if value is an array.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>array_type: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::v1::Type&gt;,
     <span class="doccomment">/// Exactly one of the following fields will be present.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;value::ValueType&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"value::ValueType"</span>, tags = <span class="string">"1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11"</span>)]
     </span><span class="kw">pub </span>value_type: ::core::option::Option&lt;value::ValueType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Value`.
@@ -2069,41 +2070,41 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ValueType {
         <span class="doccomment">/// If is_null is set, then this value is null.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span>IsNull(bool),
-        <span class="doccomment">/// Int type value. It&#39;s used for all integer number types, like int32 and
+        <span class="doccomment">/// Int type value. It's used for all integer number types, like int32 and
         /// int64.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span>IntValue(i64),
         <span class="doccomment">/// Bool type value.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span>BoolValue(bool),
-        <span class="doccomment">/// Double type value. It&#39;s used for all float point types, like float and
+        <span class="doccomment">/// Double type value. It's used for all float point types, like float and
         /// double.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
         </span>DoubleValue(f64),
-        <span class="doccomment">/// Bytes type value, stored in CORD. It&#39;s also used for PROTO type value.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;5&quot;</span>)]
+        <span class="doccomment">/// Bytes type value, stored in CORD. It's also used for PROTO type value.
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"5"</span>)]
         </span>BytesValue(::prost::bytes::Bytes),
         <span class="doccomment">/// String type value, stored in CORD.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span>StringValue(::prost::alloc::string::String),
         <span class="doccomment">/// Struct type value. It contains a ValueList representing the values in
         /// this struct.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>StructValue(<span class="kw">super</span>::ValueList),
         <span class="doccomment">/// Timestamp type value.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>TimestampValue(::prost_types::Timestamp),
         <span class="doccomment">/// Date type value. Date is specified as a number of days since Unix epoch.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"9"</span>)]
         </span>DateDaysValue(i32),
         <span class="doccomment">/// If set, holds the sentinel value for the transaction CommitTimestamp.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"10"</span>)]
         </span>IsCommitTimestamp(bool),
         <span class="doccomment">/// Array type value. The underlying Valuelist should have values that have
         /// the same type.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"11"</span>)]
         </span>ArrayValue(<span class="kw">super</span>::ValueList),
     }
 }
@@ -2112,27 +2113,27 @@
 /// A range has a start key and an end key. These keys can be open or
 /// closed, indicating if the range includes rows with that key.
 ///
-/// Keys are represented by &quot;ValueList&quot;, where the ith value in the list
+/// Keys are represented by "ValueList", where the ith value in the list
 /// corresponds to the ith component of the table or index primary key.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>KeyRange {
-    <span class="doccomment">/// &quot;start&quot; and &quot;limit&quot; must have the same number of key parts,
+    <span class="doccomment">/// "start" and "limit" must have the same number of key parts,
     /// though they may name only a prefix of the table or index key.
     /// The start key of this KeyRange.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start: ::core::option::Option&lt;ValueList&gt;,
     <span class="doccomment">/// The end key of this KeyRange.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>limit: ::core::option::Option&lt;ValueList&gt;,
-    <span class="doccomment">/// &quot;start&quot; and &quot;limit&quot; type for this KeyRange.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;key_range::Type&quot;</span>, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// "start" and "limit" type for this KeyRange.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"key_range::Type"</span>, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `KeyRange`.
 </span><span class="kw">pub mod </span>key_range {
-    <span class="doccomment">/// Type controls whether &quot;start&quot; and &quot;limit&quot; are open or closed. By default,
-    /// &quot;start&quot; is closed, and &quot;limit&quot; is open.
+    <span class="doccomment">/// Type controls whether "start" and "limit" are open or closed. By default,
+    /// "start" is closed, and "limit" is open.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -2146,7 +2147,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>Type {
-        <span class="doccomment">/// &quot;TYPE_UNSPECIFIED&quot; is equivalent to &quot;CLOSED_OPEN&quot;.
+        <span class="doccomment">/// "TYPE_UNSPECIFIED" is equivalent to "CLOSED_OPEN".
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// \[start,limit\]
         </span>ClosedClosed = <span class="number">1</span>,
@@ -2162,23 +2163,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::ClosedClosed =&gt; <span class="string">&quot;CLOSED_CLOSED&quot;</span>,
-                Type::ClosedOpen =&gt; <span class="string">&quot;CLOSED_OPEN&quot;</span>,
-                Type::OpenClosed =&gt; <span class="string">&quot;OPEN_CLOSED&quot;</span>,
-                Type::OpenOpen =&gt; <span class="string">&quot;OPEN_OPEN&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::ClosedClosed =&gt; <span class="string">"CLOSED_CLOSED"</span>,
+                Type::ClosedOpen =&gt; <span class="string">"CLOSED_OPEN"</span>,
+                Type::OpenClosed =&gt; <span class="string">"OPEN_CLOSED"</span>,
+                Type::OpenOpen =&gt; <span class="string">"OPEN_OPEN"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CLOSED_CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClosedClosed),
-                <span class="string">&quot;CLOSED_OPEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClosedOpen),
-                <span class="string">&quot;OPEN_CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OpenClosed),
-                <span class="string">&quot;OPEN_OPEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OpenOpen),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CLOSED_CLOSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClosedClosed),
+                <span class="string">"CLOSED_OPEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClosedOpen),
+                <span class="string">"OPEN_CLOSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OpenClosed),
+                <span class="string">"OPEN_OPEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OpenOpen),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2190,18 +2191,18 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>KeySet {
-    <span class="doccomment">/// A list of specific keys. Entries in &quot;keys&quot; should have exactly as
+    <span class="doccomment">/// A list of specific keys. Entries in "keys" should have exactly as
     /// many elements as there are columns in the primary or index key
-    /// with which this &quot;KeySet&quot; is used.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    /// with which this "KeySet" is used.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>point: ::prost::alloc::vec::Vec&lt;ValueList&gt;,
     <span class="doccomment">/// A list of key ranges.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>range: ::prost::alloc::vec::Vec&lt;KeyRange&gt;,
-    <span class="doccomment">/// For convenience &quot;all&quot; can be set to &quot;true&quot; to indicate that this
-    /// &quot;KeySet&quot; matches all keys in the table or index. Note that any keys
-    /// specified in &quot;keys&quot; or &quot;ranges&quot; are only yielded once.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// For convenience "all" can be set to "true" to indicate that this
+    /// "KeySet" matches all keys in the table or index. Note that any keys
+    /// specified in "keys" or "ranges" are only yielded once.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>all: bool,
 }
 <span class="doccomment">/// List of values.
@@ -2209,7 +2210,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ValueList {
     <span class="doccomment">/// Values contained in this ValueList.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>value: ::prost::alloc::vec::Vec&lt;Value&gt;,
 }
 <span class="doccomment">/// A single mutation request.
@@ -2217,7 +2218,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MutationAction {
     <span class="doccomment">/// Mods that contained in this mutation.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#mod: ::prost::alloc::vec::Vec&lt;mutation_action::Mod&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MutationAction`.
@@ -2227,13 +2228,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>InsertArgs {
         <span class="doccomment">/// The names of the columns to be written.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>column: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// Type information for the &quot;values&quot; entries below.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        <span class="doccomment">/// Type information for the "values" entries below.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>r#type: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::v1::Type&gt;,
         <span class="doccomment">/// The values to be written.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::ValueList&gt;,
     }
     <span class="doccomment">/// Arguments to Update.
@@ -2241,13 +2242,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>UpdateArgs {
         <span class="doccomment">/// The columns to be updated. Identical to InsertArgs.column.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>column: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
-        <span class="doccomment">/// Type information for &quot;values&quot;. Identical to InsertArgs.type.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        <span class="doccomment">/// Type information for "values". Identical to InsertArgs.type.
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>r#type: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::v1::Type&gt;,
         <span class="doccomment">/// The values to be updated. Identical to InsertArgs.values.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::ValueList&gt;,
     }
     <span class="doccomment">/// Mod represents the write action that will be perform to a table. Each mod
@@ -2257,23 +2258,23 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Mod {
         <span class="doccomment">/// The table to write.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
         <span class="doccomment">/// Exactly one of the remaining elements may be present.
-        /// Insert new rows into &quot;table&quot;.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        /// Insert new rows into "table".
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>insert: ::core::option::Option&lt;InsertArgs&gt;,
-        <span class="doccomment">/// Update columns stored in existing rows of &quot;table&quot;.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        <span class="doccomment">/// Update columns stored in existing rows of "table".
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>update: ::core::option::Option&lt;UpdateArgs&gt;,
-        <span class="doccomment">/// Insert or update existing rows of &quot;table&quot;.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        <span class="doccomment">/// Insert or update existing rows of "table".
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>insert_or_update: ::core::option::Option&lt;InsertArgs&gt;,
-        <span class="doccomment">/// Replace existing rows of &quot;table&quot;.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+        <span class="doccomment">/// Replace existing rows of "table".
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>replace: ::core::option::Option&lt;InsertArgs&gt;,
-        <span class="doccomment">/// Delete rows from &quot;table&quot;.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+        <span class="doccomment">/// Delete rows from "table".
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>delete_keys: ::core::option::Option&lt;<span class="kw">super</span>::KeySet&gt;,
     }
 }
@@ -2283,7 +2284,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>WriteMutationsAction {
     <span class="doccomment">/// The mutation to write.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>mutation: ::core::option::Option&lt;MutationAction&gt;,
 }
 <span class="doccomment">/// PartitionedUpdateAction defines an action to execute a partitioned DML
@@ -2292,12 +2293,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionedUpdateAction {
     <span class="doccomment">/// Options for partitioned update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>options: ::core::option::Option&lt;
         partitioned_update_action::ExecutePartitionedUpdateOptions,
     &gt;,
     <span class="doccomment">/// Partitioned dml query.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update: ::core::option::Option&lt;QueryAction&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PartitionedUpdateAction`.
@@ -2307,13 +2308,13 @@
     </span><span class="kw">pub struct </span>ExecutePartitionedUpdateOptions {
         <span class="doccomment">/// RPC Priority
         </span><span class="attr">#[prost(
-            enumeration = <span class="string">&quot;super::super::super::v1::request_options::Priority&quot;</span>,
+            enumeration = <span class="string">"super::super::super::v1::request_options::Priority"</span>,
             optional,
-            tag = <span class="string">&quot;1&quot;
+            tag = <span class="string">"1"
         </span>)]
         </span><span class="kw">pub </span>rpc_priority: ::core::option::Option&lt;i32&gt;,
         <span class="doccomment">/// Transaction tag
-        </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>tag: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     }
 }
@@ -2323,18 +2324,18 @@
 </span><span class="kw">pub struct </span>StartTransactionAction {
     <span class="doccomment">/// Concurrency is for read-only transactions and must be omitted for
     /// read-write transactions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>concurrency: ::core::option::Option&lt;Concurrency&gt;,
     <span class="doccomment">/// Metadata about tables and columns that will be involved in this
     /// transaction. It is to convert values of key parts correctly.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>table: ::prost::alloc::vec::Vec&lt;TableMetadata&gt;,
     <span class="doccomment">/// Transaction_seed contains workid and op pair for this transaction, used for
     /// testing.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>transaction_seed: ::prost::alloc::string::String,
     <span class="doccomment">/// Execution options (e.g., whether transaction is opaque, optimistic).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>execution_options: ::core::option::Option&lt;TransactionExecutionOptions&gt;,
 }
 <span class="doccomment">/// Concurrency for read-only transactions.
@@ -2343,19 +2344,19 @@
 </span><span class="kw">pub struct </span>Concurrency {
     <span class="doccomment">/// True if exact_timestamp_micros is set, and the chosen timestamp is that of
     /// a snapshot epoch.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>snapshot_epoch_read: bool,
     <span class="doccomment">/// If set, this is a snapshot epoch read constrained to read only the
     /// specified log scope root table, and its children. Will not be set for full
     /// database epochs.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>snapshot_epoch_root_table: ::prost::alloc::string::String,
     <span class="doccomment">/// Set only when batch is true.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>batch_read_timestamp_micros: i64,
     <span class="doccomment">/// Concurrency mode set for read-only transactions, exactly one mode below
     /// should be set.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;concurrency::ConcurrencyMode&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"concurrency::ConcurrencyMode"</span>, tags = <span class="string">"1, 2, 3, 4, 5, 6"</span>)]
     </span><span class="kw">pub </span>concurrency_mode: ::core::option::Option&lt;concurrency::ConcurrencyMode&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Concurrency`.
@@ -2368,22 +2369,22 @@
         <span class="doccomment">/// Indicates a read at a consistent timestamp that is specified relative to
         /// now. That is, if the caller has specified an exact staleness of s
         /// seconds, we will read at now - s.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
         </span>StalenessSeconds(f64),
         <span class="doccomment">/// Indicates a boundedly stale read that reads at a timestamp &gt;= T.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span>MinReadTimestampMicros(i64),
         <span class="doccomment">/// Indicates a boundedly stale read that is at most N seconds stale.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
         </span>MaxStalenessSeconds(f64),
         <span class="doccomment">/// Indicates a read at a consistent timestamp.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
         </span>ExactTimestampMicros(i64),
         <span class="doccomment">/// Indicates a strong read, must only be set to true, or unset.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
         </span>Strong(bool),
         <span class="doccomment">/// Indicates a batch read, must only be set to true, or unset.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
         </span>Batch(bool),
     }
 }
@@ -2392,13 +2393,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableMetadata {
     <span class="doccomment">/// Table name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Columns, in the same order as in the schema.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>column: ::prost::alloc::vec::Vec&lt;ColumnMetadata&gt;,
     <span class="doccomment">/// Keys, in order. Column name is currently not populated.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>key_column: ::prost::alloc::vec::Vec&lt;ColumnMetadata&gt;,
 }
 <span class="doccomment">/// ColumnMetadata represents metadata of a single column.
@@ -2406,10 +2407,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ColumnMetadata {
     <span class="doccomment">/// Column name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Column type.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::v1::Type&gt;,
 }
 <span class="doccomment">/// Options for executing the transaction.
@@ -2417,7 +2418,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TransactionExecutionOptions {
     <span class="doccomment">/// Whether optimistic concurrency should be used to execute this transaction.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>optimistic: bool,
 }
 <span class="doccomment">/// FinishTransactionAction defines an action of finishing a transaction.
@@ -2426,7 +2427,7 @@
 </span><span class="kw">pub struct </span>FinishTransactionAction {
     <span class="doccomment">/// Defines how exactly the transaction should be completed, e.g. with
     /// commit or abortion.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;finish_transaction_action::Mode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"finish_transaction_action::Mode"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `FinishTransactionAction`.
@@ -2445,7 +2446,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>Mode {
-        <span class="doccomment">/// &quot;MODE_UNSPECIFIED&quot; is equivalent to &quot;COMMIT&quot;.
+        <span class="doccomment">/// "MODE_UNSPECIFIED" is equivalent to "COMMIT".
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Commit the transaction.
         </span>Commit = <span class="number">1</span>,
@@ -2457,19 +2458,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
-                Mode::Commit =&gt; <span class="string">&quot;COMMIT&quot;</span>,
-                Mode::Abandon =&gt; <span class="string">&quot;ABANDON&quot;</span>,
+                Mode::Unspecified =&gt; <span class="string">"MODE_UNSPECIFIED"</span>,
+                Mode::Commit =&gt; <span class="string">"COMMIT"</span>,
+                Mode::Abandon =&gt; <span class="string">"ABANDON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;COMMIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Commit),
-                <span class="string">&quot;ABANDON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Abandon),
+                <span class="string">"MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"COMMIT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Commit),
+                <span class="string">"ABANDON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Abandon),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2482,8 +2483,8 @@
 </span><span class="kw">pub struct </span>AdminAction {
     <span class="doccomment">/// Exactly one of the actions below will be performed in AdminAction.
     </span><span class="attr">#[prost(
-        oneof = <span class="string">&quot;admin_action::Action&quot;</span>,
-        tags = <span class="string">&quot;1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 27, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28&quot;
+        oneof = <span class="string">"admin_action::Action"</span>,
+        tags = <span class="string">"1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 27, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 28"
     </span>)]
     </span><span class="kw">pub </span>action: ::core::option::Option&lt;admin_action::Action&gt;,
 }
@@ -2494,88 +2495,88 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Action {
         <span class="doccomment">/// Action that creates a user instance config.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>CreateUserInstanceConfig(<span class="kw">super</span>::CreateUserInstanceConfigAction),
         <span class="doccomment">/// Action that updates a user instance config.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>UpdateUserInstanceConfig(<span class="kw">super</span>::UpdateUserInstanceConfigAction),
         <span class="doccomment">/// Action that deletes a user instance config.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>DeleteUserInstanceConfig(<span class="kw">super</span>::DeleteUserInstanceConfigAction),
         <span class="doccomment">/// Action that gets a user instance config.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>GetCloudInstanceConfig(<span class="kw">super</span>::GetCloudInstanceConfigAction),
         <span class="doccomment">/// Action that lists user instance configs.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>ListInstanceConfigs(<span class="kw">super</span>::ListCloudInstanceConfigsAction),
         <span class="doccomment">/// Action that creates a Cloud Spanner instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>CreateCloudInstance(<span class="kw">super</span>::CreateCloudInstanceAction),
         <span class="doccomment">/// Action that updates a Cloud Spanner instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>UpdateCloudInstance(<span class="kw">super</span>::UpdateCloudInstanceAction),
         <span class="doccomment">/// Action that deletes a Cloud Spanner instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>DeleteCloudInstance(<span class="kw">super</span>::DeleteCloudInstanceAction),
         <span class="doccomment">/// Action that lists Cloud Spanner instances.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>ListCloudInstances(<span class="kw">super</span>::ListCloudInstancesAction),
         <span class="doccomment">/// Action that retrieves a Cloud Spanner instance.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>GetCloudInstance(<span class="kw">super</span>::GetCloudInstanceAction),
         <span class="doccomment">/// Action that creates a Cloud Spanner database.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"11"</span>)]
         </span>CreateCloudDatabase(<span class="kw">super</span>::CreateCloudDatabaseAction),
         <span class="doccomment">/// Action that updates the schema of a Cloud Spanner database.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"12"</span>)]
         </span>UpdateCloudDatabaseDdl(<span class="kw">super</span>::UpdateCloudDatabaseDdlAction),
         <span class="doccomment">/// Action that updates the schema of a Cloud Spanner database.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;27&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"27"</span>)]
         </span>UpdateCloudDatabase(<span class="kw">super</span>::UpdateCloudDatabaseAction),
         <span class="doccomment">/// Action that drops a Cloud Spanner database.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"13"</span>)]
         </span>DropCloudDatabase(<span class="kw">super</span>::DropCloudDatabaseAction),
         <span class="doccomment">/// Action that lists Cloud Spanner databases.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;14&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"14"</span>)]
         </span>ListCloudDatabases(<span class="kw">super</span>::ListCloudDatabasesAction),
         <span class="doccomment">/// Action that lists Cloud Spanner database operations.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;15&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"15"</span>)]
         </span>ListCloudDatabaseOperations(<span class="kw">super</span>::ListCloudDatabaseOperationsAction),
         <span class="doccomment">/// Action that restores a Cloud Spanner database from a backup.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;16&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"16"</span>)]
         </span>RestoreCloudDatabase(<span class="kw">super</span>::RestoreCloudDatabaseAction),
         <span class="doccomment">/// Action that gets a Cloud Spanner database.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;17&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"17"</span>)]
         </span>GetCloudDatabase(<span class="kw">super</span>::GetCloudDatabaseAction),
         <span class="doccomment">/// Action that creates a Cloud Spanner database backup.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;18&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"18"</span>)]
         </span>CreateCloudBackup(<span class="kw">super</span>::CreateCloudBackupAction),
         <span class="doccomment">/// Action that copies a Cloud Spanner database backup.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;19&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"19"</span>)]
         </span>CopyCloudBackup(<span class="kw">super</span>::CopyCloudBackupAction),
         <span class="doccomment">/// Action that gets a Cloud Spanner database backup.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;20&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"20"</span>)]
         </span>GetCloudBackup(<span class="kw">super</span>::GetCloudBackupAction),
         <span class="doccomment">/// Action that updates a Cloud Spanner database backup.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;21&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"21"</span>)]
         </span>UpdateCloudBackup(<span class="kw">super</span>::UpdateCloudBackupAction),
         <span class="doccomment">/// Action that deletes a Cloud Spanner database backup.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;22&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"22"</span>)]
         </span>DeleteCloudBackup(<span class="kw">super</span>::DeleteCloudBackupAction),
         <span class="doccomment">/// Action that lists Cloud Spanner database backups.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;23&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"23"</span>)]
         </span>ListCloudBackups(<span class="kw">super</span>::ListCloudBackupsAction),
         <span class="doccomment">/// Action that lists Cloud Spanner database backup operations.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;24&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"24"</span>)]
         </span>ListCloudBackupOperations(<span class="kw">super</span>::ListCloudBackupOperationsAction),
         <span class="doccomment">/// Action that gets an operation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;25&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"25"</span>)]
         </span>GetOperation(<span class="kw">super</span>::GetOperationAction),
         <span class="doccomment">/// Action that cancels an operation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;26&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"26"</span>)]
         </span>CancelOperation(<span class="kw">super</span>::CancelOperationAction),
         <span class="doccomment">/// Action that reconfigures a Cloud Spanner database.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;28&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"28"</span>)]
         </span>ReconfigureCloudDatabase(<span class="kw">super</span>::ReconfigureCloudDatabaseAction),
     }
 }
@@ -2583,17 +2584,17 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateUserInstanceConfigAction {
-    <span class="doccomment">/// User instance config ID (not path), e.g. &quot;custom-config&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// User instance config ID (not path), e.g. "custom-config".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>user_config_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Base config ID, e.g. &quot;test-config&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// Base config ID, e.g. "test-config".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>base_config_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Replicas that should be included in the user config.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>replicas: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::admin::instance::v1::ReplicaInfo,
     &gt;,
@@ -2602,17 +2603,17 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateUserInstanceConfigAction {
-    <span class="doccomment">/// User instance config ID (not path), e.g. &quot;custom-config&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// User instance config ID (not path), e.g. "custom-config".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>user_config_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The descriptive name for this instance config as it appears in UIs.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>display_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2622,68 +2623,68 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetCloudInstanceConfigAction {
-    <span class="doccomment">/// Instance config ID (not path), e.g. &quot;custom-config&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Instance config ID (not path), e.g. "custom-config".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_config_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that deletes a user instance configs.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteUserInstanceConfigAction {
-    <span class="doccomment">/// User instance config ID (not path), e.g. &quot;custom-config&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// User instance config ID (not path), e.g. "custom-config".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>user_config_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that lists user instance configs.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCloudInstanceConfigsAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of instance configs to be returned in the response. If 0 or
-    /// less, defaults to the server&#39;s maximum allowed page size.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    /// less, defaults to the server's maximum allowed page size.
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// If non-empty, &quot;page_token&quot; should contain a next_page_token
-    /// from a previous ListInstanceConfigsResponse to the same &quot;parent&quot;.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// If non-empty, "page_token" should contain a next_page_token
+    /// from a previous ListInstanceConfigsResponse to the same "parent".
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Action that creates a Cloud Spanner instance.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateCloudInstanceAction {
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Instance config ID, e.g. &quot;test-config&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// Instance config ID, e.g. "test-config".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>instance_config_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of nodes (processing_units should not be set or set to 0 if used).
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>node_count: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Number of processing units (node_count should be set to 0 if used).
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>processing_units: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// The autoscaling config for this instance. If non-empty, an autoscaling
     /// instance will be created (processing_units and node_count should be set to
     /// 0 if used).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>autoscaling_config: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::admin::instance::v1::AutoscalingConfig,
     &gt;,
     <span class="doccomment">/// labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2693,33 +2694,33 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateCloudInstanceAction {
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The descriptive name for this instance as it appears in UIs.
     /// Must be unique per project and between 4 and 30 characters in length.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>display_name: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The number of nodes allocated to this instance. At most one of either
     /// node_count or processing_units should be present in the message.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>node_count: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// The number of processing units allocated to this instance. At most one of
     /// processing_units or node_count should be present in the message.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>processing_units: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// The autoscaling config for this instance. If non-empty, this instance is
     /// using autoscaling (processing_units and node_count should be set to
     /// 0 if used).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>autoscaling_config: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::admin::instance::v1::AutoscalingConfig,
     &gt;,
     <span class="doccomment">/// labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2729,95 +2730,95 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteCloudInstanceAction {
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that creates a Cloud Spanner database.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateCloudDatabaseAction {
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud database ID (not full path), e.g. &quot;db0&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// Cloud database ID (not full path), e.g. "db0".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>database_id: ::prost::alloc::string::String,
     <span class="doccomment">/// SDL statements to apply to the new database.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>sdl_statement: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The KMS key used to encrypt the database to be created if the database
     /// should be CMEK protected.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>encryption_config: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::admin::database::v1::EncryptionConfig,
     &gt;,
     <span class="doccomment">/// Optional SQL dialect (GOOGLESQL or POSTGRESQL).  Default: GOOGLESQL.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>dialect: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    <span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>proto_descriptors: ::core::option::Option&lt;::prost::bytes::Bytes&gt;,
 }
 <span class="doccomment">/// Action that updates the schema of a Cloud Spanner database.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateCloudDatabaseDdlAction {
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud database ID (not full path), e.g. &quot;db0&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// Cloud database ID (not full path), e.g. "db0".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>database_id: ::prost::alloc::string::String,
     <span class="doccomment">/// SDL statements to apply to the database.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>sdl_statement: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Op ID can be used to track progress of the update. If set, it must be
     /// unique per database. If not set, Cloud Spanner will generate operation ID
     /// automatically.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>operation_id: ::prost::alloc::string::String,
-    <span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    <span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>proto_descriptors: ::core::option::Option&lt;::prost::bytes::Bytes&gt;,
 }
 <span class="doccomment">/// Action that updates a Cloud Spanner database.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateCloudDatabaseAction {
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud database name (not full path), e.g. &quot;db0&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// Cloud database name (not full path), e.g. "db0".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>database_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Updated value of enable_drop_protection, this is the only field that has
     /// supported to be updated.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>enable_drop_protection: bool,
 }
 <span class="doccomment">/// Action that drops a Cloud Spanner database.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DropCloudDatabaseAction {
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud database ID (not full path), e.g. &quot;db0&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// Cloud database ID (not full path), e.g. "db0".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>database_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that reconfigures a Cloud Spanner database.
@@ -2825,38 +2826,38 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReconfigureCloudDatabaseAction {
     <span class="doccomment">/// The fully qualified uri of the database to be reconfigured.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>database_uri: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
-    <span class="doccomment">/// The locations of the serving regions, e.g. &quot;asia-south1&quot;.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The locations of the serving regions, e.g. "asia-south1".
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>serving_locations: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Action that lists Cloud Spanner databases.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCloudDatabasesAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud instance ID (not path) to list databases from, e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path) to list databases from, e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of databases to be returned in the response. If 0 or
-    /// less, defaults to the server&#39;s maximum allowed page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    /// less, defaults to the server's maximum allowed page size.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// If non-empty, &quot;page_token&quot; should contain a next_page_token
-    /// from a previous ListDatabasesResponse to the same &quot;parent&quot;
-    /// and with the same &quot;filter&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// If non-empty, "page_token" should contain a next_page_token
+    /// from a previous ListDatabasesResponse to the same "parent"
+    /// and with the same "filter".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that lists Cloud Spanner databases.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCloudInstancesAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// A filter expression that filters what operations are returned in the
     /// response.
@@ -2864,40 +2865,40 @@
     /// and the value that you want to use for filtering.
     /// Refer spanner_instance_admin.proto.ListInstancesRequest for
     /// detail.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Number of instances to be returned in the response. If 0 or
-    /// less, defaults to the server&#39;s maximum allowed page size.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// less, defaults to the server's maximum allowed page size.
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: ::core::option::Option&lt;i32&gt;,
-    <span class="doccomment">/// If non-empty, &quot;page_token&quot; should contain a next_page_token
-    /// from a previous ListInstancesResponse to the same &quot;parent&quot;
-    /// and with the same &quot;filter&quot;.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    <span class="doccomment">/// If non-empty, "page_token" should contain a next_page_token
+    /// from a previous ListInstancesResponse to the same "parent"
+    /// and with the same "filter".
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Action that retrieves a Cloud Spanner instance.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetCloudInstanceAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Cloud instance ID (not path) to retrieve the instance from,
-    /// e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that lists Cloud Spanner database operations.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCloudDatabaseOperationsAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Cloud instance ID (not path) to list database operations from,
-    /// e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
     <span class="doccomment">/// A filter expression that filters what operations are returned in the
     /// response.
@@ -2905,203 +2906,203 @@
     /// and the value that you want to use for filtering.
     /// Refer spanner_database_admin.proto.ListDatabaseOperationsRequest for
     /// detail.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of databases to be returned in the response. If 0 or
-    /// less, defaults to the server&#39;s maximum allowed page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    /// less, defaults to the server's maximum allowed page size.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// If non-empty, &quot;page_token&quot; should contain a next_page_token
-    /// from a previous ListDatabaseOperationsResponse to the same &quot;parent&quot;
-    /// and with the same &quot;filter&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// If non-empty, "page_token" should contain a next_page_token
+    /// from a previous ListDatabaseOperationsResponse to the same "parent"
+    /// and with the same "filter".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that restores a Cloud Spanner database from a backup.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RestoreCloudDatabaseAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud instance ID (not path) containing the backup, e.g. &quot;backup-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path) containing the backup, e.g. "backup-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>backup_instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The id of the backup from which to restore, e.g. &quot;test-backup&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The id of the backup from which to restore, e.g. "test-backup".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>backup_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Cloud instance ID (not path) containing the database, e.g.
-    /// &quot;database-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// "database-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>database_instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The id of the database to create and restore to, e.g. &quot;db0&quot;. Note that this
+    <span class="doccomment">/// The id of the database to create and restore to, e.g. "db0". Note that this
     /// database must not already exist.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>database_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that gets a Cloud Spanner database.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetCloudDatabaseAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The id of the database to get, e.g. &quot;db0&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The id of the database to get, e.g. "db0".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>database_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that creates a Cloud Spanner database backup.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateCloudBackupAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The id of the backup to be created, e.g. &quot;test-backup&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The id of the backup to be created, e.g. "test-backup".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>backup_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The id of the database from which this backup was
-    /// created, e.g. &quot;db0&quot;. Note that this needs to be in the
+    /// created, e.g. "db0". Note that this needs to be in the
     /// same instance as the backup.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>database_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The expiration time of the backup, which must be at least 6
     /// hours and at most 366 days from the time the request is received.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The version time of the backup, which must be within the time range of
     /// \[earliest_version_time, NOW\], where earliest_version_time is retrieved by
     /// cloud spanner frontend API (See details: go/cs-pitr-lite-design).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>version_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Action that copies a Cloud Spanner database backup.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CopyCloudBackupAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The id of the backup to be created, e.g. &quot;test-backup&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The id of the backup to be created, e.g. "test-backup".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>backup_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The fully qualified uri of the source backup from which this
     /// backup was copied. eg.
-    /// &quot;projects/&lt;project_id&gt;/instances/&lt;instance_id&gt;/backups/&lt;backup_id&gt;&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// "projects/&lt;project_id&gt;/instances/&lt;instance_id&gt;/backups/&lt;backup_id&gt;".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>source_backup: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The expiration time of the backup, which must be at least 6
     /// hours and at most 366 days from the time the request is received.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Action that gets a Cloud Spanner database backup.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetCloudBackupAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The id of the backup to get, e.g. &quot;test-backup&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The id of the backup to get, e.g. "test-backup".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>backup_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that updates a Cloud Spanner database backup.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateCloudBackupAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The id of the backup to update, e.g. &quot;test-backup&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The id of the backup to update, e.g. "test-backup".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>backup_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Updated value of expire_time, this is the only field
     /// that supported to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Action that deletes a Cloud Spanner database backup.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteCloudBackupAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud instance ID (not path), e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path), e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The id of the backup to delete, e.g. &quot;test-backup&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The id of the backup to delete, e.g. "test-backup".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>backup_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that lists Cloud Spanner database backups.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCloudBackupsAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// Cloud instance ID (not path) to list backups from, e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Cloud instance ID (not path) to list backups from, e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
     <span class="doccomment">/// A filter expression that filters backups listed in the response.
     /// The expression must specify the field name, a comparison operator,
     /// and the value that you want to use for filtering.
     /// Refer backup.proto.ListBackupsRequest for detail.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of backups to be returned in the response. If 0 or
-    /// less, defaults to the server&#39;s maximum allowed page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    /// less, defaults to the server's maximum allowed page size.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// If non-empty, &quot;page_token&quot; should contain a next_page_token
-    /// from a previous ListBackupsResponse to the same &quot;parent&quot;
-    /// and with the same &quot;filter&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// If non-empty, "page_token" should contain a next_page_token
+    /// from a previous ListBackupsResponse to the same "parent"
+    /// and with the same "filter".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that lists Cloud Spanner database backup operations.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCloudBackupOperationsAction {
-    <span class="doccomment">/// Cloud project ID, e.g. &quot;spanner-cloud-systest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Cloud project ID, e.g. "spanner-cloud-systest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Cloud instance ID (not path) to list backup operations from,
-    /// e.g. &quot;test-instance&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// e.g. "test-instance".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
     <span class="doccomment">/// A filter expression that filters what operations are returned in the
     /// response.
     /// The expression must specify the field name, a comparison operator,
     /// and the value that you want to use for filtering.
     /// Refer backup.proto.ListBackupOperationsRequest for detail.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of backups to be returned in the response. If 0 or
-    /// less, defaults to the server&#39;s maximum allowed page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    /// less, defaults to the server's maximum allowed page size.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
-    <span class="doccomment">/// If non-empty, &quot;page_token&quot; should contain a next_page_token
-    /// from a previous ListBackupOperationsResponse to the same &quot;parent&quot;
-    /// and with the same &quot;filter&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="doccomment">/// If non-empty, "page_token" should contain a next_page_token
+    /// from a previous ListBackupOperationsResponse to the same "parent"
+    /// and with the same "filter".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that gets an operation.
@@ -3109,7 +3110,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetOperationAction {
     <span class="doccomment">/// The name of the operation resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operation: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Action that cancels an operation.
@@ -3117,7 +3118,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CancelOperationAction {
     <span class="doccomment">/// The name of the operation resource to be cancelled.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operation: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Starts a batch read-only transaction in executor. Successful outcomes of this
@@ -3158,12 +3159,12 @@
     <span class="doccomment">/// Database role to assume while performing this action. Setting the
     /// database_role will enforce additional role-based access checks on this
     /// action.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>cloud_database_role: ::prost::alloc::string::String,
     <span class="doccomment">/// To start a new transaction, specify an exact timestamp. Alternatively, an
     /// existing batch transaction ID can be used. Either one of two must be
     /// set.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;start_batch_transaction_action::Param&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"start_batch_transaction_action::Param"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>param: ::core::option::Option&lt;start_batch_transaction_action::Param&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `StartBatchTransactionAction`.
@@ -3175,12 +3176,12 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Param {
         <span class="doccomment">/// The exact timestamp to start the batch transaction.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>BatchTxnTime(::prost_types::Timestamp),
         <span class="doccomment">/// ID of a batch read-only transaction. It can be used to start the same
         /// batch transaction on multiple executors and parallelize partition
         /// processing.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"2"</span>)]
         </span>Tid(::prost::bytes::Bytes),
     }
 }
@@ -3188,7 +3189,7 @@
 ///
 /// Once a transaction is closed, the Executor can be disposed of or used to
 /// start start another transaction. Closing a batch transaction in one Executor
-/// doesn&#39;t affect the transaction&#39;s state in other Executors that also read from
+/// doesn't affect the transaction's state in other Executors that also read from
 /// it.
 ///
 /// When a transaction is cleaned up, it becomes globally invalid. Cleaning up is
@@ -3197,7 +3198,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloseBatchTransactionAction {
     <span class="doccomment">/// Indicates whether the transaction needs to be cleaned up.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cleanup: bool,
 }
 <span class="doccomment">/// Generate database partitions for the given read. Successful outcomes will
@@ -3206,18 +3207,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateDbPartitionsForReadAction {
     <span class="doccomment">/// Read to generate partitions for.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>read: ::core::option::Option&lt;ReadAction&gt;,
     <span class="doccomment">/// Metadata related to the tables involved in the read.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>table: ::prost::alloc::vec::Vec&lt;TableMetadata&gt;,
-    <span class="doccomment">/// Desired size of data in each partition. Spanner doesn&#39;t guarantee to
+    <span class="doccomment">/// Desired size of data in each partition. Spanner doesn't guarantee to
     /// respect this value.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>desired_bytes_per_partition: ::core::option::Option&lt;i64&gt;,
-    <span class="doccomment">/// If set, the desired max number of partitions. Spanner doesn&#39;t guarantee to
+    <span class="doccomment">/// If set, the desired max number of partitions. Spanner doesn't guarantee to
     /// respect this value.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>max_partition_count: ::core::option::Option&lt;i64&gt;,
 }
 <span class="doccomment">/// Generate database partitions for the given query. Successful outcomes will
@@ -3226,11 +3227,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateDbPartitionsForQueryAction {
     <span class="doccomment">/// Query to generate partitions for.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>query: ::core::option::Option&lt;QueryAction&gt;,
-    <span class="doccomment">/// Desired size of data in each partition. Spanner doesn&#39;t guarantee to
+    <span class="doccomment">/// Desired size of data in each partition. Spanner doesn't guarantee to
     /// respect this value.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>desired_bytes_per_partition: ::core::option::Option&lt;i64&gt;,
 }
 <span class="doccomment">/// Identifies a database partition generated for a particular read or query. To
@@ -3239,17 +3240,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchPartition {
     <span class="doccomment">/// Serialized Partition instance.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>partition: ::prost::bytes::Bytes,
     <span class="doccomment">/// The partition token decrypted from partition.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>partition_token: ::prost::bytes::Bytes,
     <span class="doccomment">/// Table name is set iff the partition was generated for a read (as opposed to
     /// a query).
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>table: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Index name if the partition was generated for an index read.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>index: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Performs a read or query for the given partitions. This action must be
@@ -3259,7 +3260,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecutePartitionAction {
     <span class="doccomment">/// Batch partition to execute on.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>partition: ::core::option::Option&lt;BatchPartition&gt;,
 }
 <span class="doccomment">/// Execute a change stream TVF query.
@@ -3267,34 +3268,34 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExecuteChangeStreamQuery {
     <span class="doccomment">/// Name for this change stream.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies that records with commit_timestamp greater than or equal to
     /// start_time should be returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Specifies that records with commit_timestamp less than or equal to
     /// end_time should be returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Specifies which change stream partition to query, based on the content of
     /// child partitions records.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>partition_token: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Read options for this change stream query.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>read_options: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Determines how frequently a heartbeat ChangeRecord will be returned in case
     /// there are no transactions committed in this partition, in milliseconds.
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>heartbeat_milliseconds: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Deadline for this change stream query, in seconds.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>deadline_seconds: ::core::option::Option&lt;i64&gt;,
     <span class="doccomment">/// Database role to assume while performing this action. This should only be
     /// set for cloud requests. Setting the database role will enforce additional
     /// role-based access checks on this action.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>cloud_database_role: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// SpannerActionOutcome defines a result of execution of a single SpannerAction.
@@ -3303,42 +3304,42 @@
 </span><span class="kw">pub struct </span>SpannerActionOutcome {
     <span class="doccomment">/// If an outcome is split into multiple parts, status will be set only in the
     /// last part.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Transaction timestamp. It must be set for successful committed actions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>commit_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Result of a ReadAction. This field must be set for ReadActions even if
     /// no rows were read.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>read_result: ::core::option::Option&lt;ReadResult&gt;,
     <span class="doccomment">/// Result of a Query. This field must be set for Queries even if no rows were
     /// read.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>query_result: ::core::option::Option&lt;QueryResult&gt;,
     <span class="doccomment">/// This bit indicates that Spanner has restarted the current transaction. It
     /// means that the client should replay all the reads and writes.
     /// Setting it to true is only valid in the context of a read-write
     /// transaction, as an outcome of a committing FinishTransactionAction.
-    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>transaction_restarted: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// In successful StartBatchTransactionAction outcomes, this contains the ID of
     /// the transaction.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>batch_txn_id: ::core::option::Option&lt;::prost::bytes::Bytes&gt;,
     <span class="doccomment">/// Generated database partitions (result of a
     /// GenetageDbPartitionsForReadAction/GenerateDbPartitionsForQueryAction).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>db_partition: ::prost::alloc::vec::Vec&lt;BatchPartition&gt;,
     <span class="doccomment">/// Result of admin related actions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>admin_result: ::core::option::Option&lt;AdminResult&gt;,
     <span class="doccomment">/// Stores rows modified by query in single DML or batch DML action.
     /// In case of batch DML action, stores 0 as row count of errored DML query.
-    </span><span class="attr">#[prost(int64, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int64, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>dml_rows_modified: ::prost::alloc::vec::Vec&lt;i64&gt;,
     <span class="doccomment">/// Change stream records returned by a change stream query.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>change_stream_records: ::prost::alloc::vec::Vec&lt;ChangeStreamRecord&gt;,
 }
 <span class="doccomment">/// AdminResult contains admin action results, for database/backup/operation.
@@ -3346,19 +3347,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AdminResult {
     <span class="doccomment">/// Results of cloud backup related actions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>backup_response: ::core::option::Option&lt;CloudBackupResponse&gt;,
     <span class="doccomment">/// Results of operation related actions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>operation_response: ::core::option::Option&lt;OperationResponse&gt;,
     <span class="doccomment">/// Results of database related actions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>database_response: ::core::option::Option&lt;CloudDatabaseResponse&gt;,
     <span class="doccomment">/// Results of instance related actions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>instance_response: ::core::option::Option&lt;CloudInstanceResponse&gt;,
     <span class="doccomment">/// Results of instance config related actions.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>instance_config_response: ::core::option::Option&lt;CloudInstanceConfigResponse&gt;,
 }
 <span class="doccomment">/// CloudBackupResponse contains results returned by cloud backup related
@@ -3367,21 +3368,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudBackupResponse {
     <span class="doccomment">/// List of backups returned by ListCloudBackupsAction.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>listed_backups: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::admin::database::v1::Backup,
     &gt;,
     <span class="doccomment">/// List of operations returned by ListCloudBackupOperationsAction.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>listed_backup_operations: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation,
     &gt;,
-    <span class="doccomment">/// &quot;next_page_token&quot; can be sent in a subsequent list action
+    <span class="doccomment">/// "next_page_token" can be sent in a subsequent list action
     /// to fetch more of the matching data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Backup returned by GetCloudBackupAction/UpdateCloudBackupAction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>backup: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::admin::database::v1::Backup&gt;,
 }
 <span class="doccomment">/// OperationResponse contains results returned by operation related actions.
@@ -3389,16 +3390,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationResponse {
     <span class="doccomment">/// List of operations returned by ListOperationsAction.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>listed_operations: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation,
     &gt;,
-    <span class="doccomment">/// &quot;next_page_token&quot; can be sent in a subsequent list action
+    <span class="doccomment">/// "next_page_token" can be sent in a subsequent list action
     /// to fetch more of the matching data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Operation returned by GetOperationAction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>operation: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation&gt;,
 }
 <span class="doccomment">/// CloudInstanceResponse contains results returned by cloud instance related
@@ -3407,16 +3408,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudInstanceResponse {
     <span class="doccomment">/// List of instances returned by ListCloudInstancesAction.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>listed_instances: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::admin::instance::v1::Instance,
     &gt;,
-    <span class="doccomment">/// &quot;next_page_token&quot; can be sent in a subsequent list action
+    <span class="doccomment">/// "next_page_token" can be sent in a subsequent list action
     /// to fetch more of the matching data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Instance returned by GetCloudInstanceAction
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>instance: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::admin::instance::v1::Instance&gt;,
 }
 <span class="doccomment">/// CloudInstanceConfigResponse contains results returned by cloud instance
@@ -3425,16 +3426,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudInstanceConfigResponse {
     <span class="doccomment">/// List of instance configs returned by ListCloudInstanceConfigsAction.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>listed_instance_configs: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::admin::instance::v1::InstanceConfig,
     &gt;,
-    <span class="doccomment">/// &quot;next_page_token&quot; can be sent in a subsequent list action
+    <span class="doccomment">/// "next_page_token" can be sent in a subsequent list action
     /// to fetch more of the matching data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Instance config returned by GetCloudInstanceConfigAction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>instance_config: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::admin::instance::v1::InstanceConfig,
     &gt;,
@@ -3445,21 +3446,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudDatabaseResponse {
     <span class="doccomment">/// List of databases returned by ListCloudDatabasesAction.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>listed_databases: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::admin::database::v1::Database,
     &gt;,
     <span class="doccomment">/// List of operations returned by ListCloudDatabaseOperationsAction.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>listed_database_operations: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::longrunning::Operation,
     &gt;,
-    <span class="doccomment">/// &quot;next_page_token&quot; can be sent in a subsequent list action
+    <span class="doccomment">/// "next_page_token" can be sent in a subsequent list action
     /// to fetch more of the matching data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Database returned by GetCloudDatabaseAction
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>database: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::admin::database::v1::Database&gt;,
 }
 <span class="doccomment">/// ReadResult contains rows read.
@@ -3467,20 +3468,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReadResult {
     <span class="doccomment">/// Table name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
     <span class="doccomment">/// Index name, if read from an index.
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>index: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Request index (multiread only).
-    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_index: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Rows read. Each row is a struct with multiple fields, one for each column
     /// in read result. All rows have the same type.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>row: ::prost::alloc::vec::Vec&lt;ValueList&gt;,
     <span class="doccomment">/// The type of rows read. It must be set if at least one row was read.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>row_type: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::v1::StructType&gt;,
 }
 <span class="doccomment">/// QueryResult contains result of a Query.
@@ -3489,10 +3490,10 @@
 </span><span class="kw">pub struct </span>QueryResult {
     <span class="doccomment">/// Rows read. Each row is a struct with multiple fields, one for each column
     /// in read result. All rows have the same type.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>row: ::prost::alloc::vec::Vec&lt;ValueList&gt;,
     <span class="doccomment">/// The type of rows read. It must be set if at least one row was read.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>row_type: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::v1::StructType&gt;,
 }
 <span class="doccomment">/// Raw ChangeStream records.
@@ -3502,7 +3503,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ChangeStreamRecord {
     <span class="doccomment">/// Record represents one type of the change stream record.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;change_stream_record::Record&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"change_stream_record::Record"</span>, tags = <span class="string">"1, 2, 3"</span>)]
     </span><span class="kw">pub </span>record: ::core::option::Option&lt;change_stream_record::Record&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ChangeStreamRecord`.
@@ -3512,13 +3513,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Record {
         <span class="doccomment">/// Data change record.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>DataChange(<span class="kw">super</span>::DataChangeRecord),
         <span class="doccomment">/// Child partitions record.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>ChildPartition(<span class="kw">super</span>::ChildPartitionsRecord),
         <span class="doccomment">/// Heartbeat record.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Heartbeat(<span class="kw">super</span>::HeartbeatRecord),
     }
 }
@@ -3527,45 +3528,45 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DataChangeRecord {
     <span class="doccomment">/// The timestamp in which the change was committed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>commit_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The sequence number for the record within the transaction.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>record_sequence: ::prost::alloc::string::String,
     <span class="doccomment">/// A globally unique string that represents the transaction in which the
     /// change was committed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>transaction_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Indicates whether this is the last record for a transaction in the current
     /// partition.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>is_last_record: bool,
     <span class="doccomment">/// Name of the table affected by the change.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>table: ::prost::alloc::string::String,
     <span class="doccomment">/// Column types defined in the schema.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>column_types: ::prost::alloc::vec::Vec&lt;data_change_record::ColumnType&gt;,
     <span class="doccomment">/// Changes made in the transaction.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>mods: ::prost::alloc::vec::Vec&lt;data_change_record::Mod&gt;,
     <span class="doccomment">/// Describes the type of change. One of INSERT, UPDATE or DELETE.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>mod_type: ::prost::alloc::string::String,
     <span class="doccomment">/// One of value capture type: NEW_VALUES, OLD_VALUES, OLD_AND_NEW_VALUES.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>value_capture_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of records in transactions.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>record_count: i64,
     <span class="doccomment">/// Number of partitions in transactions.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>partition_count: i64,
     <span class="doccomment">/// Transaction tag info.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>transaction_tag: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether the transaction is a system transactionn.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>is_system_transaction: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `DataChangeRecord`.
@@ -3575,16 +3576,16 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ColumnType {
         <span class="doccomment">/// Column name.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// Column type in JSON.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
         <span class="doccomment">/// Whether the column is a primary key column.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>is_primary_key: bool,
         <span class="doccomment">/// The position of the column as defined in the schema.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>ordinal_position: i64,
     }
     <span class="doccomment">/// Describes the changes that were made.
@@ -3592,15 +3593,15 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Mod {
         <span class="doccomment">/// The primary key values in JSON.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>keys: ::prost::alloc::string::String,
         <span class="doccomment">/// The new values of the changed columns in JSON. Only contain the non-key
         /// columns.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>new_values: ::prost::alloc::string::String,
         <span class="doccomment">/// The old values of the changed columns in JSON. Only contain the non-key
         /// columns.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>old_values: ::prost::alloc::string::String,
     }
 }
@@ -3610,16 +3611,16 @@
 </span><span class="kw">pub struct </span>ChildPartitionsRecord {
     <span class="doccomment">/// Data change records returned from child partitions in this child partitions
     /// record will have a commit timestamp greater than or equal to start_time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// A monotonically increasing sequence number that can be used to define the
     /// ordering of the child partitions record when there are multiple child
     /// partitions records returned with the same start_time in a particular
     /// partition.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>record_sequence: ::prost::alloc::string::String,
     <span class="doccomment">/// A set of child partitions and their associated information.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>child_partitions: ::prost::alloc::vec::Vec&lt;
         child_partitions_record::ChildPartition,
     &gt;,
@@ -3631,10 +3632,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ChildPartition {
         <span class="doccomment">/// Partition token string used to identify the child partition in queries.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>token: ::prost::alloc::string::String,
         <span class="doccomment">/// Parent partition tokens of this child partition.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>parent_partition_tokens: ::prost::alloc::vec::Vec&lt;
             ::prost::alloc::string::String,
         &gt;,
@@ -3645,7 +3646,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>HeartbeatRecord {
     <span class="doccomment">/// Timestamp for this heartbeat check.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>heartbeat_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -3662,7 +3663,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3747,19 +3748,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.spanner.executor.v1.SpannerExecutorProxy/ExecuteActionAsync&quot;</span>,
+                <span class="string">"/google.spanner.executor.v1.SpannerExecutorProxy/ExecuteActionAsync"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.spanner.executor.v1.SpannerExecutorProxy&quot;</span>,
-                        <span class="string">&quot;ExecuteActionAsync&quot;</span>,
+                        <span class="string">"google.spanner.executor.v1.SpannerExecutorProxy"</span>,
+                        <span class="string">"ExecuteActionAsync"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await

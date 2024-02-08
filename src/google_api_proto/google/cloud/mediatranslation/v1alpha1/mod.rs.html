@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/mediatranslation/v1alpha1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/mediatranslation/v1alpha1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -467,13 +468,13 @@
     ///    sample rate of the file being used.
     ///
     ///
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>audio_encoding: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Source language code (BCP-47) of the input audio.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>source_language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Target language code (BCP-47) of the output.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target_language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A list of up to 3 additional language codes (BCP-47), listing possible
     /// alternative languages of the supplied audio. If alternative source
@@ -488,19 +489,19 @@
     /// the translation will happen between source_language_code and
     /// alternative_source_language_codes. The target_language_code will be
     /// ignored. It will be useful in conversation mode.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>alternative_source_language_codes: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Optional. Sample rate in Hertz of the audio data. Valid values are:
     /// 8000-48000. 16000 is optimal. For best results, set the sampling rate of
-    /// the audio source to 16000 Hz. If that&#39;s not possible, use the native sample
+    /// the audio source to 16000 Hz. If that's not possible, use the native sample
     /// rate of the audio source (instead of re-sampling).
     ///
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>sample_rate_hertz: i32,
     <span class="doccomment">/// Optional.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Config used for streaming translation.
@@ -508,7 +509,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StreamingTranslateSpeechConfig {
     <span class="doccomment">/// Required. The common config for all the following audio contents.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>audio_config: ::core::option::Option&lt;TranslateSpeechConfig&gt;,
     <span class="doccomment">/// Optional. If `false` or omitted, the system performs
     /// continuous translation (continuing to wait for and process audio even if
@@ -523,50 +524,50 @@
     /// stop sending the requests. However, clients should keep receiving remaining
     /// responses until the stream is terminated. To construct the complete
     /// sentence in a streaming way, one should override (if `is_final` of previous
-    /// response is false), or append (if &#39;is_final&#39; of previous response is true).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    /// response is false), or append (if 'is_final' of previous response is true).
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>single_utterance: bool,
     <span class="doccomment">/// Optional. Stability control for the media translation text. The value should be
-    /// &quot;LOW&quot;, &quot;MEDIUM&quot;, &quot;HIGH&quot;. It applies to text/text_and_audio translation
+    /// "LOW", "MEDIUM", "HIGH". It applies to text/text_and_audio translation
     /// only.
     /// For audio translation mode, we only support HIGH stability mode,
     /// low/medium stability mode will throw argument error.
-    /// Default empty string will be treated as &quot;HIGH&quot; in audio translation mode;
-    /// will be treated as &quot;LOW&quot; in other translation mode.
+    /// Default empty string will be treated as "HIGH" in audio translation mode;
+    /// will be treated as "LOW" in other translation mode.
     /// Note that stability and speed would be trade off.
-    /// 1. &quot;LOW&quot;: In low mode, translation service will start to do translation
+    /// 1. "LOW": In low mode, translation service will start to do translation
     /// right after getting recognition response. The speed will be faster.
-    /// 2. &quot;MEDIUM&quot;: In medium mode, translation service will
+    /// 2. "MEDIUM": In medium mode, translation service will
     /// check if the recognition response is stable enough or not, and only
     /// translate recognition response which is not likely to be changed later.
-    /// 3. &quot;HIGH&quot;: In high mode, translation service will wait for more stable
+    /// 3. "HIGH": In high mode, translation service will wait for more stable
     /// recognition responses, and then start to do translation. Also, the
     /// following recognition responses cannot modify previous recognition
-    /// responses. Thus it may impact quality in some situation. &quot;HIGH&quot; stability
-    /// will generate &quot;final&quot; responses more frequently.
+    /// responses. Thus it may impact quality in some situation. "HIGH" stability
+    /// will generate "final" responses more frequently.
     ///
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>stability: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Translation mode, the value should be &quot;text&quot;, &quot;audio&quot;, &quot;text_and_audio&quot;.
-    /// Default empty string will be treated as &quot;text&quot;.
-    /// 1. &quot;text&quot;: The response will be text translation. Text translation has a
-    /// field &quot;is_final&quot;. Detailed definition can be found in
+    <span class="doccomment">/// Optional. Translation mode, the value should be "text", "audio", "text_and_audio".
+    /// Default empty string will be treated as "text".
+    /// 1. "text": The response will be text translation. Text translation has a
+    /// field "is_final". Detailed definition can be found in
     /// `TextTranslationResult`.
-    /// 2. &quot;audio&quot;: The response will be audio translation. Audio translation does
-    /// not have &quot;is_final&quot; field, which means each audio translation response is
+    /// 2. "audio": The response will be audio translation. Audio translation does
+    /// not have "is_final" field, which means each audio translation response is
     /// stable and will not be changed by later response.
-    /// Translation mode &quot;audio&quot; can only be used with &quot;high&quot; stability mode,
-    /// 3. &quot;text_and_audio&quot;: The response will have a text translation, when
-    /// &quot;is_final&quot; is true, we will also output its corresponding audio
-    /// translation. When &quot;is_final&quot; is false, audio_translation field will be
+    /// Translation mode "audio" can only be used with "high" stability mode,
+    /// 3. "text_and_audio": The response will have a text translation, when
+    /// "is_final" is true, we will also output its corresponding audio
+    /// translation. When "is_final" is false, audio_translation field will be
     /// empty.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>translation_mode: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. If disable_interim_results is true, we will only return &quot;final&quot; responses.
+    <span class="doccomment">/// Optional. If disable_interim_results is true, we will only return "final" responses.
     /// Otherwise, we will return all the responses. Default value will be false.
-    /// User can only set disable_interim_results to be true with &quot;high&quot; stability
+    /// User can only set disable_interim_results to be true with "high" stability
     /// mode.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>disable_interim_results: bool,
 }
 <span class="doccomment">/// The top-level message sent by the client for the `StreamingTranslateSpeech`
@@ -579,8 +580,8 @@
 </span><span class="kw">pub struct </span>StreamingTranslateSpeechRequest {
     <span class="doccomment">/// The streaming request, which is either a streaming config or content.
     </span><span class="attr">#[prost(
-        oneof = <span class="string">&quot;streaming_translate_speech_request::StreamingRequest&quot;</span>,
-        tags = <span class="string">&quot;1, 2&quot;
+        oneof = <span class="string">"streaming_translate_speech_request::StreamingRequest"</span>,
+        tags = <span class="string">"1, 2"
     </span>)]
     </span><span class="kw">pub </span>streaming_request: ::core::option::Option&lt;
         streaming_translate_speech_request::StreamingRequest,
@@ -595,7 +596,7 @@
         <span class="doccomment">/// Provides information to the recognizer that specifies how to process the
         /// request. The first `StreamingTranslateSpeechRequest` message must contain
         /// a `streaming_config` message.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>StreamingConfig(<span class="kw">super</span>::StreamingTranslateSpeechConfig),
         <span class="doccomment">/// The audio data to be translated. Sequential chunks of audio data are sent
         /// in sequential `StreamingTranslateSpeechRequest` messages. The first
@@ -605,7 +606,7 @@
         /// encoded as specified in `StreamingTranslateSpeechConfig`. Note: as with
         /// all bytes fields, protobuffers use a pure binary representation (not
         /// base64).
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"2"</span>)]
         </span>AudioContent(::prost::bytes::Bytes),
     }
 }
@@ -615,22 +616,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StreamingTranslateSpeechResult {
     <span class="doccomment">/// Text translation result.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>text_translation_result: ::core::option::Option&lt;
         streaming_translate_speech_result::TextTranslationResult,
     &gt;,
     <span class="doccomment">/// Audio translation result.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>audio_translation_result: ::core::option::Option&lt;
         streaming_translate_speech_result::AudioTranslationResult,
     &gt;,
     <span class="doccomment">/// Output only. The debug only recognition result in original language. This field is debug
     /// only and will be set to empty string if not available.
     /// This is implementation detail and will not be backward compatible.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>recognition_result: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>detected_source_language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `StreamingTranslateSpeechResult`.
@@ -640,7 +641,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>TextTranslationResult {
         <span class="doccomment">/// Output only. The translated sentence.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>translation: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. If `false`, this `StreamingTranslateSpeechResult` represents
         /// an interim result that may change. If `true`, this is the final time the
@@ -648,7 +649,7 @@
         /// `StreamingTranslateSpeechResult`, the streaming translator will not
         /// return any further hypotheses for this portion of the transcript and
         /// corresponding audio.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>is_final: bool,
     }
     <span class="doccomment">/// Audio translation result.
@@ -656,7 +657,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AudioTranslationResult {
         <span class="doccomment">/// Output only. The translated audio.
-        </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>audio_translation: ::prost::bytes::Bytes,
     }
 }
@@ -667,7 +668,7 @@
 </span><span class="kw">pub struct </span>StreamingTranslateSpeechResponse {
     <span class="doccomment">/// Output only. If set, returns a [google.rpc.Status][google.rpc.Status] message that
     /// specifies the error for the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Output only. The translation result that is currently being processed (For text
     /// translation, `is_final` could be `true` or `false`.
@@ -675,12 +676,12 @@
     /// audio response is stable and will not get changed later. For
     /// text_and_audio, we still have `is_final` field in text translation, but we
     /// only output corresponsding audio when `is_final` is true.).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>result: ::core::option::Option&lt;StreamingTranslateSpeechResult&gt;,
     <span class="doccomment">/// Output only. Indicates the type of speech event.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;streaming_translate_speech_response::SpeechEventType&quot;</span>,
-        tag = <span class="string">&quot;3&quot;
+        enumeration = <span class="string">"streaming_translate_speech_response::SpeechEventType"</span>,
+        tag = <span class="string">"3"
     </span>)]
     </span><span class="kw">pub </span>speech_event_type: i32,
 }
@@ -702,7 +703,7 @@
     </span><span class="kw">pub enum </span>SpeechEventType {
         <span class="doccomment">/// No speech event specified.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// This event indicates that the server has detected the end of the user&#39;s
+        <span class="doccomment">/// This event indicates that the server has detected the end of the user's
         /// speech utterance and expects no additional speech. Therefore, the server
         /// will not process additional audio (although it may subsequently return
         /// additional results). When the client receives `END_OF_SINGLE_UTTERANCE`
@@ -719,17 +720,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SpeechEventType::Unspecified =&gt; <span class="string">&quot;SPEECH_EVENT_TYPE_UNSPECIFIED&quot;</span>,
-                SpeechEventType::EndOfSingleUtterance =&gt; <span class="string">&quot;END_OF_SINGLE_UTTERANCE&quot;</span>,
+                SpeechEventType::Unspecified =&gt; <span class="string">"SPEECH_EVENT_TYPE_UNSPECIFIED"</span>,
+                SpeechEventType::EndOfSingleUtterance =&gt; <span class="string">"END_OF_SINGLE_UTTERANCE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SPEECH_EVENT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;END_OF_SINGLE_UTTERANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EndOfSingleUtterance),
+                <span class="string">"SPEECH_EVENT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"END_OF_SINGLE_UTTERANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EndOfSingleUtterance),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -749,7 +750,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -831,19 +832,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.mediatranslation.v1alpha1.SpeechTranslationService/StreamingTranslateSpeech&quot;</span>,
+                <span class="string">"/google.cloud.mediatranslation.v1alpha1.SpeechTranslationService/StreamingTranslateSpeech"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.mediatranslation.v1alpha1.SpeechTranslationService&quot;</span>,
-                        <span class="string">&quot;StreamingTranslateSpeech&quot;</span>,
+                        <span class="string">"google.cloud.mediatranslation.v1alpha1.SpeechTranslationService"</span>,
+                        <span class="string">"StreamingTranslateSpeech"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await

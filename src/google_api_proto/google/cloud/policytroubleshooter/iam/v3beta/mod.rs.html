@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/policytroubleshooter/iam/v3beta/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/policytroubleshooter/iam/v3beta/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1085,7 +1086,7 @@
 </span><span class="kw">pub struct </span>TroubleshootIamPolicyRequest {
     <span class="doccomment">/// The information to use for checking whether a principal has a permission
     /// for a resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>access_tuple: ::core::option::Option&lt;AccessTuple&gt;,
 }
 <span class="doccomment">/// Response for
@@ -1097,21 +1098,21 @@
     /// specified resource, based on evaluating all types of the applicable IAM
     /// policies.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;troubleshoot_iam_policy_response::OverallAccessState&quot;</span>,
-        tag = <span class="string">&quot;1&quot;
+        enumeration = <span class="string">"troubleshoot_iam_policy_response::OverallAccessState"</span>,
+        tag = <span class="string">"1"
     </span>)]
     </span><span class="kw">pub </span>overall_access_state: i32,
     <span class="doccomment">/// The access tuple from the request, including any provided context used to
     /// evaluate the condition.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>access_tuple: ::core::option::Option&lt;AccessTuple&gt;,
     <span class="doccomment">/// An explanation of how the applicable IAM allow policies affect the final
     /// access state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>allow_policy_explanation: ::core::option::Option&lt;AllowPolicyExplanation&gt;,
     <span class="doccomment">/// An explanation of how the applicable IAM deny policies affect the final
     /// access state.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>deny_policy_explanation: ::core::option::Option&lt;DenyPolicyExplanation&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TroubleshootIamPolicyResponse`.
@@ -1134,13 +1135,13 @@
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// The principal has the permission.
         </span>CanAccess = <span class="number">1</span>,
-        <span class="doccomment">/// The principal doesn&#39;t have the permission.
+        <span class="doccomment">/// The principal doesn't have the permission.
         </span>CannotAccess = <span class="number">2</span>,
-        <span class="doccomment">/// The principal might have the permission, but the sender can&#39;t access all
-        /// of the information needed to fully evaluate the principal&#39;s access.
+        <span class="doccomment">/// The principal might have the permission, but the sender can't access all
+        /// of the information needed to fully evaluate the principal's access.
         </span>UnknownInfo = <span class="number">3</span>,
-        <span class="doccomment">/// The principal might have the permission, but Policy Troubleshooter can&#39;t
-        /// fully evaluate the principal&#39;s access because the sender didn&#39;t provide
+        <span class="doccomment">/// The principal might have the permission, but Policy Troubleshooter can't
+        /// fully evaluate the principal's access because the sender didn't provide
         /// the required context to evaluate the condition.
         </span>UnknownConditional = <span class="number">4</span>,
     }
@@ -1149,23 +1150,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                OverallAccessState::Unspecified =&gt; <span class="string">&quot;OVERALL_ACCESS_STATE_UNSPECIFIED&quot;</span>,
-                OverallAccessState::CanAccess =&gt; <span class="string">&quot;CAN_ACCESS&quot;</span>,
-                OverallAccessState::CannotAccess =&gt; <span class="string">&quot;CANNOT_ACCESS&quot;</span>,
-                OverallAccessState::UnknownInfo =&gt; <span class="string">&quot;UNKNOWN_INFO&quot;</span>,
-                OverallAccessState::UnknownConditional =&gt; <span class="string">&quot;UNKNOWN_CONDITIONAL&quot;</span>,
+                OverallAccessState::Unspecified =&gt; <span class="string">"OVERALL_ACCESS_STATE_UNSPECIFIED"</span>,
+                OverallAccessState::CanAccess =&gt; <span class="string">"CAN_ACCESS"</span>,
+                OverallAccessState::CannotAccess =&gt; <span class="string">"CANNOT_ACCESS"</span>,
+                OverallAccessState::UnknownInfo =&gt; <span class="string">"UNKNOWN_INFO"</span>,
+                OverallAccessState::UnknownConditional =&gt; <span class="string">"UNKNOWN_CONDITIONAL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;OVERALL_ACCESS_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CAN_ACCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CanAccess),
-                <span class="string">&quot;CANNOT_ACCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotAccess),
-                <span class="string">&quot;UNKNOWN_INFO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownInfo),
-                <span class="string">&quot;UNKNOWN_CONDITIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownConditional),
+                <span class="string">"OVERALL_ACCESS_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CAN_ACCESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CanAccess),
+                <span class="string">"CANNOT_ACCESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotAccess),
+                <span class="string">"UNKNOWN_INFO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownInfo),
+                <span class="string">"UNKNOWN_CONDITIONAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownConditional),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1181,14 +1182,14 @@
     ///
     /// The principal must be a Google Account or a service account. Other types of
     /// principals are not supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>principal: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The full resource name that identifies the resource. For example,
     /// `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`.
     ///
     /// For examples of full resource names for Google Cloud services, see
     /// &lt;https://cloud.google.com/iam/help/troubleshooter/full-resource-names.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>full_resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The IAM permission to check for, either in the `v1` permission
     /// format or the `v2` permission format.
@@ -1201,16 +1202,16 @@
     ///
     /// For a complete list of predefined IAM roles and the permissions in each
     /// role, see &lt;https://cloud.google.com/iam/help/roles/reference.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>permission: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The permission that Policy Troubleshooter checked for, in
     /// the `v2` format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>permission_fqdn: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Additional context for the request, such as the request time or
     /// IP address. This context allows Policy Troubleshooter to troubleshoot
     /// conditional role bindings and deny rules.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>condition_context: ::core::option::Option&lt;ConditionContext&gt;,
 }
 <span class="doccomment">/// Additional context for troubleshooting conditional role bindings and deny
@@ -1221,19 +1222,19 @@
     <span class="doccomment">/// Represents a target resource that is involved with a network activity.
     /// If multiple resources are involved with an activity, this must be the
     /// primary one.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>resource: ::core::option::Option&lt;condition_context::Resource&gt;,
     <span class="doccomment">/// The destination of a network activity, such as accepting a TCP connection.
     /// In a multi-hop network activity, the destination represents the receiver of
     /// the last hop.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;condition_context::Peer&gt;,
     <span class="doccomment">/// Represents a network request, such as an HTTP request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request: ::core::option::Option&lt;condition_context::Request&gt;,
     <span class="doccomment">/// Output only. The effective tags on the resource. The effective tags are
     /// fetched during troubleshooting.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>effective_tags: ::prost::alloc::vec::Vec&lt;condition_context::EffectiveTag&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ConditionContext`.
@@ -1250,22 +1251,22 @@
         ///
         /// For a full list of resource service values, see
         /// &lt;https://cloud.google.com/iam/help/conditions/resource-services&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
         <span class="doccomment">/// The stable identifier (name) of a resource on the `service`. A resource
         /// can be logically identified as `//{resource.service}/{resource.name}`.
-        /// Unlike the resource URI, the resource name doesn&#39;t contain any protocol
+        /// Unlike the resource URI, the resource name doesn't contain any protocol
         /// and version information.
         ///
         /// For a list of full resource name formats, see
         /// &lt;https://cloud.google.com/iam/help/troubleshooter/full-resource-names&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// The type of the resource, in the format `{service}/{kind}`.
         ///
         /// For a full list of resource type values, see
         /// &lt;https://cloud.google.com/iam/help/conditions/resource-types&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// This message defines attributes for a node that handles a network request.
@@ -1276,10 +1277,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Peer {
         <span class="doccomment">/// The IPv4 or IPv6 address of the peer.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>ip: ::prost::alloc::string::String,
         <span class="doccomment">/// The network port of the peer.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>port: i64,
     }
     <span class="doccomment">/// This message defines attributes for an HTTP request. If the actual
@@ -1290,7 +1291,7 @@
     </span><span class="kw">pub struct </span>Request {
         <span class="doccomment">/// Optional. The timestamp when the destination service receives the first
         /// byte of the request.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>receive_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     }
     <span class="doccomment">/// A tag that applies to a resource during policy evaluation. Tags can be
@@ -1302,34 +1303,34 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>EffectiveTag {
         <span class="doccomment">/// Output only. Resource name for TagValue in the format `tagValues/456`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>tag_value: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. The namespaced name of the TagValue. Can be in the form
         /// `{organization_id}/{tag_key_short_name}/{tag_value_short_name}` or
         /// `{project_id}/{tag_key_short_name}/{tag_value_short_name}` or
         /// `{project_number}/{tag_key_short_name}/{tag_value_short_name}`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>namespaced_tag_value: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. The name of the TagKey, in the format `tagKeys/{id}`, such
         /// as `tagKeys/123`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>tag_key: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. The namespaced name of the TagKey. Can be in the form
         /// `{organization_id}/{tag_key_short_name}` or
         /// `{project_id}/{tag_key_short_name}` or
         /// `{project_number}/{tag_key_short_name}`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>namespaced_tag_key: ::prost::alloc::string::String,
         <span class="doccomment">/// The parent name of the tag key.
         /// Must be in the format `organizations/{organization_id}` or
         /// `projects/{project_number}`
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>tag_key_parent_name: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. Indicates the inheritance status of a tag value
         /// attached to the given resource. If the tag value is inherited from one of
-        /// the resource&#39;s ancestors, inherited will be true. If false, then the tag
+        /// the resource's ancestors, inherited will be true. If false, then the tag
         /// value is directly attached to the resource, inherited will be false.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>inherited: bool,
     }
 }
@@ -1340,9 +1341,9 @@
 </span><span class="kw">pub struct </span>AllowPolicyExplanation {
     <span class="doccomment">/// Indicates whether the principal has the specified permission for the
     /// specified resource, based on evaluating all applicable IAM allow policies.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AllowAccessState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"AllowAccessState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>allow_access_state: i32,
-    <span class="doccomment">/// List of IAM allow policies that were evaluated to check the principal&#39;s
+    <span class="doccomment">/// List of IAM allow policies that were evaluated to check the principal's
     /// permissions, with annotations to indicate how each policy contributed to
     /// the final result.
     ///
@@ -1352,10 +1353,10 @@
     ///
     /// To learn more about the resource hierarchy, see
     /// &lt;https://cloud.google.com/iam/help/resource-hierarchy.&gt;
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>explained_policies: ::prost::alloc::vec::Vec&lt;ExplainedAllowPolicy&gt;,
     <span class="doccomment">/// The relevance of the allow policy type to the overall access state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HeuristicRelevance"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>relevance: i32,
 }
 <span class="doccomment">/// Details about how a specific IAM allow policy contributed to the final access
@@ -1371,7 +1372,7 @@
     /// this policy. To determine whether the principal actually has the
     /// permission, use the `overall_access_state` field in the
     /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AllowAccessState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"AllowAccessState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>allow_access_state: i32,
     <span class="doccomment">/// The full resource name that identifies the resource. For example,
     /// `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`.
@@ -1381,31 +1382,31 @@
     ///
     /// For examples of full resource names for Google Cloud services, see
     /// &lt;https://cloud.google.com/iam/help/troubleshooter/full-resource-names.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>full_resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Details about how each role binding in the policy affects the principal&#39;s
+    <span class="doccomment">/// Details about how each role binding in the policy affects the principal's
     /// ability, or inability, to use the permission for the resource. The order of
     /// the role bindings matches the role binding order in the policy.
     ///
     /// If the sender of the request does not have access to the policy, this field
     /// is omitted.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>binding_explanations: ::prost::alloc::vec::Vec&lt;AllowBindingExplanation&gt;,
     <span class="doccomment">/// The relevance of this policy to the overall access state in the
     /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
     ///
     /// If the sender of the request does not have access to the policy, this field
     /// is omitted.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HeuristicRelevance"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>relevance: i32,
     <span class="doccomment">/// The IAM allow policy attached to the resource.
     ///
     /// If the sender of the request does not have access to the policy, this field
     /// is empty.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>policy: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v1::Policy&gt;,
 }
-<span class="doccomment">/// Details about how a role binding in an allow policy affects a principal&#39;s
+<span class="doccomment">/// Details about how a role binding in an allow policy affects a principal's
 /// ability to use a permission.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1418,26 +1419,26 @@
     /// overrides this role binding. To determine whether the principal actually
     /// has the permission, use the `overall_access_state` field in the
     /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;AllowAccessState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"AllowAccessState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>allow_access_state: i32,
     <span class="doccomment">/// The role that this role binding grants. For example,
     /// `roles/compute.admin`.
     ///
     /// For a complete list of predefined IAM roles, as well as the permissions in
     /// each role, see &lt;https://cloud.google.com/iam/help/roles/reference.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>role: ::prost::alloc::string::String,
     <span class="doccomment">/// Indicates whether the role granted by this role binding contains the
     /// specified permission.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;RolePermissionInclusionState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"RolePermissionInclusionState"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>role_permission: i32,
-    <span class="doccomment">/// The relevance of the permission&#39;s existence, or nonexistence, in the role
+    <span class="doccomment">/// The relevance of the permission's existence, or nonexistence, in the role
     /// to the overall determination for the entire policy.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HeuristicRelevance"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>role_permission_relevance: i32,
     <span class="doccomment">/// The combined result of all memberships. Indicates if the principal is
     /// included in any role binding, either directly or indirectly.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>combined_membership: ::core::option::Option&lt;
         allow_binding_explanation::AnnotatedAllowMembership,
     &gt;,
@@ -1461,23 +1462,23 @@
     /// For the second principal in the role binding, the key is
     /// `group:product-eng@example.com`, and the `membership` field in the value is
     /// set to `INCLUDED`.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>memberships: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         allow_binding_explanation::AnnotatedAllowMembership,
     &gt;,
     <span class="doccomment">/// The relevance of this role binding to the overall determination for the
     /// entire policy.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HeuristicRelevance"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>relevance: i32,
     <span class="doccomment">/// A condition expression that specifies when the role binding grants access.
     ///
     /// To learn about IAM Conditions, see
     /// &lt;https://cloud.google.com/iam/help/conditions/overview.&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>condition: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Expr&gt;,
     <span class="doccomment">/// Condition evaluation state for this role binding.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>condition_explanation: ::core::option::Option&lt;ConditionExplanation&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AllowBindingExplanation`.
@@ -1487,11 +1488,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AnnotatedAllowMembership {
         <span class="doccomment">/// Indicates whether the role binding includes the principal.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::MembershipMatchingState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::MembershipMatchingState"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>membership: i32,
-        <span class="doccomment">/// The relevance of the principal&#39;s status to the overall determination for
+        <span class="doccomment">/// The relevance of the principal's status to the overall determination for
         /// the role binding.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::HeuristicRelevance"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>relevance: i32,
     }
 }
@@ -1503,10 +1504,10 @@
     <span class="doccomment">/// Indicates whether the principal is denied the specified permission for
     /// the specified resource, based on evaluating all applicable IAM deny
     /// policies.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DenyAccessState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DenyAccessState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>deny_access_state: i32,
     <span class="doccomment">/// List of resources with IAM deny policies that were evaluated to check the
-    /// principal&#39;s denied permissions, with annotations to indicate how each
+    /// principal's denied permissions, with annotations to indicate how each
     /// policy contributed to the final result.
     ///
     /// The list of resources includes the policy for the resource itself, as well
@@ -1517,14 +1518,14 @@
     ///
     /// To learn more about the resource hierarchy, see
     /// &lt;https://cloud.google.com/iam/help/resource-hierarchy.&gt;
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>explained_resources: ::prost::alloc::vec::Vec&lt;ExplainedDenyResource&gt;,
     <span class="doccomment">/// The relevance of the deny policy result to the overall access state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HeuristicRelevance"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>relevance: i32,
     <span class="doccomment">/// Indicates whether the permission to troubleshoot is supported in deny
     /// policies.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>permission_deniable: bool,
 }
 <span class="doccomment">/// Details about how a specific resource contributed to the deny policy
@@ -1541,7 +1542,7 @@
     /// this policy. To determine whether the principal actually has the
     /// permission, use the `overall_access_state` field in the
     /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DenyAccessState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DenyAccessState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>deny_access_state: i32,
     <span class="doccomment">/// The full resource name that identifies the resource. For example,
     /// `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`.
@@ -1551,19 +1552,19 @@
     ///
     /// For examples of full resource names for Google Cloud services, see
     /// &lt;https://cloud.google.com/iam/help/troubleshooter/full-resource-names.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>full_resource_name: ::prost::alloc::string::String,
-    <span class="doccomment">/// List of IAM deny policies that were evaluated to check the principal&#39;s
+    <span class="doccomment">/// List of IAM deny policies that were evaluated to check the principal's
     /// denied permissions, with annotations to indicate how each policy
     /// contributed to the final result.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>explained_policies: ::prost::alloc::vec::Vec&lt;ExplainedDenyPolicy&gt;,
     <span class="doccomment">/// The relevance of this policy to the overall access state in the
     /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
     ///
     /// If the sender of the request does not have access to the policy, this field
     /// is omitted.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HeuristicRelevance"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>relevance: i32,
 }
 <span class="doccomment">/// Details about how a specific IAM deny policy [Policy][google.iam.v2.Policy]
@@ -1579,31 +1580,31 @@
     /// this policy. To determine whether the principal actually has the
     /// permission, use the `overall_access_state` field in the
     /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DenyAccessState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DenyAccessState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>deny_access_state: i32,
     <span class="doccomment">/// The IAM deny policy attached to the resource.
     ///
     /// If the sender of the request does not have access to the policy, this field
     /// is omitted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>policy: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::iam::v2::Policy&gt;,
-    <span class="doccomment">/// Details about how each rule in the policy affects the principal&#39;s inability
+    <span class="doccomment">/// Details about how each rule in the policy affects the principal's inability
     /// to use the permission for the resource. The order of the deny rule matches
     /// the order of the rules in the deny policy.
     ///
     /// If the sender of the request does not have access to the policy, this field
     /// is omitted.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>rule_explanations: ::prost::alloc::vec::Vec&lt;DenyRuleExplanation&gt;,
     <span class="doccomment">/// The relevance of this policy to the overall access state in the
     /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
     ///
     /// If the sender of the request does not have access to the policy, this field
     /// is omitted.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HeuristicRelevance"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>relevance: i32,
 }
-<span class="doccomment">/// Details about how a deny rule in a deny policy affects a principal&#39;s ability
+<span class="doccomment">/// Details about how a deny rule in a deny policy affects a principal's ability
 /// to use a permission.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -1616,11 +1617,11 @@
     /// this rule. To determine whether the principal actually has the permission,
     /// use the `overall_access_state` field in the
     /// [TroubleshootIamPolicyResponse][google.cloud.policytroubleshooter.iam.v3beta.TroubleshootIamPolicyResponse].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DenyAccessState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DenyAccessState"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>deny_access_state: i32,
     <span class="doccomment">/// Indicates whether the permission in the request is listed as a denied
     /// permission in the deny rule.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>combined_denied_permission: ::core::option::Option&lt;
         deny_rule_explanation::AnnotatedPermissionMatching,
     &gt;,
@@ -1630,14 +1631,14 @@
     /// Each key identifies a denied permission in the rule, and each value
     /// indicates whether the denied permission matches the permission in the
     /// request.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>denied_permissions: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         deny_rule_explanation::AnnotatedPermissionMatching,
     &gt;,
     <span class="doccomment">/// Indicates whether the permission in the request is listed as an exception
     /// permission in the deny rule.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>combined_exception_permission: ::core::option::Option&lt;
         deny_rule_explanation::AnnotatedPermissionMatching,
     &gt;,
@@ -1647,14 +1648,14 @@
     /// Each key identifies a exception permission in the rule, and each value
     /// indicates whether the exception permission matches the permission in the
     /// request.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>exception_permissions: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         deny_rule_explanation::AnnotatedPermissionMatching,
     &gt;,
     <span class="doccomment">/// Indicates whether the principal is listed as a denied principal in the
     /// deny rule, either directly or through membership in a principal set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>combined_denied_principal: ::core::option::Option&lt;
         deny_rule_explanation::AnnotatedDenyPrincipalMatching,
     &gt;,
@@ -1665,14 +1666,14 @@
     /// Each key identifies a denied principal in the rule, and each value
     /// indicates whether the denied principal matches the principal in the
     /// request.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>denied_principals: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         deny_rule_explanation::AnnotatedDenyPrincipalMatching,
     &gt;,
     <span class="doccomment">/// Indicates whether the principal is listed as an exception principal in the
     /// deny rule, either directly or through membership in a principal set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>combined_exception_principal: ::core::option::Option&lt;
         deny_rule_explanation::AnnotatedDenyPrincipalMatching,
     &gt;,
@@ -1683,24 +1684,24 @@
     /// Each key identifies a exception principal in the rule, and each value
     /// indicates whether the exception principal matches the principal in the
     /// request.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>exception_principals: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         deny_rule_explanation::AnnotatedDenyPrincipalMatching,
     &gt;,
     <span class="doccomment">/// The relevance of this role binding to the overall determination for the
     /// entire policy.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HeuristicRelevance"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>relevance: i32,
     <span class="doccomment">/// A condition expression that specifies when the deny rule denies the
     /// principal access.
     ///
     /// To learn about IAM Conditions, see
     /// &lt;https://cloud.google.com/iam/help/conditions/overview.&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>condition: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Expr&gt;,
     <span class="doccomment">/// Condition evaluation state for this role binding.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>condition_explanation: ::core::option::Option&lt;ConditionExplanation&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DenyRuleExplanation`.
@@ -1712,11 +1713,11 @@
     </span><span class="kw">pub struct </span>AnnotatedPermissionMatching {
         <span class="doccomment">/// Indicates whether the permission in the request is denied by the deny
         /// rule.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::PermissionPatternMatchingState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::PermissionPatternMatchingState"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>permission_matching_state: i32,
         <span class="doccomment">/// The relevance of the permission status to the overall determination for
         /// the rule.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::HeuristicRelevance"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>relevance: i32,
     }
     <span class="doccomment">/// Details about whether the principal in the request is listed as a denied
@@ -1727,28 +1728,28 @@
     </span><span class="kw">pub struct </span>AnnotatedDenyPrincipalMatching {
         <span class="doccomment">/// Indicates whether the principal is listed as a denied principal in the
         /// deny rule, either directly or through membership in a principal set.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::MembershipMatchingState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::MembershipMatchingState"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>membership: i32,
-        <span class="doccomment">/// The relevance of the principal&#39;s status to the overall determination for
+        <span class="doccomment">/// The relevance of the principal's status to the overall determination for
         /// the role binding.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::HeuristicRelevance&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::HeuristicRelevance"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>relevance: i32,
     }
 }
-<span class="doccomment">/// Explanation for how a condition affects a principal&#39;s access
+<span class="doccomment">/// Explanation for how a condition affects a principal's access
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ConditionExplanation {
     <span class="doccomment">/// Value of the condition.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// Any errors that prevented complete evaluation of the condition expression.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// The value of each statement of the condition expression. The value can be
-    /// `true`, `false`, or `null`. The value is `null` if the statement can&#39;t be
+    /// `true`, `false`, or `null`. The value is `null` if the statement can't be
     /// evaluated.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>evaluation_states: ::prost::alloc::vec::Vec&lt;
         condition_explanation::EvaluationState,
     &gt;,
@@ -1760,19 +1761,19 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>EvaluationState {
         <span class="doccomment">/// Start position of an expression in the condition, by character.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>start: i32,
         <span class="doccomment">/// End position of an expression in the condition, by character,
         /// end included, for example: the end position of the first part of
         /// `a==b || c==d` would be 4.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>end: i32,
         <span class="doccomment">/// Value of this expression.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>value: ::core::option::Option&lt;::prost_types::Value&gt;,
         <span class="doccomment">/// Any errors that prevented complete evaluation of the condition
         /// expression.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;
             <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status,
         &gt;,
@@ -1786,15 +1787,15 @@
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// The allow policy gives the principal the permission.
     </span>Granted = <span class="number">1</span>,
-    <span class="doccomment">/// The allow policy doesn&#39;t give the principal the permission.
+    <span class="doccomment">/// The allow policy doesn't give the principal the permission.
     </span>NotGranted = <span class="number">2</span>,
     <span class="doccomment">/// The allow policy gives the principal the permission if a condition
-    /// expression evaluate to `true`. However, the sender of the request didn&#39;t
+    /// expression evaluate to `true`. However, the sender of the request didn't
     /// provide enough context for Policy Troubleshooter to evaluate the condition
     /// expression.
     </span>UnknownConditional = <span class="number">3</span>,
-    <span class="doccomment">/// The sender of the request doesn&#39;t have access to all of the allow policies
-    /// that Policy Troubleshooter needs to evaluate the principal&#39;s access.
+    <span class="doccomment">/// The sender of the request doesn't have access to all of the allow policies
+    /// that Policy Troubleshooter needs to evaluate the principal's access.
     </span>UnknownInfo = <span class="number">4</span>,
 }
 <span class="kw">impl </span>AllowAccessState {
@@ -1802,25 +1803,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            AllowAccessState::Unspecified =&gt; <span class="string">&quot;ALLOW_ACCESS_STATE_UNSPECIFIED&quot;</span>,
-            AllowAccessState::Granted =&gt; <span class="string">&quot;ALLOW_ACCESS_STATE_GRANTED&quot;</span>,
-            AllowAccessState::NotGranted =&gt; <span class="string">&quot;ALLOW_ACCESS_STATE_NOT_GRANTED&quot;</span>,
+            AllowAccessState::Unspecified =&gt; <span class="string">"ALLOW_ACCESS_STATE_UNSPECIFIED"</span>,
+            AllowAccessState::Granted =&gt; <span class="string">"ALLOW_ACCESS_STATE_GRANTED"</span>,
+            AllowAccessState::NotGranted =&gt; <span class="string">"ALLOW_ACCESS_STATE_NOT_GRANTED"</span>,
             AllowAccessState::UnknownConditional =&gt; {
-                <span class="string">&quot;ALLOW_ACCESS_STATE_UNKNOWN_CONDITIONAL&quot;
+                <span class="string">"ALLOW_ACCESS_STATE_UNKNOWN_CONDITIONAL"
             </span>}
-            AllowAccessState::UnknownInfo =&gt; <span class="string">&quot;ALLOW_ACCESS_STATE_UNKNOWN_INFO&quot;</span>,
+            AllowAccessState::UnknownInfo =&gt; <span class="string">"ALLOW_ACCESS_STATE_UNKNOWN_INFO"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;ALLOW_ACCESS_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;ALLOW_ACCESS_STATE_GRANTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Granted),
-            <span class="string">&quot;ALLOW_ACCESS_STATE_NOT_GRANTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotGranted),
-            <span class="string">&quot;ALLOW_ACCESS_STATE_UNKNOWN_CONDITIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownConditional),
-            <span class="string">&quot;ALLOW_ACCESS_STATE_UNKNOWN_INFO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownInfo),
+            <span class="string">"ALLOW_ACCESS_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"ALLOW_ACCESS_STATE_GRANTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Granted),
+            <span class="string">"ALLOW_ACCESS_STATE_NOT_GRANTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotGranted),
+            <span class="string">"ALLOW_ACCESS_STATE_UNKNOWN_CONDITIONAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownConditional),
+            <span class="string">"ALLOW_ACCESS_STATE_UNKNOWN_INFO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownInfo),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1833,15 +1834,15 @@
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// The deny policy denies the principal the permission.
     </span>Denied = <span class="number">1</span>,
-    <span class="doccomment">/// The deny policy doesn&#39;t deny the principal the permission.
+    <span class="doccomment">/// The deny policy doesn't deny the principal the permission.
     </span>NotDenied = <span class="number">2</span>,
     <span class="doccomment">/// The deny policy denies the principal the permission if a condition
-    /// expression evaluates to `true`. However, the sender of the request didn&#39;t
+    /// expression evaluates to `true`. However, the sender of the request didn't
     /// provide enough context for Policy Troubleshooter to evaluate the condition
     /// expression.
     </span>UnknownConditional = <span class="number">3</span>,
     <span class="doccomment">/// The sender of the request does not have access to all of the deny policies
-    /// that Policy Troubleshooter needs to evaluate the principal&#39;s access.
+    /// that Policy Troubleshooter needs to evaluate the principal's access.
     </span>UnknownInfo = <span class="number">4</span>,
 }
 <span class="kw">impl </span>DenyAccessState {
@@ -1849,25 +1850,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DenyAccessState::Unspecified =&gt; <span class="string">&quot;DENY_ACCESS_STATE_UNSPECIFIED&quot;</span>,
-            DenyAccessState::Denied =&gt; <span class="string">&quot;DENY_ACCESS_STATE_DENIED&quot;</span>,
-            DenyAccessState::NotDenied =&gt; <span class="string">&quot;DENY_ACCESS_STATE_NOT_DENIED&quot;</span>,
+            DenyAccessState::Unspecified =&gt; <span class="string">"DENY_ACCESS_STATE_UNSPECIFIED"</span>,
+            DenyAccessState::Denied =&gt; <span class="string">"DENY_ACCESS_STATE_DENIED"</span>,
+            DenyAccessState::NotDenied =&gt; <span class="string">"DENY_ACCESS_STATE_NOT_DENIED"</span>,
             DenyAccessState::UnknownConditional =&gt; {
-                <span class="string">&quot;DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL&quot;
+                <span class="string">"DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL"
             </span>}
-            DenyAccessState::UnknownInfo =&gt; <span class="string">&quot;DENY_ACCESS_STATE_UNKNOWN_INFO&quot;</span>,
+            DenyAccessState::UnknownInfo =&gt; <span class="string">"DENY_ACCESS_STATE_UNKNOWN_INFO"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;DENY_ACCESS_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;DENY_ACCESS_STATE_DENIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Denied),
-            <span class="string">&quot;DENY_ACCESS_STATE_NOT_DENIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotDenied),
-            <span class="string">&quot;DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownConditional),
-            <span class="string">&quot;DENY_ACCESS_STATE_UNKNOWN_INFO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownInfo),
+            <span class="string">"DENY_ACCESS_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"DENY_ACCESS_STATE_DENIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Denied),
+            <span class="string">"DENY_ACCESS_STATE_NOT_DENIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotDenied),
+            <span class="string">"DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownConditional),
+            <span class="string">"DENY_ACCESS_STATE_UNKNOWN_INFO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownInfo),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1890,29 +1891,29 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             RolePermissionInclusionState::Unspecified =&gt; {
-                <span class="string">&quot;ROLE_PERMISSION_INCLUSION_STATE_UNSPECIFIED&quot;
+                <span class="string">"ROLE_PERMISSION_INCLUSION_STATE_UNSPECIFIED"
             </span>}
             RolePermissionInclusionState::RolePermissionIncluded =&gt; {
-                <span class="string">&quot;ROLE_PERMISSION_INCLUDED&quot;
+                <span class="string">"ROLE_PERMISSION_INCLUDED"
             </span>}
             RolePermissionInclusionState::RolePermissionNotIncluded =&gt; {
-                <span class="string">&quot;ROLE_PERMISSION_NOT_INCLUDED&quot;
+                <span class="string">"ROLE_PERMISSION_NOT_INCLUDED"
             </span>}
             RolePermissionInclusionState::RolePermissionUnknownInfo =&gt; {
-                <span class="string">&quot;ROLE_PERMISSION_UNKNOWN_INFO&quot;
+                <span class="string">"ROLE_PERMISSION_UNKNOWN_INFO"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;ROLE_PERMISSION_INCLUSION_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;ROLE_PERMISSION_INCLUDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RolePermissionIncluded),
-            <span class="string">&quot;ROLE_PERMISSION_NOT_INCLUDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RolePermissionNotIncluded),
-            <span class="string">&quot;ROLE_PERMISSION_UNKNOWN_INFO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RolePermissionUnknownInfo),
+            <span class="string">"ROLE_PERMISSION_INCLUSION_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"ROLE_PERMISSION_INCLUDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RolePermissionIncluded),
+            <span class="string">"ROLE_PERMISSION_NOT_INCLUDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RolePermissionNotIncluded),
+            <span class="string">"ROLE_PERMISSION_UNKNOWN_INFO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RolePermissionUnknownInfo),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1933,25 +1934,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             PermissionPatternMatchingState::Unspecified =&gt; {
-                <span class="string">&quot;PERMISSION_PATTERN_MATCHING_STATE_UNSPECIFIED&quot;
+                <span class="string">"PERMISSION_PATTERN_MATCHING_STATE_UNSPECIFIED"
             </span>}
             PermissionPatternMatchingState::PermissionPatternMatched =&gt; {
-                <span class="string">&quot;PERMISSION_PATTERN_MATCHED&quot;
+                <span class="string">"PERMISSION_PATTERN_MATCHED"
             </span>}
             PermissionPatternMatchingState::PermissionPatternNotMatched =&gt; {
-                <span class="string">&quot;PERMISSION_PATTERN_NOT_MATCHED&quot;
+                <span class="string">"PERMISSION_PATTERN_NOT_MATCHED"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;PERMISSION_PATTERN_MATCHING_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;PERMISSION_PATTERN_MATCHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermissionPatternMatched),
-            <span class="string">&quot;PERMISSION_PATTERN_NOT_MATCHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermissionPatternNotMatched),
+            <span class="string">"PERMISSION_PATTERN_MATCHING_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"PERMISSION_PATTERN_MATCHED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermissionPatternMatched),
+            <span class="string">"PERMISSION_PATTERN_NOT_MATCHED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PermissionPatternNotMatched),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1971,10 +1972,10 @@
     ///    group, Google Workspace account, or Cloud Identity domain that is listed
     ///    in the policy.
     </span>MembershipMatched = <span class="number">1</span>,
-    <span class="doccomment">/// The principal in the request doesn&#39;t match the principal in the policy.
+    <span class="doccomment">/// The principal in the request doesn't match the principal in the policy.
     </span>MembershipNotMatched = <span class="number">2</span>,
     <span class="doccomment">/// The principal in the policy is a group or domain, and the sender of the
-    /// request doesn&#39;t have permission to view whether the principal in the
+    /// request doesn't have permission to view whether the principal in the
     /// request is a member of the group or domain.
     </span>MembershipUnknownInfo = <span class="number">3</span>,
     <span class="doccomment">/// The principal is an unsupported type.
@@ -1985,27 +1986,27 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             MembershipMatchingState::Unspecified =&gt; {
-                <span class="string">&quot;MEMBERSHIP_MATCHING_STATE_UNSPECIFIED&quot;
+                <span class="string">"MEMBERSHIP_MATCHING_STATE_UNSPECIFIED"
             </span>}
-            MembershipMatchingState::MembershipMatched =&gt; <span class="string">&quot;MEMBERSHIP_MATCHED&quot;</span>,
-            MembershipMatchingState::MembershipNotMatched =&gt; <span class="string">&quot;MEMBERSHIP_NOT_MATCHED&quot;</span>,
-            MembershipMatchingState::MembershipUnknownInfo =&gt; <span class="string">&quot;MEMBERSHIP_UNKNOWN_INFO&quot;</span>,
+            MembershipMatchingState::MembershipMatched =&gt; <span class="string">"MEMBERSHIP_MATCHED"</span>,
+            MembershipMatchingState::MembershipNotMatched =&gt; <span class="string">"MEMBERSHIP_NOT_MATCHED"</span>,
+            MembershipMatchingState::MembershipUnknownInfo =&gt; <span class="string">"MEMBERSHIP_UNKNOWN_INFO"</span>,
             MembershipMatchingState::MembershipUnknownUnsupported =&gt; {
-                <span class="string">&quot;MEMBERSHIP_UNKNOWN_UNSUPPORTED&quot;
+                <span class="string">"MEMBERSHIP_UNKNOWN_UNSUPPORTED"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;MEMBERSHIP_MATCHING_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;MEMBERSHIP_MATCHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MembershipMatched),
-            <span class="string">&quot;MEMBERSHIP_NOT_MATCHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MembershipNotMatched),
-            <span class="string">&quot;MEMBERSHIP_UNKNOWN_INFO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MembershipUnknownInfo),
-            <span class="string">&quot;MEMBERSHIP_UNKNOWN_UNSUPPORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MembershipUnknownUnsupported),
+            <span class="string">"MEMBERSHIP_MATCHING_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"MEMBERSHIP_MATCHED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MembershipMatched),
+            <span class="string">"MEMBERSHIP_NOT_MATCHED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MembershipNotMatched),
+            <span class="string">"MEMBERSHIP_UNKNOWN_INFO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MembershipUnknownInfo),
+            <span class="string">"MEMBERSHIP_UNKNOWN_UNSUPPORTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MembershipUnknownUnsupported),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2029,19 +2030,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            HeuristicRelevance::Unspecified =&gt; <span class="string">&quot;HEURISTIC_RELEVANCE_UNSPECIFIED&quot;</span>,
-            HeuristicRelevance::Normal =&gt; <span class="string">&quot;HEURISTIC_RELEVANCE_NORMAL&quot;</span>,
-            HeuristicRelevance::High =&gt; <span class="string">&quot;HEURISTIC_RELEVANCE_HIGH&quot;</span>,
+            HeuristicRelevance::Unspecified =&gt; <span class="string">"HEURISTIC_RELEVANCE_UNSPECIFIED"</span>,
+            HeuristicRelevance::Normal =&gt; <span class="string">"HEURISTIC_RELEVANCE_NORMAL"</span>,
+            HeuristicRelevance::High =&gt; <span class="string">"HEURISTIC_RELEVANCE_HIGH"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;HEURISTIC_RELEVANCE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;HEURISTIC_RELEVANCE_NORMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
-            <span class="string">&quot;HEURISTIC_RELEVANCE_HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+            <span class="string">"HEURISTIC_RELEVANCE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"HEURISTIC_RELEVANCE_NORMAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
+            <span class="string">"HEURISTIC_RELEVANCE_HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2062,7 +2063,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2124,7 +2125,7 @@
             <span class="self">self
         </span>}
         <span class="doccomment">/// Checks whether a principal has a specific permission for a specific
-        /// resource, and explains why the principal does or doesn&#39;t have that
+        /// resource, and explains why the principal does or doesn't have that
         /// permission.
         </span><span class="kw">pub async fn </span>troubleshoot_iam_policy(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -2139,19 +2140,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.policytroubleshooter.iam.v3beta.PolicyTroubleshooter/TroubleshootIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.policytroubleshooter.iam.v3beta.PolicyTroubleshooter/TroubleshootIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.policytroubleshooter.iam.v3beta.PolicyTroubleshooter&quot;</span>,
-                        <span class="string">&quot;TroubleshootIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.policytroubleshooter.iam.v3beta.PolicyTroubleshooter"</span>,
+                        <span class="string">"TroubleshootIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

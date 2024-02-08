@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/card/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/card/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2647,68 +2648,68 @@
 ///
 /// ```
 /// {
-///    &quot;cardsV2&quot;: [
+///    "cardsV2": [
 ///      {
-///        &quot;cardId&quot;: &quot;unique-card-id&quot;,
-///        &quot;card&quot;: {
-///          &quot;header&quot;: {
-///            &quot;title&quot;: &quot;Sasha&quot;,
-///            &quot;subtitle&quot;: &quot;Software Engineer&quot;,
-///            &quot;imageUrl&quot;:
-///            &quot;&lt;https://developers.google.com/chat/images/quickstart-app-avatar.png&quot;,&gt;
-///            &quot;imageType&quot;: &quot;CIRCLE&quot;,
-///            &quot;imageAltText&quot;: &quot;Avatar for Sasha&quot;,
+///        "cardId": "unique-card-id",
+///        "card": {
+///          "header": {
+///            "title": "Sasha",
+///            "subtitle": "Software Engineer",
+///            "imageUrl":
+///            "&lt;https://developers.google.com/chat/images/quickstart-app-avatar.png",&gt;
+///            "imageType": "CIRCLE",
+///            "imageAltText": "Avatar for Sasha",
 ///          },
-///          &quot;sections&quot;: [
+///          "sections": [
 ///            {
-///              &quot;header&quot;: &quot;Contact Info&quot;,
-///              &quot;collapsible&quot;: true,
-///              &quot;uncollapsibleWidgetsCount&quot;: 1,
-///              &quot;widgets&quot;: [
+///              "header": "Contact Info",
+///              "collapsible": true,
+///              "uncollapsibleWidgetsCount": 1,
+///              "widgets": [
 ///                {
-///                  &quot;decoratedText&quot;: {
-///                    &quot;startIcon&quot;: {
-///                      &quot;knownIcon&quot;: &quot;EMAIL&quot;,
+///                  "decoratedText": {
+///                    "startIcon": {
+///                      "knownIcon": "EMAIL",
 ///                    },
-///                    &quot;text&quot;: &quot;sasha@example.com&quot;,
+///                    "text": "sasha@example.com",
 ///                  }
 ///                },
 ///                {
-///                  &quot;decoratedText&quot;: {
-///                    &quot;startIcon&quot;: {
-///                      &quot;knownIcon&quot;: &quot;PERSON&quot;,
+///                  "decoratedText": {
+///                    "startIcon": {
+///                      "knownIcon": "PERSON",
 ///                    },
-///                    &quot;text&quot;: &quot;&lt;font color=\&quot;#80e27e\&quot;&gt;Online&lt;/font&gt;&quot;,
+///                    "text": "&lt;font color=\"#80e27e\"&gt;Online&lt;/font&gt;",
 ///                  },
 ///                },
 ///                {
-///                  &quot;decoratedText&quot;: {
-///                    &quot;startIcon&quot;: {
-///                      &quot;knownIcon&quot;: &quot;PHONE&quot;,
+///                  "decoratedText": {
+///                    "startIcon": {
+///                      "knownIcon": "PHONE",
 ///                    },
-///                    &quot;text&quot;: &quot;+1 (555) 555-1234&quot;,
+///                    "text": "+1 (555) 555-1234",
 ///                  }
 ///                },
 ///                {
-///                  &quot;buttonList&quot;: {
-///                    &quot;buttons&quot;: [
+///                  "buttonList": {
+///                    "buttons": [
 ///                      {
-///                        &quot;text&quot;: &quot;Share&quot;,
-///                        &quot;onClick&quot;: {
-///                          &quot;openLink&quot;: {
-///                            &quot;url&quot;: &quot;&lt;https://example.com/share&quot;,&gt;
+///                        "text": "Share",
+///                        "onClick": {
+///                          "openLink": {
+///                            "url": "&lt;https://example.com/share",&gt;
 ///                          }
 ///                        }
 ///                      },
 ///                      {
-///                        &quot;text&quot;: &quot;Edit&quot;,
-///                        &quot;onClick&quot;: {
-///                          &quot;action&quot;: {
-///                            &quot;function&quot;: &quot;goToView&quot;,
-///                            &quot;parameters&quot;: [
+///                        "text": "Edit",
+///                        "onClick": {
+///                          "action": {
+///                            "function": "goToView",
+///                            "parameters": [
 ///                              {
-///                                &quot;key&quot;: &quot;viewType&quot;,
-///                                &quot;value&quot;: &quot;EDIT&quot;,
+///                                "key": "viewType",
+///                                "value": "EDIT",
 ///                              }
 ///                            ],
 ///                          }
@@ -2730,18 +2731,18 @@
 </span><span class="kw">pub struct </span>Card {
     <span class="doccomment">/// The header of the card. A header usually contains a leading image and a
     /// title. Headers always appear at the top of a card.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;card::CardHeader&gt;,
     <span class="doccomment">/// Contains a collection of widgets. Each section has its own, optional
     /// header. Sections are visually separated by a line divider. For an example
     /// in Google Chat apps, see [Card
     /// section](&lt;https://developers.google.com/chat/ui/widgets/card-section&gt;).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sections: ::prost::alloc::vec::Vec&lt;card::Section&gt;,
     <span class="doccomment">/// The divider style between sections.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;card::DividerStyle&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"card::DividerStyle"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>section_divider_style: i32,
-    <span class="doccomment">/// The card&#39;s actions. Actions are added to the card&#39;s toolbar menu.
+    <span class="doccomment">/// The card's actions. Actions are added to the card's toolbar menu.
     ///
     /// [Google Workspace
     /// Add-ons](&lt;https://developers.google.com/workspace/add-ons&gt;):
@@ -2750,39 +2751,39 @@
     /// `Settings` and `Send Feedback` options:
     ///
     /// ```
-    /// &quot;card_actions&quot;: [
+    /// "card_actions": [
     ///    {
-    ///      &quot;actionLabel&quot;: &quot;Settings&quot;,
-    ///      &quot;onClick&quot;: {
-    ///        &quot;action&quot;: {
-    ///          &quot;functionName&quot;: &quot;goToView&quot;,
-    ///          &quot;parameters&quot;: [
+    ///      "actionLabel": "Settings",
+    ///      "onClick": {
+    ///        "action": {
+    ///          "functionName": "goToView",
+    ///          "parameters": [
     ///            {
-    ///              &quot;key&quot;: &quot;viewType&quot;,
-    ///              &quot;value&quot;: &quot;SETTING&quot;
+    ///              "key": "viewType",
+    ///              "value": "SETTING"
     ///           }
     ///          ],
-    ///          &quot;loadIndicator&quot;: &quot;LoadIndicator.SPINNER&quot;
+    ///          "loadIndicator": "LoadIndicator.SPINNER"
     ///        }
     ///      }
     ///    },
     ///    {
-    ///      &quot;actionLabel&quot;: &quot;Send Feedback&quot;,
-    ///      &quot;onClick&quot;: {
-    ///        &quot;openLink&quot;: {
-    ///          &quot;url&quot;: &quot;&lt;https://example.com/feedback&quot;&gt;
+    ///      "actionLabel": "Send Feedback",
+    ///      "onClick": {
+    ///        "openLink": {
+    ///          "url": "&lt;https://example.com/feedback"&gt;
     ///        }
     ///      }
     ///    }
     /// ]
     /// ```
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>card_actions: ::prost::alloc::vec::Vec&lt;card::CardAction&gt;,
     <span class="doccomment">/// Name of the card. Used as a card identifier in card navigation.
     ///
     /// [Google Workspace
     /// Add-ons](&lt;https://developers.google.com/workspace/add-ons&gt;):
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The fixed footer shown at the bottom of this card.
     ///
@@ -2795,7 +2796,7 @@
     ///
     /// [Google Workspace Add-ons and Chat
     /// apps](&lt;https://developers.google.com/workspace/extend&gt;):
-    </span><span class="attr">#[prost(message, optional, boxed, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, boxed, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>fixed_footer: ::core::option::Option&lt;
         ::prost::alloc::boxed::Box&lt;card::CardFixedFooter&gt;,
     &gt;,
@@ -2804,7 +2805,7 @@
     ///
     /// [Google Workspace
     /// Add-ons](&lt;https://developers.google.com/workspace/add-ons&gt;):
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;card::DisplayStyle&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"card::DisplayStyle"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>display_style: i32,
     <span class="doccomment">/// When displaying contextual content, the peek card header acts as a
     /// placeholder so that the user can navigate forward between the homepage
@@ -2812,7 +2813,7 @@
     ///
     /// [Google Workspace
     /// Add-ons](&lt;https://developers.google.com/workspace/add-ons&gt;):
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>peek_card_header: ::core::option::Option&lt;card::CardHeader&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Card`.
@@ -2829,27 +2830,27 @@
         /// The header has a fixed height: if both a
         /// title and subtitle are specified, each takes up one line. If only the
         /// title is specified, it takes up both lines.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
         <span class="doccomment">/// The subtitle of the card header. If specified, appears on its own line
         /// below the `title`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>subtitle: ::prost::alloc::string::String,
         <span class="doccomment">/// The shape used to crop the image.
         ///
         /// [Google Workspace Add-ons and Chat
         /// apps](&lt;https://developers.google.com/workspace/extend&gt;):
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::widget::ImageType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::widget::ImageType"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>image_type: i32,
         <span class="doccomment">/// The HTTPS URL of the image in the card header.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>image_url: ::prost::alloc::string::String,
-        <span class="doccomment">/// The alternative text of this image that&#39;s used for accessibility.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        <span class="doccomment">/// The alternative text of this image that's used for accessibility.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>image_alt_text: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// A section contains a collection of widgets that are rendered
-    /// vertically in the order that they&#39;re specified.
+    /// vertically in the order that they're specified.
     ///
     /// [Google Workspace Add-ons and Chat
     /// apps](&lt;https://developers.google.com/workspace/extend&gt;):
@@ -2865,11 +2866,11 @@
         /// [Formatting
         /// text in Google Workspace
         /// Add-ons](&lt;https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting&gt;).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>header: ::prost::alloc::string::String,
         <span class="doccomment">/// All the widgets in the section.
         /// Must contain at least one widget.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>widgets: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::Widget&gt;,
         <span class="doccomment">/// Indicates whether this section is collapsible.
         ///
@@ -2879,7 +2880,7 @@
         ///
         /// To determine which widgets are hidden, specify
         /// `uncollapsibleWidgetsCount`.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>collapsible: bool,
         <span class="doccomment">/// The number of uncollapsible widgets which remain visible even when a
         /// section is collapsed.
@@ -2889,7 +2890,7 @@
         /// the first two widgets are always shown and the last three are collapsed
         /// by default. The `uncollapsibleWidgetsCount` is taken into account only
         /// when `collapsible` is `true`.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>uncollapsible_widgets_count: i32,
     }
     <span class="doccomment">/// A card action is the action associated with the card. For example,
@@ -2902,10 +2903,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>CardAction {
         <span class="doccomment">/// The label that displays as the action menu item.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>action_label: ::prost::alloc::string::String,
         <span class="doccomment">/// The `onClick` action for this action item.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>on_click: ::core::option::Option&lt;<span class="kw">super</span>::OnClick&gt;,
     }
     <span class="doccomment">/// A persistent (sticky) footer that that appears at the bottom of the card.
@@ -2927,14 +2928,14 @@
     </span><span class="kw">pub struct </span>CardFixedFooter {
         <span class="doccomment">/// The primary button of the fixed footer. The button must be a text button
         /// with text and color set.
-        </span><span class="attr">#[prost(message, optional, boxed, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, boxed, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>primary_button: ::core::option::Option&lt;
             ::prost::alloc::boxed::Box&lt;<span class="kw">super</span>::Button&gt;,
         &gt;,
         <span class="doccomment">/// The secondary button of the fixed footer.  The button must be a text
         /// button with text and color set.
         /// If `secondaryButton` is set, you must also set `primaryButton`.
-        </span><span class="attr">#[prost(message, optional, boxed, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, boxed, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>secondary_button: ::core::option::Option&lt;
             ::prost::alloc::boxed::Box&lt;<span class="kw">super</span>::Button&gt;,
         &gt;,
@@ -2957,7 +2958,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>DividerStyle {
-        <span class="doccomment">/// Don&#39;t use. Unspecified.
+        <span class="doccomment">/// Don't use. Unspecified.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Default option. Render a solid divider between sections.
         </span>SolidDivider = <span class="number">1</span>,
@@ -2969,19 +2970,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DividerStyle::Unspecified =&gt; <span class="string">&quot;DIVIDER_STYLE_UNSPECIFIED&quot;</span>,
-                DividerStyle::SolidDivider =&gt; <span class="string">&quot;SOLID_DIVIDER&quot;</span>,
-                DividerStyle::NoDivider =&gt; <span class="string">&quot;NO_DIVIDER&quot;</span>,
+                DividerStyle::Unspecified =&gt; <span class="string">"DIVIDER_STYLE_UNSPECIFIED"</span>,
+                DividerStyle::SolidDivider =&gt; <span class="string">"SOLID_DIVIDER"</span>,
+                DividerStyle::NoDivider =&gt; <span class="string">"NO_DIVIDER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DIVIDER_STYLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SOLID_DIVIDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SolidDivider),
-                <span class="string">&quot;NO_DIVIDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoDivider),
+                <span class="string">"DIVIDER_STYLE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SOLID_DIVIDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SolidDivider),
+                <span class="string">"NO_DIVIDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoDivider),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3004,7 +3005,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>DisplayStyle {
-        <span class="doccomment">/// Don&#39;t use. Unspecified.
+        <span class="doccomment">/// Don't use. Unspecified.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// The header of the card appears at the bottom of the
         /// sidebar, partially covering the current top card of the stack. Clicking
@@ -3020,19 +3021,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DisplayStyle::Unspecified =&gt; <span class="string">&quot;DISPLAY_STYLE_UNSPECIFIED&quot;</span>,
-                DisplayStyle::Peek =&gt; <span class="string">&quot;PEEK&quot;</span>,
-                DisplayStyle::Replace =&gt; <span class="string">&quot;REPLACE&quot;</span>,
+                DisplayStyle::Unspecified =&gt; <span class="string">"DISPLAY_STYLE_UNSPECIFIED"</span>,
+                DisplayStyle::Peek =&gt; <span class="string">"PEEK"</span>,
+                DisplayStyle::Replace =&gt; <span class="string">"REPLACE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DISPLAY_STYLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PEEK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Peek),
-                <span class="string">&quot;REPLACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Replace),
+                <span class="string">"DISPLAY_STYLE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PEEK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Peek),
+                <span class="string">"REPLACE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Replace),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3046,11 +3047,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Widget {
     <span class="doccomment">/// Specifies whether widgets align to the left, right, or center of a column.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;widget::HorizontalAlignment&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"widget::HorizontalAlignment"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>horizontal_alignment: i32,
     <span class="doccomment">/// A widget can only have one of the following items. You can use multiple
     /// widget fields to display more items.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;widget::Data&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5, 6, 7, 9, 10, 11&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"widget::Data"</span>, tags = <span class="string">"1, 2, 3, 4, 5, 6, 7, 9, 10, 11"</span>)]
     </span><span class="kw">pub </span>data: ::core::option::Option&lt;widget::Data&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Widget`.
@@ -3084,17 +3085,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ImageType::Square =&gt; <span class="string">&quot;SQUARE&quot;</span>,
-                ImageType::Circle =&gt; <span class="string">&quot;CIRCLE&quot;</span>,
+                ImageType::Square =&gt; <span class="string">"SQUARE"</span>,
+                ImageType::Circle =&gt; <span class="string">"CIRCLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SQUARE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Square),
-                <span class="string">&quot;CIRCLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Circle),
+                <span class="string">"SQUARE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Square),
+                <span class="string">"CIRCLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Circle),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3115,7 +3116,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>HorizontalAlignment {
-        <span class="doccomment">/// Don&#39;t use. Unspecified.
+        <span class="doccomment">/// Don't use. Unspecified.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Default value. Aligns widgets to the start position of the column. For
         /// left-to-right layouts, aligns to the left. For right-to-left layouts,
@@ -3133,21 +3134,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                HorizontalAlignment::Unspecified =&gt; <span class="string">&quot;HORIZONTAL_ALIGNMENT_UNSPECIFIED&quot;</span>,
-                HorizontalAlignment::Start =&gt; <span class="string">&quot;START&quot;</span>,
-                HorizontalAlignment::Center =&gt; <span class="string">&quot;CENTER&quot;</span>,
-                HorizontalAlignment::End =&gt; <span class="string">&quot;END&quot;</span>,
+                HorizontalAlignment::Unspecified =&gt; <span class="string">"HORIZONTAL_ALIGNMENT_UNSPECIFIED"</span>,
+                HorizontalAlignment::Start =&gt; <span class="string">"START"</span>,
+                HorizontalAlignment::Center =&gt; <span class="string">"CENTER"</span>,
+                HorizontalAlignment::End =&gt; <span class="string">"END"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;HORIZONTAL_ALIGNMENT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;START&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Start),
-                <span class="string">&quot;CENTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Center),
-                <span class="string">&quot;END&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::End),
+                <span class="string">"HORIZONTAL_ALIGNMENT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"START" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Start),
+                <span class="string">"CENTER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Center),
+                <span class="string">"END" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::End),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3168,23 +3169,23 @@
         ///
         /// For example, the following JSON creates a bolded text:
         /// ```
-        /// &quot;textParagraph&quot;: {
-        ///    &quot;text&quot;: &quot;  &lt;b&gt;bold text&lt;/b&gt;&quot;
+        /// "textParagraph": {
+        ///    "text": "  &lt;b&gt;bold text&lt;/b&gt;"
         /// }
         /// ```
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>TextParagraph(<span class="kw">super</span>::TextParagraph),
         <span class="doccomment">/// Displays an image.
         ///
         /// For example, the following JSON creates an image with alternative text:
         /// ```
-        /// &quot;image&quot;: {
-        ///    &quot;imageUrl&quot;:
-        ///    &quot;&lt;https://developers.google.com/chat/images/quickstart-app-avatar.png&quot;,&gt;
-        ///    &quot;altText&quot;: &quot;Chat app avatar&quot;
+        /// "image": {
+        ///    "imageUrl":
+        ///    "&lt;https://developers.google.com/chat/images/quickstart-app-avatar.png",&gt;
+        ///    "altText": "Chat app avatar"
         /// }
         /// ```
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Image(<span class="kw">super</span>::Image),
         <span class="doccomment">/// Displays a decorated text item.
         ///
@@ -3192,21 +3193,21 @@
         /// email address:
         ///
         /// ```
-        /// &quot;decoratedText&quot;: {
-        ///    &quot;icon&quot;: {
-        ///      &quot;knownIcon&quot;: &quot;EMAIL&quot;
+        /// "decoratedText": {
+        ///    "icon": {
+        ///      "knownIcon": "EMAIL"
         ///    },
-        ///    &quot;topLabel&quot;: &quot;Email Address&quot;,
-        ///    &quot;text&quot;: &quot;sasha@example.com&quot;,
-        ///    &quot;bottomLabel&quot;: &quot;This is a new Email address!&quot;,
-        ///    &quot;switchControl&quot;: {
-        ///      &quot;name&quot;: &quot;has_send_welcome_email_to_sasha&quot;,
-        ///      &quot;selected&quot;: false,
-        ///      &quot;controlType&quot;: &quot;CHECKBOX&quot;
+        ///    "topLabel": "Email Address",
+        ///    "text": "sasha@example.com",
+        ///    "bottomLabel": "This is a new Email address!",
+        ///    "switchControl": {
+        ///      "name": "has_send_welcome_email_to_sasha",
+        ///      "selected": false,
+        ///      "controlType": "CHECKBOX"
         ///    }
         /// }
         /// ```
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>DecoratedText(<span class="kw">super</span>::DecoratedText),
         <span class="doccomment">/// A list of buttons.
         ///
@@ -3214,33 +3215,33 @@
         /// is a blue text button and the second is an image button that opens a
         /// link:
         /// ```
-        /// &quot;buttonList&quot;: {
-        ///    &quot;buttons&quot;: [
+        /// "buttonList": {
+        ///    "buttons": [
         ///      {
-        ///        &quot;text&quot;: &quot;Edit&quot;,
-        ///        &quot;color&quot;: {
-        ///          &quot;red&quot;: 0,
-        ///          &quot;green&quot;: 0,
-        ///          &quot;blue&quot;: 1,
-        ///          &quot;alpha&quot;: 1
+        ///        "text": "Edit",
+        ///        "color": {
+        ///          "red": 0,
+        ///          "green": 0,
+        ///          "blue": 1,
+        ///          "alpha": 1
         ///        },
-        ///        &quot;disabled&quot;: true,
+        ///        "disabled": true,
         ///      },
         ///      {
-        ///        &quot;icon&quot;: {
-        ///          &quot;knownIcon&quot;: &quot;INVITE&quot;,
-        ///          &quot;altText&quot;: &quot;check calendar&quot;
+        ///        "icon": {
+        ///          "knownIcon": "INVITE",
+        ///          "altText": "check calendar"
         ///        },
-        ///        &quot;onClick&quot;: {
-        ///          &quot;openLink&quot;: {
-        ///            &quot;url&quot;: &quot;&lt;https://example.com/calendar&quot;&gt;
+        ///        "onClick": {
+        ///          "openLink": {
+        ///            "url": "&lt;https://example.com/calendar"&gt;
         ///          }
         ///        }
         ///      }
         ///    ]
         /// }
         /// ```
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>ButtonList(<span class="kw">super</span>::ButtonList),
         <span class="doccomment">/// Displays a text box that users can type into.
         ///
@@ -3248,37 +3249,37 @@
         /// address:
         ///
         /// ```
-        /// &quot;textInput&quot;: {
-        ///    &quot;name&quot;: &quot;mailing_address&quot;,
-        ///    &quot;label&quot;: &quot;Mailing Address&quot;
+        /// "textInput": {
+        ///    "name": "mailing_address",
+        ///    "label": "Mailing Address"
         /// }
         /// ```
         ///
         /// As another example, the following JSON creates a text input for a
         /// programming language with static suggestions:
         /// ```
-        /// &quot;textInput&quot;: {
-        ///    &quot;name&quot;: &quot;preferred_programing_language&quot;,
-        ///    &quot;label&quot;: &quot;Preferred Language&quot;,
-        ///    &quot;initialSuggestions&quot;: {
-        ///      &quot;items&quot;: [
+        /// "textInput": {
+        ///    "name": "preferred_programing_language",
+        ///    "label": "Preferred Language",
+        ///    "initialSuggestions": {
+        ///      "items": [
         ///        {
-        ///          &quot;text&quot;: &quot;C++&quot;
+        ///          "text": "C++"
         ///        },
         ///        {
-        ///          &quot;text&quot;: &quot;Java&quot;
+        ///          "text": "Java"
         ///        },
         ///        {
-        ///          &quot;text&quot;: &quot;JavaScript&quot;
+        ///          "text": "JavaScript"
         ///        },
         ///        {
-        ///          &quot;text&quot;: &quot;Python&quot;
+        ///          "text": "Python"
         ///        }
         ///      ]
         ///    }
         /// }
         /// ```
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>TextInput(<span class="kw">super</span>::TextInput),
         <span class="doccomment">/// Displays a selection control that lets users select items. Selection
         /// controls can be checkboxes, radio buttons, switches, or dropdown menus.
@@ -3287,35 +3288,35 @@
         /// choose a size:
         ///
         /// ```
-        /// &quot;selectionInput&quot;: {
-        ///    &quot;name&quot;: &quot;size&quot;,
-        ///    &quot;label&quot;: &quot;Size&quot;
-        ///    &quot;type&quot;: &quot;DROPDOWN&quot;,
-        ///    &quot;items&quot;: [
+        /// "selectionInput": {
+        ///    "name": "size",
+        ///    "label": "Size"
+        ///    "type": "DROPDOWN",
+        ///    "items": [
         ///      {
-        ///        &quot;text&quot;: &quot;S&quot;,
-        ///        &quot;value&quot;: &quot;small&quot;,
-        ///        &quot;selected&quot;: false
+        ///        "text": "S",
+        ///        "value": "small",
+        ///        "selected": false
         ///      },
         ///      {
-        ///        &quot;text&quot;: &quot;M&quot;,
-        ///        &quot;value&quot;: &quot;medium&quot;,
-        ///        &quot;selected&quot;: true
+        ///        "text": "M",
+        ///        "value": "medium",
+        ///        "selected": true
         ///      },
         ///      {
-        ///        &quot;text&quot;: &quot;L&quot;,
-        ///        &quot;value&quot;: &quot;large&quot;,
-        ///        &quot;selected&quot;: false
+        ///        "text": "L",
+        ///        "value": "large",
+        ///        "selected": false
         ///      },
         ///      {
-        ///        &quot;text&quot;: &quot;XL&quot;,
-        ///        &quot;value&quot;: &quot;extra_large&quot;,
-        ///        &quot;selected&quot;: false
+        ///        "text": "XL",
+        ///        "value": "extra_large",
+        ///        "selected": false
         ///      }
         ///    ]
         /// }
         /// ```
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>SelectionInput(<span class="kw">super</span>::SelectionInput),
         <span class="doccomment">/// Displays a widget that lets users input a date, time, or date and time.
         ///
@@ -3324,23 +3325,23 @@
         ///
         ///
         /// ```
-        /// &quot;dateTimePicker&quot;: {
-        ///    &quot;name&quot;: &quot;appointment_time&quot;,
-        ///    &quot;label&quot;: &quot;Book your appointment at:&quot;,
-        ///    &quot;type&quot;: &quot;DATE_AND_TIME&quot;,
-        ///    &quot;valueMsEpoch&quot;: &quot;796435200000&quot;
+        /// "dateTimePicker": {
+        ///    "name": "appointment_time",
+        ///    "label": "Book your appointment at:",
+        ///    "type": "DATE_AND_TIME",
+        ///    "valueMsEpoch": "796435200000"
         /// }
         /// ```
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>DateTimePicker(<span class="kw">super</span>::DateTimePicker),
         <span class="doccomment">/// Displays a horizontal line divider between widgets.
         ///
         /// For example, the following JSON creates a divider:
         /// ```
-        /// &quot;divider&quot;: {
+        /// "divider": {
         /// }
         /// ```
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>Divider(<span class="kw">super</span>::Divider),
         <span class="doccomment">/// Displays a grid with a collection of items.
         ///
@@ -3356,36 +3357,36 @@
         /// item:
         ///
         /// ```
-        /// &quot;grid&quot;: {
-        ///    &quot;title&quot;: &quot;A fine collection of items&quot;,
-        ///    &quot;columnCount&quot;: 2,
-        ///    &quot;borderStyle&quot;: {
-        ///      &quot;type&quot;: &quot;STROKE&quot;,
-        ///      &quot;cornerRadius&quot;: 4
+        /// "grid": {
+        ///    "title": "A fine collection of items",
+        ///    "columnCount": 2,
+        ///    "borderStyle": {
+        ///      "type": "STROKE",
+        ///      "cornerRadius": 4
         ///    },
-        ///    &quot;items&quot;: [
+        ///    "items": [
         ///      {
-        ///        &quot;image&quot;: {
-        ///          &quot;imageUri&quot;: &quot;&lt;https://www.example.com/image.png&quot;,&gt;
-        ///          &quot;cropStyle&quot;: {
-        ///            &quot;type&quot;: &quot;SQUARE&quot;
+        ///        "image": {
+        ///          "imageUri": "&lt;https://www.example.com/image.png",&gt;
+        ///          "cropStyle": {
+        ///            "type": "SQUARE"
         ///          },
-        ///          &quot;borderStyle&quot;: {
-        ///            &quot;type&quot;: &quot;STROKE&quot;
+        ///          "borderStyle": {
+        ///            "type": "STROKE"
         ///          }
         ///        },
-        ///        &quot;title&quot;: &quot;An item&quot;,
-        ///        &quot;textAlignment&quot;: &quot;CENTER&quot;
+        ///        "title": "An item",
+        ///        "textAlignment": "CENTER"
         ///      }
         ///    ],
-        ///    &quot;onClick&quot;: {
-        ///      &quot;openLink&quot;: {
-        ///        &quot;url&quot;: &quot;&lt;https://www.example.com&quot;&gt;
+        ///    "onClick": {
+        ///      "openLink": {
+        ///        "url": "&lt;https://www.example.com"&gt;
         ///      }
         ///    }
         /// }
         /// ```
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>Grid(<span class="kw">super</span>::Grid),
         <span class="doccomment">/// Displays up to 2 columns.
         ///
@@ -3395,28 +3396,28 @@
         /// text paragraphs:
         ///
         /// ```
-        /// &quot;columns&quot;: {
-        ///    &quot;columnItems&quot;: [
+        /// "columns": {
+        ///    "columnItems": [
         ///      {
-        ///        &quot;horizontalSizeStyle&quot;: &quot;FILL_AVAILABLE_SPACE&quot;,
-        ///        &quot;horizontalAlignment&quot;: &quot;CENTER&quot;,
-        ///        &quot;verticalAlignment&quot;: &quot;CENTER&quot;,
-        ///        &quot;widgets&quot;: [
+        ///        "horizontalSizeStyle": "FILL_AVAILABLE_SPACE",
+        ///        "horizontalAlignment": "CENTER",
+        ///        "verticalAlignment": "CENTER",
+        ///        "widgets": [
         ///          {
-        ///            &quot;textParagraph&quot;: {
-        ///              &quot;text&quot;: &quot;First column text paragraph&quot;
+        ///            "textParagraph": {
+        ///              "text": "First column text paragraph"
         ///            }
         ///          }
         ///        ]
         ///      },
         ///      {
-        ///        &quot;horizontalSizeStyle&quot;: &quot;FILL_AVAILABLE_SPACE&quot;,
-        ///        &quot;horizontalAlignment&quot;: &quot;CENTER&quot;,
-        ///        &quot;verticalAlignment&quot;: &quot;CENTER&quot;,
-        ///        &quot;widgets&quot;: [
+        ///        "horizontalSizeStyle": "FILL_AVAILABLE_SPACE",
+        ///        "horizontalAlignment": "CENTER",
+        ///        "verticalAlignment": "CENTER",
+        ///        "widgets": [
         ///          {
-        ///            &quot;textParagraph&quot;: {
-        ///              &quot;text&quot;: &quot;Second column text paragraph&quot;
+        ///            "textParagraph": {
+        ///              "text": "Second column text paragraph"
         ///            }
         ///          }
         ///        ]
@@ -3424,7 +3425,7 @@
         ///    ]
         /// }
         /// ```
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"11"</span>)]
         </span>Columns(<span class="kw">super</span>::Columns),
     }
 }
@@ -3445,8 +3446,8 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TextParagraph {
-    <span class="doccomment">/// The text that&#39;s shown in the widget.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// The text that's shown in the widget.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An image that is specified by a URL and can have an `onClick` action. For an
@@ -3464,13 +3465,13 @@
     /// ```
     /// &lt;https://developers.google.com/chat/images/quickstart-app-avatar.png&gt;
     /// ```
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>image_url: ::prost::alloc::string::String,
     <span class="doccomment">/// When a user clicks the image, the click triggers this action.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>on_click: ::core::option::Option&lt;OnClick&gt;,
-    <span class="doccomment">/// The alternative text of this image that&#39;s used for accessibility.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The alternative text of this image that's used for accessibility.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>alt_text: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Displays a divider between widgets as a horizontal line. For an example in
@@ -3483,7 +3484,7 @@
 /// For example, the following JSON creates a divider:
 ///
 /// ```
-/// &quot;divider&quot;: {}
+/// "divider": {}
 /// ```
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -3501,13 +3502,13 @@
 </span><span class="kw">pub struct </span>DecoratedText {
     <span class="doccomment">/// Deprecated in favor of `startIcon`.
     </span><span class="attr">#[deprecated]
-    #[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    #[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>icon: ::core::option::Option&lt;Icon&gt;,
     <span class="doccomment">/// The icon displayed in front of the text.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>start_icon: ::core::option::Option&lt;Icon&gt;,
     <span class="doccomment">/// The text that appears above `text`. Always truncates.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>top_label: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The primary text.
     ///
@@ -3519,23 +3520,23 @@
     /// [Formatting
     /// text in Google Workspace
     /// Add-ons](&lt;https://developers.google.com/apps-script/add-ons/concepts/widgets#text_formatting&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
     <span class="doccomment">/// The wrap text setting. If `true`, the text wraps and displays on
     /// multiple lines. Otherwise, the text is truncated.
     ///
     /// Only applies to `text`, not `topLabel` and `bottomLabel`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>wrap_text: bool,
     <span class="doccomment">/// The text that appears below `text`. Always wraps.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>bottom_label: ::prost::alloc::string::String,
     <span class="doccomment">/// This action is triggered when users click `topLabel` or `bottomLabel`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>on_click: ::core::option::Option&lt;OnClick&gt;,
     <span class="doccomment">/// A button, switch, checkbox, or image that appears to the right-hand side
     /// of text in the `decoratedText` widget.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;decorated_text::Control&quot;</span>, tags = <span class="string">&quot;8, 9, 11&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"decorated_text::Control"</span>, tags = <span class="string">"8, 9, 11"</span>)]
     </span><span class="kw">pub </span>control: ::core::option::Option&lt;decorated_text::Control&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DecoratedText`.
@@ -3553,26 +3554,26 @@
         ///
         /// For details about working with form inputs, see [Receive form
         /// data](&lt;https://developers.google.com/chat/ui/read-form-data&gt;).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// The value entered by a user, returned as part of a form input event.
         ///
         /// For details about working with form inputs, see [Receive form
         /// data](&lt;https://developers.google.com/chat/ui/read-form-data&gt;).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
         <span class="doccomment">/// When `true`, the switch is selected.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>selected: bool,
         <span class="doccomment">/// The action to perform when the switch state is changed, such as what
         ///   function to run.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>on_change_action: ::core::option::Option&lt;<span class="kw">super</span>::Action&gt;,
         <span class="doccomment">/// How the switch appears in the user interface.
         ///
         /// [Google Workspace Add-ons
         /// and Chat apps](&lt;https://developers.google.com/workspace/extend&gt;):
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;switch_control::ControlType&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"switch_control::ControlType"</span>, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>control_type: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `SwitchControl`.
@@ -3606,19 +3607,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    ControlType::Switch =&gt; <span class="string">&quot;SWITCH&quot;</span>,
-                    ControlType::Checkbox =&gt; <span class="string">&quot;CHECKBOX&quot;</span>,
-                    ControlType::CheckBox =&gt; <span class="string">&quot;CHECK_BOX&quot;</span>,
+                    ControlType::Switch =&gt; <span class="string">"SWITCH"</span>,
+                    ControlType::Checkbox =&gt; <span class="string">"CHECKBOX"</span>,
+                    ControlType::CheckBox =&gt; <span class="string">"CHECK_BOX"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;SWITCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Switch),
-                    <span class="string">&quot;CHECKBOX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Checkbox),
-                    <span class="string">&quot;CHECK_BOX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CheckBox),
+                    <span class="string">"SWITCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Switch),
+                    <span class="string">"CHECKBOX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Checkbox),
+                    <span class="string">"CHECK_BOX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CheckBox),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -3630,11 +3631,11 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Control {
         <span class="doccomment">/// A button that a user can click to trigger an action.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>Button(<span class="kw">super</span>::Button),
         <span class="doccomment">/// A switch widget that a user can click to change its state and trigger an
         /// action.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>SwitchControl(SwitchControl),
         <span class="doccomment">/// An icon displayed after the text.
         ///
@@ -3643,7 +3644,7 @@
         /// and
         /// [custom](&lt;https://developers.google.com/chat/format-messages#customicons&gt;)
         /// icons.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"11"</span>)]
         </span>EndIcon(<span class="kw">super</span>::Icon),
     }
 }
@@ -3668,32 +3669,32 @@
     ///
     /// For details about working with form inputs, see [Receive form
     /// data](&lt;https://developers.google.com/chat/ui/read-form-data&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The text that appears above the text input field in the user interface.
     ///
     /// Specify text that helps the user enter the information your app needs.
-    /// For example, if you are asking someone&#39;s name, but specifically need their
+    /// For example, if you are asking someone's name, but specifically need their
     /// surname, write `surname` instead of `name`.
     ///
     /// Required if `hintText` is unspecified. Otherwise, optional.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
     <span class="doccomment">/// Text that appears below the text input field meant to assist users by
     /// prompting them to enter a certain value. This text is always visible.
     ///
     /// Required if `label` is unspecified. Otherwise, optional.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>hint_text: ::prost::alloc::string::String,
     <span class="doccomment">/// The value entered by a user, returned as part of a form input event.
     ///
     /// For details about working with form inputs, see [Receive form
     /// data](&lt;https://developers.google.com/chat/ui/read-form-data&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
     <span class="doccomment">/// How a text input field appears in the user interface.
     /// For example, whether the field is single or multi-line.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;text_input::Type&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"text_input::Type"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// What to do when a change occurs in the text input field. For example, a
     /// user adding to the field or deleting text.
@@ -3701,7 +3702,7 @@
     /// Examples of actions to take include running a custom function or opening
     /// a [dialog](&lt;https://developers.google.com/chat/how-tos/dialogs&gt;)
     /// in Google Chat.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>on_change_action: ::core::option::Option&lt;Action&gt;,
     <span class="doccomment">/// Suggested values that users can enter. These values appear when users click
     /// inside the text input field. As users type, the suggested values
@@ -3716,12 +3717,12 @@
     /// and others `java script`. Suggesting `JavaScript` can standardize how users
     /// interact with your app.
     ///
-    /// When specified, `TextInput.type` is always `SINGLE_LINE`, even if it&#39;s set
+    /// When specified, `TextInput.type` is always `SINGLE_LINE`, even if it's set
     /// to `MULTIPLE_LINE`.
     ///
     /// [Google Workspace
     /// Add-ons and Chat apps](&lt;https://developers.google.com/workspace/extend&gt;):
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>initial_suggestions: ::core::option::Option&lt;Suggestions&gt;,
     <span class="doccomment">/// Optional. Specify what action to take when the text input field provides
     /// suggestions to users who interact with it.
@@ -3734,22 +3735,22 @@
     ///
     /// [Google Workspace
     /// Add-ons](&lt;https://developers.google.com/workspace/add-ons&gt;):
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>auto_complete_action: ::core::option::Option&lt;Action&gt;,
     <span class="doccomment">/// Text that appears in the text input field when the field is empty.
     /// Use this text to prompt users to enter a value. For example, `Enter a
     /// number from 0 to 100`.
     ///
     /// [Google Chat apps](&lt;https://developers.google.com/chat&gt;):
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>placeholder_text: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `TextInput`.
 </span><span class="kw">pub mod </span>text_input {
     <span class="doccomment">/// How a text input field appears in the user interface. For example,
-    /// whether it&#39;s a single line input field, or a multi-line input. If
+    /// whether it's a single line input field, or a multi-line input. If
     /// `initialSuggestions` is specified, `type` is always `SINGLE_LINE`,
-    /// even if it&#39;s set to `MULTIPLE_LINE`.
+    /// even if it's set to `MULTIPLE_LINE`.
     ///
     /// [Google Workspace Add-ons and Chat
     /// apps](&lt;https://developers.google.com/workspace/extend&gt;):
@@ -3776,17 +3777,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::SingleLine =&gt; <span class="string">&quot;SINGLE_LINE&quot;</span>,
-                Type::MultipleLine =&gt; <span class="string">&quot;MULTIPLE_LINE&quot;</span>,
+                Type::SingleLine =&gt; <span class="string">"SINGLE_LINE"</span>,
+                Type::MultipleLine =&gt; <span class="string">"MULTIPLE_LINE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SINGLE_LINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SingleLine),
-                <span class="string">&quot;MULTIPLE_LINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MultipleLine),
+                <span class="string">"SINGLE_LINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SingleLine),
+                <span class="string">"MULTIPLE_LINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MultipleLine),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3805,7 +3806,7 @@
 /// and others `java script`. Suggesting `JavaScript` can standardize how users
 /// interact with your app.
 ///
-/// When specified, `TextInput.type` is always `SINGLE_LINE`, even if it&#39;s set
+/// When specified, `TextInput.type` is always `SINGLE_LINE`, even if it's set
 /// to `MULTIPLE_LINE`.
 ///
 /// [Google Workspace
@@ -3815,7 +3816,7 @@
 </span><span class="kw">pub struct </span>Suggestions {
     <span class="doccomment">/// A list of suggestions used for autocomplete recommendations in text input
     /// fields.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>items: ::prost::alloc::vec::Vec&lt;suggestions::SuggestionItem&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Suggestions`.
@@ -3827,7 +3828,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>SuggestionItem {
-        <span class="attr">#[prost(oneof = <span class="string">&quot;suggestion_item::Content&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+        <span class="attr">#[prost(oneof = <span class="string">"suggestion_item::Content"</span>, tags = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>content: ::core::option::Option&lt;suggestion_item::Content&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `SuggestionItem`.
@@ -3837,7 +3838,7 @@
         </span><span class="kw">pub enum </span>Content {
             <span class="doccomment">/// The value of a suggested input to a text input field. This is
             /// equivalent to what users enter themselves.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span>Text(::prost::alloc::string::String),
         }
     }
@@ -3852,7 +3853,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ButtonList {
     <span class="doccomment">/// An array of buttons.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>buttons: ::prost::alloc::vec::Vec&lt;Button&gt;,
 }
 <span class="doccomment">/// A widget that creates one or more UI items that users can select.
@@ -3877,36 +3878,36 @@
     ///
     /// For details about working with form inputs, see [Receive form
     /// data](&lt;https://developers.google.com/chat/ui/read-form-data&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The text that appears above the selection input field in the user
     /// interface.
     ///
     /// Specify text that helps the user enter the information your app needs.
     /// For example, if users are selecting the urgency of a work ticket from a
-    /// drop-down menu, the label might be &quot;Urgency&quot; or &quot;Select urgency&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// drop-down menu, the label might be "Urgency" or "Select urgency".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of items that are displayed to users in a `SelectionInput` widget.
     /// Selection types support different types of interactions. For example, users
     /// can select one or more checkboxes, but they can only select one value from
     /// a dropdown menu.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;selection_input::SelectionType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"selection_input::SelectionType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// An array of selectable items. For example, an array of radio buttons or
     /// checkboxes. Supports up to 100 items.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>items: ::prost::alloc::vec::Vec&lt;selection_input::SelectionItem&gt;,
     <span class="doccomment">/// If specified, the form is submitted when the selection changes. If not
     /// specified, you must specify a separate button that submits the form.
     ///
     /// For details about working with form inputs, see [Receive form
     /// data](&lt;https://developers.google.com/chat/ui/read-form-data&gt;).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>on_change_action: ::core::option::Option&lt;Action&gt;,
     <span class="doccomment">/// For multiselect menus, the maximum number of items that a user can select.
     /// Minimum value is 1 item. If unspecified, defaults to 3 items.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>multi_select_max_selected_items: i32,
     <span class="doccomment">/// For multiselect menus, the number of text characters that a user inputs
     /// before the Chat app queries autocomplete and displays suggested items
@@ -3914,13 +3915,13 @@
     ///
     /// If unspecified, defaults to 0 characters for static data sources and 3
     /// characters for external data sources.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>multi_select_min_query_length: i32,
     <span class="doccomment">/// For a multiselect menu, the data source that populates
     /// selection items.
     ///
     /// [Google Chat apps](&lt;https://developers.google.com/chat&gt;):
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;selection_input::MultiSelectDataSource&quot;</span>, tags = <span class="string">&quot;8, 9&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"selection_input::MultiSelectDataSource"</span>, tags = <span class="string">"8, 9"</span>)]
     </span><span class="kw">pub </span>multi_select_data_source: ::core::option::Option&lt;
         selection_input::MultiSelectDataSource,
     &gt;,
@@ -3936,29 +3937,29 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>SelectionItem {
         <span class="doccomment">/// The text that identifies or describes the item to users.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
         <span class="doccomment">/// The value associated with this item. The client should use this as a form
         /// input value.
         ///
         /// For details about working with form inputs, see [Receive form
         /// data](&lt;https://developers.google.com/chat/ui/read-form-data&gt;).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
         <span class="doccomment">/// Whether the item is selected by default. If the selection input only
         /// accepts one value (such as for radio buttons or a dropdown menu), only
         /// set this field for one item.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>selected: bool,
         <span class="doccomment">/// For multiselect menus, the URL for the icon displayed next to
-        /// the item&#39;s `text` field. Supports PNG and JPEG files. Must be an `HTTPS`
+        /// the item's `text` field. Supports PNG and JPEG files. Must be an `HTTPS`
         /// URL. For example,
         /// `&lt;https://developers.google.com/chat/images/quickstart-app-avatar.png`.&gt;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>start_icon_uri: ::prost::alloc::string::String,
-        <span class="doccomment">/// For multiselect menus, a text description or label that&#39;s
-        /// displayed below the item&#39;s `text` field.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+        <span class="doccomment">/// For multiselect menus, a text description or label that's
+        /// displayed below the item's `text` field.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>bottom_text: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// For a
@@ -3971,7 +3972,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PlatformDataSource {
         <span class="doccomment">/// The data source.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;platform_data_source::DataSource&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"platform_data_source::DataSource"</span>, tags = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>data_source: ::core::option::Option&lt;platform_data_source::DataSource&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `PlatformDataSource`.
@@ -3994,7 +3995,7 @@
         )]
         #[repr(i32)]
         </span><span class="kw">pub enum </span>CommonDataSource {
-            <span class="doccomment">/// Default value. Don&#39;t use.
+            <span class="doccomment">/// Default value. Don't use.
             </span>Unknown = <span class="number">0</span>,
             <span class="doccomment">/// Google Workspace users. The user can only view and select users from
             /// their Google Workspace organization.
@@ -4005,17 +4006,17 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    CommonDataSource::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                    CommonDataSource::User =&gt; <span class="string">&quot;USER&quot;</span>,
+                    CommonDataSource::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
+                    CommonDataSource::User =&gt; <span class="string">"USER"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                    <span class="string">&quot;USER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::User),
+                    <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                    <span class="string">"USER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::User),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -4026,7 +4027,7 @@
         </span><span class="kw">pub enum </span>DataSource {
             <span class="doccomment">/// A data source shared by all Google Workspace applications, such as
             /// users in a Google Workspace organization.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;CommonDataSource&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(enumeration = <span class="string">"CommonDataSource"</span>, tag = <span class="string">"1"</span>)]
             </span>CommonDataSource(i32),
         }
     }
@@ -4035,7 +4036,7 @@
     /// checkboxes, but can only select one item from a dropdown menu.
     ///
     /// Each selection input supports one type of selection. Mixing checkboxes
-    /// and switches, for example, isn&#39;t supported.
+    /// and switches, for example, isn't supported.
     ///
     /// [Google Workspace Add-ons and Chat
     /// apps](&lt;https://developers.google.com/workspace/extend&gt;):
@@ -4087,23 +4088,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SelectionType::CheckBox =&gt; <span class="string">&quot;CHECK_BOX&quot;</span>,
-                SelectionType::RadioButton =&gt; <span class="string">&quot;RADIO_BUTTON&quot;</span>,
-                SelectionType::Switch =&gt; <span class="string">&quot;SWITCH&quot;</span>,
-                SelectionType::Dropdown =&gt; <span class="string">&quot;DROPDOWN&quot;</span>,
-                SelectionType::MultiSelect =&gt; <span class="string">&quot;MULTI_SELECT&quot;</span>,
+                SelectionType::CheckBox =&gt; <span class="string">"CHECK_BOX"</span>,
+                SelectionType::RadioButton =&gt; <span class="string">"RADIO_BUTTON"</span>,
+                SelectionType::Switch =&gt; <span class="string">"SWITCH"</span>,
+                SelectionType::Dropdown =&gt; <span class="string">"DROPDOWN"</span>,
+                SelectionType::MultiSelect =&gt; <span class="string">"MULTI_SELECT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CHECK_BOX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CheckBox),
-                <span class="string">&quot;RADIO_BUTTON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RadioButton),
-                <span class="string">&quot;SWITCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Switch),
-                <span class="string">&quot;DROPDOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dropdown),
-                <span class="string">&quot;MULTI_SELECT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MultiSelect),
+                <span class="string">"CHECK_BOX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CheckBox),
+                <span class="string">"RADIO_BUTTON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RadioButton),
+                <span class="string">"SWITCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Switch),
+                <span class="string">"DROPDOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dropdown),
+                <span class="string">"MULTI_SELECT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MultiSelect),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4116,10 +4117,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>MultiSelectDataSource {
         <span class="doccomment">/// An external data source, such as a relational data base.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>ExternalDataSource(<span class="kw">super</span>::Action),
         <span class="doccomment">/// A data source from Google Workspace.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>PlatformDataSource(PlatformDataSource),
     }
 }
@@ -4140,15 +4141,15 @@
     ///
     /// For details about working with form inputs, see [Receive form
     /// data](&lt;https://developers.google.com/chat/ui/read-form-data&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The text that prompts users to input a date, a time, or a date and time.
     /// For example, if users are scheduling an appointment, use a label such as
     /// `Appointment date` or `Appointment date and time`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether the widget supports inputting a date, a time, or the date and time.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;date_time_picker::DateTimePickerType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"date_time_picker::DateTimePickerType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// The default value displayed in the widget, in milliseconds since [Unix
     /// epoch time](&lt;https://en.wikipedia.org/wiki/Unix_time&gt;).
@@ -4161,16 +4162,16 @@
     ///    January 1, 2023, use `1672531200000`.
     /// * `TIME_ONLY`: a time in UTC. For example, to represent 12:00 PM, use
     ///    `43200000` (or `12 * 60 * 60 * 1000`).
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>value_ms_epoch: i64,
     <span class="doccomment">/// The number representing the time zone offset from UTC, in minutes.
     /// If set, the `value_ms_epoch` is displayed in the specified time zone.
-    /// If unset, the value defaults to the user&#39;s time zone setting.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    /// If unset, the value defaults to the user's time zone setting.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>timezone_offset_date: i32,
     <span class="doccomment">/// Triggered when the user clicks **Save** or **Clear** from the
     /// `DateTimePicker` interface.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>on_change_action: ::core::option::Option&lt;Action&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DateTimePicker`.
@@ -4205,19 +4206,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DateTimePickerType::DateAndTime =&gt; <span class="string">&quot;DATE_AND_TIME&quot;</span>,
-                DateTimePickerType::DateOnly =&gt; <span class="string">&quot;DATE_ONLY&quot;</span>,
-                DateTimePickerType::TimeOnly =&gt; <span class="string">&quot;TIME_ONLY&quot;</span>,
+                DateTimePickerType::DateAndTime =&gt; <span class="string">"DATE_AND_TIME"</span>,
+                DateTimePickerType::DateOnly =&gt; <span class="string">"DATE_ONLY"</span>,
+                DateTimePickerType::TimeOnly =&gt; <span class="string">"TIME_ONLY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DATE_AND_TIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DateAndTime),
-                <span class="string">&quot;DATE_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DateOnly),
-                <span class="string">&quot;TIME_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimeOnly),
+                <span class="string">"DATE_AND_TIME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DateAndTime),
+                <span class="string">"DATE_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DateOnly),
+                <span class="string">"TIME_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimeOnly),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4238,11 +4239,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Button {
     <span class="doccomment">/// The text displayed inside the button.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
     <span class="doccomment">/// The icon image. If both `icon` and `text` are set, then the icon appears
     /// before the text.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>icon: ::core::option::Option&lt;Icon&gt;,
     <span class="doccomment">/// If set, the button is filled with a solid background color and the font
     /// color changes to maintain contrast with the background color. For example,
@@ -4269,30 +4270,30 @@
     /// For example, the following color represents a half transparent red:
     ///
     /// ```
-    /// &quot;color&quot;: {
-    ///     &quot;red&quot;: 1,
-    ///     &quot;green&quot;: 0,
-    ///     &quot;blue&quot;: 0,
-    ///     &quot;alpha&quot;: 0.5
+    /// "color": {
+    ///     "red": 1,
+    ///     "green": 0,
+    ///     "blue": 0,
+    ///     "alpha": 0.5
     /// }
     /// ```
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>color: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Color&gt;,
     <span class="doccomment">/// Required. The action to perform when a user clicks the button, such as
     /// opening a hyperlink or running a custom function.
-    </span><span class="attr">#[prost(message, optional, boxed, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, boxed, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>on_click: ::core::option::Option&lt;::prost::alloc::boxed::Box&lt;OnClick&gt;&gt;,
-    <span class="doccomment">/// If `true`, the button is displayed in an inactive state and doesn&#39;t respond
+    <span class="doccomment">/// If `true`, the button is displayed in an inactive state and doesn't respond
     /// to user actions.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>disabled: bool,
-    <span class="doccomment">/// The alternative text that&#39;s used for accessibility.
+    <span class="doccomment">/// The alternative text that's used for accessibility.
     ///
     /// Set descriptive text that lets users know what the button does. For
-    /// example, if a button opens a hyperlink, you might write: &quot;Opens a new
+    /// example, if a button opens a hyperlink, you might write: "Opens a new
     /// browser tab and navigates to the Google Chat developer documentation at
-    /// &lt;https://developers.google.com/chat&quot;.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    /// &lt;https://developers.google.com/chat".&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>alt_text: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An icon displayed in a widget on a card. For an example in Google Chat apps,
@@ -4312,22 +4313,22 @@
     <span class="doccomment">/// Optional. A description of the icon used for accessibility.
     /// If unspecified, the default value `Button` is provided. As a best practice,
     /// you should set a helpful description for what the icon displays, and if
-    /// applicable, what it does. For example, `A user&#39;s account portrait`, or
+    /// applicable, what it does. For example, `A user's account portrait`, or
     /// `Opens a new browser tab and navigates to the Google Chat developer
     /// documentation at &lt;https://developers.google.com/chat`.&gt;
     ///
     /// If the icon is set in a [`Button`][google.apps.card.v1.Button], the
     /// `altText` appears as helper text when the user hovers over the button.
-    /// However, if the button also sets `text`, the icon&#39;s `altText` is ignored.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// However, if the button also sets `text`, the icon's `altText` is ignored.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>alt_text: ::prost::alloc::string::String,
     <span class="doccomment">/// The crop style applied to the image. In some cases, applying a
     /// `CIRCLE` crop causes the image to be drawn larger than a built-in
     /// icon.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;widget::ImageType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"widget::ImageType"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>image_type: i32,
     <span class="doccomment">/// The icon displayed in the widget on the card.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;icon::Icons&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"icon::Icons"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>icons: ::core::option::Option&lt;icon::Icons&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Icon`.
@@ -4343,19 +4344,19 @@
         ///
         /// For a full list of supported icons, see [built-in
         /// icons](&lt;https://developers.google.com/chat/format-messages#builtinicons&gt;).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>KnownIcon(::prost::alloc::string::String),
         <span class="doccomment">/// Display a custom icon hosted at an HTTPS URL.
         ///
         /// For example:
         ///
         /// ```
-        /// &quot;iconUrl&quot;:
-        /// &quot;&lt;https://developers.google.com/chat/images/quickstart-app-avatar.png&quot;&gt;
+        /// "iconUrl":
+        /// "&lt;https://developers.google.com/chat/images/quickstart-app-avatar.png"&gt;
         /// ```
         ///
         /// Supported file types include `.png` and `.jpg`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>IconUrl(::prost::alloc::string::String),
     }
 }
@@ -4364,31 +4365,31 @@
 /// [Google Workspace Add-ons and
 /// Chat apps](&lt;https://developers.google.com/workspace/extend&gt;):
 ///
-/// For example, here&#39;s how to apply a 16:9 aspect ratio:
+/// For example, here's how to apply a 16:9 aspect ratio:
 ///
 /// ```
 /// cropStyle {
-///   &quot;type&quot;: &quot;RECTANGLE_CUSTOM&quot;,
-///   &quot;aspectRatio&quot;: 16/9
+///   "type": "RECTANGLE_CUSTOM",
+///   "aspectRatio": 16/9
 /// }
 /// ```
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImageCropStyle {
     <span class="doccomment">/// The crop type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;image_crop_style::ImageCropType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"image_crop_style::ImageCropType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// The aspect ratio to use if the crop type is `RECTANGLE_CUSTOM`.
     ///
-    /// For example, here&#39;s how to apply a 16:9 aspect ratio:
+    /// For example, here's how to apply a 16:9 aspect ratio:
     ///
     /// ```
     /// cropStyle {
-    ///   &quot;type&quot;: &quot;RECTANGLE_CUSTOM&quot;,
-    ///   &quot;aspectRatio&quot;: 16/9
+    ///   "type": "RECTANGLE_CUSTOM",
+    ///   "aspectRatio": 16/9
     /// }
     /// ```
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>aspect_ratio: f64,
 }
 <span class="doccomment">/// Nested message and enum types in `ImageCropStyle`.
@@ -4410,7 +4411,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>ImageCropType {
-        <span class="doccomment">/// Don&#39;t use. Unspecified.
+        <span class="doccomment">/// Don't use. Unspecified.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Default value. Applies a square crop.
         </span>Square = <span class="number">1</span>,
@@ -4427,23 +4428,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ImageCropType::Unspecified =&gt; <span class="string">&quot;IMAGE_CROP_TYPE_UNSPECIFIED&quot;</span>,
-                ImageCropType::Square =&gt; <span class="string">&quot;SQUARE&quot;</span>,
-                ImageCropType::Circle =&gt; <span class="string">&quot;CIRCLE&quot;</span>,
-                ImageCropType::RectangleCustom =&gt; <span class="string">&quot;RECTANGLE_CUSTOM&quot;</span>,
-                ImageCropType::Rectangle43 =&gt; <span class="string">&quot;RECTANGLE_4_3&quot;</span>,
+                ImageCropType::Unspecified =&gt; <span class="string">"IMAGE_CROP_TYPE_UNSPECIFIED"</span>,
+                ImageCropType::Square =&gt; <span class="string">"SQUARE"</span>,
+                ImageCropType::Circle =&gt; <span class="string">"CIRCLE"</span>,
+                ImageCropType::RectangleCustom =&gt; <span class="string">"RECTANGLE_CUSTOM"</span>,
+                ImageCropType::Rectangle43 =&gt; <span class="string">"RECTANGLE_4_3"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;IMAGE_CROP_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SQUARE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Square),
-                <span class="string">&quot;CIRCLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Circle),
-                <span class="string">&quot;RECTANGLE_CUSTOM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RectangleCustom),
-                <span class="string">&quot;RECTANGLE_4_3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rectangle43),
+                <span class="string">"IMAGE_CROP_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SQUARE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Square),
+                <span class="string">"CIRCLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Circle),
+                <span class="string">"RECTANGLE_CUSTOM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RectangleCustom),
+                <span class="string">"RECTANGLE_4_3" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rectangle43),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4458,13 +4459,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BorderStyle {
     <span class="doccomment">/// The border type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;border_style::BorderType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"border_style::BorderType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// The colors to use when the type is `BORDER_TYPE_STROKE`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>stroke_color: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Color&gt;,
     <span class="doccomment">/// The corner radius for the border.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>corner_radius: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `BorderStyle`.
@@ -4486,7 +4487,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>BorderType {
-        <span class="doccomment">/// Don&#39;t use. Unspecified.
+        <span class="doccomment">/// Don't use. Unspecified.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Default value. No border.
         </span>NoBorder = <span class="number">1</span>,
@@ -4498,19 +4499,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                BorderType::Unspecified =&gt; <span class="string">&quot;BORDER_TYPE_UNSPECIFIED&quot;</span>,
-                BorderType::NoBorder =&gt; <span class="string">&quot;NO_BORDER&quot;</span>,
-                BorderType::Stroke =&gt; <span class="string">&quot;STROKE&quot;</span>,
+                BorderType::Unspecified =&gt; <span class="string">"BORDER_TYPE_UNSPECIFIED"</span>,
+                BorderType::NoBorder =&gt; <span class="string">"NO_BORDER"</span>,
+                BorderType::Stroke =&gt; <span class="string">"STROKE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;BORDER_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NO_BORDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoBorder),
-                <span class="string">&quot;STROKE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stroke),
+                <span class="string">"BORDER_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NO_BORDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoBorder),
+                <span class="string">"STROKE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stroke),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4524,16 +4525,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImageComponent {
     <span class="doccomment">/// The image URL.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>image_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// The accessibility label for the image.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>alt_text: ::prost::alloc::string::String,
     <span class="doccomment">/// The crop style to apply to the image.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>crop_style: ::core::option::Option&lt;ImageCropStyle&gt;,
     <span class="doccomment">/// The border style to apply to the image.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>border_style: ::core::option::Option&lt;BorderStyle&gt;,
 }
 <span class="doccomment">/// Displays a grid with a collection of items. Items can only include text or
@@ -4553,31 +4554,31 @@
 /// item:
 ///
 /// ```
-/// &quot;grid&quot;: {
-///    &quot;title&quot;: &quot;A fine collection of items&quot;,
-///    &quot;columnCount&quot;: 2,
-///    &quot;borderStyle&quot;: {
-///      &quot;type&quot;: &quot;STROKE&quot;,
-///      &quot;cornerRadius&quot;: 4
+/// "grid": {
+///    "title": "A fine collection of items",
+///    "columnCount": 2,
+///    "borderStyle": {
+///      "type": "STROKE",
+///      "cornerRadius": 4
 ///    },
-///    &quot;items&quot;: [
+///    "items": [
 ///      {
-///        &quot;image&quot;: {
-///          &quot;imageUri&quot;: &quot;&lt;https://www.example.com/image.png&quot;,&gt;
-///          &quot;cropStyle&quot;: {
-///            &quot;type&quot;: &quot;SQUARE&quot;
+///        "image": {
+///          "imageUri": "&lt;https://www.example.com/image.png",&gt;
+///          "cropStyle": {
+///            "type": "SQUARE"
 ///          },
-///          &quot;borderStyle&quot;: {
-///            &quot;type&quot;: &quot;STROKE&quot;
+///          "borderStyle": {
+///            "type": "STROKE"
 ///          }
 ///        },
-///        &quot;title&quot;: &quot;An item&quot;,
-///        &quot;textAlignment&quot;: &quot;CENTER&quot;
+///        "title": "An item",
+///        "textAlignment": "CENTER"
 ///      }
 ///    ],
-///    &quot;onClick&quot;: {
-///      &quot;openLink&quot;: {
-///        &quot;url&quot;: &quot;&lt;https://www.example.com&quot;&gt;
+///    "onClick": {
+///      "openLink": {
+///        "url": "&lt;https://www.example.com"&gt;
 ///      }
 ///    }
 /// }
@@ -4586,23 +4587,23 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Grid {
     <span class="doccomment">/// The text that displays in the grid header.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// The items to display in the grid.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>items: ::prost::alloc::vec::Vec&lt;grid::GridItem&gt;,
     <span class="doccomment">/// The border style to apply to each grid item.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>border_style: ::core::option::Option&lt;BorderStyle&gt;,
     <span class="doccomment">/// The number of columns to display in the grid. A default value
-    /// is used if this field isn&#39;t specified, and that default value is
+    /// is used if this field isn't specified, and that default value is
     /// different depending on where the grid is shown (dialog versus companion).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>column_count: i32,
     <span class="doccomment">/// This callback is reused by each individual grid item, but with the
-    /// item&#39;s identifier and index in the items list added to the callback&#39;s
+    /// item's identifier and index in the items list added to the callback's
     /// parameters.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>on_click: ::core::option::Option&lt;OnClick&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Grid`.
@@ -4616,20 +4617,20 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>GridItem {
         <span class="doccomment">/// A user-specified identifier for this grid item. This identifier is
-        /// returned in the parent grid&#39;s `onClick` callback parameters.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// returned in the parent grid's `onClick` callback parameters.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
         <span class="doccomment">/// The image that displays in the grid item.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>image: ::core::option::Option&lt;<span class="kw">super</span>::ImageComponent&gt;,
-        <span class="doccomment">/// The grid item&#39;s title.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        <span class="doccomment">/// The grid item's title.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
-        <span class="doccomment">/// The grid item&#39;s subtitle.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        <span class="doccomment">/// The grid item's subtitle.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>subtitle: ::prost::alloc::string::String,
         <span class="doccomment">/// The layout to use for the grid item.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;grid_item::GridItemLayout&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"grid_item::GridItemLayout"</span>, tag = <span class="string">"9"</span>)]
         </span><span class="kw">pub </span>layout: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `GridItem`.
@@ -4651,11 +4652,11 @@
         )]
         #[repr(i32)]
         </span><span class="kw">pub enum </span>GridItemLayout {
-            <span class="doccomment">/// Don&#39;t use. Unspecified.
+            <span class="doccomment">/// Don't use. Unspecified.
             </span>Unspecified = <span class="number">0</span>,
-            <span class="doccomment">/// The title and subtitle are shown below the grid item&#39;s image.
+            <span class="doccomment">/// The title and subtitle are shown below the grid item's image.
             </span>TextBelow = <span class="number">1</span>,
-            <span class="doccomment">/// The title and subtitle are shown above the grid item&#39;s image.
+            <span class="doccomment">/// The title and subtitle are shown above the grid item's image.
             </span>TextAbove = <span class="number">2</span>,
         }
         <span class="kw">impl </span>GridItemLayout {
@@ -4663,19 +4664,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    GridItemLayout::Unspecified =&gt; <span class="string">&quot;GRID_ITEM_LAYOUT_UNSPECIFIED&quot;</span>,
-                    GridItemLayout::TextBelow =&gt; <span class="string">&quot;TEXT_BELOW&quot;</span>,
-                    GridItemLayout::TextAbove =&gt; <span class="string">&quot;TEXT_ABOVE&quot;</span>,
+                    GridItemLayout::Unspecified =&gt; <span class="string">"GRID_ITEM_LAYOUT_UNSPECIFIED"</span>,
+                    GridItemLayout::TextBelow =&gt; <span class="string">"TEXT_BELOW"</span>,
+                    GridItemLayout::TextAbove =&gt; <span class="string">"TEXT_ABOVE"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;GRID_ITEM_LAYOUT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;TEXT_BELOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TextBelow),
-                    <span class="string">&quot;TEXT_ABOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TextAbove),
+                    <span class="string">"GRID_ITEM_LAYOUT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"TEXT_BELOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TextBelow),
+                    <span class="string">"TEXT_ABOVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TextAbove),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -4690,11 +4691,11 @@
 /// The height of each column is determined by the taller column. For example, if
 /// the first column is taller than the second column, both columns have the
 /// height of the first column. Because each column can contain a different
-/// number of widgets, you can&#39;t define rows or align widgets between the
+/// number of widgets, you can't define rows or align widgets between the
 /// columns.
 ///
 /// Columns are displayed side-by-side. You can customize the width of each
-/// column using the `HorizontalSizeStyle` field. If the user&#39;s
+/// column using the `HorizontalSizeStyle` field. If the user's
 /// screen width is too narrow, the second column wraps below the first:
 ///
 /// * On web, the second column wraps if the screen width is less than or equal
@@ -4712,7 +4713,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Columns {
     <span class="doccomment">/// An array of columns. You can include up to 2 columns in a card or dialog.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>column_items: ::prost::alloc::vec::Vec&lt;columns::Column&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Columns`.
@@ -4726,21 +4727,21 @@
         <span class="doccomment">/// Specifies how a column fills the width of the card.
         ///
         /// [Google Chat apps](&lt;https://developers.google.com/chat&gt;):
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;column::HorizontalSizeStyle&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"column::HorizontalSizeStyle"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>horizontal_size_style: i32,
         <span class="doccomment">/// Specifies whether widgets align to the left, right, or center of a
         /// column.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::widget::HorizontalAlignment&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::widget::HorizontalAlignment"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>horizontal_alignment: i32,
         <span class="doccomment">/// Specifies whether widgets align to the top, bottom, or center of a
         /// column.
         ///
         /// [Google Chat apps](&lt;https://developers.google.com/chat&gt;):
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;column::VerticalAlignment&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"column::VerticalAlignment"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>vertical_alignment: i32,
         <span class="doccomment">/// An array of widgets included in a column. Widgets appear in the order
         /// that they are specified.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>widgets: ::prost::alloc::vec::Vec&lt;column::Widgets&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Column`.
@@ -4751,7 +4752,7 @@
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>Widgets {
-            <span class="attr">#[prost(oneof = <span class="string">&quot;widgets::Data&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5, 6, 7&quot;</span>)]
+            <span class="attr">#[prost(oneof = <span class="string">"widgets::Data"</span>, tags = <span class="string">"1, 2, 3, 4, 5, 6, 7"</span>)]
             </span><span class="kw">pub </span>data: ::core::option::Option&lt;widgets::Data&gt;,
         }
         <span class="doccomment">/// Nested message and enum types in `Widgets`.
@@ -4760,25 +4761,25 @@
             #[derive(Clone, PartialEq, ::prost::Oneof)]
             </span><span class="kw">pub enum </span>Data {
                 <span class="doccomment">/// [TextParagraph][google.apps.card.v1.TextParagraph] widget.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
                 </span>TextParagraph(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::TextParagraph),
                 <span class="doccomment">/// [Image][google.apps.card.v1.Image] widget.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
                 </span>Image(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::Image),
                 <span class="doccomment">/// [DecoratedText][google.apps.card.v1.DecoratedText] widget.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
                 </span>DecoratedText(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::DecoratedText),
                 <span class="doccomment">/// [ButtonList][google.apps.card.v1.ButtonList] widget.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
                 </span>ButtonList(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::ButtonList),
                 <span class="doccomment">/// [TextInput][google.apps.card.v1.TextInput] widget.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
                 </span>TextInput(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::TextInput),
                 <span class="doccomment">/// [SelectionInput][google.apps.card.v1.SelectionInput] widget.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
                 </span>SelectionInput(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::SelectionInput),
                 <span class="doccomment">/// [DateTimePicker][google.apps.card.v1.DateTimePicker] widget.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
                 </span>DateTimePicker(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::DateTimePicker),
             }
         }
@@ -4800,14 +4801,14 @@
         )]
         #[repr(i32)]
         </span><span class="kw">pub enum </span>HorizontalSizeStyle {
-            <span class="doccomment">/// Don&#39;t use. Unspecified.
+            <span class="doccomment">/// Don't use. Unspecified.
             </span>Unspecified = <span class="number">0</span>,
             <span class="doccomment">/// Default value. Column fills the available space, up to 70% of the
-            /// card&#39;s width. If both columns are set to `FILL_AVAILABLE_SPACE`, each
+            /// card's width. If both columns are set to `FILL_AVAILABLE_SPACE`, each
             /// column fills 50% of the space.
             </span>FillAvailableSpace = <span class="number">1</span>,
             <span class="doccomment">/// Column fills the least amount of space possible and no more than 30% of
-            /// the card&#39;s width.
+            /// the card's width.
             </span>FillMinimumSpace = <span class="number">2</span>,
         }
         <span class="kw">impl </span>HorizontalSizeStyle {
@@ -4815,21 +4816,21 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
                     HorizontalSizeStyle::Unspecified =&gt; {
-                        <span class="string">&quot;HORIZONTAL_SIZE_STYLE_UNSPECIFIED&quot;
+                        <span class="string">"HORIZONTAL_SIZE_STYLE_UNSPECIFIED"
                     </span>}
-                    HorizontalSizeStyle::FillAvailableSpace =&gt; <span class="string">&quot;FILL_AVAILABLE_SPACE&quot;</span>,
-                    HorizontalSizeStyle::FillMinimumSpace =&gt; <span class="string">&quot;FILL_MINIMUM_SPACE&quot;</span>,
+                    HorizontalSizeStyle::FillAvailableSpace =&gt; <span class="string">"FILL_AVAILABLE_SPACE"</span>,
+                    HorizontalSizeStyle::FillMinimumSpace =&gt; <span class="string">"FILL_MINIMUM_SPACE"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;HORIZONTAL_SIZE_STYLE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;FILL_AVAILABLE_SPACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FillAvailableSpace),
-                    <span class="string">&quot;FILL_MINIMUM_SPACE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FillMinimumSpace),
+                    <span class="string">"HORIZONTAL_SIZE_STYLE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"FILL_AVAILABLE_SPACE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FillAvailableSpace),
+                    <span class="string">"FILL_MINIMUM_SPACE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FillMinimumSpace),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -4851,7 +4852,7 @@
         )]
         #[repr(i32)]
         </span><span class="kw">pub enum </span>VerticalAlignment {
-            <span class="doccomment">/// Don&#39;t use. Unspecified.
+            <span class="doccomment">/// Don't use. Unspecified.
             </span>Unspecified = <span class="number">0</span>,
             <span class="doccomment">/// Default value. Aligns widgets to the center of a column.
             </span>Center = <span class="number">1</span>,
@@ -4865,21 +4866,21 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    VerticalAlignment::Unspecified =&gt; <span class="string">&quot;VERTICAL_ALIGNMENT_UNSPECIFIED&quot;</span>,
-                    VerticalAlignment::Center =&gt; <span class="string">&quot;CENTER&quot;</span>,
-                    VerticalAlignment::Top =&gt; <span class="string">&quot;TOP&quot;</span>,
-                    VerticalAlignment::Bottom =&gt; <span class="string">&quot;BOTTOM&quot;</span>,
+                    VerticalAlignment::Unspecified =&gt; <span class="string">"VERTICAL_ALIGNMENT_UNSPECIFIED"</span>,
+                    VerticalAlignment::Center =&gt; <span class="string">"CENTER"</span>,
+                    VerticalAlignment::Top =&gt; <span class="string">"TOP"</span>,
+                    VerticalAlignment::Bottom =&gt; <span class="string">"BOTTOM"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;VERTICAL_ALIGNMENT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;CENTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Center),
-                    <span class="string">&quot;TOP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Top),
-                    <span class="string">&quot;BOTTOM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bottom),
+                    <span class="string">"VERTICAL_ALIGNMENT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"CENTER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Center),
+                    <span class="string">"TOP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Top),
+                    <span class="string">"BOTTOM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bottom),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -4894,7 +4895,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OnClick {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;on_click::Data&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"on_click::Data"</span>, tags = <span class="string">"1, 2, 3, 4"</span>)]
     </span><span class="kw">pub </span>data: ::core::option::Option&lt;on_click::Data&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `OnClick`.
@@ -4903,10 +4904,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Data {
         <span class="doccomment">/// If specified, an action is triggered by this `onClick`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Action(<span class="kw">super</span>::Action),
         <span class="doccomment">/// If specified, this `onClick` triggers an open link action.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>OpenLink(<span class="kw">super</span>::OpenLink),
         <span class="doccomment">/// An add-on triggers this action when the action needs to open a
         /// link. This differs from the `open_link` above in that this needs to talk
@@ -4915,13 +4916,13 @@
         ///
         /// [Google Workspace
         /// Add-ons](&lt;https://developers.google.com/workspace/add-ons&gt;):
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>OpenDynamicLinkAction(<span class="kw">super</span>::Action),
         <span class="doccomment">/// A new card is pushed to the card stack after clicking if specified.
         ///
         /// [Google Workspace
         /// Add-ons](&lt;https://developers.google.com/workspace/add-ons&gt;):
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>Card(::prost::alloc::boxed::Box&lt;<span class="kw">super</span>::Card&gt;),
     }
 }
@@ -4933,29 +4934,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OpenLink {
     <span class="doccomment">/// The URL to open.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
     <span class="doccomment">/// How to open a link.
     ///
     /// [Google Workspace
     /// Add-ons](&lt;https://developers.google.com/workspace/add-ons&gt;):
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;open_link::OpenAs&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"open_link::OpenAs"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>open_as: i32,
     <span class="doccomment">/// Whether the client forgets about a link after opening it, or observes it
     /// until the window closes.
     ///
     /// [Google Workspace
     /// Add-ons](&lt;https://developers.google.com/workspace/add-ons&gt;):
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;open_link::OnClose&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"open_link::OnClose"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>on_close: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `OpenLink`.
 </span><span class="kw">pub mod </span>open_link {
     <span class="doccomment">/// When an `OnClick` action opens a link, then the client can either open it
-    /// as a full-size window (if that&#39;s the frame used by the client), or an
+    /// as a full-size window (if that's the frame used by the client), or an
     /// overlay (such as a pop-up). The implementation depends on the client
     /// platform capabilities, and the value selected might be ignored if the
-    /// client doesn&#39;t support it. `FULL_SIZE` is supported by all clients.
+    /// client doesn't support it. `FULL_SIZE` is supported by all clients.
     ///
     /// [Google Workspace
     /// Add-ons](&lt;https://developers.google.com/workspace/add-ons&gt;):
@@ -4972,7 +4973,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>OpenAs {
-        <span class="doccomment">/// The link opens as a full-size window (if that&#39;s the frame used by the
+        <span class="doccomment">/// The link opens as a full-size window (if that's the frame used by the
         /// client).
         </span>FullSize = <span class="number">0</span>,
         <span class="doccomment">/// The link opens as an overlay, such as a pop-up.
@@ -4983,17 +4984,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                OpenAs::FullSize =&gt; <span class="string">&quot;FULL_SIZE&quot;</span>,
-                OpenAs::Overlay =&gt; <span class="string">&quot;OVERLAY&quot;</span>,
+                OpenAs::FullSize =&gt; <span class="string">"FULL_SIZE"</span>,
+                OpenAs::Overlay =&gt; <span class="string">"OVERLAY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;FULL_SIZE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FullSize),
-                <span class="string">&quot;OVERLAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Overlay),
+                <span class="string">"FULL_SIZE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FullSize),
+                <span class="string">"OVERLAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Overlay),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -5004,7 +5005,7 @@
     /// browser might open a link in a pop-up window with an `OnClose` handler.
     ///
     /// If both `OnOpen` and `OnClose` handlers are set, and the client platform
-    /// can&#39;t support both values, `OnClose` takes precedence.
+    /// can't support both values, `OnClose` takes precedence.
     ///
     /// [Google Workspace
     /// Add-ons](&lt;https://developers.google.com/workspace/add-ons&gt;):
@@ -5021,7 +5022,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>OnClose {
-        <span class="doccomment">/// Default value. The card doesn&#39;t reload; nothing happens.
+        <span class="doccomment">/// Default value. The card doesn't reload; nothing happens.
         </span>Nothing = <span class="number">0</span>,
         <span class="doccomment">/// Reloads the card after the child window closes.
         ///
@@ -5036,17 +5037,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                OnClose::Nothing =&gt; <span class="string">&quot;NOTHING&quot;</span>,
-                OnClose::Reload =&gt; <span class="string">&quot;RELOAD&quot;</span>,
+                OnClose::Nothing =&gt; <span class="string">"NOTHING"</span>,
+                OnClose::Reload =&gt; <span class="string">"RELOAD"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;NOTHING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nothing),
-                <span class="string">&quot;RELOAD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reload),
+                <span class="string">"NOTHING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nothing),
+                <span class="string">"RELOAD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reload),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -5066,14 +5067,14 @@
     ///
     /// For example usage, see [Create interactive
     /// cards](&lt;https://developers.google.com/chat/how-tos/cards-onclick&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>function: ::prost::alloc::string::String,
     <span class="doccomment">/// List of action parameters.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>parameters: ::prost::alloc::vec::Vec&lt;action::ActionParameter&gt;,
     <span class="doccomment">/// Specifies the loading indicator that the action displays while
     /// making the call to the action.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;action::LoadIndicator&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"action::LoadIndicator"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>load_indicator: i32,
     <span class="doccomment">/// Indicates whether form values persist after the action. The default value
     /// is `false`.
@@ -5083,7 +5084,7 @@
     /// [`LoadIndicator`](&lt;https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator&gt;)
     /// to `NONE`. For [card
     /// messages](&lt;https://developers.google.com/chat/api/guides/v1/messages/create#create&gt;)
-    /// in Chat apps, you must also set the action&#39;s
+    /// in Chat apps, you must also set the action's
     /// [`ResponseType`](&lt;https://developers.google.com/chat/api/reference/rest/v1/spaces.messages#responsetype&gt;)
     /// to `UPDATE_MESSAGE` and use the same
     /// [`card_id`](&lt;https://developers.google.com/chat/api/reference/rest/v1/spaces.messages#CardWithId&gt;)
@@ -5094,7 +5095,7 @@
     /// processed, set
     /// [`LoadIndicator`](&lt;https://developers.google.com/workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator&gt;)
     /// to `SPINNER`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>persist_values: bool,
     <span class="doccomment">/// Optional. Required when opening a
     /// [dialog](&lt;https://developers.google.com/chat/how-tos/dialogs&gt;).
@@ -5108,11 +5109,11 @@
     /// By specifying an `interaction`, the app can respond in special interactive
     /// ways. For example, by setting `interaction` to `OPEN_DIALOG`, the app can
     /// open a [dialog](&lt;https://developers.google.com/chat/how-tos/dialogs&gt;). When
-    /// specified, a loading indicator isn&#39;t shown. If specified for
+    /// specified, a loading indicator isn't shown. If specified for
     /// an add-on, the entire card is stripped and nothing is shown in the client.
     ///
     /// [Google Chat apps](&lt;https://developers.google.com/chat&gt;):
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;action::Interaction&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"action::Interaction"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>interaction: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Action`.
@@ -5131,10 +5132,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ActionParameter {
         <span class="doccomment">/// The name of the parameter for the action script.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
         <span class="doccomment">/// The value of the parameter.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Specifies the loading indicator that the action displays while
@@ -5165,17 +5166,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                LoadIndicator::Spinner =&gt; <span class="string">&quot;SPINNER&quot;</span>,
-                LoadIndicator::None =&gt; <span class="string">&quot;NONE&quot;</span>,
+                LoadIndicator::Spinner =&gt; <span class="string">"SPINNER"</span>,
+                LoadIndicator::None =&gt; <span class="string">"NONE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SPINNER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Spinner),
-                <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+                <span class="string">"SPINNER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Spinner),
+                <span class="string">"NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -5193,7 +5194,7 @@
     /// ways. For example, by setting `interaction` to `OPEN_DIALOG`, the app can
     /// open a [dialog](&lt;https://developers.google.com/chat/how-tos/dialogs&gt;).
     ///
-    /// When specified, a loading indicator isn&#39;t shown. If specified for
+    /// When specified, a loading indicator isn't shown. If specified for
     /// an add-on, the entire card is stripped and nothing is shown in the client.
     ///
     /// [Google Chat apps](&lt;https://developers.google.com/chat&gt;):
@@ -5228,17 +5229,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Interaction::Unspecified =&gt; <span class="string">&quot;INTERACTION_UNSPECIFIED&quot;</span>,
-                Interaction::OpenDialog =&gt; <span class="string">&quot;OPEN_DIALOG&quot;</span>,
+                Interaction::Unspecified =&gt; <span class="string">"INTERACTION_UNSPECIFIED"</span>,
+                Interaction::OpenDialog =&gt; <span class="string">"OPEN_DIALOG"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;INTERACTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;OPEN_DIALOG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OpenDialog),
+                <span class="string">"INTERACTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"OPEN_DIALOG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OpenDialog),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }

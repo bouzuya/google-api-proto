@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/monitoring/dashboard/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/monitoring/dashboard/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2168,8 +2169,8 @@
 ///
 /// The raw time series data can contain a huge amount of information from
 /// multiple sources. Alignment and reduction transforms this mass of data into
-/// a more manageable and representative collection of data, for example &quot;the
-/// 95% latency across the average of all tasks in a cluster&quot;. This
+/// a more manageable and representative collection of data, for example "the
+/// 95% latency across the average of all tasks in a cluster". This
 /// representative data can be more easily graphed and comprehended, and the
 /// individual time series data is still available for later drilldown. For more
 /// details, see [Filtering and
@@ -2189,7 +2190,7 @@
     /// specified, then this field is ignored.
     ///
     /// The maximum value of the `alignment_period` is 2 years, or 104 weeks.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>alignment_period: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// An `Aligner` describes how to bring the data points in a single
     /// time series into temporal alignment. Except for `ALIGN_NONE`, all
@@ -2207,7 +2208,7 @@
     /// `per_series_aligner` must be specified and not equal to `ALIGN_NONE`
     /// and `alignment_period` must be specified; otherwise, an error is
     /// returned.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;aggregation::Aligner&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"aggregation::Aligner"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>per_series_aligner: i32,
     <span class="doccomment">/// The reduction operation to be used to combine time series into a single
     /// time series, where the value of each data point in the resulting series is
@@ -2223,7 +2224,7 @@
     /// specified, then `per_series_aligner` must be specified, and must not be
     /// `ALIGN_NONE`. An `alignment_period` must also be specified; otherwise, an
     /// error is returned.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;aggregation::Reducer&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"aggregation::Reducer"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>cross_series_reducer: i32,
     <span class="doccomment">/// The set of fields to preserve when `cross_series_reducer` is
     /// specified. The `group_by_fields` determine how the time series are
@@ -2239,7 +2240,7 @@
     /// the same resource type, then the time series are aggregated into
     /// a single output time series. If `cross_series_reducer` is not
     /// defined, this field is ignored.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>group_by_fields: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Aggregation`.
@@ -2285,7 +2286,7 @@
         /// the `value_type` of the input.
         </span>AlignDelta = <span class="number">1</span>,
         <span class="doccomment">/// Align and convert to a rate. The result is computed as
-        /// `rate = (y1 - y0)/(t1 - t0)`, or &quot;delta over time&quot;.
+        /// `rate = (y1 - y0)/(t1 - t0)`, or "delta over time".
         /// Think of this aligner as providing the slope of the line that passes
         /// through the value at the start and at the end of the `alignment_period`.
         ///
@@ -2295,7 +2296,7 @@
         /// such a period is created by interpolation. The output is a `GAUGE`
         /// metric with `value_type` `DOUBLE`.
         ///
-        /// If, by &quot;rate&quot;, you mean &quot;percentage change&quot;, see the
+        /// If, by "rate", you mean "percentage change", see the
         /// `ALIGN_PERCENT_CHANGE` aligner instead.
         </span>AlignRate = <span class="number">2</span>,
         <span class="doccomment">/// Align by interpolating between adjacent points around the alignment
@@ -2401,51 +2402,51 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Aligner::AlignNone =&gt; <span class="string">&quot;ALIGN_NONE&quot;</span>,
-                Aligner::AlignDelta =&gt; <span class="string">&quot;ALIGN_DELTA&quot;</span>,
-                Aligner::AlignRate =&gt; <span class="string">&quot;ALIGN_RATE&quot;</span>,
-                Aligner::AlignInterpolate =&gt; <span class="string">&quot;ALIGN_INTERPOLATE&quot;</span>,
-                Aligner::AlignNextOlder =&gt; <span class="string">&quot;ALIGN_NEXT_OLDER&quot;</span>,
-                Aligner::AlignMin =&gt; <span class="string">&quot;ALIGN_MIN&quot;</span>,
-                Aligner::AlignMax =&gt; <span class="string">&quot;ALIGN_MAX&quot;</span>,
-                Aligner::AlignMean =&gt; <span class="string">&quot;ALIGN_MEAN&quot;</span>,
-                Aligner::AlignCount =&gt; <span class="string">&quot;ALIGN_COUNT&quot;</span>,
-                Aligner::AlignSum =&gt; <span class="string">&quot;ALIGN_SUM&quot;</span>,
-                Aligner::AlignStddev =&gt; <span class="string">&quot;ALIGN_STDDEV&quot;</span>,
-                Aligner::AlignCountTrue =&gt; <span class="string">&quot;ALIGN_COUNT_TRUE&quot;</span>,
-                Aligner::AlignCountFalse =&gt; <span class="string">&quot;ALIGN_COUNT_FALSE&quot;</span>,
-                Aligner::AlignFractionTrue =&gt; <span class="string">&quot;ALIGN_FRACTION_TRUE&quot;</span>,
-                Aligner::AlignPercentile99 =&gt; <span class="string">&quot;ALIGN_PERCENTILE_99&quot;</span>,
-                Aligner::AlignPercentile95 =&gt; <span class="string">&quot;ALIGN_PERCENTILE_95&quot;</span>,
-                Aligner::AlignPercentile50 =&gt; <span class="string">&quot;ALIGN_PERCENTILE_50&quot;</span>,
-                Aligner::AlignPercentile05 =&gt; <span class="string">&quot;ALIGN_PERCENTILE_05&quot;</span>,
-                Aligner::AlignPercentChange =&gt; <span class="string">&quot;ALIGN_PERCENT_CHANGE&quot;</span>,
+                Aligner::AlignNone =&gt; <span class="string">"ALIGN_NONE"</span>,
+                Aligner::AlignDelta =&gt; <span class="string">"ALIGN_DELTA"</span>,
+                Aligner::AlignRate =&gt; <span class="string">"ALIGN_RATE"</span>,
+                Aligner::AlignInterpolate =&gt; <span class="string">"ALIGN_INTERPOLATE"</span>,
+                Aligner::AlignNextOlder =&gt; <span class="string">"ALIGN_NEXT_OLDER"</span>,
+                Aligner::AlignMin =&gt; <span class="string">"ALIGN_MIN"</span>,
+                Aligner::AlignMax =&gt; <span class="string">"ALIGN_MAX"</span>,
+                Aligner::AlignMean =&gt; <span class="string">"ALIGN_MEAN"</span>,
+                Aligner::AlignCount =&gt; <span class="string">"ALIGN_COUNT"</span>,
+                Aligner::AlignSum =&gt; <span class="string">"ALIGN_SUM"</span>,
+                Aligner::AlignStddev =&gt; <span class="string">"ALIGN_STDDEV"</span>,
+                Aligner::AlignCountTrue =&gt; <span class="string">"ALIGN_COUNT_TRUE"</span>,
+                Aligner::AlignCountFalse =&gt; <span class="string">"ALIGN_COUNT_FALSE"</span>,
+                Aligner::AlignFractionTrue =&gt; <span class="string">"ALIGN_FRACTION_TRUE"</span>,
+                Aligner::AlignPercentile99 =&gt; <span class="string">"ALIGN_PERCENTILE_99"</span>,
+                Aligner::AlignPercentile95 =&gt; <span class="string">"ALIGN_PERCENTILE_95"</span>,
+                Aligner::AlignPercentile50 =&gt; <span class="string">"ALIGN_PERCENTILE_50"</span>,
+                Aligner::AlignPercentile05 =&gt; <span class="string">"ALIGN_PERCENTILE_05"</span>,
+                Aligner::AlignPercentChange =&gt; <span class="string">"ALIGN_PERCENT_CHANGE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ALIGN_NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignNone),
-                <span class="string">&quot;ALIGN_DELTA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignDelta),
-                <span class="string">&quot;ALIGN_RATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignRate),
-                <span class="string">&quot;ALIGN_INTERPOLATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignInterpolate),
-                <span class="string">&quot;ALIGN_NEXT_OLDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignNextOlder),
-                <span class="string">&quot;ALIGN_MIN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignMin),
-                <span class="string">&quot;ALIGN_MAX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignMax),
-                <span class="string">&quot;ALIGN_MEAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignMean),
-                <span class="string">&quot;ALIGN_COUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignCount),
-                <span class="string">&quot;ALIGN_SUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignSum),
-                <span class="string">&quot;ALIGN_STDDEV&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignStddev),
-                <span class="string">&quot;ALIGN_COUNT_TRUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignCountTrue),
-                <span class="string">&quot;ALIGN_COUNT_FALSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignCountFalse),
-                <span class="string">&quot;ALIGN_FRACTION_TRUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignFractionTrue),
-                <span class="string">&quot;ALIGN_PERCENTILE_99&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignPercentile99),
-                <span class="string">&quot;ALIGN_PERCENTILE_95&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignPercentile95),
-                <span class="string">&quot;ALIGN_PERCENTILE_50&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignPercentile50),
-                <span class="string">&quot;ALIGN_PERCENTILE_05&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignPercentile05),
-                <span class="string">&quot;ALIGN_PERCENT_CHANGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignPercentChange),
+                <span class="string">"ALIGN_NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignNone),
+                <span class="string">"ALIGN_DELTA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignDelta),
+                <span class="string">"ALIGN_RATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignRate),
+                <span class="string">"ALIGN_INTERPOLATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignInterpolate),
+                <span class="string">"ALIGN_NEXT_OLDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignNextOlder),
+                <span class="string">"ALIGN_MIN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignMin),
+                <span class="string">"ALIGN_MAX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignMax),
+                <span class="string">"ALIGN_MEAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignMean),
+                <span class="string">"ALIGN_COUNT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignCount),
+                <span class="string">"ALIGN_SUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignSum),
+                <span class="string">"ALIGN_STDDEV" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignStddev),
+                <span class="string">"ALIGN_COUNT_TRUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignCountTrue),
+                <span class="string">"ALIGN_COUNT_FALSE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignCountFalse),
+                <span class="string">"ALIGN_FRACTION_TRUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignFractionTrue),
+                <span class="string">"ALIGN_PERCENTILE_99" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignPercentile99),
+                <span class="string">"ALIGN_PERCENTILE_95" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignPercentile95),
+                <span class="string">"ALIGN_PERCENTILE_50" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignPercentile50),
+                <span class="string">"ALIGN_PERCENTILE_05" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignPercentile05),
+                <span class="string">"ALIGN_PERCENT_CHANGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlignPercentChange),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2548,41 +2549,41 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Reducer::ReduceNone =&gt; <span class="string">&quot;REDUCE_NONE&quot;</span>,
-                Reducer::ReduceMean =&gt; <span class="string">&quot;REDUCE_MEAN&quot;</span>,
-                Reducer::ReduceMin =&gt; <span class="string">&quot;REDUCE_MIN&quot;</span>,
-                Reducer::ReduceMax =&gt; <span class="string">&quot;REDUCE_MAX&quot;</span>,
-                Reducer::ReduceSum =&gt; <span class="string">&quot;REDUCE_SUM&quot;</span>,
-                Reducer::ReduceStddev =&gt; <span class="string">&quot;REDUCE_STDDEV&quot;</span>,
-                Reducer::ReduceCount =&gt; <span class="string">&quot;REDUCE_COUNT&quot;</span>,
-                Reducer::ReduceCountTrue =&gt; <span class="string">&quot;REDUCE_COUNT_TRUE&quot;</span>,
-                Reducer::ReduceCountFalse =&gt; <span class="string">&quot;REDUCE_COUNT_FALSE&quot;</span>,
-                Reducer::ReduceFractionTrue =&gt; <span class="string">&quot;REDUCE_FRACTION_TRUE&quot;</span>,
-                Reducer::ReducePercentile99 =&gt; <span class="string">&quot;REDUCE_PERCENTILE_99&quot;</span>,
-                Reducer::ReducePercentile95 =&gt; <span class="string">&quot;REDUCE_PERCENTILE_95&quot;</span>,
-                Reducer::ReducePercentile50 =&gt; <span class="string">&quot;REDUCE_PERCENTILE_50&quot;</span>,
-                Reducer::ReducePercentile05 =&gt; <span class="string">&quot;REDUCE_PERCENTILE_05&quot;</span>,
+                Reducer::ReduceNone =&gt; <span class="string">"REDUCE_NONE"</span>,
+                Reducer::ReduceMean =&gt; <span class="string">"REDUCE_MEAN"</span>,
+                Reducer::ReduceMin =&gt; <span class="string">"REDUCE_MIN"</span>,
+                Reducer::ReduceMax =&gt; <span class="string">"REDUCE_MAX"</span>,
+                Reducer::ReduceSum =&gt; <span class="string">"REDUCE_SUM"</span>,
+                Reducer::ReduceStddev =&gt; <span class="string">"REDUCE_STDDEV"</span>,
+                Reducer::ReduceCount =&gt; <span class="string">"REDUCE_COUNT"</span>,
+                Reducer::ReduceCountTrue =&gt; <span class="string">"REDUCE_COUNT_TRUE"</span>,
+                Reducer::ReduceCountFalse =&gt; <span class="string">"REDUCE_COUNT_FALSE"</span>,
+                Reducer::ReduceFractionTrue =&gt; <span class="string">"REDUCE_FRACTION_TRUE"</span>,
+                Reducer::ReducePercentile99 =&gt; <span class="string">"REDUCE_PERCENTILE_99"</span>,
+                Reducer::ReducePercentile95 =&gt; <span class="string">"REDUCE_PERCENTILE_95"</span>,
+                Reducer::ReducePercentile50 =&gt; <span class="string">"REDUCE_PERCENTILE_50"</span>,
+                Reducer::ReducePercentile05 =&gt; <span class="string">"REDUCE_PERCENTILE_05"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;REDUCE_NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceNone),
-                <span class="string">&quot;REDUCE_MEAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceMean),
-                <span class="string">&quot;REDUCE_MIN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceMin),
-                <span class="string">&quot;REDUCE_MAX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceMax),
-                <span class="string">&quot;REDUCE_SUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceSum),
-                <span class="string">&quot;REDUCE_STDDEV&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceStddev),
-                <span class="string">&quot;REDUCE_COUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceCount),
-                <span class="string">&quot;REDUCE_COUNT_TRUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceCountTrue),
-                <span class="string">&quot;REDUCE_COUNT_FALSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceCountFalse),
-                <span class="string">&quot;REDUCE_FRACTION_TRUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceFractionTrue),
-                <span class="string">&quot;REDUCE_PERCENTILE_99&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReducePercentile99),
-                <span class="string">&quot;REDUCE_PERCENTILE_95&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReducePercentile95),
-                <span class="string">&quot;REDUCE_PERCENTILE_50&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReducePercentile50),
-                <span class="string">&quot;REDUCE_PERCENTILE_05&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReducePercentile05),
+                <span class="string">"REDUCE_NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceNone),
+                <span class="string">"REDUCE_MEAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceMean),
+                <span class="string">"REDUCE_MIN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceMin),
+                <span class="string">"REDUCE_MAX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceMax),
+                <span class="string">"REDUCE_SUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceSum),
+                <span class="string">"REDUCE_STDDEV" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceStddev),
+                <span class="string">"REDUCE_COUNT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceCount),
+                <span class="string">"REDUCE_COUNT_TRUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceCountTrue),
+                <span class="string">"REDUCE_COUNT_FALSE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceCountFalse),
+                <span class="string">"REDUCE_FRACTION_TRUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReduceFractionTrue),
+                <span class="string">"REDUCE_PERCENTILE_99" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReducePercentile99),
+                <span class="string">"REDUCE_PERCENTILE_95" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReducePercentile95),
+                <span class="string">"REDUCE_PERCENTILE_50" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReducePercentile50),
+                <span class="string">"REDUCE_PERCENTILE_05" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReducePercentile05),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2601,13 +2602,13 @@
     <span class="doccomment">/// `ranking_method` is applied to each time series independently to produce
     /// the value which will be used to compare the time series to other time
     /// series.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;pick_time_series_filter::Method&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"pick_time_series_filter::Method"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>ranking_method: i32,
     <span class="doccomment">/// How many time series to allow to pass through the filter.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>num_time_series: i32,
     <span class="doccomment">/// How to use the ranking to select time series that pass through the filter.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;pick_time_series_filter::Direction&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"pick_time_series_filter::Direction"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>direction: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `PickTimeSeriesFilter`.
@@ -2645,25 +2646,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Method::Unspecified =&gt; <span class="string">&quot;METHOD_UNSPECIFIED&quot;</span>,
-                Method::Mean =&gt; <span class="string">&quot;METHOD_MEAN&quot;</span>,
-                Method::Max =&gt; <span class="string">&quot;METHOD_MAX&quot;</span>,
-                Method::Min =&gt; <span class="string">&quot;METHOD_MIN&quot;</span>,
-                Method::Sum =&gt; <span class="string">&quot;METHOD_SUM&quot;</span>,
-                Method::Latest =&gt; <span class="string">&quot;METHOD_LATEST&quot;</span>,
+                Method::Unspecified =&gt; <span class="string">"METHOD_UNSPECIFIED"</span>,
+                Method::Mean =&gt; <span class="string">"METHOD_MEAN"</span>,
+                Method::Max =&gt; <span class="string">"METHOD_MAX"</span>,
+                Method::Min =&gt; <span class="string">"METHOD_MIN"</span>,
+                Method::Sum =&gt; <span class="string">"METHOD_SUM"</span>,
+                Method::Latest =&gt; <span class="string">"METHOD_LATEST"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;METHOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;METHOD_MEAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mean),
-                <span class="string">&quot;METHOD_MAX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Max),
-                <span class="string">&quot;METHOD_MIN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Min),
-                <span class="string">&quot;METHOD_SUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sum),
-                <span class="string">&quot;METHOD_LATEST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Latest),
+                <span class="string">"METHOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"METHOD_MEAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mean),
+                <span class="string">"METHOD_MAX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Max),
+                <span class="string">"METHOD_MIN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Min),
+                <span class="string">"METHOD_SUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sum),
+                <span class="string">"METHOD_LATEST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Latest),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2695,19 +2696,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Direction::Unspecified =&gt; <span class="string">&quot;DIRECTION_UNSPECIFIED&quot;</span>,
-                Direction::Top =&gt; <span class="string">&quot;TOP&quot;</span>,
-                Direction::Bottom =&gt; <span class="string">&quot;BOTTOM&quot;</span>,
+                Direction::Unspecified =&gt; <span class="string">"DIRECTION_UNSPECIFIED"</span>,
+                Direction::Top =&gt; <span class="string">"TOP"</span>,
+                Direction::Bottom =&gt; <span class="string">"BOTTOM"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DIRECTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;TOP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Top),
-                <span class="string">&quot;BOTTOM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bottom),
+                <span class="string">"DIRECTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"TOP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Top),
+                <span class="string">"BOTTOM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bottom),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2724,10 +2725,10 @@
     /// series to others.
     /// These are methods that cannot be applied stream-by-stream, but rather
     /// require the full context of a request to evaluate time series.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;statistical_time_series_filter::Method&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"statistical_time_series_filter::Method"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>ranking_method: i32,
     <span class="doccomment">/// How many time series to output.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>num_time_series: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `StatisticalTimeSeriesFilter`.
@@ -2756,17 +2757,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Method::Unspecified =&gt; <span class="string">&quot;METHOD_UNSPECIFIED&quot;</span>,
-                Method::ClusterOutlier =&gt; <span class="string">&quot;METHOD_CLUSTER_OUTLIER&quot;</span>,
+                Method::Unspecified =&gt; <span class="string">"METHOD_UNSPECIFIED"</span>,
+                Method::ClusterOutlier =&gt; <span class="string">"METHOD_CLUSTER_OUTLIER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;METHOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;METHOD_CLUSTER_OUTLIER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClusterOutlier),
+                <span class="string">"METHOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"METHOD_CLUSTER_OUTLIER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ClusterOutlier),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2778,7 +2779,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CollapsibleGroup {
     <span class="doccomment">/// The collapsed state of the widget on first page load.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>collapsed: bool,
 }
 <span class="doccomment">/// A widget that displays textual content.
@@ -2786,10 +2787,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Text {
     <span class="doccomment">/// The text content to be displayed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
     <span class="doccomment">/// How the text content is formatted.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;text::Format&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"text::Format"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>format: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Text`.
@@ -2820,19 +2821,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Format::Unspecified =&gt; <span class="string">&quot;FORMAT_UNSPECIFIED&quot;</span>,
-                Format::Markdown =&gt; <span class="string">&quot;MARKDOWN&quot;</span>,
-                Format::Raw =&gt; <span class="string">&quot;RAW&quot;</span>,
+                Format::Unspecified =&gt; <span class="string">"FORMAT_UNSPECIFIED"</span>,
+                Format::Markdown =&gt; <span class="string">"MARKDOWN"</span>,
+                Format::Raw =&gt; <span class="string">"RAW"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;FORMAT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;MARKDOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Markdown),
-                <span class="string">&quot;RAW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Raw),
+                <span class="string">"FORMAT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"MARKDOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Markdown),
+                <span class="string">"RAW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Raw),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2848,10 +2849,10 @@
     /// the same as the
     /// [`unit`](&lt;https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.metricDescriptors&gt;)
     /// field in `MetricDescriptor`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>unit_override: ::prost::alloc::string::String,
     <span class="doccomment">/// Parameters needed to obtain data for the chart.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;time_series_query::Source&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"time_series_query::Source"</span>, tags = <span class="string">"1, 2, 3, 6"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;time_series_query::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TimeSeriesQuery`.
@@ -2861,16 +2862,16 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// Filter parameters to fetch time series.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>TimeSeriesFilter(<span class="kw">super</span>::TimeSeriesFilter),
         <span class="doccomment">/// Parameters to fetch a ratio between two time series filters.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>TimeSeriesFilterRatio(<span class="kw">super</span>::TimeSeriesFilterRatio),
         <span class="doccomment">/// A query used to fetch time series with MQL.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>TimeSeriesQueryLanguage(::prost::alloc::string::String),
         <span class="doccomment">/// A query used to fetch time series with PromQL.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
         </span>PrometheusQuery(::prost::alloc::string::String),
     }
 }
@@ -2884,18 +2885,18 @@
     <span class="doccomment">/// Required. The [monitoring
     /// filter](&lt;https://cloud.google.com/monitoring/api/v3/filters&gt;) that identifies
     /// the metric types, resources, and projects to query.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// By default, the raw time series data is returned.
     /// Use this field to combine multiple time series for different views of the
     /// data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>aggregation: ::core::option::Option&lt;Aggregation&gt;,
     <span class="doccomment">/// Apply a second aggregation after `aggregation` is applied.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>secondary_aggregation: ::core::option::Option&lt;Aggregation&gt;,
     <span class="doccomment">/// Selects an optional time series filter.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;time_series_filter::OutputFilter&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"time_series_filter::OutputFilter"</span>, tags = <span class="string">"4, 5"</span>)]
     </span><span class="kw">pub </span>output_filter: ::core::option::Option&lt;time_series_filter::OutputFilter&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TimeSeriesFilter`.
@@ -2905,11 +2906,11 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>OutputFilter {
         <span class="doccomment">/// Ranking based time series filter.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>PickTimeSeriesFilter(<span class="kw">super</span>::PickTimeSeriesFilter),
         <span class="doccomment">/// Statistics based time series filter.
         /// Note: This field is deprecated and completely ignored by the API.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>StatisticalTimeSeriesFilter(<span class="kw">super</span>::StatisticalTimeSeriesFilter),
     }
 }
@@ -2920,17 +2921,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimeSeriesFilterRatio {
     <span class="doccomment">/// The numerator of the ratio.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>numerator: ::core::option::Option&lt;time_series_filter_ratio::RatioPart&gt;,
     <span class="doccomment">/// The denominator of the ratio.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>denominator: ::core::option::Option&lt;time_series_filter_ratio::RatioPart&gt;,
     <span class="doccomment">/// Apply a second aggregation after the ratio is computed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>secondary_aggregation: ::core::option::Option&lt;Aggregation&gt;,
     <span class="doccomment">/// Selects an optional filter that is applied to the time series after
     /// computing the ratio.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;time_series_filter_ratio::OutputFilter&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"time_series_filter_ratio::OutputFilter"</span>, tags = <span class="string">"4, 5"</span>)]
     </span><span class="kw">pub </span>output_filter: ::core::option::Option&lt;time_series_filter_ratio::OutputFilter&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TimeSeriesFilterRatio`.
@@ -2943,12 +2944,12 @@
         <span class="doccomment">/// Required. The [monitoring
         /// filter](&lt;https://cloud.google.com/monitoring/api/v3/filters&gt;) that
         /// identifies the metric types, resources, and projects to query.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
         <span class="doccomment">/// By default, the raw time series data is returned.
         /// Use this field to combine multiple time series for different views of the
         /// data.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>aggregation: ::core::option::Option&lt;<span class="kw">super</span>::Aggregation&gt;,
     }
     <span class="doccomment">/// Selects an optional filter that is applied to the time series after
@@ -2957,11 +2958,11 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>OutputFilter {
         <span class="doccomment">/// Ranking based time series filter.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>PickTimeSeriesFilter(<span class="kw">super</span>::PickTimeSeriesFilter),
         <span class="doccomment">/// Statistics based time series filter.
         /// Note: This field is deprecated and completely ignored by the API.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>StatisticalTimeSeriesFilter(<span class="kw">super</span>::StatisticalTimeSeriesFilter),
     }
 }
@@ -2970,22 +2971,22 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Threshold {
     <span class="doccomment">/// A label for the threshold.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
     <span class="doccomment">/// The value of the threshold. The value should be defined in the native scale
     /// of the metric.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>value: f64,
     <span class="doccomment">/// The state color for this threshold. Color is not allowed in a XyChart.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;threshold::Color&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"threshold::Color"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>color: i32,
     <span class="doccomment">/// The direction for the current threshold. Direction is not allowed in a
     /// XyChart.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;threshold::Direction&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"threshold::Direction"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>direction: i32,
     <span class="doccomment">/// The target axis to use for plotting the threshold. Target axis is not
     /// allowed in a Scorecard.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;threshold::TargetAxis&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"threshold::TargetAxis"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>target_axis: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Threshold`.
@@ -3008,9 +3009,9 @@
     </span><span class="kw">pub enum </span>Color {
         <span class="doccomment">/// Color is unspecified. Not allowed in well-formed requests.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// Crossing the threshold is &quot;concerning&quot; behavior.
+        <span class="doccomment">/// Crossing the threshold is "concerning" behavior.
         </span>Yellow = <span class="number">4</span>,
-        <span class="doccomment">/// Crossing the threshold is &quot;emergency&quot; behavior.
+        <span class="doccomment">/// Crossing the threshold is "emergency" behavior.
         </span>Red = <span class="number">6</span>,
     }
     <span class="kw">impl </span>Color {
@@ -3018,19 +3019,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Color::Unspecified =&gt; <span class="string">&quot;COLOR_UNSPECIFIED&quot;</span>,
-                Color::Yellow =&gt; <span class="string">&quot;YELLOW&quot;</span>,
-                Color::Red =&gt; <span class="string">&quot;RED&quot;</span>,
+                Color::Unspecified =&gt; <span class="string">"COLOR_UNSPECIFIED"</span>,
+                Color::Yellow =&gt; <span class="string">"YELLOW"</span>,
+                Color::Red =&gt; <span class="string">"RED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;COLOR_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;YELLOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Yellow),
-                <span class="string">&quot;RED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Red),
+                <span class="string">"COLOR_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"YELLOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Yellow),
+                <span class="string">"RED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Red),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3064,19 +3065,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Direction::Unspecified =&gt; <span class="string">&quot;DIRECTION_UNSPECIFIED&quot;</span>,
-                Direction::Above =&gt; <span class="string">&quot;ABOVE&quot;</span>,
-                Direction::Below =&gt; <span class="string">&quot;BELOW&quot;</span>,
+                Direction::Unspecified =&gt; <span class="string">"DIRECTION_UNSPECIFIED"</span>,
+                Direction::Above =&gt; <span class="string">"ABOVE"</span>,
+                Direction::Below =&gt; <span class="string">"BELOW"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DIRECTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ABOVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Above),
-                <span class="string">&quot;BELOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Below),
+                <span class="string">"DIRECTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ABOVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Above),
+                <span class="string">"BELOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Below),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3107,19 +3108,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                TargetAxis::Unspecified =&gt; <span class="string">&quot;TARGET_AXIS_UNSPECIFIED&quot;</span>,
-                TargetAxis::Y1 =&gt; <span class="string">&quot;Y1&quot;</span>,
-                TargetAxis::Y2 =&gt; <span class="string">&quot;Y2&quot;</span>,
+                TargetAxis::Unspecified =&gt; <span class="string">"TARGET_AXIS_UNSPECIFIED"</span>,
+                TargetAxis::Y1 =&gt; <span class="string">"Y1"</span>,
+                TargetAxis::Y2 =&gt; <span class="string">"Y2"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TARGET_AXIS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;Y1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Y1),
-                <span class="string">&quot;Y2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Y2),
+                <span class="string">"TARGET_AXIS_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"Y1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Y1),
+                <span class="string">"Y2" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Y2),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3141,19 +3142,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            SparkChartType::Unspecified =&gt; <span class="string">&quot;SPARK_CHART_TYPE_UNSPECIFIED&quot;</span>,
-            SparkChartType::SparkLine =&gt; <span class="string">&quot;SPARK_LINE&quot;</span>,
-            SparkChartType::SparkBar =&gt; <span class="string">&quot;SPARK_BAR&quot;</span>,
+            SparkChartType::Unspecified =&gt; <span class="string">"SPARK_CHART_TYPE_UNSPECIFIED"</span>,
+            SparkChartType::SparkLine =&gt; <span class="string">"SPARK_LINE"</span>,
+            SparkChartType::SparkBar =&gt; <span class="string">"SPARK_BAR"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;SPARK_CHART_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;SPARK_LINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SparkLine),
-            <span class="string">&quot;SPARK_BAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SparkBar),
+            <span class="string">"SPARK_CHART_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"SPARK_LINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SparkLine),
+            <span class="string">"SPARK_BAR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SparkBar),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -3165,7 +3166,7 @@
     <span class="doccomment">/// Required. The resource name of the alert policy. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]/alertPolicies/\[ALERT_POLICY_ID\]
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A filter to reduce the amount of data charted in relevant widgets.
@@ -3173,18 +3174,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DashboardFilter {
     <span class="doccomment">/// Required. The key for the label
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>label_key: ::prost::alloc::string::String,
     <span class="doccomment">/// The placeholder text that can be referenced in a filter string or MQL
     /// query. If omitted, the dashboard filter will be applied to all relevant
     /// widgets in the dashboard.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>template_variable: ::prost::alloc::string::String,
     <span class="doccomment">/// The specified filter type
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;dashboard_filter::FilterType&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"dashboard_filter::FilterType"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter_type: i32,
     <span class="doccomment">/// The default value used in the filter comparison
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;dashboard_filter::DefaultValue&quot;</span>, tags = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"dashboard_filter::DefaultValue"</span>, tags = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>default_value: ::core::option::Option&lt;dashboard_filter::DefaultValue&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `DashboardFilter`.
@@ -3221,25 +3222,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                FilterType::Unspecified =&gt; <span class="string">&quot;FILTER_TYPE_UNSPECIFIED&quot;</span>,
-                FilterType::ResourceLabel =&gt; <span class="string">&quot;RESOURCE_LABEL&quot;</span>,
-                FilterType::MetricLabel =&gt; <span class="string">&quot;METRIC_LABEL&quot;</span>,
-                FilterType::UserMetadataLabel =&gt; <span class="string">&quot;USER_METADATA_LABEL&quot;</span>,
-                FilterType::SystemMetadataLabel =&gt; <span class="string">&quot;SYSTEM_METADATA_LABEL&quot;</span>,
-                FilterType::Group =&gt; <span class="string">&quot;GROUP&quot;</span>,
+                FilterType::Unspecified =&gt; <span class="string">"FILTER_TYPE_UNSPECIFIED"</span>,
+                FilterType::ResourceLabel =&gt; <span class="string">"RESOURCE_LABEL"</span>,
+                FilterType::MetricLabel =&gt; <span class="string">"METRIC_LABEL"</span>,
+                FilterType::UserMetadataLabel =&gt; <span class="string">"USER_METADATA_LABEL"</span>,
+                FilterType::SystemMetadataLabel =&gt; <span class="string">"SYSTEM_METADATA_LABEL"</span>,
+                FilterType::Group =&gt; <span class="string">"GROUP"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;FILTER_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RESOURCE_LABEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceLabel),
-                <span class="string">&quot;METRIC_LABEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetricLabel),
-                <span class="string">&quot;USER_METADATA_LABEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserMetadataLabel),
-                <span class="string">&quot;SYSTEM_METADATA_LABEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SystemMetadataLabel),
-                <span class="string">&quot;GROUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Group),
+                <span class="string">"FILTER_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RESOURCE_LABEL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceLabel),
+                <span class="string">"METRIC_LABEL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MetricLabel),
+                <span class="string">"USER_METADATA_LABEL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserMetadataLabel),
+                <span class="string">"SYSTEM_METADATA_LABEL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SystemMetadataLabel),
+                <span class="string">"GROUP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Group),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3249,7 +3250,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>DefaultValue {
         <span class="doccomment">/// A variable-length string value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span>StringValue(::prost::alloc::string::String),
     }
 }
@@ -3261,11 +3262,11 @@
     /// Queries](&lt;https://cloud.google.com/logging/docs/view/advanced-queries&gt;).
     /// Only log entries that match the filter are returned.  An empty filter
     /// matches all log entries.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The names of logging resources to collect logs for. Currently only projects
     /// are supported. If empty, the widget will default to the host project.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A widget showing the latest value of a metric, and how this value relates to
@@ -3275,10 +3276,10 @@
 </span><span class="kw">pub struct </span>Scorecard {
     <span class="doccomment">/// Required. Fields for querying time series data from the
     /// Stackdriver metrics API.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>time_series_query: ::core::option::Option&lt;TimeSeriesQuery&gt;,
     <span class="doccomment">/// The thresholds used to determine the state of the scorecard given the
-    /// time series&#39; current value. For an actual value x, the scorecard is in a
+    /// time series' current value. For an actual value x, the scorecard is in a
     /// danger state if x is less than or equal to a danger threshold that triggers
     /// below, or greater than or equal to a danger threshold that triggers above.
     /// Similarly, if x is above/below a warning threshold that triggers
@@ -3290,23 +3291,23 @@
     /// ```
     /// {
     ///    value: 90,
-    ///    category: &#39;DANGER&#39;,
-    ///    trigger: &#39;ABOVE&#39;,
+    ///    category: 'DANGER',
+    ///    trigger: 'ABOVE',
     /// },
     /// {
     ///    value: 70,
-    ///    category: &#39;WARNING&#39;,
-    ///    trigger: &#39;ABOVE&#39;,
+    ///    category: 'WARNING',
+    ///    trigger: 'ABOVE',
     /// },
     /// {
     ///    value: 10,
-    ///    category: &#39;DANGER&#39;,
-    ///    trigger: &#39;BELOW&#39;,
+    ///    category: 'DANGER',
+    ///    trigger: 'BELOW',
     /// },
     /// {
     ///    value: 20,
-    ///    category: &#39;WARNING&#39;,
-    ///    trigger: &#39;BELOW&#39;,
+    ///    category: 'WARNING',
+    ///    trigger: 'BELOW',
     /// }
     /// ```
     ///
@@ -3315,46 +3316,46 @@
     /// values strictly between 20 and 70 an OK state, values greater than or equal
     /// to 70 but less than 90 a WARNING state, and values greater than or equal to
     /// 90 a DANGER state.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>thresholds: ::prost::alloc::vec::Vec&lt;Threshold&gt;,
     <span class="doccomment">/// Defines the optional additional chart shown on the scorecard. If
     /// neither is included - then a default scorecard is shown.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;scorecard::DataView&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"scorecard::DataView"</span>, tags = <span class="string">"4, 5"</span>)]
     </span><span class="kw">pub </span>data_view: ::core::option::Option&lt;scorecard::DataView&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Scorecard`.
 </span><span class="kw">pub mod </span>scorecard {
     <span class="doccomment">/// A gauge chart shows where the current value sits within a pre-defined
     /// range. The upper and lower bounds should define the possible range of
-    /// values for the scorecard&#39;s query (inclusive).
+    /// values for the scorecard's query (inclusive).
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>GaugeView {
         <span class="doccomment">/// The lower bound for this gauge chart. The value of the chart should
         /// always be greater than or equal to this.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>lower_bound: f64,
         <span class="doccomment">/// The upper bound for this gauge chart. The value of the chart should
         /// always be less than or equal to this.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>upper_bound: f64,
     }
     <span class="doccomment">/// A sparkChart is a small chart suitable for inclusion in a table-cell or
     /// inline in text. This message contains the configuration for a sparkChart
-    /// to show up on a Scorecard, showing recent trends of the scorecard&#39;s
+    /// to show up on a Scorecard, showing recent trends of the scorecard's
     /// timeseries.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>SparkChartView {
         <span class="doccomment">/// Required. The type of sparkchart to show in this chartView.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::SparkChartType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::SparkChartType"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>spark_chart_type: i32,
         <span class="doccomment">/// The lower bound on data point frequency in the chart implemented by
         /// specifying the minimum alignment period to use in a time series query.
         /// For example, if the data is published once every 10 minutes it would not
         /// make sense to fetch and align data at one minute intervals. This field is
         /// optional and exists only as a hint.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>min_alignment_period: ::core::option::Option&lt;::prost_types::Duration&gt;,
     }
     <span class="doccomment">/// Defines the optional additional chart shown on the scorecard. If
@@ -3363,10 +3364,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>DataView {
         <span class="doccomment">/// Will cause the scorecard to show a gauge chart.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>GaugeView(GaugeView),
         <span class="doccomment">/// Will cause the scorecard to show a spark chart.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>SparkChartView(SparkChartView),
     }
 }
@@ -3377,7 +3378,7 @@
     <span class="doccomment">/// Optional. This field is unused and has been replaced by
     /// TimeSeriesTable.column_settings
     </span><span class="attr">#[deprecated]
-    #[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    #[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>shown_columns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// A table that displays time series data.
@@ -3385,13 +3386,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimeSeriesTable {
     <span class="doccomment">/// Required. The data displayed in this table.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>data_sets: ::prost::alloc::vec::Vec&lt;time_series_table::TableDataSet&gt;,
     <span class="doccomment">/// Optional. Store rendering strategy
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;time_series_table::MetricVisualization&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"time_series_table::MetricVisualization"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>metric_visualization: i32,
     <span class="doccomment">/// Optional. The list of the persistent column settings for the table.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>column_settings: ::prost::alloc::vec::Vec&lt;time_series_table::ColumnSettings&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TimeSeriesTable`.
@@ -3402,35 +3403,35 @@
     </span><span class="kw">pub struct </span>TableDataSet {
         <span class="doccomment">/// Required. Fields for querying time series data from the
         /// Stackdriver metrics API.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>time_series_query: ::core::option::Option&lt;<span class="kw">super</span>::TimeSeriesQuery&gt;,
         <span class="doccomment">/// Optional. A template string for naming `TimeSeries` in the resulting data
         /// set. This should be a string with interpolations of the form
-        /// `${label_name}`, which will resolve to the label&#39;s value i.e.
-        /// &quot;${resource.labels.project_id}.&quot;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        /// `${label_name}`, which will resolve to the label's value i.e.
+        /// "${resource.labels.project_id}."
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>table_template: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. The lower bound on data point frequency for this data set,
         /// implemented by specifying the minimum alignment period to use in a time
         /// series query For example, if the data is published once every 10 minutes,
         /// the `min_alignment_period` should be at least 10 minutes. It would not
         /// make sense to fetch and align data at one minute intervals.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>min_alignment_period: ::core::option::Option&lt;::prost_types::Duration&gt;,
         <span class="doccomment">/// Optional. Table display options for configuring how the table is
         /// rendered.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>table_display_options: ::core::option::Option&lt;<span class="kw">super</span>::TableDisplayOptions&gt;,
     }
-    <span class="doccomment">/// The persistent settings for a table&#39;s columns.
+    <span class="doccomment">/// The persistent settings for a table's columns.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ColumnSettings {
         <span class="doccomment">/// Required. The id of the column.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>column: ::prost::alloc::string::String,
         <span class="doccomment">/// Required. Whether the column should be visible on page load.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>visible: bool,
     }
     <span class="doccomment">/// Enum for metric metric_visualization
@@ -3459,19 +3460,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                MetricVisualization::Unspecified =&gt; <span class="string">&quot;METRIC_VISUALIZATION_UNSPECIFIED&quot;</span>,
-                MetricVisualization::Number =&gt; <span class="string">&quot;NUMBER&quot;</span>,
-                MetricVisualization::Bar =&gt; <span class="string">&quot;BAR&quot;</span>,
+                MetricVisualization::Unspecified =&gt; <span class="string">"METRIC_VISUALIZATION_UNSPECIFIED"</span>,
+                MetricVisualization::Number =&gt; <span class="string">"NUMBER"</span>,
+                MetricVisualization::Bar =&gt; <span class="string">"BAR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;METRIC_VISUALIZATION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NUMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
-                <span class="string">&quot;BAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bar),
+                <span class="string">"METRIC_VISUALIZATION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NUMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
+                <span class="string">"BAR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bar),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3482,29 +3483,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>XyChart {
     <span class="doccomment">/// Required. The data displayed in this chart.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>data_sets: ::prost::alloc::vec::Vec&lt;xy_chart::DataSet&gt;,
     <span class="doccomment">/// The duration used to display a comparison chart. A comparison chart
     /// simultaneously shows values from two similar-length time periods
     /// (e.g., week-over-week metrics).
     /// The duration must be positive, and it can only be applied to charts with
     /// data sets of LINE plot type.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>timeshift_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Threshold lines drawn horizontally across the chart.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>thresholds: ::prost::alloc::vec::Vec&lt;Threshold&gt;,
     <span class="doccomment">/// The properties applied to the X axis.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>x_axis: ::core::option::Option&lt;xy_chart::Axis&gt;,
     <span class="doccomment">/// The properties applied to the Y axis.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>y_axis: ::core::option::Option&lt;xy_chart::Axis&gt;,
     <span class="doccomment">/// The properties applied to the Y2 axis.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>y2_axis: ::core::option::Option&lt;xy_chart::Axis&gt;,
     <span class="doccomment">/// Display options for the chart.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>chart_options: ::core::option::Option&lt;ChartOptions&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `XyChart`.
@@ -3515,25 +3516,25 @@
     </span><span class="kw">pub struct </span>DataSet {
         <span class="doccomment">/// Required. Fields for querying time series data from the
         /// Stackdriver metrics API.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>time_series_query: ::core::option::Option&lt;<span class="kw">super</span>::TimeSeriesQuery&gt;,
         <span class="doccomment">/// How this data should be plotted on the chart.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;data_set::PlotType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"data_set::PlotType"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>plot_type: i32,
         <span class="doccomment">/// A template string for naming `TimeSeries` in the resulting data set.
         /// This should be a string with interpolations of the form `${label_name}`,
-        /// which will resolve to the label&#39;s value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        /// which will resolve to the label's value.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>legend_template: ::prost::alloc::string::String,
         <span class="doccomment">/// Optional. The lower bound on data point frequency for this data set,
         /// implemented by specifying the minimum alignment period to use in a time
         /// series query For example, if the data is published once every 10 minutes,
         /// the `min_alignment_period` should be at least 10 minutes. It would not
         /// make sense to fetch and align data at one minute intervals.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>min_alignment_period: ::core::option::Option&lt;::prost_types::Duration&gt;,
         <span class="doccomment">/// Optional. The target axis to use for plotting the metric.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;data_set::TargetAxis&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"data_set::TargetAxis"</span>, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>target_axis: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `DataSet`.
@@ -3577,23 +3578,23 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    PlotType::Unspecified =&gt; <span class="string">&quot;PLOT_TYPE_UNSPECIFIED&quot;</span>,
-                    PlotType::Line =&gt; <span class="string">&quot;LINE&quot;</span>,
-                    PlotType::StackedArea =&gt; <span class="string">&quot;STACKED_AREA&quot;</span>,
-                    PlotType::StackedBar =&gt; <span class="string">&quot;STACKED_BAR&quot;</span>,
-                    PlotType::Heatmap =&gt; <span class="string">&quot;HEATMAP&quot;</span>,
+                    PlotType::Unspecified =&gt; <span class="string">"PLOT_TYPE_UNSPECIFIED"</span>,
+                    PlotType::Line =&gt; <span class="string">"LINE"</span>,
+                    PlotType::StackedArea =&gt; <span class="string">"STACKED_AREA"</span>,
+                    PlotType::StackedBar =&gt; <span class="string">"STACKED_BAR"</span>,
+                    PlotType::Heatmap =&gt; <span class="string">"HEATMAP"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;PLOT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;LINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Line),
-                    <span class="string">&quot;STACKED_AREA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StackedArea),
-                    <span class="string">&quot;STACKED_BAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StackedBar),
-                    <span class="string">&quot;HEATMAP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Heatmap),
+                    <span class="string">"PLOT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"LINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Line),
+                    <span class="string">"STACKED_AREA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StackedArea),
+                    <span class="string">"STACKED_BAR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StackedBar),
+                    <span class="string">"HEATMAP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Heatmap),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -3624,19 +3625,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    TargetAxis::Unspecified =&gt; <span class="string">&quot;TARGET_AXIS_UNSPECIFIED&quot;</span>,
-                    TargetAxis::Y1 =&gt; <span class="string">&quot;Y1&quot;</span>,
-                    TargetAxis::Y2 =&gt; <span class="string">&quot;Y2&quot;</span>,
+                    TargetAxis::Unspecified =&gt; <span class="string">"TARGET_AXIS_UNSPECIFIED"</span>,
+                    TargetAxis::Y1 =&gt; <span class="string">"Y1"</span>,
+                    TargetAxis::Y2 =&gt; <span class="string">"Y2"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;TARGET_AXIS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;Y1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Y1),
-                    <span class="string">&quot;Y2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Y2),
+                    <span class="string">"TARGET_AXIS_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"Y1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Y1),
+                    <span class="string">"Y2" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Y2),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -3647,10 +3648,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Axis {
         <span class="doccomment">/// The label of the axis.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>label: ::prost::alloc::string::String,
         <span class="doccomment">/// The axis scale. By default, a linear scale is used.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;axis::Scale&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"axis::Scale"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>scale: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `Axis`.
@@ -3681,19 +3682,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    Scale::Unspecified =&gt; <span class="string">&quot;SCALE_UNSPECIFIED&quot;</span>,
-                    Scale::Linear =&gt; <span class="string">&quot;LINEAR&quot;</span>,
-                    Scale::Log10 =&gt; <span class="string">&quot;LOG10&quot;</span>,
+                    Scale::Unspecified =&gt; <span class="string">"SCALE_UNSPECIFIED"</span>,
+                    Scale::Linear =&gt; <span class="string">"LINEAR"</span>,
+                    Scale::Log10 =&gt; <span class="string">"LOG10"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;SCALE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;LINEAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linear),
-                    <span class="string">&quot;LOG10&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Log10),
+                    <span class="string">"SCALE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"LINEAR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linear),
+                    <span class="string">"LOG10" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Log10),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -3705,7 +3706,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ChartOptions {
     <span class="doccomment">/// The chart mode.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;chart_options::Mode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"chart_options::Mode"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ChartOptions`.
@@ -3741,21 +3742,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
-                Mode::Color =&gt; <span class="string">&quot;COLOR&quot;</span>,
-                Mode::XRay =&gt; <span class="string">&quot;X_RAY&quot;</span>,
-                Mode::Stats =&gt; <span class="string">&quot;STATS&quot;</span>,
+                Mode::Unspecified =&gt; <span class="string">"MODE_UNSPECIFIED"</span>,
+                Mode::Color =&gt; <span class="string">"COLOR"</span>,
+                Mode::XRay =&gt; <span class="string">"X_RAY"</span>,
+                Mode::Stats =&gt; <span class="string">"STATS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;COLOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Color),
-                <span class="string">&quot;X_RAY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::XRay),
-                <span class="string">&quot;STATS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stats),
+                <span class="string">"MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"COLOR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Color),
+                <span class="string">"X_RAY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::XRay),
+                <span class="string">"STATS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stats),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3767,10 +3768,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Widget {
     <span class="doccomment">/// Optional. The title of the widget.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// Content defines the component used to populate the widget.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;widget::Content&quot;</span>, tags = <span class="string">&quot;2, 3, 4, 5, 7, 8, 9, 10&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"widget::Content"</span>, tags = <span class="string">"2, 3, 4, 5, 7, 8, 9, 10"</span>)]
     </span><span class="kw">pub </span>content: ::core::option::Option&lt;widget::Content&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Widget`.
@@ -3780,29 +3781,29 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Content {
         <span class="doccomment">/// A chart of time series data.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>XyChart(<span class="kw">super</span>::XyChart),
         <span class="doccomment">/// A scorecard summarizing time series data.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Scorecard(<span class="kw">super</span>::Scorecard),
         <span class="doccomment">/// A raw string or markdown displaying textual content.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>Text(<span class="kw">super</span>::Text),
         <span class="doccomment">/// A blank space.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>Blank(()),
         <span class="doccomment">/// A chart of alert policy data.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>AlertChart(<span class="kw">super</span>::AlertChart),
         <span class="doccomment">/// A widget that displays time series data in a tabular format.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>TimeSeriesTable(<span class="kw">super</span>::TimeSeriesTable),
         <span class="doccomment">/// A widget that groups the other widgets. All widgets that are within
         /// the area spanned by the grouping widget are considered member widgets.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>CollapsibleGroup(<span class="kw">super</span>::CollapsibleGroup),
         <span class="doccomment">/// A widget that shows a stream of logs.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>LogsPanel(<span class="kw">super</span>::LogsPanel),
     }
 }
@@ -3811,12 +3812,12 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GridLayout {
-    <span class="doccomment">/// The number of columns into which the view&#39;s width is divided. If omitted
+    <span class="doccomment">/// The number of columns into which the view's width is divided. If omitted
     /// or set to zero, a system default will be used while rendering.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>columns: i64,
     <span class="doccomment">/// The informational elements that are arranged into the columns row-first.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>widgets: ::prost::alloc::vec::Vec&lt;Widget&gt;,
 }
 <span class="doccomment">/// A mosaic layout divides the available space into a grid of blocks, and
@@ -3827,10 +3828,10 @@
 </span><span class="kw">pub struct </span>MosaicLayout {
     <span class="doccomment">/// The number of columns in the mosaic grid. The number of columns must be
     /// between 1 and 12, inclusive.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>columns: i32,
     <span class="doccomment">/// The tiles to display.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>tiles: ::prost::alloc::vec::Vec&lt;mosaic_layout::Tile&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MosaicLayout`.
@@ -3843,22 +3844,22 @@
         <span class="doccomment">/// The zero-indexed position of the tile in grid blocks relative to the
         /// left edge of the grid. Tiles must be contained within the specified
         /// number of columns. `x_pos` cannot be negative.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>x_pos: i32,
         <span class="doccomment">/// The zero-indexed position of the tile in grid blocks relative to the
         /// top edge of the grid. `y_pos` cannot be negative.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>y_pos: i32,
         <span class="doccomment">/// The width of the tile, measured in grid blocks. Tiles must have a
         /// minimum width of 1.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>width: i32,
         <span class="doccomment">/// The height of the tile, measured in grid blocks. Tiles must have a
         /// minimum height of 1.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>height: i32,
         <span class="doccomment">/// The informational widget contained in the tile. For example an `XyChart`.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
         </span><span class="kw">pub </span>widget: ::core::option::Option&lt;<span class="kw">super</span>::Widget&gt;,
     }
 }
@@ -3868,7 +3869,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RowLayout {
     <span class="doccomment">/// The rows of content to display.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>rows: ::prost::alloc::vec::Vec&lt;row_layout::Row&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RowLayout`.
@@ -3881,10 +3882,10 @@
         /// height of rows on the screen (relative to peers). Greater the weight,
         /// greater the height of the row on the screen. If omitted, a value
         /// of 1 is used while rendering.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>weight: i64,
         <span class="doccomment">/// The display widgets arranged horizontally in this row.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>widgets: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::Widget&gt;,
     }
 }
@@ -3894,7 +3895,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ColumnLayout {
     <span class="doccomment">/// The columns of content to display.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>columns: ::prost::alloc::vec::Vec&lt;column_layout::Column&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ColumnLayout`.
@@ -3907,10 +3908,10 @@
         /// the width of columns on the screen (relative to peers).
         /// Greater the weight, greater the width of the column on the screen.
         /// If omitted, a value of 1 is used while rendering.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>weight: i64,
         <span class="doccomment">/// The display widgets arranged vertically in this column.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>widgets: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::Widget&gt;,
     }
 }
@@ -3920,10 +3921,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Dashboard {
     <span class="doccomment">/// Immutable. The resource name of the dashboard.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The mutable, human-readable name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// `etag` is used for optimistic concurrency control as a way to help
     /// prevent simultaneous updates of a policy from overwriting each other.
@@ -3932,42 +3933,42 @@
     /// ensure that their change will be applied to the same version of the
     /// Dashboard configuration. The field should not be passed during
     /// dashboard creation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Filters to reduce the amount of data charted based on the filter criteria.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>dashboard_filters: ::prost::alloc::vec::Vec&lt;DashboardFilter&gt;,
     <span class="doccomment">/// Labels applied to the dashboard
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
-    <span class="doccomment">/// A dashboard&#39;s root container element that defines the layout style.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;dashboard::Layout&quot;</span>, tags = <span class="string">&quot;5, 6, 8, 9&quot;</span>)]
+    <span class="doccomment">/// A dashboard's root container element that defines the layout style.
+    </span><span class="attr">#[prost(oneof = <span class="string">"dashboard::Layout"</span>, tags = <span class="string">"5, 6, 8, 9"</span>)]
     </span><span class="kw">pub </span>layout: ::core::option::Option&lt;dashboard::Layout&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Dashboard`.
 </span><span class="kw">pub mod </span>dashboard {
-    <span class="doccomment">/// A dashboard&#39;s root container element that defines the layout style.
+    <span class="doccomment">/// A dashboard's root container element that defines the layout style.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Layout {
         <span class="doccomment">/// Content is arranged with a basic layout that re-flows a simple list of
         /// informational elements like widgets or tiles.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>GridLayout(<span class="kw">super</span>::GridLayout),
         <span class="doccomment">/// The content is arranged as a grid of tiles, with each content widget
         /// occupying one or more grid blocks.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>MosaicLayout(<span class="kw">super</span>::MosaicLayout),
         <span class="doccomment">/// The content is divided into equally spaced rows and the widgets are
         /// arranged horizontally.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>RowLayout(<span class="kw">super</span>::RowLayout),
         <span class="doccomment">/// The content is divided into equally spaced columns and the widgets are
         /// arranged vertically.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>ColumnLayout(<span class="kw">super</span>::ColumnLayout),
     }
 }
@@ -3980,14 +3981,14 @@
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
     ///
     /// The `\[PROJECT_ID_OR_NUMBER\]` must match the dashboard resource name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The initial dashboard specification.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dashboard: ::core::option::Option&lt;Dashboard&gt;,
     <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
     /// save it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// The `ListDashboards` request.
@@ -3997,16 +3998,16 @@
     <span class="doccomment">/// Required. The scope of the dashboards to list. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// A positive number that is the maximum number of results to return.
     /// If unspecified, a default of 1000 is used.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// If this field is not empty then it must contain the `nextPageToken` value
     /// returned by a previous call to this method.  Using this field causes the
     /// method to return additional results from the previous method call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The `ListDashboards` request.
@@ -4014,12 +4015,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDashboardsResponse {
     <span class="doccomment">/// The list of requested dashboards.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dashboards: ::prost::alloc::vec::Vec&lt;Dashboard&gt;,
     <span class="doccomment">/// If there are more results than have been returned, then this field is set
     /// to a non-empty value.  To see the additional results,
     /// use that value as `page_token` in the next call to this method.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The `GetDashboard` request.
@@ -4031,7 +4032,7 @@
     ///   -  `dashboards/\[DASHBOARD_ID\]` (for system dashboards)
     ///   -  `projects/\[PROJECT_ID_OR_NUMBER\]/dashboards/\[DASHBOARD_ID\]`
     ///        (for custom dashboards).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The `DeleteDashboard` request.
@@ -4041,7 +4042,7 @@
     <span class="doccomment">/// Required. The resource name of the Dashboard. The format is:
     ///
     ///      projects/\[PROJECT_ID_OR_NUMBER\]/dashboards/\[DASHBOARD_ID\]
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The `UpdateDashboard` request.
@@ -4049,11 +4050,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateDashboardRequest {
     <span class="doccomment">/// Required. The dashboard that will replace the existing dashboard.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dashboard: ::core::option::Option&lt;Dashboard&gt;,
     <span class="doccomment">/// If set, validate the request and preview the review, but do not actually
     /// save it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -4071,7 +4072,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4148,19 +4149,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.monitoring.dashboard.v1.DashboardsService/CreateDashboard&quot;</span>,
+                <span class="string">"/google.monitoring.dashboard.v1.DashboardsService/CreateDashboard"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.monitoring.dashboard.v1.DashboardsService&quot;</span>,
-                        <span class="string">&quot;CreateDashboard&quot;</span>,
+                        <span class="string">"google.monitoring.dashboard.v1.DashboardsService"</span>,
+                        <span class="string">"CreateDashboard"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4183,19 +4184,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.monitoring.dashboard.v1.DashboardsService/ListDashboards&quot;</span>,
+                <span class="string">"/google.monitoring.dashboard.v1.DashboardsService/ListDashboards"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.monitoring.dashboard.v1.DashboardsService&quot;</span>,
-                        <span class="string">&quot;ListDashboards&quot;</span>,
+                        <span class="string">"google.monitoring.dashboard.v1.DashboardsService"</span>,
+                        <span class="string">"ListDashboards"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4215,19 +4216,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.monitoring.dashboard.v1.DashboardsService/GetDashboard&quot;</span>,
+                <span class="string">"/google.monitoring.dashboard.v1.DashboardsService/GetDashboard"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.monitoring.dashboard.v1.DashboardsService&quot;</span>,
-                        <span class="string">&quot;GetDashboard&quot;</span>,
+                        <span class="string">"google.monitoring.dashboard.v1.DashboardsService"</span>,
+                        <span class="string">"GetDashboard"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4247,19 +4248,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.monitoring.dashboard.v1.DashboardsService/DeleteDashboard&quot;</span>,
+                <span class="string">"/google.monitoring.dashboard.v1.DashboardsService/DeleteDashboard"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.monitoring.dashboard.v1.DashboardsService&quot;</span>,
-                        <span class="string">&quot;DeleteDashboard&quot;</span>,
+                        <span class="string">"google.monitoring.dashboard.v1.DashboardsService"</span>,
+                        <span class="string">"DeleteDashboard"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4279,19 +4280,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.monitoring.dashboard.v1.DashboardsService/UpdateDashboard&quot;</span>,
+                <span class="string">"/google.monitoring.dashboard.v1.DashboardsService/UpdateDashboard"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.monitoring.dashboard.v1.DashboardsService&quot;</span>,
-                        <span class="string">&quot;UpdateDashboard&quot;</span>,
+                        <span class="string">"google.monitoring.dashboard.v1.DashboardsService"</span>,
+                        <span class="string">"UpdateDashboard"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

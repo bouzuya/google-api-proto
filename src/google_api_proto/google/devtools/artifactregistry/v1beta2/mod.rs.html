@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/artifactregistry/v1beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/artifactregistry/v1beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1892,17 +1893,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Tag {
     <span class="doccomment">/// The name of the tag, for example:
-    /// &quot;projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/tags/tag1&quot;.
+    /// "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/tags/tag1".
     /// If the package part contains slashes, the slashes are escaped.
     /// The tag part can only have characters in \[a-zA-Z0-9\-._~:@\], anything else
     /// must be URL encoded.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the version the tag refers to, for example:
-    /// &quot;projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/sha256:5243811&quot;
+    /// "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/sha256:5243811"
     /// If the package or version ID parts contain slashes, the slashes are
     /// escaped.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to list tags.
@@ -1910,7 +1911,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTagsRequest {
     <span class="doccomment">/// The name of the parent resource whose tags will be listed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression for filtering the results of the request. Filter rules are
     /// case insensitive. The fields eligible for filtering are:
@@ -1919,15 +1920,15 @@
     ///
     ///   An example of using a filter:
     ///
-    ///    * `version=&quot;projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0&quot;`
+    ///    * `version="projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0"`
     ///    --&gt; Tags that are applied to the version `1.0` in package `pkg1`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of tags to return. Maximum page size is 10,000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous list request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response from listing tags.
@@ -1935,11 +1936,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTagsResponse {
     <span class="doccomment">/// The tags returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;Tag&gt;,
     <span class="doccomment">/// The token to retrieve the next page of tags, or empty if there are no
     /// more tags to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to retrieve a tag.
@@ -1947,7 +1948,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTagRequest {
     <span class="doccomment">/// The name of the tag to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to create a new tag.
@@ -1955,13 +1956,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateTagRequest {
     <span class="doccomment">/// The name of the parent resource where the tag will be created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The tag id to use for this repository.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>tag_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The tag to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>tag: ::core::option::Option&lt;Tag&gt;,
 }
 <span class="doccomment">/// The request to create or update a tag.
@@ -1969,12 +1970,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateTagRequest {
     <span class="doccomment">/// The tag that replaces the resource on the server.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>tag: ::core::option::Option&lt;Tag&gt;,
     <span class="doccomment">/// The update mask applies to the resource. For the `FieldMask` definition,
     /// see
     /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The request to delete a tag.
@@ -1982,7 +1983,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteTagRequest {
     <span class="doccomment">/// The name of the tag to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The body of a version resource. A version resource represents a
@@ -1992,29 +1993,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Version {
     <span class="doccomment">/// The name of the version, for example:
-    /// &quot;projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/art1&quot;.
+    /// "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/art1".
     /// If the package or version ID parts contain slashes, the slashes are
     /// escaped.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Description of the version, as specified in its metadata.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// The time when the version was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time when the version was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. A list of related tags. Will contain up to 100 tags that
     /// reference this version.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>related_tags: ::prost::alloc::vec::Vec&lt;Tag&gt;,
     <span class="doccomment">/// Output only. Repository-specific Metadata stored against this version.
     /// The fields returned are defined by the underlying repository-specific
     /// resource. Currently, the only resource in use is
     /// [DockerImage][google.devtools.artifactregistry.v1.DockerImage]
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;::prost_types::Struct&gt;,
 }
 <span class="doccomment">/// The request to list versions.
@@ -2022,19 +2023,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListVersionsRequest {
     <span class="doccomment">/// The name of the parent resource whose versions will be listed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of versions to return. Maximum page size is 1,000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous list request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The view that should be returned in the response.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;VersionView&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"VersionView"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>view: i32,
     <span class="doccomment">/// Optional. The field to order the results by.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response from listing versions.
@@ -2042,11 +2043,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListVersionsResponse {
     <span class="doccomment">/// The versions returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>versions: ::prost::alloc::vec::Vec&lt;Version&gt;,
     <span class="doccomment">/// The token to retrieve the next page of versions, or empty if there are no
     /// more versions to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to retrieve a version.
@@ -2054,10 +2055,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetVersionRequest {
     <span class="doccomment">/// The name of the version to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The view that should be returned in the response.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;VersionView&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"VersionView"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>view: i32,
 }
 <span class="doccomment">/// The request to delete a version.
@@ -2065,11 +2066,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteVersionRequest {
     <span class="doccomment">/// The name of the version to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// By default, a version that is tagged may not be deleted. If force=true, the
     /// version and any tags pointing to the version are deleted.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>force: bool,
 }
 <span class="doccomment">/// The view, which determines what version information is returned in a
@@ -2090,19 +2091,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            VersionView::Unspecified =&gt; <span class="string">&quot;VERSION_VIEW_UNSPECIFIED&quot;</span>,
-            VersionView::Basic =&gt; <span class="string">&quot;BASIC&quot;</span>,
-            VersionView::Full =&gt; <span class="string">&quot;FULL&quot;</span>,
+            VersionView::Unspecified =&gt; <span class="string">"VERSION_VIEW_UNSPECIFIED"</span>,
+            VersionView::Basic =&gt; <span class="string">"BASIC"</span>,
+            VersionView::Full =&gt; <span class="string">"FULL"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;VERSION_VIEW_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-            <span class="string">&quot;FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
+            <span class="string">"VERSION_VIEW_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"BASIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+            <span class="string">"FULL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2112,10 +2113,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Hash {
     <span class="doccomment">/// The algorithm used to compute the hash value.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;hash::HashType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"hash::HashType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// The hash value.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>value: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Nested message and enum types in `Hash`.
@@ -2146,19 +2147,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                HashType::Unspecified =&gt; <span class="string">&quot;HASH_TYPE_UNSPECIFIED&quot;</span>,
-                HashType::Sha256 =&gt; <span class="string">&quot;SHA256&quot;</span>,
-                HashType::Md5 =&gt; <span class="string">&quot;MD5&quot;</span>,
+                HashType::Unspecified =&gt; <span class="string">"HASH_TYPE_UNSPECIFIED"</span>,
+                HashType::Sha256 =&gt; <span class="string">"SHA256"</span>,
+                HashType::Md5 =&gt; <span class="string">"MD5"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;HASH_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha256),
-                <span class="string">&quot;MD5&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Md5),
+                <span class="string">"HASH_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sha256),
+                <span class="string">"MD5" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Md5),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2169,24 +2170,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>File {
     <span class="doccomment">/// The name of the file, for example:
-    /// &quot;projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt&quot;.
+    /// "projects/p1/locations/us-central1/repositories/repo1/files/a%2Fb%2Fc.txt".
     /// If the file ID part contains slashes, they are escaped.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The size of the File in bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>size_bytes: i64,
     <span class="doccomment">/// The hashes of the file content.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>hashes: ::prost::alloc::vec::Vec&lt;Hash&gt;,
     <span class="doccomment">/// The time when the File was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time when the File was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The name of the Package or Version that owns this file, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>owner: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to list files.
@@ -2194,8 +2195,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFilesRequest {
     <span class="doccomment">/// The name of the repository whose files will be listed. For example:
-    /// &quot;projects/p1/locations/us-central1/repositories/repo1
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/p1/locations/us-central1/repositories/repo1
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression for filtering the results of the request. Filter rules are
     /// case insensitive. The fields eligible for filtering are:
@@ -2205,17 +2206,17 @@
     ///
     ///   An example of using a filter:
     ///
-    ///    * `name=&quot;projects/p1/locations/us-central1/repositories/repo1/files/a/b/*&quot;` --&gt; Files with an
-    ///    ID starting with &quot;a/b/&quot;.
-    ///    * `owner=&quot;projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0&quot;` --&gt;
+    ///    * `name="projects/p1/locations/us-central1/repositories/repo1/files/a/b/*"` --&gt; Files with an
+    ///    ID starting with "a/b/".
+    ///    * `owner="projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0"` --&gt;
     ///    Files owned by the version `1.0` in package `pkg1`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of files to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous list request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response from listing files.
@@ -2223,11 +2224,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFilesResponse {
     <span class="doccomment">/// The files returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>files: ::prost::alloc::vec::Vec&lt;File&gt;,
     <span class="doccomment">/// The token to retrieve the next page of files, or empty if there are no
     /// more files to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to retrieve a file.
@@ -2235,24 +2236,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetFileRequest {
     <span class="doccomment">/// The name of the file to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The Artifact Registry settings that apply to a Project.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ProjectSettings {
-    <span class="doccomment">/// The name of the project&#39;s settings.
+    <span class="doccomment">/// The name of the project's settings.
     ///
     /// Always of the form:
     /// projects/{project-id}/projectSettings
     ///
     /// In update request: never set
     /// In response: always set
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The redirection state of the legacy repositories in this project.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;project_settings::RedirectionState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"project_settings::RedirectionState"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>legacy_redirection_state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ProjectSettings`.
@@ -2285,31 +2286,31 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RedirectionState::Unspecified =&gt; <span class="string">&quot;REDIRECTION_STATE_UNSPECIFIED&quot;</span>,
+                RedirectionState::Unspecified =&gt; <span class="string">"REDIRECTION_STATE_UNSPECIFIED"</span>,
                 RedirectionState::RedirectionFromGcrIoDisabled =&gt; {
-                    <span class="string">&quot;REDIRECTION_FROM_GCR_IO_DISABLED&quot;
+                    <span class="string">"REDIRECTION_FROM_GCR_IO_DISABLED"
                 </span>}
                 RedirectionState::RedirectionFromGcrIoEnabled =&gt; {
-                    <span class="string">&quot;REDIRECTION_FROM_GCR_IO_ENABLED&quot;
+                    <span class="string">"REDIRECTION_FROM_GCR_IO_ENABLED"
                 </span>}
                 RedirectionState::RedirectionFromGcrIoFinalized =&gt; {
-                    <span class="string">&quot;REDIRECTION_FROM_GCR_IO_FINALIZED&quot;
+                    <span class="string">"REDIRECTION_FROM_GCR_IO_FINALIZED"
                 </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;REDIRECTION_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;REDIRECTION_FROM_GCR_IO_DISABLED&quot; </span>=&gt; {
+                <span class="string">"REDIRECTION_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"REDIRECTION_FROM_GCR_IO_DISABLED" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::RedirectionFromGcrIoDisabled)
                 }
-                <span class="string">&quot;REDIRECTION_FROM_GCR_IO_ENABLED&quot; </span>=&gt; {
+                <span class="string">"REDIRECTION_FROM_GCR_IO_ENABLED" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::RedirectionFromGcrIoEnabled)
                 }
-                <span class="string">&quot;REDIRECTION_FROM_GCR_IO_FINALIZED&quot; </span>=&gt; {
+                <span class="string">"REDIRECTION_FROM_GCR_IO_FINALIZED" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::RedirectionFromGcrIoFinalized)
                 }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -2322,7 +2323,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetProjectSettingsRequest {
     <span class="doccomment">/// Required. The name of the projectSettings resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Sets the settings of the project.
@@ -2330,10 +2331,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateProjectSettingsRequest {
     <span class="doccomment">/// The project settings.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_settings: ::core::option::Option&lt;ProjectSettings&gt;,
     <span class="doccomment">/// Field mask to support partial updates.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// A detailed representation of a Yum artifact.
@@ -2341,16 +2342,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>YumArtifact {
     <span class="doccomment">/// Output only. The Artifact Registry resource name of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The yum package name of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>package_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. An artifact is a binary or source package.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;yum_artifact::PackageType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"yum_artifact::PackageType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>package_type: i32,
     <span class="doccomment">/// Output only. Operating system architecture of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>architecture: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `YumArtifact`.
@@ -2381,19 +2382,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                PackageType::Unspecified =&gt; <span class="string">&quot;PACKAGE_TYPE_UNSPECIFIED&quot;</span>,
-                PackageType::Binary =&gt; <span class="string">&quot;BINARY&quot;</span>,
-                PackageType::Source =&gt; <span class="string">&quot;SOURCE&quot;</span>,
+                PackageType::Unspecified =&gt; <span class="string">"PACKAGE_TYPE_UNSPECIFIED"</span>,
+                PackageType::Binary =&gt; <span class="string">"BINARY"</span>,
+                PackageType::Source =&gt; <span class="string">"SOURCE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PACKAGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BINARY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Binary),
-                <span class="string">&quot;SOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Source),
+                <span class="string">"PACKAGE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"BINARY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Binary),
+                <span class="string">"SOURCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Source),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2404,10 +2405,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportYumArtifactsGcsSource {
     <span class="doccomment">/// Cloud Storage paths URI (e.g., gs://my_bucket//my_object).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Supports URI wildcards for matching multiple objects from a single URI.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>use_wildcards: bool,
 }
 <span class="doccomment">/// The request to import new yum artifacts.
@@ -2415,10 +2416,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportYumArtifactsRequest {
     <span class="doccomment">/// The name of the parent resource where the artifacts will be imported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The source location of the package binaries.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_yum_artifacts_request::Source&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"import_yum_artifacts_request::Source"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_yum_artifacts_request::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ImportYumArtifactsRequest`.
@@ -2428,7 +2429,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// Google Cloud Storage location where input content is located.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>GcsSource(<span class="kw">super</span>::ImportYumArtifactsGcsSource),
     }
 }
@@ -2437,10 +2438,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportYumArtifactsErrorInfo {
     <span class="doccomment">/// The detailed error status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// The source that was not imported.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_yum_artifacts_error_info::Source&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"import_yum_artifacts_error_info::Source"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_yum_artifacts_error_info::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ImportYumArtifactsErrorInfo`.
@@ -2450,7 +2451,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// Google Cloud Storage location requested.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>GcsSource(<span class="kw">super</span>::ImportYumArtifactsGcsSource),
     }
 }
@@ -2459,10 +2460,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportYumArtifactsResponse {
     <span class="doccomment">/// The yum artifacts imported.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>yum_artifacts: ::prost::alloc::vec::Vec&lt;YumArtifact&gt;,
     <span class="doccomment">/// Detailed error info for artifacts that were not imported.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;ImportYumArtifactsErrorInfo&gt;,
 }
 <span class="doccomment">/// The operation metadata for importing artifacts.
@@ -2470,28 +2471,28 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportYumArtifactsMetadata {}
 <span class="doccomment">/// A detailed representation of an Apt artifact. Information in the record
-/// is derived from the archive&#39;s control file.
+/// is derived from the archive's control file.
 /// See &lt;https://www.debian.org/doc/debian-policy/ch-controlfields.html&gt;
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AptArtifact {
     <span class="doccomment">/// Output only. The Artifact Registry resource name of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The Apt package name of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>package_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. An artifact is a binary or source package.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;apt_artifact::PackageType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"apt_artifact::PackageType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>package_type: i32,
     <span class="doccomment">/// Output only. Operating system architecture of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>architecture: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Repository component of the artifact.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>component: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Contents of the artifact&#39;s control metadata file.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    <span class="doccomment">/// Output only. Contents of the artifact's control metadata file.
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>control_file: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Nested message and enum types in `AptArtifact`.
@@ -2522,19 +2523,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                PackageType::Unspecified =&gt; <span class="string">&quot;PACKAGE_TYPE_UNSPECIFIED&quot;</span>,
-                PackageType::Binary =&gt; <span class="string">&quot;BINARY&quot;</span>,
-                PackageType::Source =&gt; <span class="string">&quot;SOURCE&quot;</span>,
+                PackageType::Unspecified =&gt; <span class="string">"PACKAGE_TYPE_UNSPECIFIED"</span>,
+                PackageType::Binary =&gt; <span class="string">"BINARY"</span>,
+                PackageType::Source =&gt; <span class="string">"SOURCE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PACKAGE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BINARY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Binary),
-                <span class="string">&quot;SOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Source),
+                <span class="string">"PACKAGE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"BINARY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Binary),
+                <span class="string">"SOURCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Source),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2545,10 +2546,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportAptArtifactsGcsSource {
     <span class="doccomment">/// Cloud Storage paths URI (e.g., gs://my_bucket//my_object).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Supports URI wildcards for matching multiple objects from a single URI.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>use_wildcards: bool,
 }
 <span class="doccomment">/// The request to import new apt artifacts.
@@ -2556,10 +2557,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportAptArtifactsRequest {
     <span class="doccomment">/// The name of the parent resource where the artifacts will be imported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The source location of the package binaries.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_apt_artifacts_request::Source&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"import_apt_artifacts_request::Source"</span>, tags = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_apt_artifacts_request::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ImportAptArtifactsRequest`.
@@ -2569,7 +2570,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// Google Cloud Storage location where input content is located.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>GcsSource(<span class="kw">super</span>::ImportAptArtifactsGcsSource),
     }
 }
@@ -2578,10 +2579,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportAptArtifactsErrorInfo {
     <span class="doccomment">/// The detailed error status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// The source that was not imported.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_apt_artifacts_error_info::Source&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"import_apt_artifacts_error_info::Source"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;import_apt_artifacts_error_info::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ImportAptArtifactsErrorInfo`.
@@ -2591,7 +2592,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// Google Cloud Storage location requested.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>GcsSource(<span class="kw">super</span>::ImportAptArtifactsGcsSource),
     }
 }
@@ -2600,10 +2601,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportAptArtifactsResponse {
     <span class="doccomment">/// The Apt artifacts imported.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>apt_artifacts: ::prost::alloc::vec::Vec&lt;AptArtifact&gt;,
     <span class="doccomment">/// Detailed error info for artifacts that were not imported.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>errors: ::prost::alloc::vec::Vec&lt;ImportAptArtifactsErrorInfo&gt;,
 }
 <span class="doccomment">/// The operation metadata for importing artifacts.
@@ -2615,18 +2616,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Package {
     <span class="doccomment">/// The name of the package, for example:
-    /// &quot;projects/p1/locations/us-central1/repositories/repo1/packages/pkg1&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/p1/locations/us-central1/repositories/repo1/packages/pkg1".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The display name of the package.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The time when the package was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time when the package was last updated. This includes publishing a new
     /// version of the package.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// The request to list packages.
@@ -2634,14 +2635,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPackagesRequest {
     <span class="doccomment">/// The name of the parent resource whose packages will be listed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of packages to return.
     /// Maximum page size is 10,000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous list request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response from listing packages.
@@ -2649,11 +2650,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPackagesResponse {
     <span class="doccomment">/// The packages returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>packages: ::prost::alloc::vec::Vec&lt;Package&gt;,
     <span class="doccomment">/// The token to retrieve the next page of packages, or empty if there are no
     /// more packages to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to retrieve a package.
@@ -2661,7 +2662,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetPackageRequest {
     <span class="doccomment">/// The name of the package to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to delete a package.
@@ -2669,7 +2670,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeletePackageRequest {
     <span class="doccomment">/// The name of the package to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A Repository for storing artifacts with a specific format.
@@ -2677,39 +2678,39 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Repository {
     <span class="doccomment">/// The name of the repository, for example:
-    /// &quot;projects/p1/locations/us-central1/repositories/repo1&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "projects/p1/locations/us-central1/repositories/repo1".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The format of packages that are stored in the repository.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;repository::Format&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"repository::Format"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>format: i32,
     <span class="doccomment">/// The user-provided description of the repository.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Labels with user-defined metadata.
     /// This field may contain up to 64 entries. Label keys and values may be no
     /// longer than 63 characters. Label keys must begin with a lowercase letter
     /// and may only contain lowercase letters, numeric characters, underscores,
     /// and dashes.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// The time when the repository was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time when the repository was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The Cloud KMS resource name of the customer managed encryption key that’s
     /// used to encrypt the contents of the Repository. Has the form:
     /// `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`.
     /// This value may not be changed after the Repository has been created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>kms_key_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Repository-specific configurations.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;repository::FormatConfig&quot;</span>, tags = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"repository::FormatConfig"</span>, tags = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>format_config: ::core::option::Option&lt;repository::FormatConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Repository`.
@@ -2722,10 +2723,10 @@
     </span><span class="kw">pub struct </span>MavenRepositoryConfig {
         <span class="doccomment">/// The repository with this flag will allow publishing
         /// the same snapshot versions.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>allow_snapshot_overwrites: bool,
         <span class="doccomment">/// Version policy defines the versions that the registry will accept.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;maven_repository_config::VersionPolicy&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"maven_repository_config::VersionPolicy"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>version_policy: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `MavenRepositoryConfig`.
@@ -2758,19 +2759,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    VersionPolicy::Unspecified =&gt; <span class="string">&quot;VERSION_POLICY_UNSPECIFIED&quot;</span>,
-                    VersionPolicy::Release =&gt; <span class="string">&quot;RELEASE&quot;</span>,
-                    VersionPolicy::Snapshot =&gt; <span class="string">&quot;SNAPSHOT&quot;</span>,
+                    VersionPolicy::Unspecified =&gt; <span class="string">"VERSION_POLICY_UNSPECIFIED"</span>,
+                    VersionPolicy::Release =&gt; <span class="string">"RELEASE"</span>,
+                    VersionPolicy::Snapshot =&gt; <span class="string">"SNAPSHOT"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;VERSION_POLICY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;RELEASE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Release),
-                    <span class="string">&quot;SNAPSHOT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Snapshot),
+                    <span class="string">"VERSION_POLICY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"RELEASE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Release),
+                    <span class="string">"SNAPSHOT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Snapshot),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -2810,27 +2811,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Format::Unspecified =&gt; <span class="string">&quot;FORMAT_UNSPECIFIED&quot;</span>,
-                Format::Docker =&gt; <span class="string">&quot;DOCKER&quot;</span>,
-                Format::Maven =&gt; <span class="string">&quot;MAVEN&quot;</span>,
-                Format::Npm =&gt; <span class="string">&quot;NPM&quot;</span>,
-                Format::Apt =&gt; <span class="string">&quot;APT&quot;</span>,
-                Format::Yum =&gt; <span class="string">&quot;YUM&quot;</span>,
-                Format::Python =&gt; <span class="string">&quot;PYTHON&quot;</span>,
+                Format::Unspecified =&gt; <span class="string">"FORMAT_UNSPECIFIED"</span>,
+                Format::Docker =&gt; <span class="string">"DOCKER"</span>,
+                Format::Maven =&gt; <span class="string">"MAVEN"</span>,
+                Format::Npm =&gt; <span class="string">"NPM"</span>,
+                Format::Apt =&gt; <span class="string">"APT"</span>,
+                Format::Yum =&gt; <span class="string">"YUM"</span>,
+                Format::Python =&gt; <span class="string">"PYTHON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;FORMAT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DOCKER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Docker),
-                <span class="string">&quot;MAVEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Maven),
-                <span class="string">&quot;NPM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Npm),
-                <span class="string">&quot;APT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Apt),
-                <span class="string">&quot;YUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Yum),
-                <span class="string">&quot;PYTHON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Python),
+                <span class="string">"FORMAT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DOCKER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Docker),
+                <span class="string">"MAVEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Maven),
+                <span class="string">"NPM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Npm),
+                <span class="string">"APT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Apt),
+                <span class="string">"YUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Yum),
+                <span class="string">"PYTHON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Python),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2841,7 +2842,7 @@
     </span><span class="kw">pub enum </span>FormatConfig {
         <span class="doccomment">/// Maven repository config contains repository level configuration
         /// for the repositories of maven type.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>MavenConfig(MavenRepositoryConfig),
     }
 }
@@ -2850,13 +2851,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRepositoriesRequest {
     <span class="doccomment">/// Required. The name of the parent resource whose repositories will be listed.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of repositories to return. Maximum page size is 1,000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous list request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response from listing repositories.
@@ -2864,11 +2865,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRepositoriesResponse {
     <span class="doccomment">/// The repositories returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repositories: ::prost::alloc::vec::Vec&lt;Repository&gt;,
     <span class="doccomment">/// The token to retrieve the next page of repositories, or empty if there are
     /// no more repositories to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to retrieve a repository.
@@ -2876,7 +2877,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetRepositoryRequest {
     <span class="doccomment">/// Required. The name of the repository to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request to create a new repository.
@@ -2884,13 +2885,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateRepositoryRequest {
     <span class="doccomment">/// Required. The name of the parent resource where the repository will be created.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The repository id to use for this repository.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>repository_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The repository to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>repository: ::core::option::Option&lt;Repository&gt;,
 }
 <span class="doccomment">/// The request to update a repository.
@@ -2898,12 +2899,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateRepositoryRequest {
     <span class="doccomment">/// The repository that replaces the resource on the server.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repository: ::core::option::Option&lt;Repository&gt;,
     <span class="doccomment">/// The update mask applies to the resource. For the `FieldMask` definition,
     /// see
     /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The request to delete a repository.
@@ -2911,7 +2912,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteRepositoryRequest {
     <span class="doccomment">/// Required. The name of the repository to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Metadata type for longrunning-operations, currently empty.
@@ -2944,7 +2945,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3022,19 +3023,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ImportAptArtifacts&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ImportAptArtifacts"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;ImportAptArtifacts&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"ImportAptArtifacts"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3056,19 +3057,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ImportYumArtifacts&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ImportYumArtifacts"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;ImportYumArtifacts&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"ImportYumArtifacts"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3087,19 +3088,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListRepositories&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListRepositories"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;ListRepositories&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"ListRepositories"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3115,19 +3116,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetRepository&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetRepository"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;GetRepository&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"GetRepository"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3147,19 +3148,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/CreateRepository&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/CreateRepository"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;CreateRepository&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"CreateRepository"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3175,19 +3176,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/UpdateRepository&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/UpdateRepository"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;UpdateRepository&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"UpdateRepository"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3208,19 +3209,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteRepository&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteRepository"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;DeleteRepository&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"DeleteRepository"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3239,19 +3240,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListPackages&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListPackages"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;ListPackages&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"ListPackages"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3267,19 +3268,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetPackage&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetPackage"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;GetPackage&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"GetPackage"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3299,19 +3300,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeletePackage&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeletePackage"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;DeletePackage&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"DeletePackage"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3330,19 +3331,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListVersions&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListVersions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;ListVersions&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"ListVersions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3358,19 +3359,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetVersion&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetVersion"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;GetVersion&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"GetVersion"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3390,19 +3391,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteVersion&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteVersion"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;DeleteVersion&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"DeleteVersion"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3421,19 +3422,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListFiles&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListFiles"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;ListFiles&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"ListFiles"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3449,19 +3450,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetFile&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetFile"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;GetFile&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"GetFile"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3480,19 +3481,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListTags&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/ListTags"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;ListTags&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"ListTags"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3508,19 +3509,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetTag&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetTag"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;GetTag&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"GetTag"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3536,19 +3537,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/CreateTag&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/CreateTag"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;CreateTag&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"CreateTag"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3564,19 +3565,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/UpdateTag&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/UpdateTag"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;UpdateTag&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"UpdateTag"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3592,19 +3593,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteTag&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/DeleteTag"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;DeleteTag&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"DeleteTag"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3625,19 +3626,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/SetIamPolicy&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/SetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;SetIamPolicy&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"SetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3658,19 +3659,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetIamPolicy&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;GetIamPolicy&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"GetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3693,19 +3694,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/TestIamPermissions&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/TestIamPermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;TestIamPermissions&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"TestIamPermissions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3724,19 +3725,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetProjectSettings&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/GetProjectSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;GetProjectSettings&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"GetProjectSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3755,19 +3756,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/UpdateProjectSettings&quot;</span>,
+                <span class="string">"/google.devtools.artifactregistry.v1beta2.ArtifactRegistry/UpdateProjectSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.artifactregistry.v1beta2.ArtifactRegistry&quot;</span>,
-                        <span class="string">&quot;UpdateProjectSettings&quot;</span>,
+                        <span class="string">"google.devtools.artifactregistry.v1beta2.ArtifactRegistry"</span>,
+                        <span class="string">"UpdateProjectSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

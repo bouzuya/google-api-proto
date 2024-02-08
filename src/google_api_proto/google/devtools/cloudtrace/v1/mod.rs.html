@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/cloudtrace/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/cloudtrace/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -494,15 +495,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Trace {
     <span class="doccomment">/// Project ID of the Cloud project where the trace data is stored.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Globally unique identifier for the trace. This identifier is a 128-bit
     /// numeric value formatted as a 32-byte hex string. For example,
     /// `382d4f4c6b7bb2f4a972559d9085001d`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>trace_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Collection of spans in the trace.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>spans: ::prost::alloc::vec::Vec&lt;TraceSpan&gt;,
 }
 <span class="doccomment">/// List of new or updated traces.
@@ -510,7 +511,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Traces {
     <span class="doccomment">/// List of traces.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>traces: ::prost::alloc::vec::Vec&lt;Trace&gt;,
 }
 <span class="doccomment">/// A span represents a single timed event within a trace. Spans can be nested
@@ -523,12 +524,12 @@
 </span><span class="kw">pub struct </span>TraceSpan {
     <span class="doccomment">/// Identifier for the span. Must be a 64-bit integer other than 0 and
     /// unique within a trace. For example, `2205310701640571284`.
-    </span><span class="attr">#[prost(fixed64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(fixed64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>span_id: u64,
     <span class="doccomment">/// Distinguishes between spans generated in a particular context. For example,
     /// two spans with the same name may be distinguished using `RPC_CLIENT`
     /// and `RPC_SERVER` to identify queueing latency associated with the span.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;trace_span::SpanKind&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"trace_span::SpanKind"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>kind: i32,
     <span class="doccomment">/// Name of the span. Must be less than 128 bytes. The span name is sanitized
     /// and displayed in the Stackdriver Trace tool in the
@@ -537,16 +538,16 @@
     /// For the same executable and the same call point, a best practice is
     /// to use a consistent name, which makes it easier to correlate
     /// cross-trace spans.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Start time of the span in nanoseconds from the UNIX epoch.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// End time of the span in nanoseconds from the UNIX epoch.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. ID of the parent span, if any.
-    </span><span class="attr">#[prost(fixed64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(fixed64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>parent_span_id: u64,
     <span class="doccomment">/// Collection of labels associated with the span. Label keys must be less than
     /// 128 bytes. Label values must be less than 16 kilobytes (10MB for
@@ -583,7 +584,7 @@
     /// *   `/pid`
     /// *   `/stacktrace`
     /// *   `/tid`
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -620,19 +621,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SpanKind::Unspecified =&gt; <span class="string">&quot;SPAN_KIND_UNSPECIFIED&quot;</span>,
-                SpanKind::RpcServer =&gt; <span class="string">&quot;RPC_SERVER&quot;</span>,
-                SpanKind::RpcClient =&gt; <span class="string">&quot;RPC_CLIENT&quot;</span>,
+                SpanKind::Unspecified =&gt; <span class="string">"SPAN_KIND_UNSPECIFIED"</span>,
+                SpanKind::RpcServer =&gt; <span class="string">"RPC_SERVER"</span>,
+                SpanKind::RpcClient =&gt; <span class="string">"RPC_CLIENT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SPAN_KIND_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RPC_SERVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RpcServer),
-                <span class="string">&quot;RPC_CLIENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RpcClient),
+                <span class="string">"SPAN_KIND_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RPC_SERVER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RpcServer),
+                <span class="string">"RPC_CLIENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RpcClient),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -644,28 +645,28 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTracesRequest {
     <span class="doccomment">/// Required. ID of the Cloud project where the trace data is stored.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Type of data returned for traces in the list. Default is
     /// `MINIMAL`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;list_traces_request::ViewType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"list_traces_request::ViewType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>view: i32,
     <span class="doccomment">/// Optional. Maximum number of traces to return. If not specified or &lt;= 0, the
     /// implementation selects a reasonable value.  The implementation may
     /// return fewer traces than the requested page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Token identifying the page of results to return. If provided, use the
     /// value of the `next_page_token` field from a previous request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Start of the time interval (inclusive) during which the trace data was
     /// collected from the application.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// End of the time interval (inclusive) during which the trace data was
     /// collected from the application.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. A filter against labels for the request.
     ///
@@ -675,11 +676,11 @@
     ///
     /// *   `root:NAME_PREFIX` or `NAME_PREFIX`: Return traces where any root
     ///      span starts with `NAME_PREFIX`.
-    /// *   `+root:NAME` or `+NAME`: Return traces where any root span&#39;s name is
+    /// *   `+root:NAME` or `+NAME`: Return traces where any root span's name is
     ///      exactly `NAME`.
     /// *   `span:NAME_PREFIX`: Return traces where any span starts with
     ///      `NAME_PREFIX`.
-    /// *   `+span:NAME`: Return traces where any span&#39;s name is exactly
+    /// *   `+span:NAME`: Return traces where any span's name is exactly
     ///      `NAME`.
     /// *   `latency:DURATION`: Return traces whose overall latency is
     ///      greater or equal to than `DURATION`. Accepted units are nanoseconds
@@ -688,7 +689,7 @@
     ///      is greater than or equal to 24 milliseconds.
     /// *   `label:LABEL_KEY`: Return all traces containing the specified
     ///      label key (exact match, case-sensitive) regardless of the key:value
-    ///      pair&#39;s value (including empty values).
+    ///      pair's value (including empty values).
     /// *   `LABEL_KEY:VALUE_PREFIX`: Return all traces containing the specified
     ///      label key (exact match, case-sensitive) whose value starts with
     ///      `VALUE_PREFIX`. Both a key and a value must be specified.
@@ -697,7 +698,7 @@
     ///      specified.
     /// *   `method:VALUE`: Equivalent to `/http/method:VALUE`.
     /// *   `url:VALUE`: Equivalent to `/http/url:VALUE`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Field used to sort the returned traces.
     /// Can be one of the following:
@@ -712,7 +713,7 @@
     /// (for example, `name desc`).
     ///
     /// Only one sort field is permitted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>order_by: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `ListTracesRequest`.
@@ -749,21 +750,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ViewType::Unspecified =&gt; <span class="string">&quot;VIEW_TYPE_UNSPECIFIED&quot;</span>,
-                ViewType::Minimal =&gt; <span class="string">&quot;MINIMAL&quot;</span>,
-                ViewType::Rootspan =&gt; <span class="string">&quot;ROOTSPAN&quot;</span>,
-                ViewType::Complete =&gt; <span class="string">&quot;COMPLETE&quot;</span>,
+                ViewType::Unspecified =&gt; <span class="string">"VIEW_TYPE_UNSPECIFIED"</span>,
+                ViewType::Minimal =&gt; <span class="string">"MINIMAL"</span>,
+                ViewType::Rootspan =&gt; <span class="string">"ROOTSPAN"</span>,
+                ViewType::Complete =&gt; <span class="string">"COMPLETE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;VIEW_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;MINIMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Minimal),
-                <span class="string">&quot;ROOTSPAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rootspan),
-                <span class="string">&quot;COMPLETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complete),
+                <span class="string">"VIEW_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"MINIMAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Minimal),
+                <span class="string">"ROOTSPAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rootspan),
+                <span class="string">"COMPLETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complete),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -774,12 +775,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTracesResponse {
     <span class="doccomment">/// List of trace records as specified by the view parameter.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>traces: ::prost::alloc::vec::Vec&lt;Trace&gt;,
     <span class="doccomment">/// If defined, indicates that there are more traces that match the request
     /// and that this value should be passed to the next request to continue
     /// retrieving additional traces.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for the `GetTrace` method.
@@ -787,10 +788,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTraceRequest {
     <span class="doccomment">/// Required. ID of the Cloud project where the trace data is stored.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. ID of the trace to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>trace_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request message for the `PatchTraces` method.
@@ -798,10 +799,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PatchTracesRequest {
     <span class="doccomment">/// Required. ID of the Cloud project where the trace data is stored.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The body of the message.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>traces: ::core::option::Option&lt;Traces&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -822,7 +823,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -897,19 +898,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudtrace.v1.TraceService/ListTraces&quot;</span>,
+                <span class="string">"/google.devtools.cloudtrace.v1.TraceService/ListTraces"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudtrace.v1.TraceService&quot;</span>,
-                        <span class="string">&quot;ListTraces&quot;</span>,
+                        <span class="string">"google.devtools.cloudtrace.v1.TraceService"</span>,
+                        <span class="string">"ListTraces"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -925,19 +926,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudtrace.v1.TraceService/GetTrace&quot;</span>,
+                <span class="string">"/google.devtools.cloudtrace.v1.TraceService/GetTrace"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudtrace.v1.TraceService&quot;</span>,
-                        <span class="string">&quot;GetTrace&quot;</span>,
+                        <span class="string">"google.devtools.cloudtrace.v1.TraceService"</span>,
+                        <span class="string">"GetTrace"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -957,19 +958,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.cloudtrace.v1.TraceService/PatchTraces&quot;</span>,
+                <span class="string">"/google.devtools.cloudtrace.v1.TraceService/PatchTraces"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.cloudtrace.v1.TraceService&quot;</span>,
-                        <span class="string">&quot;PatchTraces&quot;</span>,
+                        <span class="string">"google.devtools.cloudtrace.v1.TraceService"</span>,
+                        <span class="string">"PatchTraces"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/tasks/v2beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/tasks/v2beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -3002,9 +3003,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PullMessage {
     <span class="doccomment">/// A data payload consumed by the worker to execute the task.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>payload: ::prost::bytes::Bytes,
-    <span class="doccomment">/// The task&#39;s tag.
+    <span class="doccomment">/// The task's tag.
     ///
     /// Tags allow similar tasks to be processed in a batch. If you label
     /// tasks with a tag, your worker can
@@ -3014,7 +3015,7 @@
     /// if you want to aggregate the events associated with a specific user once a
     /// day, you could tag tasks with the user ID.
     ///
-    /// The task&#39;s tag can only be set when the
+    /// The task's tag can only be set when the
     /// [task is created][google.cloud.tasks.v2beta2.CloudTasks.CreateTask].
     ///
     /// The tag must be less than 500 characters.
@@ -3022,9 +3023,9 @@
     /// SDK compatibility: Although the SDK allows tags to be either
     /// string or
     /// [bytes](&lt;https://cloud.google.com/appengine/docs/standard/java/javadoc/com/google/appengine/api/taskqueue/TaskOptions.html#tag-byte:A-&gt;),
-    /// only UTF-8 encoded tags can be used in Cloud Tasks. If a tag isn&#39;t UTF-8
+    /// only UTF-8 encoded tags can be used in Cloud Tasks. If a tag isn't UTF-8
     /// encoded, the tag will be empty when the task is returned by Cloud Tasks.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>tag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// App Engine HTTP target.
@@ -3035,7 +3036,7 @@
 /// [AppEngineHttpRequest][google.cloud.tasks.v2beta2.AppEngineHttpRequest]. The
 /// documentation for
 /// [AppEngineHttpRequest][google.cloud.tasks.v2beta2.AppEngineHttpRequest]
-/// explains how the task&#39;s host URL is constructed.
+/// explains how the task's host URL is constructed.
 ///
 /// Using [AppEngineHttpTarget][google.cloud.tasks.v2beta2.AppEngineHttpTarget]
 /// requires
@@ -3055,7 +3056,7 @@
     /// the queue, no matter what the setting is for the
     /// [task-level
     /// app_engine_routing][google.cloud.tasks.v2beta2.AppEngineHttpRequest.app_engine_routing].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>app_engine_routing_override: ::core::option::Option&lt;AppEngineRouting&gt;,
 }
 <span class="doccomment">/// App Engine HTTP request.
@@ -3115,15 +3116,15 @@
 /// required`](&lt;https://cloud.google.com/appengine/docs/standard/python/config/appref&gt;)
 /// Task dispatches also do not follow redirects.
 ///
-/// The task attempt has succeeded if the app&#39;s request handler returns an HTTP
+/// The task attempt has succeeded if the app's request handler returns an HTTP
 /// response code in the range \[`200` - `299`\]. The task attempt has failed if
-/// the app&#39;s handler returns a non-2xx response code or Cloud Tasks does
+/// the app's handler returns a non-2xx response code or Cloud Tasks does
 /// not receive response before the [deadline][Task.dispatch_deadline]. Failed
 /// tasks will be retried according to the
 /// [retry configuration][google.cloud.tasks.v2beta2.Queue.retry_config]. `503`
 /// (Service Unavailable) is considered an App Engine system error instead of an
-/// application error and will cause Cloud Tasks&#39; traffic congestion control to
-/// temporarily throttle the queue&#39;s dispatches. Unlike other types of task
+/// application error and will cause Cloud Tasks' traffic congestion control to
+/// temporarily throttle the queue's dispatches. Unlike other types of task
 /// targets, a `429` (Too Many Requests) response from an app handler does not
 /// cause traffic congestion control to throttle the queue.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -3131,13 +3132,13 @@
 </span><span class="kw">pub struct </span>AppEngineHttpRequest {
     <span class="doccomment">/// The HTTP method to use for the request. The default is POST.
     ///
-    /// The app&#39;s request handler for the task&#39;s target URL must be able to handle
+    /// The app's request handler for the task's target URL must be able to handle
     /// HTTP requests with this http_method, otherwise the task attempt fails with
     /// error code 405 (Method Not Allowed). See [Writing a push task request
     /// handler](&lt;https://cloud.google.com/appengine/docs/java/taskqueue/push/creating-handlers#writing_a_push_task_request_handler&gt;)
     /// and the App Engine documentation for your runtime on [How Requests are
     /// Handled](&lt;https://cloud.google.com/appengine/docs/standard/python3/how-requests-are-handled&gt;).
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HttpMethod&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HttpMethod"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>http_method: i32,
     <span class="doccomment">/// Task-level setting for App Engine routing.
     ///
@@ -3146,15 +3147,15 @@
     /// is used for all tasks in the queue, no matter what the setting is for the
     /// [task-level
     /// app_engine_routing][google.cloud.tasks.v2beta2.AppEngineHttpRequest.app_engine_routing].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>app_engine_routing: ::core::option::Option&lt;AppEngineRouting&gt;,
     <span class="doccomment">/// The relative URL.
     ///
-    /// The relative URL must begin with &quot;/&quot; and must be a valid HTTP relative URL.
+    /// The relative URL must begin with "/" and must be a valid HTTP relative URL.
     /// It can contain a path and query string arguments.
-    /// If the relative URL is empty, then the root path &quot;/&quot; will be used.
+    /// If the relative URL is empty, then the root path "/" will be used.
     /// No spaces are allowed, and the maximum length allowed is 2083 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>relative_url: ::prost::alloc::string::String,
     <span class="doccomment">/// HTTP request headers.
     ///
@@ -3166,9 +3167,9 @@
     /// Cloud Tasks sets some headers to default values:
     ///
     /// * `User-Agent`: By default, this header is
-    ///    `&quot;AppEngine-Google; (+&lt;http://code.google.com/appengine&gt;)&quot;`.
+    ///    `"AppEngine-Google; (+&lt;http://code.google.com/appengine&gt;)"`.
     ///    This header can be modified, but Cloud Tasks will append
-    ///    `&quot;AppEngine-Google; (+&lt;http://code.google.com/appengine&gt;)&quot;` to the
+    ///    `"AppEngine-Google; (+&lt;http://code.google.com/appengine&gt;)"` to the
     ///    modified `User-Agent`.
     ///
     /// If the task has a
@@ -3176,10 +3177,10 @@
     /// Tasks sets the following headers:
     ///
     /// * `Content-Type`: By default, the `Content-Type` header is set to
-    ///    `&quot;application/octet-stream&quot;`. The default can be overridden by explicitly
+    ///    `"application/octet-stream"`. The default can be overridden by explicitly
     ///    setting `Content-Type` to a particular media type when the
     ///    [task is created][google.cloud.tasks.v2beta2.CloudTasks.CreateTask].
-    ///    For example, `Content-Type` can be set to `&quot;application/json&quot;`.
+    ///    For example, `Content-Type` can be set to `"application/json"`.
     /// * `Content-Length`: This is computed by Cloud Tasks. This value is
     ///    output only.   It cannot be changed.
     ///
@@ -3201,7 +3202,7 @@
     /// [Task][google.cloud.tasks.v2beta2.Task]. For more information, see the
     /// [CreateTask][google.cloud.tasks.v2beta2.CloudTasks.CreateTask]
     /// documentation.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>headers: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -3212,7 +3213,7 @@
     /// body, and thus a payload, is allowed only if the HTTP method is
     /// POST or PUT. It is an error to set a data payload on a task with
     /// an incompatible [HttpMethod][google.cloud.tasks.v2beta2.HttpMethod].
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>payload: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// App Engine Routing.
@@ -3250,7 +3251,7 @@
     /// [version][google.cloud.tasks.v2beta2.AppEngineRouting.version], and
     /// [instance][google.cloud.tasks.v2beta2.AppEngineRouting.instance] are the
     /// empty string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service: ::prost::alloc::string::String,
     <span class="doccomment">/// App version.
     ///
@@ -3270,7 +3271,7 @@
     /// [version][google.cloud.tasks.v2beta2.AppEngineRouting.version], and
     /// [instance][google.cloud.tasks.v2beta2.AppEngineRouting.instance] are the
     /// empty string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// App instance.
     ///
@@ -3285,7 +3286,7 @@
     /// routing](&lt;https://cloud.google.com/appengine/docs/standard/python/how-requests-are-routed&gt;)
     /// and [App Engine Flex request
     /// routing](&lt;https://cloud.google.com/appengine/docs/flexible/python/how-requests-are-routed&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>instance: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The host that the task is sent to.
     ///
@@ -3297,17 +3298,17 @@
     ///
     ///
     /// * `host = \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[service\] + &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[version\] + &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[version_dot_service\]+ &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[instance\] + &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[instance_dot_service\] + &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[instance_dot_version\] + &#39;.&#39; + \[application_domain_name\]`&lt;/br&gt;
-    ///    `| \[instance_dot_version_dot_service\] + &#39;.&#39; + \[application_domain_name\]`
+    ///    `| \[service\] + '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[version\] + '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[version_dot_service\]+ '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[instance\] + '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[instance_dot_service\] + '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[instance_dot_version\] + '.' + \[application_domain_name\]`&lt;/br&gt;
+    ///    `| \[instance_dot_version_dot_service\] + '.' + \[application_domain_name\]`
     ///
     /// * `application_domain_name` = The domain name of the app, for
     ///    example &lt;app-id&gt;.appspot.com, which is associated with the
-    ///    queue&#39;s project ID. Some tasks which were created using the App Engine
+    ///    queue's project ID. Some tasks which were created using the App Engine
     ///    SDK use a custom domain name.
     ///
     /// * `service =`
@@ -3317,23 +3318,23 @@
     /// [version][google.cloud.tasks.v2beta2.AppEngineRouting.version]
     ///
     /// * `version_dot_service =`
-    ///    [version][google.cloud.tasks.v2beta2.AppEngineRouting.version] `+ &#39;.&#39; +`
+    ///    [version][google.cloud.tasks.v2beta2.AppEngineRouting.version] `+ '.' +`
     ///    [service][google.cloud.tasks.v2beta2.AppEngineRouting.service]
     ///
     /// * `instance =`
     /// [instance][google.cloud.tasks.v2beta2.AppEngineRouting.instance]
     ///
     /// * `instance_dot_service =`
-    ///    [instance][google.cloud.tasks.v2beta2.AppEngineRouting.instance] `+ &#39;.&#39;
+    ///    [instance][google.cloud.tasks.v2beta2.AppEngineRouting.instance] `+ '.'
     ///    +` [service][google.cloud.tasks.v2beta2.AppEngineRouting.service]
     ///
     /// * `instance_dot_version =`
-    ///    [instance][google.cloud.tasks.v2beta2.AppEngineRouting.instance] `+ &#39;.&#39;
+    ///    [instance][google.cloud.tasks.v2beta2.AppEngineRouting.instance] `+ '.'
     ///    +` [version][google.cloud.tasks.v2beta2.AppEngineRouting.version]
     ///
     /// * `instance_dot_version_dot_service =`
-    ///    [instance][google.cloud.tasks.v2beta2.AppEngineRouting.instance] `+ &#39;.&#39;
-    ///    +` [version][google.cloud.tasks.v2beta2.AppEngineRouting.version] `+ &#39;.&#39;
+    ///    [instance][google.cloud.tasks.v2beta2.AppEngineRouting.instance] `+ '.'
+    ///    +` [version][google.cloud.tasks.v2beta2.AppEngineRouting.version] `+ '.'
     ///    +` [service][google.cloud.tasks.v2beta2.AppEngineRouting.service]
     ///
     /// If [service][google.cloud.tasks.v2beta2.AppEngineRouting.service] is empty,
@@ -3353,7 +3354,7 @@
     /// [instance][google.cloud.tasks.v2beta2.AppEngineRouting.instance] is
     /// invalid, then the task will be sent to the default version of the default
     /// service when the task is attempted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>host: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// HTTP request.
@@ -3366,17 +3367,17 @@
 </span><span class="kw">pub struct </span>HttpRequest {
     <span class="doccomment">/// Required. The full url path that the request will be sent to.
     ///
-    /// This string must begin with either &quot;&lt;http://&quot;&gt; or &quot;&lt;https://&quot;.&gt; Some examples
+    /// This string must begin with either "&lt;http://"&gt; or "&lt;https://".&gt; Some examples
     /// are: `&lt;http://acme.com`&gt; and `&lt;https://acme.com/sales:8080`.&gt; Cloud Tasks will
     /// encode some characters for safety and compatibility. The maximum allowed
     /// URL length is 2083 characters after encoding.
     ///
     /// The `Location` header response from a redirect response \[`300` - `399`\]
     /// may be followed. The redirect is not counted as a separate attempt.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
     <span class="doccomment">/// The HTTP method to use for the request. The default is POST.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HttpMethod&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HttpMethod"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>http_method: i32,
     <span class="doccomment">/// HTTP request headers.
     ///
@@ -3386,31 +3387,31 @@
     /// [task is created][google.cloud.tasks.v2beta2.CloudTasks.BufferTask].
     ///
     /// These headers represent a subset of the headers that will accompany the
-    /// task&#39;s HTTP request. Some HTTP request headers will be ignored or replaced.
+    /// task's HTTP request. Some HTTP request headers will be ignored or replaced.
     ///
     /// A partial list of headers that will be ignored or replaced is:
     ///
-    /// * Any header that is prefixed with &quot;X-CloudTasks-&quot; will be treated
+    /// * Any header that is prefixed with "X-CloudTasks-" will be treated
     /// as service header. Service headers define properties of the task and are
     /// predefined in CloudTask.
     /// * Host: This will be computed by Cloud Tasks and derived from
     ///    [HttpRequest.url][google.cloud.tasks.v2beta2.HttpRequest.url].
     /// * Content-Length: This will be computed by Cloud Tasks.
-    /// * User-Agent: This will be set to `&quot;Google-Cloud-Tasks&quot;`.
+    /// * User-Agent: This will be set to `"Google-Cloud-Tasks"`.
     /// * `X-Google-*`: Google use only.
     /// * `X-AppEngine-*`: Google use only.
     ///
-    /// `Content-Type` won&#39;t be set by Cloud Tasks. You can explicitly set
+    /// `Content-Type` won't be set by Cloud Tasks. You can explicitly set
     /// `Content-Type` to a media type when the
     ///   [task is created][google.cloud.tasks.v2beta3.CloudTasks.CreateTask].
-    ///   For example, `Content-Type` can be set to `&quot;application/octet-stream&quot;` or
-    ///   `&quot;application/json&quot;`.
+    ///   For example, `Content-Type` can be set to `"application/octet-stream"` or
+    ///   `"application/json"`.
     ///
     /// Headers which can have multiple values (according to RFC2616) can be
     /// specified using comma-separated values.
     ///
     /// The size of the headers must be less than 80KB.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>headers: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -3421,14 +3422,14 @@
     /// [HTTP method][google.cloud.tasks.v2beta2.HttpRequest.http_method] is POST,
     /// PUT, or PATCH. It is an error to set body on a task with an incompatible
     /// [HttpMethod][google.cloud.tasks.v2beta2.HttpMethod].
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>body: ::prost::bytes::Bytes,
     <span class="doccomment">/// The mode for generating an `Authorization` header for HTTP requests.
     ///
     /// If specified, all `Authorization` headers in the
     /// [HttpRequest.headers][google.cloud.tasks.v2beta2.HttpRequest.headers] field
     /// will be overridden.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;http_request::AuthorizationHeader&quot;</span>, tags = <span class="string">&quot;5, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"http_request::AuthorizationHeader"</span>, tags = <span class="string">"5, 6"</span>)]
     </span><span class="kw">pub </span>authorization_header: ::core::option::Option&lt;http_request::AuthorizationHeader&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `HttpRequest`.
@@ -3448,7 +3449,7 @@
         ///
         /// This type of authorization should generally only be used when calling
         /// Google APIs hosted on *.googleapis.com.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>OauthToken(<span class="kw">super</span>::OAuthToken),
         <span class="doccomment">/// If specified, an
         /// [OIDC](&lt;https://developers.google.com/identity/protocols/OpenIDConnect&gt;)
@@ -3458,7 +3459,7 @@
         /// This type of authorization can be used for many scenarios, including
         /// calling Cloud Run, or endpoints where you intend to validate the token
         /// yourself.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>OidcToken(<span class="kw">super</span>::OidcToken),
     }
 }
@@ -3469,7 +3470,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PathOverride {
     <span class="doccomment">/// The URI path (e.g., /users/1234). Default is an empty string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// QueryOverride.
@@ -3480,7 +3481,7 @@
 </span><span class="kw">pub struct </span>QueryOverride {
     <span class="doccomment">/// The query parameters (e.g., qparam1=123&amp;qparam2=456). Default is an empty
     /// string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>query_params: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Uri Override.
@@ -3494,15 +3495,15 @@
     ///
     /// When specified, the task URI scheme is replaced by the provided value (HTTP
     /// or HTTPS).
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;uri_override::Scheme&quot;</span>, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"uri_override::Scheme"</span>, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>scheme: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Host override.
     ///
     /// When specified, replaces the host part of the task URL. For example,
-    /// if the task URL is &quot;&lt;https://www.google.com,&quot;&gt; and host value is set to
-    /// &quot;example.net&quot;, the overridden URI will be changed to &quot;&lt;https://example.net.&quot;&gt;
+    /// if the task URL is "&lt;https://www.google.com,"&gt; and host value is set to
+    /// "example.net", the overridden URI will be changed to "&lt;https://example.net."&gt;
     /// Host value cannot be an empty string (INVALID_ARGUMENT).
-    </span><span class="attr">#[prost(string, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>host: ::core::option::Option&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Port override.
     ///
@@ -3510,25 +3511,25 @@
     /// for a URI &lt;http://www.google.com/foo&gt; and port=123, the overridden URI
     /// becomes &lt;http://www.google.com:123/foo.&gt; Note that the port value must be a
     /// positive integer. Setting the port to 0 (Zero) clears the URI port.
-    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>port: ::core::option::Option&lt;i64&gt;,
     <span class="doccomment">/// URI path.
     ///
     /// When specified, replaces the existing path of the task URL. Setting the
     /// path value to an empty string clears the URI path segment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>path_override: ::core::option::Option&lt;PathOverride&gt;,
     <span class="doccomment">/// URI Query.
     ///
     /// When specified, replaces the query part of the task URI. Setting the
     /// query value to an empty string clears the URI query segment.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>query_override: ::core::option::Option&lt;QueryOverride&gt;,
     <span class="doccomment">/// URI Override Enforce Mode
     ///
     /// When specified, determines the Target UriOverride mode. If not specified,
     /// it defaults to ALWAYS.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;uri_override::UriOverrideEnforceMode&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"uri_override::UriOverrideEnforceMode"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>uri_override_enforce_mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `UriOverride`.
@@ -3561,19 +3562,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Scheme::Unspecified =&gt; <span class="string">&quot;SCHEME_UNSPECIFIED&quot;</span>,
-                Scheme::Http =&gt; <span class="string">&quot;HTTP&quot;</span>,
-                Scheme::Https =&gt; <span class="string">&quot;HTTPS&quot;</span>,
+                Scheme::Unspecified =&gt; <span class="string">"SCHEME_UNSPECIFIED"</span>,
+                Scheme::Http =&gt; <span class="string">"HTTP"</span>,
+                Scheme::Https =&gt; <span class="string">"HTTPS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SCHEME_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;HTTP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Http),
-                <span class="string">&quot;HTTPS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Https),
+                <span class="string">"SCHEME_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"HTTP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Http),
+                <span class="string">"HTTPS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Https),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3607,21 +3608,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
                 UriOverrideEnforceMode::Unspecified =&gt; {
-                    <span class="string">&quot;URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED&quot;
+                    <span class="string">"URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED"
                 </span>}
-                UriOverrideEnforceMode::IfNotExists =&gt; <span class="string">&quot;IF_NOT_EXISTS&quot;</span>,
-                UriOverrideEnforceMode::Always =&gt; <span class="string">&quot;ALWAYS&quot;</span>,
+                UriOverrideEnforceMode::IfNotExists =&gt; <span class="string">"IF_NOT_EXISTS"</span>,
+                UriOverrideEnforceMode::Always =&gt; <span class="string">"ALWAYS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;IF_NOT_EXISTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IfNotExists),
-                <span class="string">&quot;ALWAYS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Always),
+                <span class="string">"URI_OVERRIDE_ENFORCE_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"IF_NOT_EXISTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::IfNotExists),
+                <span class="string">"ALWAYS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Always),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3637,7 +3638,7 @@
     <span class="doccomment">/// Uri override.
     ///
     /// When specified, overrides the execution Uri for all the tasks in the queue.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri_override: ::core::option::Option&lt;UriOverride&gt;,
     <span class="doccomment">/// The HTTP method to use for the request.
     ///
@@ -3645,7 +3646,7 @@
     /// [HttpRequest][google.cloud.tasks.v2beta2.HttpTarget.http_method] for the
     /// task. Note that if the value is set to [HttpMethod][GET] the
     /// [HttpRequest][body] of the task will be ignored at execution time.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;HttpMethod&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"HttpMethod"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>http_method: i32,
     <span class="doccomment">/// HTTP target headers.
     ///
@@ -3655,38 +3656,38 @@
     /// [task is created][google.cloud.tasks.v2beta2.CloudTasks.BufferTask].
     ///
     /// These headers represent a subset of the headers that will accompany the
-    /// task&#39;s HTTP request. Some HTTP request headers will be ignored or replaced.
+    /// task's HTTP request. Some HTTP request headers will be ignored or replaced.
     ///
     /// A partial list of headers that will be ignored or replaced is:
-    /// * Any header that is prefixed with &quot;X-CloudTasks-&quot; will be treated
+    /// * Any header that is prefixed with "X-CloudTasks-" will be treated
     /// as service header. Service headers define properties of the task and are
     /// predefined in CloudTask.
     /// * Host: This will be computed by Cloud Tasks and derived from
     ///    [HttpRequest.url][google.cloud.tasks.v2beta2.HttpRequest.url].
     /// * Content-Length: This will be computed by Cloud Tasks.
-    /// * User-Agent: This will be set to `&quot;Google-CloudTasks&quot;`.
+    /// * User-Agent: This will be set to `"Google-CloudTasks"`.
     /// * `X-Google-*`: Google use only.
     /// * `X-AppEngine-*`: Google use only.
     ///
-    /// `Content-Type` won&#39;t be set by Cloud Tasks. You can explicitly set
+    /// `Content-Type` won't be set by Cloud Tasks. You can explicitly set
     /// `Content-Type` to a media type when the
     ///   [task is created][google.cloud.tasks.v2beta3.CloudTasks.CreateTask].
-    ///   For example, `Content-Type` can be set to `&quot;application/octet-stream&quot;` or
-    ///   `&quot;application/json&quot;`.
+    ///   For example, `Content-Type` can be set to `"application/octet-stream"` or
+    ///   `"application/json"`.
     ///
     /// Headers which can have multiple values (according to RFC2616) can be
     /// specified using comma-separated values.
     ///
     /// The size of the headers must be less than 80KB.
     /// Queue-level headers to override headers of all the tasks in the queue.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>header_overrides: ::prost::alloc::vec::Vec&lt;http_target::HeaderOverride&gt;,
     <span class="doccomment">/// The mode for generating an `Authorization` header for HTTP requests.
     ///
     /// If specified, all `Authorization` headers in the
     /// [HttpRequest.headers][google.cloud.tasks.v2beta2.HttpRequest.headers] field
     /// will be overridden.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;http_target::AuthorizationHeader&quot;</span>, tags = <span class="string">&quot;5, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"http_target::AuthorizationHeader"</span>, tags = <span class="string">"5, 6"</span>)]
     </span><span class="kw">pub </span>authorization_header: ::core::option::Option&lt;http_target::AuthorizationHeader&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `HttpTarget`.
@@ -3696,10 +3697,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Header {
         <span class="doccomment">/// The key of the header.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
         <span class="doccomment">/// The value of the header.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Wraps the Header object.
@@ -3707,7 +3708,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>HeaderOverride {
         <span class="doccomment">/// header embodying a key and a value.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>header: ::core::option::Option&lt;Header&gt;,
     }
     <span class="doccomment">/// The mode for generating an `Authorization` header for HTTP requests.
@@ -3725,7 +3726,7 @@
         ///
         /// This type of authorization should generally only be used when calling
         /// Google APIs hosted on *.googleapis.com.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>OauthToken(<span class="kw">super</span>::OAuthToken),
         <span class="doccomment">/// If specified, an
         /// [OIDC](&lt;https://developers.google.com/identity/protocols/OpenIDConnect&gt;)
@@ -3735,7 +3736,7 @@
         /// This type of authorization can be used for many scenarios, including
         /// calling Cloud Run, or endpoints where you intend to validate the token
         /// yourself.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>OidcToken(<span class="kw">super</span>::OidcToken),
     }
 }
@@ -3751,12 +3752,12 @@
     /// The service account must be within the same project as the queue. The
     /// caller must have iam.serviceAccounts.actAs permission for the service
     /// account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_account_email: ::prost::alloc::string::String,
     <span class="doccomment">/// OAuth scope to be used for generating OAuth access token.
-    /// If not specified, &quot;&lt;https://www.googleapis.com/auth/cloud-platform&quot;&gt;
+    /// If not specified, "&lt;https://www.googleapis.com/auth/cloud-platform"&gt;
     /// will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>scope: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Contains information needed for generating an
@@ -3773,11 +3774,11 @@
     /// The service account must be within the same project as the queue. The
     /// caller must have iam.serviceAccounts.actAs permission for the service
     /// account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>service_account_email: ::prost::alloc::string::String,
     <span class="doccomment">/// Audience to be used when generating OIDC token. If not specified, the URI
     /// specified in target will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>audience: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The HTTP method used to execute the task.
@@ -3806,29 +3807,29 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            HttpMethod::Unspecified =&gt; <span class="string">&quot;HTTP_METHOD_UNSPECIFIED&quot;</span>,
-            HttpMethod::Post =&gt; <span class="string">&quot;POST&quot;</span>,
-            HttpMethod::Get =&gt; <span class="string">&quot;GET&quot;</span>,
-            HttpMethod::Head =&gt; <span class="string">&quot;HEAD&quot;</span>,
-            HttpMethod::Put =&gt; <span class="string">&quot;PUT&quot;</span>,
-            HttpMethod::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
-            HttpMethod::Patch =&gt; <span class="string">&quot;PATCH&quot;</span>,
-            HttpMethod::Options =&gt; <span class="string">&quot;OPTIONS&quot;</span>,
+            HttpMethod::Unspecified =&gt; <span class="string">"HTTP_METHOD_UNSPECIFIED"</span>,
+            HttpMethod::Post =&gt; <span class="string">"POST"</span>,
+            HttpMethod::Get =&gt; <span class="string">"GET"</span>,
+            HttpMethod::Head =&gt; <span class="string">"HEAD"</span>,
+            HttpMethod::Put =&gt; <span class="string">"PUT"</span>,
+            HttpMethod::Delete =&gt; <span class="string">"DELETE"</span>,
+            HttpMethod::Patch =&gt; <span class="string">"PATCH"</span>,
+            HttpMethod::Options =&gt; <span class="string">"OPTIONS"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;HTTP_METHOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;POST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Post),
-            <span class="string">&quot;GET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Get),
-            <span class="string">&quot;HEAD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Head),
-            <span class="string">&quot;PUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Put),
-            <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
-            <span class="string">&quot;PATCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Patch),
-            <span class="string">&quot;OPTIONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Options),
+            <span class="string">"HTTP_METHOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"POST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Post),
+            <span class="string">"GET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Get),
+            <span class="string">"HEAD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Head),
+            <span class="string">"PUT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Put),
+            <span class="string">"DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+            <span class="string">"PATCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Patch),
+            <span class="string">"OPTIONS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Options),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -3850,7 +3851,7 @@
     ///     For more information, see
     ///     [Identifying
     ///     projects](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects&gt;)
-    /// * `LOCATION_ID` is the canonical ID for the task&#39;s location.
+    /// * `LOCATION_ID` is the canonical ID for the task's location.
     ///     The list of available locations can be obtained by calling
     ///     [ListLocations][google.cloud.location.Locations.ListLocations].
     ///     For more information, see &lt;https://cloud.google.com/about/locations/.&gt;
@@ -3858,7 +3859,7 @@
     ///    hyphens (-). The maximum length is 100 characters.
     /// * `TASK_ID` can contain only letters (\[A-Za-z\]), numbers (\[0-9\]),
     ///    hyphens (-), or underscores (_). The maximum length is 500 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The time when the task is scheduled to be attempted.
     ///
@@ -3871,25 +3872,25 @@
     /// [lease_duration][google.cloud.tasks.v2beta2.LeaseTasksRequest.lease_duration].
     ///
     /// `schedule_time` will be truncated to the nearest microsecond.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>schedule_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time that the task was created.
     ///
     /// `create_time` will be truncated to the nearest second.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The task status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;TaskStatus&gt;,
     <span class="doccomment">/// Output only. The view specifies which subset of the
     /// [Task][google.cloud.tasks.v2beta2.Task] has been returned.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::View&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::View"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>view: i32,
     <span class="doccomment">/// Required.
     ///
-    /// The task&#39;s payload is used by the task&#39;s target to process the task.
-    /// A payload is valid only if it is compatible with the queue&#39;s target.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;task::PayloadType&quot;</span>, tags = <span class="string">&quot;3, 4, 13&quot;</span>)]
+    /// The task's payload is used by the task's target to process the task.
+    /// A payload is valid only if it is compatible with the queue's target.
+    </span><span class="attr">#[prost(oneof = <span class="string">"task::PayloadType"</span>, tags = <span class="string">"3, 4, 13"</span>)]
     </span><span class="kw">pub </span>payload_type: ::core::option::Option&lt;task::PayloadType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Task`.
@@ -3942,31 +3943,31 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                View::Unspecified =&gt; <span class="string">&quot;VIEW_UNSPECIFIED&quot;</span>,
-                View::Basic =&gt; <span class="string">&quot;BASIC&quot;</span>,
-                View::Full =&gt; <span class="string">&quot;FULL&quot;</span>,
+                View::Unspecified =&gt; <span class="string">"VIEW_UNSPECIFIED"</span>,
+                View::Basic =&gt; <span class="string">"BASIC"</span>,
+                View::Full =&gt; <span class="string">"FULL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;VIEW_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-                <span class="string">&quot;FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
+                <span class="string">"VIEW_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"BASIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+                <span class="string">"FULL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
     <span class="doccomment">/// Required.
     ///
-    /// The task&#39;s payload is used by the task&#39;s target to process the task.
-    /// A payload is valid only if it is compatible with the queue&#39;s target.
+    /// The task's payload is used by the task's target to process the task.
+    /// A payload is valid only if it is compatible with the queue's target.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>PayloadType {
-        <span class="doccomment">/// App Engine HTTP request that is sent to the task&#39;s target. Can
+        <span class="doccomment">/// App Engine HTTP request that is sent to the task's target. Can
         /// be set only if
         /// [app_engine_http_target][google.cloud.tasks.v2beta2.Queue.app_engine_http_target]
         /// is set on the queue.
@@ -3974,7 +3975,7 @@
         /// An App Engine task is a task that has
         /// [AppEngineHttpRequest][google.cloud.tasks.v2beta2.AppEngineHttpRequest]
         /// set.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>AppEngineHttpRequest(<span class="kw">super</span>::AppEngineHttpRequest),
         <span class="doccomment">/// [LeaseTasks][google.cloud.tasks.v2beta2.CloudTasks.LeaseTasks] to process
         /// the task. Can be set only if
@@ -3983,13 +3984,13 @@
         ///
         /// A pull task is a task that has
         /// [PullMessage][google.cloud.tasks.v2beta2.PullMessage] set.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>PullMessage(<span class="kw">super</span>::PullMessage),
-        <span class="doccomment">/// HTTP request that is sent to the task&#39;s target.
+        <span class="doccomment">/// HTTP request that is sent to the task's target.
         ///
         /// An HTTP task is a task that has
         /// [HttpRequest][google.cloud.tasks.v2beta2.HttpRequest] set.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;13&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"13"</span>)]
         </span>HttpRequest(<span class="kw">super</span>::HttpRequest),
     }
 }
@@ -3999,17 +4000,17 @@
 </span><span class="kw">pub struct </span>TaskStatus {
     <span class="doccomment">/// Output only. The number of attempts dispatched.
     ///
-    /// This count includes attempts which have been dispatched but haven&#39;t
+    /// This count includes attempts which have been dispatched but haven't
     /// received a response.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>attempt_dispatch_count: i32,
     <span class="doccomment">/// Output only. The number of attempts which have received a response.
     ///
     /// This field is not calculated for [pull
     /// tasks][google.cloud.tasks.v2beta2.PullMessage].
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>attempt_response_count: i32,
-    <span class="doccomment">/// Output only. The status of the task&#39;s first attempt.
+    <span class="doccomment">/// Output only. The status of the task's first attempt.
     ///
     /// Only
     /// [dispatch_time][google.cloud.tasks.v2beta2.AttemptStatus.dispatch_time]
@@ -4019,13 +4020,13 @@
     ///
     /// This field is not calculated for [pull
     /// tasks][google.cloud.tasks.v2beta2.PullMessage].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>first_attempt_status: ::core::option::Option&lt;AttemptStatus&gt;,
-    <span class="doccomment">/// Output only. The status of the task&#39;s last attempt.
+    <span class="doccomment">/// Output only. The status of the task's last attempt.
     ///
     /// This field is not calculated for [pull
     /// tasks][google.cloud.tasks.v2beta2.PullMessage].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>last_attempt_status: ::core::option::Option&lt;AttemptStatus&gt;,
 }
 <span class="doccomment">/// The status of a task attempt.
@@ -4035,23 +4036,23 @@
     <span class="doccomment">/// Output only. The time that this attempt was scheduled.
     ///
     /// `schedule_time` will be truncated to the nearest microsecond.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>schedule_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time that this attempt was dispatched.
     ///
     /// `dispatch_time` will be truncated to the nearest microsecond.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dispatch_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time that this attempt response was received.
     ///
     /// `response_time` will be truncated to the nearest microsecond.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>response_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The response from the target for this attempt.
     ///
     /// If the task has not been attempted or the task is currently running
     /// then the response status is unset.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>response_status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// A queue is a container of related tasks. Queues are configured to manage
@@ -4074,13 +4075,13 @@
     ///     For more information, see
     ///     [Identifying
     ///     projects](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects&gt;)
-    /// * `LOCATION_ID` is the canonical ID for the queue&#39;s location.
+    /// * `LOCATION_ID` is the canonical ID for the queue's location.
     ///     The list of available locations can be obtained by calling
     ///     [ListLocations][google.cloud.location.Locations.ListLocations].
     ///     For more information, see &lt;https://cloud.google.com/about/locations/.&gt;
     /// * `QUEUE_ID` can contain letters (\[A-Za-z\]), numbers (\[0-9\]), or
     ///    hyphens (-). The maximum length is 100 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Rate limits for task dispatches.
     ///
@@ -4099,7 +4100,7 @@
     ///    particular a task after its first attempt fails. That is,
     ///    [retry_config][google.cloud.tasks.v2beta2.Queue.retry_config] controls
     ///    task retries (the second attempt, third attempt, etc).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>rate_limits: ::core::option::Option&lt;RateLimits&gt;,
     <span class="doccomment">/// Settings that determine the retry behavior.
     ///
@@ -4111,7 +4112,7 @@
     ///    explicitly set on the task and were created by the App Engine SDK. See
     ///    [App Engine
     ///    documentation](&lt;https://cloud.google.com/appengine/docs/standard/python/taskqueue/push/retrying-tasks&gt;).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>retry_config: ::core::option::Option&lt;RetryConfig&gt;,
     <span class="doccomment">/// Output only. The state of the queue.
     ///
@@ -4122,7 +4123,7 @@
     /// [queue.yaml/xml](&lt;https://cloud.google.com/appengine/docs/python/config/queueref&gt;).
     /// [UpdateQueue][google.cloud.tasks.v2beta2.CloudTasks.UpdateQueue] cannot be
     /// used to change `state`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;queue::State&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"queue::State"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The last time this queue was purged.
     ///
@@ -4136,7 +4137,7 @@
     ///
     /// Purge time will be truncated to the nearest microsecond. Purge
     /// time will be unset if the queue has never been purged.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>purge_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The maximum amount of time that a task will be retained in
     /// this queue.
@@ -4150,34 +4151,34 @@
     /// [storage quota](&lt;https://cloud.google.com/appengine/quotas#Task_Queue&gt;) for
     /// these queues. To view the maximum valid duration, see the documentation for
     /// [Duration][google.protobuf.Duration].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>task_ttl: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The task tombstone time to live (TTL).
     ///
-    /// After a task is deleted or completed, the task&#39;s tombstone is
+    /// After a task is deleted or completed, the task's tombstone is
     /// retained for the length of time specified by `tombstone_ttl`.
     /// The tombstone is used by task de-duplication; another task with the same
-    /// name can&#39;t be created until the tombstone has expired. For more information
+    /// name can't be created until the tombstone has expired. For more information
     /// about task de-duplication, see the documentation for
     /// [CreateTaskRequest][google.cloud.tasks.v2beta2.CreateTaskRequest.task].
     ///
     /// Queues created by Cloud Tasks have a default `tombstone_ttl` of 1 hour.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>tombstone_ttl: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Output only. The realtime, informational statistics for a queue. In order
     /// to receive the statistics the caller should include this field in the
     /// FieldMask.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>stats: ::core::option::Option&lt;QueueStats&gt;,
     <span class="doccomment">/// Caller-specified and required in
     /// [CreateQueue][google.cloud.tasks.v2beta2.CloudTasks.CreateQueue][], after
     /// which the queue config type becomes output only, though fields within the
     /// config are mutable.
     ///
-    /// The queue&#39;s target.
+    /// The queue's target.
     ///
     /// The target applies to all tasks in the queue.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;queue::TargetType&quot;</span>, tags = <span class="string">&quot;3, 4, 17&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"queue::TargetType"</span>, tags = <span class="string">"3, 4, 17"</span>)]
     </span><span class="kw">pub </span>target_type: ::core::option::Option&lt;queue::TargetType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Queue`.
@@ -4236,21 +4237,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Paused =&gt; <span class="string">&quot;PAUSED&quot;</span>,
-                State::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Paused =&gt; <span class="string">"PAUSED"</span>,
+                State::Disabled =&gt; <span class="string">"DISABLED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;PAUSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"PAUSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Paused),
+                <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -4260,7 +4261,7 @@
     /// which the queue config type becomes output only, though fields within the
     /// config are mutable.
     ///
-    /// The queue&#39;s target.
+    /// The queue's target.
     ///
     /// The target applies to all tasks in the queue.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -4270,16 +4271,16 @@
         ///
         /// An App Engine queue is a queue that has an
         /// [AppEngineHttpTarget][google.cloud.tasks.v2beta2.AppEngineHttpTarget].
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>AppEngineHttpTarget(<span class="kw">super</span>::AppEngineHttpTarget),
         <span class="doccomment">/// Pull target.
         ///
         /// A pull queue is a queue that has a
         /// [PullTarget][google.cloud.tasks.v2beta2.PullTarget].
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>PullTarget(<span class="kw">super</span>::PullTarget),
         <span class="doccomment">/// An http_target is used to override the target values for HTTP tasks.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;17&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"17"</span>)]
         </span>HttpTarget(<span class="kw">super</span>::HttpTarget),
     }
 }
@@ -4313,7 +4314,7 @@
     /// This field has the same meaning as
     /// [rate in
     /// queue.yaml/xml](&lt;https://cloud.google.com/appengine/docs/standard/python/config/queueref#rate&gt;).
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>max_tasks_dispatched_per_second: f64,
     <span class="doccomment">/// The max burst size.
     ///
@@ -4328,7 +4329,7 @@
     /// queue has a token bucket that holds tokens, up to the maximum
     /// specified by `max_burst_size`. Each time a task is dispatched, a
     /// token is removed from the bucket. Tasks will be dispatched until
-    /// the queue&#39;s bucket runs out of tokens. The bucket will be
+    /// the queue's bucket runs out of tokens. The bucket will be
     /// continuously refilled with new tokens based on
     /// [max_dispatches_per_second][RateLimits.max_dispatches_per_second].
     ///
@@ -4348,7 +4349,7 @@
     /// [UpdateQueue][google.cloud.tasks.v2beta2.CloudTasks.UpdateQueue] is
     /// updating [max_dispatches_per_second][RateLimits.max_dispatches_per_second].
     ///
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>max_burst_size: i32,
     <span class="doccomment">/// The maximum number of concurrent tasks that Cloud Tasks allows
     /// to be dispatched for this queue. After this threshold has been
@@ -4370,7 +4371,7 @@
     /// This field has the same meaning as
     /// [max_concurrent_requests in
     /// queue.yaml/xml](&lt;https://cloud.google.com/appengine/docs/standard/python/config/queueref#max_concurrent_requests&gt;).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>max_concurrent_tasks: i32,
 }
 <span class="doccomment">/// Retry config.
@@ -4400,13 +4401,13 @@
     /// This field has the same meaning as
     /// [task_age_limit in
     /// queue.yaml/xml](&lt;https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters&gt;).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>max_retry_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// A task will be [scheduled][google.cloud.tasks.v2beta2.Task.schedule_time]
     /// for retry between
     /// [min_backoff][google.cloud.tasks.v2beta2.RetryConfig.min_backoff] and
     /// [max_backoff][google.cloud.tasks.v2beta2.RetryConfig.max_backoff] duration
-    /// after it fails, if the queue&#39;s
+    /// after it fails, if the queue's
     /// [RetryConfig][google.cloud.tasks.v2beta2.RetryConfig] specifies that the
     /// task should be retried.
     ///
@@ -4422,13 +4423,13 @@
     /// This field has the same meaning as
     /// [min_backoff_seconds in
     /// queue.yaml/xml](&lt;https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters&gt;).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>min_backoff: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// A task will be [scheduled][google.cloud.tasks.v2beta2.Task.schedule_time]
     /// for retry between
     /// [min_backoff][google.cloud.tasks.v2beta2.RetryConfig.min_backoff] and
     /// [max_backoff][google.cloud.tasks.v2beta2.RetryConfig.max_backoff] duration
-    /// after it fails, if the queue&#39;s
+    /// after it fails, if the queue's
     /// [RetryConfig][google.cloud.tasks.v2beta2.RetryConfig] specifies that the
     /// task should be retried.
     ///
@@ -4444,11 +4445,11 @@
     /// This field has the same meaning as
     /// [max_backoff_seconds in
     /// queue.yaml/xml](&lt;https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters&gt;).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>max_backoff: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The time between retries will double `max_doublings` times.
     ///
-    /// A task&#39;s retry interval starts at
+    /// A task's retry interval starts at
     /// [min_backoff][google.cloud.tasks.v2beta2.RetryConfig.min_backoff], then
     /// doubles `max_doublings` times, then increases linearly, and finally retries
     /// at intervals of
@@ -4477,7 +4478,7 @@
     /// This field has the same meaning as
     /// [max_doublings in
     /// queue.yaml/xml](&lt;https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters&gt;).
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>max_doublings: i32,
     <span class="doccomment">/// Number of attempts per task.
     ///
@@ -4489,7 +4490,7 @@
     /// This field has the same meaning as
     /// [task_retry_limit in
     /// queue.yaml/xml](&lt;https://cloud.google.com/appengine/docs/standard/python/config/queueref#retry_parameters&gt;).
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;retry_config::NumAttempts&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"retry_config::NumAttempts"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>num_attempts: ::core::option::Option&lt;retry_config::NumAttempts&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RetryConfig`.
@@ -4512,10 +4513,10 @@
         /// Cloud Tasks will attempt the task `max_attempts` times (that
         /// is, if the first attempt fails, then there will be
         /// `max_attempts - 1` retries).  Must be &gt; 0.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
         </span>MaxAttempts(i32),
         <span class="doccomment">/// If true, then the number of attempts is unlimited.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
         </span>UnlimitedAttempts(bool),
     }
 }
@@ -4524,29 +4525,29 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueueStats {
     <span class="doccomment">/// Output only. An estimation of the number of tasks in the queue, that is,
-    /// the tasks in the queue that haven&#39;t been executed, the tasks in the queue
+    /// the tasks in the queue that haven't been executed, the tasks in the queue
     /// which the queue has dispatched but has not yet received a reply for, and
     /// the failed tasks that the queue is retrying.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>tasks_count: i64,
     <span class="doccomment">/// Output only. An estimation of the nearest time in the future where a task
     /// in the queue is scheduled to be executed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>oldest_estimated_arrival_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The number of tasks that the queue has dispatched and received
     /// a reply for during the last minute. This variable counts both successful
     /// and non-successful executions.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>executed_last_minute_count: i64,
     <span class="doccomment">/// Output only. The number of requests that the queue has dispatched but has
     /// not received a reply for yet.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>concurrent_dispatches_count: i64,
     <span class="doccomment">/// Output only. The current maximum number of tasks per second executed by the
     /// queue. The maximum value of this variable is controlled by the RateLimits
     /// of the Queue. However, this value could be less to avoid overloading the
     /// endpoints tasks in the queue are targeting.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>effective_execution_rate: f64,
 }
 <span class="doccomment">/// Request message for
@@ -4556,19 +4557,19 @@
 </span><span class="kw">pub struct </span>ListQueuesRequest {
     <span class="doccomment">/// Required. The location name.
     /// For example: `projects/PROJECT_ID/locations/LOCATION_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// `filter` can be used to specify a subset of queues. Any
     /// [Queue][google.cloud.tasks.v2beta2.Queue] field can be used as a filter and
     /// several operators as supported. For example: `&lt;=, &lt;, &gt;=, &gt;, !=, =, :`. The
-    /// filter syntax is the same as described in [Stackdriver&#39;s Advanced Logs
+    /// filter syntax is the same as described in [Stackdriver's Advanced Logs
     /// Filters](&lt;https://cloud.google.com/logging/docs/view/advanced_filters&gt;).
     ///
-    /// Sample filter &quot;app_engine_http_target: *&quot;.
+    /// Sample filter "app_engine_http_target: *".
     ///
     /// Note that using filters might cause fewer queues than the
     /// requested_page size to be returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Requested page size.
     ///
@@ -4577,7 +4578,7 @@
     /// even if more queues exist; use the
     /// [next_page_token][google.cloud.tasks.v2beta2.ListQueuesResponse.next_page_token]
     /// in the response to determine if more queues exist.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A token identifying the page of results to return.
     ///
@@ -4589,13 +4590,13 @@
     /// is an error to switch the value of the
     /// [filter][google.cloud.tasks.v2beta2.ListQueuesRequest.filter] while
     /// iterating through pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Read mask is used for a more granular control over what the API
     /// returns. If the mask is not present all fields will be returned except
     /// \[Queue.stats\]. \[Queue.stats\] will be returned only if it was  explicitly
     /// specified in the mask.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>read_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Response message for
@@ -4604,7 +4605,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListQueuesResponse {
     <span class="doccomment">/// The list of queues.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>queues: ::prost::alloc::vec::Vec&lt;Queue&gt;,
     <span class="doccomment">/// A token to retrieve next page of results.
     ///
@@ -4616,7 +4617,7 @@
     /// If the next_page_token is empty, there are no more results.
     ///
     /// The page token is valid for only 2 hours.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4626,13 +4627,13 @@
 </span><span class="kw">pub struct </span>GetQueueRequest {
     <span class="doccomment">/// Required. The resource name of the queue. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Read mask is used for a more granular control over what the API
     /// returns. If the mask is not present all fields will be returned except
     /// \[Queue.stats\]. \[Queue.stats\] will be returned only if it was  explicitly
     /// specified in the mask.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>read_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -4644,15 +4645,15 @@
     /// For example: `projects/PROJECT_ID/locations/LOCATION_ID`
     ///
     /// The list of allowed locations can be obtained by calling Cloud
-    /// Tasks&#39; implementation of
+    /// Tasks' implementation of
     /// [ListLocations][google.cloud.location.Locations.ListLocations].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The queue to create.
     ///
-    /// [Queue&#39;s name][google.cloud.tasks.v2beta2.Queue.name] cannot be the same as
+    /// [Queue's name][google.cloud.tasks.v2beta2.Queue.name] cannot be the same as
     /// an existing queue.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>queue: ::core::option::Option&lt;Queue&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -4662,19 +4663,19 @@
 </span><span class="kw">pub struct </span>UpdateQueueRequest {
     <span class="doccomment">/// Required. The queue to create or update.
     ///
-    /// The queue&#39;s [name][google.cloud.tasks.v2beta2.Queue.name] must be
+    /// The queue's [name][google.cloud.tasks.v2beta2.Queue.name] must be
     /// specified.
     ///
     /// Output only fields cannot be modified using UpdateQueue.
     /// Any value specified for an output only field will be ignored.
-    /// The queue&#39;s [name][google.cloud.tasks.v2beta2.Queue.name] cannot be
+    /// The queue's [name][google.cloud.tasks.v2beta2.Queue.name] cannot be
     /// changed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>queue: ::core::option::Option&lt;Queue&gt;,
     <span class="doccomment">/// A mask used to specify which fields of the queue are being updated.
     ///
     /// If empty, then all fields will be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -4684,7 +4685,7 @@
 </span><span class="kw">pub struct </span>DeleteQueueRequest {
     <span class="doccomment">/// Required. The queue name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4694,7 +4695,7 @@
 </span><span class="kw">pub struct </span>PurgeQueueRequest {
     <span class="doccomment">/// Required. The queue name. For example:
     /// `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4704,7 +4705,7 @@
 </span><span class="kw">pub struct </span>PauseQueueRequest {
     <span class="doccomment">/// Required. The queue name. For example:
     /// `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4714,7 +4715,7 @@
 </span><span class="kw">pub struct </span>ResumeQueueRequest {
     <span class="doccomment">/// Required. The queue name. For example:
     /// `projects/PROJECT_ID/location/LOCATION_ID/queues/QUEUE_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -4725,10 +4726,10 @@
     <span class="doccomment">/// Required. The App ID is supplied as an HTTP parameter. Unlike internal
     /// usage of App ID, it does not include a region prefix. Rather, the App ID
     /// represents the Project ID against which to make the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>app_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The http body contains the queue.yaml file which used to update queue lists
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>http_body: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::api::HttpBody&gt;,
 }
 <span class="doccomment">/// Request message for listing tasks using
@@ -4738,7 +4739,7 @@
 </span><span class="kw">pub struct </span>ListTasksRequest {
     <span class="doccomment">/// Required. The queue name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The response_view specifies which subset of the
     /// [Task][google.cloud.tasks.v2beta2.Task] will be returned.
@@ -4753,7 +4754,7 @@
     /// requires `cloudtasks.tasks.fullView` [Google
     /// IAM](&lt;https://cloud.google.com/iam/&gt;) permission on the
     /// [Task][google.cloud.tasks.v2beta2.Task] resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::View&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::View"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>response_view: i32,
     <span class="doccomment">/// Maximum page size.
     ///
@@ -4763,7 +4764,7 @@
     ///
     /// The maximum page size is 1000. If unspecified, the page size will be the
     /// maximum.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A token identifying the page of results to return.
     ///
@@ -4774,7 +4775,7 @@
     /// [ListTasks][google.cloud.tasks.v2beta2.CloudTasks.ListTasks] method.
     ///
     /// The page token is valid for only 2 hours.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for listing tasks using
@@ -4783,7 +4784,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTasksResponse {
     <span class="doccomment">/// The list of tasks.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>tasks: ::prost::alloc::vec::Vec&lt;Task&gt;,
     <span class="doccomment">/// A token to retrieve next page of results.
     ///
@@ -4793,7 +4794,7 @@
     /// [page_token][google.cloud.tasks.v2beta2.ListTasksRequest.page_token].
     ///
     /// If the next_page_token is empty, there are no more results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for getting a task using
@@ -4803,7 +4804,7 @@
 </span><span class="kw">pub struct </span>GetTaskRequest {
     <span class="doccomment">/// Required. The task name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The response_view specifies which subset of the
     /// [Task][google.cloud.tasks.v2beta2.Task] will be returned.
@@ -4818,7 +4819,7 @@
     /// requires `cloudtasks.tasks.fullView` [Google
     /// IAM](&lt;https://cloud.google.com/iam/&gt;) permission on the
     /// [Task][google.cloud.tasks.v2beta2.Task] resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::View&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::View"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>response_view: i32,
 }
 <span class="doccomment">/// Request message for
@@ -4830,7 +4831,7 @@
     /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
     ///
     /// The queue must already exist.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The task to add.
     ///
@@ -4847,13 +4848,13 @@
     /// Task De-duplication:
     ///
     /// Explicitly specifying a task ID enables task de-duplication.  If
-    /// a task&#39;s ID is identical to that of an existing task or a task
+    /// a task's ID is identical to that of an existing task or a task
     /// that was deleted or completed recently then the call will fail
     /// with [ALREADY_EXISTS][google.rpc.Code.ALREADY_EXISTS].
-    /// If the task&#39;s queue was created using Cloud Tasks, then another task with
-    /// the same name can&#39;t be created for ~1 hour after the original task was
-    /// deleted or completed. If the task&#39;s queue was created using queue.yaml or
-    /// queue.xml, then another task with the same name can&#39;t be created
+    /// If the task's queue was created using Cloud Tasks, then another task with
+    /// the same name can't be created for ~1 hour after the original task was
+    /// deleted or completed. If the task's queue was created using queue.yaml or
+    /// queue.xml, then another task with the same name can't be created
     /// for ~9 days after the original task was deleted or completed.
     ///
     /// Because there is an extra lookup cost to identify duplicate task
@@ -4865,7 +4866,7 @@
     /// task commands. The infrastructure relies on an approximately
     /// uniform distribution of task ids to store and serve tasks
     /// efficiently.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>task: ::core::option::Option&lt;Task&gt;,
     <span class="doccomment">/// The response_view specifies which subset of the
     /// [Task][google.cloud.tasks.v2beta2.Task] will be returned.
@@ -4880,7 +4881,7 @@
     /// requires `cloudtasks.tasks.fullView` [Google
     /// IAM](&lt;https://cloud.google.com/iam/&gt;) permission on the
     /// [Task][google.cloud.tasks.v2beta2.Task] resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::View&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::View"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>response_view: i32,
 }
 <span class="doccomment">/// Request message for deleting a task using
@@ -4890,7 +4891,7 @@
 </span><span class="kw">pub struct </span>DeleteTaskRequest {
     <span class="doccomment">/// Required. The task name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for leasing tasks using
@@ -4900,7 +4901,7 @@
 </span><span class="kw">pub struct </span>LeaseTasksRequest {
     <span class="doccomment">/// Required. The queue name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of tasks to lease.
     ///
@@ -4913,7 +4914,7 @@
     /// response][google.cloud.tasks.v2beta2.LeaseTasksResponse] is 32 MB. If the
     /// sum of all task sizes requested reaches this limit, fewer tasks than
     /// requested are returned.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>max_tasks: i32,
     <span class="doccomment">/// Required. The duration of the lease.
     ///
@@ -4937,7 +4938,7 @@
     ///
     /// The maximum lease duration is 1 week.
     /// `lease_duration` will be truncated to the nearest second.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>lease_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The response_view specifies which subset of the
     /// [Task][google.cloud.tasks.v2beta2.Task] will be returned.
@@ -4952,7 +4953,7 @@
     /// requires `cloudtasks.tasks.fullView` [Google
     /// IAM](&lt;https://cloud.google.com/iam/&gt;) permission on the
     /// [Task][google.cloud.tasks.v2beta2.Task] resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::View&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::View"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>response_view: i32,
     <span class="doccomment">/// `filter` can be used to specify a subset of tasks to lease.
     ///
@@ -4968,11 +4969,11 @@
     ///
     /// Grammar Syntax:
     ///
-    /// * `filter = &quot;tag=&quot; tag | &quot;tag_function=&quot; function`
+    /// * `filter = "tag=" tag | "tag_function=" function`
     ///
     /// * `tag = string`
     ///
-    /// * `function = &quot;oldest_tag()&quot;`
+    /// * `function = "oldest_tag()"`
     ///
     /// The `oldest_tag()` function returns tasks which have the same tag as the
     /// oldest task (ordered by schedule time).
@@ -4981,11 +4982,11 @@
     /// string or
     /// [bytes](&lt;https://cloud.google.com/appengine/docs/standard/java/javadoc/com/google/appengine/api/taskqueue/TaskOptions.html#tag-byte:A-&gt;),
     /// only UTF-8 encoded tags can be used in Cloud Tasks. Tag which
-    /// aren&#39;t UTF-8 encoded can&#39;t be used in the
+    /// aren't UTF-8 encoded can't be used in the
     /// [filter][google.cloud.tasks.v2beta2.LeaseTasksRequest.filter] and the
-    /// task&#39;s [tag][google.cloud.tasks.v2beta2.PullMessage.tag] will be displayed
+    /// task's [tag][google.cloud.tasks.v2beta2.PullMessage.tag] will be displayed
     /// as empty in Cloud Tasks.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for leasing tasks using
@@ -4994,7 +4995,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LeaseTasksResponse {
     <span class="doccomment">/// The leased tasks.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>tasks: ::prost::alloc::vec::Vec&lt;Task&gt;,
 }
 <span class="doccomment">/// Request message for acknowledging a task using
@@ -5004,14 +5005,14 @@
 </span><span class="kw">pub struct </span>AcknowledgeTaskRequest {
     <span class="doccomment">/// Required. The task name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The task&#39;s current schedule time, available in the
+    <span class="doccomment">/// Required. The task's current schedule time, available in the
     /// [schedule_time][google.cloud.tasks.v2beta2.Task.schedule_time] returned by
     /// [LeaseTasks][google.cloud.tasks.v2beta2.CloudTasks.LeaseTasks] response or
     /// [RenewLease][google.cloud.tasks.v2beta2.CloudTasks.RenewLease] response.
     /// This restriction is to ensure that your worker currently holds the lease.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>schedule_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request message for renewing a lease using
@@ -5021,21 +5022,21 @@
 </span><span class="kw">pub struct </span>RenewLeaseRequest {
     <span class="doccomment">/// Required. The task name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The task&#39;s current schedule time, available in the
+    <span class="doccomment">/// Required. The task's current schedule time, available in the
     /// [schedule_time][google.cloud.tasks.v2beta2.Task.schedule_time] returned by
     /// [LeaseTasks][google.cloud.tasks.v2beta2.CloudTasks.LeaseTasks] response or
     /// [RenewLease][google.cloud.tasks.v2beta2.CloudTasks.RenewLease] response.
     /// This restriction is to ensure that your worker currently holds the lease.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>schedule_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. The desired new lease duration, starting from now.
     ///
     ///
     /// The maximum lease duration is 1 week.
     /// `lease_duration` will be truncated to the nearest second.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>lease_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The response_view specifies which subset of the
     /// [Task][google.cloud.tasks.v2beta2.Task] will be returned.
@@ -5050,7 +5051,7 @@
     /// requires `cloudtasks.tasks.fullView` [Google
     /// IAM](&lt;https://cloud.google.com/iam/&gt;) permission on the
     /// [Task][google.cloud.tasks.v2beta2.Task] resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::View&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::View"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>response_view: i32,
 }
 <span class="doccomment">/// Request message for canceling a lease using
@@ -5060,14 +5061,14 @@
 </span><span class="kw">pub struct </span>CancelLeaseRequest {
     <span class="doccomment">/// Required. The task name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The task&#39;s current schedule time, available in the
+    <span class="doccomment">/// Required. The task's current schedule time, available in the
     /// [schedule_time][google.cloud.tasks.v2beta2.Task.schedule_time] returned by
     /// [LeaseTasks][google.cloud.tasks.v2beta2.CloudTasks.LeaseTasks] response or
     /// [RenewLease][google.cloud.tasks.v2beta2.CloudTasks.RenewLease] response.
     /// This restriction is to ensure that your worker currently holds the lease.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>schedule_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The response_view specifies which subset of the
     /// [Task][google.cloud.tasks.v2beta2.Task] will be returned.
@@ -5082,7 +5083,7 @@
     /// requires `cloudtasks.tasks.fullView` [Google
     /// IAM](&lt;https://cloud.google.com/iam/&gt;) permission on the
     /// [Task][google.cloud.tasks.v2beta2.Task] resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::View&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::View"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>response_view: i32,
 }
 <span class="doccomment">/// Request message for forcing a task to run now using
@@ -5092,7 +5093,7 @@
 </span><span class="kw">pub struct </span>RunTaskRequest {
     <span class="doccomment">/// Required. The task name. For example:
     /// `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The response_view specifies which subset of the
     /// [Task][google.cloud.tasks.v2beta2.Task] will be returned.
@@ -5107,7 +5108,7 @@
     /// requires `cloudtasks.tasks.fullView` [Google
     /// IAM](&lt;https://cloud.google.com/iam/&gt;) permission on the
     /// [Task][google.cloud.tasks.v2beta2.Task] resource.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::View&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::View"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>response_view: i32,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -5125,7 +5126,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -5202,19 +5203,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/ListQueues&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/ListQueues"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;ListQueues&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"ListQueues"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5230,17 +5231,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/GetQueue&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/GetQueue"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>, <span class="string">&quot;GetQueue&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>, <span class="string">"GetQueue"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -5266,19 +5267,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/CreateQueue&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/CreateQueue"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;CreateQueue&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"CreateQueue"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5308,19 +5309,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/UpdateQueue&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/UpdateQueue"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;UpdateQueue&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"UpdateQueue"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5329,7 +5330,7 @@
         ///
         /// This command will delete the queue even if it has tasks in it.
         ///
-        /// Note: If you delete a queue, a queue with the same name can&#39;t be created
+        /// Note: If you delete a queue, a queue with the same name can't be created
         /// for 7 days.
         ///
         /// WARNING: Using this method may have unintended side effects if you are
@@ -5348,19 +5349,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/DeleteQueue&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/DeleteQueue"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;DeleteQueue&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"DeleteQueue"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5381,19 +5382,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/PurgeQueue&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/PurgeQueue"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;PurgeQueue&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"PurgeQueue"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5416,19 +5417,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/PauseQueue&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/PauseQueue"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;PauseQueue&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"PauseQueue"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5438,7 +5439,7 @@
         /// This method resumes a queue after it has been
         /// [PAUSED][google.cloud.tasks.v2beta2.Queue.State.PAUSED] or
         /// [DISABLED][google.cloud.tasks.v2beta2.Queue.State.DISABLED]. The state of a
-        /// queue is stored in the queue&#39;s
+        /// queue is stored in the queue's
         /// [state][google.cloud.tasks.v2beta2.Queue.state]; after calling this method
         /// it will be set to
         /// [RUNNING][google.cloud.tasks.v2beta2.Queue.State.RUNNING].
@@ -5458,19 +5459,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/ResumeQueue&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/ResumeQueue"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;ResumeQueue&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"ResumeQueue"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5490,19 +5491,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/UploadQueueYaml&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/UploadQueueYaml"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;UploadQueueYaml&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"UploadQueueYaml"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5531,19 +5532,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/GetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/GetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;GetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"GetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5574,19 +5575,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/SetIamPolicy&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/SetIamPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;SetIamPolicy&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"SetIamPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5598,7 +5599,7 @@
         ///
         /// Note: This operation is designed to be used for building permission-aware
         /// UIs and command-line tools, not for authorization checking. This operation
-        /// may &quot;fail open&quot; without warning.
+        /// may "fail open" without warning.
         </span><span class="kw">pub async fn </span>test_iam_permissions(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;
@@ -5616,19 +5617,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/TestIamPermissions&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/TestIamPermissions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;TestIamPermissions&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"TestIamPermissions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5655,17 +5656,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/ListTasks&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/ListTasks"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>, <span class="string">&quot;ListTasks&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>, <span class="string">"ListTasks"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -5680,17 +5681,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/GetTask&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/GetTask"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>, <span class="string">&quot;GetTask&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>, <span class="string">"GetTask"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -5713,19 +5714,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/CreateTask&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/CreateTask"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;CreateTask&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"CreateTask"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5745,19 +5746,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/DeleteTask&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/DeleteTask"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;DeleteTask&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"DeleteTask"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5798,19 +5799,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/LeaseTasks&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/LeaseTasks"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;LeaseTasks&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"LeaseTasks"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5839,19 +5840,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/AcknowledgeTask&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/AcknowledgeTask"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;AcknowledgeTask&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"AcknowledgeTask"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5860,7 +5861,7 @@
         ///
         /// The worker can use this method to extend the lease by a new
         /// duration, starting from now. The new task lease will be
-        /// returned in the task&#39;s
+        /// returned in the task's
         /// [schedule_time][google.cloud.tasks.v2beta2.Task.schedule_time].
         </span><span class="kw">pub async fn </span>renew_lease(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -5872,26 +5873,26 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/RenewLease&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/RenewLease"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;RenewLease&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"RenewLease"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Cancel a pull task&#39;s lease.
+        <span class="doccomment">/// Cancel a pull task's lease.
         ///
-        /// The worker can use this method to cancel a task&#39;s lease by
+        /// The worker can use this method to cancel a task's lease by
         /// setting its [schedule_time][google.cloud.tasks.v2beta2.Task.schedule_time]
         /// to now. This will make the task available to be leased to the next caller
         /// of [LeaseTasks][google.cloud.tasks.v2beta2.CloudTasks.LeaseTasks].
@@ -5905,19 +5906,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/CancelLease&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/CancelLease"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>,
-                        <span class="string">&quot;CancelLease&quot;</span>,
+                        <span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>,
+                        <span class="string">"CancelLease"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -5938,12 +5939,12 @@
         /// contains the [status][google.cloud.tasks.v2beta2.Task.status] after the
         /// task is dispatched but before the task is received by its target.
         ///
-        /// If Cloud Tasks receives a successful response from the task&#39;s
-        /// target, then the task will be deleted; otherwise the task&#39;s
+        /// If Cloud Tasks receives a successful response from the task's
+        /// target, then the task will be deleted; otherwise the task's
         /// [schedule_time][google.cloud.tasks.v2beta2.Task.schedule_time] will be
         /// reset to the time that
         /// [RunTask][google.cloud.tasks.v2beta2.CloudTasks.RunTask] was called plus
-        /// the retry delay specified in the queue&#39;s
+        /// the retry delay specified in the queue's
         /// [RetryConfig][google.cloud.tasks.v2beta2.RetryConfig].
         ///
         /// [RunTask][google.cloud.tasks.v2beta2.CloudTasks.RunTask] returns
@@ -5962,17 +5963,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.tasks.v2beta2.CloudTasks/RunTask&quot;</span>,
+                <span class="string">"/google.cloud.tasks.v2beta2.CloudTasks/RunTask"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.tasks.v2beta2.CloudTasks&quot;</span>, <span class="string">&quot;RunTask&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.tasks.v2beta2.CloudTasks"</span>, <span class="string">"RunTask"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}

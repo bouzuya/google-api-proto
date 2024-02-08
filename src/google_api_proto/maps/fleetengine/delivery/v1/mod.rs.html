@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/maps/fleetengine/delivery/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/maps/fleetengine/delivery/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2044,21 +2045,21 @@
 <a href="#2044" id="2044">2044</a>
 <a href="#2045" id="2045">2045</a>
 <a href="#2046" id="2046">2046</a>
-</pre></div><pre class="rust"><code><span class="doccomment">/// Describes a vehicle attribute as a key-value pair. The &quot;key:value&quot; string
+</pre></div><pre class="rust"><code><span class="doccomment">/// Describes a vehicle attribute as a key-value pair. The "key:value" string
 /// length cannot exceed 256 characters.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeliveryVehicleAttribute {
-    <span class="doccomment">/// The attribute&#39;s key.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// The attribute's key.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
-    <span class="doccomment">/// The attribute&#39;s value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The attribute's value.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
-    <span class="doccomment">/// The attribute&#39;s value, can be in string, bool, or double type.
+    <span class="doccomment">/// The attribute's value, can be in string, bool, or double type.
     </span><span class="attr">#[prost(
-        oneof = <span class="string">&quot;delivery_vehicle_attribute::DeliveryVehicleAttributeValue&quot;</span>,
-        tags = <span class="string">&quot;3, 4, 5&quot;
+        oneof = <span class="string">"delivery_vehicle_attribute::DeliveryVehicleAttributeValue"</span>,
+        tags = <span class="string">"3, 4, 5"
     </span>)]
     </span><span class="kw">pub </span>delivery_vehicle_attribute_value: ::core::option::Option&lt;
         delivery_vehicle_attribute::DeliveryVehicleAttributeValue,
@@ -2066,7 +2067,7 @@
 }
 <span class="doccomment">/// Nested message and enum types in `DeliveryVehicleAttribute`.
 </span><span class="kw">pub mod </span>delivery_vehicle_attribute {
-    <span class="doccomment">/// The attribute&#39;s value, can be in string, bool, or double type.
+    <span class="doccomment">/// The attribute's value, can be in string, bool, or double type.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>DeliveryVehicleAttributeValue {
@@ -2074,16 +2075,16 @@
         ///
         /// Note: This is identical to the `value` field which will eventually be
         /// deprecated. For create or update methods, either field can be used, but
-        /// it&#39;s strongly recommended to use `string_value`. If both `string_value`
+        /// it's strongly recommended to use `string_value`. If both `string_value`
         /// and `value` are set, they must be identical or an error will be thrown.
         /// Both fields are populated in responses.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>StringValue(::prost::alloc::string::String),
         <span class="doccomment">/// Boolean typed attribute value.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
         </span>BoolValue(bool),
         <span class="doccomment">/// Double typed attribute value.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"5"</span>)]
         </span>NumberValue(f64),
     }
 }
@@ -2092,112 +2093,112 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeliveryVehicleLocation {
     <span class="doccomment">/// The location of the vehicle.
-    /// When it is sent to Fleet Engine, the vehicle&#39;s location is a GPS location.
-    /// When you receive it in a response, the vehicle&#39;s location can be either a
+    /// When it is sent to Fleet Engine, the vehicle's location is a GPS location.
+    /// When you receive it in a response, the vehicle's location can be either a
     /// GPS location, a supplemental location, or some other estimated location.
     /// The source is specified in `location_sensor`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::google::r#type::LatLng,
     &gt;,
     <span class="doccomment">/// Deprecated: Use `latlng_accuracy` instead.
     </span><span class="attr">#[deprecated]
-    #[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    #[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>horizontal_accuracy: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Accuracy of `location` in meters as a radius.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>latlng_accuracy: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Direction the vehicle is moving in degrees.  0 represents North.
     /// The valid range is [0,360).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>heading: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Deprecated: Use `heading_accuracy` instead.
     </span><span class="attr">#[deprecated]
-    #[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    #[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>bearing_accuracy: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Accuracy of `heading` in degrees.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>heading_accuracy: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Altitude in meters above WGS84.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>altitude: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Deprecated: Use `altitude_accuracy` instead.
     </span><span class="attr">#[deprecated]
-    #[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    #[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>vertical_accuracy: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Accuracy of `altitude` in meters.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"24"</span>)]
     </span><span class="kw">pub </span>altitude_accuracy: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Speed of the vehicle in kilometers per hour.
     /// Deprecated: Use `speed` instead.
     </span><span class="attr">#[deprecated]
-    #[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    #[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>speed_kmph: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Speed of the vehicle in meters/second
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>speed: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Accuracy of `speed` in meters/second.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>speed_accuracy: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// The time when `location` was reported by the sensor according to the
-    /// sensor&#39;s clock.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    /// sensor's clock.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the server received the location information.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>server_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Provider of location data (for example, `GPS`).
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeliveryVehicleLocationSensor&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeliveryVehicleLocationSensor"</span>, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>location_sensor: i32,
     <span class="doccomment">/// Whether `location` is snapped to a road.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;27&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"27"</span>)]
     </span><span class="kw">pub </span>is_road_snapped: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// Input only. Indicates whether the GPS sensor is enabled on the mobile
     /// device.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>is_gps_sensor_enabled: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// Input only. Time (in seconds) since this location was first sent to the
     /// server. This will be zero for the first update. If the time is unknown (for
     /// example, when the app restarts), this value resets to zero.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>time_since_update: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Input only. Deprecated: Other signals are now used to determine if a
     /// location is stale.
     </span><span class="attr">#[deprecated]
-    #[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    #[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>num_stale_updates: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Raw vehicle location (unprocessed by road-snapper).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>raw_location: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::google::r#type::LatLng,
     &gt;,
     <span class="doccomment">/// Timestamp associated with the raw location.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>raw_location_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Source of the raw location. Defaults to `GPS`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeliveryVehicleLocationSensor&quot;</span>, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeliveryVehicleLocationSensor"</span>, tag = <span class="string">"28"</span>)]
     </span><span class="kw">pub </span>raw_location_sensor: i32,
     <span class="doccomment">/// Accuracy of `raw_location` as a radius, in meters.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"25"</span>)]
     </span><span class="kw">pub </span>raw_location_accuracy: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Supplemental location provided by the integrating app.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>supplemental_location: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::google::r#type::LatLng,
     &gt;,
     <span class="doccomment">/// Timestamp associated with the supplemental location.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>supplemental_location_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Source of the supplemental location. Defaults to
     /// `CUSTOMER_SUPPLIED_LOCATION`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeliveryVehicleLocationSensor&quot;</span>, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeliveryVehicleLocationSensor"</span>, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>supplemental_location_sensor: i32,
     <span class="doccomment">/// Accuracy of `supplemental_location` as a radius, in meters.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>supplemental_location_accuracy: ::core::option::Option&lt;f64&gt;,
     <span class="doccomment">/// Deprecated: Use `is_road_snapped` instead.
     </span><span class="attr">#[deprecated]
-    #[prost(bool, tag = <span class="string">&quot;26&quot;</span>)]
+    #[prost(bool, tag = <span class="string">"26"</span>)]
     </span><span class="kw">pub </span>road_snapped: bool,
 }
 <span class="doccomment">/// A time range.
@@ -2205,40 +2206,40 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TimeWindow {
     <span class="doccomment">/// Required. The start time of the time window (inclusive).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. The end time of the time window (inclusive).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
-<span class="doccomment">/// Describes a task attribute as a key-value pair. The &quot;key:value&quot; string length
+<span class="doccomment">/// Describes a task attribute as a key-value pair. The "key:value" string length
 /// cannot exceed 256 characters.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TaskAttribute {
-    <span class="doccomment">/// The attribute&#39;s key. Keys may not contain the colon character (:).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// The attribute's key. Keys may not contain the colon character (:).
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key: ::prost::alloc::string::String,
-    <span class="doccomment">/// The attribute&#39;s value, can be in string, bool, or double type. If none are
-    /// set the TaskAttribute string_value will be stored as the empty string &quot;&quot;.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;task_attribute::TaskAttributeValue&quot;</span>, tags = <span class="string">&quot;2, 3, 4&quot;</span>)]
+    <span class="doccomment">/// The attribute's value, can be in string, bool, or double type. If none are
+    /// set the TaskAttribute string_value will be stored as the empty string "".
+    </span><span class="attr">#[prost(oneof = <span class="string">"task_attribute::TaskAttributeValue"</span>, tags = <span class="string">"2, 3, 4"</span>)]
     </span><span class="kw">pub </span>task_attribute_value: ::core::option::Option&lt;task_attribute::TaskAttributeValue&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TaskAttribute`.
 </span><span class="kw">pub mod </span>task_attribute {
-    <span class="doccomment">/// The attribute&#39;s value, can be in string, bool, or double type. If none are
-    /// set the TaskAttribute string_value will be stored as the empty string &quot;&quot;.
+    <span class="doccomment">/// The attribute's value, can be in string, bool, or double type. If none are
+    /// set the TaskAttribute string_value will be stored as the empty string "".
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>TaskAttributeValue {
         <span class="doccomment">/// String typed attribute value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>StringValue(::prost::alloc::string::String),
         <span class="doccomment">/// Boolean typed attribute value.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span>BoolValue(bool),
         <span class="doccomment">/// Double typed attribute value.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"4"</span>)]
         </span>NumberValue(f64),
     }
 }
@@ -2261,13 +2262,13 @@
     /// value is used for a location provided from sources other than the mobile
     /// device running Driver SDK.  If the original source is described by one of
     /// the other enum values, use that value. Locations marked
-    /// CUSTOMER_SUPPLIED_LOCATION are typically provided via a DeliveryVehicle&#39;s
+    /// CUSTOMER_SUPPLIED_LOCATION are typically provided via a DeliveryVehicle's
     /// `last_location.supplemental_location_sensor`.
     </span>CustomerSuppliedLocation = <span class="number">5</span>,
     <span class="doccomment">/// A location calculated by Fleet Engine based on the signals available to it.
     /// Output only. This value will be rejected if it is received in a request.
     </span>FleetEngineLocation = <span class="number">6</span>,
-    <span class="doccomment">/// Android&#39;s Fused Location Provider.
+    <span class="doccomment">/// Android's Fused Location Provider.
     </span>FusedLocationProvider = <span class="number">100</span>,
     <span class="doccomment">/// The location provider on Apple operating systems.
     </span>CoreLocation = <span class="number">200</span>,
@@ -2277,48 +2278,48 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DeliveryVehicleLocationSensor::UnknownSensor =&gt; <span class="string">&quot;UNKNOWN_SENSOR&quot;</span>,
-            DeliveryVehicleLocationSensor::Gps =&gt; <span class="string">&quot;GPS&quot;</span>,
-            DeliveryVehicleLocationSensor::Network =&gt; <span class="string">&quot;NETWORK&quot;</span>,
-            DeliveryVehicleLocationSensor::Passive =&gt; <span class="string">&quot;PASSIVE&quot;</span>,
+            DeliveryVehicleLocationSensor::UnknownSensor =&gt; <span class="string">"UNKNOWN_SENSOR"</span>,
+            DeliveryVehicleLocationSensor::Gps =&gt; <span class="string">"GPS"</span>,
+            DeliveryVehicleLocationSensor::Network =&gt; <span class="string">"NETWORK"</span>,
+            DeliveryVehicleLocationSensor::Passive =&gt; <span class="string">"PASSIVE"</span>,
             DeliveryVehicleLocationSensor::RoadSnappedLocationProvider =&gt; {
-                <span class="string">&quot;ROAD_SNAPPED_LOCATION_PROVIDER&quot;
+                <span class="string">"ROAD_SNAPPED_LOCATION_PROVIDER"
             </span>}
             DeliveryVehicleLocationSensor::CustomerSuppliedLocation =&gt; {
-                <span class="string">&quot;CUSTOMER_SUPPLIED_LOCATION&quot;
+                <span class="string">"CUSTOMER_SUPPLIED_LOCATION"
             </span>}
-            DeliveryVehicleLocationSensor::FleetEngineLocation =&gt; <span class="string">&quot;FLEET_ENGINE_LOCATION&quot;</span>,
+            DeliveryVehicleLocationSensor::FleetEngineLocation =&gt; <span class="string">"FLEET_ENGINE_LOCATION"</span>,
             DeliveryVehicleLocationSensor::FusedLocationProvider =&gt; {
-                <span class="string">&quot;FUSED_LOCATION_PROVIDER&quot;
+                <span class="string">"FUSED_LOCATION_PROVIDER"
             </span>}
-            DeliveryVehicleLocationSensor::CoreLocation =&gt; <span class="string">&quot;CORE_LOCATION&quot;</span>,
+            DeliveryVehicleLocationSensor::CoreLocation =&gt; <span class="string">"CORE_LOCATION"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;UNKNOWN_SENSOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownSensor),
-            <span class="string">&quot;GPS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gps),
-            <span class="string">&quot;NETWORK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Network),
-            <span class="string">&quot;PASSIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Passive),
-            <span class="string">&quot;ROAD_SNAPPED_LOCATION_PROVIDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RoadSnappedLocationProvider),
-            <span class="string">&quot;CUSTOMER_SUPPLIED_LOCATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomerSuppliedLocation),
-            <span class="string">&quot;FLEET_ENGINE_LOCATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FleetEngineLocation),
-            <span class="string">&quot;FUSED_LOCATION_PROVIDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FusedLocationProvider),
-            <span class="string">&quot;CORE_LOCATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CoreLocation),
+            <span class="string">"UNKNOWN_SENSOR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownSensor),
+            <span class="string">"GPS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gps),
+            <span class="string">"NETWORK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Network),
+            <span class="string">"PASSIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Passive),
+            <span class="string">"ROAD_SNAPPED_LOCATION_PROVIDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RoadSnappedLocationProvider),
+            <span class="string">"CUSTOMER_SUPPLIED_LOCATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomerSuppliedLocation),
+            <span class="string">"FLEET_ENGINE_LOCATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FleetEngineLocation),
+            <span class="string">"FUSED_LOCATION_PROVIDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FusedLocationProvider),
+            <span class="string">"CORE_LOCATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CoreLocation),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
 }
-<span class="doccomment">/// The vehicle&#39;s navigation status.
+<span class="doccomment">/// The vehicle's navigation status.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>DeliveryVehicleNavigationStatus {
     <span class="doccomment">/// Unspecified navigation status.
     </span>UnknownNavigationStatus = <span class="number">0</span>,
-    <span class="doccomment">/// The Driver app&#39;s navigation is in `FREE_NAV` mode.
+    <span class="doccomment">/// The Driver app's navigation is in `FREE_NAV` mode.
     </span>NoGuidance = <span class="number">1</span>,
     <span class="doccomment">/// Turn-by-turn navigation is available and the Driver app navigation has
     /// entered `GUIDED_NAV` mode.
@@ -2333,29 +2334,29 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             DeliveryVehicleNavigationStatus::UnknownNavigationStatus =&gt; {
-                <span class="string">&quot;UNKNOWN_NAVIGATION_STATUS&quot;
+                <span class="string">"UNKNOWN_NAVIGATION_STATUS"
             </span>}
-            DeliveryVehicleNavigationStatus::NoGuidance =&gt; <span class="string">&quot;NO_GUIDANCE&quot;</span>,
+            DeliveryVehicleNavigationStatus::NoGuidance =&gt; <span class="string">"NO_GUIDANCE"</span>,
             DeliveryVehicleNavigationStatus::EnrouteToDestination =&gt; {
-                <span class="string">&quot;ENROUTE_TO_DESTINATION&quot;
+                <span class="string">"ENROUTE_TO_DESTINATION"
             </span>}
-            DeliveryVehicleNavigationStatus::OffRoute =&gt; <span class="string">&quot;OFF_ROUTE&quot;</span>,
+            DeliveryVehicleNavigationStatus::OffRoute =&gt; <span class="string">"OFF_ROUTE"</span>,
             DeliveryVehicleNavigationStatus::ArrivedAtDestination =&gt; {
-                <span class="string">&quot;ARRIVED_AT_DESTINATION&quot;
+                <span class="string">"ARRIVED_AT_DESTINATION"
             </span>}
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;UNKNOWN_NAVIGATION_STATUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownNavigationStatus),
-            <span class="string">&quot;NO_GUIDANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoGuidance),
-            <span class="string">&quot;ENROUTE_TO_DESTINATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EnrouteToDestination),
-            <span class="string">&quot;OFF_ROUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OffRoute),
-            <span class="string">&quot;ARRIVED_AT_DESTINATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ArrivedAtDestination),
+            <span class="string">"UNKNOWN_NAVIGATION_STATUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnknownNavigationStatus),
+            <span class="string">"NO_GUIDANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoGuidance),
+            <span class="string">"ENROUTE_TO_DESTINATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EnrouteToDestination),
+            <span class="string">"OFF_ROUTE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OffRoute),
+            <span class="string">"ARRIVED_AT_DESTINATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ArrivedAtDestination),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2374,13 +2375,13 @@
 </span><span class="kw">pub struct </span>DeliveryVehicle {
     <span class="doccomment">/// The unique name of this Delivery Vehicle.
     /// The format is `providers/{provider}/deliveryVehicles/{vehicle}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The last reported location of the Delivery Vehicle.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>last_location: ::core::option::Option&lt;DeliveryVehicleLocation&gt;,
-    <span class="doccomment">/// The Delivery Vehicle&#39;s navigation status.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DeliveryVehicleNavigationStatus&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The Delivery Vehicle's navigation status.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DeliveryVehicleNavigationStatus"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>navigation_status: i32,
     <span class="doccomment">/// The encoded polyline specifying the route that the navigation recommends
     /// taking to the next waypoint. Your driver app updates this when a
@@ -2409,7 +2410,7 @@
     /// most recently passed VehicleStop to the upcoming VehicleStop to ensure that
     /// the consumer of this field has the best available information on the
     /// current path of the Delivery Vehicle.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>current_route_segment: ::prost::bytes::Bytes,
     <span class="doccomment">/// The location where the `current_route_segment` ends. This is not currently
     /// populated by the driver app, but you can supply it on
@@ -2419,7 +2420,7 @@
     ///
     /// This field is ignored in `UpdateDeliveryVehicle` calls if the
     /// `current_route_segment` field is empty.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>current_route_segment_end_point: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::google::r#type::LatLng,
     &gt;,
@@ -2435,7 +2436,7 @@
     ///
     /// Fleet Engine ignores this field in `UpdateDeliveryVehicleRequest` if the
     /// `current_route_segment` field is empty.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>remaining_distance_meters: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// The remaining driving time for the `current_route_segment`.
     /// The Driver app typically provides this field, but there are some
@@ -2449,21 +2450,21 @@
     ///
     /// Fleet Engine ignores this field in `UpdateDeliveryVehicleRequest` if the
     /// `current_route_segment` field is empty.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>remaining_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The journey segments assigned to this Delivery Vehicle, starting from the
-    /// Vehicle&#39;s most recently reported location. This field won&#39;t be populated
+    /// Vehicle's most recently reported location. This field won't be populated
     /// in the response of `ListDeliveryVehicles`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>remaining_vehicle_journey_segments: ::prost::alloc::vec::Vec&lt;
         VehicleJourneySegment,
     &gt;,
     <span class="doccomment">/// A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
     /// at most 100 attributes, and each attribute must have a unique key.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>attributes: ::prost::alloc::vec::Vec&lt;DeliveryVehicleAttribute&gt;,
     <span class="doccomment">/// The type of this delivery vehicle. If unset, this will default to `AUTO`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;delivery_vehicle::DeliveryVehicleType&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"delivery_vehicle::DeliveryVehicleType"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `DeliveryVehicle`.
@@ -2499,23 +2500,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DeliveryVehicleType::Unspecified =&gt; <span class="string">&quot;DELIVERY_VEHICLE_TYPE_UNSPECIFIED&quot;</span>,
-                DeliveryVehicleType::Auto =&gt; <span class="string">&quot;AUTO&quot;</span>,
-                DeliveryVehicleType::TwoWheeler =&gt; <span class="string">&quot;TWO_WHEELER&quot;</span>,
-                DeliveryVehicleType::Bicycle =&gt; <span class="string">&quot;BICYCLE&quot;</span>,
-                DeliveryVehicleType::Pedestrian =&gt; <span class="string">&quot;PEDESTRIAN&quot;</span>,
+                DeliveryVehicleType::Unspecified =&gt; <span class="string">"DELIVERY_VEHICLE_TYPE_UNSPECIFIED"</span>,
+                DeliveryVehicleType::Auto =&gt; <span class="string">"AUTO"</span>,
+                DeliveryVehicleType::TwoWheeler =&gt; <span class="string">"TWO_WHEELER"</span>,
+                DeliveryVehicleType::Bicycle =&gt; <span class="string">"BICYCLE"</span>,
+                DeliveryVehicleType::Pedestrian =&gt; <span class="string">"PEDESTRIAN"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DELIVERY_VEHICLE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AUTO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auto),
-                <span class="string">&quot;TWO_WHEELER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TwoWheeler),
-                <span class="string">&quot;BICYCLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bicycle),
-                <span class="string">&quot;PEDESTRIAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pedestrian),
+                <span class="string">"DELIVERY_VEHICLE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AUTO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auto),
+                <span class="string">"TWO_WHEELER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TwoWheeler),
+                <span class="string">"BICYCLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bicycle),
+                <span class="string">"PEDESTRIAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pedestrian),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2525,8 +2526,8 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LocationInfo {
-    <span class="doccomment">/// The location&#39;s coordinates.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// The location's coordinates.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>point: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::google::r#type::LatLng,
     &gt;,
@@ -2540,18 +2541,18 @@
     <span class="doccomment">/// Specifies the stop location, along with the `Task`s associated with
     /// the stop. Some fields of the VehicleStop might not be present if this
     /// journey segment is part of `JourneySharingInfo`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>stop: ::core::option::Option&lt;VehicleStop&gt;,
     <span class="doccomment">/// Output only. The travel distance from the previous stop to this stop.
     /// If the current stop is the first stop in the list of journey
-    /// segments, then the starting point is the vehicle&#39;s location recorded
+    /// segments, then the starting point is the vehicle's location recorded
     /// at the time that this stop was added to the list. This field might not be
     /// present if this journey segment is part of `JourneySharingInfo`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>driving_distance_meters: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Output only. The travel time from the previous stop to this stop.
     /// If the current stop is the first stop in the list of journey
-    /// segments, then the starting point is the Vehicle&#39;s location recorded
+    /// segments, then the starting point is the Vehicle's location recorded
     /// at the time that this stop was added to the list.
     ///
     /// If this field is defined in the path
@@ -2560,13 +2561,13 @@
     /// then it may be populated with the value from
     /// `DeliveryVehicle.remaining_duration` (gRPC) or
     /// `DeliveryVehicle.remainingDuration` (REST).
-    /// This provides the remaining driving duration from the driver app&#39;s latest
+    /// This provides the remaining driving duration from the driver app's latest
     /// known location rather than the driving time from the previous stop.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>driving_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Output only. The path from the previous stop to this stop. If the current
     /// stop is the first stop in the list of journey segments, then this is the
-    /// path from the vehicle&#39;s current location to this stop at the time that the
+    /// path from the vehicle's current location to this stop at the time that the
     /// stop was added to the list. This field might not be present if this journey
     /// segment is part of `JourneySharingInfo`.
     ///
@@ -2576,9 +2577,9 @@
     /// (REST), then it may be populated with the `LatLng`s decoded from
     /// `DeliveryVehicle.current_route_segment` (gRPC) or
     /// `DeliveryVehicle.currentRouteSegment` (REST). This provides the driving
-    /// path from the driver app&#39;s latest known location rather than the path from
+    /// path from the driver app's latest known location rather than the path from
     /// the previous stop.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::google::r#type::LatLng,
     &gt;,
@@ -2589,17 +2590,17 @@
 </span><span class="kw">pub struct </span>VehicleStop {
     <span class="doccomment">/// Required. The location of the stop. Note that the locations in the `Task`s
     /// might not exactly match this location, but will be within a short distance
-    /// of it. This field won&#39;t be populated in the response of either a `GetTask`,
+    /// of it. This field won't be populated in the response of either a `GetTask`,
     /// or a `SearchTasks` call.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>planned_location: ::core::option::Option&lt;LocationInfo&gt;,
-    <span class="doccomment">/// The list of `Task`s to be performed at this stop. This field won&#39;t be
+    <span class="doccomment">/// The list of `Task`s to be performed at this stop. This field won't be
     /// populated in the response of either a `GetTask` or `SearchTasks` call.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>tasks: ::prost::alloc::vec::Vec&lt;vehicle_stop::TaskInfo&gt;,
-    <span class="doccomment">/// The state of the `VehicleStop`. This field won&#39;t be populated in the
+    <span class="doccomment">/// The state of the `VehicleStop`. This field won't be populated in the
     /// response of either a `GetTask`, or a `SearchTasks` call.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;vehicle_stop::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"vehicle_stop::State"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `VehicleStop`.
@@ -2608,7 +2609,7 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>TaskInfo {
-        <span class="doccomment">/// The Task ID. This field won&#39;t be populated in the response of either a
+        <span class="doccomment">/// The Task ID. This field won't be populated in the response of either a
         /// `GetTask`, or a `SearchTasks` call. Task IDs are subject to the following
         /// restrictions:
         ///
@@ -2616,16 +2617,16 @@
         /// * Limited to a maximum length of 64 characters.
         /// * Normalized according to \[Unicode Normalization Form C\]
         /// (&lt;http://www.unicode.org/reports/tr15/&gt;).
-        /// * May not contain any of the following ASCII characters: &#39;/&#39;, &#39;:&#39;, &#39;?&#39;,
-        /// &#39;,&#39;, or &#39;#&#39;.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// * May not contain any of the following ASCII characters: '/', ':', '?',
+        /// ',', or '#'.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>task_id: ::prost::alloc::string::String,
         <span class="doccomment">/// Output only. The time required to perform the Task.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>task_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
         <span class="doccomment">/// Output only. The time window during which the task should be completed.
         /// This is only set in the response to `GetDeliveryVehicle`.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>target_time_window: ::core::option::Option&lt;<span class="kw">super</span>::TimeWindow&gt;,
     }
     <span class="doccomment">/// The current state of a `VehicleStop`.
@@ -2657,21 +2658,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::New =&gt; <span class="string">&quot;NEW&quot;</span>,
-                State::Enroute =&gt; <span class="string">&quot;ENROUTE&quot;</span>,
-                State::Arrived =&gt; <span class="string">&quot;ARRIVED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::New =&gt; <span class="string">"NEW"</span>,
+                State::Enroute =&gt; <span class="string">"ENROUTE"</span>,
+                State::Arrived =&gt; <span class="string">"ARRIVED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::New),
-                <span class="string">&quot;ENROUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enroute),
-                <span class="string">&quot;ARRIVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Arrived),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NEW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::New),
+                <span class="string">"ENROUTE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enroute),
+                <span class="string">"ARRIVED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Arrived),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2685,50 +2686,50 @@
     /// see &lt;http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.&gt; If none
     /// is specified, the response may be in any language, with a preference for
     /// English if such a name exists. Field value example: `en-US`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. CLDR region code of the region where the request originates.
     /// Field value example: `US`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>region_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Version of the calling SDK, if applicable.
-    /// The version format is &quot;major.minor.patch&quot;, example: `1.1.2`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// The version format is "major.minor.patch", example: `1.1.2`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>sdk_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Version of the operating system on which the calling SDK is running.
     /// Field value examples: `4.4.1`, `12.1`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>os_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Model of the device on which the calling SDK is running.
     /// Field value examples: `iPhone12,1`, `SM-G920F`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>device_model: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of SDK sending the request.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;delivery_request_header::SdkType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"delivery_request_header::SdkType"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>sdk_type: i32,
     <span class="doccomment">/// Version of the MapSDK which the calling SDK depends on, if applicable.
-    /// The version format is &quot;major.minor.patch&quot;, example: `5.2.1`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    /// The version format is "major.minor.patch", example: `5.2.1`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>maps_sdk_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Version of the NavSDK which the calling SDK depends on, if applicable.
-    /// The version format is &quot;major.minor.patch&quot;, example: `2.1.0`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    /// The version format is "major.minor.patch", example: `2.1.0`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>nav_sdk_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Platform of the calling SDK.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;delivery_request_header::Platform&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"delivery_request_header::Platform"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>platform: i32,
     <span class="doccomment">/// Manufacturer of the Android device from the calling SDK, only applicable
     /// for the Android SDKs.
     /// Field value example: `Samsung`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>manufacturer: ::prost::alloc::string::String,
     <span class="doccomment">/// Android API level of the calling SDK, only applicable for the Android SDKs.
     /// Field value example: `23`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>android_api_level: i32,
     <span class="doccomment">/// Optional ID that can be provided for logging purposes in order to identify
     /// the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>trace_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `DeliveryRequestHeader`.
@@ -2761,21 +2762,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SdkType::Unspecified =&gt; <span class="string">&quot;SDK_TYPE_UNSPECIFIED&quot;</span>,
-                SdkType::Consumer =&gt; <span class="string">&quot;CONSUMER&quot;</span>,
-                SdkType::Driver =&gt; <span class="string">&quot;DRIVER&quot;</span>,
-                SdkType::Javascript =&gt; <span class="string">&quot;JAVASCRIPT&quot;</span>,
+                SdkType::Unspecified =&gt; <span class="string">"SDK_TYPE_UNSPECIFIED"</span>,
+                SdkType::Consumer =&gt; <span class="string">"CONSUMER"</span>,
+                SdkType::Driver =&gt; <span class="string">"DRIVER"</span>,
+                SdkType::Javascript =&gt; <span class="string">"JAVASCRIPT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SDK_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CONSUMER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Consumer),
-                <span class="string">&quot;DRIVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Driver),
-                <span class="string">&quot;JAVASCRIPT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Javascript),
+                <span class="string">"SDK_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CONSUMER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Consumer),
+                <span class="string">"DRIVER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Driver),
+                <span class="string">"JAVASCRIPT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Javascript),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2808,21 +2809,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Platform::Unspecified =&gt; <span class="string">&quot;PLATFORM_UNSPECIFIED&quot;</span>,
-                Platform::Android =&gt; <span class="string">&quot;ANDROID&quot;</span>,
-                Platform::Ios =&gt; <span class="string">&quot;IOS&quot;</span>,
-                Platform::Web =&gt; <span class="string">&quot;WEB&quot;</span>,
+                Platform::Unspecified =&gt; <span class="string">"PLATFORM_UNSPECIFIED"</span>,
+                Platform::Android =&gt; <span class="string">"ANDROID"</span>,
+                Platform::Ios =&gt; <span class="string">"IOS"</span>,
+                Platform::Web =&gt; <span class="string">"WEB"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PLATFORM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ANDROID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Android),
-                <span class="string">&quot;IOS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ios),
-                <span class="string">&quot;WEB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Web),
+                <span class="string">"PLATFORM_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ANDROID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Android),
+                <span class="string">"IOS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ios),
+                <span class="string">"WEB" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Web),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2845,30 +2846,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Task {
     <span class="doccomment">/// Must be in the format `providers/{provider}/tasks/{task}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Immutable. Defines the type of the Task. For example, a break or
     /// shipment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::Type"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Required. The current execution state of the Task.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::State"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// The outcome of the Task.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::TaskOutcome&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::TaskOutcome"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>task_outcome: i32,
-    <span class="doccomment">/// The timestamp that indicates when the `Task`&#39;s outcome was set by the
+    <span class="doccomment">/// The timestamp that indicates when the `Task`'s outcome was set by the
     /// provider.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>task_outcome_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="doccomment">/// The location where the `Task`&#39;s outcome was set. This value is updated as
-    /// part of `UpdateTask`. If this value isn&#39;t explicitly updated by the
+    <span class="doccomment">/// The location where the `Task`'s outcome was set. This value is updated as
+    /// part of `UpdateTask`. If this value isn't explicitly updated by the
     /// provider, then Fleet Engine populates it by default with the last known
     /// vehicle location (the *raw* location).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>task_outcome_location: ::core::option::Option&lt;LocationInfo&gt;,
     <span class="doccomment">/// Indicates where the value of the `task_outcome_location` came from.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::TaskOutcomeLocationSource&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::TaskOutcomeLocationSource"</span>, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>task_outcome_location_source: i32,
     <span class="doccomment">/// Immutable. This field facilitates the storing of an ID so you can avoid
     /// using a complicated mapping. You cannot set `tracking_id` for Tasks of type
@@ -2879,9 +2880,9 @@
     /// * Limited to a maximum length of 64 characters.
     /// * Normalized according to \[Unicode Normalization Form C\]
     /// (&lt;http://www.unicode.org/reports/tr15/&gt;).
-    /// * May not contain any of the following ASCII characters: &#39;/&#39;, &#39;:&#39;, &#39;?&#39;,
-    /// &#39;,&#39;, or &#39;#&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// * May not contain any of the following ASCII characters: '/', ':', '?',
+    /// ',', or '#'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>tracking_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The ID of the vehicle that is executing this Task. Delivery
     /// Vehicle IDs are subject to the following restrictions:
@@ -2890,30 +2891,30 @@
     /// * Limited to a maximum length of 64 characters.
     /// * Normalized according to \[Unicode Normalization Form C\]
     /// (&lt;http://www.unicode.org/reports/tr15/&gt;).
-    /// * May not contain any of the following ASCII characters: &#39;/&#39;, &#39;:&#39;, &#39;?&#39;,
-    /// &#39;,&#39;, or &#39;#&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    /// * May not contain any of the following ASCII characters: '/', ':', '?',
+    /// ',', or '#'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>delivery_vehicle_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Immutable. The location where the Task will be completed.
     /// Optional for `UNAVAILABLE` Tasks, but required for all other Tasks.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>planned_location: ::core::option::Option&lt;LocationInfo&gt;,
     <span class="doccomment">/// Required. Immutable. The time needed to execute a Task at this location.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>task_duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The time window during which the task should be completed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>target_time_window: ::core::option::Option&lt;TimeWindow&gt;,
     <span class="doccomment">/// Output only. Journey sharing-specific fields. Not populated when state is
     /// `CLOSED`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>journey_sharing_info: ::core::option::Option&lt;task::JourneySharingInfo&gt;,
     <span class="doccomment">/// The configuration for task tracking that specifies which data elements are
     /// visible to the end users under what circumstances.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>task_tracking_view_config: ::core::option::Option&lt;TaskTrackingViewConfig&gt;,
     <span class="doccomment">/// A list of custom Task attributes. Each attribute must have a unique key.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>attributes: ::prost::alloc::vec::Vec&lt;TaskAttribute&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Task`.
@@ -2929,7 +2930,7 @@
         /// The first segment,
         /// `Task.journey_sharing_info.remaining_vehicle_journey_segments\[0\]` (gRPC)
         /// or `Task.journeySharingInfo.remainingVehicleJourneySegments\[0\]` (REST),
-        /// contains route information from the driver&#39;s last known location to the
+        /// contains route information from the driver's last known location to the
         /// upcoming `VehicleStop`. Current route information usually comes from the
         /// driver app, except for some cases noted in the documentation for
         /// [DeliveryVehicle.current_route_segment][maps.fleetengine.delivery.v1.DeliveryVehicle.current_route_segment].
@@ -2938,18 +2939,18 @@
         /// `Task.journeySharingInfo.remainingVehicleJourneySegments` (REST) are
         /// populated by Fleet Engine. They provide route information between the
         /// remaining `VehicleStops`.
-        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>remaining_vehicle_journey_segments: ::prost::alloc::vec::Vec&lt;
             <span class="kw">super</span>::VehicleJourneySegment,
         &gt;,
-        <span class="doccomment">/// Indicates the vehicle&#39;s last reported location of the assigned vehicle.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        <span class="doccomment">/// Indicates the vehicle's last reported location of the assigned vehicle.
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>last_location: ::core::option::Option&lt;<span class="kw">super</span>::DeliveryVehicleLocation&gt;,
-        <span class="doccomment">/// Indicates whether the vehicle&#39;s lastLocation can be snapped to
+        <span class="doccomment">/// Indicates whether the vehicle's lastLocation can be snapped to
         /// the `current_route_segment`. This value is False if either
-        /// `last_location` or `current_route_segment` don&#39;t exist. This value is
+        /// `last_location` or `current_route_segment` don't exist. This value is
         /// computed by Fleet Engine. Updates from clients are ignored.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>last_location_snappable: bool,
     }
     <span class="doccomment">/// The type of Task.
@@ -2978,7 +2979,7 @@
         </span>Delivery = <span class="number">2</span>,
         <span class="doccomment">/// A scheduled stop Task is used for planning purposes. For example, it
         /// could represent picking up or dropping off shipments from feeder vehicles
-        /// or depots. It shouldn&#39;t be used for any shipments that are picked up or
+        /// or depots. It shouldn't be used for any shipments that are picked up or
         /// dropped off from an end customer.
         </span>ScheduledStop = <span class="number">3</span>,
         <span class="doccomment">/// A Task that means the Vehicle is not available for service. For example,
@@ -2991,28 +2992,28 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Pickup =&gt; <span class="string">&quot;PICKUP&quot;</span>,
-                Type::Delivery =&gt; <span class="string">&quot;DELIVERY&quot;</span>,
-                Type::ScheduledStop =&gt; <span class="string">&quot;SCHEDULED_STOP&quot;</span>,
-                Type::Unavailable =&gt; <span class="string">&quot;UNAVAILABLE&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::Pickup =&gt; <span class="string">"PICKUP"</span>,
+                Type::Delivery =&gt; <span class="string">"DELIVERY"</span>,
+                Type::ScheduledStop =&gt; <span class="string">"SCHEDULED_STOP"</span>,
+                Type::Unavailable =&gt; <span class="string">"UNAVAILABLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PICKUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pickup),
-                <span class="string">&quot;DELIVERY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delivery),
-                <span class="string">&quot;SCHEDULED_STOP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScheduledStop),
-                <span class="string">&quot;UNAVAILABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unavailable),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PICKUP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pickup),
+                <span class="string">"DELIVERY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delivery),
+                <span class="string">"SCHEDULED_STOP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScheduledStop),
+                <span class="string">"UNAVAILABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unavailable),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
-    <span class="doccomment">/// The state of a Task. This indicates the Tasks&#39;s progress.
+    <span class="doccomment">/// The state of a Task. This indicates the Tasks's progress.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -3029,7 +3030,7 @@
         <span class="doccomment">/// Default. Used for an unspecified or unrecognized Task state.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Either the Task has not yet been assigned to a delivery vehicle, or the
-        /// delivery vehicle has not yet passed the `Task`&#39;s assigned vehicle stop.
+        /// delivery vehicle has not yet passed the `Task`'s assigned vehicle stop.
         </span>Open = <span class="number">1</span>,
         <span class="doccomment">/// When the vehicle passes the vehicle stop for this Task.
         </span>Closed = <span class="number">2</span>,
@@ -3039,19 +3040,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Open =&gt; <span class="string">&quot;OPEN&quot;</span>,
-                State::Closed =&gt; <span class="string">&quot;CLOSED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Open =&gt; <span class="string">"OPEN"</span>,
+                State::Closed =&gt; <span class="string">"CLOSED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;OPEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Open),
-                <span class="string">&quot;CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"OPEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Open),
+                <span class="string">"CLOSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3075,7 +3076,7 @@
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// The Task completed successfully.
         </span>Succeeded = <span class="number">1</span>,
-        <span class="doccomment">/// Either the Task couldn&#39;t be completed, or it was cancelled.
+        <span class="doccomment">/// Either the Task couldn't be completed, or it was cancelled.
         </span>Failed = <span class="number">2</span>,
     }
     <span class="kw">impl </span>TaskOutcome {
@@ -3083,19 +3084,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                TaskOutcome::Unspecified =&gt; <span class="string">&quot;TASK_OUTCOME_UNSPECIFIED&quot;</span>,
-                TaskOutcome::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                TaskOutcome::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                TaskOutcome::Unspecified =&gt; <span class="string">"TASK_OUTCOME_UNSPECIFIED"</span>,
+                TaskOutcome::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                TaskOutcome::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TASK_OUTCOME_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"TASK_OUTCOME_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3118,7 +3119,7 @@
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// The provider-specified the `task_outcome_location`.
         </span>Provider = <span class="number">2</span>,
-        <span class="doccomment">/// The provider didn&#39;t specify the `task_outcome_location`, so Fleet Engine
+        <span class="doccomment">/// The provider didn't specify the `task_outcome_location`, so Fleet Engine
         /// used the last known vehicle location.
         </span>LastVehicleLocation = <span class="number">3</span>,
     }
@@ -3127,21 +3128,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
                 TaskOutcomeLocationSource::Unspecified =&gt; {
-                    <span class="string">&quot;TASK_OUTCOME_LOCATION_SOURCE_UNSPECIFIED&quot;
+                    <span class="string">"TASK_OUTCOME_LOCATION_SOURCE_UNSPECIFIED"
                 </span>}
-                TaskOutcomeLocationSource::Provider =&gt; <span class="string">&quot;PROVIDER&quot;</span>,
-                TaskOutcomeLocationSource::LastVehicleLocation =&gt; <span class="string">&quot;LAST_VEHICLE_LOCATION&quot;</span>,
+                TaskOutcomeLocationSource::Provider =&gt; <span class="string">"PROVIDER"</span>,
+                TaskOutcomeLocationSource::LastVehicleLocation =&gt; <span class="string">"LAST_VEHICLE_LOCATION"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TASK_OUTCOME_LOCATION_SOURCE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PROVIDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Provider),
-                <span class="string">&quot;LAST_VEHICLE_LOCATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LastVehicleLocation),
+                <span class="string">"TASK_OUTCOME_LOCATION_SOURCE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PROVIDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Provider),
+                <span class="string">"LAST_VEHICLE_LOCATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LastVehicleLocation),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3155,42 +3156,42 @@
     <span class="doccomment">/// The field that specifies when route polyline points can be visible. If this
     /// field is not specified, the project level default visibility configuration
     /// for this data will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>route_polyline_points_visibility: ::core::option::Option&lt;
         task_tracking_view_config::VisibilityOption,
     &gt;,
     <span class="doccomment">/// The field that specifies when estimated arrival time can be visible. If
     /// this field is not specified, the project level default visibility
     /// configuration for this data will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>estimated_arrival_time_visibility: ::core::option::Option&lt;
         task_tracking_view_config::VisibilityOption,
     &gt;,
     <span class="doccomment">/// The field that specifies when estimated task completion time can be
     /// visible. If this field is not specified, the project level default
     /// visibility configuration for this data will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>estimated_task_completion_time_visibility: ::core::option::Option&lt;
         task_tracking_view_config::VisibilityOption,
     &gt;,
     <span class="doccomment">/// The field that specifies when remaining driving distance can be visible. If
     /// this field is not specified, the project level default visibility
     /// configuration for this data will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>remaining_driving_distance_visibility: ::core::option::Option&lt;
         task_tracking_view_config::VisibilityOption,
     &gt;,
     <span class="doccomment">/// The field that specifies when remaining stop count can be visible. If this
     /// field is not specified, the project level default visibility configuration
     /// for this data will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>remaining_stop_count_visibility: ::core::option::Option&lt;
         task_tracking_view_config::VisibilityOption,
     &gt;,
     <span class="doccomment">/// The field that specifies when vehicle location can be visible. If this
     /// field is not specified, the project level default visibility configuration
     /// for this data will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>vehicle_location_visibility: ::core::option::Option&lt;
         task_tracking_view_config::VisibilityOption,
     &gt;,
@@ -3203,7 +3204,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>VisibilityOption {
         <span class="doccomment">/// The specific visibility option chosen.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;visibility_option::VisibilityOption&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 4, 5&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"visibility_option::VisibilityOption"</span>, tags = <span class="string">"1, 2, 3, 4, 5"</span>)]
         </span><span class="kw">pub </span>visibility_option: ::core::option::Option&lt;
             visibility_option::VisibilityOption,
         &gt;,
@@ -3216,90 +3217,90 @@
         </span><span class="kw">pub enum </span>VisibilityOption {
             <span class="doccomment">/// This data element is visible to the end users if the remaining stop
             /// count &lt;= remaining_stop_count_threshold.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
             </span>RemainingStopCountThreshold(i32),
             <span class="doccomment">/// This data element is visible to the end users if the ETA to the stop
             /// &lt;= duration_until_estimated_arrival_time_threshold.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>DurationUntilEstimatedArrivalTimeThreshold(::prost_types::Duration),
             <span class="doccomment">/// This data element is visible to the end users if the remaining
             /// driving distance in meters &lt;=
             /// remaining_driving_distance_meters_threshold.
-            </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
             </span>RemainingDrivingDistanceMetersThreshold(i32),
             <span class="doccomment">/// If set to true, this data element is always visible to the end users
             /// with no thresholds. This field cannot be set to false.
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
             </span>Always(bool),
             <span class="doccomment">/// If set to true, this data element is always hidden from the end users
             /// with no thresholds. This field cannot be set to false.
-            </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+            </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
             </span>Never(bool),
         }
     }
 }
 <span class="doccomment">/// The `TaskTrackingInfo` message. The message contains task tracking
 /// information which will be used for display. If a tracking ID is associated
-/// with multiple Tasks, Fleet Engine uses a heuristic to decide which Task&#39;s
+/// with multiple Tasks, Fleet Engine uses a heuristic to decide which Task's
 /// TaskTrackingInfo to select.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TaskTrackingInfo {
     <span class="doccomment">/// Must be in the format `providers/{provider}/taskTrackingInfo/{tracking}`,
     /// where `tracking` represents the tracking ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Immutable. The tracking ID of a Task.
     /// * Must be a valid Unicode string.
     /// * Limited to a maximum length of 64 characters.
     /// * Normalized according to \[Unicode Normalization Form C\]
     /// (&lt;http://www.unicode.org/reports/tr15/&gt;).
-    /// * May not contain any of the following ASCII characters: &#39;/&#39;, &#39;:&#39;, &#39;?&#39;,
-    /// &#39;,&#39;, or &#39;#&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// * May not contain any of the following ASCII characters: '/', ':', '?',
+    /// ',', or '#'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>tracking_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// The vehicle&#39;s last location.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The vehicle's last location.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>vehicle_location: ::core::option::Option&lt;DeliveryVehicleLocation&gt;,
-    <span class="doccomment">/// A list of points which when connected forms a polyline of the vehicle&#39;s
+    <span class="doccomment">/// A list of points which when connected forms a polyline of the vehicle's
     /// expected route to the location of this task.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>route_polyline_points: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::google::r#type::LatLng,
     &gt;,
     <span class="doccomment">/// Indicates the number of stops the vehicle remaining until the task stop is
-    /// reached, including the task stop. For example, if the vehicle&#39;s next stop
+    /// reached, including the task stop. For example, if the vehicle's next stop
     /// is the task stop, the value will be 1.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>remaining_stop_count: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// The total remaining distance in meters to the `VehicleStop` of interest.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>remaining_driving_distance_meters: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// The timestamp that indicates the estimated arrival time to the stop
     /// location.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>estimated_arrival_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The timestamp that indicates the estimated completion time of a Task.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>estimated_task_completion_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The current execution state of the Task.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::State&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::State"</span>, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// The outcome of attempting to execute a Task.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;task::TaskOutcome&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"task::TaskOutcome"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>task_outcome: i32,
-    <span class="doccomment">/// The timestamp that indicates when the Task&#39;s outcome was set by the
+    <span class="doccomment">/// The timestamp that indicates when the Task's outcome was set by the
     /// provider.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>task_outcome_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Immutable. The location where the Task will be completed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>planned_location: ::core::option::Option&lt;LocationInfo&gt;,
     <span class="doccomment">/// The time window during which the task should be completed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>target_time_window: ::core::option::Option&lt;TimeWindow&gt;,
     <span class="doccomment">/// The custom attributes set on the task.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>attributes: ::prost::alloc::vec::Vec&lt;TaskAttribute&gt;,
 }
 <span class="doccomment">/// The `CreateDeliveryVehicle` request message.
@@ -3307,11 +3308,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateDeliveryVehicleRequest {
     <span class="doccomment">/// Optional. The standard Delivery API request header.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;DeliveryRequestHeader&gt;,
     <span class="doccomment">/// Required. Must be in the format `providers/{provider}`. The provider must
     /// be the Google Cloud Project ID. For example, `sample-cloud-project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Delivery Vehicle ID must be unique and subject to the
     /// following restrictions:
@@ -3320,9 +3321,9 @@
     /// * Limited to a maximum length of 64 characters.
     /// * Normalized according to \[Unicode Normalization Form C\]
     /// (&lt;http://www.unicode.org/reports/tr15/&gt;).
-    /// * May not contain any of the following ASCII characters: &#39;/&#39;, &#39;:&#39;, &#39;?&#39;,
-    /// &#39;,&#39;, or &#39;#&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// * May not contain any of the following ASCII characters: '/', ':', '?',
+    /// ',', or '#'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>delivery_vehicle_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The `DeliveryVehicle` entity to create. When creating a new
     /// delivery vehicle, you may set the following optional fields:
@@ -3330,9 +3331,9 @@
     /// * last_location
     /// * attributes
     ///
-    /// Note: The DeliveryVehicle&#39;s `name` field is ignored. All other
+    /// Note: The DeliveryVehicle's `name` field is ignored. All other
     /// DeliveryVehicle fields must not be set; otherwise, an error is returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>delivery_vehicle: ::core::option::Option&lt;DeliveryVehicle&gt;,
 }
 <span class="doccomment">/// The `GetDeliveryVehicle` request message.
@@ -3340,13 +3341,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetDeliveryVehicleRequest {
     <span class="doccomment">/// Optional. The standard Delivery API request header.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;DeliveryRequestHeader&gt;,
     <span class="doccomment">/// Required. Must be in the format
     /// `providers/{provider}/deliveryVehicles/{delivery_vehicle}`.
     /// The `provider` must be the Google Cloud Project ID. For example,
     /// `sample-cloud-project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The `ListDeliveryVehicles` request message.
@@ -3354,27 +3355,27 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDeliveryVehiclesRequest {
     <span class="doccomment">/// Optional. The standard Delivery API request header.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;DeliveryRequestHeader&gt;,
     <span class="doccomment">/// Required. Must be in the format `providers/{provider}`.
     /// The `provider` must be the Google Cloud Project ID.
     /// For example, `sample-cloud-project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of vehicles to return. The service may return
-    /// fewer than this number. If you don&#39;t specify this number, then the server
+    /// fewer than this number. If you don't specify this number, then the server
     /// determines the number of results to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A page token, received from a previous `ListDeliveryVehicles`
     /// call. You must provide this in order to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListDeliveryVehicles`
     /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A filter query to apply when listing delivery vehicles. See
-    /// &lt;http://aip.dev/160&gt; for examples of the filter syntax. If you don&#39;t specify
+    /// &lt;http://aip.dev/160&gt; for examples of the filter syntax. If you don't specify
     /// a value, or if you specify an empty string for the filter, then all
     /// delivery vehicles are returned.
     ///
@@ -3384,18 +3385,18 @@
     /// attributes are stored as strings, so the only supported comparisons against
     /// attributes are string comparisons. In order to compare against number or
     /// boolean values, the values must be explicitly quoted to be treated as
-    /// strings (for example, `attributes.&lt;key&gt; = &quot;10&quot;` or
-    /// `attributes.&lt;key&gt; = &quot;true&quot;`).
+    /// strings (for example, `attributes.&lt;key&gt; = "10"` or
+    /// `attributes.&lt;key&gt; = "true"`).
     ///
     /// The maximum number of restrictions allowed in a filter query is 50. A
     /// restriction is a part of the query of the form
     /// `attribute.&lt;KEY&gt; &lt;COMPARATOR&gt; &lt;VALUE&gt;`, for example `attributes.foo = bar`
     /// is 1 restriction.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A filter that limits the vehicles returned to those whose last
     /// known location was in the rectangular area defined by the viewport.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>viewport: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::google::geo::r#type::Viewport,
     &gt;,
@@ -3408,16 +3409,16 @@
     /// When no filter is specified, the request returns all delivery vehicles. A
     /// successful response can also be empty. An empty response indicates that no
     /// delivery vehicles were found meeting the requested filter criteria.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>delivery_vehicles: ::prost::alloc::vec::Vec&lt;DeliveryVehicle&gt;,
     <span class="doccomment">/// You can pass this token in the `ListDeliveryVehiclesRequest` to continue to
-    /// list results. When all of the results are returned, this field won&#39;t be in
+    /// list results. When all of the results are returned, this field won't be in
     /// the response, or it will be an empty string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The total number of delivery vehicles that match the request criteria,
     /// across all pages.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>total_size: i64,
 }
 <span class="doccomment">/// The `UpdateDeliveryVehicle` request message.
@@ -3425,18 +3426,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateDeliveryVehicleRequest {
     <span class="doccomment">/// Optional. The standard Delivery API request header.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;DeliveryRequestHeader&gt;,
     <span class="doccomment">/// Required. The `DeliveryVehicle` entity update to apply.
     /// Note: You cannot update the name of the `DeliveryVehicle`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>delivery_vehicle: ::core::option::Option&lt;DeliveryVehicle&gt;,
     <span class="doccomment">/// Required. A field mask that indicates which `DeliveryVehicle` fields to
     /// update. Note that the update_mask must contain at least one field.
     ///
     /// This is a comma-separated list of fully qualified names of fields. Example:
-    /// `&quot;remaining_vehicle_journey_segments&quot;`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    /// `"remaining_vehicle_journey_segments"`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The `BatchCreateTask` request message.
@@ -3447,18 +3448,18 @@
     /// Note: If you set this field, then the header field in the
     /// `CreateTaskRequest` messages must either be empty, or it must match this
     /// field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;DeliveryRequestHeader&gt;,
     <span class="doccomment">/// Required. The parent resource shared by all tasks. This value must be in
     /// the format `providers/{provider}`. The `provider` must be the Google Cloud
     /// Project ID. For example, `sample-cloud-project`. The parent field in the
     /// `CreateTaskRequest` messages must either  be empty, or it must match this
     /// field.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The request message that specifies the resources to create.
     /// Note: You can create a maximum of 500 tasks in a batch.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>requests: ::prost::alloc::vec::Vec&lt;CreateTaskRequest&gt;,
 }
 <span class="doccomment">/// The `BatchCreateTask` response message.
@@ -3466,7 +3467,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCreateTasksResponse {
     <span class="doccomment">/// The created Tasks.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>tasks: ::prost::alloc::vec::Vec&lt;Task&gt;,
 }
 <span class="doccomment">/// The `CreateTask` request message.
@@ -3474,11 +3475,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateTaskRequest {
     <span class="doccomment">/// Optional. The standard Delivery API request header.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;DeliveryRequestHeader&gt;,
     <span class="doccomment">/// Required. Must be in the format `providers/{provider}`. The `provider` must
     /// be the Google Cloud Project ID. For example, `sample-cloud-project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Task ID must be unique, but it should be not a shipment
     /// tracking ID. To store a shipment tracking ID, use the `tracking_id` field.
@@ -3489,9 +3490,9 @@
     /// * Limited to a maximum length of 64 characters.
     /// * Normalized according to \[Unicode Normalization Form C\]
     /// (&lt;http://www.unicode.org/reports/tr15/&gt;).
-    /// * May not contain any of the following ASCII characters: &#39;/&#39;, &#39;:&#39;, &#39;?&#39;,
-    /// &#39;,&#39;, or &#39;#&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    /// * May not contain any of the following ASCII characters: '/', ':', '?',
+    /// ',', or '#'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>task_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The Task entity to create.
     /// When creating a Task, the following fields are required:
@@ -3503,9 +3504,9 @@
     /// * `planned_location` (optional for `UNAVAILABLE` tasks)
     /// * `task_duration`
     ///
-    /// Note: The Task&#39;s `name` field is ignored. All other Task fields must not be
+    /// Note: The Task's `name` field is ignored. All other Task fields must not be
     /// set; otherwise, an error is returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>task: ::core::option::Option&lt;Task&gt;,
 }
 <span class="doccomment">/// The `GetTask` request message.
@@ -3513,12 +3514,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTaskRequest {
     <span class="doccomment">/// Optional. The standard Delivery API request header.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;DeliveryRequestHeader&gt;,
     <span class="doccomment">/// Required. Must be in the format `providers/{provider}/tasks/{task}`. The
     /// `provider` must be the Google Cloud Project ID. For example,
     /// `sample-cloud-project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Deprecated: Issue `GetTaskTrackingInfoRequest`s to `GetTaskTrackingInfo`
@@ -3527,12 +3528,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchTasksRequest {
     <span class="doccomment">/// Optional. The standard Delivery API request header.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;DeliveryRequestHeader&gt;,
     <span class="doccomment">/// Required. Must be in the format `providers/{provider}`.
     /// The provider must be the Google Cloud Project ID. For example,
     /// `sample-cloud-project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The identifier of the set of related Tasks being requested.
     /// Tracking IDs are subject to the following restrictions:
@@ -3541,21 +3542,21 @@
     /// * Limited to a maximum length of 64 characters.
     /// * Normalized according to \[Unicode Normalization Form C\]
     /// (&lt;http://www.unicode.org/reports/tr15/&gt;).
-    /// * May not contain any of the following ASCII characters: &#39;/&#39;, &#39;:&#39;, &#39;?&#39;,
-    /// &#39;,&#39;, or &#39;#&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// * May not contain any of the following ASCII characters: '/', ':', '?',
+    /// ',', or '#'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>tracking_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of Tasks to return. The service may return
-    /// fewer than this value. If you don&#39;t specify this value, then the server
+    /// fewer than this value. If you don't specify this value, then the server
     /// determines the number of results to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A page token, received from a previous `SearchTasks` call. You
     /// must provide this value to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `SearchTasks` must match
     /// the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The `SearchTasks` response. It contains the set of Tasks that meet the search
@@ -3566,12 +3567,12 @@
     <span class="doccomment">/// The set of Tasks for the requested `tracking_id`. A successful response can
     /// also be empty. An empty response indicates that no Tasks are associated
     /// with the supplied `tracking_id`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>tasks: ::prost::alloc::vec::Vec&lt;Task&gt;,
     <span class="doccomment">/// Pass this token in the `SearchTasksRequest` to continue to
     /// list results. If all results have been returned, then this field is either
-    /// an empty string, or it doesn&#39;t appear in the response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// an empty string, or it doesn't appear in the response.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The `UpdateTask` request message.
@@ -3579,7 +3580,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateTaskRequest {
     <span class="doccomment">/// Optional. The standard Delivery API request header.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;DeliveryRequestHeader&gt;,
     <span class="doccomment">/// Required. The Task associated with the update.
     /// The following fields are maintained by Fleet Engine. Do not update
@@ -3593,18 +3594,18 @@
     ///
     /// Note: You cannot change the value of `task_outcome` once you set it.
     ///
-    /// If the Task has been assigned to a delivery vehicle, then don&#39;t set the
+    /// If the Task has been assigned to a delivery vehicle, then don't set the
     /// Task state to CLOSED using `Task.update`. Instead, remove the `VehicleStop`
     /// that contains the Task from the delivery vehicle, which automatically sets
     /// the Task state to CLOSED.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>task: ::core::option::Option&lt;Task&gt;,
     <span class="doccomment">/// Required. The field mask that indicates which Task fields to update.
     /// Note: The `update_mask` must contain at least one field.
     ///
     /// This is a comma-separated list of fully qualified names of fields. Example:
-    /// `&quot;task_outcome,task_outcome_time,task_outcome_location&quot;`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    /// `"task_outcome,task_outcome_time,task_outcome_location"`.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The `ListTasks` request message.
@@ -3612,31 +3613,31 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTasksRequest {
     <span class="doccomment">/// Optional. The standard Delivery API request header.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;DeliveryRequestHeader&gt;,
     <span class="doccomment">/// Required. Must be in the format `providers/{provider}`.
     /// The `provider` must be the Google Cloud Project ID. For example,
     /// `sample-cloud-project`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of Tasks to return. The service may return
-    /// fewer than this value. If you don&#39;t specify this value, then the server
+    /// fewer than this value. If you don't specify this value, then the server
     /// determines the number of results to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A page token received from a previous `ListTasks` call.
     /// You can provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListTasks` must match
     /// the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A filter query to apply when listing Tasks. See
-    /// &lt;http://aip.dev/160&gt; for examples of filter syntax. If you don&#39;t specify a
+    /// &lt;http://aip.dev/160&gt; for examples of filter syntax. If you don't specify a
     /// value, or if you filter on an empty string, then all Tasks are returned.
     /// For information about the Task properties that you can filter on, see [Task
     /// list](/maps/documentation/transportation-logistics/last-mile-fleet-solution/fleet-performance/fleet-engine/deliveries_api#list_tasks).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The `ListTasks` response that contains the set of Tasks that meet the filter
@@ -3648,16 +3649,16 @@
     /// is specified, the request returns all tasks. A successful response can also
     /// be empty. An empty response indicates that no Tasks were found meeting the
     /// requested filter criteria.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>tasks: ::prost::alloc::vec::Vec&lt;Task&gt;,
     <span class="doccomment">/// Pass this token in the `ListTasksRequest` to continue to list results.
     /// If all results have been returned, then this field is either an empty
-    /// string, or it doesn&#39;t appear in the response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// string, or it doesn't appear in the response.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The total number of Tasks that match the request criteria, across all
     /// pages.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>total_size: i64,
 }
 <span class="doccomment">/// The `GetTaskTrackingInfoRequest` request message.
@@ -3665,14 +3666,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTaskTrackingInfoRequest {
     <span class="doccomment">/// Optional. The standard Delivery API request header.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>header: ::core::option::Option&lt;DeliveryRequestHeader&gt;,
     <span class="doccomment">/// Required. Must be in the format
     /// `providers/{provider}/taskTrackingInfo/{tracking_id}`. The `provider`
     /// must be the Google Cloud Project ID, and the `tracking_id` must be the
     /// tracking ID associated with the task. An example name can be
     /// `providers/sample-cloud-project/taskTrackingInfo/sample-tracking-id`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -3689,7 +3690,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3764,19 +3765,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/maps.fleetengine.delivery.v1.DeliveryService/CreateDeliveryVehicle&quot;</span>,
+                <span class="string">"/maps.fleetengine.delivery.v1.DeliveryService/CreateDeliveryVehicle"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;maps.fleetengine.delivery.v1.DeliveryService&quot;</span>,
-                        <span class="string">&quot;CreateDeliveryVehicle&quot;</span>,
+                        <span class="string">"maps.fleetengine.delivery.v1.DeliveryService"</span>,
+                        <span class="string">"CreateDeliveryVehicle"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3795,19 +3796,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/maps.fleetengine.delivery.v1.DeliveryService/GetDeliveryVehicle&quot;</span>,
+                <span class="string">"/maps.fleetengine.delivery.v1.DeliveryService/GetDeliveryVehicle"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;maps.fleetengine.delivery.v1.DeliveryService&quot;</span>,
-                        <span class="string">&quot;GetDeliveryVehicle&quot;</span>,
+                        <span class="string">"maps.fleetengine.delivery.v1.DeliveryService"</span>,
+                        <span class="string">"GetDeliveryVehicle"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3832,19 +3833,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/maps.fleetengine.delivery.v1.DeliveryService/UpdateDeliveryVehicle&quot;</span>,
+                <span class="string">"/maps.fleetengine.delivery.v1.DeliveryService/UpdateDeliveryVehicle"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;maps.fleetengine.delivery.v1.DeliveryService&quot;</span>,
-                        <span class="string">&quot;UpdateDeliveryVehicle&quot;</span>,
+                        <span class="string">"maps.fleetengine.delivery.v1.DeliveryService"</span>,
+                        <span class="string">"UpdateDeliveryVehicle"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3863,19 +3864,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/maps.fleetengine.delivery.v1.DeliveryService/BatchCreateTasks&quot;</span>,
+                <span class="string">"/maps.fleetengine.delivery.v1.DeliveryService/BatchCreateTasks"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;maps.fleetengine.delivery.v1.DeliveryService&quot;</span>,
-                        <span class="string">&quot;BatchCreateTasks&quot;</span>,
+                        <span class="string">"maps.fleetengine.delivery.v1.DeliveryService"</span>,
+                        <span class="string">"BatchCreateTasks"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3891,19 +3892,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/maps.fleetengine.delivery.v1.DeliveryService/CreateTask&quot;</span>,
+                <span class="string">"/maps.fleetengine.delivery.v1.DeliveryService/CreateTask"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;maps.fleetengine.delivery.v1.DeliveryService&quot;</span>,
-                        <span class="string">&quot;CreateTask&quot;</span>,
+                        <span class="string">"maps.fleetengine.delivery.v1.DeliveryService"</span>,
+                        <span class="string">"CreateTask"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3919,19 +3920,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/maps.fleetengine.delivery.v1.DeliveryService/GetTask&quot;</span>,
+                <span class="string">"/maps.fleetengine.delivery.v1.DeliveryService/GetTask"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;maps.fleetengine.delivery.v1.DeliveryService&quot;</span>,
-                        <span class="string">&quot;GetTask&quot;</span>,
+                        <span class="string">"maps.fleetengine.delivery.v1.DeliveryService"</span>,
+                        <span class="string">"GetTask"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3950,19 +3951,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/maps.fleetengine.delivery.v1.DeliveryService/SearchTasks&quot;</span>,
+                <span class="string">"/maps.fleetengine.delivery.v1.DeliveryService/SearchTasks"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;maps.fleetengine.delivery.v1.DeliveryService&quot;</span>,
-                        <span class="string">&quot;SearchTasks&quot;</span>,
+                        <span class="string">"maps.fleetengine.delivery.v1.DeliveryService"</span>,
+                        <span class="string">"SearchTasks"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3978,19 +3979,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/maps.fleetengine.delivery.v1.DeliveryService/UpdateTask&quot;</span>,
+                <span class="string">"/maps.fleetengine.delivery.v1.DeliveryService/UpdateTask"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;maps.fleetengine.delivery.v1.DeliveryService&quot;</span>,
-                        <span class="string">&quot;UpdateTask&quot;</span>,
+                        <span class="string">"maps.fleetengine.delivery.v1.DeliveryService"</span>,
+                        <span class="string">"UpdateTask"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4009,19 +4010,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/maps.fleetengine.delivery.v1.DeliveryService/ListTasks&quot;</span>,
+                <span class="string">"/maps.fleetengine.delivery.v1.DeliveryService/ListTasks"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;maps.fleetengine.delivery.v1.DeliveryService&quot;</span>,
-                        <span class="string">&quot;ListTasks&quot;</span>,
+                        <span class="string">"maps.fleetengine.delivery.v1.DeliveryService"</span>,
+                        <span class="string">"ListTasks"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4040,19 +4041,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/maps.fleetengine.delivery.v1.DeliveryService/GetTaskTrackingInfo&quot;</span>,
+                <span class="string">"/maps.fleetengine.delivery.v1.DeliveryService/GetTaskTrackingInfo"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;maps.fleetengine.delivery.v1.DeliveryService&quot;</span>,
-                        <span class="string">&quot;GetTaskTrackingInfo&quot;</span>,
+                        <span class="string">"maps.fleetengine.delivery.v1.DeliveryService"</span>,
+                        <span class="string">"GetTaskTrackingInfo"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4071,19 +4072,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/maps.fleetengine.delivery.v1.DeliveryService/ListDeliveryVehicles&quot;</span>,
+                <span class="string">"/maps.fleetengine.delivery.v1.DeliveryService/ListDeliveryVehicles"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;maps.fleetengine.delivery.v1.DeliveryService&quot;</span>,
-                        <span class="string">&quot;ListDeliveryVehicles&quot;</span>,
+                        <span class="string">"maps.fleetengine.delivery.v1.DeliveryService"</span>,
+                        <span class="string">"ListDeliveryVehicles"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/home/graph/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/home/graph/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -663,39 +664,39 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Device {
     <span class="doccomment">/// Third-party device ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Hardware type of the device.
     /// See [device
     /// types](&lt;https://developers.home.google.com/cloud-to-cloud/guides&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
     <span class="doccomment">/// Traits supported by the device.
     /// See [device
     /// traits](&lt;https://developers.home.google.com/cloud-to-cloud/traits&gt;).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>traits: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Names given to this device by your smart home Action.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>name: ::core::option::Option&lt;DeviceNames&gt;,
     <span class="doccomment">/// Indicates whether your smart home Action will report state of this device
     /// to Google via
     /// [ReportStateAndNotification][google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification].
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>will_report_state: bool,
     <span class="doccomment">/// Suggested name for the room where this device is installed.
     /// Google attempts to use this value during user setup.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>room_hint: ::prost::alloc::string::String,
     <span class="doccomment">/// Suggested name for the structure where this device is installed.
     /// Google attempts to use this value during user setup.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>structure_hint: ::prost::alloc::string::String,
     <span class="doccomment">/// Device manufacturer, model, hardware version, and software version.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>device_info: ::core::option::Option&lt;DeviceInfo&gt;,
     <span class="doccomment">/// Attributes for the traits supported by the device.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>attributes: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// Custom device attributes stored in Home Graph and provided to your
     /// smart home Action in each
@@ -705,12 +706,12 @@
     /// intent.
     /// Data in this object has a few constraints: No sensitive information,
     /// including but not limited to Personally Identifiable Information.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>custom_data: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// Alternate IDs associated with this device.
     /// This is used to identify cloud synced devices enabled for [local
     /// fulfillment](&lt;https://developers.home.google.com/local-home/overview&gt;).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>other_device_ids: ::prost::alloc::vec::Vec&lt;AgentOtherDeviceId&gt;,
     <span class="doccomment">/// Indicates whether your smart home Action will report notifications
     /// to Google for this device via
@@ -719,7 +720,7 @@
     /// If your smart home Action enables users to control device notifications,
     /// you should update this field and call
     /// [RequestSyncDevices][google.home.graph.v1.HomeGraphApiService.RequestSyncDevices].
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>notification_supported_by_agent: bool,
 }
 <span class="doccomment">/// Identifiers used to describe the device.
@@ -727,14 +728,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeviceNames {
     <span class="doccomment">/// Primary name of the device, generally provided by the user.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Additional names provided by the user for the device.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>nicknames: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// List of names provided by the manufacturer rather than the user, such as
     /// serial numbers, SKUs, etc.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>default_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Device information.
@@ -742,16 +743,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeviceInfo {
     <span class="doccomment">/// Device manufacturer.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>manufacturer: ::prost::alloc::string::String,
     <span class="doccomment">/// Device model.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
     <span class="doccomment">/// Device hardware version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>hw_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Device software version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>sw_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Alternate third-party device ID.
@@ -759,10 +760,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AgentOtherDeviceId {
     <span class="doccomment">/// Project ID for your smart home Action.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>agent_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Unique third-party device ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>device_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request type for the
@@ -772,12 +773,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RequestSyncDevicesRequest {
     <span class="doccomment">/// Required. Third-party user ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>agent_user_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If set, the request will be added to a queue and a response will
     /// be returned immediately. This enables concurrent requests for the given
     /// `agent_user_id`, but the caller will not receive any error responses.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#async: bool,
 }
 <span class="doccomment">/// Response type for the
@@ -792,24 +793,24 @@
 <span class="doccomment">/// Request type for the
 /// [`ReportStateAndNotification`](#google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification)
 /// call. It may include states, notifications, or both. States and notifications
-/// are defined per `device_id` (for example, &quot;123&quot; and &quot;456&quot; in the following
+/// are defined per `device_id` (for example, "123" and "456" in the following
 /// example).
 ///
 /// Example:
 ///
 /// ```json
 /// {
-///    &quot;requestId&quot;: &quot;ff36a3cc-ec34-11e6-b1a0-64510650abcf&quot;,
-///    &quot;agentUserId&quot;: &quot;1234&quot;,
-///    &quot;payload&quot;: {
-///      &quot;devices&quot;: {
-///        &quot;states&quot;: {
-///          &quot;123&quot;: {
-///            &quot;on&quot;: true
+///    "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
+///    "agentUserId": "1234",
+///    "payload": {
+///      "devices": {
+///        "states": {
+///          "123": {
+///            "on": true
 ///          },
-///          &quot;456&quot;: {
-///            &quot;on&quot;: true,
-///            &quot;brightness&quot;: 10
+///          "456": {
+///            "on": true,
+///            "brightness": 10
 ///          }
 ///        },
 ///      }
@@ -820,20 +821,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReportStateAndNotificationRequest {
     <span class="doccomment">/// Request ID used for debugging.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Unique identifier per event (for example, a doorbell press).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>event_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Third-party user ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>agent_user_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Deprecated.
     </span><span class="attr">#[deprecated]
-    #[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    #[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>follow_up_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. State of devices to update and notification metadata for devices.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>payload: ::core::option::Option&lt;StateAndNotificationPayload&gt;,
 }
 <span class="doccomment">/// Response type for the
@@ -844,7 +845,7 @@
 </span><span class="kw">pub struct </span>ReportStateAndNotificationResponse {
     <span class="doccomment">/// Request ID copied from
     /// [ReportStateAndNotificationRequest][google.home.graph.v1.ReportStateAndNotificationRequest].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Payload containing the state and notification information for devices.
@@ -852,7 +853,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StateAndNotificationPayload {
     <span class="doccomment">/// The devices for updating state and sending notifications.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>devices: ::core::option::Option&lt;ReportStateAndNotificationDevice&gt;,
 }
 <span class="doccomment">/// The states and notifications specific to a device.
@@ -862,12 +863,12 @@
     <span class="doccomment">/// States of devices to update. See the **Device STATES** section
     /// of the individual trait [reference
     /// guides](&lt;https://developers.home.google.com/cloud-to-cloud/traits&gt;).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>states: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// Notifications metadata for devices. See the **Device NOTIFICATIONS**
     /// section of the individual trait [reference
     /// guides](&lt;https://developers.home.google.com/cloud-to-cloud/traits&gt;).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>notifications: ::core::option::Option&lt;::prost_types::Struct&gt;,
 }
 <span class="doccomment">/// Request type for the
@@ -877,10 +878,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteAgentUserRequest {
     <span class="doccomment">/// Request ID used for debugging.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Third-party user ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>agent_user_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request type for the
@@ -889,14 +890,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryRequest {
     <span class="doccomment">/// Request ID used for debugging.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Third-party user ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>agent_user_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Inputs containing third-party device IDs for which to
     /// get the device states.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>inputs: ::prost::alloc::vec::Vec&lt;QueryRequestInput&gt;,
 }
 <span class="doccomment">/// Device ID inputs to [QueryRequest][google.home.graph.v1.QueryRequest].
@@ -904,7 +905,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryRequestInput {
     <span class="doccomment">/// Payload containing third-party device IDs.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>payload: ::core::option::Option&lt;QueryRequestPayload&gt;,
 }
 <span class="doccomment">/// Payload containing device IDs.
@@ -912,7 +913,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryRequestPayload {
     <span class="doccomment">/// Third-party device IDs for which to get the device states.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>devices: ::prost::alloc::vec::Vec&lt;AgentDeviceId&gt;,
 }
 <span class="doccomment">/// Third-party device ID for one device.
@@ -920,7 +921,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AgentDeviceId {
     <span class="doccomment">/// Third-party device ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response type for the
@@ -933,20 +934,20 @@
 ///
 /// ```json
 /// {
-///    &quot;requestId&quot;: &quot;ff36a3cc-ec34-11e6-b1a0-64510650abcf&quot;,
-///    &quot;payload&quot;: {
-///      &quot;devices&quot;: {
-///        &quot;123&quot;: {
-///          &quot;on&quot;: true,
-///          &quot;online&quot;: true
+///    "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
+///    "payload": {
+///      "devices": {
+///        "123": {
+///          "on": true,
+///          "online": true
 ///        },
-///        &quot;456&quot;: {
-///          &quot;on&quot;: true,
-///          &quot;online&quot;: true,
-///          &quot;brightness&quot;: 80,
-///          &quot;color&quot;: {
-///            &quot;name&quot;: &quot;cerulean&quot;,
-///            &quot;spectrumRGB&quot;: 31655
+///        "456": {
+///          "on": true,
+///          "online": true,
+///          "brightness": 80,
+///          "color": {
+///            "name": "cerulean",
+///            "spectrumRGB": 31655
 ///          }
 ///        }
 ///      }
@@ -957,10 +958,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryResponse {
     <span class="doccomment">/// Request ID used for debugging. Copied from the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Device states for the devices given in the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>payload: ::core::option::Option&lt;QueryResponsePayload&gt;,
 }
 <span class="doccomment">/// Payload containing device states information.
@@ -969,7 +970,7 @@
 </span><span class="kw">pub struct </span>QueryResponsePayload {
     <span class="doccomment">/// States of the devices. Map of third-party device ID to struct of device
     /// states.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>devices: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost_types::Struct,
@@ -981,10 +982,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SyncRequest {
     <span class="doccomment">/// Request ID used for debugging.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Third-party user ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>agent_user_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response type for the
@@ -997,31 +998,31 @@
 ///
 /// ```json
 /// {
-///    &quot;requestId&quot;: &quot;ff36a3cc-ec34-11e6-b1a0-64510650abcf&quot;,
-///    &quot;payload&quot;: {
-///      &quot;agentUserId&quot;: &quot;1836.15267389&quot;,
-///      &quot;devices&quot;: [{
-///        &quot;id&quot;: &quot;123&quot;,
-///        &quot;type&quot;: &quot;action.devices.types.OUTLET&quot;,
-///        &quot;traits&quot;: [
-///          &quot;action.devices.traits.OnOff&quot;
+///    "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
+///    "payload": {
+///      "agentUserId": "1836.15267389",
+///      "devices": [{
+///        "id": "123",
+///        "type": "action.devices.types.OUTLET",
+///        "traits": [
+///          "action.devices.traits.OnOff"
 ///        ],
-///        &quot;name&quot;: {
-///          &quot;defaultNames&quot;: \[&quot;My Outlet 1234&quot;\],
-///          &quot;name&quot;: &quot;Night light&quot;,
-///          &quot;nicknames&quot;: \[&quot;wall plug&quot;\]
+///        "name": {
+///          "defaultNames": \["My Outlet 1234"\],
+///          "name": "Night light",
+///          "nicknames": \["wall plug"\]
 ///        },
-///        &quot;willReportState&quot;: false,
-///        &quot;deviceInfo&quot;: {
-///          &quot;manufacturer&quot;: &quot;lights-out-inc&quot;,
-///          &quot;model&quot;: &quot;hs1234&quot;,
-///          &quot;hwVersion&quot;: &quot;3.2&quot;,
-///          &quot;swVersion&quot;: &quot;11.4&quot;
+///        "willReportState": false,
+///        "deviceInfo": {
+///          "manufacturer": "lights-out-inc",
+///          "model": "hs1234",
+///          "hwVersion": "3.2",
+///          "swVersion": "11.4"
 ///        },
-///        &quot;customData&quot;: {
-///          &quot;fooValue&quot;: 74,
-///          &quot;barValue&quot;: true,
-///          &quot;bazValue&quot;: &quot;foo&quot;
+///        "customData": {
+///          "fooValue": 74,
+///          "barValue": true,
+///          "bazValue": "foo"
 ///        }
 ///      }]
 ///    }
@@ -1031,10 +1032,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SyncResponse {
     <span class="doccomment">/// Request ID used for debugging. Copied from the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Devices associated with the third-party user.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>payload: ::core::option::Option&lt;SyncResponsePayload&gt;,
 }
 <span class="doccomment">/// Payload containing device information.
@@ -1042,10 +1043,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SyncResponsePayload {
     <span class="doccomment">/// Third-party user ID
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>agent_user_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Devices associated with the third-party user.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>devices: ::prost::alloc::vec::Vec&lt;Device&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1054,7 +1055,7 @@
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
     <span class="doccomment">/// Google Home Graph API service. The Home Graph service provides support for
-    /// accessing first-party and third-party devices stored in Google&#39;s Home Graph.
+    /// accessing first-party and third-party devices stored in Google's Home Graph.
     /// The Home Graph database provides contextual data about the relationships
     /// between devices and the home.
     ///
@@ -1068,7 +1069,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1134,7 +1135,7 @@
         /// to your smart home Action to update device metadata for the given user.
         ///
         ///
-        /// The third-party user&#39;s identity is passed via the `agent_user_id`
+        /// The third-party user's identity is passed via the `agent_user_id`
         /// (see
         /// [RequestSyncDevicesRequest][google.home.graph.v1.RequestSyncDevicesRequest]).
         /// This request must be authorized using service account credentials from your
@@ -1152,19 +1153,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.home.graph.v1.HomeGraphApiService/RequestSyncDevices&quot;</span>,
+                <span class="string">"/google.home.graph.v1.HomeGraphApiService/RequestSyncDevices"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.home.graph.v1.HomeGraphApiService&quot;</span>,
-                        <span class="string">&quot;RequestSyncDevices&quot;</span>,
+                        <span class="string">"google.home.graph.v1.HomeGraphApiService"</span>,
+                        <span class="string">"RequestSyncDevices"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1181,7 +1182,7 @@
         /// Publishing a new state value outside of these traits will result in an
         /// `INVALID_ARGUMENT` error response.
         ///
-        /// The third-party user&#39;s identity is passed in via the `agent_user_id`
+        /// The third-party user's identity is passed in via the `agent_user_id`
         /// (see
         /// [ReportStateAndNotificationRequest][google.home.graph.v1.ReportStateAndNotificationRequest]).
         /// This request must be authorized using service account credentials from your
@@ -1199,19 +1200,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.home.graph.v1.HomeGraphApiService/ReportStateAndNotification&quot;</span>,
+                <span class="string">"/google.home.graph.v1.HomeGraphApiService/ReportStateAndNotification"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.home.graph.v1.HomeGraphApiService&quot;</span>,
-                        <span class="string">&quot;ReportStateAndNotification&quot;</span>,
+                        <span class="string">"google.home.graph.v1.HomeGraphApiService"</span>,
+                        <span class="string">"ReportStateAndNotification"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1223,7 +1224,7 @@
         /// [fulfillment and
         /// authentication](https://developers.home.google.com/cloud-to-cloud/primer/fulfillment).
         ///
-        /// The third-party user&#39;s identity is passed in via the `agent_user_id`
+        /// The third-party user's identity is passed in via the `agent_user_id`
         /// (see
         /// [DeleteAgentUserRequest][google.home.graph.v1.DeleteAgentUserRequest]).
         /// This request must be authorized using service account credentials from your
@@ -1238,27 +1239,27 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.home.graph.v1.HomeGraphApiService/DeleteAgentUser&quot;</span>,
+                <span class="string">"/google.home.graph.v1.HomeGraphApiService/DeleteAgentUser"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.home.graph.v1.HomeGraphApiService&quot;</span>,
-                        <span class="string">&quot;DeleteAgentUser&quot;</span>,
+                        <span class="string">"google.home.graph.v1.HomeGraphApiService"</span>,
+                        <span class="string">"DeleteAgentUser"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Gets the current states in Home Graph for the given set of the third-party
-        /// user&#39;s devices.
+        /// user's devices.
         ///
-        /// The third-party user&#39;s identity is passed in via the `agent_user_id`
+        /// The third-party user's identity is passed in via the `agent_user_id`
         /// (see [QueryRequest][google.home.graph.v1.QueryRequest]).
         /// This request must be authorized using service account credentials from your
         /// Actions console project.
@@ -1272,23 +1273,23 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.home.graph.v1.HomeGraphApiService/Query&quot;</span>,
+                <span class="string">"/google.home.graph.v1.HomeGraphApiService/Query"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.home.graph.v1.HomeGraphApiService&quot;</span>, <span class="string">&quot;Query&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.home.graph.v1.HomeGraphApiService"</span>, <span class="string">"Query"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Gets all the devices associated with the given third-party user.
         ///
-        /// The third-party user&#39;s identity is passed in via the `agent_user_id`
+        /// The third-party user's identity is passed in via the `agent_user_id`
         /// (see [SyncRequest][google.home.graph.v1.SyncRequest]).
         /// This request must be authorized using service account credentials from your
         /// Actions console project.
@@ -1302,17 +1303,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.home.graph.v1.HomeGraphApiService/Sync&quot;</span>,
+                <span class="string">"/google.home.graph.v1.HomeGraphApiService/Sync"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.home.graph.v1.HomeGraphApiService&quot;</span>, <span class="string">&quot;Sync&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.home.graph.v1.HomeGraphApiService"</span>, <span class="string">"Sync"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/redis/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/redis/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1576,11 +1577,11 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>NodeInfo {
-    <span class="doccomment">/// Output only. Node identifying string. e.g. &#39;node-0&#39;, &#39;node-1&#39;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Output only. Node identifying string. e.g. 'node-0', 'node-1'
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Location of the node.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>zone: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A Memorystore for Redis instance.
@@ -1598,13 +1599,13 @@
     /// [location_id][google.cloud.redis.v1.Instance.location_id] and
     /// [alternative_location_id][google.cloud.redis.v1.Instance.alternative_location_id]
     /// fields for more details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// An arbitrary and optional user-provided name for the instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Resource labels to represent user provided metadata
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1614,14 +1615,14 @@
     /// For standard tier, additional nodes will be added across multiple zones for
     /// protection against zonal failures. If specified, at least one node will be
     /// provisioned in this zone.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>location_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. If specified, at least one node will be provisioned in this zone
     /// in addition to the zone specified in location_id. Only applicable to
     /// standard tier. If provided, it must be a different zone from the one
     /// provided in \[location_id\]. Additional nodes beyond the first 2 will be
     /// placed in zones selected by the service.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>alternative_location_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The version of Redis software.
     /// If not provided, latest supported version will be used. Currently, the
@@ -1631,7 +1632,7 @@
     ///   *   `REDIS_4_0` for Redis 4.0 compatibility (default)
     ///   *   `REDIS_5_0` for Redis 5.0 compatibility
     ///   *   `REDIS_6_X` for Redis 6.x compatibility
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>redis_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. For DIRECT_PEERING mode, the CIDR range of internal addresses
     /// that are reserved for this instance. Range must
@@ -1641,36 +1642,36 @@
     /// If not provided, the service will choose an unused /29 block, for
     /// example, 10.0.0.0/29 or 192.168.0.0/29.  For READ_REPLICAS_ENABLED
     /// the default block size is /28.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>reserved_ip_range: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Additional IP range for node placement. Required when enabling
     /// read replicas on an existing instance. For DIRECT_PEERING mode value must
-    /// be a CIDR range of size /28, or &quot;auto&quot;. For PRIVATE_SERVICE_ACCESS mode
+    /// be a CIDR range of size /28, or "auto". For PRIVATE_SERVICE_ACCESS mode
     /// value must be the name of an allocated address range associated with the
-    /// private service access connection, or &quot;auto&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;30&quot;</span>)]
+    /// private service access connection, or "auto".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"30"</span>)]
     </span><span class="kw">pub </span>secondary_ip_range: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Hostname or IP address of the exposed Redis endpoint used by
     /// clients to connect to the service.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>host: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The port number of the exposed Redis endpoint.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>port: i32,
     <span class="doccomment">/// Output only. The current zone where the Redis primary node is located. In
     /// basic tier, this will always be the same as \[location_id\]. In
     /// standard tier, this can be the zone of any node in the instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>current_location_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time the instance was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The current state of this instance.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;instance::State&quot;</span>, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"instance::State"</span>, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Additional information about the current status of this
     /// instance, if available.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>status_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Redis configuration parameters, according to
     /// &lt;http://redis.io/topics/config.&gt; Currently, the only supported parameters
@@ -1692,100 +1693,100 @@
     ///
     ///   *   stream-node-max-bytes
     ///   *   stream-node-max-entries
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>redis_configs: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Required. The service tier of the instance.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;instance::Tier&quot;</span>, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"instance::Tier"</span>, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>tier: i32,
     <span class="doccomment">/// Required. Redis memory size in GiB.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>memory_size_gb: i32,
     <span class="doccomment">/// Optional. The full name of the Google Compute Engine
     /// [network](&lt;https://cloud.google.com/vpc/docs/vpc&gt;) to which the
     /// instance is connected. If left unspecified, the `default` network
     /// will be used.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>authorized_network: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Cloud IAM identity used by import / export operations to
     /// transfer data to/from Cloud Storage. Format is
-    /// &quot;serviceAccount:&lt;service_account_email&gt;&quot;. The value may change over time
+    /// "serviceAccount:&lt;service_account_email&gt;". The value may change over time
     /// for a given instance so should be checked before each import/export
     /// operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>persistence_iam_identity: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The network connect mode of the Redis instance.
     /// If not provided, the connect mode defaults to DIRECT_PEERING.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;instance::ConnectMode&quot;</span>, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"instance::ConnectMode"</span>, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>connect_mode: i32,
     <span class="doccomment">/// Optional. Indicates whether OSS Redis AUTH is enabled for the instance. If
-    /// set to &quot;true&quot; AUTH is enabled on the instance. Default value is &quot;false&quot;
+    /// set to "true" AUTH is enabled on the instance. Default value is "false"
     /// meaning AUTH is disabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>auth_enabled: bool,
     <span class="doccomment">/// Output only. List of server CA certificates for the instance.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"25"</span>)]
     </span><span class="kw">pub </span>server_ca_certs: ::prost::alloc::vec::Vec&lt;TlsCertificate&gt;,
     <span class="doccomment">/// Optional. The TLS mode of the Redis instance.
     /// If not provided, TLS is disabled for the instance.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;instance::TransitEncryptionMode&quot;</span>, tag = <span class="string">&quot;26&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"instance::TransitEncryptionMode"</span>, tag = <span class="string">"26"</span>)]
     </span><span class="kw">pub </span>transit_encryption_mode: i32,
     <span class="doccomment">/// Optional. The maintenance policy for the instance. If not provided,
     /// maintenance events can be performed at any time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;27&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"27"</span>)]
     </span><span class="kw">pub </span>maintenance_policy: ::core::option::Option&lt;MaintenancePolicy&gt;,
     <span class="doccomment">/// Output only. Date and time of upcoming maintenance events which have been
     /// scheduled.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"28"</span>)]
     </span><span class="kw">pub </span>maintenance_schedule: ::core::option::Option&lt;MaintenanceSchedule&gt;,
     <span class="doccomment">/// Optional. The number of replica nodes. The valid range for the Standard
     /// Tier with read replicas enabled is \[1-5\] and defaults to 2. If read
     /// replicas are not enabled for a Standard Tier instance, the only valid value
     /// is 1 and the default is 1. The valid value for basic tier is 0 and the
     /// default is also 0.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;31&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"31"</span>)]
     </span><span class="kw">pub </span>replica_count: i32,
     <span class="doccomment">/// Output only. Info per node.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;32&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"32"</span>)]
     </span><span class="kw">pub </span>nodes: ::prost::alloc::vec::Vec&lt;NodeInfo&gt;,
     <span class="doccomment">/// Output only. Hostname or IP address of the exposed readonly Redis
     /// endpoint. Standard tier only. Targets all healthy replica nodes in
     /// instance. Replication is asynchronous and replica nodes will exhibit some
-    /// lag behind the primary. Write requests must target &#39;host&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;33&quot;</span>)]
+    /// lag behind the primary. Write requests must target 'host'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"33"</span>)]
     </span><span class="kw">pub </span>read_endpoint: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The port number of the exposed readonly redis
-    /// endpoint. Standard tier only. Write requests should target &#39;port&#39;.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;34&quot;</span>)]
+    /// endpoint. Standard tier only. Write requests should target 'port'.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"34"</span>)]
     </span><span class="kw">pub </span>read_endpoint_port: i32,
     <span class="doccomment">/// Optional. Read replicas mode for the instance. Defaults to
     /// READ_REPLICAS_DISABLED.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;instance::ReadReplicasMode&quot;</span>, tag = <span class="string">&quot;35&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"instance::ReadReplicasMode"</span>, tag = <span class="string">"35"</span>)]
     </span><span class="kw">pub </span>read_replicas_mode: i32,
     <span class="doccomment">/// Optional. The KMS key reference that the customer provides when trying to
     /// create the instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;36&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"36"</span>)]
     </span><span class="kw">pub </span>customer_managed_key: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Persistence configuration parameters
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;37&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"37"</span>)]
     </span><span class="kw">pub </span>persistence_config: ::core::option::Option&lt;PersistenceConfig&gt;,
-    <span class="doccomment">/// Optional. reasons that causes instance in &quot;SUSPENDED&quot; state.
+    <span class="doccomment">/// Optional. reasons that causes instance in "SUSPENDED" state.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;instance::SuspensionReason&quot;</span>,
+        enumeration = <span class="string">"instance::SuspensionReason"</span>,
         repeated,
-        packed = <span class="string">&quot;false&quot;</span>,
-        tag = <span class="string">&quot;38&quot;
+        packed = <span class="string">"false"</span>,
+        tag = <span class="string">"38"
     </span>)]
     </span><span class="kw">pub </span>suspension_reasons: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Optional. The self service update maintenance version.
-    /// The version is date based such as &quot;20210712_00_00&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;39&quot;</span>)]
+    /// The version is date based such as "20210712_00_00".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"39"</span>)]
     </span><span class="kw">pub </span>maintenance_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The available maintenance versions that an instance could update
     /// to.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;40&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"40"</span>)]
     </span><span class="kw">pub </span>available_maintenance_versions: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
@@ -1832,31 +1833,31 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Repairing =&gt; <span class="string">&quot;REPAIRING&quot;</span>,
-                State::Maintenance =&gt; <span class="string">&quot;MAINTENANCE&quot;</span>,
-                State::Importing =&gt; <span class="string">&quot;IMPORTING&quot;</span>,
-                State::FailingOver =&gt; <span class="string">&quot;FAILING_OVER&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Ready =&gt; <span class="string">"READY"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Repairing =&gt; <span class="string">"REPAIRING"</span>,
+                State::Maintenance =&gt; <span class="string">"MAINTENANCE"</span>,
+                State::Importing =&gt; <span class="string">"IMPORTING"</span>,
+                State::FailingOver =&gt; <span class="string">"FAILING_OVER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;REPAIRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Repairing),
-                <span class="string">&quot;MAINTENANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Maintenance),
-                <span class="string">&quot;IMPORTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Importing),
-                <span class="string">&quot;FAILING_OVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailingOver),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"READY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"REPAIRING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Repairing),
+                <span class="string">"MAINTENANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Maintenance),
+                <span class="string">"IMPORTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Importing),
+                <span class="string">"FAILING_OVER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailingOver),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1887,19 +1888,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Tier::Unspecified =&gt; <span class="string">&quot;TIER_UNSPECIFIED&quot;</span>,
-                Tier::Basic =&gt; <span class="string">&quot;BASIC&quot;</span>,
-                Tier::StandardHa =&gt; <span class="string">&quot;STANDARD_HA&quot;</span>,
+                Tier::Unspecified =&gt; <span class="string">"TIER_UNSPECIFIED"</span>,
+                Tier::Basic =&gt; <span class="string">"BASIC"</span>,
+                Tier::StandardHa =&gt; <span class="string">"STANDARD_HA"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TIER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-                <span class="string">&quot;STANDARD_HA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StandardHa),
+                <span class="string">"TIER_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"BASIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+                <span class="string">"STANDARD_HA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StandardHa),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1932,19 +1933,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ConnectMode::Unspecified =&gt; <span class="string">&quot;CONNECT_MODE_UNSPECIFIED&quot;</span>,
-                ConnectMode::DirectPeering =&gt; <span class="string">&quot;DIRECT_PEERING&quot;</span>,
-                ConnectMode::PrivateServiceAccess =&gt; <span class="string">&quot;PRIVATE_SERVICE_ACCESS&quot;</span>,
+                ConnectMode::Unspecified =&gt; <span class="string">"CONNECT_MODE_UNSPECIFIED"</span>,
+                ConnectMode::DirectPeering =&gt; <span class="string">"DIRECT_PEERING"</span>,
+                ConnectMode::PrivateServiceAccess =&gt; <span class="string">"PRIVATE_SERVICE_ACCESS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CONNECT_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DIRECT_PEERING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DirectPeering),
-                <span class="string">&quot;PRIVATE_SERVICE_ACCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateServiceAccess),
+                <span class="string">"CONNECT_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DIRECT_PEERING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DirectPeering),
+                <span class="string">"PRIVATE_SERVICE_ACCESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateServiceAccess),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1975,21 +1976,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
                 TransitEncryptionMode::Unspecified =&gt; {
-                    <span class="string">&quot;TRANSIT_ENCRYPTION_MODE_UNSPECIFIED&quot;
+                    <span class="string">"TRANSIT_ENCRYPTION_MODE_UNSPECIFIED"
                 </span>}
-                TransitEncryptionMode::ServerAuthentication =&gt; <span class="string">&quot;SERVER_AUTHENTICATION&quot;</span>,
-                TransitEncryptionMode::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                TransitEncryptionMode::ServerAuthentication =&gt; <span class="string">"SERVER_AUTHENTICATION"</span>,
+                TransitEncryptionMode::Disabled =&gt; <span class="string">"DISABLED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TRANSIT_ENCRYPTION_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SERVER_AUTHENTICATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServerAuthentication),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">"TRANSIT_ENCRYPTION_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SERVER_AUTHENTICATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServerAuthentication),
+                <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2023,24 +2024,24 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ReadReplicasMode::Unspecified =&gt; <span class="string">&quot;READ_REPLICAS_MODE_UNSPECIFIED&quot;</span>,
-                ReadReplicasMode::ReadReplicasDisabled =&gt; <span class="string">&quot;READ_REPLICAS_DISABLED&quot;</span>,
-                ReadReplicasMode::ReadReplicasEnabled =&gt; <span class="string">&quot;READ_REPLICAS_ENABLED&quot;</span>,
+                ReadReplicasMode::Unspecified =&gt; <span class="string">"READ_REPLICAS_MODE_UNSPECIFIED"</span>,
+                ReadReplicasMode::ReadReplicasDisabled =&gt; <span class="string">"READ_REPLICAS_DISABLED"</span>,
+                ReadReplicasMode::ReadReplicasEnabled =&gt; <span class="string">"READ_REPLICAS_ENABLED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;READ_REPLICAS_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;READ_REPLICAS_DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadReplicasDisabled),
-                <span class="string">&quot;READ_REPLICAS_ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadReplicasEnabled),
+                <span class="string">"READ_REPLICAS_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"READ_REPLICAS_DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadReplicasDisabled),
+                <span class="string">"READ_REPLICAS_ENABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReadReplicasEnabled),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
-    <span class="doccomment">/// Possible reasons for the instance to be in a &quot;SUSPENDED&quot; state.
+    <span class="doccomment">/// Possible reasons for the instance to be in a "SUSPENDED" state.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -2064,17 +2065,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SuspensionReason::Unspecified =&gt; <span class="string">&quot;SUSPENSION_REASON_UNSPECIFIED&quot;</span>,
-                SuspensionReason::CustomerManagedKeyIssue =&gt; <span class="string">&quot;CUSTOMER_MANAGED_KEY_ISSUE&quot;</span>,
+                SuspensionReason::Unspecified =&gt; <span class="string">"SUSPENSION_REASON_UNSPECIFIED"</span>,
+                SuspensionReason::CustomerManagedKeyIssue =&gt; <span class="string">"CUSTOMER_MANAGED_KEY_ISSUE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SUSPENSION_REASON_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CUSTOMER_MANAGED_KEY_ISSUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomerManagedKeyIssue),
+                <span class="string">"SUSPENSION_REASON_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CUSTOMER_MANAGED_KEY_ISSUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomerManagedKeyIssue),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2086,7 +2087,7 @@
 </span><span class="kw">pub struct </span>PersistenceConfig {
     <span class="doccomment">/// Optional. Controls whether Persistence features are enabled.
     /// If not provided, the existing value will be used.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;persistence_config::PersistenceMode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"persistence_config::PersistenceMode"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>persistence_mode: i32,
     <span class="doccomment">/// Optional. Period between RDB snapshots. Snapshots will be attempted every
     /// period starting from the provided snapshot start time. For example, a start
@@ -2094,15 +2095,15 @@
     /// until 01/01/2033, and then trigger snapshots every day at 06:45, 12:45,
     /// 18:45, and 00:45 the next day, and so on. If not provided,
     /// TWENTY_FOUR_HOURS will be used as default.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;persistence_config::SnapshotPeriod&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"persistence_config::SnapshotPeriod"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>rdb_snapshot_period: i32,
     <span class="doccomment">/// Output only. The next time that a snapshot attempt is scheduled to occur.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>rdb_next_snapshot_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Date and time that the first snapshot was/will be attempted, and
     /// to which future snapshots will be aligned. If not provided, the current
     /// time will be used.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>rdb_snapshot_start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PersistenceConfig`.
@@ -2134,19 +2135,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                PersistenceMode::Unspecified =&gt; <span class="string">&quot;PERSISTENCE_MODE_UNSPECIFIED&quot;</span>,
-                PersistenceMode::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                PersistenceMode::Rdb =&gt; <span class="string">&quot;RDB&quot;</span>,
+                PersistenceMode::Unspecified =&gt; <span class="string">"PERSISTENCE_MODE_UNSPECIFIED"</span>,
+                PersistenceMode::Disabled =&gt; <span class="string">"DISABLED"</span>,
+                PersistenceMode::Rdb =&gt; <span class="string">"RDB"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PERSISTENCE_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;RDB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rdb),
+                <span class="string">"PERSISTENCE_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">"RDB" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rdb),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2181,23 +2182,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SnapshotPeriod::Unspecified =&gt; <span class="string">&quot;SNAPSHOT_PERIOD_UNSPECIFIED&quot;</span>,
-                SnapshotPeriod::OneHour =&gt; <span class="string">&quot;ONE_HOUR&quot;</span>,
-                SnapshotPeriod::SixHours =&gt; <span class="string">&quot;SIX_HOURS&quot;</span>,
-                SnapshotPeriod::TwelveHours =&gt; <span class="string">&quot;TWELVE_HOURS&quot;</span>,
-                SnapshotPeriod::TwentyFourHours =&gt; <span class="string">&quot;TWENTY_FOUR_HOURS&quot;</span>,
+                SnapshotPeriod::Unspecified =&gt; <span class="string">"SNAPSHOT_PERIOD_UNSPECIFIED"</span>,
+                SnapshotPeriod::OneHour =&gt; <span class="string">"ONE_HOUR"</span>,
+                SnapshotPeriod::SixHours =&gt; <span class="string">"SIX_HOURS"</span>,
+                SnapshotPeriod::TwelveHours =&gt; <span class="string">"TWELVE_HOURS"</span>,
+                SnapshotPeriod::TwentyFourHours =&gt; <span class="string">"TWENTY_FOUR_HOURS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SNAPSHOT_PERIOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ONE_HOUR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OneHour),
-                <span class="string">&quot;SIX_HOURS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SixHours),
-                <span class="string">&quot;TWELVE_HOURS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TwelveHours),
-                <span class="string">&quot;TWENTY_FOUR_HOURS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TwentyFourHours),
+                <span class="string">"SNAPSHOT_PERIOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ONE_HOUR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OneHour),
+                <span class="string">"SIX_HOURS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SixHours),
+                <span class="string">"TWELVE_HOURS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TwelveHours),
+                <span class="string">"TWENTY_FOUR_HOURS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TwentyFourHours),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2211,16 +2212,16 @@
     <span class="doccomment">/// Required. Redis instance resource name using the form:
     ///      `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
     /// where `location_id` refers to a GCP region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. If reschedule type is SPECIFIC_TIME, must set up schedule_time as
     /// well.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;reschedule_maintenance_request::RescheduleType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"reschedule_maintenance_request::RescheduleType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>reschedule_type: i32,
     <span class="doccomment">/// Optional. Timestamp when the maintenance shall be rescheduled to if
     /// reschedule_type=SPECIFIC_TIME, in RFC 3339 format, for
     /// example `2012-11-15T16:19:00.094Z`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>schedule_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RescheduleMaintenanceRequest`.
@@ -2254,21 +2255,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RescheduleType::Unspecified =&gt; <span class="string">&quot;RESCHEDULE_TYPE_UNSPECIFIED&quot;</span>,
-                RescheduleType::Immediate =&gt; <span class="string">&quot;IMMEDIATE&quot;</span>,
-                RescheduleType::NextAvailableWindow =&gt; <span class="string">&quot;NEXT_AVAILABLE_WINDOW&quot;</span>,
-                RescheduleType::SpecificTime =&gt; <span class="string">&quot;SPECIFIC_TIME&quot;</span>,
+                RescheduleType::Unspecified =&gt; <span class="string">"RESCHEDULE_TYPE_UNSPECIFIED"</span>,
+                RescheduleType::Immediate =&gt; <span class="string">"IMMEDIATE"</span>,
+                RescheduleType::NextAvailableWindow =&gt; <span class="string">"NEXT_AVAILABLE_WINDOW"</span>,
+                RescheduleType::SpecificTime =&gt; <span class="string">"SPECIFIC_TIME"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RESCHEDULE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;IMMEDIATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Immediate),
-                <span class="string">&quot;NEXT_AVAILABLE_WINDOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextAvailableWindow),
-                <span class="string">&quot;SPECIFIC_TIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpecificTime),
+                <span class="string">"RESCHEDULE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"IMMEDIATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Immediate),
+                <span class="string">"NEXT_AVAILABLE_WINDOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NextAvailableWindow),
+                <span class="string">"SPECIFIC_TIME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpecificTime),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2279,19 +2280,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MaintenancePolicy {
     <span class="doccomment">/// Output only. The time when the policy was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the policy was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Description of what this policy is for. Create/Update methods
     /// return INVALID_ARGUMENT if the length is greater than 512.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maintenance window that is applied to resources covered by this
     /// policy. Minimum 1. For the current version, the maximum number of
     /// weekly_window is expected to be one.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>weekly_maintenance_window: ::prost::alloc::vec::Vec&lt;WeeklyMaintenanceWindow&gt;,
 }
 <span class="doccomment">/// Time window in which disruptive maintenance updates occur. Non-disruptive
@@ -2300,14 +2301,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>WeeklyMaintenanceWindow {
     <span class="doccomment">/// Required. The day of week that maintenance updates occur.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::super::super::r#type::DayOfWeek&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"super::super::super::r#type::DayOfWeek"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>day: i32,
     <span class="doccomment">/// Required. Start time of the window in UTC time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::TimeOfDay&gt;,
     <span class="doccomment">/// Output only. Duration of the maintenance window. The current window is
     /// fixed at 1 hour.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Upcoming maintenance schedule. If no maintenance is scheduled, fields are not
@@ -2317,19 +2318,19 @@
 </span><span class="kw">pub struct </span>MaintenanceSchedule {
     <span class="doccomment">/// Output only. The start time of any upcoming scheduled maintenance for this
     /// instance.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The end time of any upcoming scheduled maintenance for this
     /// instance.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// If the scheduled maintenance can be rescheduled, default is true.
     </span><span class="attr">#[deprecated]
-    #[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    #[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>can_reschedule: bool,
     <span class="doccomment">/// Output only. The deadline that the maintenance schedule start time can not
     /// go beyond, including reschedule.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>schedule_deadline_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request for [ListInstances][google.cloud.redis.v1.CloudRedis.ListInstances].
@@ -2339,21 +2340,21 @@
     <span class="doccomment">/// Required. The resource name of the instance location using the form:
     ///      `projects/{project_id}/locations/{location_id}`
     /// where `location_id` refers to a GCP region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return.
     ///
     /// If not specified, a default value of 1000 will be used by the service.
     /// Regardless of the page_size value, the response may include a partial list
-    /// and a caller should only rely on response&#39;s
+    /// and a caller should only rely on response's
     /// [`next_page_token`][google.cloud.redis.v1.ListInstancesResponse.next_page_token]
     /// to determine if there are more instances left to be queried.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The `next_page_token` value returned from a previous
     /// [ListInstances][google.cloud.redis.v1.CloudRedis.ListInstances] request, if
     /// any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for [ListInstances][google.cloud.redis.v1.CloudRedis.ListInstances].
@@ -2363,22 +2364,22 @@
     <span class="doccomment">/// A list of Redis instances in the project in the specified location,
     /// or across all locations.
     ///
-    /// If the `location_id` in the parent field of the request is &quot;-&quot;, all regions
+    /// If the `location_id` in the parent field of the request is "-", all regions
     /// available to the project are queried, and the results aggregated.
     /// If in such an aggregated query a location is unavailable, a placeholder
     /// Redis entry is included in the response with the `name` field set to a
     /// value of the form
     /// `projects/{project_id}/locations/{location_id}/instances/`- and the
-    /// `status` field set to ERROR and `status_message` field set to &quot;location not
-    /// available for ListInstances&quot;.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    /// `status` field set to ERROR and `status_message` field set to "location not
+    /// available for ListInstances".
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>instances: ::prost::alloc::vec::Vec&lt;Instance&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more
     /// results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request for [GetInstance][google.cloud.redis.v1.CloudRedis.GetInstance].
@@ -2388,7 +2389,7 @@
     <span class="doccomment">/// Required. Redis instance resource name using the form:
     ///      `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
     /// where `location_id` refers to a GCP region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
@@ -2399,7 +2400,7 @@
     <span class="doccomment">/// Required. Redis instance resource name using the form:
     ///      `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
     /// where `location_id` refers to a GCP region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Instance AUTH string details.
@@ -2407,7 +2408,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InstanceAuthString {
     <span class="doccomment">/// AUTH string set on the instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>auth_string: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
@@ -2418,7 +2419,7 @@
     <span class="doccomment">/// Required. The resource name of the instance location using the form:
     ///      `projects/{project_id}/locations/{location_id}`
     /// where `location_id` refers to a GCP region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The logical name of the Redis instance in the customer project
     /// with the following restrictions:
@@ -2428,10 +2429,10 @@
     /// * Must be between 1-40 characters.
     /// * Must end with a number or a letter.
     /// * Must be unique within the customer project / location
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. A Redis \[Instance\] resource
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>instance: ::core::option::Option&lt;Instance&gt;,
 }
 <span class="doccomment">/// Request for
@@ -2448,11 +2449,11 @@
     ///   *   `memorySizeGb`
     ///   *   `redisConfig`
     ///   *   `replica_count`
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// Required. Update description.
     /// Only fields specified in update_mask are updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>instance: ::core::option::Option&lt;Instance&gt;,
 }
 <span class="doccomment">/// Request for
@@ -2463,10 +2464,10 @@
     <span class="doccomment">/// Required. Redis instance resource name using the form:
     ///      `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
     /// where `location_id` refers to a GCP region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Specifies the target version of Redis software to upgrade to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>redis_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for
@@ -2477,15 +2478,15 @@
     <span class="doccomment">/// Required. Redis instance resource name using the form:
     ///      `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
     /// where `location_id` refers to a GCP region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The Cloud Storage location for the input content
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GcsSource {
-    <span class="doccomment">/// Required. Source data URI. (e.g. &#39;gs://my_bucket/my_object&#39;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Required. Source data URI. (e.g. 'gs://my_bucket/my_object').
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The input content
@@ -2493,7 +2494,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InputConfig {
     <span class="doccomment">/// Required. Specify source location of input data
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;input_config::Source&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"input_config::Source"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;input_config::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `InputConfig`.
@@ -2503,7 +2504,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// Google Cloud Storage location where input content is located.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>GcsSource(<span class="kw">super</span>::GcsSource),
     }
 }
@@ -2514,10 +2515,10 @@
     <span class="doccomment">/// Required. Redis instance resource name using the form:
     ///      `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
     /// where `location_id` refers to a GCP region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Specify data to be imported.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;InputConfig&gt;,
 }
 <span class="doccomment">/// The Cloud Storage location for the output content
@@ -2525,8 +2526,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GcsDestination {
     <span class="doccomment">/// Required. Data destination URI (e.g.
-    /// &#39;gs://my_bucket/my_object&#39;). Existing files will be overwritten.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'gs://my_bucket/my_object'). Existing files will be overwritten.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The output content
@@ -2534,7 +2535,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OutputConfig {
     <span class="doccomment">/// Required. Specify destination location of output data
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;output_config::Destination&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"output_config::Destination"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;output_config::Destination&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `OutputConfig`.
@@ -2544,7 +2545,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Destination {
         <span class="doccomment">/// Google Cloud Storage destination for output content.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>GcsDestination(<span class="kw">super</span>::GcsDestination),
     }
 }
@@ -2555,10 +2556,10 @@
     <span class="doccomment">/// Required. Redis instance resource name using the form:
     ///      `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
     /// where `location_id` refers to a GCP region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Specify data to be exported.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>output_config: ::core::option::Option&lt;OutputConfig&gt;,
 }
 <span class="doccomment">/// Request for [Failover][google.cloud.redis.v1.CloudRedis.FailoverInstance].
@@ -2568,11 +2569,11 @@
     <span class="doccomment">/// Required. Redis instance resource name using the form:
     ///      `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
     /// where `location_id` refers to a GCP region.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. Available data protection modes that the user can choose. If it&#39;s
+    <span class="doccomment">/// Optional. Available data protection modes that the user can choose. If it's
     /// unspecified, data protection mode will be LIMITED_DATA_LOSS by default.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;failover_instance_request::DataProtectionMode&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"failover_instance_request::DataProtectionMode"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>data_protection_mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `FailoverInstanceRequest`.
@@ -2607,19 +2608,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DataProtectionMode::Unspecified =&gt; <span class="string">&quot;DATA_PROTECTION_MODE_UNSPECIFIED&quot;</span>,
-                DataProtectionMode::LimitedDataLoss =&gt; <span class="string">&quot;LIMITED_DATA_LOSS&quot;</span>,
-                DataProtectionMode::ForceDataLoss =&gt; <span class="string">&quot;FORCE_DATA_LOSS&quot;</span>,
+                DataProtectionMode::Unspecified =&gt; <span class="string">"DATA_PROTECTION_MODE_UNSPECIFIED"</span>,
+                DataProtectionMode::LimitedDataLoss =&gt; <span class="string">"LIMITED_DATA_LOSS"</span>,
+                DataProtectionMode::ForceDataLoss =&gt; <span class="string">"FORCE_DATA_LOSS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DATA_PROTECTION_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LIMITED_DATA_LOSS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LimitedDataLoss),
-                <span class="string">&quot;FORCE_DATA_LOSS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForceDataLoss),
+                <span class="string">"DATA_PROTECTION_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LIMITED_DATA_LOSS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LimitedDataLoss),
+                <span class="string">"FORCE_DATA_LOSS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForceDataLoss),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2630,25 +2631,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Creation timestamp.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// End timestamp.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Operation target.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// Operation verb.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>verb: ::prost::alloc::string::String,
     <span class="doccomment">/// Operation status details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status_detail: ::prost::alloc::string::String,
     <span class="doccomment">/// Specifies if cancellation was requested for the operation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>cancel_requested: bool,
     <span class="doccomment">/// API version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>api_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// This location metadata represents additional configuration options for a
@@ -2662,7 +2663,7 @@
     /// by the lowercase ID of each zone, as defined by GCE. These keys can be
     /// specified in `location_id` or `alternative_location_id` fields when
     /// creating a Redis instance.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>available_zones: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ZoneMetadata,
@@ -2678,23 +2679,23 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TlsCertificate {
     <span class="doccomment">/// Serial number, as extracted from the certificate.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>serial_number: ::prost::alloc::string::String,
     <span class="doccomment">/// PEM representation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>cert: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time when the certificate was created in [RFC
     /// 3339](&lt;https://tools.ietf.org/html/rfc3339&gt;) format, for example
     /// `2020-05-18T00:00:00.094Z`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the certificate expires in [RFC
     /// 3339](&lt;https://tools.ietf.org/html/rfc3339&gt;) format, for example
     /// `2020-05-18T00:00:00.094Z`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Sha1 Fingerprint of the certificate.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>sha1_fingerprint: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2725,7 +2726,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2808,17 +2809,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.redis.v1.CloudRedis/ListInstances&quot;</span>,
+                <span class="string">"/google.cloud.redis.v1.CloudRedis/ListInstances"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.redis.v1.CloudRedis&quot;</span>, <span class="string">&quot;ListInstances&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.redis.v1.CloudRedis"</span>, <span class="string">"ListInstances"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2833,17 +2834,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.redis.v1.CloudRedis/GetInstance&quot;</span>,
+                <span class="string">"/google.cloud.redis.v1.CloudRedis/GetInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.redis.v1.CloudRedis&quot;</span>, <span class="string">&quot;GetInstance&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.redis.v1.CloudRedis"</span>, <span class="string">"GetInstance"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2863,26 +2864,26 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.redis.v1.CloudRedis/GetInstanceAuthString&quot;</span>,
+                <span class="string">"/google.cloud.redis.v1.CloudRedis/GetInstanceAuthString"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.redis.v1.CloudRedis&quot;</span>,
-                        <span class="string">&quot;GetInstanceAuthString&quot;</span>,
+                        <span class="string">"google.cloud.redis.v1.CloudRedis"</span>,
+                        <span class="string">"GetInstanceAuthString"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Creates a Redis instance based on the specified tier and memory size.
         ///
-        /// By default, the instance is accessible from the project&#39;s
+        /// By default, the instance is accessible from the project's
         /// [default network](https://cloud.google.com/vpc/docs/vpc).
         ///
         /// The creation is executed asynchronously and callers may check the returned
@@ -2905,17 +2906,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.redis.v1.CloudRedis/CreateInstance&quot;</span>,
+                <span class="string">"/google.cloud.redis.v1.CloudRedis/CreateInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.redis.v1.CloudRedis&quot;</span>, <span class="string">&quot;CreateInstance&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.redis.v1.CloudRedis"</span>, <span class="string">"CreateInstance"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2937,17 +2938,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.redis.v1.CloudRedis/UpdateInstance&quot;</span>,
+                <span class="string">"/google.cloud.redis.v1.CloudRedis/UpdateInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.redis.v1.CloudRedis&quot;</span>, <span class="string">&quot;UpdateInstance&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.redis.v1.CloudRedis"</span>, <span class="string">"UpdateInstance"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2966,19 +2967,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.redis.v1.CloudRedis/UpgradeInstance&quot;</span>,
+                <span class="string">"/google.cloud.redis.v1.CloudRedis/UpgradeInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.redis.v1.CloudRedis&quot;</span>,
-                        <span class="string">&quot;UpgradeInstance&quot;</span>,
+                        <span class="string">"google.cloud.redis.v1.CloudRedis"</span>,
+                        <span class="string">"UpgradeInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3004,17 +3005,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.redis.v1.CloudRedis/ImportInstance&quot;</span>,
+                <span class="string">"/google.cloud.redis.v1.CloudRedis/ImportInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.redis.v1.CloudRedis&quot;</span>, <span class="string">&quot;ImportInstance&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.redis.v1.CloudRedis"</span>, <span class="string">"ImportInstance"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3037,17 +3038,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.redis.v1.CloudRedis/ExportInstance&quot;</span>,
+                <span class="string">"/google.cloud.redis.v1.CloudRedis/ExportInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.redis.v1.CloudRedis&quot;</span>, <span class="string">&quot;ExportInstance&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.redis.v1.CloudRedis"</span>, <span class="string">"ExportInstance"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3066,19 +3067,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.redis.v1.CloudRedis/FailoverInstance&quot;</span>,
+                <span class="string">"/google.cloud.redis.v1.CloudRedis/FailoverInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.redis.v1.CloudRedis&quot;</span>,
-                        <span class="string">&quot;FailoverInstance&quot;</span>,
+                        <span class="string">"google.cloud.redis.v1.CloudRedis"</span>,
+                        <span class="string">"FailoverInstance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3098,17 +3099,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.redis.v1.CloudRedis/DeleteInstance&quot;</span>,
+                <span class="string">"/google.cloud.redis.v1.CloudRedis/DeleteInstance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.redis.v1.CloudRedis&quot;</span>, <span class="string">&quot;DeleteInstance&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.redis.v1.CloudRedis"</span>, <span class="string">"DeleteInstance"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -3127,19 +3128,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.redis.v1.CloudRedis/RescheduleMaintenance&quot;</span>,
+                <span class="string">"/google.cloud.redis.v1.CloudRedis/RescheduleMaintenance"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.redis.v1.CloudRedis&quot;</span>,
-                        <span class="string">&quot;RescheduleMaintenance&quot;</span>,
+                        <span class="string">"google.cloud.redis.v1.CloudRedis"</span>,
+                        <span class="string">"RescheduleMaintenance"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

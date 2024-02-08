@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/servicehealth/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/servicehealth/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1257,52 +1258,52 @@
     <span class="doccomment">/// Output only. Identifier. Name of the event. Unique name of the event in
     /// this scope including project and location using the form
     /// `projects/{project_id}/locations/{location}/events/{event_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Brief description for the event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Free-form, human-readable description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The category of the event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;event::EventCategory&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"event::EventCategory"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>category: i32,
     <span class="doccomment">/// Output only. The detailed category of the event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;event::DetailedCategory&quot;</span>, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"event::DetailedCategory"</span>, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>detailed_category: i32,
     <span class="doccomment">/// Output only. The current state of the event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;event::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"event::State"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The current detailed state of the incident.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;event::DetailedState&quot;</span>, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"event::DetailedState"</span>, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>detailed_state: i32,
     <span class="doccomment">/// Google Cloud products and locations impacted by the event.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>event_impacts: ::prost::alloc::vec::Vec&lt;EventImpact&gt;,
     <span class="doccomment">/// Output only. Communicates why a given event is deemed relevant in the
     /// context of a given project.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;event::Relevance&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"event::Relevance"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>relevance: i32,
     <span class="doccomment">/// Output only. Event updates are correspondence from Google.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>updates: ::prost::alloc::vec::Vec&lt;EventUpdate&gt;,
     <span class="doccomment">/// Output only. When `detailed_state`=`MERGED`, `parent_event` contains the
     /// name of the parent event. All further updates will be published to the
     /// parent event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>parent_event: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time when the event was last modified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The start time of the event, if applicable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The end time of the event, if applicable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time when the next update can be expected.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>next_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Event`.
@@ -1332,17 +1333,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EventCategory::Unspecified =&gt; <span class="string">&quot;EVENT_CATEGORY_UNSPECIFIED&quot;</span>,
-                EventCategory::Incident =&gt; <span class="string">&quot;INCIDENT&quot;</span>,
+                EventCategory::Unspecified =&gt; <span class="string">"EVENT_CATEGORY_UNSPECIFIED"</span>,
+                EventCategory::Incident =&gt; <span class="string">"INCIDENT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;EVENT_CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INCIDENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Incident),
+                <span class="string">"EVENT_CATEGORY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"INCIDENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Incident),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1376,19 +1377,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DetailedCategory::Unspecified =&gt; <span class="string">&quot;DETAILED_CATEGORY_UNSPECIFIED&quot;</span>,
-                DetailedCategory::ConfirmedIncident =&gt; <span class="string">&quot;CONFIRMED_INCIDENT&quot;</span>,
-                DetailedCategory::EmergingIncident =&gt; <span class="string">&quot;EMERGING_INCIDENT&quot;</span>,
+                DetailedCategory::Unspecified =&gt; <span class="string">"DETAILED_CATEGORY_UNSPECIFIED"</span>,
+                DetailedCategory::ConfirmedIncident =&gt; <span class="string">"CONFIRMED_INCIDENT"</span>,
+                DetailedCategory::EmergingIncident =&gt; <span class="string">"EMERGING_INCIDENT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DETAILED_CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CONFIRMED_INCIDENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConfirmedIncident),
-                <span class="string">&quot;EMERGING_INCIDENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EmergingIncident),
+                <span class="string">"DETAILED_CATEGORY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CONFIRMED_INCIDENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConfirmedIncident),
+                <span class="string">"EMERGING_INCIDENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EmergingIncident),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1421,19 +1422,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Closed =&gt; <span class="string">&quot;CLOSED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Closed =&gt; <span class="string">"CLOSED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"CLOSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1480,27 +1481,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DetailedState::Unspecified =&gt; <span class="string">&quot;DETAILED_STATE_UNSPECIFIED&quot;</span>,
-                DetailedState::Emerging =&gt; <span class="string">&quot;EMERGING&quot;</span>,
-                DetailedState::Confirmed =&gt; <span class="string">&quot;CONFIRMED&quot;</span>,
-                DetailedState::Resolved =&gt; <span class="string">&quot;RESOLVED&quot;</span>,
-                DetailedState::Merged =&gt; <span class="string">&quot;MERGED&quot;</span>,
-                DetailedState::AutoClosed =&gt; <span class="string">&quot;AUTO_CLOSED&quot;</span>,
-                DetailedState::FalsePositive =&gt; <span class="string">&quot;FALSE_POSITIVE&quot;</span>,
+                DetailedState::Unspecified =&gt; <span class="string">"DETAILED_STATE_UNSPECIFIED"</span>,
+                DetailedState::Emerging =&gt; <span class="string">"EMERGING"</span>,
+                DetailedState::Confirmed =&gt; <span class="string">"CONFIRMED"</span>,
+                DetailedState::Resolved =&gt; <span class="string">"RESOLVED"</span>,
+                DetailedState::Merged =&gt; <span class="string">"MERGED"</span>,
+                DetailedState::AutoClosed =&gt; <span class="string">"AUTO_CLOSED"</span>,
+                DetailedState::FalsePositive =&gt; <span class="string">"FALSE_POSITIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DETAILED_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;EMERGING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Emerging),
-                <span class="string">&quot;CONFIRMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Confirmed),
-                <span class="string">&quot;RESOLVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resolved),
-                <span class="string">&quot;MERGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Merged),
-                <span class="string">&quot;AUTO_CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AutoClosed),
-                <span class="string">&quot;FALSE_POSITIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FalsePositive),
+                <span class="string">"DETAILED_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"EMERGING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Emerging),
+                <span class="string">"CONFIRMED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Confirmed),
+                <span class="string">"RESOLVED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resolved),
+                <span class="string">"MERGED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Merged),
+                <span class="string">"AUTO_CLOSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AutoClosed),
+                <span class="string">"FALSE_POSITIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FalsePositive),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1542,25 +1543,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Relevance::Unspecified =&gt; <span class="string">&quot;RELEVANCE_UNSPECIFIED&quot;</span>,
-                Relevance::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                Relevance::NotImpacted =&gt; <span class="string">&quot;NOT_IMPACTED&quot;</span>,
-                Relevance::PartiallyRelated =&gt; <span class="string">&quot;PARTIALLY_RELATED&quot;</span>,
-                Relevance::Related =&gt; <span class="string">&quot;RELATED&quot;</span>,
-                Relevance::Impacted =&gt; <span class="string">&quot;IMPACTED&quot;</span>,
+                Relevance::Unspecified =&gt; <span class="string">"RELEVANCE_UNSPECIFIED"</span>,
+                Relevance::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
+                Relevance::NotImpacted =&gt; <span class="string">"NOT_IMPACTED"</span>,
+                Relevance::PartiallyRelated =&gt; <span class="string">"PARTIALLY_RELATED"</span>,
+                Relevance::Related =&gt; <span class="string">"RELATED"</span>,
+                Relevance::Impacted =&gt; <span class="string">"IMPACTED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RELEVANCE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;NOT_IMPACTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotImpacted),
-                <span class="string">&quot;PARTIALLY_RELATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PartiallyRelated),
-                <span class="string">&quot;RELATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Related),
-                <span class="string">&quot;IMPACTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Impacted),
+                <span class="string">"RELEVANCE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"NOT_IMPACTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotImpacted),
+                <span class="string">"PARTIALLY_RELATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PartiallyRelated),
+                <span class="string">"RELATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Related),
+                <span class="string">"IMPACTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Impacted),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1580,51 +1581,51 @@
     /// ID](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id&gt;).&lt;br&gt;
     /// `location` - The location to get the service health events from.&lt;br&gt;
     /// `event_id` - Organization event ID to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Brief description for the event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Free-form, human-readable description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The category of the event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;organization_event::EventCategory&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"organization_event::EventCategory"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>category: i32,
     <span class="doccomment">/// Output only. The detailed category of the event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;organization_event::DetailedCategory&quot;</span>, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"organization_event::DetailedCategory"</span>, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>detailed_category: i32,
     <span class="doccomment">/// Output only. The current state of the event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;organization_event::State&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"organization_event::State"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The current detailed state of the incident.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;organization_event::DetailedState&quot;</span>, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"organization_event::DetailedState"</span>, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>detailed_state: i32,
     <span class="doccomment">/// Output only. Represents the Google Cloud products and locations impacted by
     /// the event.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>event_impacts: ::prost::alloc::vec::Vec&lt;EventImpact&gt;,
     <span class="doccomment">/// Output only. Incident-only field. Event updates are correspondence from
     /// Google.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>updates: ::prost::alloc::vec::Vec&lt;EventUpdate&gt;,
     <span class="doccomment">/// Output only. When `detailed_state`=`MERGED`, `parent_event` contains the
     /// name of the parent event. All further updates will be published to the
     /// parent event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>parent_event: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time the update was posted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The start time of the event, if applicable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The end time of the event, if applicable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Incident-only field. The time when the next update can be
     /// expected.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>next_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `OrganizationEvent`.
@@ -1654,17 +1655,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EventCategory::Unspecified =&gt; <span class="string">&quot;EVENT_CATEGORY_UNSPECIFIED&quot;</span>,
-                EventCategory::Incident =&gt; <span class="string">&quot;INCIDENT&quot;</span>,
+                EventCategory::Unspecified =&gt; <span class="string">"EVENT_CATEGORY_UNSPECIFIED"</span>,
+                EventCategory::Incident =&gt; <span class="string">"INCIDENT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;EVENT_CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INCIDENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Incident),
+                <span class="string">"EVENT_CATEGORY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"INCIDENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Incident),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1698,19 +1699,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DetailedCategory::Unspecified =&gt; <span class="string">&quot;DETAILED_CATEGORY_UNSPECIFIED&quot;</span>,
-                DetailedCategory::ConfirmedIncident =&gt; <span class="string">&quot;CONFIRMED_INCIDENT&quot;</span>,
-                DetailedCategory::EmergingIncident =&gt; <span class="string">&quot;EMERGING_INCIDENT&quot;</span>,
+                DetailedCategory::Unspecified =&gt; <span class="string">"DETAILED_CATEGORY_UNSPECIFIED"</span>,
+                DetailedCategory::ConfirmedIncident =&gt; <span class="string">"CONFIRMED_INCIDENT"</span>,
+                DetailedCategory::EmergingIncident =&gt; <span class="string">"EMERGING_INCIDENT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DETAILED_CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CONFIRMED_INCIDENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConfirmedIncident),
-                <span class="string">&quot;EMERGING_INCIDENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EmergingIncident),
+                <span class="string">"DETAILED_CATEGORY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CONFIRMED_INCIDENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConfirmedIncident),
+                <span class="string">"EMERGING_INCIDENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EmergingIncident),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1744,19 +1745,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Closed =&gt; <span class="string">&quot;CLOSED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Closed =&gt; <span class="string">"CLOSED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"CLOSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Closed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1803,27 +1804,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                DetailedState::Unspecified =&gt; <span class="string">&quot;DETAILED_STATE_UNSPECIFIED&quot;</span>,
-                DetailedState::Emerging =&gt; <span class="string">&quot;EMERGING&quot;</span>,
-                DetailedState::Confirmed =&gt; <span class="string">&quot;CONFIRMED&quot;</span>,
-                DetailedState::Resolved =&gt; <span class="string">&quot;RESOLVED&quot;</span>,
-                DetailedState::Merged =&gt; <span class="string">&quot;MERGED&quot;</span>,
-                DetailedState::AutoClosed =&gt; <span class="string">&quot;AUTO_CLOSED&quot;</span>,
-                DetailedState::FalsePositive =&gt; <span class="string">&quot;FALSE_POSITIVE&quot;</span>,
+                DetailedState::Unspecified =&gt; <span class="string">"DETAILED_STATE_UNSPECIFIED"</span>,
+                DetailedState::Emerging =&gt; <span class="string">"EMERGING"</span>,
+                DetailedState::Confirmed =&gt; <span class="string">"CONFIRMED"</span>,
+                DetailedState::Resolved =&gt; <span class="string">"RESOLVED"</span>,
+                DetailedState::Merged =&gt; <span class="string">"MERGED"</span>,
+                DetailedState::AutoClosed =&gt; <span class="string">"AUTO_CLOSED"</span>,
+                DetailedState::FalsePositive =&gt; <span class="string">"FALSE_POSITIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DETAILED_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;EMERGING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Emerging),
-                <span class="string">&quot;CONFIRMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Confirmed),
-                <span class="string">&quot;RESOLVED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resolved),
-                <span class="string">&quot;MERGED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Merged),
-                <span class="string">&quot;AUTO_CLOSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AutoClosed),
-                <span class="string">&quot;FALSE_POSITIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FalsePositive),
+                <span class="string">"DETAILED_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"EMERGING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Emerging),
+                <span class="string">"CONFIRMED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Confirmed),
+                <span class="string">"RESOLVED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resolved),
+                <span class="string">"MERGED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Merged),
+                <span class="string">"AUTO_CLOSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AutoClosed),
+                <span class="string">"FALSE_POSITIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FalsePositive),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1834,35 +1835,35 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EventUpdate {
     <span class="doccomment">/// Output only. The time the update was posted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Brief title for the event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Free-form, human-readable description.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Symptoms of the event, if available.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>symptom: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Workaround steps to remediate the event impact, if available.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>workaround: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the locations impacted by the event.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Location {
-    <span class="doccomment">/// Location impacted by the event. Example: `&quot;us-central1&quot;`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Location impacted by the event. Example: `"us-central1"`
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>location_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the Google Cloud product impacted by the event.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Product {
-    <span class="doccomment">/// Google Cloud product impacted by the event. Example: `&quot;Google Cloud SQL&quot;`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Google Cloud product impacted by the event. Example: `"Google Cloud SQL"`
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>product_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the Google Cloud products and locations impacted by the event.
@@ -1870,10 +1871,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EventImpact {
     <span class="doccomment">/// Google Cloud product impacted by the event.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>product: ::core::option::Option&lt;Product&gt;,
     <span class="doccomment">/// Location impacted by the event.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;Location&gt;,
 }
 <span class="doccomment">/// Represents impact to assets at organizational level. It is a read-only view
@@ -1891,16 +1892,16 @@
     /// ID](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id&gt;).&lt;br&gt;
     /// `organization_impact_id` - ID of the [OrganizationImpact
     /// resource](/service-health/docs/reference/rest/v1beta/organizations.locations.organizationImpacts#OrganizationImpact).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. A list of event names impacting the asset.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>events: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Output only. Google Cloud asset possibly impacted by the specified events.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>asset: ::core::option::Option&lt;Asset&gt;,
     <span class="doccomment">/// Output only. The time when the affected project was last modified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Represents the asset impacted by the events.
@@ -1910,11 +1911,11 @@
     <span class="doccomment">/// Output only. Full name of the resource as defined in
     /// [Resource
     /// Names](&lt;https://cloud.google.com/apis/design/resource_names#full_resource_name&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>asset_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Type of the asset. Example:
-    /// `&quot;cloudresourcemanager.googleapis.com/Project&quot;`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// `"cloudresourcemanager.googleapis.com/Project"`
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>asset_type: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1928,20 +1929,20 @@
     /// `location` - The location to get the service health events from.
     /// To retrieve service health events of category = INCIDENT, use `location` =
     /// `global`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of events that should be returned.  Acceptable
     /// values are 1 to 100, inclusive. (The default value is 10.) If more results
     /// are available, the service returns a next_page_token that you can use to
     /// get the next page of results in subsequent list requests. The service may
     /// return fewer events than the requested page_size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results the server should return.
     /// Provide Page token returned by a previous `ListEvents` call to retrieve the
     /// next page of results. When paginating, all other parameters provided to
     /// `ListEvents` must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A filter expression that filters resources listed in the
     /// response. The expression takes the following forms: &lt;br&gt;
@@ -1958,27 +1959,27 @@
     ///
     /// Filter is supported for the following fields: `category`, `state`,
     /// `update_time`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Event fields to include in response.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;EventView&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"EventView"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>view: i32,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListEventsResponse {
     <span class="doccomment">/// Output only. List of events.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>events: ::prost::alloc::vec::Vec&lt;Event&gt;,
     <span class="doccomment">/// Output only. The continuation token, used to page through large result
     /// sets. Provide this value in a subsequent request as page_token to retrieve
     /// the next page.
     ///
     /// If this field is not present, there are no subsequent results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Message for getting an event
@@ -1992,7 +1993,7 @@
     /// `project_id` - Project ID of the project that contains the event. &lt;br&gt;
     /// `location` - The location to get the service health events from. &lt;br&gt;
     /// `event_id` - Event ID to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2008,14 +2009,14 @@
     /// `location` - The location to get the service health events from. To
     /// retrieve service health events of category = INCIDENT, use `location` =
     /// `global`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of events that should be returned.  Acceptable
     /// values are `1` to `100`, inclusive. (The default value is `10`.) If more
     /// results are available, the service returns a `next_page_token` that you can
     /// use to get the next page of results in subsequent list requests. The
     /// service may return fewer events than the requested `page_size`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results the server should return.
     ///
@@ -2024,7 +2025,7 @@
     ///
     /// When paginating, all other parameters provided to
     /// `ListOrganizationEvents` must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A filter expression that filters resources listed in the
     /// response. The expression takes the following forms:
@@ -2042,27 +2043,27 @@
     ///
     /// Filter is supported for the following fields: `category`, `state`,
     /// `update_time`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. OrganizationEvent fields to include in response.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;OrganizationEventView&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"OrganizationEventView"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>view: i32,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListOrganizationEventsResponse {
     <span class="doccomment">/// Output only. List of organization events affecting an organization.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>organization_events: ::prost::alloc::vec::Vec&lt;OrganizationEvent&gt;,
     <span class="doccomment">/// Output only. The continuation token, used to page through large result
     /// sets. Provide this value in a subsequent request as `page_token` to
     /// retrieve the next page.
     ///
     /// If this field is not present, there are no subsequent results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2077,7 +2078,7 @@
     /// [Getting your organization resource
     /// ID](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id&gt;).&lt;br&gt;
     /// `event_id` - Organization event ID to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message for requesting list of OrganizationImpacts
@@ -2091,7 +2092,7 @@
     /// get your `organization_id`, see
     /// [Getting your organization resource
     /// ID](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of events that should be returned. Acceptable
     /// values are `1` to `100`, inclusive. The default value is `10`.
@@ -2101,7 +2102,7 @@
     /// subsequent list requests. The service may return fewer
     /// [impacts](/service-health/docs/reference/rest/v1beta/organizations.locations.organizationImpacts#OrganizationImpact)
     /// than the requested `page_size`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. A token identifying a page of results the server should return.
     ///
@@ -2110,7 +2111,7 @@
     ///
     /// When paginating, all other parameters provided to `ListOrganizationImpacts`
     /// must match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A filter expression that filters resources listed in the
     /// response. The expression is in the form of `field:value` for checking if a
@@ -2128,7 +2129,7 @@
     /// By default, each expression is an AND expression. However, you can include
     /// AND and OR expressions explicitly.
     /// Filter is supported for the following fields: `events`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2137,17 +2138,17 @@
     <span class="doccomment">/// Output only. List of
     /// [impacts](/service-health/docs/reference/rest/v1beta/organizations.locations.organizationImpacts#OrganizationImpact)
     /// for an organization affected by service health events.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>organization_impacts: ::prost::alloc::vec::Vec&lt;OrganizationImpact&gt;,
     <span class="doccomment">/// Output only. The continuation token, used to page through large result
     /// sets. Provide this value in a subsequent request as `page_token` to
     /// retrieve the next page.
     ///
     /// If this field is not present, there are no subsequent results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Locations that could not be reached.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>unreachable: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -2162,7 +2163,7 @@
     /// ID](&lt;https://cloud.google.com/resource-manager/docs/creating-managing-organization#retrieving_your_organization_id&gt;).&lt;br&gt;
     /// `organization_impact_id` - ID of the [OrganizationImpact
     /// resource](/service-health/docs/reference/rest/v1beta/organizations.locations.organizationImpacts#OrganizationImpact).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The event fields to include in ListEvents API response. This enum lists all
@@ -2183,19 +2184,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            EventView::Unspecified =&gt; <span class="string">&quot;EVENT_VIEW_UNSPECIFIED&quot;</span>,
-            EventView::Basic =&gt; <span class="string">&quot;EVENT_VIEW_BASIC&quot;</span>,
-            EventView::Full =&gt; <span class="string">&quot;EVENT_VIEW_FULL&quot;</span>,
+            EventView::Unspecified =&gt; <span class="string">"EVENT_VIEW_UNSPECIFIED"</span>,
+            EventView::Basic =&gt; <span class="string">"EVENT_VIEW_BASIC"</span>,
+            EventView::Full =&gt; <span class="string">"EVENT_VIEW_FULL"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;EVENT_VIEW_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;EVENT_VIEW_BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-            <span class="string">&quot;EVENT_VIEW_FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
+            <span class="string">"EVENT_VIEW_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"EVENT_VIEW_BASIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+            <span class="string">"EVENT_VIEW_FULL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2218,19 +2219,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            OrganizationEventView::Unspecified =&gt; <span class="string">&quot;ORGANIZATION_EVENT_VIEW_UNSPECIFIED&quot;</span>,
-            OrganizationEventView::Basic =&gt; <span class="string">&quot;ORGANIZATION_EVENT_VIEW_BASIC&quot;</span>,
-            OrganizationEventView::Full =&gt; <span class="string">&quot;ORGANIZATION_EVENT_VIEW_FULL&quot;</span>,
+            OrganizationEventView::Unspecified =&gt; <span class="string">"ORGANIZATION_EVENT_VIEW_UNSPECIFIED"</span>,
+            OrganizationEventView::Basic =&gt; <span class="string">"ORGANIZATION_EVENT_VIEW_BASIC"</span>,
+            OrganizationEventView::Full =&gt; <span class="string">"ORGANIZATION_EVENT_VIEW_FULL"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;ORGANIZATION_EVENT_VIEW_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;ORGANIZATION_EVENT_VIEW_BASIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
-            <span class="string">&quot;ORGANIZATION_EVENT_VIEW_FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
+            <span class="string">"ORGANIZATION_EVENT_VIEW_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"ORGANIZATION_EVENT_VIEW_BASIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Basic),
+            <span class="string">"ORGANIZATION_EVENT_VIEW_FULL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2249,7 +2250,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2324,19 +2325,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.servicehealth.v1.ServiceHealth/ListEvents&quot;</span>,
+                <span class="string">"/google.cloud.servicehealth.v1.ServiceHealth/ListEvents"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.servicehealth.v1.ServiceHealth&quot;</span>,
-                        <span class="string">&quot;ListEvents&quot;</span>,
+                        <span class="string">"google.cloud.servicehealth.v1.ServiceHealth"</span>,
+                        <span class="string">"ListEvents"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2352,19 +2353,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.servicehealth.v1.ServiceHealth/GetEvent&quot;</span>,
+                <span class="string">"/google.cloud.servicehealth.v1.ServiceHealth/GetEvent"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.servicehealth.v1.ServiceHealth&quot;</span>,
-                        <span class="string">&quot;GetEvent&quot;</span>,
+                        <span class="string">"google.cloud.servicehealth.v1.ServiceHealth"</span>,
+                        <span class="string">"GetEvent"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2383,19 +2384,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.servicehealth.v1.ServiceHealth/ListOrganizationEvents&quot;</span>,
+                <span class="string">"/google.cloud.servicehealth.v1.ServiceHealth/ListOrganizationEvents"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.servicehealth.v1.ServiceHealth&quot;</span>,
-                        <span class="string">&quot;ListOrganizationEvents&quot;</span>,
+                        <span class="string">"google.cloud.servicehealth.v1.ServiceHealth"</span>,
+                        <span class="string">"ListOrganizationEvents"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2415,19 +2416,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.servicehealth.v1.ServiceHealth/GetOrganizationEvent&quot;</span>,
+                <span class="string">"/google.cloud.servicehealth.v1.ServiceHealth/GetOrganizationEvent"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.servicehealth.v1.ServiceHealth&quot;</span>,
-                        <span class="string">&quot;GetOrganizationEvent&quot;</span>,
+                        <span class="string">"google.cloud.servicehealth.v1.ServiceHealth"</span>,
+                        <span class="string">"GetOrganizationEvent"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2447,19 +2448,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.servicehealth.v1.ServiceHealth/ListOrganizationImpacts&quot;</span>,
+                <span class="string">"/google.cloud.servicehealth.v1.ServiceHealth/ListOrganizationImpacts"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.servicehealth.v1.ServiceHealth&quot;</span>,
-                        <span class="string">&quot;ListOrganizationImpacts&quot;</span>,
+                        <span class="string">"google.cloud.servicehealth.v1.ServiceHealth"</span>,
+                        <span class="string">"ListOrganizationImpacts"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2479,19 +2480,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.servicehealth.v1.ServiceHealth/GetOrganizationImpact&quot;</span>,
+                <span class="string">"/google.cloud.servicehealth.v1.ServiceHealth/GetOrganizationImpact"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.servicehealth.v1.ServiceHealth&quot;</span>,
-                        <span class="string">&quot;GetOrganizationImpact&quot;</span>,
+                        <span class="string">"google.cloud.servicehealth.v1.ServiceHealth"</span>,
+                        <span class="string">"GetOrganizationImpact"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/videointelligence/v1beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/videointelligence/v1beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -588,21 +589,21 @@
     /// more information, see [Request
     /// URIs](&lt;https://cloud.google.com/storage/docs/request-endpoints&gt;). A video URI
     /// may include wildcards in `object-id`, and thus identify multiple videos.
-    /// Supported wildcards: &#39;*&#39; to match 0 or more characters;
-    /// &#39;?&#39; to match 1 character. If unset, the input video should be embedded
+    /// Supported wildcards: '*' to match 0 or more characters;
+    /// '?' to match 1 character. If unset, the input video should be embedded
     /// in the request as `input_content`. If set, `input_content` should be unset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>input_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// The video data bytes.
     /// If unset, the input video(s) should be specified via `input_uri`.
     /// If set, `input_uri` should be unset.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>input_content: ::prost::bytes::Bytes,
     <span class="doccomment">/// Required. Requested video annotation features.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Feature&quot;</span>, repeated, packed = <span class="string">&quot;false&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"Feature"</span>, repeated, packed = <span class="string">"false"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>features: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Additional video context and/or feature-specific parameters.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>video_context: ::core::option::Option&lt;VideoContext&gt;,
     <span class="doccomment">/// Optional. Location where the output (in JSON format) should be stored.
     /// Currently, only [Google Cloud Storage](&lt;https://cloud.google.com/storage/&gt;)
@@ -611,12 +612,12 @@
     /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]). For
     /// more information, see [Request
     /// URIs](&lt;https://cloud.google.com/storage/docs/request-endpoints&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>output_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Cloud region where annotation should take place. Supported cloud
     /// regions: `us-east1`, `us-west1`, `europe-west1`, `asia-east1`. If no region
     /// is specified, a region will be determined based on video file location.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>location_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Video context and/or feature-specific parameters.
@@ -626,21 +627,21 @@
     <span class="doccomment">/// Video segments to annotate. The segments may overlap and are not required
     /// to be contiguous or span the whole video. If unspecified, each video is
     /// treated as a single segment.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>segments: ::prost::alloc::vec::Vec&lt;VideoSegment&gt;,
     <span class="doccomment">/// Config for LABEL_DETECTION.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>label_detection_config: ::core::option::Option&lt;LabelDetectionConfig&gt;,
     <span class="doccomment">/// Config for SHOT_CHANGE_DETECTION.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>shot_change_detection_config: ::core::option::Option&lt;ShotChangeDetectionConfig&gt;,
     <span class="doccomment">/// Config for EXPLICIT_CONTENT_DETECTION.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>explicit_content_detection_config: ::core::option::Option&lt;
         ExplicitContentDetectionConfig,
     &gt;,
     <span class="doccomment">/// Config for FACE_DETECTION.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>face_detection_config: ::core::option::Option&lt;FaceDetectionConfig&gt;,
 }
 <span class="doccomment">/// Config for LABEL_DETECTION.
@@ -650,17 +651,17 @@
     <span class="doccomment">/// What labels should be detected with LABEL_DETECTION, in addition to
     /// video-level labels or segment-level labels.
     /// If unspecified, defaults to `SHOT_MODE`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;LabelDetectionMode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"LabelDetectionMode"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>label_detection_mode: i32,
     <span class="doccomment">/// Whether the video has been shot from a stationary (i.e. non-moving) camera.
     /// When set to true, might improve detection accuracy for moving objects.
     /// Should be used with `SHOT_AND_FRAME_MODE` enabled.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>stationary_camera: bool,
     <span class="doccomment">/// Model to use for label detection.
-    /// Supported values: &quot;builtin/stable&quot; (the default if unset) and
-    /// &quot;builtin/latest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// Supported values: "builtin/stable" (the default if unset) and
+    /// "builtin/latest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Config for SHOT_CHANGE_DETECTION.
@@ -668,9 +669,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ShotChangeDetectionConfig {
     <span class="doccomment">/// Model to use for shot change detection.
-    /// Supported values: &quot;builtin/stable&quot; (the default if unset) and
-    /// &quot;builtin/latest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Supported values: "builtin/stable" (the default if unset) and
+    /// "builtin/latest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Config for EXPLICIT_CONTENT_DETECTION.
@@ -678,9 +679,9 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExplicitContentDetectionConfig {
     <span class="doccomment">/// Model to use for explicit content detection.
-    /// Supported values: &quot;builtin/stable&quot; (the default if unset) and
-    /// &quot;builtin/latest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Supported values: "builtin/stable" (the default if unset) and
+    /// "builtin/latest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Config for FACE_DETECTION.
@@ -688,12 +689,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FaceDetectionConfig {
     <span class="doccomment">/// Model to use for face detection.
-    /// Supported values: &quot;builtin/stable&quot; (the default if unset) and
-    /// &quot;builtin/latest&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Supported values: "builtin/stable" (the default if unset) and
+    /// "builtin/latest".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether bounding boxes be included in the face annotation output.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>include_bounding_boxes: bool,
 }
 <span class="doccomment">/// Video segment.
@@ -702,11 +703,11 @@
 </span><span class="kw">pub struct </span>VideoSegment {
     <span class="doccomment">/// Time-offset, relative to the beginning of the video,
     /// corresponding to the start of the segment (inclusive).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Time-offset, relative to the beginning of the video,
     /// corresponding to the end of the segment (inclusive).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Video segment level annotation results for label detection.
@@ -714,10 +715,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LabelSegment {
     <span class="doccomment">/// Video segment where a label was detected.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>segment: ::core::option::Option&lt;VideoSegment&gt;,
     <span class="doccomment">/// Confidence that the label is accurate. Range: \[0, 1\].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>confidence: f32,
 }
 <span class="doccomment">/// Video frame level annotation results for label detection.
@@ -726,10 +727,10 @@
 </span><span class="kw">pub struct </span>LabelFrame {
     <span class="doccomment">/// Time-offset, relative to the beginning of the video, corresponding to the
     /// video frame for this location.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Confidence that the label is accurate. Range: \[0, 1\].
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>confidence: f32,
 }
 <span class="doccomment">/// Detected entity from video analysis.
@@ -739,13 +740,13 @@
     <span class="doccomment">/// Opaque entity ID. Some IDs may be available in
     /// [Google Knowledge Graph Search
     /// API](&lt;https://developers.google.com/knowledge-graph/&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>entity_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Textual description, e.g. `Fixed-gear bicycle`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Language code for `description` in BCP-47 format.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Label annotation.
@@ -753,19 +754,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LabelAnnotation {
     <span class="doccomment">/// Detected entity.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>entity: ::core::option::Option&lt;Entity&gt;,
     <span class="doccomment">/// Common categories for the detected entity.
     /// E.g. when the label is `Terrier` the category is likely `dog`. And in some
     /// cases there might be more than one categories e.g. `Terrier` could also be
     /// a `pet`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>category_entities: ::prost::alloc::vec::Vec&lt;Entity&gt;,
     <span class="doccomment">/// All video segments where a label was detected.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>segments: ::prost::alloc::vec::Vec&lt;LabelSegment&gt;,
     <span class="doccomment">/// All video frames where a label was detected.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>frames: ::prost::alloc::vec::Vec&lt;LabelFrame&gt;,
 }
 <span class="doccomment">/// Video frame level annotation results for explicit content.
@@ -774,10 +775,10 @@
 </span><span class="kw">pub struct </span>ExplicitContentFrame {
     <span class="doccomment">/// Time-offset, relative to the beginning of the video, corresponding to the
     /// video frame for this location.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Likelihood of the pornography content..
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Likelihood&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"Likelihood"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>pornography_likelihood: i32,
 }
 <span class="doccomment">/// Explicit content annotation (based on per-frame visual signals only).
@@ -787,7 +788,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExplicitContentAnnotation {
     <span class="doccomment">/// All video frames where explicit content was detected.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>frames: ::prost::alloc::vec::Vec&lt;ExplicitContentFrame&gt;,
 }
 <span class="doccomment">/// Normalized bounding box.
@@ -797,16 +798,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>NormalizedBoundingBox {
     <span class="doccomment">/// Left X coordinate.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>left: f32,
     <span class="doccomment">/// Top Y coordinate.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>top: f32,
     <span class="doccomment">/// Right X coordinate.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>right: f32,
     <span class="doccomment">/// Bottom Y coordinate.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>bottom: f32,
 }
 <span class="doccomment">/// Video segment level annotation results for face detection.
@@ -814,7 +815,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FaceSegment {
     <span class="doccomment">/// Video segment where a face was detected.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>segment: ::core::option::Option&lt;VideoSegment&gt;,
 }
 <span class="doccomment">/// Video frame level annotation results for face detection.
@@ -824,11 +825,11 @@
     <span class="doccomment">/// Normalized Bounding boxes in a frame.
     /// There can be more than one boxes if the same face is detected in multiple
     /// locations within the current frame.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>normalized_bounding_boxes: ::prost::alloc::vec::Vec&lt;NormalizedBoundingBox&gt;,
     <span class="doccomment">/// Time-offset, relative to the beginning of the video,
     /// corresponding to the video frame for this location.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>time_offset: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Face annotation.
@@ -836,13 +837,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FaceAnnotation {
     <span class="doccomment">/// Thumbnail of a representative face view (in JPEG format).
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>thumbnail: ::prost::bytes::Bytes,
     <span class="doccomment">/// All video segments where a face was detected.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>segments: ::prost::alloc::vec::Vec&lt;FaceSegment&gt;,
     <span class="doccomment">/// All video frames where a face was detected.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>frames: ::prost::alloc::vec::Vec&lt;FaceFrame&gt;,
 }
 <span class="doccomment">/// Annotation results for a single video.
@@ -851,32 +852,32 @@
 </span><span class="kw">pub struct </span>VideoAnnotationResults {
     <span class="doccomment">/// Video file location in
     /// [Google Cloud Storage](&lt;https://cloud.google.com/storage/&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>input_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Label annotations on video level or user specified segment level.
     /// There is exactly one element for each unique label.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>segment_label_annotations: ::prost::alloc::vec::Vec&lt;LabelAnnotation&gt;,
     <span class="doccomment">/// Label annotations on shot level.
     /// There is exactly one element for each unique label.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>shot_label_annotations: ::prost::alloc::vec::Vec&lt;LabelAnnotation&gt;,
     <span class="doccomment">/// Label annotations on frame level.
     /// There is exactly one element for each unique label.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>frame_label_annotations: ::prost::alloc::vec::Vec&lt;LabelAnnotation&gt;,
     <span class="doccomment">/// Face annotations. There is exactly one element for each unique face.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>face_annotations: ::prost::alloc::vec::Vec&lt;FaceAnnotation&gt;,
     <span class="doccomment">/// Shot annotations. Each shot is represented as a video segment.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>shot_annotations: ::prost::alloc::vec::Vec&lt;VideoSegment&gt;,
     <span class="doccomment">/// Explicit content annotation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>explicit_annotation: ::core::option::Option&lt;ExplicitContentAnnotation&gt;,
     <span class="doccomment">/// If set, indicates an error. Note that for a single `AnnotateVideoRequest`
     /// some videos may succeed and some may fail.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
 }
 <span class="doccomment">/// Video annotation response. Included in the `response`
@@ -886,7 +887,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnnotateVideoResponse {
     <span class="doccomment">/// Annotation results for all videos specified in `AnnotateVideoRequest`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>annotation_results: ::prost::alloc::vec::Vec&lt;VideoAnnotationResults&gt;,
 }
 <span class="doccomment">/// Annotation progress for a single video.
@@ -895,17 +896,17 @@
 </span><span class="kw">pub struct </span>VideoAnnotationProgress {
     <span class="doccomment">/// Video file location in
     /// [Google Cloud Storage](&lt;https://cloud.google.com/storage/&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>input_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Approximate percentage processed thus far.
     /// Guaranteed to be 100 when fully processed.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>progress_percent: i32,
     <span class="doccomment">/// Time when the request was received.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Time of the most recent update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Video annotation progress. Included in the `metadata`
@@ -915,7 +916,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnnotateVideoProgress {
     <span class="doccomment">/// Progress metadata for all videos specified in `AnnotateVideoRequest`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>annotation_progress: ::prost::alloc::vec::Vec&lt;VideoAnnotationProgress&gt;,
 }
 <span class="doccomment">/// Video annotation feature.
@@ -938,23 +939,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            Feature::Unspecified =&gt; <span class="string">&quot;FEATURE_UNSPECIFIED&quot;</span>,
-            Feature::LabelDetection =&gt; <span class="string">&quot;LABEL_DETECTION&quot;</span>,
-            Feature::ShotChangeDetection =&gt; <span class="string">&quot;SHOT_CHANGE_DETECTION&quot;</span>,
-            Feature::ExplicitContentDetection =&gt; <span class="string">&quot;EXPLICIT_CONTENT_DETECTION&quot;</span>,
-            Feature::FaceDetection =&gt; <span class="string">&quot;FACE_DETECTION&quot;</span>,
+            Feature::Unspecified =&gt; <span class="string">"FEATURE_UNSPECIFIED"</span>,
+            Feature::LabelDetection =&gt; <span class="string">"LABEL_DETECTION"</span>,
+            Feature::ShotChangeDetection =&gt; <span class="string">"SHOT_CHANGE_DETECTION"</span>,
+            Feature::ExplicitContentDetection =&gt; <span class="string">"EXPLICIT_CONTENT_DETECTION"</span>,
+            Feature::FaceDetection =&gt; <span class="string">"FACE_DETECTION"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;FEATURE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;LABEL_DETECTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LabelDetection),
-            <span class="string">&quot;SHOT_CHANGE_DETECTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ShotChangeDetection),
-            <span class="string">&quot;EXPLICIT_CONTENT_DETECTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExplicitContentDetection),
-            <span class="string">&quot;FACE_DETECTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FaceDetection),
+            <span class="string">"FEATURE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"LABEL_DETECTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LabelDetection),
+            <span class="string">"SHOT_CHANGE_DETECTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ShotChangeDetection),
+            <span class="string">"EXPLICIT_CONTENT_DETECTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExplicitContentDetection),
+            <span class="string">"FACE_DETECTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FaceDetection),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -977,21 +978,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            LabelDetectionMode::Unspecified =&gt; <span class="string">&quot;LABEL_DETECTION_MODE_UNSPECIFIED&quot;</span>,
-            LabelDetectionMode::ShotMode =&gt; <span class="string">&quot;SHOT_MODE&quot;</span>,
-            LabelDetectionMode::FrameMode =&gt; <span class="string">&quot;FRAME_MODE&quot;</span>,
-            LabelDetectionMode::ShotAndFrameMode =&gt; <span class="string">&quot;SHOT_AND_FRAME_MODE&quot;</span>,
+            LabelDetectionMode::Unspecified =&gt; <span class="string">"LABEL_DETECTION_MODE_UNSPECIFIED"</span>,
+            LabelDetectionMode::ShotMode =&gt; <span class="string">"SHOT_MODE"</span>,
+            LabelDetectionMode::FrameMode =&gt; <span class="string">"FRAME_MODE"</span>,
+            LabelDetectionMode::ShotAndFrameMode =&gt; <span class="string">"SHOT_AND_FRAME_MODE"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;LABEL_DETECTION_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;SHOT_MODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ShotMode),
-            <span class="string">&quot;FRAME_MODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FrameMode),
-            <span class="string">&quot;SHOT_AND_FRAME_MODE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ShotAndFrameMode),
+            <span class="string">"LABEL_DETECTION_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"SHOT_MODE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ShotMode),
+            <span class="string">"FRAME_MODE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FrameMode),
+            <span class="string">"SHOT_AND_FRAME_MODE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ShotAndFrameMode),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1018,25 +1019,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            Likelihood::Unspecified =&gt; <span class="string">&quot;LIKELIHOOD_UNSPECIFIED&quot;</span>,
-            Likelihood::VeryUnlikely =&gt; <span class="string">&quot;VERY_UNLIKELY&quot;</span>,
-            Likelihood::Unlikely =&gt; <span class="string">&quot;UNLIKELY&quot;</span>,
-            Likelihood::Possible =&gt; <span class="string">&quot;POSSIBLE&quot;</span>,
-            Likelihood::Likely =&gt; <span class="string">&quot;LIKELY&quot;</span>,
-            Likelihood::VeryLikely =&gt; <span class="string">&quot;VERY_LIKELY&quot;</span>,
+            Likelihood::Unspecified =&gt; <span class="string">"LIKELIHOOD_UNSPECIFIED"</span>,
+            Likelihood::VeryUnlikely =&gt; <span class="string">"VERY_UNLIKELY"</span>,
+            Likelihood::Unlikely =&gt; <span class="string">"UNLIKELY"</span>,
+            Likelihood::Possible =&gt; <span class="string">"POSSIBLE"</span>,
+            Likelihood::Likely =&gt; <span class="string">"LIKELY"</span>,
+            Likelihood::VeryLikely =&gt; <span class="string">"VERY_LIKELY"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;LIKELIHOOD_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;VERY_UNLIKELY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VeryUnlikely),
-            <span class="string">&quot;UNLIKELY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unlikely),
-            <span class="string">&quot;POSSIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Possible),
-            <span class="string">&quot;LIKELY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Likely),
-            <span class="string">&quot;VERY_LIKELY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VeryLikely),
+            <span class="string">"LIKELIHOOD_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"VERY_UNLIKELY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VeryUnlikely),
+            <span class="string">"UNLIKELY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unlikely),
+            <span class="string">"POSSIBLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Possible),
+            <span class="string">"LIKELY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Likely),
+            <span class="string">"VERY_LIKELY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VeryLikely),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1055,7 +1056,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1135,19 +1136,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.videointelligence.v1beta2.VideoIntelligenceService/AnnotateVideo&quot;</span>,
+                <span class="string">"/google.cloud.videointelligence.v1beta2.VideoIntelligenceService/AnnotateVideo"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.videointelligence.v1beta2.VideoIntelligenceService&quot;</span>,
-                        <span class="string">&quot;AnnotateVideo&quot;</span>,
+                        <span class="string">"google.cloud.videointelligence.v1beta2.VideoIntelligenceService"</span>,
+                        <span class="string">"AnnotateVideo"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

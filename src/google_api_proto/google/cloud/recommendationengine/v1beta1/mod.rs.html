@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/recommendationengine/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/recommendationengine/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2087,9 +2088,9 @@
     ///
     /// Feature names and values must be UTF-8 encoded strings.
     ///
-    /// For example: `{ &quot;colors&quot;: {&quot;value&quot;: \[&quot;yellow&quot;, &quot;green&quot;\]},
-    ///                  &quot;sizes&quot;: {&quot;value&quot;:\[&quot;S&quot;, &quot;M&quot;\]}`
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    /// For example: `{ "colors": {"value": \["yellow", "green"\]},
+    ///                  "sizes": {"value":\["S", "M"\]}`
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>categorical_features: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         feature_map::StringList,
@@ -2099,9 +2100,9 @@
     ///
     /// Feature names must be UTF-8 encoded strings.
     ///
-    /// For example: `{ &quot;lengths_cm&quot;: {&quot;value&quot;:\[2.3, 15.4\]},
-    ///                  &quot;heights_cm&quot;: {&quot;value&quot;:\[8.1, 6.4\]} }`
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    /// For example: `{ "lengths_cm": {"value":\[2.3, 15.4\]},
+    ///                  "heights_cm": {"value":\[8.1, 6.4\]} }`
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>numerical_features: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         feature_map::FloatList,
@@ -2114,7 +2115,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>StringList {
         <span class="doccomment">/// String feature value with a length limit of 128 bytes.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// A list of float features.
@@ -2122,7 +2123,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>FloatList {
         <span class="doccomment">/// Float feature value.
-        </span><span class="attr">#[prost(float, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(float, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::vec::Vec&lt;f32&gt;,
     }
 }
@@ -2136,60 +2137,60 @@
     /// This id must be unique among all catalog items within the same catalog. It
     /// should also be used when logging user events in order for the user events
     /// to be joined with the Catalog.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Catalog item categories. This field is repeated for supporting
     /// one catalog item belonging to several parallel category hierarchies.
     ///
     /// For example, if a shoes product belongs to both
-    /// \[&quot;Shoes &amp; Accessories&quot; -&gt; &quot;Shoes&quot;\] and
-    /// \[&quot;Sports &amp; Fitness&quot; -&gt; &quot;Athletic Clothing&quot; -&gt; &quot;Shoes&quot;\], it could be
+    /// \["Shoes &amp; Accessories" -&gt; "Shoes"\] and
+    /// \["Sports &amp; Fitness" -&gt; "Athletic Clothing" -&gt; "Shoes"\], it could be
     /// represented as:
     ///
-    ///       &quot;categoryHierarchies&quot;: [
-    ///         { &quot;categories&quot;: \[&quot;Shoes &amp; Accessories&quot;, &quot;Shoes&quot;\]},
-    ///         { &quot;categories&quot;: \[&quot;Sports &amp; Fitness&quot;, &quot;Athletic Clothing&quot;, &quot;Shoes&quot;\] }
+    ///       "categoryHierarchies": [
+    ///         { "categories": \["Shoes &amp; Accessories", "Shoes"\]},
+    ///         { "categories": \["Sports &amp; Fitness", "Athletic Clothing", "Shoes"\] }
     ///       ]
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>category_hierarchies: ::prost::alloc::vec::Vec&lt;catalog_item::CategoryHierarchy&gt;,
     <span class="doccomment">/// Required. Catalog item title. UTF-8 encoded string with a length limit of 1
     /// KiB.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>title: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Catalog item description. UTF-8 encoded string with a length
     /// limit of 5 KiB.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Highly encouraged. Extra catalog item attributes to be
     /// included in the recommendation model. For example, for retail products,
     /// this could include the store name, vendor, style, color, etc. These are
     /// very strong signals for recommendation model, thus we highly recommend
     /// providing the item attributes here.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>item_attributes: ::core::option::Option&lt;FeatureMap&gt;,
     <span class="doccomment">/// Optional. Language of the title/description/item_attributes. Use language
     /// tags defined by BCP 47. &lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt.&gt; Our
-    /// supported language codes include &#39;en&#39;, &#39;es&#39;, &#39;fr&#39;, &#39;de&#39;, &#39;ar&#39;, &#39;fa&#39;, &#39;zh&#39;,
-    /// &#39;ja&#39;, &#39;ko&#39;, &#39;sv&#39;, &#39;ro&#39;, &#39;nl&#39;. For other languages, contact
+    /// supported language codes include 'en', 'es', 'fr', 'de', 'ar', 'fa', 'zh',
+    /// 'ja', 'ko', 'sv', 'ro', 'nl'. For other languages, contact
     /// your Google account manager.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Filtering tags associated with the catalog item. Each tag should
     /// be a UTF-8 encoded string with a length limit of 1 KiB.
     ///
     /// This tag can be used for filtering recommendation results by passing the
     /// tag as part of the predict request filter.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>tags: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. Variant group identifier for prediction results. UTF-8 encoded
     /// string with a length limit of 128 bytes.
     ///
     /// This field must be enabled before it can be used. [Learn
     /// more](/recommendations-ai/docs/catalog#item-group-id).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>item_group_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Extra catalog item metadata for different recommendation types.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;catalog_item::RecommendationType&quot;</span>, tags = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"catalog_item::RecommendationType"</span>, tags = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>recommendation_type: ::core::option::Option&lt;catalog_item::RecommendationType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CatalogItem`.
@@ -2203,7 +2204,7 @@
         ///
         /// Note that the order in the list denotes the specificity (from least to
         /// most specific).
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>categories: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
     <span class="doccomment">/// Extra catalog item metadata for different recommendation types.
@@ -2211,7 +2212,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>RecommendationType {
         <span class="doccomment">/// Optional. Metadata specific to retail products.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>ProductMetadata(<span class="kw">super</span>::ProductCatalogItem),
     }
 }
@@ -2222,35 +2223,35 @@
     <span class="doccomment">/// Optional. A map to pass the costs associated with the product.
     ///
     /// For example:
-    /// {&quot;manufacturing&quot;: 45.5} The profit of selling this item is computed like
+    /// {"manufacturing": 45.5} The profit of selling this item is computed like
     /// so:
     ///
-    /// * If &#39;exactPrice&#39; is provided, profit = displayPrice - sum(costs)
-    /// * If &#39;priceRange&#39; is provided, profit = minPrice - sum(costs)
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, float&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    /// * If 'exactPrice' is provided, profit = displayPrice - sum(costs)
+    /// * If 'priceRange' is provided, profit = minPrice - sum(costs)
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, float"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>costs: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         f32,
     &gt;,
     <span class="doccomment">/// Optional. Only required if the price is set. Currency code for price/costs. Use
     /// three-character ISO-4217 code.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Online stock state of the catalog item. Default is `IN_STOCK`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;product_catalog_item::StockState&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"product_catalog_item::StockState"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>stock_state: i32,
     <span class="doccomment">/// Optional. The available quantity of the item.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>available_quantity: i64,
     <span class="doccomment">/// Optional. Canonical URL directly linking to the item detail page with a
     /// length limit of 5 KiB..
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>canonical_product_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Product images for the catalog item.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>images: ::prost::alloc::vec::Vec&lt;Image&gt;,
-    <span class="doccomment">/// Product price. Only one of &#39;exactPrice&#39;/&#39;priceRange&#39; can be provided.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;product_catalog_item::Price&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    <span class="doccomment">/// Product price. Only one of 'exactPrice'/'priceRange' can be provided.
+    </span><span class="attr">#[prost(oneof = <span class="string">"product_catalog_item::Price"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>price: ::core::option::Option&lt;product_catalog_item::Price&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ProductCatalogItem`.
@@ -2260,11 +2261,11 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ExactPrice {
         <span class="doccomment">/// Optional. Display price of the product.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>display_price: f32,
         <span class="doccomment">/// Optional. Price of the product without any discount. If zero, by default
-        /// set to be the &#39;displayPrice&#39;.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        /// set to be the 'displayPrice'.
+        </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>original_price: f32,
     }
     <span class="doccomment">/// Product price range when there are a range of prices for different
@@ -2273,10 +2274,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PriceRange {
         <span class="doccomment">/// Required. The minimum product price.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>min: f32,
         <span class="doccomment">/// Required. The maximum product price.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>max: f32,
     }
     <span class="doccomment">/// Item stock state. If this field is unspecified, the item is
@@ -2308,34 +2309,34 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                StockState::Unspecified =&gt; <span class="string">&quot;STOCK_STATE_UNSPECIFIED&quot;</span>,
-                StockState::OutOfStock =&gt; <span class="string">&quot;OUT_OF_STOCK&quot;</span>,
-                StockState::Preorder =&gt; <span class="string">&quot;PREORDER&quot;</span>,
-                StockState::Backorder =&gt; <span class="string">&quot;BACKORDER&quot;</span>,
+                StockState::Unspecified =&gt; <span class="string">"STOCK_STATE_UNSPECIFIED"</span>,
+                StockState::OutOfStock =&gt; <span class="string">"OUT_OF_STOCK"</span>,
+                StockState::Preorder =&gt; <span class="string">"PREORDER"</span>,
+                StockState::Backorder =&gt; <span class="string">"BACKORDER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STOCK_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;OUT_OF_STOCK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OutOfStock),
-                <span class="string">&quot;PREORDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preorder),
-                <span class="string">&quot;BACKORDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Backorder),
+                <span class="string">"STOCK_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"OUT_OF_STOCK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OutOfStock),
+                <span class="string">"PREORDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preorder),
+                <span class="string">"BACKORDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Backorder),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
-    <span class="doccomment">/// Product price. Only one of &#39;exactPrice&#39;/&#39;priceRange&#39; can be provided.
+    <span class="doccomment">/// Product price. Only one of 'exactPrice'/'priceRange' can be provided.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Price {
         <span class="doccomment">/// Optional. The exact product price.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>ExactPrice(ExactPrice),
         <span class="doccomment">/// Optional. The product price range.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>PriceRange(PriceRange),
     }
 }
@@ -2344,17 +2345,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Image {
     <span class="doccomment">/// Required. URL of the image with a length limit of 5 KiB.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Height of the image in number of pixels.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>height: i32,
     <span class="doccomment">/// Optional. Width of the image in number of pixels.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>width: i32,
 }
 <span class="doccomment">/// UserEvent captures all metadata information recommendation engine needs to
-/// know about how end users interact with customers&#39; website.
+/// know about how end users interact with customers' website.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UserEvent {
@@ -2376,14 +2377,14 @@
     /// * `search` Product search.
     /// * `shopping-cart-page-view` User viewing a shopping cart.
     /// * `impression` List of items displayed. Used by Google Tag Manager.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>event_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. User information.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>user_info: ::core::option::Option&lt;UserInfo&gt;,
     <span class="doccomment">/// Optional. User event detailed information common across different
     /// recommendation types.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>event_detail: ::core::option::Option&lt;EventDetail&gt;,
     <span class="doccomment">/// Optional. Retail product specific user event metadata.
     ///
@@ -2403,21 +2404,21 @@
     /// This field is optional for the following event types:
     ///
     /// * `page-visit`
-    /// * `shopping-cart-page-view` - note that &#39;product_event_detail&#39; should be
+    /// * `shopping-cart-page-view` - note that 'product_event_detail' should be
     ///    set for this unless the shopping cart is empty.
     ///
     /// This field is not allowed for the following event types:
     ///
     /// * `home-page-view`
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>product_event_detail: ::core::option::Option&lt;ProductEventDetail&gt;,
     <span class="doccomment">/// Optional. Only required for ImportUserEvents method. Timestamp of user
     /// event created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>event_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. This field should *not* be set when using JavaScript pixel
     /// or the Recommendations AI Tag. Defaults to `EVENT_SOURCE_UNSPECIFIED`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;user_event::EventSource&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"user_event::EventSource"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>event_source: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `UserEvent`.
@@ -2452,21 +2453,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EventSource::Unspecified =&gt; <span class="string">&quot;EVENT_SOURCE_UNSPECIFIED&quot;</span>,
-                EventSource::Automl =&gt; <span class="string">&quot;AUTOML&quot;</span>,
-                EventSource::Ecommerce =&gt; <span class="string">&quot;ECOMMERCE&quot;</span>,
-                EventSource::BatchUpload =&gt; <span class="string">&quot;BATCH_UPLOAD&quot;</span>,
+                EventSource::Unspecified =&gt; <span class="string">"EVENT_SOURCE_UNSPECIFIED"</span>,
+                EventSource::Automl =&gt; <span class="string">"AUTOML"</span>,
+                EventSource::Ecommerce =&gt; <span class="string">"ECOMMERCE"</span>,
+                EventSource::BatchUpload =&gt; <span class="string">"BATCH_UPLOAD"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;EVENT_SOURCE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AUTOML&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Automl),
-                <span class="string">&quot;ECOMMERCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ecommerce),
-                <span class="string">&quot;BATCH_UPLOAD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BatchUpload),
+                <span class="string">"EVENT_SOURCE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AUTOML" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Automl),
+                <span class="string">"ECOMMERCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ecommerce),
+                <span class="string">"BATCH_UPLOAD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BatchUpload),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2483,24 +2484,24 @@
     /// able to uniquely identify a visitor on a single device. This unique
     /// identifier should not change if the visitor log in/out of the website.
     /// Maximum length 128 bytes. Cannot be empty.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>visitor_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Unique identifier for logged-in user with a length limit of 128
     /// bytes. Required only for logged-in users.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>user_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. IP address of the user. This could be either IPv4 (e.g. 104.133.9.80) or
     /// IPv6 (e.g. 2001:0db8:85a3:0000:0000:8a2e:0370:7334). This should *not* be
     /// set when using the javascript pixel or if `direct_user_request` is set.
     /// Used to extract location information for personalization.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>ip_address: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. User agent as included in the HTTP header. UTF-8 encoded string
     /// with a length limit of 1 KiB.
     ///
     /// This should *not* be set when using the JavaScript pixel or if
     /// `directUserRequest` is set.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>user_agent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Indicates if the request is made directly from the end user
     /// in which case the user_agent and ip_address fields can be populated
@@ -2508,21 +2509,21 @@
     /// pixel. This flag should be set only if the API request is made directly
     /// from the end user such as a mobile app (and not if a gateway or a server is
     /// processing and pushing the user events).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>direct_user_request: bool,
 }
 <span class="doccomment">/// User event details shared by all recommendation types.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EventDetail {
-    <span class="doccomment">/// Optional. Complete url (window.location.href) of the user&#39;s current page.
+    <span class="doccomment">/// Optional. Complete url (window.location.href) of the user's current page.
     /// When using the JavaScript pixel, this value is filled in automatically.
     /// Maximum length 5KB.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The referrer url of the current page. When using
     /// the JavaScript pixel, this value is filled in automatically.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>referrer_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A unique id of a web page view.
     /// This should be kept the same for all user events triggered from the same
@@ -2531,13 +2532,13 @@
     /// The `pageViewId` property should be kept the same for all these events so
     /// that they can be grouped together properly. This `pageViewId` will be
     /// automatically generated if using the JavaScript pixel.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_view_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A list of identifiers for the independent experiment groups
     /// this user event belongs to. This is used to distinguish between user events
     /// associated with different experiment setups (e.g. using Recommendation
     /// Engine system, using different recommendation models).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>experiment_ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Optional. Recommendation token included in the recommendation prediction
     /// response.
@@ -2549,12 +2550,12 @@
     /// the event and the particular predict response containing this
     /// clicked/purchased item. If user clicks on product K in the recommendation
     /// results, pass the `PredictResponse.recommendationToken` property as a url
-    /// parameter to product K&#39;s page. When recording events on product K&#39;s page,
+    /// parameter to product K's page. When recording events on product K's page,
     /// log the PredictResponse.recommendation_token to this field.
     ///
     /// Optional, but highly encouraged for user events that are the result of a
     /// recommendation prediction query.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>recommendation_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Extra user event features to include in the recommendation
     /// model.
@@ -2563,7 +2564,7 @@
     /// traffic_channel, i.e. how user arrives at the site. Users can arrive
     /// at the site by coming to the site directly, or coming through Google
     /// search, and etc.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>event_attributes: ::core::option::Option&lt;FeatureMap&gt;,
 }
 <span class="doccomment">/// ProductEventDetail captures user event information specific to retail
@@ -2572,16 +2573,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ProductEventDetail {
     <span class="doccomment">/// Required for `search` events. Other event types should not set this field.
-    /// The user&#39;s search query as UTF-8 encoded text with a length limit of 5 KiB.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// The user's search query as UTF-8 encoded text with a length limit of 5 KiB.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>search_query: ::prost::alloc::string::String,
     <span class="doccomment">/// Required for `category-page-view` events. Other event types should not set
     /// this field.
     /// The categories associated with a category page.
     /// Category pages include special pages such as sales or promotions. For
     /// instance, a special sale page may have the category hierarchy:
-    /// categories : \[&quot;Sales&quot;, &quot;2017 Black Friday Deals&quot;\].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    /// categories : \["Sales", "2017 Black Friday Deals"\].
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_categories: ::prost::alloc::vec::Vec&lt;catalog_item::CategoryHierarchy&gt;,
     <span class="doccomment">/// The main product details related to the event.
     ///
@@ -2599,7 +2600,7 @@
     /// This field is optional for the following event types:
     ///
     /// * `page-visit`
-    /// * `shopping-cart-page-view` - note that &#39;product_details&#39; should be set for
+    /// * `shopping-cart-page-view` - note that 'product_details' should be set for
     ///    this unless the shopping cart is empty.
     ///
     /// This field is not allowed for the following event types:
@@ -2607,24 +2608,24 @@
     /// * `category-page-view`
     /// * `home-page-view`
     /// * `search`
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>product_details: ::prost::alloc::vec::Vec&lt;ProductDetail&gt;,
     <span class="doccomment">/// Required for `add-to-list` and `remove-from-list` events. The id or name of
     /// the list that the item is being added to or removed from. Other event types
     /// should not set this field.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>list_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The id or name of the associated shopping cart. This id is used
     /// to associate multiple items added or present in the cart before purchase.
     ///
     /// This can only be set for `add-to-cart`, `remove-from-cart`,
     /// `checkout-start`, `purchase-complete`, or `shopping-cart-page-view` events.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>cart_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A transaction represents the entire purchase transaction.
     /// Required for `purchase-complete` events. Optional for `checkout-start`
     /// events. Other event types should not set this field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>purchase_transaction: ::core::option::Option&lt;PurchaseTransaction&gt;,
 }
 <span class="doccomment">/// A transaction represents the entire purchase transaction.
@@ -2632,16 +2633,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PurchaseTransaction {
     <span class="doccomment">/// Optional. The transaction ID with a length limit of 128 bytes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Total revenue or grand total associated with the transaction.
     /// This value include shipping, tax, or other adjustments to total revenue
     /// that you want to include as part of your revenue calculations. This field
     /// is not required if the event type is `refund`.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>revenue: f32,
     <span class="doccomment">/// Optional. All the taxes associated with the transaction.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, float&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, float"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>taxes: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         f32,
@@ -2657,14 +2658,14 @@
     ///
     /// If CatalogItem.cost is not specified for one of the items, CatalogItem.cost
     /// based profit *cannot* be calculated for this Transaction.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, float&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, float"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>costs: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         f32,
     &gt;,
     <span class="doccomment">/// Required. Currency code. Use three-character ISO-4217 code. This field
     /// is not required if the event type is `refund`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Detailed product information associated with a user event.
@@ -2673,30 +2674,30 @@
 </span><span class="kw">pub struct </span>ProductDetail {
     <span class="doccomment">/// Required. Catalog item ID. UTF-8 encoded string with a length limit of 128
     /// characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Currency code for price/costs. Use three-character ISO-4217
     /// code. Required only if originalPrice or displayPrice is set.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Original price of the product. If provided, this will override
     /// the original price in Catalog for this product.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>original_price: f32,
     <span class="doccomment">/// Optional. Display price of the product (e.g. discounted price). If
     /// provided, this will override the display price in Catalog for this product.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>display_price: f32,
     <span class="doccomment">/// Optional. Item stock state. If provided, this overrides the stock state
     /// in Catalog for items in this event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;product_catalog_item::StockState&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"product_catalog_item::StockState"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>stock_state: i32,
     <span class="doccomment">/// Optional. Quantity of the product associated with the user event. For
     /// example, this field will be 2 if two products are added to the shopping
     /// cart for `add-to-cart` event. Required for `add-to-cart`, `add-to-list`,
     /// `remove-from-cart`, `checkout-start`, `purchase-complete`, `refund` event
     /// types.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>quantity: i32,
     <span class="doccomment">/// Optional. Quantity of the products in stock when a user event happens.
     /// Optional. If provided, this overrides the available quantity in Catalog for
@@ -2705,10 +2706,10 @@
     /// Note that if an item is out of stock, you must set the `stock_state` field
     /// to be `OUT_OF_STOCK`. Leaving this field unspecified / as zero is not
     /// sufficient to mark the item out of stock.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>available_quantity: i32,
     <span class="doccomment">/// Optional. Extra features associated with a product in the user event.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>item_attributes: ::core::option::Option&lt;FeatureMap&gt;,
 }
 <span class="doccomment">/// Google Cloud Storage location for input content.
@@ -2723,7 +2724,7 @@
     /// contain at most 100 files, and each file can be up to 2 GB. See
     /// [Importing catalog information](/recommendations-ai/docs/upload-catalog)
     /// for the expected file format and setup instructions.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>input_uris: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The inline source for the input config for ImportCatalogItems method.
@@ -2732,7 +2733,7 @@
 </span><span class="kw">pub struct </span>CatalogInlineSource {
     <span class="doccomment">/// Optional. A list of catalog items to update/create. Recommended max of 10k
     /// items.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>catalog_items: ::prost::alloc::vec::Vec&lt;CatalogItem&gt;,
 }
 <span class="doccomment">/// The inline source for the input config for ImportUserEvents method.
@@ -2740,7 +2741,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UserEventInlineSource {
     <span class="doccomment">/// Optional. A list of user events to import. Recommended max of 10k items.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>user_events: ::prost::alloc::vec::Vec&lt;UserEvent&gt;,
 }
 <span class="doccomment">/// Configuration of destination for Import related errors.
@@ -2748,7 +2749,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportErrorsConfig {
     <span class="doccomment">/// Required. Errors destination.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;import_errors_config::Destination&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"import_errors_config::Destination"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;import_errors_config::Destination&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ImportErrorsConfig`.
@@ -2761,7 +2762,7 @@
         /// existing Cloud Storage bucket. Import errors will be written to a file in
         /// this bucket, one per line, as a JSON-encoded
         /// `google.rpc.Status` message.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>GcsPrefix(::prost::alloc::string::String),
     }
 }
@@ -2770,19 +2771,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportCatalogItemsRequest {
     <span class="doccomment">/// Required. `projects/1234/locations/global/catalogs/default_catalog`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Unique identifier provided by client, within the ancestor
     /// dataset scope. Ensures idempotency and used for request deduplication.
     /// Server-generated if unspecified. Up to 128 characters long. This is
     /// returned as google.longrunning.Operation.name in the response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The desired input location of the data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;InputConfig&gt;,
     <span class="doccomment">/// Optional. The desired location of errors incurred during the Import.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
 }
 <span class="doccomment">/// Request message for the ImportUserEvents request.
@@ -2791,7 +2792,7 @@
 </span><span class="kw">pub struct </span>ImportUserEventsRequest {
     <span class="doccomment">/// Required.
     /// `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Unique identifier provided by client, within the ancestor
     /// dataset scope. Ensures idempotency for expensive long running operations.
@@ -2799,13 +2800,13 @@
     /// returned as google.longrunning.Operation.name in the response. Note that
     /// this field must not be set if the desired input config is
     /// catalog_inline_source.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The desired input location of the data.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;InputConfig&gt;,
     <span class="doccomment">/// Optional. The desired location of errors incurred during the Import.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
 }
 <span class="doccomment">/// The input config source.
@@ -2813,7 +2814,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InputConfig {
     <span class="doccomment">/// Required. The source of the input.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;input_config::Source&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"input_config::Source"</span>, tags = <span class="string">"1, 2, 3"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;input_config::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `InputConfig`.
@@ -2823,13 +2824,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// The Inline source for the input content for Catalog items.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>CatalogInlineSource(<span class="kw">super</span>::CatalogInlineSource),
         <span class="doccomment">/// Google Cloud Storage location for the input content.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>GcsSource(<span class="kw">super</span>::GcsSource),
         <span class="doccomment">/// The Inline source for the input content for UserEvents.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>UserEventInlineSource(<span class="kw">super</span>::UserEventInlineSource),
     }
 }
@@ -2839,24 +2840,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportMetadata {
     <span class="doccomment">/// Name of the operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>operation_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Id of the request / operation. This is parroting back the requestId that
     /// was passed in the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Operation create time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Count of entries that were processed successfully.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>success_count: i64,
     <span class="doccomment">/// Count of entries that encountered errors while processing.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>failure_count: i64,
     <span class="doccomment">/// Operation last update time. If the operation is done, this is also the
     /// finish time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Response of the ImportCatalogItemsRequest. If the long running
@@ -2866,10 +2867,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportCatalogItemsResponse {
     <span class="doccomment">/// A sample of errors encountered while processing the request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>error_samples: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Echoes the destination for the complete errors in the request if set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
 }
 <span class="doccomment">/// Response of the ImportUserEventsRequest. If the long running
@@ -2879,14 +2880,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ImportUserEventsResponse {
     <span class="doccomment">/// A sample of errors encountered while processing the request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>error_samples: ::prost::alloc::vec::Vec&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Echoes the destination for the complete errors if this field was set in
     /// the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>errors_config: ::core::option::Option&lt;ImportErrorsConfig&gt;,
     <span class="doccomment">/// Aggregated statistics of user event import status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>import_summary: ::core::option::Option&lt;UserEventImportSummary&gt;,
 }
 <span class="doccomment">/// A summary of import result. The UserEventImportSummary summarizes
@@ -2895,11 +2896,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UserEventImportSummary {
     <span class="doccomment">/// Count of user events imported with complete existing catalog information.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>joined_events_count: i64,
     <span class="doccomment">/// Count of user events imported, but with catalog information not found
     /// in the imported catalog.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>unjoined_events_count: i64,
 }
 <span class="doccomment">/// Request message for CreateCatalogItem method.
@@ -2908,10 +2909,10 @@
 </span><span class="kw">pub struct </span>CreateCatalogItemRequest {
     <span class="doccomment">/// Required. The parent catalog resource name, such as
     /// `projects/*/locations/global/catalogs/default_catalog`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The catalog item to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>catalog_item: ::core::option::Option&lt;CatalogItem&gt;,
 }
 <span class="doccomment">/// Request message for GetCatalogItem method.
@@ -2920,7 +2921,7 @@
 </span><span class="kw">pub struct </span>GetCatalogItemRequest {
     <span class="doccomment">/// Required. Full resource name of catalog item, such as
     /// `projects/*/locations/global/catalogs/default_catalog/catalogitems/some_catalog_item_id`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for ListCatalogItems method.
@@ -2929,17 +2930,17 @@
 </span><span class="kw">pub struct </span>ListCatalogItemsRequest {
     <span class="doccomment">/// Required. The parent catalog resource name, such as
     /// `projects/*/locations/global/catalogs/default_catalog`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum number of results to return per page. If zero, the
     /// service will choose a reasonable default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. The previous ListCatalogItemsResponse.next_page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A filter to apply on the list results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListCatalogItems method.
@@ -2947,11 +2948,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCatalogItemsResponse {
     <span class="doccomment">/// The catalog items.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>catalog_items: ::prost::alloc::vec::Vec&lt;CatalogItem&gt;,
     <span class="doccomment">/// If empty, the list is complete. If nonempty, the token to pass to the next
-    /// request&#39;s ListCatalogItemRequest.page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// request's ListCatalogItemRequest.page_token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for UpdateCatalogItem method.
@@ -2960,15 +2961,15 @@
 </span><span class="kw">pub struct </span>UpdateCatalogItemRequest {
     <span class="doccomment">/// Required. Full resource name of catalog item, such as
     /// `projects/*/locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Required. The catalog item to update/create. The &#39;catalog_item_id&#39; field
-    /// has to match that in the &#39;name&#39;.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Required. The catalog item to update/create. The 'catalog_item_id' field
+    /// has to match that in the 'name'.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>catalog_item: ::core::option::Option&lt;CatalogItem&gt;,
-    <span class="doccomment">/// Optional. Indicates which fields in the provided &#39;item&#39; to update. If not
+    <span class="doccomment">/// Optional. Indicates which fields in the provided 'item' to update. If not
     /// set, will by default update all fields.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for DeleteCatalogItem method.
@@ -2977,7 +2978,7 @@
 </span><span class="kw">pub struct </span>DeleteCatalogItemRequest {
     <span class="doccomment">/// Required. Full resource name of catalog item, such as
     /// `projects/*/locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2985,7 +2986,7 @@
     <span class="attr">#![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
     </span><span class="kw">use </span>tonic::codegen::<span class="kw-2">*</span>;
     <span class="kw">use </span>tonic::codegen::http::Uri;
-    <span class="doccomment">/// Service for ingesting catalog information of the customer&#39;s website.
+    <span class="doccomment">/// Service for ingesting catalog information of the customer's website.
     </span><span class="attr">#[derive(Debug, Clone)]
     </span><span class="kw">pub struct </span>CatalogServiceClient&lt;T&gt; {
         inner: tonic::client::Grpc&lt;T&gt;,
@@ -2994,7 +2995,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3066,19 +3067,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/CreateCatalogItem&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.CatalogService/CreateCatalogItem"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;CreateCatalogItem&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.CatalogService"</span>,
+                        <span class="string">"CreateCatalogItem"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3094,19 +3095,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/GetCatalogItem&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.CatalogService/GetCatalogItem"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;GetCatalogItem&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.CatalogService"</span>,
+                        <span class="string">"GetCatalogItem"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3125,19 +3126,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/ListCatalogItems&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.CatalogService/ListCatalogItems"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;ListCatalogItems&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.CatalogService"</span>,
+                        <span class="string">"ListCatalogItems"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3154,19 +3155,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/UpdateCatalogItem&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.CatalogService/UpdateCatalogItem"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;UpdateCatalogItem&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.CatalogService"</span>,
+                        <span class="string">"UpdateCatalogItem"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3182,19 +3183,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/DeleteCatalogItem&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.CatalogService/DeleteCatalogItem"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;DeleteCatalogItem&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.CatalogService"</span>,
+                        <span class="string">"DeleteCatalogItem"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3218,19 +3219,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.CatalogService/ImportCatalogItems&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.CatalogService/ImportCatalogItems"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.CatalogService&quot;</span>,
-                        <span class="string">&quot;ImportCatalogItems&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.CatalogService"</span>,
+                        <span class="string">"ImportCatalogItems"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3242,7 +3243,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PredictionApiKeyRegistration {
     <span class="doccomment">/// The API key.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>api_key: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for the `CreatePredictionApiKeyRegistration` method.
@@ -3251,10 +3252,10 @@
 </span><span class="kw">pub struct </span>CreatePredictionApiKeyRegistrationRequest {
     <span class="doccomment">/// Required. The parent resource path.
     /// `projects/*/locations/global/catalogs/default_catalog/eventStores/default_event_store`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The prediction API key registration.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>prediction_api_key_registration: ::core::option::Option&lt;
         PredictionApiKeyRegistration,
     &gt;,
@@ -3265,14 +3266,14 @@
 </span><span class="kw">pub struct </span>ListPredictionApiKeyRegistrationsRequest {
     <span class="doccomment">/// Required. The parent placement resource name such as
     /// `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum number of results to return per page. If unset, the
     /// service will choose a reasonable default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. The previous `ListPredictionApiKeyRegistration.nextPageToken`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for the `ListPredictionApiKeyRegistrations`.
@@ -3280,13 +3281,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPredictionApiKeyRegistrationsResponse {
     <span class="doccomment">/// The list of registered API keys.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>prediction_api_key_registrations: ::prost::alloc::vec::Vec&lt;
         PredictionApiKeyRegistration,
     &gt;,
     <span class="doccomment">/// If empty, the list is complete. If nonempty, pass the token to the next
-    /// request&#39;s `ListPredictionApiKeysRegistrationsRequest.pageToken`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// request's `ListPredictionApiKeysRegistrationsRequest.pageToken`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for `DeletePredictionApiKeyRegistration` method.
@@ -3295,7 +3296,7 @@
 </span><span class="kw">pub struct </span>DeletePredictionApiKeyRegistrationRequest {
     <span class="doccomment">/// Required. The API key to unregister including full resource path.
     /// `projects/*/locations/global/catalogs/default_catalog/eventStores/default_event_store/predictionApiKeyRegistrations/&lt;YOUR_API_KEY&gt;`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -3316,7 +3317,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3395,19 +3396,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry/CreatePredictionApiKeyRegistration&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry/CreatePredictionApiKeyRegistration"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry&quot;</span>,
-                        <span class="string">&quot;CreatePredictionApiKeyRegistration&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry"</span>,
+                        <span class="string">"CreatePredictionApiKeyRegistration"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3428,19 +3429,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry/ListPredictionApiKeyRegistrations&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry/ListPredictionApiKeyRegistrations"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry&quot;</span>,
-                        <span class="string">&quot;ListPredictionApiKeyRegistrations&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry"</span>,
+                        <span class="string">"ListPredictionApiKeyRegistrations"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3458,19 +3459,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry/DeletePredictionApiKeyRegistration&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry/DeletePredictionApiKeyRegistration"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry&quot;</span>,
-                        <span class="string">&quot;DeletePredictionApiKeyRegistration&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry"</span>,
+                        <span class="string">"DeletePredictionApiKeyRegistration"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3510,21 +3511,21 @@
     ///
     /// The full list of available placements can be seen at
     /// &lt;https://console.cloud.google.com/recommendation/datafeeds/default_catalog/dashboard&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Context about the user, what they are looking at and what action
     /// they took to trigger the predict request. Note that this user event detail
-    /// won&#39;t be ingested to userEvent logs. Thus, a separate userEvent write
+    /// won't be ingested to userEvent logs. Thus, a separate userEvent write
     /// request is required for event logging.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>user_event: ::core::option::Option&lt;UserEvent&gt;,
     <span class="doccomment">/// Optional. Maximum number of results to return per page. Set this property
     /// to the number of prediction results required. If zero, the service will
     /// choose a reasonable default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. The previous PredictResponse.next_page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Filter for restricting prediction results. Accepts values for
     /// tags and the `filterOutOfStockItems` flag.
@@ -3532,8 +3533,8 @@
     ///   * Tag expressions. Restricts predictions to items that match all of the
     ///     specified tags. Boolean operators `OR` and `NOT` are supported if the
     ///     expression is enclosed in parentheses, and must be separated from the
-    ///     tag values by a space. `-&quot;tagA&quot;` is also supported and is equivalent to
-    ///     `NOT &quot;tagA&quot;`. Tag values must be double quoted UTF-8 encoded strings
+    ///     tag values by a space. `-"tagA"` is also supported and is equivalent to
+    ///     `NOT "tagA"`. Tag values must be double quoted UTF-8 encoded strings
     ///     with a size limit of 1 KiB.
     ///
     ///   * filterOutOfStockItems. Restricts predictions to items that do not have a
@@ -3541,16 +3542,16 @@
     ///
     /// Examples:
     ///
-    ///   * tag=(&quot;Red&quot; OR &quot;Blue&quot;) tag=&quot;New-Arrival&quot; tag=(NOT &quot;promotional&quot;)
-    ///   * filterOutOfStockItems  tag=(-&quot;promotional&quot;)
+    ///   * tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional")
+    ///   * filterOutOfStockItems  tag=(-"promotional")
     ///   * filterOutOfStockItems
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Use dryRun mode for this prediction query. If set to true, a
     /// dummy model will be used that returns arbitrary catalog items.
     /// Note that the dryRun mode should only be used for testing the API, or if
     /// the model is not ready.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>dry_run: bool,
     <span class="doccomment">/// Optional. Additional domain specific parameters for the predictions.
     ///
@@ -3560,12 +3561,12 @@
     ///     object will be returned in the
     ///    `PredictResponse.PredictionResult.itemMetadata` object in the method
     ///     response.
-    /// * `returnItemScore`: Boolean. If set to true, the prediction &#39;score&#39;
+    /// * `returnItemScore`: Boolean. If set to true, the prediction 'score'
     ///     corresponding to each returned item will be set in the `metadata`
-    ///     field in the prediction response. The given &#39;score&#39; indicates the
-    ///     probability of an item being clicked/purchased given the user&#39;s context
+    ///     field in the prediction response. The given 'score' indicates the
+    ///     probability of an item being clicked/purchased given the user's context
     ///     and history.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>params: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost_types::Value,
@@ -3579,7 +3580,7 @@
     ///   * No more than 64 labels can be associated with a given request.
     ///
     /// See &lt;https://goo.gl/xmQnxf&gt; for more information on and examples of labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -3591,30 +3592,30 @@
 </span><span class="kw">pub struct </span>PredictResponse {
     <span class="doccomment">/// A list of recommended items. The order represents the ranking (from the
     /// most relevant item to the least).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>results: ::prost::alloc::vec::Vec&lt;predict_response::PredictionResult&gt;,
     <span class="doccomment">/// A unique recommendation token. This should be included in the user event
     /// logs resulting from this recommendation, which enables accurate attribution
     /// of recommendation model performance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>recommendation_token: ::prost::alloc::string::String,
     <span class="doccomment">/// IDs of items in the request that were missing from the catalog.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>items_missing_in_catalog: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// True if the dryRun property was set in the request.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>dry_run: bool,
     <span class="doccomment">/// Additional domain specific prediction response metadata.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost_types::Value,
     &gt;,
     <span class="doccomment">/// If empty, the list is complete. If nonempty, the token to pass to the next
-    /// request&#39;s PredictRequest.page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    /// request's PredictRequest.page_token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `PredictResponse`.
@@ -3624,7 +3625,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>PredictionResult {
         <span class="doccomment">/// ID of the recommended catalog item
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
         <span class="doccomment">/// Additional item metadata / annotations.
         ///
@@ -3634,7 +3635,7 @@
         ///    `returnCatalogItem` is set to true in `PredictRequest.params`.
         /// * `score`: Prediction score in double value. Will be set if
         ///    `returnItemScore` is set to true in `PredictRequest.params`.
-        </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>item_metadata: ::prost::alloc::collections::BTreeMap&lt;
             ::prost::alloc::string::String,
             ::prost_types::Value,
@@ -3655,7 +3656,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3733,19 +3734,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.PredictionService/Predict&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.PredictionService/Predict"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.PredictionService&quot;</span>,
-                        <span class="string">&quot;Predict&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.PredictionService"</span>,
+                        <span class="string">"Predict"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3759,32 +3760,32 @@
     <span class="doccomment">/// Required. The resource name of the event_store under which the events are
     /// created. The format is
     /// `projects/${projectId}/locations/global/catalogs/${catalogId}/eventStores/${eventStoreId}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The filter string to specify the events to be deleted. Empty
     /// string filter is not allowed. This filter can also be used with
     /// ListUserEvents API to list events that will be deleted. The eligible fields
     /// for filtering are:
     /// * eventType - UserEvent.eventType field of type string.
-    /// * eventTime - in ISO 8601 &quot;zulu&quot; format.
+    /// * eventTime - in ISO 8601 "zulu" format.
     /// * visitorId - field of type string. Specifying this will delete all events
     /// associated with a visitor.
     /// * userId - field of type string. Specifying this will delete all events
     /// associated with a user.
     /// Example 1: Deleting all events in a time range.
-    /// `eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot; eventTime &lt;
-    /// &quot;2012-04-23T18:30:43.511Z&quot;`
+    /// `eventTime &gt; "2012-04-23T18:25:43.511Z" eventTime &lt;
+    /// "2012-04-23T18:30:43.511Z"`
     /// Example 2: Deleting specific eventType in time range.
-    /// `eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot; eventType = &quot;detail-page-view&quot;`
+    /// `eventTime &gt; "2012-04-23T18:25:43.511Z" eventType = "detail-page-view"`
     /// Example 3: Deleting all events for a specific visitor
     /// `visitorId = visitor1024`
     /// The filtering fields are assumed to have an implicit AND.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The default value is false. Override this flag to true to
     /// actually perform the purge. If the field is not set to true, a sampling of
     /// events to be deleted will be returned.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>force: bool,
 }
 <span class="doccomment">/// Metadata related to the progress of the PurgeUserEvents operation.
@@ -3793,10 +3794,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PurgeUserEventsMetadata {
     <span class="doccomment">/// The ID of the request / operation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operation_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Operation create time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Response of the PurgeUserEventsRequest. If the long running operation is
@@ -3806,11 +3807,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PurgeUserEventsResponse {
     <span class="doccomment">/// The total count of events purged as a result of the operation.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>purged_events_count: i64,
     <span class="doccomment">/// A sampling of events deleted (or will be deleted) depending on the `force`
     /// property in the request. Max of 500 items will be returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>user_events_sample: ::prost::alloc::vec::Vec&lt;UserEvent&gt;,
 }
 <span class="doccomment">/// Request message for WriteUserEvent method.
@@ -3819,10 +3820,10 @@
 </span><span class="kw">pub struct </span>WriteUserEventRequest {
     <span class="doccomment">/// Required. The parent eventStore resource name, such as
     /// `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. User event to write.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>user_event: ::core::option::Option&lt;UserEvent&gt;,
 }
 <span class="doccomment">/// Request message for CollectUserEvent method.
@@ -3831,21 +3832,21 @@
 </span><span class="kw">pub struct </span>CollectUserEventRequest {
     <span class="doccomment">/// Required. The parent eventStore name, such as
     /// `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. URL encoded UserEvent proto.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>user_event: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The url including cgi-parameters but excluding the hash fragment.
     /// The URL must be truncated to 1.5K bytes to conservatively be under the 2K
     /// bytes. This is often more useful than the referer url, because many
     /// browsers only send the domain for 3rd party requests.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The event timestamp in milliseconds. This prevents browser
     /// caching of otherwise identical get requests. The name is abbreviated to
     /// reduce the payload bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>ets: i64,
 }
 <span class="doccomment">/// Request message for ListUserEvents method.
@@ -3854,21 +3855,21 @@
 </span><span class="kw">pub struct </span>ListUserEventsRequest {
     <span class="doccomment">/// Required. The parent eventStore resource name, such as
     /// `projects/*/locations/*/catalogs/default_catalog/eventStores/default_event_store`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum number of results to return per page. If zero, the
     /// service will choose a reasonable default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. The previous ListUserEventsResponse.next_page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Filtering expression to specify restrictions over
     /// returned events. This is a sequence of terms, where each term applies some
     /// kind of a restriction to the returned user events. Use this expression to
     /// restrict results to a specific time range, or filter events by eventType.
-    ///     eg: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot; eventsMissingCatalogItems
-    ///     eventTime&lt;&quot;2012-04-23T18:25:43.511Z&quot; eventType=search
+    ///     eg: eventTime &gt; "2012-04-23T18:25:43.511Z" eventsMissingCatalogItems
+    ///     eventTime&lt;"2012-04-23T18:25:43.511Z" eventType=search
     ///
     ///    We expect only 3 types of fields:
     ///
@@ -3886,16 +3887,16 @@
     ///
     ///    Some examples of valid filters expressions:
     ///
-    ///    * Example 1: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot;
-    ///              eventTime &lt; &quot;2012-04-23T18:30:43.511Z&quot;
-    ///    * Example 2: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot;
+    ///    * Example 1: eventTime &gt; "2012-04-23T18:25:43.511Z"
+    ///              eventTime &lt; "2012-04-23T18:30:43.511Z"
+    ///    * Example 2: eventTime &gt; "2012-04-23T18:25:43.511Z"
     ///              eventType = detail-page-view
     ///    * Example 3: eventsMissingCatalogItems
-    ///              eventType = search eventTime &lt; &quot;2018-04-23T18:30:43.511Z&quot;
-    ///    * Example 4: eventTime &gt; &quot;2012-04-23T18:25:43.511Z&quot;
+    ///              eventType = search eventTime &lt; "2018-04-23T18:30:43.511Z"
+    ///    * Example 4: eventTime &gt; "2012-04-23T18:25:43.511Z"
     ///    * Example 5: eventType = search
     ///    * Example 6: eventsMissingCatalogItems
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListUserEvents method.
@@ -3903,11 +3904,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListUserEventsResponse {
     <span class="doccomment">/// The user events.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>user_events: ::prost::alloc::vec::Vec&lt;UserEvent&gt;,
     <span class="doccomment">/// If empty, the list is complete. If nonempty, the token to pass to the next
-    /// request&#39;s ListUserEvents.page_token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// request's ListUserEvents.page_token.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -3924,7 +3925,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3996,19 +3997,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/WriteUserEvent&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.UserEventService/WriteUserEvent"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
-                        <span class="string">&quot;WriteUserEvent&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.UserEventService"</span>,
+                        <span class="string">"WriteUserEvent"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4031,19 +4032,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/CollectUserEvent&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.UserEventService/CollectUserEvent"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
-                        <span class="string">&quot;CollectUserEvent&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.UserEventService"</span>,
+                        <span class="string">"CollectUserEvent"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4062,19 +4063,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/ListUserEvents&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.UserEventService/ListUserEvents"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
-                        <span class="string">&quot;ListUserEvents&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.UserEventService"</span>,
+                        <span class="string">"ListUserEvents"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4096,19 +4097,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/PurgeUserEvents&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.UserEventService/PurgeUserEvents"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
-                        <span class="string">&quot;PurgeUserEvents&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.UserEventService"</span>,
+                        <span class="string">"PurgeUserEvents"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4133,19 +4134,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommendationengine.v1beta1.UserEventService/ImportUserEvents&quot;</span>,
+                <span class="string">"/google.cloud.recommendationengine.v1beta1.UserEventService/ImportUserEvents"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommendationengine.v1beta1.UserEventService&quot;</span>,
-                        <span class="string">&quot;ImportUserEvents&quot;</span>,
+                        <span class="string">"google.cloud.recommendationengine.v1beta1.UserEventService"</span>,
+                        <span class="string">"ImportUserEvents"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/reservation/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/bigquery/reservation/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1769,7 +1770,7 @@
     /// The reservation_id must only contain lower case alphanumeric characters or
     /// dashes. It must start with a letter and must not end with a dash. Its
     /// maximum length is 64 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Minimum slots available to this reservation. A slot is a unit of
     /// computational power in BigQuery, and serves as the unit of parallelism.
@@ -1785,17 +1786,17 @@
     /// NOTE: for reservations in US or EU multi-regions, slot capacity constraints
     /// are checked separately for default and auxiliary regions. See
     /// multi_region_auxiliary flag for more details.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>slot_capacity: i64,
     <span class="doccomment">/// If false, any query or pipeline job using this reservation will use idle
     /// slots from other reservations within the same admin project. If true, a
     /// query or pipeline job using this reservation will execute with the slot
     /// capacity specified in the slot_capacity field at most.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>ignore_idle_slots: bool,
     <span class="doccomment">/// The configuration parameters for the auto scaling feature. Note this is an
     /// alpha feature.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>autoscale: ::core::option::Option&lt;reservation::Autoscale&gt;,
     <span class="doccomment">/// Job concurrency target which sets a soft upper bound on the number of jobs
     /// that can run concurrently in this reservation. This is a soft target due to
@@ -1805,27 +1806,27 @@
     /// automatically computed by the system.
     /// NOTE: this field is exposed as `target_job_concurrency` in the Information
     /// Schema, DDL and BQ CLI.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>concurrency: i64,
     <span class="doccomment">/// Output only. Creation time of the reservation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>creation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Last update time of the reservation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Applicable only for reservations located within one of the BigQuery
     /// multi-regions (US or EU).
     ///
-    /// If set to true, this reservation is placed in the organization&#39;s
+    /// If set to true, this reservation is placed in the organization's
     /// secondary region which is designated for disaster recovery purposes.
-    /// If false, this reservation is placed in the organization&#39;s default region.
+    /// If false, this reservation is placed in the organization's default region.
     ///
     /// NOTE: this is a preview feature. Project must be allow-listed in order to
     /// set this field.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>multi_region_auxiliary: bool,
     <span class="doccomment">/// Edition of the reservation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Edition&quot;</span>, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"Edition"</span>, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>edition: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Reservation`.
@@ -1836,10 +1837,10 @@
     </span><span class="kw">pub struct </span>Autoscale {
         <span class="doccomment">/// Output only. The slot capacity added to this reservation when autoscale
         /// happens. Will be between \[0, max_slots\].
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>current_slots: i64,
         <span class="doccomment">/// Number of slots to be scaled when needed.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>max_slots: i64,
     }
 }
@@ -1861,52 +1862,52 @@
     /// The commitment_id must only contain lower case alphanumeric characters or
     /// dashes. It must start with a letter and must not end
     /// with a dash. Its maximum length is 64 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of slots in this commitment.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>slot_count: i64,
     <span class="doccomment">/// Capacity commitment commitment plan.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;capacity_commitment::CommitmentPlan&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"capacity_commitment::CommitmentPlan"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>plan: i32,
     <span class="doccomment">/// Output only. State of the commitment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;capacity_commitment::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"capacity_commitment::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The start of the current commitment period. It is applicable
     /// only for ACTIVE capacity commitments.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>commitment_start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The end of the current commitment period. It is applicable
     /// only for ACTIVE capacity commitments.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>commitment_end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. For FAILED commitment plan, provides the reason of failure.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>failure_status: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// The plan this capacity commitment is converted to after commitment_end_time
     /// passes. Once the plan is changed, committed period is extended according to
     /// commitment plan. Only applicable for ANNUAL and TRIAL commitments.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;capacity_commitment::CommitmentPlan&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"capacity_commitment::CommitmentPlan"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>renewal_plan: i32,
     <span class="doccomment">/// Applicable only for commitments located within one of the BigQuery
     /// multi-regions (US or EU).
     ///
-    /// If set to true, this commitment is placed in the organization&#39;s
+    /// If set to true, this commitment is placed in the organization's
     /// secondary region which is designated for disaster recovery purposes.
-    /// If false, this commitment is placed in the organization&#39;s default region.
+    /// If false, this commitment is placed in the organization's default region.
     ///
     /// NOTE: this is a preview feature. Project must be allow-listed in order to
     /// set this field.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>multi_region_auxiliary: bool,
     <span class="doccomment">/// Edition of the capacity commitment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Edition&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"Edition"</span>, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>edition: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `CapacityCommitment`.
 </span><span class="kw">pub mod </span>capacity_commitment {
     <span class="doccomment">/// Commitment plan defines the current committed period. Capacity commitment
-    /// cannot be deleted during it&#39;s committed period.
+    /// cannot be deleted during it's committed period.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -1966,33 +1967,33 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                CommitmentPlan::Unspecified =&gt; <span class="string">&quot;COMMITMENT_PLAN_UNSPECIFIED&quot;</span>,
-                CommitmentPlan::Flex =&gt; <span class="string">&quot;FLEX&quot;</span>,
-                CommitmentPlan::FlexFlatRate =&gt; <span class="string">&quot;FLEX_FLAT_RATE&quot;</span>,
-                CommitmentPlan::Trial =&gt; <span class="string">&quot;TRIAL&quot;</span>,
-                CommitmentPlan::Monthly =&gt; <span class="string">&quot;MONTHLY&quot;</span>,
-                CommitmentPlan::MonthlyFlatRate =&gt; <span class="string">&quot;MONTHLY_FLAT_RATE&quot;</span>,
-                CommitmentPlan::Annual =&gt; <span class="string">&quot;ANNUAL&quot;</span>,
-                CommitmentPlan::AnnualFlatRate =&gt; <span class="string">&quot;ANNUAL_FLAT_RATE&quot;</span>,
-                CommitmentPlan::ThreeYear =&gt; <span class="string">&quot;THREE_YEAR&quot;</span>,
-                CommitmentPlan::None =&gt; <span class="string">&quot;NONE&quot;</span>,
+                CommitmentPlan::Unspecified =&gt; <span class="string">"COMMITMENT_PLAN_UNSPECIFIED"</span>,
+                CommitmentPlan::Flex =&gt; <span class="string">"FLEX"</span>,
+                CommitmentPlan::FlexFlatRate =&gt; <span class="string">"FLEX_FLAT_RATE"</span>,
+                CommitmentPlan::Trial =&gt; <span class="string">"TRIAL"</span>,
+                CommitmentPlan::Monthly =&gt; <span class="string">"MONTHLY"</span>,
+                CommitmentPlan::MonthlyFlatRate =&gt; <span class="string">"MONTHLY_FLAT_RATE"</span>,
+                CommitmentPlan::Annual =&gt; <span class="string">"ANNUAL"</span>,
+                CommitmentPlan::AnnualFlatRate =&gt; <span class="string">"ANNUAL_FLAT_RATE"</span>,
+                CommitmentPlan::ThreeYear =&gt; <span class="string">"THREE_YEAR"</span>,
+                CommitmentPlan::None =&gt; <span class="string">"NONE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;COMMITMENT_PLAN_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;FLEX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Flex),
-                <span class="string">&quot;FLEX_FLAT_RATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FlexFlatRate),
-                <span class="string">&quot;TRIAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Trial),
-                <span class="string">&quot;MONTHLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Monthly),
-                <span class="string">&quot;MONTHLY_FLAT_RATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MonthlyFlatRate),
-                <span class="string">&quot;ANNUAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Annual),
-                <span class="string">&quot;ANNUAL_FLAT_RATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AnnualFlatRate),
-                <span class="string">&quot;THREE_YEAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ThreeYear),
-                <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+                <span class="string">"COMMITMENT_PLAN_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"FLEX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Flex),
+                <span class="string">"FLEX_FLAT_RATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FlexFlatRate),
+                <span class="string">"TRIAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Trial),
+                <span class="string">"MONTHLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Monthly),
+                <span class="string">"MONTHLY_FLAT_RATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MonthlyFlatRate),
+                <span class="string">"ANNUAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Annual),
+                <span class="string">"ANNUAL_FLAT_RATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AnnualFlatRate),
+                <span class="string">"THREE_YEAR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ThreeYear),
+                <span class="string">"NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2015,10 +2016,10 @@
         <span class="doccomment">/// Invalid state value.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Capacity commitment is pending provisioning. Pending capacity commitment
-        /// does not contribute to the project&#39;s slot_capacity.
+        /// does not contribute to the project's slot_capacity.
         </span>Pending = <span class="number">1</span>,
         <span class="doccomment">/// Once slots are provisioned, capacity commitment becomes active.
-        /// slot_count is added to the project&#39;s slot_capacity.
+        /// slot_count is added to the project's slot_capacity.
         </span>Active = <span class="number">2</span>,
         <span class="doccomment">/// Capacity commitment is failed to be activated by the backend.
         </span>Failed = <span class="number">3</span>,
@@ -2028,21 +2029,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Pending =&gt; <span class="string">"PENDING"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2055,15 +2056,15 @@
 </span><span class="kw">pub struct </span>CreateReservationRequest {
     <span class="doccomment">/// Required. Project, location. E.g.,
     /// `projects/myproject/locations/US`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The reservation ID. It must only contain lower case alphanumeric
     /// characters or dashes. It must start with a letter and must not end
     /// with a dash. Its maximum length is 64 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>reservation_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Definition of the new reservation to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>reservation: ::core::option::Option&lt;Reservation&gt;,
 }
 <span class="doccomment">/// The request for
@@ -2073,13 +2074,13 @@
 </span><span class="kw">pub struct </span>ListReservationsRequest {
     <span class="doccomment">/// Required. The parent resource name containing project and location, e.g.:
     ///    `projects/myproject/locations/US`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return per page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
@@ -2088,11 +2089,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListReservationsResponse {
     <span class="doccomment">/// List of reservations visible to the user.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>reservations: ::prost::alloc::vec::Vec&lt;Reservation&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no
     /// more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -2102,7 +2103,7 @@
 </span><span class="kw">pub struct </span>GetReservationRequest {
     <span class="doccomment">/// Required. Resource name of the reservation to retrieve. E.g.,
     ///     `projects/myproject/locations/US/reservations/team1-prod`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -2112,7 +2113,7 @@
 </span><span class="kw">pub struct </span>DeleteReservationRequest {
     <span class="doccomment">/// Required. Resource name of the reservation to retrieve. E.g.,
     ///     `projects/myproject/locations/US/reservations/team1-prod`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -2121,10 +2122,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateReservationRequest {
     <span class="doccomment">/// Content of the reservation to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>reservation: ::core::option::Option&lt;Reservation&gt;,
     <span class="doccomment">/// Standard field mask for the set of fields to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The request for
@@ -2134,21 +2135,21 @@
 </span><span class="kw">pub struct </span>CreateCapacityCommitmentRequest {
     <span class="doccomment">/// Required. Resource name of the parent reservation. E.g.,
     ///     `projects/myproject/locations/US`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Content of the capacity commitment to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>capacity_commitment: ::core::option::Option&lt;CapacityCommitment&gt;,
     <span class="doccomment">/// If true, fail the request if another project in the organization has a
     /// capacity commitment.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>enforce_single_admin_project_per_org: bool,
     <span class="doccomment">/// The optional capacity commitment ID. Capacity commitment name will be
     /// generated automatically if this field is empty.
     /// This field must only contain lower case alphanumeric characters or dashes.
     /// The first and last character cannot be a dash. Max length is 64 characters.
-    /// NOTE: this ID won&#39;t be kept if the capacity commitment is split or merged.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    /// NOTE: this ID won't be kept if the capacity commitment is split or merged.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>capacity_commitment_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -2158,13 +2159,13 @@
 </span><span class="kw">pub struct </span>ListCapacityCommitmentsRequest {
     <span class="doccomment">/// Required. Resource name of the parent reservation. E.g.,
     ///     `projects/myproject/locations/US`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
@@ -2173,11 +2174,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCapacityCommitmentsResponse {
     <span class="doccomment">/// List of capacity commitments visible to the user.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>capacity_commitments: ::prost::alloc::vec::Vec&lt;CapacityCommitment&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no
     /// more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -2187,7 +2188,7 @@
 </span><span class="kw">pub struct </span>GetCapacityCommitmentRequest {
     <span class="doccomment">/// Required. Resource name of the capacity commitment to retrieve. E.g.,
     ///     `projects/myproject/locations/US/capacityCommitments/123`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -2197,12 +2198,12 @@
 </span><span class="kw">pub struct </span>DeleteCapacityCommitmentRequest {
     <span class="doccomment">/// Required. Resource name of the capacity commitment to delete. E.g.,
     ///     `projects/myproject/locations/US/capacityCommitments/123`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Can be used to force delete commitments even if assignments exist. Deleting
     /// commitments with assignments may cause queries to fail if they no longer
     /// have access to slots.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>force: bool,
 }
 <span class="doccomment">/// The request for
@@ -2211,10 +2212,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateCapacityCommitmentRequest {
     <span class="doccomment">/// Content of the capacity commitment to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>capacity_commitment: ::core::option::Option&lt;CapacityCommitment&gt;,
     <span class="doccomment">/// Standard field mask for the set of fields to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The request for
@@ -2224,10 +2225,10 @@
 </span><span class="kw">pub struct </span>SplitCapacityCommitmentRequest {
     <span class="doccomment">/// Required. The resource name e.g.,:
     ///   `projects/myproject/locations/US/capacityCommitments/123`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Number of slots in the capacity commitment after the split.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>slot_count: i64,
 }
 <span class="doccomment">/// The response for
@@ -2236,10 +2237,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SplitCapacityCommitmentResponse {
     <span class="doccomment">/// First capacity commitment, result of a split.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>first: ::core::option::Option&lt;CapacityCommitment&gt;,
     <span class="doccomment">/// Second capacity commitment, result of a split.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>second: ::core::option::Option&lt;CapacityCommitment&gt;,
 }
 <span class="doccomment">/// The request for
@@ -2249,14 +2250,14 @@
 </span><span class="kw">pub struct </span>MergeCapacityCommitmentsRequest {
     <span class="doccomment">/// Parent resource that identifies admin project and location e.g.,
     ///   `projects/myproject/locations/us`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Ids of capacity commitments to merge.
     /// These capacity commitments must exist under admin project and location
     /// specified in the parent.
-    /// ID is the last portion of capacity commitment name e.g., &#39;abc&#39; for
+    /// ID is the last portion of capacity commitment name e.g., 'abc' for
     /// projects/myproject/locations/US/capacityCommitments/abc
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>capacity_commitment_ids: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
@@ -2270,17 +2271,17 @@
     /// `projects/myproject/locations/US/reservations/team1-prod/assignments/123`.
     /// The assignment_id must only contain lower case alphanumeric characters or
     /// dashes and the max length is 64 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource which will use the reservation. E.g.
     /// `projects/myproject`, `folders/123`, or `organizations/456`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>assignee: ::prost::alloc::string::String,
     <span class="doccomment">/// Which type of jobs will use the reservation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;assignment::JobType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"assignment::JobType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>job_type: i32,
     <span class="doccomment">/// Output only. State of the assignment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;assignment::State&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"assignment::State"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Assignment`.
@@ -2317,23 +2318,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                JobType::Unspecified =&gt; <span class="string">&quot;JOB_TYPE_UNSPECIFIED&quot;</span>,
-                JobType::Pipeline =&gt; <span class="string">&quot;PIPELINE&quot;</span>,
-                JobType::Query =&gt; <span class="string">&quot;QUERY&quot;</span>,
-                JobType::MlExternal =&gt; <span class="string">&quot;ML_EXTERNAL&quot;</span>,
-                JobType::Background =&gt; <span class="string">&quot;BACKGROUND&quot;</span>,
+                JobType::Unspecified =&gt; <span class="string">"JOB_TYPE_UNSPECIFIED"</span>,
+                JobType::Pipeline =&gt; <span class="string">"PIPELINE"</span>,
+                JobType::Query =&gt; <span class="string">"QUERY"</span>,
+                JobType::MlExternal =&gt; <span class="string">"ML_EXTERNAL"</span>,
+                JobType::Background =&gt; <span class="string">"BACKGROUND"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;JOB_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PIPELINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pipeline),
-                <span class="string">&quot;QUERY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Query),
-                <span class="string">&quot;ML_EXTERNAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MlExternal),
-                <span class="string">&quot;BACKGROUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Background),
+                <span class="string">"JOB_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PIPELINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pipeline),
+                <span class="string">"QUERY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Query),
+                <span class="string">"ML_EXTERNAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MlExternal),
+                <span class="string">"BACKGROUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Background),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2367,19 +2368,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Pending =&gt; <span class="string">"PENDING"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2387,23 +2388,23 @@
 }
 <span class="doccomment">/// The request for
 /// [ReservationService.CreateAssignment][google.cloud.bigquery.reservation.v1.ReservationService.CreateAssignment].
-/// Note: &quot;bigquery.reservationAssignments.create&quot; permission is required on the
+/// Note: "bigquery.reservationAssignments.create" permission is required on the
 /// related assignee.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateAssignmentRequest {
     <span class="doccomment">/// Required. The parent resource name of the assignment
     /// E.g. `projects/myproject/locations/US/reservations/team1-prod`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Assignment resource to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>assignment: ::core::option::Option&lt;Assignment&gt;,
     <span class="doccomment">/// The optional assignment ID. Assignment name will be generated automatically
     /// if this field is empty.
     /// This field must only contain lower case alphanumeric characters or dashes.
     /// Max length is 64 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>assignment_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -2418,13 +2419,13 @@
     /// Or:
     ///
     /// `projects/myproject/locations/US/reservations/-`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return per page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
@@ -2433,28 +2434,28 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAssignmentsResponse {
     <span class="doccomment">/// List of assignments visible to the user.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>assignments: ::prost::alloc::vec::Vec&lt;Assignment&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no
     /// more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
 /// [ReservationService.DeleteAssignment][google.cloud.bigquery.reservation.v1.ReservationService.DeleteAssignment].
-/// Note: &quot;bigquery.reservationAssignments.delete&quot; permission is required on the
+/// Note: "bigquery.reservationAssignments.delete" permission is required on the
 /// related assignee.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteAssignmentRequest {
     <span class="doccomment">/// Required. Name of the resource, e.g.
     ///    `projects/myproject/locations/US/reservations/team1-prod/assignments/123`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
 /// [ReservationService.SearchAssignments][google.cloud.bigquery.reservation.v1.ReservationService.SearchAssignments].
-/// Note: &quot;bigquery.reservationAssignments.search&quot; permission is required on the
+/// Note: "bigquery.reservationAssignments.search" permission is required on the
 /// related assignee.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2462,7 +2463,7 @@
     <span class="doccomment">/// Required. The resource name of the admin project(containing project and
     /// location), e.g.:
     ///    `projects/myproject/locations/US`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Please specify resource name as assignee in the query.
     ///
@@ -2471,26 +2472,26 @@
     /// * `assignee=projects/myproject`
     /// * `assignee=folders/123`
     /// * `assignee=organizations/456`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return per page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
 /// [ReservationService.SearchAllAssignments][google.cloud.bigquery.reservation.v1.ReservationService.SearchAllAssignments].
-/// Note: &quot;bigquery.reservationAssignments.search&quot; permission is required on the
+/// Note: "bigquery.reservationAssignments.search" permission is required on the
 /// related assignee.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchAllAssignmentsRequest {
     <span class="doccomment">/// Required. The resource name with location (project name could be the
-    /// wildcard &#39;-&#39;), e.g.:
+    /// wildcard '-'), e.g.:
     ///    `projects/-/locations/US`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Please specify resource name as assignee in the query.
     ///
@@ -2499,13 +2500,13 @@
     /// * `assignee=projects/myproject`
     /// * `assignee=folders/123`
     /// * `assignee=organizations/456`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of items to return per page.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The next_page_token value returned from a previous List request, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
@@ -2514,11 +2515,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchAssignmentsResponse {
     <span class="doccomment">/// List of assignments visible to the user.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>assignments: ::prost::alloc::vec::Vec&lt;Assignment&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no
     /// more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The response for
@@ -2527,21 +2528,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchAllAssignmentsResponse {
     <span class="doccomment">/// List of assignments visible to the user.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>assignments: ::prost::alloc::vec::Vec&lt;Assignment&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no
     /// more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
 /// [ReservationService.MoveAssignment][google.cloud.bigquery.reservation.v1.ReservationService.MoveAssignment].
 ///
-/// **Note**: &quot;bigquery.reservationAssignments.create&quot; permission is required on
+/// **Note**: "bigquery.reservationAssignments.create" permission is required on
 /// the destination_id.
 ///
-/// **Note**: &quot;bigquery.reservationAssignments.create&quot; and
-/// &quot;bigquery.reservationAssignments.delete&quot; permission are required on the
+/// **Note**: "bigquery.reservationAssignments.create" and
+/// "bigquery.reservationAssignments.delete" permission are required on the
 /// related assignee.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
@@ -2549,18 +2550,18 @@
     <span class="doccomment">/// Required. The resource name of the assignment,
     /// e.g.
     /// `projects/myproject/locations/US/reservations/team1-prod/assignments/123`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The new reservation ID, e.g.:
     ///    `projects/myotherproject/locations/US/reservations/team2-prod`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>destination_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The optional assignment ID. A new assignment name is generated if this
     /// field is empty.
     ///
     /// This field can contain only lowercase alphanumeric characters or dashes.
     /// Max length is 64 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>assignment_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The request for
@@ -2569,10 +2570,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateAssignmentRequest {
     <span class="doccomment">/// Content of the assignment to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>assignment: ::core::option::Option&lt;Assignment&gt;,
     <span class="doccomment">/// Standard field mask for the set of fields to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Fully qualified reference to BigQuery table.
@@ -2581,13 +2582,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TableReference {
     <span class="doccomment">/// The assigned project ID of the project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of the dataset in the above project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dataset_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of the table in the above dataset.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>table_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents a BI Reservation.
@@ -2597,16 +2598,16 @@
     <span class="doccomment">/// The resource name of the singleton BI reservation.
     /// Reservation names have the form
     /// `projects/{project_id}/locations/{location_id}/biReservation`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The last update timestamp of a reservation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Size of a reservation, in bytes.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>size: i64,
     <span class="doccomment">/// Preferred tables to use BI capacity for.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>preferred_tables: ::prost::alloc::vec::Vec&lt;TableReference&gt;,
 }
 <span class="doccomment">/// A request to get a singleton BI reservation.
@@ -2615,7 +2616,7 @@
 </span><span class="kw">pub struct </span>GetBiReservationRequest {
     <span class="doccomment">/// Required. Name of the requested reservation, for example:
     /// `projects/{project_id}/locations/{location_id}/biReservation`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to update a BI reservation.
@@ -2623,10 +2624,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateBiReservationRequest {
     <span class="doccomment">/// A reservation to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bi_reservation: ::core::option::Option&lt;BiReservation&gt;,
     <span class="doccomment">/// A list of fields to be updated in this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// The type of editions.
@@ -2649,21 +2650,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            Edition::Unspecified =&gt; <span class="string">&quot;EDITION_UNSPECIFIED&quot;</span>,
-            Edition::Standard =&gt; <span class="string">&quot;STANDARD&quot;</span>,
-            Edition::Enterprise =&gt; <span class="string">&quot;ENTERPRISE&quot;</span>,
-            Edition::EnterprisePlus =&gt; <span class="string">&quot;ENTERPRISE_PLUS&quot;</span>,
+            Edition::Unspecified =&gt; <span class="string">"EDITION_UNSPECIFIED"</span>,
+            Edition::Standard =&gt; <span class="string">"STANDARD"</span>,
+            Edition::Enterprise =&gt; <span class="string">"ENTERPRISE"</span>,
+            Edition::EnterprisePlus =&gt; <span class="string">"ENTERPRISE_PLUS"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;EDITION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;STANDARD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
-            <span class="string">&quot;ENTERPRISE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enterprise),
-            <span class="string">&quot;ENTERPRISE_PLUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EnterprisePlus),
+            <span class="string">"EDITION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"STANDARD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
+            <span class="string">"ENTERPRISE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enterprise),
+            <span class="string">"ENTERPRISE_PLUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EnterprisePlus),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2696,7 +2697,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2768,19 +2769,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/CreateReservation&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/CreateReservation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;CreateReservation&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"CreateReservation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2799,19 +2800,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/ListReservations&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/ListReservations"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;ListReservations&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"ListReservations"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2827,19 +2828,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/GetReservation&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/GetReservation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;GetReservation&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"GetReservation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2857,19 +2858,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/DeleteReservation&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/DeleteReservation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;DeleteReservation&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"DeleteReservation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2885,19 +2886,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/UpdateReservation&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/UpdateReservation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;UpdateReservation&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"UpdateReservation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2916,19 +2917,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/CreateCapacityCommitment&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/CreateCapacityCommitment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;CreateCapacityCommitment&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"CreateCapacityCommitment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2947,19 +2948,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/ListCapacityCommitments&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/ListCapacityCommitments"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;ListCapacityCommitments&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"ListCapacityCommitments"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2978,19 +2979,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/GetCapacityCommitment&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/GetCapacityCommitment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;GetCapacityCommitment&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"GetCapacityCommitment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3008,19 +3009,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/DeleteCapacityCommitment&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/DeleteCapacityCommitment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;DeleteCapacityCommitment&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"DeleteCapacityCommitment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3045,19 +3046,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/UpdateCapacityCommitment&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/UpdateCapacityCommitment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;UpdateCapacityCommitment&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"UpdateCapacityCommitment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3083,19 +3084,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/SplitCapacityCommitment&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/SplitCapacityCommitment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;SplitCapacityCommitment&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"SplitCapacityCommitment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3120,19 +3121,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/MergeCapacityCommitments&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/MergeCapacityCommitments"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;MergeCapacityCommitments&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"MergeCapacityCommitments"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3161,13 +3162,13 @@
         ///   `project2`) could all be created and mapped to the same or different
         ///   reservations.
         ///
-        /// &quot;None&quot; assignments represent an absence of the assignment. Projects
-        /// assigned to None use on-demand pricing. To create a &quot;None&quot; assignment, use
-        /// &quot;none&quot; as a reservation_id in the parent. Example parent:
+        /// "None" assignments represent an absence of the assignment. Projects
+        /// assigned to None use on-demand pricing. To create a "None" assignment, use
+        /// "none" as a reservation_id in the parent. Example parent:
         /// `projects/myproject/locations/US/reservations/none`.
         ///
         /// Returns `google.rpc.Code.PERMISSION_DENIED` if user does not have
-        /// &#39;bigquery.admin&#39; permissions on the project using the reservation
+        /// 'bigquery.admin' permissions on the project using the reservation
         /// and the project that owns this reservation.
         ///
         /// Returns `google.rpc.Code.INVALID_ARGUMENT` when location of the assignment
@@ -3182,19 +3183,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/CreateAssignment&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/CreateAssignment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;CreateAssignment&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"CreateAssignment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3215,11 +3216,11 @@
         /// In this example, ListAssignments will just return the above two assignments
         /// for reservation `res1`, and no expansion/merge will happen.
         ///
-        /// The wildcard &quot;-&quot; can be used for
+        /// The wildcard "-" can be used for
         /// reservations in the request. In that case all assignments belongs to the
         /// specified project and location will be listed.
         ///
-        /// **Note** &quot;-&quot; cannot be used for projects nor locations.
+        /// **Note** "-" cannot be used for projects nor locations.
         </span><span class="kw">pub async fn </span>list_assignments(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListAssignmentsRequest&gt;,
@@ -3233,19 +3234,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/ListAssignments&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/ListAssignments"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;ListAssignments&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"ListAssignments"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3261,7 +3262,7 @@
         ///   associations between entities and reservations: `&lt;organizationA, res1&gt;`
         ///   and `&lt;project1, res1&gt;`
         ///
-        /// In this example, deletion of the `&lt;organizationA, res1&gt;` assignment won&#39;t
+        /// In this example, deletion of the `&lt;organizationA, res1&gt;` assignment won't
         /// affect the other assignment `&lt;project1, res1&gt;`. After said deletion,
         /// queries from `project1` will still use `res1` while queries from
         /// `project2` will switch to use on-demand mode.
@@ -3275,19 +3276,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/DeleteAssignment&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/DeleteAssignment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;DeleteAssignment&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"DeleteAssignment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3303,7 +3304,7 @@
         /// The same logic applies if the request is about a folder.
         ///
         /// If the request is about an organization, then assignments created on the
-        /// organization will be returned (organization doesn&#39;t have ancestors).
+        /// organization will be returned (organization doesn't have ancestors).
         ///
         /// Comparing to ListAssignments, there are some behavior
         /// differences:
@@ -3313,7 +3314,7 @@
         /// 3. Parent here is `projects/*/locations/*`, instead of
         ///    `projects/*/locations/*reservations/*`.
         ///
-        /// **Note** &quot;-&quot; cannot be used for projects
+        /// **Note** "-" cannot be used for projects
         /// nor locations.
         </span><span class="kw">pub async fn </span>search_assignments(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -3328,19 +3329,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/SearchAssignments&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/SearchAssignments"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;SearchAssignments&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"SearchAssignments"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3356,7 +3357,7 @@
         /// The same logic applies if the request is about a folder.
         ///
         /// If the request is about an organization, then assignments created on the
-        /// organization will be returned (organization doesn&#39;t have ancestors).
+        /// organization will be returned (organization doesn't have ancestors).
         ///
         /// Comparing to ListAssignments, there are some behavior
         /// differences:
@@ -3378,19 +3379,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/SearchAllAssignments&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/SearchAllAssignments"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;SearchAllAssignments&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"SearchAllAssignments"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3410,19 +3411,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/MoveAssignment&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/MoveAssignment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;MoveAssignment&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"MoveAssignment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3440,19 +3441,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/UpdateAssignment&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/UpdateAssignment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;UpdateAssignment&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"UpdateAssignment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3468,19 +3469,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/GetBiReservation&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/GetBiReservation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;GetBiReservation&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"GetBiReservation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3503,19 +3504,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.bigquery.reservation.v1.ReservationService/UpdateBiReservation&quot;</span>,
+                <span class="string">"/google.cloud.bigquery.reservation.v1.ReservationService/UpdateBiReservation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.bigquery.reservation.v1.ReservationService&quot;</span>,
-                        <span class="string">&quot;UpdateBiReservation&quot;</span>,
+                        <span class="string">"google.cloud.bigquery.reservation.v1.ReservationService"</span>,
+                        <span class="string">"UpdateBiReservation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

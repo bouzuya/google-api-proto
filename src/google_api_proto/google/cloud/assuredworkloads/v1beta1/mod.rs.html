@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/assuredworkloads/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/assuredworkloads/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1046,18 +1047,18 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateWorkloadRequest {
-    <span class="doccomment">/// Required. The resource name of the new Workload&#39;s parent.
+    <span class="doccomment">/// Required. The resource name of the new Workload's parent.
     /// Must be of the form `organizations/{org_id}/locations/{location_id}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Assured Workload to create
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>workload: ::core::option::Option&lt;Workload&gt;,
     <span class="doccomment">/// Optional. A identifier associated with the workload and underlying projects which
     /// allows for the break down of billing costs for a workload. The value
     /// provided for the identifier will add a label to the workload and contained
     /// projects with the identifier as the value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>external_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for Updating a workload.
@@ -1065,30 +1066,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateWorkloadRequest {
     <span class="doccomment">/// Required. The workload to update.
-    /// The workload&#39;s `name` field is used to identify the workload to be updated.
+    /// The workload's `name` field is used to identify the workload to be updated.
     /// Format:
     /// organizations/{org_id}/locations/{location_id}/workloads/{workload_id}
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workload: ::core::option::Option&lt;Workload&gt;,
     <span class="doccomment">/// Required. The list of fields to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request for restricting list of available resources in Workload environment.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RestrictAllowedResourcesRequest {
-    <span class="doccomment">/// Required. The resource name of the Workload. This is the workloads&#39;s
+    <span class="doccomment">/// Required. The resource name of the Workload. This is the workloads's
     /// relative path in the API, formatted as
-    /// &quot;organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}&quot;.
+    /// "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
     /// For example,
-    /// &quot;organizations/123/locations/us-east1/workloads/assured-workload-1&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/123/locations/us-east1/workloads/assured-workload-1".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The type of restriction for using gcp products in the Workload environment.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;restrict_allowed_resources_request::RestrictionType&quot;</span>,
-        tag = <span class="string">&quot;2&quot;
+        enumeration = <span class="string">"restrict_allowed_resources_request::RestrictionType"</span>,
+        tag = <span class="string">"2"
     </span>)]
     </span><span class="kw">pub </span>restriction_type: i32,
 }
@@ -1114,7 +1115,7 @@
         /// posture. This effectively removes gcp.restrictServiceUsage OrgPolicy
         /// on the AssuredWorkloads Folder.
         </span>AllowAllGcpResources = <span class="number">1</span>,
-        <span class="doccomment">/// Based on Workload&#39;s compliance regime, allowed list changes.
+        <span class="doccomment">/// Based on Workload's compliance regime, allowed list changes.
         /// See - &lt;https://cloud.google.com/assured-workloads/docs/supported-products&gt;
         /// for the list of supported resources.
         </span>AllowCompliantResources = <span class="number">2</span>,
@@ -1124,19 +1125,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RestrictionType::Unspecified =&gt; <span class="string">&quot;RESTRICTION_TYPE_UNSPECIFIED&quot;</span>,
-                RestrictionType::AllowAllGcpResources =&gt; <span class="string">&quot;ALLOW_ALL_GCP_RESOURCES&quot;</span>,
-                RestrictionType::AllowCompliantResources =&gt; <span class="string">&quot;ALLOW_COMPLIANT_RESOURCES&quot;</span>,
+                RestrictionType::Unspecified =&gt; <span class="string">"RESTRICTION_TYPE_UNSPECIFIED"</span>,
+                RestrictionType::AllowAllGcpResources =&gt; <span class="string">"ALLOW_ALL_GCP_RESOURCES"</span>,
+                RestrictionType::AllowCompliantResources =&gt; <span class="string">"ALLOW_COMPLIANT_RESOURCES"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RESTRICTION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ALLOW_ALL_GCP_RESOURCES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AllowAllGcpResources),
-                <span class="string">&quot;ALLOW_COMPLIANT_RESOURCES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AllowCompliantResources),
+                <span class="string">"RESTRICTION_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ALLOW_ALL_GCP_RESOURCES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AllowAllGcpResources),
+                <span class="string">"ALLOW_COMPLIANT_RESOURCES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AllowCompliantResources),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1153,23 +1154,23 @@
     <span class="doccomment">/// Required. The `name` field is used to identify the workload.
     /// Format:
     /// organizations/{org_id}/locations/{location_id}/workloads/{workload_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The etag of the workload.
-    /// If this is provided, it must match the server&#39;s etag.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// If this is provided, it must match the server's etag.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for fetching a workload.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetWorkloadRequest {
-    <span class="doccomment">/// Required. The resource name of the Workload to fetch. This is the workloads&#39;s
+    <span class="doccomment">/// Required. The resource name of the Workload to fetch. This is the workloads's
     /// relative path in the API, formatted as
-    /// &quot;organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}&quot;.
+    /// "organizations/{organization_id}/locations/{location_id}/workloads/{workload_id}".
     /// For example,
-    /// &quot;organizations/123/locations/us-east1/workloads/assured-workload-1&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "organizations/123/locations/us-east1/workloads/assured-workload-1".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A request to analyze a hypothetical move of a source project or project-based
@@ -1179,17 +1180,17 @@
 </span><span class="kw">pub struct </span>AnalyzeWorkloadMoveRequest {
     <span class="doccomment">/// Required. The resource ID of the folder-based destination workload. This workload is
     /// where the source project will hypothetically be moved to. Specify the
-    /// workload&#39;s relative resource name, formatted as:
-    /// &quot;organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}&quot;
+    /// workload's relative resource name, formatted as:
+    /// "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
     /// For example:
-    /// &quot;organizations/123/locations/us-east1/workloads/assured-workload-2&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// "organizations/123/locations/us-east1/workloads/assured-workload-2"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>target: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource type to be moved to the destination workload. It can be either
     /// an existing project or a project-based workload.
     </span><span class="attr">#[prost(
-        oneof = <span class="string">&quot;analyze_workload_move_request::ProjectOrWorkloadResource&quot;</span>,
-        tags = <span class="string">&quot;1, 3&quot;
+        oneof = <span class="string">"analyze_workload_move_request::ProjectOrWorkloadResource"</span>,
+        tags = <span class="string">"1, 3"
     </span>)]
     </span><span class="kw">pub </span>project_or_workload_resource: ::core::option::Option&lt;
         analyze_workload_move_request::ProjectOrWorkloadResource,
@@ -1202,20 +1203,20 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ProjectOrWorkloadResource {
-        <span class="doccomment">/// The source type is a project-based workload. Specify the workloads&#39;s
+        <span class="doccomment">/// The source type is a project-based workload. Specify the workloads's
         /// relative resource name, formatted as:
-        /// &quot;organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}&quot;
+        /// "organizations/{ORGANIZATION_ID}/locations/{LOCATION_ID}/workloads/{WORKLOAD_ID}"
         /// For example:
-        /// &quot;organizations/123/locations/us-east1/workloads/assured-workload-1&quot;
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// "organizations/123/locations/us-east1/workloads/assured-workload-1"
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>Source(::prost::alloc::string::String),
-        <span class="doccomment">/// The source type is a project. Specify the project&#39;s relative resource
+        <span class="doccomment">/// The source type is a project. Specify the project's relative resource
         /// name, formatted as either a project number or a project ID:
-        /// &quot;projects/{PROJECT_NUMBER}&quot; or &quot;projects/{PROJECT_ID}&quot;
+        /// "projects/{PROJECT_NUMBER}" or "projects/{PROJECT_ID}"
         /// For example:
-        /// &quot;projects/951040570662&quot; when specifying a project number, or
-        /// &quot;projects/my-project-123&quot; when specifying a project ID.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        /// "projects/951040570662" when specifying a project number, or
+        /// "projects/my-project-123" when specifying a project ID.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>Project(::prost::alloc::string::String),
     }
 }
@@ -1225,7 +1226,7 @@
 </span><span class="kw">pub struct </span>AnalyzeWorkloadMoveResponse {
     <span class="doccomment">/// A list of blockers that should be addressed before moving the source
     /// project or project-based workload to the destination folder-based workload.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>blockers: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request for fetching workloads in an organization.
@@ -1234,19 +1235,19 @@
 </span><span class="kw">pub struct </span>ListWorkloadsRequest {
     <span class="doccomment">/// Required. Parent Resource to list workloads from.
     /// Must be of the form `organizations/{org_id}/locations/{location}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token returned from previous request. Page token contains context from
     /// previous request. Page token needs to be passed in the second and following
     /// requests.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// A custom filter for filtering by properties of a workload. At this time,
     /// only filtering by labels is supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response of ListWorkloads endpoint.
@@ -1254,10 +1255,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListWorkloadsResponse {
     <span class="doccomment">/// List of Workloads under a given parent.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workloads: ::prost::alloc::vec::Vec&lt;Workload&gt;,
     <span class="doccomment">/// The next page token. Return empty if reached the last page.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An Workload object for managing highly regulated workloads of cloud
@@ -1270,7 +1271,7 @@
     /// organizations/{organization}/locations/{location}/workloads/{workload}
     ///
     /// Read-only.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The user-assigned display name of the Workload.
     /// When present it must be between 4 to 30 characters.
@@ -1278,19 +1279,19 @@
     /// hyphen, and spaces.
     ///
     /// Example: My Workload
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The resources associated with this workload.
     /// These resources will be created when creating the workload.
     /// If any of the projects already exist, the workload creation will fail.
     /// Always read only.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>resources: ::prost::alloc::vec::Vec&lt;workload::ResourceInfo&gt;,
     <span class="doccomment">/// Required. Immutable. Compliance Regime associated with this workload.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;workload::ComplianceRegime&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"workload::ComplianceRegime"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>compliance_regime: i32,
     <span class="doccomment">/// Output only. Immutable. The Workload creation timestamp.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The billing account used for the resources which are
     /// direct children of workload. This billing account is initially associated
@@ -1300,14 +1301,14 @@
     /// The resource name has the form
     /// `billingAccounts/{billing_account_id}`. For example,
     /// `billingAccounts/012345-567890-ABCDEF`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>billing_account: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. ETag of the workload, it is calculated on the basis
     /// of the Workload contents. It will be used in Update &amp; Delete operations.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Labels applied to the workload.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1318,7 +1319,7 @@
     /// parent organization.
     /// Format:
     /// folders/{folder_id}
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>provisioned_resources_parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Input only. Settings used to create a CMEK crypto key. When set, a project with a KMS
     /// CMEK key is provisioned.
@@ -1326,35 +1327,35 @@
     /// In order to create a Keyring, callers should specify,
     /// ENCRYPTION_KEYS_PROJECT or KEYRING in ResourceSettings.resource_type field.
     </span><span class="attr">#[deprecated]
-    #[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    #[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>kms_settings: ::core::option::Option&lt;workload::KmsSettings&gt;,
     <span class="doccomment">/// Input only. Resource properties that are used to customize workload resources.
     /// These properties (such as custom project id) will be used to create
     /// workload resources if possible. This field is optional.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>resource_settings: ::prost::alloc::vec::Vec&lt;workload::ResourceSettings&gt;,
     <span class="doccomment">/// Output only. Represents the KAJ enrollment state of the given workload.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;workload::KajEnrollmentState&quot;</span>, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"workload::KajEnrollmentState"</span>, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>kaj_enrollment_state: i32,
     <span class="doccomment">/// Optional. Indicates the sovereignty status of the given workload.
     /// Currently meant to be used by Europe/Canada customers.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>enable_sovereign_controls: bool,
     <span class="doccomment">/// Output only. Represents the SAA enrollment response of the given workload.
     /// SAA enrollment response is queried during GetWorkload call.
     /// In failure cases, user friendly error message is shown in SAA details page.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>saa_enrollment_response: ::core::option::Option&lt;workload::SaaEnrollmentResponse&gt;,
     <span class="doccomment">/// Output only. Urls for services which are compliant for this Assured Workload, but which
     /// are currently disallowed by the ResourceUsageRestriction org policy.
     /// Invoke RestrictAllowedResources endpoint to allow your project developers
-    /// to use these services in their environment.&quot;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;24&quot;</span>)]
+    /// to use these services in their environment."
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"24"</span>)]
     </span><span class="kw">pub </span>compliant_but_disallowed_services: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Settings specific to the selected \[compliance_regime\]
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;workload::ComplianceRegimeSettings&quot;</span>, tags = <span class="string">&quot;7, 8, 11, 12&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"workload::ComplianceRegimeSettings"</span>, tags = <span class="string">"7, 8, 11, 12"</span>)]
     </span><span class="kw">pub </span>compliance_regime_settings: ::core::option::Option&lt;
         workload::ComplianceRegimeSettings,
     &gt;,
@@ -1367,10 +1368,10 @@
     </span><span class="kw">pub struct </span>ResourceInfo {
         <span class="doccomment">/// Resource identifier.
         /// For a project this represents project_number.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>resource_id: i64,
         <span class="doccomment">/// Indicates the type of resource.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;resource_info::ResourceType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"resource_info::ResourceType"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>resource_type: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `ResourceInfo`.
@@ -1406,23 +1407,23 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    ResourceType::Unspecified =&gt; <span class="string">&quot;RESOURCE_TYPE_UNSPECIFIED&quot;</span>,
-                    ResourceType::ConsumerProject =&gt; <span class="string">&quot;CONSUMER_PROJECT&quot;</span>,
-                    ResourceType::ConsumerFolder =&gt; <span class="string">&quot;CONSUMER_FOLDER&quot;</span>,
-                    ResourceType::EncryptionKeysProject =&gt; <span class="string">&quot;ENCRYPTION_KEYS_PROJECT&quot;</span>,
-                    ResourceType::Keyring =&gt; <span class="string">&quot;KEYRING&quot;</span>,
+                    ResourceType::Unspecified =&gt; <span class="string">"RESOURCE_TYPE_UNSPECIFIED"</span>,
+                    ResourceType::ConsumerProject =&gt; <span class="string">"CONSUMER_PROJECT"</span>,
+                    ResourceType::ConsumerFolder =&gt; <span class="string">"CONSUMER_FOLDER"</span>,
+                    ResourceType::EncryptionKeysProject =&gt; <span class="string">"ENCRYPTION_KEYS_PROJECT"</span>,
+                    ResourceType::Keyring =&gt; <span class="string">"KEYRING"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;RESOURCE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;CONSUMER_PROJECT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConsumerProject),
-                    <span class="string">&quot;CONSUMER_FOLDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConsumerFolder),
-                    <span class="string">&quot;ENCRYPTION_KEYS_PROJECT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EncryptionKeysProject),
-                    <span class="string">&quot;KEYRING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Keyring),
+                    <span class="string">"RESOURCE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"CONSUMER_PROJECT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConsumerProject),
+                    <span class="string">"CONSUMER_FOLDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConsumerFolder),
+                    <span class="string">"ENCRYPTION_KEYS_PROJECT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EncryptionKeysProject),
+                    <span class="string">"KEYRING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Keyring),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -1434,12 +1435,12 @@
     </span><span class="kw">pub struct </span>KmsSettings {
         <span class="doccomment">/// Required. Input only. Immutable. The time at which the Key Management Service will automatically create a
         /// new version of the crypto key and mark it as the primary.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>next_rotation_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// Required. Input only. Immutable. \[next_rotation_time\] will be advanced by this period when the Key
         /// Management Service automatically rotates a key. Must be at least 24 hours
         /// and at most 876,000 hours.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>rotation_period: ::core::option::Option&lt;::prost_types::Duration&gt;,
     }
     <span class="doccomment">/// Settings specific to resources needed for IL4.
@@ -1447,7 +1448,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Il4Settings {
         <span class="doccomment">/// Input only. Immutable. Settings used to create a CMEK crypto key.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>kms_settings: ::core::option::Option&lt;KmsSettings&gt;,
     }
     <span class="doccomment">/// Settings specific to resources needed for CJIS.
@@ -1455,7 +1456,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>CjisSettings {
         <span class="doccomment">/// Input only. Immutable. Settings used to create a CMEK crypto key.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>kms_settings: ::core::option::Option&lt;KmsSettings&gt;,
     }
     <span class="doccomment">/// Settings specific to resources needed for FedRAMP High.
@@ -1463,7 +1464,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>FedrampHighSettings {
         <span class="doccomment">/// Input only. Immutable. Settings used to create a CMEK crypto key.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>kms_settings: ::core::option::Option&lt;KmsSettings&gt;,
     }
     <span class="doccomment">/// Settings specific to resources needed for FedRAMP Moderate.
@@ -1471,7 +1472,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>FedrampModerateSettings {
         <span class="doccomment">/// Input only. Immutable. Settings used to create a CMEK crypto key.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>kms_settings: ::core::option::Option&lt;KmsSettings&gt;,
     }
     <span class="doccomment">/// Represent the custom settings for the resources to be created.
@@ -1482,18 +1483,18 @@
         /// For a project this represents project_id. If the project is already
         /// taken, the workload creation will fail.
         /// For KeyRing, this represents the keyring_id.
-        /// For a folder, don&#39;t set this value as folder_id is assigned by Google.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// For a folder, don't set this value as folder_id is assigned by Google.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>resource_id: ::prost::alloc::string::String,
         <span class="doccomment">/// Indicates the type of resource. This field should be specified to
         /// correspond the id to the right project type (CONSUMER_PROJECT or
         /// ENCRYPTION_KEYS_PROJECT)
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;resource_info::ResourceType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"resource_info::ResourceType"</span>, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>resource_type: i32,
         <span class="doccomment">/// User-assigned resource display name.
         /// If not empty it will be used to create a resource with the specified
         /// name.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Signed Access Approvals (SAA) enrollment response.
@@ -1502,16 +1503,16 @@
     </span><span class="kw">pub struct </span>SaaEnrollmentResponse {
         <span class="doccomment">/// Indicates SAA enrollment status of a given workload.
         </span><span class="attr">#[prost(
-            enumeration = <span class="string">&quot;saa_enrollment_response::SetupState&quot;</span>,
+            enumeration = <span class="string">"saa_enrollment_response::SetupState"</span>,
             optional,
-            tag = <span class="string">&quot;1&quot;
+            tag = <span class="string">"1"
         </span>)]
         </span><span class="kw">pub </span>setup_status: ::core::option::Option&lt;i32&gt;,
         <span class="doccomment">/// Indicates SAA enrollment setup error if any.
         </span><span class="attr">#[prost(
-            enumeration = <span class="string">&quot;saa_enrollment_response::SetupError&quot;</span>,
+            enumeration = <span class="string">"saa_enrollment_response::SetupError"</span>,
             repeated,
-            tag = <span class="string">&quot;2&quot;
+            tag = <span class="string">"2"
         </span>)]
         </span><span class="kw">pub </span>setup_errors: ::prost::alloc::vec::Vec&lt;i32&gt;,
     }
@@ -1543,19 +1544,19 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    SetupState::Unspecified =&gt; <span class="string">&quot;SETUP_STATE_UNSPECIFIED&quot;</span>,
-                    SetupState::StatusPending =&gt; <span class="string">&quot;STATUS_PENDING&quot;</span>,
-                    SetupState::StatusComplete =&gt; <span class="string">&quot;STATUS_COMPLETE&quot;</span>,
+                    SetupState::Unspecified =&gt; <span class="string">"SETUP_STATE_UNSPECIFIED"</span>,
+                    SetupState::StatusPending =&gt; <span class="string">"STATUS_PENDING"</span>,
+                    SetupState::StatusComplete =&gt; <span class="string">"STATUS_COMPLETE"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;SETUP_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;STATUS_PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StatusPending),
-                    <span class="string">&quot;STATUS_COMPLETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StatusComplete),
+                    <span class="string">"SETUP_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"STATUS_PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StatusPending),
+                    <span class="string">"STATUS_COMPLETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StatusComplete),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -1593,31 +1594,31 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
-                    SetupError::Unspecified =&gt; <span class="string">&quot;SETUP_ERROR_UNSPECIFIED&quot;</span>,
-                    SetupError::ErrorInvalidBaseSetup =&gt; <span class="string">&quot;ERROR_INVALID_BASE_SETUP&quot;</span>,
+                    SetupError::Unspecified =&gt; <span class="string">"SETUP_ERROR_UNSPECIFIED"</span>,
+                    SetupError::ErrorInvalidBaseSetup =&gt; <span class="string">"ERROR_INVALID_BASE_SETUP"</span>,
                     SetupError::ErrorMissingExternalSigningKey =&gt; {
-                        <span class="string">&quot;ERROR_MISSING_EXTERNAL_SIGNING_KEY&quot;
+                        <span class="string">"ERROR_MISSING_EXTERNAL_SIGNING_KEY"
                     </span>}
                     SetupError::ErrorNotAllServicesEnrolled =&gt; {
-                        <span class="string">&quot;ERROR_NOT_ALL_SERVICES_ENROLLED&quot;
+                        <span class="string">"ERROR_NOT_ALL_SERVICES_ENROLLED"
                     </span>}
-                    SetupError::ErrorSetupCheckFailed =&gt; <span class="string">&quot;ERROR_SETUP_CHECK_FAILED&quot;</span>,
+                    SetupError::ErrorSetupCheckFailed =&gt; <span class="string">"ERROR_SETUP_CHECK_FAILED"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;SETUP_ERROR_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;ERROR_INVALID_BASE_SETUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorInvalidBaseSetup),
-                    <span class="string">&quot;ERROR_MISSING_EXTERNAL_SIGNING_KEY&quot; </span>=&gt; {
+                    <span class="string">"SETUP_ERROR_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"ERROR_INVALID_BASE_SETUP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorInvalidBaseSetup),
+                    <span class="string">"ERROR_MISSING_EXTERNAL_SIGNING_KEY" </span>=&gt; {
                         <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorMissingExternalSigningKey)
                     }
-                    <span class="string">&quot;ERROR_NOT_ALL_SERVICES_ENROLLED&quot; </span>=&gt; {
+                    <span class="string">"ERROR_NOT_ALL_SERVICES_ENROLLED" </span>=&gt; {
                         <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorNotAllServicesEnrolled)
                     }
-                    <span class="string">&quot;ERROR_SETUP_CHECK_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorSetupCheckFailed),
+                    <span class="string">"ERROR_SETUP_CHECK_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ErrorSetupCheckFailed),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -1667,37 +1668,37 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ComplianceRegime::Unspecified =&gt; <span class="string">&quot;COMPLIANCE_REGIME_UNSPECIFIED&quot;</span>,
-                ComplianceRegime::Il4 =&gt; <span class="string">&quot;IL4&quot;</span>,
-                ComplianceRegime::Cjis =&gt; <span class="string">&quot;CJIS&quot;</span>,
-                ComplianceRegime::FedrampHigh =&gt; <span class="string">&quot;FEDRAMP_HIGH&quot;</span>,
-                ComplianceRegime::FedrampModerate =&gt; <span class="string">&quot;FEDRAMP_MODERATE&quot;</span>,
-                ComplianceRegime::UsRegionalAccess =&gt; <span class="string">&quot;US_REGIONAL_ACCESS&quot;</span>,
-                ComplianceRegime::Hipaa =&gt; <span class="string">&quot;HIPAA&quot;</span>,
-                ComplianceRegime::Hitrust =&gt; <span class="string">&quot;HITRUST&quot;</span>,
-                ComplianceRegime::EuRegionsAndSupport =&gt; <span class="string">&quot;EU_REGIONS_AND_SUPPORT&quot;</span>,
-                ComplianceRegime::CaRegionsAndSupport =&gt; <span class="string">&quot;CA_REGIONS_AND_SUPPORT&quot;</span>,
-                ComplianceRegime::Itar =&gt; <span class="string">&quot;ITAR&quot;</span>,
-                ComplianceRegime::AuRegionsAndUsSupport =&gt; <span class="string">&quot;AU_REGIONS_AND_US_SUPPORT&quot;</span>,
+                ComplianceRegime::Unspecified =&gt; <span class="string">"COMPLIANCE_REGIME_UNSPECIFIED"</span>,
+                ComplianceRegime::Il4 =&gt; <span class="string">"IL4"</span>,
+                ComplianceRegime::Cjis =&gt; <span class="string">"CJIS"</span>,
+                ComplianceRegime::FedrampHigh =&gt; <span class="string">"FEDRAMP_HIGH"</span>,
+                ComplianceRegime::FedrampModerate =&gt; <span class="string">"FEDRAMP_MODERATE"</span>,
+                ComplianceRegime::UsRegionalAccess =&gt; <span class="string">"US_REGIONAL_ACCESS"</span>,
+                ComplianceRegime::Hipaa =&gt; <span class="string">"HIPAA"</span>,
+                ComplianceRegime::Hitrust =&gt; <span class="string">"HITRUST"</span>,
+                ComplianceRegime::EuRegionsAndSupport =&gt; <span class="string">"EU_REGIONS_AND_SUPPORT"</span>,
+                ComplianceRegime::CaRegionsAndSupport =&gt; <span class="string">"CA_REGIONS_AND_SUPPORT"</span>,
+                ComplianceRegime::Itar =&gt; <span class="string">"ITAR"</span>,
+                ComplianceRegime::AuRegionsAndUsSupport =&gt; <span class="string">"AU_REGIONS_AND_US_SUPPORT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;COMPLIANCE_REGIME_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;IL4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Il4),
-                <span class="string">&quot;CJIS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cjis),
-                <span class="string">&quot;FEDRAMP_HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FedrampHigh),
-                <span class="string">&quot;FEDRAMP_MODERATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FedrampModerate),
-                <span class="string">&quot;US_REGIONAL_ACCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UsRegionalAccess),
-                <span class="string">&quot;HIPAA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hipaa),
-                <span class="string">&quot;HITRUST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hitrust),
-                <span class="string">&quot;EU_REGIONS_AND_SUPPORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EuRegionsAndSupport),
-                <span class="string">&quot;CA_REGIONS_AND_SUPPORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CaRegionsAndSupport),
-                <span class="string">&quot;ITAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Itar),
-                <span class="string">&quot;AU_REGIONS_AND_US_SUPPORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuRegionsAndUsSupport),
+                <span class="string">"COMPLIANCE_REGIME_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"IL4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Il4),
+                <span class="string">"CJIS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cjis),
+                <span class="string">"FEDRAMP_HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FedrampHigh),
+                <span class="string">"FEDRAMP_MODERATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FedrampModerate),
+                <span class="string">"US_REGIONAL_ACCESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UsRegionalAccess),
+                <span class="string">"HIPAA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hipaa),
+                <span class="string">"HITRUST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Hitrust),
+                <span class="string">"EU_REGIONS_AND_SUPPORT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EuRegionsAndSupport),
+                <span class="string">"CA_REGIONS_AND_SUPPORT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CaRegionsAndSupport),
+                <span class="string">"ITAR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Itar),
+                <span class="string">"AU_REGIONS_AND_US_SUPPORT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuRegionsAndUsSupport),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1728,19 +1729,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                KajEnrollmentState::Unspecified =&gt; <span class="string">&quot;KAJ_ENROLLMENT_STATE_UNSPECIFIED&quot;</span>,
-                KajEnrollmentState::Pending =&gt; <span class="string">&quot;KAJ_ENROLLMENT_STATE_PENDING&quot;</span>,
-                KajEnrollmentState::Complete =&gt; <span class="string">&quot;KAJ_ENROLLMENT_STATE_COMPLETE&quot;</span>,
+                KajEnrollmentState::Unspecified =&gt; <span class="string">"KAJ_ENROLLMENT_STATE_UNSPECIFIED"</span>,
+                KajEnrollmentState::Pending =&gt; <span class="string">"KAJ_ENROLLMENT_STATE_PENDING"</span>,
+                KajEnrollmentState::Complete =&gt; <span class="string">"KAJ_ENROLLMENT_STATE_COMPLETE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;KAJ_ENROLLMENT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;KAJ_ENROLLMENT_STATE_PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;KAJ_ENROLLMENT_STATE_COMPLETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complete),
+                <span class="string">"KAJ_ENROLLMENT_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"KAJ_ENROLLMENT_STATE_PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"KAJ_ENROLLMENT_STATE_COMPLETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complete),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1750,16 +1751,16 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ComplianceRegimeSettings {
         <span class="doccomment">/// Input only. Immutable. Settings specific to resources needed for IL4.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>Il4Settings(Il4Settings),
         <span class="doccomment">/// Input only. Immutable. Settings specific to resources needed for CJIS.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>CjisSettings(CjisSettings),
         <span class="doccomment">/// Input only. Immutable. Settings specific to resources needed for FedRAMP High.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"11"</span>)]
         </span>FedrampHighSettings(FedrampHighSettings),
         <span class="doccomment">/// Input only. Immutable. Settings specific to resources needed for FedRAMP Moderate.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;12&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"12"</span>)]
         </span>FedrampModerateSettings(FedrampModerateSettings),
     }
 }
@@ -1768,21 +1769,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateWorkloadOperationMetadata {
     <span class="doccomment">/// Optional. Time when the operation was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. The display name of the workload.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The parent of the workload.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Compliance controls that should be applied to the resources managed by
     /// the workload.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;workload::ComplianceRegime&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"workload::ComplianceRegime"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>compliance_regime: i32,
     <span class="doccomment">/// Optional. Resource properties in the input that are used for creating/customizing
     /// workload resources.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>resource_settings: ::prost::alloc::vec::Vec&lt;workload::ResourceSettings&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1799,7 +1800,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1876,26 +1877,26 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/CreateWorkload&quot;</span>,
+                <span class="string">"/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/CreateWorkload"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService&quot;</span>,
-                        <span class="string">&quot;CreateWorkload&quot;</span>,
+                        <span class="string">"google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService"</span>,
+                        <span class="string">"CreateWorkload"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Updates an existing workload.
         /// Currently allows updating of workload display_name and labels.
-        /// For force updates don&#39;t set etag field in the Workload.
+        /// For force updates don't set etag field in the Workload.
         /// Only one update operation per workload can be in progress.
         </span><span class="kw">pub async fn </span>update_workload(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -1907,19 +1908,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/UpdateWorkload&quot;</span>,
+                <span class="string">"/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/UpdateWorkload"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService&quot;</span>,
-                        <span class="string">&quot;UpdateWorkload&quot;</span>,
+                        <span class="string">"google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService"</span>,
+                        <span class="string">"UpdateWorkload"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1943,24 +1944,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/RestrictAllowedResources&quot;</span>,
+                <span class="string">"/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/RestrictAllowedResources"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService&quot;</span>,
-                        <span class="string">&quot;RestrictAllowedResources&quot;</span>,
+                        <span class="string">"google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService"</span>,
+                        <span class="string">"RestrictAllowedResources"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Deletes the workload. Make sure that workload&#39;s direct children are already
+        <span class="doccomment">/// Deletes the workload. Make sure that workload's direct children are already
         /// in a deleted state, otherwise the request will fail with a
         /// FAILED_PRECONDITION error.
         /// In addition to assuredworkloads.workload.delete permission, the user should
@@ -1976,19 +1977,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/DeleteWorkload&quot;</span>,
+                <span class="string">"/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/DeleteWorkload"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService&quot;</span>,
-                        <span class="string">&quot;DeleteWorkload&quot;</span>,
+                        <span class="string">"google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService"</span>,
+                        <span class="string">"DeleteWorkload"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2004,19 +2005,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/GetWorkload&quot;</span>,
+                <span class="string">"/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/GetWorkload"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService&quot;</span>,
-                        <span class="string">&quot;GetWorkload&quot;</span>,
+                        <span class="string">"google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService"</span>,
+                        <span class="string">"GetWorkload"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2036,19 +2037,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/AnalyzeWorkloadMove&quot;</span>,
+                <span class="string">"/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/AnalyzeWorkloadMove"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService&quot;</span>,
-                        <span class="string">&quot;AnalyzeWorkloadMove&quot;</span>,
+                        <span class="string">"google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService"</span>,
+                        <span class="string">"AnalyzeWorkloadMove"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2067,19 +2068,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/ListWorkloads&quot;</span>,
+                <span class="string">"/google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService/ListWorkloads"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService&quot;</span>,
-                        <span class="string">&quot;ListWorkloads&quot;</span>,
+                        <span class="string">"google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService"</span>,
+                        <span class="string">"ListWorkloads"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

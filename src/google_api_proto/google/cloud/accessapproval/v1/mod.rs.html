@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/accessapproval/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/accessapproval/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -958,8 +959,8 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AccessLocations {
-    <span class="doccomment">/// The &quot;home office&quot; location of the principal. A two-letter country code
-    /// (ISO 3166-1 alpha-2), such as &quot;US&quot;, &quot;DE&quot; or &quot;GB&quot; or a region code. In some
+    <span class="doccomment">/// The "home office" location of the principal. A two-letter country code
+    /// (ISO 3166-1 alpha-2), such as "US", "DE" or "GB" or a region code. In some
     /// limited situations Google systems may refer refer to a region code instead
     /// of a country code.
     /// Possible Region Codes:
@@ -972,10 +973,10 @@
     ///    * SAM: South America
     ///    * ANT: Antarctica
     ///    * ANY: Any location
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>principal_office_country: ::prost::alloc::string::String,
     <span class="doccomment">/// Physical location of the principal at the time of the access. A
-    /// two-letter country code (ISO 3166-1 alpha-2), such as &quot;US&quot;, &quot;DE&quot; or &quot;GB&quot; or
+    /// two-letter country code (ISO 3166-1 alpha-2), such as "US", "DE" or "GB" or
     /// a region code. In some limited situations Google systems may refer refer to
     /// a region code instead of a country code.
     /// Possible Region Codes:
@@ -988,17 +989,17 @@
     ///    * SAM: South America
     ///    * ANT: Antarctica
     ///    * ANY: Any location
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>principal_physical_location_country: ::prost::alloc::string::String,
 }
 <span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AccessReason {
     <span class="doccomment">/// Type of access justification.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;access_reason::Type&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"access_reason::Type"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// More detail about certain reason types. See comments for each type above.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>detail: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `AccessReason`.
@@ -1017,17 +1018,17 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>Type {
-        <span class="doccomment">/// Default value for proto, shouldn&#39;t be used.
+        <span class="doccomment">/// Default value for proto, shouldn't be used.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Customer made a request or raised an issue that required the principal to
-        /// access customer data. `detail` is of the form (&quot;#####&quot; is the issue ID):
+        /// access customer data. `detail` is of the form ("#####" is the issue ID):
         ///
-        ///    * &quot;Feedback Report: #####&quot;
-        ///    * &quot;Case Number: #####&quot;
-        ///    * &quot;Case ID: #####&quot;
-        ///    * &quot;E-PIN Reference: #####&quot;
-        ///    * &quot;Google-#####&quot;
-        ///    * &quot;T-#####&quot;
+        ///    * "Feedback Report: #####"
+        ///    * "Case Number: #####"
+        ///    * "Case ID: #####"
+        ///    * "E-PIN Reference: #####"
+        ///    * "Google-#####"
+        ///    * "T-#####"
         </span>CustomerInitiatedSupport = <span class="number">1</span>,
         <span class="doccomment">/// The principal accessed customer data in order to diagnose or resolve a
         /// suspected issue in services. Often this access is used to confirm that
@@ -1050,27 +1051,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::CustomerInitiatedSupport =&gt; <span class="string">&quot;CUSTOMER_INITIATED_SUPPORT&quot;</span>,
-                Type::GoogleInitiatedService =&gt; <span class="string">&quot;GOOGLE_INITIATED_SERVICE&quot;</span>,
-                Type::GoogleInitiatedReview =&gt; <span class="string">&quot;GOOGLE_INITIATED_REVIEW&quot;</span>,
-                Type::ThirdPartyDataRequest =&gt; <span class="string">&quot;THIRD_PARTY_DATA_REQUEST&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::CustomerInitiatedSupport =&gt; <span class="string">"CUSTOMER_INITIATED_SUPPORT"</span>,
+                Type::GoogleInitiatedService =&gt; <span class="string">"GOOGLE_INITIATED_SERVICE"</span>,
+                Type::GoogleInitiatedReview =&gt; <span class="string">"GOOGLE_INITIATED_REVIEW"</span>,
+                Type::ThirdPartyDataRequest =&gt; <span class="string">"THIRD_PARTY_DATA_REQUEST"</span>,
                 Type::GoogleResponseToProductionAlert =&gt; {
-                    <span class="string">&quot;GOOGLE_RESPONSE_TO_PRODUCTION_ALERT&quot;
+                    <span class="string">"GOOGLE_RESPONSE_TO_PRODUCTION_ALERT"
                 </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CUSTOMER_INITIATED_SUPPORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomerInitiatedSupport),
-                <span class="string">&quot;GOOGLE_INITIATED_SERVICE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleInitiatedService),
-                <span class="string">&quot;GOOGLE_INITIATED_REVIEW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleInitiatedReview),
-                <span class="string">&quot;THIRD_PARTY_DATA_REQUEST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ThirdPartyDataRequest),
-                <span class="string">&quot;GOOGLE_RESPONSE_TO_PRODUCTION_ALERT&quot; </span>=&gt; {
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CUSTOMER_INITIATED_SUPPORT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomerInitiatedSupport),
+                <span class="string">"GOOGLE_INITIATED_SERVICE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleInitiatedService),
+                <span class="string">"GOOGLE_INITIATED_REVIEW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleInitiatedReview),
+                <span class="string">"THIRD_PARTY_DATA_REQUEST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ThirdPartyDataRequest),
+                <span class="string">"GOOGLE_RESPONSE_TO_PRODUCTION_ALERT" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::GoogleResponseToProductionAlert)
                 }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -1083,10 +1084,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SignatureInfo {
     <span class="doccomment">/// The digital signature.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>signature: ::prost::bytes::Bytes,
     <span class="doccomment">/// How this signature may be verified.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;signature_info::VerificationInfo&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"signature_info::VerificationInfo"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>verification_info: ::core::option::Option&lt;signature_info::VerificationInfo&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SignatureInfo`.
@@ -1098,10 +1099,10 @@
         <span class="doccomment">/// The public key for the Google default signing, encoded in PEM format. The
         /// signature was created using a private key which may be verified using
         /// this public key.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>GooglePublicKeyPem(::prost::alloc::string::String),
         <span class="doccomment">/// The resource name of the customer CryptoKeyVersion used for signing.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>CustomerKmsKeyVersion(::prost::alloc::string::String),
     }
 }
@@ -1110,19 +1111,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ApproveDecision {
     <span class="doccomment">/// The time at which approval was granted.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>approve_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The time at which the approval expires.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// If set, denotes the timestamp at which the approval is invalidated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>invalidate_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The signature for the ApprovalRequest and details on how it was signed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>signature_info: ::core::option::Option&lt;SignatureInfo&gt;,
     <span class="doccomment">/// True when the request has been auto-approved.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>auto_approved: bool,
 }
 <span class="doccomment">/// A decision that has been made to dismiss an approval request.
@@ -1130,12 +1131,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DismissDecision {
     <span class="doccomment">/// The time at which the approval request was dismissed.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dismiss_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// This field will be true if the ApprovalRequest was implicitly dismissed due
     /// to inaction by the access approval approvers (the request is not acted
     /// on by the approvers before the exiration time).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>implicit: bool,
 }
 <span class="doccomment">/// The properties associated with the resource of the request.
@@ -1144,7 +1145,7 @@
 </span><span class="kw">pub struct </span>ResourceProperties {
     <span class="doccomment">/// Whether an approval will exclude the descendants of the resource being
     /// requested.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>excludes_descendants: bool,
 }
 <span class="doccomment">/// A request for the customer to approve access to a resource.
@@ -1152,36 +1153,36 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ApprovalRequest {
     <span class="doccomment">/// The resource name of the request. Format is
-    /// &quot;{projects|folders|organizations}/{id}/approvalRequests/{approval_request}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "{projects|folders|organizations}/{id}/approvalRequests/{approval_request}".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource for which approval is being requested. The format of the
     /// resource name is defined at
     /// &lt;https://cloud.google.com/apis/design/resource_names.&gt; The resource name here
-    /// may either be a &quot;full&quot; resource name (e.g.
-    /// &quot;//library.googleapis.com/shelves/shelf1/books/book2&quot;) or a &quot;relative&quot;
-    /// resource name (e.g. &quot;shelves/shelf1/books/book2&quot;) as described in the
+    /// may either be a "full" resource name (e.g.
+    /// "//library.googleapis.com/shelves/shelf1/books/book2") or a "relative"
+    /// resource name (e.g. "shelves/shelf1/books/book2") as described in the
     /// resource name specification.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>requested_resource_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Properties related to the resource represented by requested_resource_name.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>requested_resource_properties: ::core::option::Option&lt;ResourceProperties&gt;,
     <span class="doccomment">/// The justification for which approval is being requested.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>requested_reason: ::core::option::Option&lt;AccessReason&gt;,
     <span class="doccomment">/// The locations for which approval is being requested.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>requested_locations: ::core::option::Option&lt;AccessLocations&gt;,
     <span class="doccomment">/// The time at which approval was requested.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>request_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The requested expiration for the approval. If the request is approved,
     /// access will be granted from the time of approval until the expiration time.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>requested_expiration: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The current decision on the approval request.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;approval_request::Decision&quot;</span>, tags = <span class="string">&quot;7, 8&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"approval_request::Decision"</span>, tags = <span class="string">"7, 8"</span>)]
     </span><span class="kw">pub </span>decision: ::core::option::Option&lt;approval_request::Decision&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ApprovalRequest`.
@@ -1191,10 +1192,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Decision {
         <span class="doccomment">/// Access was approved.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>Approve(<span class="kw">super</span>::ApproveDecision),
         <span class="doccomment">/// The request was dismissed.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>Dismiss(<span class="kw">super</span>::DismissDecision),
     }
 }
@@ -1255,19 +1256,19 @@
     ///    * speakerid.googleapis.com
     ///    * storage.googleapis.com
     ///
-    /// Calls to UpdateAccessApprovalSettings using &#39;all&#39; or any of the
+    /// Calls to UpdateAccessApprovalSettings using 'all' or any of the
     /// XXX.googleapis.com will be translated to the associated product name
-    /// (&#39;all&#39;, &#39;App Engine&#39;, etc.).
+    /// ('all', 'App Engine', etc.).
     ///
-    /// Note: &#39;all&#39; will enroll the resource in all products supported at both &#39;GA&#39;
-    /// and &#39;Preview&#39; levels.
+    /// Note: 'all' will enroll the resource in all products supported at both 'GA'
+    /// and 'Preview' levels.
     ///
     /// More information about levels of support is available at
     /// &lt;https://cloud.google.com/access-approval/docs/supported-services&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cloud_product: ::prost::alloc::string::String,
     <span class="doccomment">/// The enrollment level of the service.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;EnrollmentLevel&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"EnrollmentLevel"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>enrollment_level: i32,
 }
 <span class="doccomment">/// Settings on a Project/Folder/Organization related to Access Approval.
@@ -1276,16 +1277,16 @@
 </span><span class="kw">pub struct </span>AccessApprovalSettings {
     <span class="doccomment">/// The resource name of the settings. Format is one of:
     ///
-    ///    * &quot;projects/{project}/accessApprovalSettings&quot;
-    ///    * &quot;folders/{folder}/accessApprovalSettings&quot;
-    ///    * &quot;organizations/{organization}/accessApprovalSettings&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    ///    * "projects/{project}/accessApprovalSettings"
+    ///    * "folders/{folder}/accessApprovalSettings"
+    ///    * "organizations/{organization}/accessApprovalSettings"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of email addresses to which notifications relating to approval
     /// requests should be sent. Notifications relating to a resource will be sent
     /// to all emails in the settings of ancestor resources of that resource. A
     /// maximum of 50 email addresses are allowed.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>notification_emails: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A list of Google Cloud Services for which the given resource has Access
     /// Approval enrolled. Access requests for the resource given by name against
@@ -1298,35 +1299,35 @@
     /// honored and all following entries will be discarded. A maximum of 10
     /// enrolled services will be enforced, to be expanded as the set of supported
     /// services is expanded.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>enrolled_services: ::prost::alloc::vec::Vec&lt;EnrolledService&gt;,
     <span class="doccomment">/// Output only. This field is read only (not settable via
     /// UpdateAccessApprovalSettings method). If the field is true, that
     /// indicates that at least one service is enrolled for Access Approval in one
     /// or more ancestors of the Project or Folder (this field will always be
     /// unset for the organization since organizations do not have ancestors).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>enrolled_ancestor: bool,
     <span class="doccomment">/// The asymmetric crypto key version to use for signing approval requests.
     /// Empty active_key_version indicates that a Google-managed key should be used
     /// for signing. This property will be ignored if set by an ancestor of this
     /// resource, and new non-empty values may not be set.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>active_key_version: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. This field is read only (not settable via UpdateAccessApprovalSettings
     /// method). If the field is true, that indicates that an ancestor of this
     /// Project or Folder has set active_key_version (this field will always be
     /// unset for the organization since organizations do not have ancestors).
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>ancestor_has_active_key_version: bool,
     <span class="doccomment">/// Output only. This field is read only (not settable via UpdateAccessApprovalSettings
     /// method). If the field is true, that indicates that there is some
     /// configuration issue with the active_key_version configured at this level in
-    /// the resource hierarchy (e.g. it doesn&#39;t exist or the Access Approval
-    /// service account doesn&#39;t have the correct permissions on it, etc.) This key
+    /// the resource hierarchy (e.g. it doesn't exist or the Access Approval
+    /// service account doesn't have the correct permissions on it, etc.) This key
     /// version is not necessarily the effective key version at this level, as key
     /// versions are inherited top-down.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>invalid_key_version: bool,
 }
 <span class="doccomment">/// Access Approval service account related to a project/folder/organization.
@@ -1335,22 +1336,22 @@
 </span><span class="kw">pub struct </span>AccessApprovalServiceAccount {
     <span class="doccomment">/// The resource name of the Access Approval service account. Format is one of:
     ///
-    ///    * &quot;projects/{project}/serviceAccount&quot;
-    ///    * &quot;folders/{folder}/serviceAccount&quot;
-    ///    * &quot;organizations/{organization}/serviceAccount&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    ///    * "projects/{project}/serviceAccount"
+    ///    * "folders/{folder}/serviceAccount"
+    ///    * "organizations/{organization}/serviceAccount"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Email address of the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>account_email: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to list approval requests.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListApprovalRequestsMessage {
-    <span class="doccomment">/// The parent resource. This may be &quot;projects/{project}&quot;,
-    /// &quot;folders/{folder}&quot;, or &quot;organizations/{organization}&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// The parent resource. This may be "projects/{project}",
+    /// "folders/{folder}", or "organizations/{organization}".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// A filter on the type of approval requests to retrieve. Must be one of the
     /// following values:
@@ -1364,13 +1365,13 @@
     ///    * EXPIRED: Only requests that have been approved, and the approval has
     ///      expired.
     ///    * HISTORY: Active, dismissed and expired requests.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// Requested page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A token identifying the page of results to return.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response to listing of ApprovalRequest objects.
@@ -1378,10 +1379,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListApprovalRequestsResponse {
     <span class="doccomment">/// Approval request details.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>approval_requests: ::prost::alloc::vec::Vec&lt;ApprovalRequest&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no more.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to get an approval request.
@@ -1390,8 +1391,8 @@
 </span><span class="kw">pub struct </span>GetApprovalRequestMessage {
     <span class="doccomment">/// The name of the approval request to retrieve.
     /// Format:
-    /// &quot;{projects|folders|organizations}/{id}/approvalRequests/{approval_request}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "{projects|folders|organizations}/{id}/approvalRequests/{approval_request}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to approve an ApprovalRequest.
@@ -1399,10 +1400,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ApproveApprovalRequestMessage {
     <span class="doccomment">/// Name of the approval request to approve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The expiration time of this approval.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request to dismiss an approval request.
@@ -1410,7 +1411,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DismissApprovalRequestMessage {
     <span class="doccomment">/// Name of the ApprovalRequest to dismiss.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to invalidate an existing approval.
@@ -1418,7 +1419,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InvalidateApprovalRequestMessage {
     <span class="doccomment">/// Name of the ApprovalRequest to invalidate.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to get access approval settings.
@@ -1426,8 +1427,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetAccessApprovalSettingsMessage {
     <span class="doccomment">/// The name of the AccessApprovalSettings to retrieve.
-    /// Format: &quot;{projects|folders|organizations}/{id}/accessApprovalSettings&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Format: "{projects|folders|organizations}/{id}/accessApprovalSettings"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to update access approval settings.
@@ -1435,7 +1436,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateAccessApprovalSettingsMessage {
     <span class="doccomment">/// The new AccessApprovalSettings.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>settings: ::core::option::Option&lt;AccessApprovalSettings&gt;,
     <span class="doccomment">/// The update mask applies to the settings. Only the top level fields of
     /// AccessApprovalSettings (notification_emails &amp; enrolled_services) are
@@ -1447,7 +1448,7 @@
     /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
     /// If this field is left unset, only the notification_emails field will be
     /// updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request to delete access approval settings.
@@ -1455,7 +1456,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteAccessApprovalSettingsMessage {
     <span class="doccomment">/// Name of the AccessApprovalSettings to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to get an Access Approval service account.
@@ -1463,14 +1464,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetAccessApprovalServiceAccountMessage {
     <span class="doccomment">/// Name of the AccessApprovalServiceAccount to retrieve.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the type of enrollment for a given service to Access Approval.
 </span><span class="attr">#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
 </span><span class="kw">pub enum </span>EnrollmentLevel {
-    <span class="doccomment">/// Default value for proto, shouldn&#39;t be used.
+    <span class="doccomment">/// Default value for proto, shouldn't be used.
     </span>Unspecified = <span class="number">0</span>,
     <span class="doccomment">/// Service is enrolled in Access Approval for all requests
     </span>BlockAll = <span class="number">1</span>,
@@ -1480,17 +1481,17 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            EnrollmentLevel::Unspecified =&gt; <span class="string">&quot;ENROLLMENT_LEVEL_UNSPECIFIED&quot;</span>,
-            EnrollmentLevel::BlockAll =&gt; <span class="string">&quot;BLOCK_ALL&quot;</span>,
+            EnrollmentLevel::Unspecified =&gt; <span class="string">"ENROLLMENT_LEVEL_UNSPECIFIED"</span>,
+            EnrollmentLevel::BlockAll =&gt; <span class="string">"BLOCK_ALL"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;ENROLLMENT_LEVEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;BLOCK_ALL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockAll),
+            <span class="string">"ENROLLMENT_LEVEL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"BLOCK_ALL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockAll),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1523,7 +1524,7 @@
     /// Note: Using Access Approval functionality will mean that Google may not be
     /// able to meet the SLAs for your chosen products, as any support response times
     /// may be dramatically increased. As such the SLAs do not apply to any service
-    /// disruption to the extent impacted by Customer&#39;s use of Access Approval. Do
+    /// disruption to the extent impacted by Customer's use of Access Approval. Do
     /// not enable Access Approval for projects where you may require high service
     /// availability and rapid response by Google Cloud Support.
     ///
@@ -1541,7 +1542,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1618,19 +1619,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.accessapproval.v1.AccessApproval/ListApprovalRequests&quot;</span>,
+                <span class="string">"/google.cloud.accessapproval.v1.AccessApproval/ListApprovalRequests"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.accessapproval.v1.AccessApproval&quot;</span>,
-                        <span class="string">&quot;ListApprovalRequests&quot;</span>,
+                        <span class="string">"google.cloud.accessapproval.v1.AccessApproval"</span>,
+                        <span class="string">"ListApprovalRequests"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1649,19 +1650,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.accessapproval.v1.AccessApproval/GetApprovalRequest&quot;</span>,
+                <span class="string">"/google.cloud.accessapproval.v1.AccessApproval/GetApprovalRequest"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.accessapproval.v1.AccessApproval&quot;</span>,
-                        <span class="string">&quot;GetApprovalRequest&quot;</span>,
+                        <span class="string">"google.cloud.accessapproval.v1.AccessApproval"</span>,
+                        <span class="string">"GetApprovalRequest"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1683,19 +1684,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.accessapproval.v1.AccessApproval/ApproveApprovalRequest&quot;</span>,
+                <span class="string">"/google.cloud.accessapproval.v1.AccessApproval/ApproveApprovalRequest"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.accessapproval.v1.AccessApproval&quot;</span>,
-                        <span class="string">&quot;ApproveApprovalRequest&quot;</span>,
+                        <span class="string">"google.cloud.accessapproval.v1.AccessApproval"</span>,
+                        <span class="string">"ApproveApprovalRequest"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1723,19 +1724,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.accessapproval.v1.AccessApproval/DismissApprovalRequest&quot;</span>,
+                <span class="string">"/google.cloud.accessapproval.v1.AccessApproval/DismissApprovalRequest"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.accessapproval.v1.AccessApproval&quot;</span>,
-                        <span class="string">&quot;DismissApprovalRequest&quot;</span>,
+                        <span class="string">"google.cloud.accessapproval.v1.AccessApproval"</span>,
+                        <span class="string">"DismissApprovalRequest"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1761,19 +1762,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.accessapproval.v1.AccessApproval/InvalidateApprovalRequest&quot;</span>,
+                <span class="string">"/google.cloud.accessapproval.v1.AccessApproval/InvalidateApprovalRequest"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.accessapproval.v1.AccessApproval&quot;</span>,
-                        <span class="string">&quot;InvalidateApprovalRequest&quot;</span>,
+                        <span class="string">"google.cloud.accessapproval.v1.AccessApproval"</span>,
+                        <span class="string">"InvalidateApprovalRequest"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1792,19 +1793,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.accessapproval.v1.AccessApproval/GetAccessApprovalSettings&quot;</span>,
+                <span class="string">"/google.cloud.accessapproval.v1.AccessApproval/GetAccessApprovalSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.accessapproval.v1.AccessApproval&quot;</span>,
-                        <span class="string">&quot;GetAccessApprovalSettings&quot;</span>,
+                        <span class="string">"google.cloud.accessapproval.v1.AccessApproval"</span>,
+                        <span class="string">"GetAccessApprovalSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1824,19 +1825,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.accessapproval.v1.AccessApproval/UpdateAccessApprovalSettings&quot;</span>,
+                <span class="string">"/google.cloud.accessapproval.v1.AccessApproval/UpdateAccessApprovalSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.accessapproval.v1.AccessApproval&quot;</span>,
-                        <span class="string">&quot;UpdateAccessApprovalSettings&quot;</span>,
+                        <span class="string">"google.cloud.accessapproval.v1.AccessApproval"</span>,
+                        <span class="string">"UpdateAccessApprovalSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1857,19 +1858,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.accessapproval.v1.AccessApproval/DeleteAccessApprovalSettings&quot;</span>,
+                <span class="string">"/google.cloud.accessapproval.v1.AccessApproval/DeleteAccessApprovalSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.accessapproval.v1.AccessApproval&quot;</span>,
-                        <span class="string">&quot;DeleteAccessApprovalSettings&quot;</span>,
+                        <span class="string">"google.cloud.accessapproval.v1.AccessApproval"</span>,
+                        <span class="string">"DeleteAccessApprovalSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1891,19 +1892,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.accessapproval.v1.AccessApproval/GetAccessApprovalServiceAccount&quot;</span>,
+                <span class="string">"/google.cloud.accessapproval.v1.AccessApproval/GetAccessApprovalServiceAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.accessapproval.v1.AccessApproval&quot;</span>,
-                        <span class="string">&quot;GetAccessApprovalServiceAccount&quot;</span>,
+                        <span class="string">"google.cloud.accessapproval.v1.AccessApproval"</span>,
+                        <span class="string">"GetAccessApprovalServiceAccount"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

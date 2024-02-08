@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/language/v1beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/language/v1beta2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2241,7 +2242,7 @@
 </span><span class="kw">pub struct </span>Document {
     <span class="doccomment">/// Required. If the type is not set or is `TYPE_UNSPECIFIED`,
     /// returns an `INVALID_ARGUMENT` error.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;document::Type&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"document::Type"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// The language of the document (if not specified, the language is
     /// automatically detected). Both ISO and BCP-47 language codes are
@@ -2251,20 +2252,20 @@
     /// currently supported languages for each API method. If the language (either
     /// specified by the caller or automatically detected) is not supported by the
     /// called API method, an `INVALID_ARGUMENT` error is returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>language: ::prost::alloc::string::String,
     <span class="doccomment">/// The web URI where the document comes from. This URI is not used for
     /// fetching the content, but as a hint for analyzing the document.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>reference_web_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Indicates how detected boilerplate(e.g. advertisements, copyright
     /// declarations, banners) should be handled for this document. If not
     /// specified, boilerplate will be treated the same as content.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;document::BoilerplateHandling&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"document::BoilerplateHandling"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>boilerplate_handling: i32,
     <span class="doccomment">/// The source of the document: a string containing the content or a
     /// Google Cloud Storage URI.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;document::Source&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"document::Source"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;document::Source&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Document`.
@@ -2295,19 +2296,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::PlainText =&gt; <span class="string">&quot;PLAIN_TEXT&quot;</span>,
-                Type::Html =&gt; <span class="string">&quot;HTML&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::PlainText =&gt; <span class="string">"PLAIN_TEXT"</span>,
+                Type::Html =&gt; <span class="string">"HTML"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PLAIN_TEXT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PlainText),
-                <span class="string">&quot;HTML&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Html),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PLAIN_TEXT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PlainText),
+                <span class="string">"HTML" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Html),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2339,19 +2340,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                BoilerplateHandling::Unspecified =&gt; <span class="string">&quot;BOILERPLATE_HANDLING_UNSPECIFIED&quot;</span>,
-                BoilerplateHandling::SkipBoilerplate =&gt; <span class="string">&quot;SKIP_BOILERPLATE&quot;</span>,
-                BoilerplateHandling::KeepBoilerplate =&gt; <span class="string">&quot;KEEP_BOILERPLATE&quot;</span>,
+                BoilerplateHandling::Unspecified =&gt; <span class="string">"BOILERPLATE_HANDLING_UNSPECIFIED"</span>,
+                BoilerplateHandling::SkipBoilerplate =&gt; <span class="string">"SKIP_BOILERPLATE"</span>,
+                BoilerplateHandling::KeepBoilerplate =&gt; <span class="string">"KEEP_BOILERPLATE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;BOILERPLATE_HANDLING_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SKIP_BOILERPLATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SkipBoilerplate),
-                <span class="string">&quot;KEEP_BOILERPLATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeepBoilerplate),
+                <span class="string">"BOILERPLATE_HANDLING_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SKIP_BOILERPLATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SkipBoilerplate),
+                <span class="string">"KEEP_BOILERPLATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeepBoilerplate),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2363,13 +2364,13 @@
     </span><span class="kw">pub enum </span>Source {
         <span class="doccomment">/// The content of the input in string format.
         /// Cloud audit logging exempt since it is based on user data.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>Content(::prost::alloc::string::String),
         <span class="doccomment">/// The Google Cloud Storage URI where the file content is located.
         /// This URI must be of the form: gs://bucket_name/object_name. For more
         /// details, see &lt;https://cloud.google.com/storage/docs/reference-uris.&gt;
         /// NOTE: Cloud Storage object versioning is not supported.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>GcsContentUri(::prost::alloc::string::String),
     }
 }
@@ -2378,12 +2379,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Sentence {
     <span class="doccomment">/// The sentence text.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>text: ::core::option::Option&lt;TextSpan&gt;,
     <span class="doccomment">/// For calls to [AnalyzeSentiment][] or if
     /// [AnnotateTextRequest.Features.extract_document_sentiment][google.cloud.language.v1beta2.AnnotateTextRequest.Features.extract_document_sentiment]
     /// is set to true, this field will contain the sentiment for the sentence.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sentiment: ::core::option::Option&lt;Sentiment&gt;,
 }
 <span class="doccomment">/// Represents a phrase in the text that is a known entity, such as
@@ -2393,17 +2394,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Entity {
     <span class="doccomment">/// The representative name for the entity.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The entity type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;entity::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"entity::Type"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Metadata associated with the entity.
     ///
     /// For most entity types, the metadata is a Wikipedia URL (`wikipedia_url`)
     /// and Knowledge Graph MID (`mid`), if they are available. For the metadata
     /// associated with other entity types, see the Type table below.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2414,17 +2415,17 @@
     /// importance or centrality of that entity to the entire document text.
     /// Scores closer to 0 are less salient, while scores closer to 1.0 are highly
     /// salient.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>salience: f32,
     <span class="doccomment">/// The mentions of this entity in the input document. The API currently
     /// supports proper noun mentions.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>mentions: ::prost::alloc::vec::Vec&lt;EntityMention&gt;,
     <span class="doccomment">/// For calls to [AnalyzeEntitySentiment][] or if
     /// [AnnotateTextRequest.Features.extract_entity_sentiment][google.cloud.language.v1beta2.AnnotateTextRequest.Features.extract_entity_sentiment]
     /// is set to true, this field will contain the aggregate sentiment expressed
     /// for this entity in the provided document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>sentiment: ::core::option::Option&lt;Sentiment&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Entity`.
@@ -2512,39 +2513,39 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                Type::Person =&gt; <span class="string">&quot;PERSON&quot;</span>,
-                Type::Location =&gt; <span class="string">&quot;LOCATION&quot;</span>,
-                Type::Organization =&gt; <span class="string">&quot;ORGANIZATION&quot;</span>,
-                Type::Event =&gt; <span class="string">&quot;EVENT&quot;</span>,
-                Type::WorkOfArt =&gt; <span class="string">&quot;WORK_OF_ART&quot;</span>,
-                Type::ConsumerGood =&gt; <span class="string">&quot;CONSUMER_GOOD&quot;</span>,
-                Type::Other =&gt; <span class="string">&quot;OTHER&quot;</span>,
-                Type::PhoneNumber =&gt; <span class="string">&quot;PHONE_NUMBER&quot;</span>,
-                Type::Address =&gt; <span class="string">&quot;ADDRESS&quot;</span>,
-                Type::Date =&gt; <span class="string">&quot;DATE&quot;</span>,
-                Type::Number =&gt; <span class="string">&quot;NUMBER&quot;</span>,
-                Type::Price =&gt; <span class="string">&quot;PRICE&quot;</span>,
+                Type::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
+                Type::Person =&gt; <span class="string">"PERSON"</span>,
+                Type::Location =&gt; <span class="string">"LOCATION"</span>,
+                Type::Organization =&gt; <span class="string">"ORGANIZATION"</span>,
+                Type::Event =&gt; <span class="string">"EVENT"</span>,
+                Type::WorkOfArt =&gt; <span class="string">"WORK_OF_ART"</span>,
+                Type::ConsumerGood =&gt; <span class="string">"CONSUMER_GOOD"</span>,
+                Type::Other =&gt; <span class="string">"OTHER"</span>,
+                Type::PhoneNumber =&gt; <span class="string">"PHONE_NUMBER"</span>,
+                Type::Address =&gt; <span class="string">"ADDRESS"</span>,
+                Type::Date =&gt; <span class="string">"DATE"</span>,
+                Type::Number =&gt; <span class="string">"NUMBER"</span>,
+                Type::Price =&gt; <span class="string">"PRICE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;PERSON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Person),
-                <span class="string">&quot;LOCATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Location),
-                <span class="string">&quot;ORGANIZATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organization),
-                <span class="string">&quot;EVENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Event),
-                <span class="string">&quot;WORK_OF_ART&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WorkOfArt),
-                <span class="string">&quot;CONSUMER_GOOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConsumerGood),
-                <span class="string">&quot;OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
-                <span class="string">&quot;PHONE_NUMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PhoneNumber),
-                <span class="string">&quot;ADDRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Address),
-                <span class="string">&quot;DATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
-                <span class="string">&quot;NUMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
-                <span class="string">&quot;PRICE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Price),
+                <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"PERSON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Person),
+                <span class="string">"LOCATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Location),
+                <span class="string">"ORGANIZATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organization),
+                <span class="string">"EVENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Event),
+                <span class="string">"WORK_OF_ART" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WorkOfArt),
+                <span class="string">"CONSUMER_GOOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConsumerGood),
+                <span class="string">"OTHER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
+                <span class="string">"PHONE_NUMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PhoneNumber),
+                <span class="string">"ADDRESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Address),
+                <span class="string">"DATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
+                <span class="string">"NUMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
+                <span class="string">"PRICE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Price),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2555,16 +2556,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Token {
     <span class="doccomment">/// The token text.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>text: ::core::option::Option&lt;TextSpan&gt;,
     <span class="doccomment">/// Parts of speech tag for this token.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>part_of_speech: ::core::option::Option&lt;PartOfSpeech&gt;,
     <span class="doccomment">/// Dependency tree parse for this token.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>dependency_edge: ::core::option::Option&lt;DependencyEdge&gt;,
     <span class="doccomment">/// [Lemma](&lt;https://en.wikipedia.org/wiki/Lemma_%28morphology%29&gt;) of the token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>lemma: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Represents the feeling associated with the entire text or entities in
@@ -2576,11 +2577,11 @@
     <span class="doccomment">/// A non-negative number in the [0, +inf) range, which represents
     /// the absolute magnitude of sentiment regardless of score (positive or
     /// negative).
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>magnitude: f32,
     <span class="doccomment">/// Sentiment score between -1.0 (negative sentiment) and 1.0
     /// (positive sentiment).
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>score: f32,
 }
 <span class="doccomment">/// Represents part of speech information for a token.
@@ -2588,40 +2589,40 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartOfSpeech {
     <span class="doccomment">/// The part of speech tag.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Tag&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Tag"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>tag: i32,
     <span class="doccomment">/// The grammatical aspect.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Aspect&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Aspect"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>aspect: i32,
     <span class="doccomment">/// The grammatical case.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Case&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Case"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>case: i32,
     <span class="doccomment">/// The grammatical form.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Form&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Form"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>form: i32,
     <span class="doccomment">/// The grammatical gender.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Gender&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Gender"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>gender: i32,
     <span class="doccomment">/// The grammatical mood.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Mood&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Mood"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>mood: i32,
     <span class="doccomment">/// The grammatical number.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Number&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Number"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>number: i32,
     <span class="doccomment">/// The grammatical person.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Person&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Person"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>person: i32,
     <span class="doccomment">/// The grammatical properness.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Proper&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Proper"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>proper: i32,
     <span class="doccomment">/// The grammatical reciprocity.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Reciprocity&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Reciprocity"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>reciprocity: i32,
     <span class="doccomment">/// The grammatical tense.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Tense&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Tense"</span>, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>tense: i32,
     <span class="doccomment">/// The grammatical voice.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;part_of_speech::Voice&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"part_of_speech::Voice"</span>, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>voice: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `PartOfSpeech`.
@@ -2674,41 +2675,41 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Tag::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                Tag::Adj =&gt; <span class="string">&quot;ADJ&quot;</span>,
-                Tag::Adp =&gt; <span class="string">&quot;ADP&quot;</span>,
-                Tag::Adv =&gt; <span class="string">&quot;ADV&quot;</span>,
-                Tag::Conj =&gt; <span class="string">&quot;CONJ&quot;</span>,
-                Tag::Det =&gt; <span class="string">&quot;DET&quot;</span>,
-                Tag::Noun =&gt; <span class="string">&quot;NOUN&quot;</span>,
-                Tag::Num =&gt; <span class="string">&quot;NUM&quot;</span>,
-                Tag::Pron =&gt; <span class="string">&quot;PRON&quot;</span>,
-                Tag::Prt =&gt; <span class="string">&quot;PRT&quot;</span>,
-                Tag::Punct =&gt; <span class="string">&quot;PUNCT&quot;</span>,
-                Tag::Verb =&gt; <span class="string">&quot;VERB&quot;</span>,
-                Tag::X =&gt; <span class="string">&quot;X&quot;</span>,
-                Tag::Affix =&gt; <span class="string">&quot;AFFIX&quot;</span>,
+                Tag::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
+                Tag::Adj =&gt; <span class="string">"ADJ"</span>,
+                Tag::Adp =&gt; <span class="string">"ADP"</span>,
+                Tag::Adv =&gt; <span class="string">"ADV"</span>,
+                Tag::Conj =&gt; <span class="string">"CONJ"</span>,
+                Tag::Det =&gt; <span class="string">"DET"</span>,
+                Tag::Noun =&gt; <span class="string">"NOUN"</span>,
+                Tag::Num =&gt; <span class="string">"NUM"</span>,
+                Tag::Pron =&gt; <span class="string">"PRON"</span>,
+                Tag::Prt =&gt; <span class="string">"PRT"</span>,
+                Tag::Punct =&gt; <span class="string">"PUNCT"</span>,
+                Tag::Verb =&gt; <span class="string">"VERB"</span>,
+                Tag::X =&gt; <span class="string">"X"</span>,
+                Tag::Affix =&gt; <span class="string">"AFFIX"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;ADJ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Adj),
-                <span class="string">&quot;ADP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Adp),
-                <span class="string">&quot;ADV&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Adv),
-                <span class="string">&quot;CONJ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Conj),
-                <span class="string">&quot;DET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Det),
-                <span class="string">&quot;NOUN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Noun),
-                <span class="string">&quot;NUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Num),
-                <span class="string">&quot;PRON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pron),
-                <span class="string">&quot;PRT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Prt),
-                <span class="string">&quot;PUNCT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Punct),
-                <span class="string">&quot;VERB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Verb),
-                <span class="string">&quot;X&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::X),
-                <span class="string">&quot;AFFIX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Affix),
+                <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"ADJ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Adj),
+                <span class="string">"ADP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Adp),
+                <span class="string">"ADV" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Adv),
+                <span class="string">"CONJ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Conj),
+                <span class="string">"DET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Det),
+                <span class="string">"NOUN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Noun),
+                <span class="string">"NUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Num),
+                <span class="string">"PRON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pron),
+                <span class="string">"PRT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Prt),
+                <span class="string">"PUNCT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Punct),
+                <span class="string">"VERB" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Verb),
+                <span class="string">"X" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::X),
+                <span class="string">"AFFIX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Affix),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2741,21 +2742,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Aspect::Unknown =&gt; <span class="string">&quot;ASPECT_UNKNOWN&quot;</span>,
-                Aspect::Perfective =&gt; <span class="string">&quot;PERFECTIVE&quot;</span>,
-                Aspect::Imperfective =&gt; <span class="string">&quot;IMPERFECTIVE&quot;</span>,
-                Aspect::Progressive =&gt; <span class="string">&quot;PROGRESSIVE&quot;</span>,
+                Aspect::Unknown =&gt; <span class="string">"ASPECT_UNKNOWN"</span>,
+                Aspect::Perfective =&gt; <span class="string">"PERFECTIVE"</span>,
+                Aspect::Imperfective =&gt; <span class="string">"IMPERFECTIVE"</span>,
+                Aspect::Progressive =&gt; <span class="string">"PROGRESSIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ASPECT_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;PERFECTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Perfective),
-                <span class="string">&quot;IMPERFECTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Imperfective),
-                <span class="string">&quot;PROGRESSIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Progressive),
+                <span class="string">"ASPECT_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"PERFECTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Perfective),
+                <span class="string">"IMPERFECTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Imperfective),
+                <span class="string">"PROGRESSIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Progressive),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2812,43 +2813,43 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Case::Unknown =&gt; <span class="string">&quot;CASE_UNKNOWN&quot;</span>,
-                Case::Accusative =&gt; <span class="string">&quot;ACCUSATIVE&quot;</span>,
-                Case::Adverbial =&gt; <span class="string">&quot;ADVERBIAL&quot;</span>,
-                Case::Complementive =&gt; <span class="string">&quot;COMPLEMENTIVE&quot;</span>,
-                Case::Dative =&gt; <span class="string">&quot;DATIVE&quot;</span>,
-                Case::Genitive =&gt; <span class="string">&quot;GENITIVE&quot;</span>,
-                Case::Instrumental =&gt; <span class="string">&quot;INSTRUMENTAL&quot;</span>,
-                Case::Locative =&gt; <span class="string">&quot;LOCATIVE&quot;</span>,
-                Case::Nominative =&gt; <span class="string">&quot;NOMINATIVE&quot;</span>,
-                Case::Oblique =&gt; <span class="string">&quot;OBLIQUE&quot;</span>,
-                Case::Partitive =&gt; <span class="string">&quot;PARTITIVE&quot;</span>,
-                Case::Prepositional =&gt; <span class="string">&quot;PREPOSITIONAL&quot;</span>,
-                Case::ReflexiveCase =&gt; <span class="string">&quot;REFLEXIVE_CASE&quot;</span>,
-                Case::RelativeCase =&gt; <span class="string">&quot;RELATIVE_CASE&quot;</span>,
-                Case::Vocative =&gt; <span class="string">&quot;VOCATIVE&quot;</span>,
+                Case::Unknown =&gt; <span class="string">"CASE_UNKNOWN"</span>,
+                Case::Accusative =&gt; <span class="string">"ACCUSATIVE"</span>,
+                Case::Adverbial =&gt; <span class="string">"ADVERBIAL"</span>,
+                Case::Complementive =&gt; <span class="string">"COMPLEMENTIVE"</span>,
+                Case::Dative =&gt; <span class="string">"DATIVE"</span>,
+                Case::Genitive =&gt; <span class="string">"GENITIVE"</span>,
+                Case::Instrumental =&gt; <span class="string">"INSTRUMENTAL"</span>,
+                Case::Locative =&gt; <span class="string">"LOCATIVE"</span>,
+                Case::Nominative =&gt; <span class="string">"NOMINATIVE"</span>,
+                Case::Oblique =&gt; <span class="string">"OBLIQUE"</span>,
+                Case::Partitive =&gt; <span class="string">"PARTITIVE"</span>,
+                Case::Prepositional =&gt; <span class="string">"PREPOSITIONAL"</span>,
+                Case::ReflexiveCase =&gt; <span class="string">"REFLEXIVE_CASE"</span>,
+                Case::RelativeCase =&gt; <span class="string">"RELATIVE_CASE"</span>,
+                Case::Vocative =&gt; <span class="string">"VOCATIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CASE_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;ACCUSATIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Accusative),
-                <span class="string">&quot;ADVERBIAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Adverbial),
-                <span class="string">&quot;COMPLEMENTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complementive),
-                <span class="string">&quot;DATIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dative),
-                <span class="string">&quot;GENITIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Genitive),
-                <span class="string">&quot;INSTRUMENTAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Instrumental),
-                <span class="string">&quot;LOCATIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locative),
-                <span class="string">&quot;NOMINATIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nominative),
-                <span class="string">&quot;OBLIQUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Oblique),
-                <span class="string">&quot;PARTITIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Partitive),
-                <span class="string">&quot;PREPOSITIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Prepositional),
-                <span class="string">&quot;REFLEXIVE_CASE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReflexiveCase),
-                <span class="string">&quot;RELATIVE_CASE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RelativeCase),
-                <span class="string">&quot;VOCATIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Vocative),
+                <span class="string">"CASE_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"ACCUSATIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Accusative),
+                <span class="string">"ADVERBIAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Adverbial),
+                <span class="string">"COMPLEMENTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complementive),
+                <span class="string">"DATIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dative),
+                <span class="string">"GENITIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Genitive),
+                <span class="string">"INSTRUMENTAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Instrumental),
+                <span class="string">"LOCATIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Locative),
+                <span class="string">"NOMINATIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nominative),
+                <span class="string">"OBLIQUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Oblique),
+                <span class="string">"PARTITIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Partitive),
+                <span class="string">"PREPOSITIONAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Prepositional),
+                <span class="string">"REFLEXIVE_CASE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReflexiveCase),
+                <span class="string">"RELATIVE_CASE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RelativeCase),
+                <span class="string">"VOCATIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Vocative),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2900,37 +2901,37 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Form::Unknown =&gt; <span class="string">&quot;FORM_UNKNOWN&quot;</span>,
-                Form::Adnomial =&gt; <span class="string">&quot;ADNOMIAL&quot;</span>,
-                Form::Auxiliary =&gt; <span class="string">&quot;AUXILIARY&quot;</span>,
-                Form::Complementizer =&gt; <span class="string">&quot;COMPLEMENTIZER&quot;</span>,
-                Form::FinalEnding =&gt; <span class="string">&quot;FINAL_ENDING&quot;</span>,
-                Form::Gerund =&gt; <span class="string">&quot;GERUND&quot;</span>,
-                Form::Realis =&gt; <span class="string">&quot;REALIS&quot;</span>,
-                Form::Irrealis =&gt; <span class="string">&quot;IRREALIS&quot;</span>,
-                Form::Short =&gt; <span class="string">&quot;SHORT&quot;</span>,
-                Form::Long =&gt; <span class="string">&quot;LONG&quot;</span>,
-                Form::Order =&gt; <span class="string">&quot;ORDER&quot;</span>,
-                Form::Specific =&gt; <span class="string">&quot;SPECIFIC&quot;</span>,
+                Form::Unknown =&gt; <span class="string">"FORM_UNKNOWN"</span>,
+                Form::Adnomial =&gt; <span class="string">"ADNOMIAL"</span>,
+                Form::Auxiliary =&gt; <span class="string">"AUXILIARY"</span>,
+                Form::Complementizer =&gt; <span class="string">"COMPLEMENTIZER"</span>,
+                Form::FinalEnding =&gt; <span class="string">"FINAL_ENDING"</span>,
+                Form::Gerund =&gt; <span class="string">"GERUND"</span>,
+                Form::Realis =&gt; <span class="string">"REALIS"</span>,
+                Form::Irrealis =&gt; <span class="string">"IRREALIS"</span>,
+                Form::Short =&gt; <span class="string">"SHORT"</span>,
+                Form::Long =&gt; <span class="string">"LONG"</span>,
+                Form::Order =&gt; <span class="string">"ORDER"</span>,
+                Form::Specific =&gt; <span class="string">"SPECIFIC"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;FORM_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;ADNOMIAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Adnomial),
-                <span class="string">&quot;AUXILIARY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auxiliary),
-                <span class="string">&quot;COMPLEMENTIZER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complementizer),
-                <span class="string">&quot;FINAL_ENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinalEnding),
-                <span class="string">&quot;GERUND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gerund),
-                <span class="string">&quot;REALIS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Realis),
-                <span class="string">&quot;IRREALIS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Irrealis),
-                <span class="string">&quot;SHORT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Short),
-                <span class="string">&quot;LONG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Long),
-                <span class="string">&quot;ORDER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Order),
-                <span class="string">&quot;SPECIFIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Specific),
+                <span class="string">"FORM_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"ADNOMIAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Adnomial),
+                <span class="string">"AUXILIARY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auxiliary),
+                <span class="string">"COMPLEMENTIZER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Complementizer),
+                <span class="string">"FINAL_ENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FinalEnding),
+                <span class="string">"GERUND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gerund),
+                <span class="string">"REALIS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Realis),
+                <span class="string">"IRREALIS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Irrealis),
+                <span class="string">"SHORT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Short),
+                <span class="string">"LONG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Long),
+                <span class="string">"ORDER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Order),
+                <span class="string">"SPECIFIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Specific),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2963,21 +2964,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Gender::Unknown =&gt; <span class="string">&quot;GENDER_UNKNOWN&quot;</span>,
-                Gender::Feminine =&gt; <span class="string">&quot;FEMININE&quot;</span>,
-                Gender::Masculine =&gt; <span class="string">&quot;MASCULINE&quot;</span>,
-                Gender::Neuter =&gt; <span class="string">&quot;NEUTER&quot;</span>,
+                Gender::Unknown =&gt; <span class="string">"GENDER_UNKNOWN"</span>,
+                Gender::Feminine =&gt; <span class="string">"FEMININE"</span>,
+                Gender::Masculine =&gt; <span class="string">"MASCULINE"</span>,
+                Gender::Neuter =&gt; <span class="string">"NEUTER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;GENDER_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;FEMININE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Feminine),
-                <span class="string">&quot;MASCULINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Masculine),
-                <span class="string">&quot;NEUTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neuter),
+                <span class="string">"GENDER_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"FEMININE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Feminine),
+                <span class="string">"MASCULINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Masculine),
+                <span class="string">"NEUTER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neuter),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3016,27 +3017,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Mood::Unknown =&gt; <span class="string">&quot;MOOD_UNKNOWN&quot;</span>,
-                Mood::ConditionalMood =&gt; <span class="string">&quot;CONDITIONAL_MOOD&quot;</span>,
-                Mood::Imperative =&gt; <span class="string">&quot;IMPERATIVE&quot;</span>,
-                Mood::Indicative =&gt; <span class="string">&quot;INDICATIVE&quot;</span>,
-                Mood::Interrogative =&gt; <span class="string">&quot;INTERROGATIVE&quot;</span>,
-                Mood::Jussive =&gt; <span class="string">&quot;JUSSIVE&quot;</span>,
-                Mood::Subjunctive =&gt; <span class="string">&quot;SUBJUNCTIVE&quot;</span>,
+                Mood::Unknown =&gt; <span class="string">"MOOD_UNKNOWN"</span>,
+                Mood::ConditionalMood =&gt; <span class="string">"CONDITIONAL_MOOD"</span>,
+                Mood::Imperative =&gt; <span class="string">"IMPERATIVE"</span>,
+                Mood::Indicative =&gt; <span class="string">"INDICATIVE"</span>,
+                Mood::Interrogative =&gt; <span class="string">"INTERROGATIVE"</span>,
+                Mood::Jussive =&gt; <span class="string">"JUSSIVE"</span>,
+                Mood::Subjunctive =&gt; <span class="string">"SUBJUNCTIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MOOD_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;CONDITIONAL_MOOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConditionalMood),
-                <span class="string">&quot;IMPERATIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Imperative),
-                <span class="string">&quot;INDICATIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Indicative),
-                <span class="string">&quot;INTERROGATIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Interrogative),
-                <span class="string">&quot;JUSSIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Jussive),
-                <span class="string">&quot;SUBJUNCTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Subjunctive),
+                <span class="string">"MOOD_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"CONDITIONAL_MOOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConditionalMood),
+                <span class="string">"IMPERATIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Imperative),
+                <span class="string">"INDICATIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Indicative),
+                <span class="string">"INTERROGATIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Interrogative),
+                <span class="string">"JUSSIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Jussive),
+                <span class="string">"SUBJUNCTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Subjunctive),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3069,21 +3070,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Number::Unknown =&gt; <span class="string">&quot;NUMBER_UNKNOWN&quot;</span>,
-                Number::Singular =&gt; <span class="string">&quot;SINGULAR&quot;</span>,
-                Number::Plural =&gt; <span class="string">&quot;PLURAL&quot;</span>,
-                Number::Dual =&gt; <span class="string">&quot;DUAL&quot;</span>,
+                Number::Unknown =&gt; <span class="string">"NUMBER_UNKNOWN"</span>,
+                Number::Singular =&gt; <span class="string">"SINGULAR"</span>,
+                Number::Plural =&gt; <span class="string">"PLURAL"</span>,
+                Number::Dual =&gt; <span class="string">"DUAL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;NUMBER_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;SINGULAR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Singular),
-                <span class="string">&quot;PLURAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Plural),
-                <span class="string">&quot;DUAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dual),
+                <span class="string">"NUMBER_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"SINGULAR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Singular),
+                <span class="string">"PLURAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Plural),
+                <span class="string">"DUAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dual),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3118,23 +3119,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Person::Unknown =&gt; <span class="string">&quot;PERSON_UNKNOWN&quot;</span>,
-                Person::First =&gt; <span class="string">&quot;FIRST&quot;</span>,
-                Person::Second =&gt; <span class="string">&quot;SECOND&quot;</span>,
-                Person::Third =&gt; <span class="string">&quot;THIRD&quot;</span>,
-                Person::ReflexivePerson =&gt; <span class="string">&quot;REFLEXIVE_PERSON&quot;</span>,
+                Person::Unknown =&gt; <span class="string">"PERSON_UNKNOWN"</span>,
+                Person::First =&gt; <span class="string">"FIRST"</span>,
+                Person::Second =&gt; <span class="string">"SECOND"</span>,
+                Person::Third =&gt; <span class="string">"THIRD"</span>,
+                Person::ReflexivePerson =&gt; <span class="string">"REFLEXIVE_PERSON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PERSON_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;FIRST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::First),
-                <span class="string">&quot;SECOND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Second),
-                <span class="string">&quot;THIRD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Third),
-                <span class="string">&quot;REFLEXIVE_PERSON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReflexivePerson),
+                <span class="string">"PERSON_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"FIRST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::First),
+                <span class="string">"SECOND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Second),
+                <span class="string">"THIRD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Third),
+                <span class="string">"REFLEXIVE_PERSON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReflexivePerson),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3165,19 +3166,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Proper::Unknown =&gt; <span class="string">&quot;PROPER_UNKNOWN&quot;</span>,
-                Proper::Proper =&gt; <span class="string">&quot;PROPER&quot;</span>,
-                Proper::NotProper =&gt; <span class="string">&quot;NOT_PROPER&quot;</span>,
+                Proper::Unknown =&gt; <span class="string">"PROPER_UNKNOWN"</span>,
+                Proper::Proper =&gt; <span class="string">"PROPER"</span>,
+                Proper::NotProper =&gt; <span class="string">"NOT_PROPER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PROPER_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;PROPER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Proper),
-                <span class="string">&quot;NOT_PROPER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotProper),
+                <span class="string">"PROPER_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"PROPER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Proper),
+                <span class="string">"NOT_PROPER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotProper),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3209,19 +3210,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Reciprocity::Unknown =&gt; <span class="string">&quot;RECIPROCITY_UNKNOWN&quot;</span>,
-                Reciprocity::Reciprocal =&gt; <span class="string">&quot;RECIPROCAL&quot;</span>,
-                Reciprocity::NonReciprocal =&gt; <span class="string">&quot;NON_RECIPROCAL&quot;</span>,
+                Reciprocity::Unknown =&gt; <span class="string">"RECIPROCITY_UNKNOWN"</span>,
+                Reciprocity::Reciprocal =&gt; <span class="string">"RECIPROCAL"</span>,
+                Reciprocity::NonReciprocal =&gt; <span class="string">"NON_RECIPROCAL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RECIPROCITY_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;RECIPROCAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reciprocal),
-                <span class="string">&quot;NON_RECIPROCAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonReciprocal),
+                <span class="string">"RECIPROCITY_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"RECIPROCAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reciprocal),
+                <span class="string">"NON_RECIPROCAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonReciprocal),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3260,27 +3261,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Tense::Unknown =&gt; <span class="string">&quot;TENSE_UNKNOWN&quot;</span>,
-                Tense::ConditionalTense =&gt; <span class="string">&quot;CONDITIONAL_TENSE&quot;</span>,
-                Tense::Future =&gt; <span class="string">&quot;FUTURE&quot;</span>,
-                Tense::Past =&gt; <span class="string">&quot;PAST&quot;</span>,
-                Tense::Present =&gt; <span class="string">&quot;PRESENT&quot;</span>,
-                Tense::Imperfect =&gt; <span class="string">&quot;IMPERFECT&quot;</span>,
-                Tense::Pluperfect =&gt; <span class="string">&quot;PLUPERFECT&quot;</span>,
+                Tense::Unknown =&gt; <span class="string">"TENSE_UNKNOWN"</span>,
+                Tense::ConditionalTense =&gt; <span class="string">"CONDITIONAL_TENSE"</span>,
+                Tense::Future =&gt; <span class="string">"FUTURE"</span>,
+                Tense::Past =&gt; <span class="string">"PAST"</span>,
+                Tense::Present =&gt; <span class="string">"PRESENT"</span>,
+                Tense::Imperfect =&gt; <span class="string">"IMPERFECT"</span>,
+                Tense::Pluperfect =&gt; <span class="string">"PLUPERFECT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TENSE_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;CONDITIONAL_TENSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConditionalTense),
-                <span class="string">&quot;FUTURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Future),
-                <span class="string">&quot;PAST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Past),
-                <span class="string">&quot;PRESENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Present),
-                <span class="string">&quot;IMPERFECT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Imperfect),
-                <span class="string">&quot;PLUPERFECT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pluperfect),
+                <span class="string">"TENSE_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"CONDITIONAL_TENSE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ConditionalTense),
+                <span class="string">"FUTURE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Future),
+                <span class="string">"PAST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Past),
+                <span class="string">"PRESENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Present),
+                <span class="string">"IMPERFECT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Imperfect),
+                <span class="string">"PLUPERFECT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pluperfect),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3314,21 +3315,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Voice::Unknown =&gt; <span class="string">&quot;VOICE_UNKNOWN&quot;</span>,
-                Voice::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                Voice::Causative =&gt; <span class="string">&quot;CAUSATIVE&quot;</span>,
-                Voice::Passive =&gt; <span class="string">&quot;PASSIVE&quot;</span>,
+                Voice::Unknown =&gt; <span class="string">"VOICE_UNKNOWN"</span>,
+                Voice::Active =&gt; <span class="string">"ACTIVE"</span>,
+                Voice::Causative =&gt; <span class="string">"CAUSATIVE"</span>,
+                Voice::Passive =&gt; <span class="string">"PASSIVE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;VOICE_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;CAUSATIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Causative),
-                <span class="string">&quot;PASSIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Passive),
+                <span class="string">"VOICE_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"CAUSATIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Causative),
+                <span class="string">"PASSIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Passive),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3343,10 +3344,10 @@
     /// The index is the position of the token in the array of tokens returned
     /// by the API method. If this token is a root token, then the
     /// `head_token_index` is its own index.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>head_token_index: i32,
     <span class="doccomment">/// The parse label for the token.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;dependency_edge::Label&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"dependency_edge::Label"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>label: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `DependencyEdge`.
@@ -3537,179 +3538,179 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Label::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                Label::Abbrev =&gt; <span class="string">&quot;ABBREV&quot;</span>,
-                Label::Acomp =&gt; <span class="string">&quot;ACOMP&quot;</span>,
-                Label::Advcl =&gt; <span class="string">&quot;ADVCL&quot;</span>,
-                Label::Advmod =&gt; <span class="string">&quot;ADVMOD&quot;</span>,
-                Label::Amod =&gt; <span class="string">&quot;AMOD&quot;</span>,
-                Label::Appos =&gt; <span class="string">&quot;APPOS&quot;</span>,
-                Label::Attr =&gt; <span class="string">&quot;ATTR&quot;</span>,
-                Label::Aux =&gt; <span class="string">&quot;AUX&quot;</span>,
-                Label::Auxpass =&gt; <span class="string">&quot;AUXPASS&quot;</span>,
-                Label::Cc =&gt; <span class="string">&quot;CC&quot;</span>,
-                Label::Ccomp =&gt; <span class="string">&quot;CCOMP&quot;</span>,
-                Label::Conj =&gt; <span class="string">&quot;CONJ&quot;</span>,
-                Label::Csubj =&gt; <span class="string">&quot;CSUBJ&quot;</span>,
-                Label::Csubjpass =&gt; <span class="string">&quot;CSUBJPASS&quot;</span>,
-                Label::Dep =&gt; <span class="string">&quot;DEP&quot;</span>,
-                Label::Det =&gt; <span class="string">&quot;DET&quot;</span>,
-                Label::Discourse =&gt; <span class="string">&quot;DISCOURSE&quot;</span>,
-                Label::Dobj =&gt; <span class="string">&quot;DOBJ&quot;</span>,
-                Label::Expl =&gt; <span class="string">&quot;EXPL&quot;</span>,
-                Label::Goeswith =&gt; <span class="string">&quot;GOESWITH&quot;</span>,
-                Label::Iobj =&gt; <span class="string">&quot;IOBJ&quot;</span>,
-                Label::Mark =&gt; <span class="string">&quot;MARK&quot;</span>,
-                Label::Mwe =&gt; <span class="string">&quot;MWE&quot;</span>,
-                Label::Mwv =&gt; <span class="string">&quot;MWV&quot;</span>,
-                Label::Neg =&gt; <span class="string">&quot;NEG&quot;</span>,
-                Label::Nn =&gt; <span class="string">&quot;NN&quot;</span>,
-                Label::Npadvmod =&gt; <span class="string">&quot;NPADVMOD&quot;</span>,
-                Label::Nsubj =&gt; <span class="string">&quot;NSUBJ&quot;</span>,
-                Label::Nsubjpass =&gt; <span class="string">&quot;NSUBJPASS&quot;</span>,
-                Label::Num =&gt; <span class="string">&quot;NUM&quot;</span>,
-                Label::Number =&gt; <span class="string">&quot;NUMBER&quot;</span>,
-                Label::P =&gt; <span class="string">&quot;P&quot;</span>,
-                Label::Parataxis =&gt; <span class="string">&quot;PARATAXIS&quot;</span>,
-                Label::Partmod =&gt; <span class="string">&quot;PARTMOD&quot;</span>,
-                Label::Pcomp =&gt; <span class="string">&quot;PCOMP&quot;</span>,
-                Label::Pobj =&gt; <span class="string">&quot;POBJ&quot;</span>,
-                Label::Poss =&gt; <span class="string">&quot;POSS&quot;</span>,
-                Label::Postneg =&gt; <span class="string">&quot;POSTNEG&quot;</span>,
-                Label::Precomp =&gt; <span class="string">&quot;PRECOMP&quot;</span>,
-                Label::Preconj =&gt; <span class="string">&quot;PRECONJ&quot;</span>,
-                Label::Predet =&gt; <span class="string">&quot;PREDET&quot;</span>,
-                Label::Pref =&gt; <span class="string">&quot;PREF&quot;</span>,
-                Label::Prep =&gt; <span class="string">&quot;PREP&quot;</span>,
-                Label::Pronl =&gt; <span class="string">&quot;PRONL&quot;</span>,
-                Label::Prt =&gt; <span class="string">&quot;PRT&quot;</span>,
-                Label::Ps =&gt; <span class="string">&quot;PS&quot;</span>,
-                Label::Quantmod =&gt; <span class="string">&quot;QUANTMOD&quot;</span>,
-                Label::Rcmod =&gt; <span class="string">&quot;RCMOD&quot;</span>,
-                Label::Rcmodrel =&gt; <span class="string">&quot;RCMODREL&quot;</span>,
-                Label::Rdrop =&gt; <span class="string">&quot;RDROP&quot;</span>,
-                Label::Ref =&gt; <span class="string">&quot;REF&quot;</span>,
-                Label::Remnant =&gt; <span class="string">&quot;REMNANT&quot;</span>,
-                Label::Reparandum =&gt; <span class="string">&quot;REPARANDUM&quot;</span>,
-                Label::Root =&gt; <span class="string">&quot;ROOT&quot;</span>,
-                Label::Snum =&gt; <span class="string">&quot;SNUM&quot;</span>,
-                Label::Suff =&gt; <span class="string">&quot;SUFF&quot;</span>,
-                Label::Tmod =&gt; <span class="string">&quot;TMOD&quot;</span>,
-                Label::Topic =&gt; <span class="string">&quot;TOPIC&quot;</span>,
-                Label::Vmod =&gt; <span class="string">&quot;VMOD&quot;</span>,
-                Label::Vocative =&gt; <span class="string">&quot;VOCATIVE&quot;</span>,
-                Label::Xcomp =&gt; <span class="string">&quot;XCOMP&quot;</span>,
-                Label::Suffix =&gt; <span class="string">&quot;SUFFIX&quot;</span>,
-                Label::Title =&gt; <span class="string">&quot;TITLE&quot;</span>,
-                Label::Advphmod =&gt; <span class="string">&quot;ADVPHMOD&quot;</span>,
-                Label::Auxcaus =&gt; <span class="string">&quot;AUXCAUS&quot;</span>,
-                Label::Auxvv =&gt; <span class="string">&quot;AUXVV&quot;</span>,
-                Label::Dtmod =&gt; <span class="string">&quot;DTMOD&quot;</span>,
-                Label::Foreign =&gt; <span class="string">&quot;FOREIGN&quot;</span>,
-                Label::Kw =&gt; <span class="string">&quot;KW&quot;</span>,
-                Label::List =&gt; <span class="string">&quot;LIST&quot;</span>,
-                Label::Nomc =&gt; <span class="string">&quot;NOMC&quot;</span>,
-                Label::Nomcsubj =&gt; <span class="string">&quot;NOMCSUBJ&quot;</span>,
-                Label::Nomcsubjpass =&gt; <span class="string">&quot;NOMCSUBJPASS&quot;</span>,
-                Label::Numc =&gt; <span class="string">&quot;NUMC&quot;</span>,
-                Label::Cop =&gt; <span class="string">&quot;COP&quot;</span>,
-                Label::Dislocated =&gt; <span class="string">&quot;DISLOCATED&quot;</span>,
-                Label::Asp =&gt; <span class="string">&quot;ASP&quot;</span>,
-                Label::Gmod =&gt; <span class="string">&quot;GMOD&quot;</span>,
-                Label::Gobj =&gt; <span class="string">&quot;GOBJ&quot;</span>,
-                Label::Infmod =&gt; <span class="string">&quot;INFMOD&quot;</span>,
-                Label::Mes =&gt; <span class="string">&quot;MES&quot;</span>,
-                Label::Ncomp =&gt; <span class="string">&quot;NCOMP&quot;</span>,
+                Label::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
+                Label::Abbrev =&gt; <span class="string">"ABBREV"</span>,
+                Label::Acomp =&gt; <span class="string">"ACOMP"</span>,
+                Label::Advcl =&gt; <span class="string">"ADVCL"</span>,
+                Label::Advmod =&gt; <span class="string">"ADVMOD"</span>,
+                Label::Amod =&gt; <span class="string">"AMOD"</span>,
+                Label::Appos =&gt; <span class="string">"APPOS"</span>,
+                Label::Attr =&gt; <span class="string">"ATTR"</span>,
+                Label::Aux =&gt; <span class="string">"AUX"</span>,
+                Label::Auxpass =&gt; <span class="string">"AUXPASS"</span>,
+                Label::Cc =&gt; <span class="string">"CC"</span>,
+                Label::Ccomp =&gt; <span class="string">"CCOMP"</span>,
+                Label::Conj =&gt; <span class="string">"CONJ"</span>,
+                Label::Csubj =&gt; <span class="string">"CSUBJ"</span>,
+                Label::Csubjpass =&gt; <span class="string">"CSUBJPASS"</span>,
+                Label::Dep =&gt; <span class="string">"DEP"</span>,
+                Label::Det =&gt; <span class="string">"DET"</span>,
+                Label::Discourse =&gt; <span class="string">"DISCOURSE"</span>,
+                Label::Dobj =&gt; <span class="string">"DOBJ"</span>,
+                Label::Expl =&gt; <span class="string">"EXPL"</span>,
+                Label::Goeswith =&gt; <span class="string">"GOESWITH"</span>,
+                Label::Iobj =&gt; <span class="string">"IOBJ"</span>,
+                Label::Mark =&gt; <span class="string">"MARK"</span>,
+                Label::Mwe =&gt; <span class="string">"MWE"</span>,
+                Label::Mwv =&gt; <span class="string">"MWV"</span>,
+                Label::Neg =&gt; <span class="string">"NEG"</span>,
+                Label::Nn =&gt; <span class="string">"NN"</span>,
+                Label::Npadvmod =&gt; <span class="string">"NPADVMOD"</span>,
+                Label::Nsubj =&gt; <span class="string">"NSUBJ"</span>,
+                Label::Nsubjpass =&gt; <span class="string">"NSUBJPASS"</span>,
+                Label::Num =&gt; <span class="string">"NUM"</span>,
+                Label::Number =&gt; <span class="string">"NUMBER"</span>,
+                Label::P =&gt; <span class="string">"P"</span>,
+                Label::Parataxis =&gt; <span class="string">"PARATAXIS"</span>,
+                Label::Partmod =&gt; <span class="string">"PARTMOD"</span>,
+                Label::Pcomp =&gt; <span class="string">"PCOMP"</span>,
+                Label::Pobj =&gt; <span class="string">"POBJ"</span>,
+                Label::Poss =&gt; <span class="string">"POSS"</span>,
+                Label::Postneg =&gt; <span class="string">"POSTNEG"</span>,
+                Label::Precomp =&gt; <span class="string">"PRECOMP"</span>,
+                Label::Preconj =&gt; <span class="string">"PRECONJ"</span>,
+                Label::Predet =&gt; <span class="string">"PREDET"</span>,
+                Label::Pref =&gt; <span class="string">"PREF"</span>,
+                Label::Prep =&gt; <span class="string">"PREP"</span>,
+                Label::Pronl =&gt; <span class="string">"PRONL"</span>,
+                Label::Prt =&gt; <span class="string">"PRT"</span>,
+                Label::Ps =&gt; <span class="string">"PS"</span>,
+                Label::Quantmod =&gt; <span class="string">"QUANTMOD"</span>,
+                Label::Rcmod =&gt; <span class="string">"RCMOD"</span>,
+                Label::Rcmodrel =&gt; <span class="string">"RCMODREL"</span>,
+                Label::Rdrop =&gt; <span class="string">"RDROP"</span>,
+                Label::Ref =&gt; <span class="string">"REF"</span>,
+                Label::Remnant =&gt; <span class="string">"REMNANT"</span>,
+                Label::Reparandum =&gt; <span class="string">"REPARANDUM"</span>,
+                Label::Root =&gt; <span class="string">"ROOT"</span>,
+                Label::Snum =&gt; <span class="string">"SNUM"</span>,
+                Label::Suff =&gt; <span class="string">"SUFF"</span>,
+                Label::Tmod =&gt; <span class="string">"TMOD"</span>,
+                Label::Topic =&gt; <span class="string">"TOPIC"</span>,
+                Label::Vmod =&gt; <span class="string">"VMOD"</span>,
+                Label::Vocative =&gt; <span class="string">"VOCATIVE"</span>,
+                Label::Xcomp =&gt; <span class="string">"XCOMP"</span>,
+                Label::Suffix =&gt; <span class="string">"SUFFIX"</span>,
+                Label::Title =&gt; <span class="string">"TITLE"</span>,
+                Label::Advphmod =&gt; <span class="string">"ADVPHMOD"</span>,
+                Label::Auxcaus =&gt; <span class="string">"AUXCAUS"</span>,
+                Label::Auxvv =&gt; <span class="string">"AUXVV"</span>,
+                Label::Dtmod =&gt; <span class="string">"DTMOD"</span>,
+                Label::Foreign =&gt; <span class="string">"FOREIGN"</span>,
+                Label::Kw =&gt; <span class="string">"KW"</span>,
+                Label::List =&gt; <span class="string">"LIST"</span>,
+                Label::Nomc =&gt; <span class="string">"NOMC"</span>,
+                Label::Nomcsubj =&gt; <span class="string">"NOMCSUBJ"</span>,
+                Label::Nomcsubjpass =&gt; <span class="string">"NOMCSUBJPASS"</span>,
+                Label::Numc =&gt; <span class="string">"NUMC"</span>,
+                Label::Cop =&gt; <span class="string">"COP"</span>,
+                Label::Dislocated =&gt; <span class="string">"DISLOCATED"</span>,
+                Label::Asp =&gt; <span class="string">"ASP"</span>,
+                Label::Gmod =&gt; <span class="string">"GMOD"</span>,
+                Label::Gobj =&gt; <span class="string">"GOBJ"</span>,
+                Label::Infmod =&gt; <span class="string">"INFMOD"</span>,
+                Label::Mes =&gt; <span class="string">"MES"</span>,
+                Label::Ncomp =&gt; <span class="string">"NCOMP"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;ABBREV&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Abbrev),
-                <span class="string">&quot;ACOMP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Acomp),
-                <span class="string">&quot;ADVCL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Advcl),
-                <span class="string">&quot;ADVMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Advmod),
-                <span class="string">&quot;AMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Amod),
-                <span class="string">&quot;APPOS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Appos),
-                <span class="string">&quot;ATTR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Attr),
-                <span class="string">&quot;AUX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aux),
-                <span class="string">&quot;AUXPASS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auxpass),
-                <span class="string">&quot;CC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cc),
-                <span class="string">&quot;CCOMP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ccomp),
-                <span class="string">&quot;CONJ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Conj),
-                <span class="string">&quot;CSUBJ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Csubj),
-                <span class="string">&quot;CSUBJPASS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Csubjpass),
-                <span class="string">&quot;DEP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dep),
-                <span class="string">&quot;DET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Det),
-                <span class="string">&quot;DISCOURSE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Discourse),
-                <span class="string">&quot;DOBJ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dobj),
-                <span class="string">&quot;EXPL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expl),
-                <span class="string">&quot;GOESWITH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Goeswith),
-                <span class="string">&quot;IOBJ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Iobj),
-                <span class="string">&quot;MARK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mark),
-                <span class="string">&quot;MWE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mwe),
-                <span class="string">&quot;MWV&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mwv),
-                <span class="string">&quot;NEG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neg),
-                <span class="string">&quot;NN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nn),
-                <span class="string">&quot;NPADVMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Npadvmod),
-                <span class="string">&quot;NSUBJ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nsubj),
-                <span class="string">&quot;NSUBJPASS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nsubjpass),
-                <span class="string">&quot;NUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Num),
-                <span class="string">&quot;NUMBER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
-                <span class="string">&quot;P&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P),
-                <span class="string">&quot;PARATAXIS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Parataxis),
-                <span class="string">&quot;PARTMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Partmod),
-                <span class="string">&quot;PCOMP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pcomp),
-                <span class="string">&quot;POBJ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pobj),
-                <span class="string">&quot;POSS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Poss),
-                <span class="string">&quot;POSTNEG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Postneg),
-                <span class="string">&quot;PRECOMP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Precomp),
-                <span class="string">&quot;PRECONJ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preconj),
-                <span class="string">&quot;PREDET&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Predet),
-                <span class="string">&quot;PREF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pref),
-                <span class="string">&quot;PREP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Prep),
-                <span class="string">&quot;PRONL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pronl),
-                <span class="string">&quot;PRT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Prt),
-                <span class="string">&quot;PS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ps),
-                <span class="string">&quot;QUANTMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Quantmod),
-                <span class="string">&quot;RCMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rcmod),
-                <span class="string">&quot;RCMODREL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rcmodrel),
-                <span class="string">&quot;RDROP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rdrop),
-                <span class="string">&quot;REF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ref),
-                <span class="string">&quot;REMNANT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Remnant),
-                <span class="string">&quot;REPARANDUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reparandum),
-                <span class="string">&quot;ROOT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Root),
-                <span class="string">&quot;SNUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Snum),
-                <span class="string">&quot;SUFF&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suff),
-                <span class="string">&quot;TMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tmod),
-                <span class="string">&quot;TOPIC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Topic),
-                <span class="string">&quot;VMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Vmod),
-                <span class="string">&quot;VOCATIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Vocative),
-                <span class="string">&quot;XCOMP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Xcomp),
-                <span class="string">&quot;SUFFIX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suffix),
-                <span class="string">&quot;TITLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Title),
-                <span class="string">&quot;ADVPHMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Advphmod),
-                <span class="string">&quot;AUXCAUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auxcaus),
-                <span class="string">&quot;AUXVV&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auxvv),
-                <span class="string">&quot;DTMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dtmod),
-                <span class="string">&quot;FOREIGN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Foreign),
-                <span class="string">&quot;KW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Kw),
-                <span class="string">&quot;LIST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::List),
-                <span class="string">&quot;NOMC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nomc),
-                <span class="string">&quot;NOMCSUBJ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nomcsubj),
-                <span class="string">&quot;NOMCSUBJPASS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nomcsubjpass),
-                <span class="string">&quot;NUMC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Numc),
-                <span class="string">&quot;COP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cop),
-                <span class="string">&quot;DISLOCATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dislocated),
-                <span class="string">&quot;ASP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Asp),
-                <span class="string">&quot;GMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gmod),
-                <span class="string">&quot;GOBJ&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gobj),
-                <span class="string">&quot;INFMOD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Infmod),
-                <span class="string">&quot;MES&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mes),
-                <span class="string">&quot;NCOMP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ncomp),
+                <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"ABBREV" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Abbrev),
+                <span class="string">"ACOMP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Acomp),
+                <span class="string">"ADVCL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Advcl),
+                <span class="string">"ADVMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Advmod),
+                <span class="string">"AMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Amod),
+                <span class="string">"APPOS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Appos),
+                <span class="string">"ATTR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Attr),
+                <span class="string">"AUX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aux),
+                <span class="string">"AUXPASS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auxpass),
+                <span class="string">"CC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cc),
+                <span class="string">"CCOMP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ccomp),
+                <span class="string">"CONJ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Conj),
+                <span class="string">"CSUBJ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Csubj),
+                <span class="string">"CSUBJPASS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Csubjpass),
+                <span class="string">"DEP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dep),
+                <span class="string">"DET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Det),
+                <span class="string">"DISCOURSE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Discourse),
+                <span class="string">"DOBJ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dobj),
+                <span class="string">"EXPL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Expl),
+                <span class="string">"GOESWITH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Goeswith),
+                <span class="string">"IOBJ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Iobj),
+                <span class="string">"MARK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mark),
+                <span class="string">"MWE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mwe),
+                <span class="string">"MWV" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mwv),
+                <span class="string">"NEG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Neg),
+                <span class="string">"NN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nn),
+                <span class="string">"NPADVMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Npadvmod),
+                <span class="string">"NSUBJ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nsubj),
+                <span class="string">"NSUBJPASS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nsubjpass),
+                <span class="string">"NUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Num),
+                <span class="string">"NUMBER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Number),
+                <span class="string">"P" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P),
+                <span class="string">"PARATAXIS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Parataxis),
+                <span class="string">"PARTMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Partmod),
+                <span class="string">"PCOMP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pcomp),
+                <span class="string">"POBJ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pobj),
+                <span class="string">"POSS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Poss),
+                <span class="string">"POSTNEG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Postneg),
+                <span class="string">"PRECOMP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Precomp),
+                <span class="string">"PRECONJ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Preconj),
+                <span class="string">"PREDET" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Predet),
+                <span class="string">"PREF" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pref),
+                <span class="string">"PREP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Prep),
+                <span class="string">"PRONL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pronl),
+                <span class="string">"PRT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Prt),
+                <span class="string">"PS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ps),
+                <span class="string">"QUANTMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Quantmod),
+                <span class="string">"RCMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rcmod),
+                <span class="string">"RCMODREL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rcmodrel),
+                <span class="string">"RDROP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rdrop),
+                <span class="string">"REF" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ref),
+                <span class="string">"REMNANT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Remnant),
+                <span class="string">"REPARANDUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reparandum),
+                <span class="string">"ROOT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Root),
+                <span class="string">"SNUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Snum),
+                <span class="string">"SUFF" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suff),
+                <span class="string">"TMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Tmod),
+                <span class="string">"TOPIC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Topic),
+                <span class="string">"VMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Vmod),
+                <span class="string">"VOCATIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Vocative),
+                <span class="string">"XCOMP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Xcomp),
+                <span class="string">"SUFFIX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Suffix),
+                <span class="string">"TITLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Title),
+                <span class="string">"ADVPHMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Advphmod),
+                <span class="string">"AUXCAUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auxcaus),
+                <span class="string">"AUXVV" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Auxvv),
+                <span class="string">"DTMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dtmod),
+                <span class="string">"FOREIGN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Foreign),
+                <span class="string">"KW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Kw),
+                <span class="string">"LIST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::List),
+                <span class="string">"NOMC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nomc),
+                <span class="string">"NOMCSUBJ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nomcsubj),
+                <span class="string">"NOMCSUBJPASS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nomcsubjpass),
+                <span class="string">"NUMC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Numc),
+                <span class="string">"COP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cop),
+                <span class="string">"DISLOCATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dislocated),
+                <span class="string">"ASP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Asp),
+                <span class="string">"GMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gmod),
+                <span class="string">"GOBJ" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Gobj),
+                <span class="string">"INFMOD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Infmod),
+                <span class="string">"MES" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mes),
+                <span class="string">"NCOMP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ncomp),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3721,16 +3722,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EntityMention {
     <span class="doccomment">/// The mention text.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>text: ::core::option::Option&lt;TextSpan&gt;,
     <span class="doccomment">/// The type of the entity mention.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;entity_mention::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"entity_mention::Type"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// For calls to [AnalyzeEntitySentiment][] or if
     /// [AnnotateTextRequest.Features.extract_entity_sentiment][google.cloud.language.v1beta2.AnnotateTextRequest.Features.extract_entity_sentiment]
     /// is set to true, this field will contain the sentiment expressed for this
     /// mention of the entity in the provided document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>sentiment: ::core::option::Option&lt;Sentiment&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `EntityMention`.
@@ -3761,19 +3762,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unknown =&gt; <span class="string">&quot;TYPE_UNKNOWN&quot;</span>,
-                Type::Proper =&gt; <span class="string">&quot;PROPER&quot;</span>,
-                Type::Common =&gt; <span class="string">&quot;COMMON&quot;</span>,
+                Type::Unknown =&gt; <span class="string">"TYPE_UNKNOWN"</span>,
+                Type::Proper =&gt; <span class="string">"PROPER"</span>,
+                Type::Common =&gt; <span class="string">"COMMON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;PROPER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Proper),
-                <span class="string">&quot;COMMON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Common),
+                <span class="string">"TYPE_UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"PROPER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Proper),
+                <span class="string">"COMMON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Common),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3784,13 +3785,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TextSpan {
     <span class="doccomment">/// The content of the output text.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>content: ::prost::alloc::string::String,
     <span class="doccomment">/// The API calculates the beginning offset of the content in the original
     /// document according to the
     /// [EncodingType][google.cloud.language.v1beta2.EncodingType] specified in the
     /// API request.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>begin_offset: i32,
 }
 <span class="doccomment">/// Represents a category returned from the text classifier.
@@ -3798,11 +3799,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ClassificationCategory {
     <span class="doccomment">/// The name of the category representing the document.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// The classifier&#39;s confidence of the category. Number represents how certain
+    <span class="doccomment">/// The classifier's confidence of the category. Number represents how certain
     /// the classifier is that this category represents the given text.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>confidence: f32,
 }
 <span class="doccomment">/// Model options available for classification requests.
@@ -3810,7 +3811,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ClassificationModelOptions {
     <span class="doccomment">/// If this field is not set, then the `v1_model` will be used by default.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;classification_model_options::ModelType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"classification_model_options::ModelType"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>model_type: ::core::option::Option&lt;classification_model_options::ModelType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ClassificationModelOptions`.
@@ -3824,7 +3825,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>V2Model {
         <span class="doccomment">/// The content categories used for classification.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;v2_model::ContentCategoriesVersion&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"v2_model::ContentCategoriesVersion"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>content_categories_version: i32,
     }
     <span class="doccomment">/// Nested message and enum types in `V2Model`.
@@ -3856,21 +3857,21 @@
             ///
             /// The values are not transformed in any way and thus are considered stable
             /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+            </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
                 <span class="kw">match </span><span class="self">self </span>{
                     ContentCategoriesVersion::Unspecified =&gt; {
-                        <span class="string">&quot;CONTENT_CATEGORIES_VERSION_UNSPECIFIED&quot;
+                        <span class="string">"CONTENT_CATEGORIES_VERSION_UNSPECIFIED"
                     </span>}
-                    ContentCategoriesVersion::V1 =&gt; <span class="string">&quot;V1&quot;</span>,
-                    ContentCategoriesVersion::V2 =&gt; <span class="string">&quot;V2&quot;</span>,
+                    ContentCategoriesVersion::V1 =&gt; <span class="string">"V1"</span>,
+                    ContentCategoriesVersion::V2 =&gt; <span class="string">"V2"</span>,
                 }
             }
             <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
             </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
                 <span class="kw">match </span>value {
-                    <span class="string">&quot;CONTENT_CATEGORIES_VERSION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                    <span class="string">&quot;V1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V1),
-                    <span class="string">&quot;V2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2),
+                    <span class="string">"CONTENT_CATEGORIES_VERSION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                    <span class="string">"V1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V1),
+                    <span class="string">"V2" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V2),
                     <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
                 }
             }
@@ -3883,11 +3884,11 @@
         <span class="doccomment">/// Setting this field will use the V1 model and V1 content categories
         /// version. The V1 model is a legacy model; support for this will be
         /// discontinued in the future.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>V1Model(V1Model),
         <span class="doccomment">/// Setting this field will use the V2 model with the appropriate content
         /// categories version. The V2 model is a better performing model.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>V2Model(V2Model),
     }
 }
@@ -3896,11 +3897,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeSentimentRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
     <span class="doccomment">/// The encoding type used by the API to calculate sentence offsets for the
     /// sentence sentiment.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;EncodingType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"EncodingType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>encoding_type: i32,
 }
 <span class="doccomment">/// The sentiment analysis response message.
@@ -3908,16 +3909,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeSentimentResponse {
     <span class="doccomment">/// The overall sentiment of the input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document_sentiment: ::core::option::Option&lt;Sentiment&gt;,
     <span class="doccomment">/// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
     /// See [Document.language][google.cloud.language.v1beta2.Document.language]
     /// field for more details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>language: ::prost::alloc::string::String,
     <span class="doccomment">/// The sentiment for all the sentences in the document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>sentences: ::prost::alloc::vec::Vec&lt;Sentence&gt;,
 }
 <span class="doccomment">/// The entity-level sentiment analysis request message.
@@ -3925,10 +3926,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeEntitySentimentRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
     <span class="doccomment">/// The encoding type used by the API to calculate offsets.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;EncodingType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"EncodingType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>encoding_type: i32,
 }
 <span class="doccomment">/// The entity-level sentiment analysis response message.
@@ -3936,13 +3937,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeEntitySentimentResponse {
     <span class="doccomment">/// The recognized entities in the input document with associated sentiments.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>entities: ::prost::alloc::vec::Vec&lt;Entity&gt;,
     <span class="doccomment">/// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
     /// See [Document.language][google.cloud.language.v1beta2.Document.language]
     /// field for more details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>language: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The entity analysis request message.
@@ -3950,10 +3951,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeEntitiesRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
     <span class="doccomment">/// The encoding type used by the API to calculate offsets.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;EncodingType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"EncodingType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>encoding_type: i32,
 }
 <span class="doccomment">/// The entity analysis response message.
@@ -3961,13 +3962,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeEntitiesResponse {
     <span class="doccomment">/// The recognized entities in the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>entities: ::prost::alloc::vec::Vec&lt;Entity&gt;,
     <span class="doccomment">/// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
     /// See [Document.language][google.cloud.language.v1beta2.Document.language]
     /// field for more details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>language: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The syntax analysis request message.
@@ -3975,10 +3976,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeSyntaxRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
     <span class="doccomment">/// The encoding type used by the API to calculate offsets.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;EncodingType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"EncodingType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>encoding_type: i32,
 }
 <span class="doccomment">/// The syntax analysis response message.
@@ -3986,16 +3987,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnalyzeSyntaxResponse {
     <span class="doccomment">/// Sentences in the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sentences: ::prost::alloc::vec::Vec&lt;Sentence&gt;,
     <span class="doccomment">/// Tokens, along with their syntactic information, in the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>tokens: ::prost::alloc::vec::Vec&lt;Token&gt;,
     <span class="doccomment">/// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
     /// See [Document.language][google.cloud.language.v1beta2.Document.language]
     /// field for more details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>language: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The document classification request message.
@@ -4003,11 +4004,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ClassifyTextRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
     <span class="doccomment">/// Model options to use for classification. Defaults to v1 options if not
     /// specified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>classification_model_options: ::core::option::Option&lt;ClassificationModelOptions&gt;,
 }
 <span class="doccomment">/// The document classification response message.
@@ -4015,7 +4016,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ClassifyTextResponse {
     <span class="doccomment">/// Categories representing the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>categories: ::prost::alloc::vec::Vec&lt;ClassificationCategory&gt;,
 }
 <span class="doccomment">/// The document moderation request message.
@@ -4023,7 +4024,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ModerateTextRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
 }
 <span class="doccomment">/// The document moderation response message.
@@ -4031,7 +4032,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ModerateTextResponse {
     <span class="doccomment">/// Harmful and sensitive categories representing the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>moderation_categories: ::prost::alloc::vec::Vec&lt;ClassificationCategory&gt;,
 }
 <span class="doccomment">/// The request message for the text annotation API, which can perform multiple
@@ -4040,13 +4041,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnnotateTextRequest {
     <span class="doccomment">/// Required. Input document.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::core::option::Option&lt;Document&gt;,
     <span class="doccomment">/// Required. The enabled features.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>features: ::core::option::Option&lt;annotate_text_request::Features&gt;,
     <span class="doccomment">/// The encoding type used by the API to calculate offsets.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;EncodingType&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"EncodingType"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>encoding_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `AnnotateTextRequest`.
@@ -4058,29 +4059,29 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Features {
         <span class="doccomment">/// Extract syntax information.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>extract_syntax: bool,
         <span class="doccomment">/// Extract entities.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>extract_entities: bool,
         <span class="doccomment">/// Extract document-level sentiment.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>extract_document_sentiment: bool,
         <span class="doccomment">/// Extract entities and their associated sentiment.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"4"</span>)]
         </span><span class="kw">pub </span>extract_entity_sentiment: bool,
         <span class="doccomment">/// Classify the full document into categories. If this is true,
         /// the API will use the default model which classifies into a
         /// [predefined
         /// taxonomy](&lt;https://cloud.google.com/natural-language/docs/categories&gt;).
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"6"</span>)]
         </span><span class="kw">pub </span>classify_text: bool,
         <span class="doccomment">/// Moderate the document for harmful and sensitive categories.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"11"</span>)]
         </span><span class="kw">pub </span>moderate_text: bool,
         <span class="doccomment">/// The model options to use for classification. Defaults to v1 options
         /// if not specified. Only used if `classify_text` is set to true.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
         </span><span class="kw">pub </span>classification_model_options: ::core::option::Option&lt;
             <span class="kw">super</span>::ClassificationModelOptions,
         &gt;,
@@ -4092,33 +4093,33 @@
 </span><span class="kw">pub struct </span>AnnotateTextResponse {
     <span class="doccomment">/// Sentences in the input document. Populated if the user enables
     /// [AnnotateTextRequest.Features.extract_syntax][google.cloud.language.v1beta2.AnnotateTextRequest.Features.extract_syntax].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>sentences: ::prost::alloc::vec::Vec&lt;Sentence&gt;,
     <span class="doccomment">/// Tokens, along with their syntactic information, in the input document.
     /// Populated if the user enables
     /// [AnnotateTextRequest.Features.extract_syntax][google.cloud.language.v1beta2.AnnotateTextRequest.Features.extract_syntax].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>tokens: ::prost::alloc::vec::Vec&lt;Token&gt;,
     <span class="doccomment">/// Entities, along with their semantic information, in the input document.
     /// Populated if the user enables
     /// [AnnotateTextRequest.Features.extract_entities][google.cloud.language.v1beta2.AnnotateTextRequest.Features.extract_entities].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>entities: ::prost::alloc::vec::Vec&lt;Entity&gt;,
     <span class="doccomment">/// The overall sentiment for the document. Populated if the user enables
     /// [AnnotateTextRequest.Features.extract_document_sentiment][google.cloud.language.v1beta2.AnnotateTextRequest.Features.extract_document_sentiment].
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>document_sentiment: ::core::option::Option&lt;Sentiment&gt;,
     <span class="doccomment">/// The language of the text, which will be the same as the language specified
     /// in the request or, if not specified, the automatically-detected language.
     /// See [Document.language][google.cloud.language.v1beta2.Document.language]
     /// field for more details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>language: ::prost::alloc::string::String,
     <span class="doccomment">/// Categories identified in the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>categories: ::prost::alloc::vec::Vec&lt;ClassificationCategory&gt;,
     <span class="doccomment">/// Harmful and sensitive categories identified in the input document.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>moderation_categories: ::prost::alloc::vec::Vec&lt;ClassificationCategory&gt;,
 }
 <span class="doccomment">/// Represents the text encoding that the caller uses to process the output.
@@ -4150,21 +4151,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            EncodingType::None =&gt; <span class="string">&quot;NONE&quot;</span>,
-            EncodingType::Utf8 =&gt; <span class="string">&quot;UTF8&quot;</span>,
-            EncodingType::Utf16 =&gt; <span class="string">&quot;UTF16&quot;</span>,
-            EncodingType::Utf32 =&gt; <span class="string">&quot;UTF32&quot;</span>,
+            EncodingType::None =&gt; <span class="string">"NONE"</span>,
+            EncodingType::Utf8 =&gt; <span class="string">"UTF8"</span>,
+            EncodingType::Utf16 =&gt; <span class="string">"UTF16"</span>,
+            EncodingType::Utf32 =&gt; <span class="string">"UTF32"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;NONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
-            <span class="string">&quot;UTF8&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf8),
-            <span class="string">&quot;UTF16&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf16),
-            <span class="string">&quot;UTF32&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf32),
+            <span class="string">"NONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::None),
+            <span class="string">"UTF8" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf8),
+            <span class="string">"UTF16" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf16),
+            <span class="string">"UTF32" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Utf32),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -4184,7 +4185,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4259,19 +4260,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v1beta2.LanguageService/AnalyzeSentiment&quot;</span>,
+                <span class="string">"/google.cloud.language.v1beta2.LanguageService/AnalyzeSentiment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v1beta2.LanguageService&quot;</span>,
-                        <span class="string">&quot;AnalyzeSentiment&quot;</span>,
+                        <span class="string">"google.cloud.language.v1beta2.LanguageService"</span>,
+                        <span class="string">"AnalyzeSentiment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4292,19 +4293,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v1beta2.LanguageService/AnalyzeEntities&quot;</span>,
+                <span class="string">"/google.cloud.language.v1beta2.LanguageService/AnalyzeEntities"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v1beta2.LanguageService&quot;</span>,
-                        <span class="string">&quot;AnalyzeEntities&quot;</span>,
+                        <span class="string">"google.cloud.language.v1beta2.LanguageService"</span>,
+                        <span class="string">"AnalyzeEntities"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4326,19 +4327,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v1beta2.LanguageService/AnalyzeEntitySentiment&quot;</span>,
+                <span class="string">"/google.cloud.language.v1beta2.LanguageService/AnalyzeEntitySentiment"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v1beta2.LanguageService&quot;</span>,
-                        <span class="string">&quot;AnalyzeEntitySentiment&quot;</span>,
+                        <span class="string">"google.cloud.language.v1beta2.LanguageService"</span>,
+                        <span class="string">"AnalyzeEntitySentiment"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4359,19 +4360,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v1beta2.LanguageService/AnalyzeSyntax&quot;</span>,
+                <span class="string">"/google.cloud.language.v1beta2.LanguageService/AnalyzeSyntax"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v1beta2.LanguageService&quot;</span>,
-                        <span class="string">&quot;AnalyzeSyntax&quot;</span>,
+                        <span class="string">"google.cloud.language.v1beta2.LanguageService"</span>,
+                        <span class="string">"AnalyzeSyntax"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4390,19 +4391,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v1beta2.LanguageService/ClassifyText&quot;</span>,
+                <span class="string">"/google.cloud.language.v1beta2.LanguageService/ClassifyText"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v1beta2.LanguageService&quot;</span>,
-                        <span class="string">&quot;ClassifyText&quot;</span>,
+                        <span class="string">"google.cloud.language.v1beta2.LanguageService"</span>,
+                        <span class="string">"ClassifyText"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4421,19 +4422,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v1beta2.LanguageService/ModerateText&quot;</span>,
+                <span class="string">"/google.cloud.language.v1beta2.LanguageService/ModerateText"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v1beta2.LanguageService&quot;</span>,
-                        <span class="string">&quot;ModerateText&quot;</span>,
+                        <span class="string">"google.cloud.language.v1beta2.LanguageService"</span>,
+                        <span class="string">"ModerateText"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4453,19 +4454,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.language.v1beta2.LanguageService/AnnotateText&quot;</span>,
+                <span class="string">"/google.cloud.language.v1beta2.LanguageService/AnnotateText"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.language.v1beta2.LanguageService&quot;</span>,
-                        <span class="string">&quot;AnnotateText&quot;</span>,
+                        <span class="string">"google.cloud.language.v1beta2.LanguageService"</span>,
+                        <span class="string">"AnnotateText"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

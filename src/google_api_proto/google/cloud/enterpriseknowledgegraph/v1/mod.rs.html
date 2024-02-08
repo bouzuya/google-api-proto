@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/enterpriseknowledgegraph/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/enterpriseknowledgegraph/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -961,33 +962,33 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            JobState::Unspecified =&gt; <span class="string">&quot;JOB_STATE_UNSPECIFIED&quot;</span>,
-            JobState::Pending =&gt; <span class="string">&quot;JOB_STATE_PENDING&quot;</span>,
-            JobState::Running =&gt; <span class="string">&quot;JOB_STATE_RUNNING&quot;</span>,
-            JobState::Succeeded =&gt; <span class="string">&quot;JOB_STATE_SUCCEEDED&quot;</span>,
-            JobState::Failed =&gt; <span class="string">&quot;JOB_STATE_FAILED&quot;</span>,
-            JobState::Cancelled =&gt; <span class="string">&quot;JOB_STATE_CANCELLED&quot;</span>,
-            JobState::KnowledgeExtraction =&gt; <span class="string">&quot;JOB_STATE_KNOWLEDGE_EXTRACTION&quot;</span>,
-            JobState::ReconPreprocessing =&gt; <span class="string">&quot;JOB_STATE_RECON_PREPROCESSING&quot;</span>,
-            JobState::Clustering =&gt; <span class="string">&quot;JOB_STATE_CLUSTERING&quot;</span>,
-            JobState::ExportingClusters =&gt; <span class="string">&quot;JOB_STATE_EXPORTING_CLUSTERS&quot;</span>,
+            JobState::Unspecified =&gt; <span class="string">"JOB_STATE_UNSPECIFIED"</span>,
+            JobState::Pending =&gt; <span class="string">"JOB_STATE_PENDING"</span>,
+            JobState::Running =&gt; <span class="string">"JOB_STATE_RUNNING"</span>,
+            JobState::Succeeded =&gt; <span class="string">"JOB_STATE_SUCCEEDED"</span>,
+            JobState::Failed =&gt; <span class="string">"JOB_STATE_FAILED"</span>,
+            JobState::Cancelled =&gt; <span class="string">"JOB_STATE_CANCELLED"</span>,
+            JobState::KnowledgeExtraction =&gt; <span class="string">"JOB_STATE_KNOWLEDGE_EXTRACTION"</span>,
+            JobState::ReconPreprocessing =&gt; <span class="string">"JOB_STATE_RECON_PREPROCESSING"</span>,
+            JobState::Clustering =&gt; <span class="string">"JOB_STATE_CLUSTERING"</span>,
+            JobState::ExportingClusters =&gt; <span class="string">"JOB_STATE_EXPORTING_CLUSTERS"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;JOB_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;JOB_STATE_PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-            <span class="string">&quot;JOB_STATE_RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-            <span class="string">&quot;JOB_STATE_SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-            <span class="string">&quot;JOB_STATE_FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-            <span class="string">&quot;JOB_STATE_CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-            <span class="string">&quot;JOB_STATE_KNOWLEDGE_EXTRACTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KnowledgeExtraction),
-            <span class="string">&quot;JOB_STATE_RECON_PREPROCESSING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReconPreprocessing),
-            <span class="string">&quot;JOB_STATE_CLUSTERING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Clustering),
-            <span class="string">&quot;JOB_STATE_EXPORTING_CLUSTERS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExportingClusters),
+            <span class="string">"JOB_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"JOB_STATE_PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+            <span class="string">"JOB_STATE_RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+            <span class="string">"JOB_STATE_SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+            <span class="string">"JOB_STATE_FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+            <span class="string">"JOB_STATE_CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+            <span class="string">"JOB_STATE_KNOWLEDGE_EXTRACTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KnowledgeExtraction),
+            <span class="string">"JOB_STATE_RECON_PREPROCESSING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReconPreprocessing),
+            <span class="string">"JOB_STATE_CLUSTERING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Clustering),
+            <span class="string">"JOB_STATE_EXPORTING_CLUSTERS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ExportingClusters),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -997,13 +998,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommonOperationMetadata {
     <span class="doccomment">/// The state of the operation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;common_operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"common_operation_metadata::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// The creation time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The last update time of the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CommonOperationMetadata`.
@@ -1042,27 +1043,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Cancelling =&gt; <span class="string">&quot;CANCELLING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Cancelled =&gt; <span class="string">&quot;CANCELLED&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Cancelling =&gt; <span class="string">"CANCELLING"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Cancelled =&gt; <span class="string">"CANCELLED"</span>,
+                State::Pending =&gt; <span class="string">"PENDING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;CANCELLING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;CANCELLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"CANCELLING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelling),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"CANCELLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cancelled),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1073,15 +1074,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InputConfig {
     <span class="doccomment">/// Set of input BigQuery tables.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bigquery_input_configs: ::prost::alloc::vec::Vec&lt;BigQueryInputConfig&gt;,
     <span class="doccomment">/// Entity type
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;input_config::EntityType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"input_config::EntityType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>entity_type: i32,
     <span class="doccomment">/// Optional. Provide the bigquery table containing the previous results if
     /// cluster ID stability is desired. Format is
     /// `projects/*/datasets/*/tables/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>previous_result_bigquery_table: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `InputConfig`.
@@ -1124,29 +1125,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EntityType::Unspecified =&gt; <span class="string">&quot;ENTITY_TYPE_UNSPECIFIED&quot;</span>,
-                EntityType::People =&gt; <span class="string">&quot;PEOPLE&quot;</span>,
-                EntityType::Establishment =&gt; <span class="string">&quot;ESTABLISHMENT&quot;</span>,
-                EntityType::Property =&gt; <span class="string">&quot;PROPERTY&quot;</span>,
-                EntityType::Product =&gt; <span class="string">&quot;PRODUCT&quot;</span>,
-                EntityType::Organization =&gt; <span class="string">&quot;ORGANIZATION&quot;</span>,
-                EntityType::LocalBusiness =&gt; <span class="string">&quot;LOCAL_BUSINESS&quot;</span>,
-                EntityType::Person =&gt; <span class="string">&quot;PERSON&quot;</span>,
+                EntityType::Unspecified =&gt; <span class="string">"ENTITY_TYPE_UNSPECIFIED"</span>,
+                EntityType::People =&gt; <span class="string">"PEOPLE"</span>,
+                EntityType::Establishment =&gt; <span class="string">"ESTABLISHMENT"</span>,
+                EntityType::Property =&gt; <span class="string">"PROPERTY"</span>,
+                EntityType::Product =&gt; <span class="string">"PRODUCT"</span>,
+                EntityType::Organization =&gt; <span class="string">"ORGANIZATION"</span>,
+                EntityType::LocalBusiness =&gt; <span class="string">"LOCAL_BUSINESS"</span>,
+                EntityType::Person =&gt; <span class="string">"PERSON"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ENTITY_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PEOPLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::People),
-                <span class="string">&quot;ESTABLISHMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Establishment),
-                <span class="string">&quot;PROPERTY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Property),
-                <span class="string">&quot;PRODUCT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Product),
-                <span class="string">&quot;ORGANIZATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organization),
-                <span class="string">&quot;LOCAL_BUSINESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocalBusiness),
-                <span class="string">&quot;PERSON&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Person),
+                <span class="string">"ENTITY_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PEOPLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::People),
+                <span class="string">"ESTABLISHMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Establishment),
+                <span class="string">"PROPERTY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Property),
+                <span class="string">"PRODUCT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Product),
+                <span class="string">"ORGANIZATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Organization),
+                <span class="string">"LOCAL_BUSINESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocalBusiness),
+                <span class="string">"PERSON" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Person),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1157,10 +1158,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BigQueryInputConfig {
     <span class="doccomment">/// Required. Format is `projects/*/datasets/*/tables/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bigquery_table: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Schema mapping file
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gcs_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The desired output location and metadata.
@@ -1168,7 +1169,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OutputConfig {
     <span class="doccomment">/// Format is “projects/*/datasets/*”.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>bigquery_dataset: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Recon configs
@@ -1176,13 +1177,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReconConfig {
     <span class="doccomment">/// Extra options that affect entity clustering behavior.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>options: ::core::option::Option&lt;recon_config::Options&gt;,
     <span class="doccomment">/// Model Configs
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>model_config: ::core::option::Option&lt;recon_config::ModelConfig&gt;,
     <span class="doccomment">/// Choice of clustering algorithm. Default is ConnectedComponentsConfig.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;recon_config::ClusteringConfig&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"recon_config::ClusteringConfig"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>clustering_config: ::core::option::Option&lt;recon_config::ClusteringConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ReconConfig`.
@@ -1198,7 +1199,7 @@
         /// - schema.org/addressRegion
         /// - schema.org/addressCountry
         /// Warning: processing will no longer be regionalized!
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;100&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"100"</span>)]
         </span><span class="kw">pub </span>enable_geocoding_separation: bool,
     }
     <span class="doccomment">/// Model Configs
@@ -1207,11 +1208,11 @@
     </span><span class="kw">pub struct </span>ModelConfig {
         <span class="doccomment">/// Model name. Refer to external documentation for valid names.
         /// If unspecified, it defaults to the one mentioned in the documentation.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>model_name: ::prost::alloc::string::String,
         <span class="doccomment">/// Model version tag. Refer to external documentation for valid tags.
         /// If unspecified, it defaults to the one mentioned in the documentation.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>version_tag: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Choice of clustering algorithm. Default is ConnectedComponentsConfig.
@@ -1219,10 +1220,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ClusteringConfig {
         <span class="doccomment">/// Configs for connected components.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>ConnectedComponentsConfig(<span class="kw">super</span>::ConnectedComponentsConfig),
         <span class="doccomment">/// Configs for affinity clustering.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>AffinityClusteringConfig(<span class="kw">super</span>::AffinityClusteringConfig),
     }
 }
@@ -1231,7 +1232,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ConnectedComponentsConfig {
     <span class="doccomment">/// Threshold used for connected components. Default value is 0.85.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>weight_threshold: f32,
 }
 <span class="doccomment">/// Options for affinity clustering.
@@ -1239,7 +1240,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AffinityClusteringConfig {
     <span class="doccomment">/// Number of iterations to perform. Default value is 1.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>compression_round_count: i64,
 }
 <span class="doccomment">/// Details of operations that perform deletes of any entities.
@@ -1247,7 +1248,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteOperationMetadata {
     <span class="doccomment">/// The common part of the operation metadata.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>common_metadata: ::core::option::Option&lt;CommonOperationMetadata&gt;,
 }
 <span class="doccomment">/// Request message for CreateEntityReconciliationJob.
@@ -1257,10 +1258,10 @@
     <span class="doccomment">/// Required. The resource name of the Location to create the
     /// EntityReconciliationJob in. Format:
     /// `projects/{project}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The EntityReconciliationJob to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>entity_reconciliation_job: ::core::option::Option&lt;EntityReconciliationJob&gt;,
 }
 <span class="doccomment">/// Request message for GetEntityReconciliationJob.
@@ -1270,7 +1271,7 @@
     <span class="doccomment">/// Required. The name of the EntityReconciliationJob resource.
     /// Format:
     /// `projects/{project}/locations/{location}/entityReconciliationJobs/{entity_reconciliation_job}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1278,19 +1279,19 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListEntityReconciliationJobsRequest {
-    <span class="doccomment">/// Required. The name of the EntityReconciliationJob&#39;s parent resource.
+    <span class="doccomment">/// Required. The name of the EntityReconciliationJob's parent resource.
     /// Format: `projects/{project}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// An expression for filtering the results of the request. For field names
     /// both snake_case and camelCase are supported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The standard list page size.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The standard list page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -1300,10 +1301,10 @@
 </span><span class="kw">pub struct </span>ListEntityReconciliationJobsResponse {
     <span class="doccomment">/// A list of EntityReconciliationJobs that matches the specified filter in the
     /// request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>entity_reconciliation_jobs: ::prost::alloc::vec::Vec&lt;EntityReconciliationJob&gt;,
     <span class="doccomment">/// The standard List next-page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for CancelEntityReconciliationJob.
@@ -1313,7 +1314,7 @@
     <span class="doccomment">/// Required. The name of the EntityReconciliationJob resource.
     /// Format:
     /// `projects/{project}/locations/{location}/entityReconciliationJobs/{entity_reconciliation_job}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for DeleteEntityReconciliationJob.
@@ -1323,7 +1324,7 @@
     <span class="doccomment">/// Required. The name of the EntityReconciliationJob resource.
     /// Format:
     /// `projects/{project}/locations/{location}/entityReconciliationJobs/{entity_reconciliation_job}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Entity reconciliation job message.
@@ -1331,35 +1332,35 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EntityReconciliationJob {
     <span class="doccomment">/// Output only. Resource name of the EntityReconciliationJob.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Information about the input BigQuery tables.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>input_config: ::core::option::Option&lt;InputConfig&gt;,
     <span class="doccomment">/// Required. The desired output location.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>output_config: ::core::option::Option&lt;OutputConfig&gt;,
     <span class="doccomment">/// Output only. The detailed state of the job.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;JobState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"JobState"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
-    <span class="doccomment">/// Output only. Only populated when the job&#39;s state is JOB_STATE_FAILED or
+    <span class="doccomment">/// Output only. Only populated when the job's state is JOB_STATE_FAILED or
     /// JOB_STATE_CANCELLED.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Output only. Time when the EntityReconciliationJob was created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when the EntityReconciliationJob entered any of the
     /// following states: `JOB_STATE_SUCCEEDED`, `JOB_STATE_FAILED`,
     /// `JOB_STATE_CANCELLED`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when the EntityReconciliationJob was most recently
     /// updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. Recon configs to adjust the clustering behavior.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>recon_config: ::core::option::Option&lt;ReconConfig&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -1367,17 +1368,17 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LookupRequest {
-    <span class="doccomment">/// Required. The name of the Entity&#39;s parent resource.
+    <span class="doccomment">/// Required. The name of the Entity's parent resource.
     /// Format:
     /// `projects/{project}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The list of entity ids to be used for lookup.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The list of language codes (defined in ISO 693) to run the query with,
-    /// e.g. &#39;en&#39;.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    /// e.g. 'en'.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>languages: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Response message for
@@ -1387,13 +1388,13 @@
 </span><span class="kw">pub struct </span>LookupResponse {
     <span class="doccomment">/// The local context applicable for the response. See more details at
     /// &lt;http://www.w3.org/TR/json-ld/#context-definitions.&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>context: ::core::option::Option&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// The schema type of top-level JSON-LD object, e.g. ItemList.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// The item list of search results.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>item_list_element: ::core::option::Option&lt;::prost_types::ListValue&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -1401,25 +1402,25 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchRequest {
-    <span class="doccomment">/// Required. The name of the Entity&#39;s parent resource.
+    <span class="doccomment">/// Required. The name of the Entity's parent resource.
     /// Format:
     /// `projects/{project}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The literal query string for search.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
     <span class="doccomment">/// The list of language codes (defined in ISO 693) to run the query with,
-    /// e.g. &#39;en&#39;.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    /// e.g. 'en'.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>languages: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Restricts returned entities with these types, e.g. Person
     /// (as defined in &lt;http://schema.org/Person&gt;). If multiple types are specified,
     /// returned entities will contain one or more of these types.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Limits the number of entities to be returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>limit: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// Response message for
@@ -1429,13 +1430,13 @@
 </span><span class="kw">pub struct </span>SearchResponse {
     <span class="doccomment">/// The local context applicable for the response. See more details at
     /// &lt;http://www.w3.org/TR/json-ld/#context-definitions.&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>context: ::core::option::Option&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// The schema type of top-level JSON-LD object, e.g. ItemList.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// The item list of search results.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>item_list_element: ::core::option::Option&lt;::prost_types::ListValue&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -1443,17 +1444,17 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LookupPublicKgRequest {
-    <span class="doccomment">/// Required. The name of the Entity&#39;s parent resource.
+    <span class="doccomment">/// Required. The name of the Entity's parent resource.
     /// Format:
     /// `projects/{project}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The list of entity ids to be used for lookup.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>ids: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The list of language codes (defined in ISO 693) to run the query with,
-    /// e.g. &#39;en&#39;.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    /// e.g. 'en'.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>languages: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Response message for
@@ -1463,13 +1464,13 @@
 </span><span class="kw">pub struct </span>LookupPublicKgResponse {
     <span class="doccomment">/// The local context applicable for the response. See more details at
     /// &lt;http://www.w3.org/TR/json-ld/#context-definitions.&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>context: ::core::option::Option&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// The schema type of top-level JSON-LD object, e.g. ItemList.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// The item list of search results.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>item_list_element: ::core::option::Option&lt;::prost_types::ListValue&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -1477,25 +1478,25 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchPublicKgRequest {
-    <span class="doccomment">/// Required. The name of the Entity&#39;s parent resource.
+    <span class="doccomment">/// Required. The name of the Entity's parent resource.
     /// Format:
     /// `projects/{project}/locations/{location}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The literal query string for search.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>query: ::prost::alloc::string::String,
     <span class="doccomment">/// The list of language codes (defined in ISO 693) to run the query with,
-    /// e.g. &#39;en&#39;.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    /// e.g. 'en'.
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>languages: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Restricts returned entities with these types, e.g. Person
     /// (as defined in &lt;http://schema.org/Person&gt;). If multiple types are specified,
     /// returned entities will contain one or more of these types.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>types: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Limits the number of entities to be returned.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>limit: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// Response message for
@@ -1505,13 +1506,13 @@
 </span><span class="kw">pub struct </span>SearchPublicKgResponse {
     <span class="doccomment">/// The local context applicable for the response. See more details at
     /// &lt;http://www.w3.org/TR/json-ld/#context-definitions.&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>context: ::core::option::Option&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// The schema type of top-level JSON-LD object, e.g. ItemList.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>r#type: ::core::option::Option&lt;::prost_types::Value&gt;,
     <span class="doccomment">/// The item list of search results.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>item_list_element: ::core::option::Option&lt;::prost_types::ListValue&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1528,7 +1529,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1606,19 +1607,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/CreateEntityReconciliationJob&quot;</span>,
+                <span class="string">"/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/CreateEntityReconciliationJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService&quot;</span>,
-                        <span class="string">&quot;CreateEntityReconciliationJob&quot;</span>,
+                        <span class="string">"google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService"</span>,
+                        <span class="string">"CreateEntityReconciliationJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1637,19 +1638,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/GetEntityReconciliationJob&quot;</span>,
+                <span class="string">"/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/GetEntityReconciliationJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService&quot;</span>,
-                        <span class="string">&quot;GetEntityReconciliationJob&quot;</span>,
+                        <span class="string">"google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService"</span>,
+                        <span class="string">"GetEntityReconciliationJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1668,19 +1669,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/ListEntityReconciliationJobs&quot;</span>,
+                <span class="string">"/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/ListEntityReconciliationJobs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService&quot;</span>,
-                        <span class="string">&quot;ListEntityReconciliationJobs&quot;</span>,
+                        <span class="string">"google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService"</span>,
+                        <span class="string">"ListEntityReconciliationJobs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1697,19 +1698,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/CancelEntityReconciliationJob&quot;</span>,
+                <span class="string">"/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/CancelEntityReconciliationJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService&quot;</span>,
-                        <span class="string">&quot;CancelEntityReconciliationJob&quot;</span>,
+                        <span class="string">"google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService"</span>,
+                        <span class="string">"CancelEntityReconciliationJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1727,19 +1728,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/DeleteEntityReconciliationJob&quot;</span>,
+                <span class="string">"/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/DeleteEntityReconciliationJob"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService&quot;</span>,
-                        <span class="string">&quot;DeleteEntityReconciliationJob&quot;</span>,
+                        <span class="string">"google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService"</span>,
+                        <span class="string">"DeleteEntityReconciliationJob"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1755,19 +1756,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/Lookup&quot;</span>,
+                <span class="string">"/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/Lookup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService&quot;</span>,
-                        <span class="string">&quot;Lookup&quot;</span>,
+                        <span class="string">"google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService"</span>,
+                        <span class="string">"Lookup"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1783,19 +1784,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/Search&quot;</span>,
+                <span class="string">"/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/Search"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService&quot;</span>,
-                        <span class="string">&quot;Search&quot;</span>,
+                        <span class="string">"google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService"</span>,
+                        <span class="string">"Search"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1814,19 +1815,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/LookupPublicKg&quot;</span>,
+                <span class="string">"/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/LookupPublicKg"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService&quot;</span>,
-                        <span class="string">&quot;LookupPublicKg&quot;</span>,
+                        <span class="string">"google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService"</span>,
+                        <span class="string">"LookupPublicKg"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -1845,19 +1846,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/SearchPublicKg&quot;</span>,
+                <span class="string">"/google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService/SearchPublicKg"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService&quot;</span>,
-                        <span class="string">&quot;SearchPublicKg&quot;</span>,
+                        <span class="string">"google.cloud.enterpriseknowledgegraph.v1.EnterpriseKnowledgeGraphService"</span>,
+                        <span class="string">"SearchPublicKg"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

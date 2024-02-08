@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/securitycenter/settings/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/securitycenter/settings/v1beta1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1256,7 +1257,7 @@
     /// enabled. The format is `projects/{project}`. If it is empty, we do
     /// not output logs. If a project ID is provided it will be normalized to a
     /// project number.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>logging_sink_project: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Billing settings
@@ -1264,20 +1265,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BillingSettings {
     <span class="doccomment">/// Output only. Billing tier selected by customer
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;BillingTier&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"BillingTier"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>billing_tier: i32,
     <span class="doccomment">/// Output only. Type of billing method
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;BillingType&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"BillingType"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>billing_type: i32,
     <span class="doccomment">/// Output only. The absolute point in time when the subscription became effective.
     /// Can be compared to expire_time value to determine full contract duration
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The absolute point in time when the subscription expires.
     ///
     /// If this field is populated and billing_tier is STANDARD, this is
     /// indication of a point in the _past_ when a PREMIUM access ended.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Billing tier options
@@ -1296,19 +1297,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            BillingTier::Unspecified =&gt; <span class="string">&quot;BILLING_TIER_UNSPECIFIED&quot;</span>,
-            BillingTier::Standard =&gt; <span class="string">&quot;STANDARD&quot;</span>,
-            BillingTier::Premium =&gt; <span class="string">&quot;PREMIUM&quot;</span>,
+            BillingTier::Unspecified =&gt; <span class="string">"BILLING_TIER_UNSPECIFIED"</span>,
+            BillingTier::Standard =&gt; <span class="string">"STANDARD"</span>,
+            BillingTier::Premium =&gt; <span class="string">"PREMIUM"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;BILLING_TIER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;STANDARD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
-            <span class="string">&quot;PREMIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Premium),
+            <span class="string">"BILLING_TIER_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"STANDARD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Standard),
+            <span class="string">"PREMIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Premium),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1331,21 +1332,21 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            BillingType::Unspecified =&gt; <span class="string">&quot;BILLING_TYPE_UNSPECIFIED&quot;</span>,
-            BillingType::Subscription =&gt; <span class="string">&quot;SUBSCRIPTION&quot;</span>,
-            BillingType::TrialSubscription =&gt; <span class="string">&quot;TRIAL_SUBSCRIPTION&quot;</span>,
-            BillingType::Alpha =&gt; <span class="string">&quot;ALPHA&quot;</span>,
+            BillingType::Unspecified =&gt; <span class="string">"BILLING_TYPE_UNSPECIFIED"</span>,
+            BillingType::Subscription =&gt; <span class="string">"SUBSCRIPTION"</span>,
+            BillingType::TrialSubscription =&gt; <span class="string">"TRIAL_SUBSCRIPTION"</span>,
+            BillingType::Alpha =&gt; <span class="string">"ALPHA"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;BILLING_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;SUBSCRIPTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Subscription),
-            <span class="string">&quot;TRIAL_SUBSCRIPTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TrialSubscription),
-            <span class="string">&quot;ALPHA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Alpha),
+            <span class="string">"BILLING_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"SUBSCRIPTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Subscription),
+            <span class="string">"TRIAL_SUBSCRIPTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TrialSubscription),
+            <span class="string">"ALPHA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Alpha),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1362,34 +1363,34 @@
     ///   * `projects/{project}/locations/{location}/clusters/{cluster}/components/{component}/settings`
     ///   * `projects/{project}/regions/{region}/clusters/{cluster}/components/{component}/settings`
     ///   * `projects/{project}/zones/{zone}/clusters/{cluster}/components/{component}/settings`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// ENABLE to enable component, DISABLE to disable and INHERIT to inherit
     /// setting from ancestors.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ComponentEnablementState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"ComponentEnablementState"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The service account to be used for security center component.
-    /// The component must have permission to &quot;act as&quot; the service account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// The component must have permission to "act as" the service account.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>project_service_account: ::prost::alloc::string::String,
     <span class="doccomment">/// Settings for detectors.  Not all detectors must have settings present at
     /// each and every level in the hierarchy.  If it is not present the setting
     /// will be inherited from its ancestors folders, organizations or the
     /// defaults.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>detector_settings: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         component_settings::DetectorSettings,
     &gt;,
     <span class="doccomment">/// Output only. An fingerprint used for optimistic concurrency. If none is provided
     /// on updates then the existing metadata will be blindly overwritten.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time these settings were last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Component specific settings.  This must match the component value.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;component_settings::SpecificSettings&quot;</span>, tags = <span class="string">&quot;41, 42, 44, 40&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"component_settings::SpecificSettings"</span>, tags = <span class="string">"41, 42, 44, 40"</span>)]
     </span><span class="kw">pub </span>specific_settings: ::core::option::Option&lt;component_settings::SpecificSettings&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ComponentSettings`.
@@ -1400,7 +1401,7 @@
     </span><span class="kw">pub struct </span>DetectorSettings {
         <span class="doccomment">/// ENABLE to enable component, DISABLE to disable and INHERIT to inherit
         /// setting from ancestors.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::ComponentEnablementState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::ComponentEnablementState"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>state: i32,
     }
     <span class="doccomment">/// Component specific settings.  This must match the component value.
@@ -1409,19 +1410,19 @@
     </span><span class="kw">pub enum </span>SpecificSettings {
         <span class="doccomment">/// Container Threate Detection specific settings
         /// For component, expect CONTAINER_THREAT_DETECTION
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;41&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"41"</span>)]
         </span>ContainerThreatDetectionSettings(<span class="kw">super</span>::ContainerThreatDetectionSettings),
         <span class="doccomment">/// Event Threat Detection specific settings
         /// For component, expect EVENT_THREAT_DETECTION
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;42&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"42"</span>)]
         </span>EventThreatDetectionSettings(<span class="kw">super</span>::EventThreatDetectionSettings),
         <span class="doccomment">/// Security Health Analytics specific settings
         /// For component, expect SECURITY_HEALTH_ANALYTICS
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;44&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"44"</span>)]
         </span>SecurityHealthAnalyticsSettings(<span class="kw">super</span>::SecurityHealthAnalyticsSettings),
         <span class="doccomment">/// Web Security Scanner specific settings
         /// For component, expect WEB_SECURITY_SCANNER
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;40&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"40"</span>)]
         </span>WebSecurityScannerSettings(<span class="kw">super</span>::WebSecurityScanner),
     }
 }
@@ -1441,20 +1442,20 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SecurityHealthAnalyticsSettings {
-    <span class="doccomment">/// Settings for &quot;NON_ORG_IAM_MEMBER&quot; scanner.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Settings for "NON_ORG_IAM_MEMBER" scanner.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>non_org_iam_member_settings: ::core::option::Option&lt;
         security_health_analytics_settings::NonOrgIamMemberSettings,
     &gt;,
-    <span class="doccomment">/// Settings for &quot;ADMIN_SERVICE_ACCOUNT&quot; scanner.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Settings for "ADMIN_SERVICE_ACCOUNT" scanner.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>admin_service_account_settings: ::core::option::Option&lt;
         security_health_analytics_settings::AdminServiceAccountSettings,
     &gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SecurityHealthAnalyticsSettings`.
 </span><span class="kw">pub mod </span>security_health_analytics_settings {
-    <span class="doccomment">/// Settings for &quot;NON_ORG_IAM_MEMBER&quot; scanner.
+    <span class="doccomment">/// Settings for "NON_ORG_IAM_MEMBER" scanner.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>NonOrgIamMemberSettings {
@@ -1462,19 +1463,19 @@
         /// permissions on a project or the organization. Otherwise a finding will
         /// be created.
         /// A valid identity can be:
-        ///    *  a domain that starts with &quot;@&quot;, e.g. &quot;@yourdomain.com&quot;.
-        ///    *  a fully specified email address that does not start with &quot;@&quot;, e.g.
-        ///    &quot;abc@gmail.com&quot;
+        ///    *  a domain that starts with "@", e.g. "@yourdomain.com".
+        ///    *  a fully specified email address that does not start with "@", e.g.
+        ///    "abc@gmail.com"
         /// Regular expressions are not supported.
         /// Service accounts are not examined by the scanner and will be omitted if
         /// added to the list.
         /// If not specified, only Gmail accounts will be considered as non-approved.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>approved_identities: ::prost::alloc::vec::Vec&lt;
             ::prost::alloc::string::String,
         &gt;,
     }
-    <span class="doccomment">/// Settings for &quot;ADMIN_SERVICE_ACCOUNT&quot; scanner.
+    <span class="doccomment">/// Settings for "ADMIN_SERVICE_ACCOUNT" scanner.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>AdminServiceAccountSettings {
@@ -1482,13 +1483,13 @@
         /// allowed to have Admin, Owner or Editor roles granted to them. Otherwise
         /// a finding will be created.
         /// A valid identity can be:
-        ///    *  a partilly specified service account that starts with &quot;@&quot;, e.g.
-        ///    &quot;@myproject.iam.gserviceaccount.com&quot;. This approves all the service
+        ///    *  a partilly specified service account that starts with "@", e.g.
+        ///    "@myproject.iam.gserviceaccount.com". This approves all the service
         ///    accounts suffixed with the specified identity.
-        ///    *  a fully specified service account that does not start with &quot;@&quot;, e.g.
-        ///    &quot;myadmin@myproject.iam.gserviceaccount.com&quot;.
+        ///    *  a fully specified service account that does not start with "@", e.g.
+        ///    "myadmin@myproject.iam.gserviceaccount.com".
         /// Google-created service accounts are all approved.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>approved_identities: ::prost::alloc::vec::Vec&lt;
             ::prost::alloc::string::String,
         &gt;,
@@ -1512,23 +1513,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             ComponentEnablementState::Unspecified =&gt; {
-                <span class="string">&quot;COMPONENT_ENABLEMENT_STATE_UNSPECIFIED&quot;
+                <span class="string">"COMPONENT_ENABLEMENT_STATE_UNSPECIFIED"
             </span>}
-            ComponentEnablementState::Disable =&gt; <span class="string">&quot;DISABLE&quot;</span>,
-            ComponentEnablementState::Enable =&gt; <span class="string">&quot;ENABLE&quot;</span>,
-            ComponentEnablementState::Inherit =&gt; <span class="string">&quot;INHERIT&quot;</span>,
+            ComponentEnablementState::Disable =&gt; <span class="string">"DISABLE"</span>,
+            ComponentEnablementState::Enable =&gt; <span class="string">"ENABLE"</span>,
+            ComponentEnablementState::Inherit =&gt; <span class="string">"INHERIT"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;COMPONENT_ENABLEMENT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;DISABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disable),
-            <span class="string">&quot;ENABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enable),
-            <span class="string">&quot;INHERIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inherit),
+            <span class="string">"COMPONENT_ENABLEMENT_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"DISABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disable),
+            <span class="string">"ENABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enable),
+            <span class="string">"INHERIT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Inherit),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1545,21 +1546,21 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Detector {
     <span class="doccomment">/// Output only. Detector Identifier
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>detector: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Component that supports detector type.  Multiple components may support the
     /// same detector.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>component: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The billing tier may be different for a detector of the same name in
     /// another component.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;BillingTier&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"BillingTier"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>billing_tier: i32,
     <span class="doccomment">/// Output only. Google curated detector labels. These are alphanumeric tags that are not
     /// necessarily human readable. Labels can be used to group detectors together
     /// in the future. An example might be tagging all detectors “PCI” that help
     /// with PCI compliance.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>detector_labels: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Common configuration settings for all of Security Center.
@@ -1574,24 +1575,24 @@
     ///   * `projects/{project}/locations/{location}/clusters/{cluster}/settings`
     ///   * `projects/{project}/regions/{region}/clusters/{cluster}/settings`
     ///   * `projects/{project}/zones/{zone}/clusters/{cluster}/settings`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Billing settings
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>billing_settings: ::core::option::Option&lt;BillingSettings&gt;,
     <span class="doccomment">/// An enum representing the current on boarding state of SCC.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;settings::OnboardingState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"settings::OnboardingState"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The organization-level service account to be used for security center
-    /// components. The component must have permission to &quot;act as&quot; the service
+    /// components. The component must have permission to "act as" the service
     /// account.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>org_service_account: ::prost::alloc::string::String,
     <span class="doccomment">/// Sink settings.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>sink_settings: ::core::option::Option&lt;SinkSettings&gt;,
     <span class="doccomment">/// The settings for detectors and/or scanners.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>component_settings: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ComponentSettings,
@@ -1599,17 +1600,17 @@
     <span class="doccomment">/// Detector group settings for all Security Center components.
     /// The key is the name of the detector group and the value is the settings for
     /// that group.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>detector_group_settings: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         settings::DetectorGroupSettings,
     &gt;,
     <span class="doccomment">/// A fingerprint used for optimistic concurrency. If none is provided
     /// on updates then the existing metadata will be blindly overwritten.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The time these settings were last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Settings`.
@@ -1619,13 +1620,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>DetectorGroupSettings {
         <span class="doccomment">/// The state determines if the group is enabled or not.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::ComponentEnablementState&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::ComponentEnablementState"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>state: i32,
     }
     <span class="doccomment">/// Defines the onboarding states for SCC
     ///
     /// Potentially is just an indicator that a user has reviewed some subset of
-    /// our configuration surface, even if it&#39;s still currently set to its
+    /// our configuration surface, even if it's still currently set to its
     /// API-default state.
     </span><span class="attr">#[derive(
         Clone,
@@ -1647,13 +1648,13 @@
         </span>Enabled = <span class="number">1</span>,
         <span class="doccomment">/// SCC has been disabled after being on boarded
         </span>Disabled = <span class="number">2</span>,
-        <span class="doccomment">/// SCC&#39;s onboarding tier has been explicitly set
+        <span class="doccomment">/// SCC's onboarding tier has been explicitly set
         </span>BillingSelected = <span class="number">3</span>,
-        <span class="doccomment">/// SCC&#39;s CTD FindingsProviders have been chosen
+        <span class="doccomment">/// SCC's CTD FindingsProviders have been chosen
         </span>ProvidersSelected = <span class="number">4</span>,
-        <span class="doccomment">/// SCC&#39;s Service-Resource mappings have been set
+        <span class="doccomment">/// SCC's Service-Resource mappings have been set
         </span>ResourcesSelected = <span class="number">5</span>,
-        <span class="doccomment">/// SCC&#39;s core Service Account was created
+        <span class="doccomment">/// SCC's core Service Account was created
         </span>OrgServiceAccountCreated = <span class="number">6</span>,
     }
     <span class="kw">impl </span>OnboardingState {
@@ -1661,29 +1662,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                OnboardingState::Unspecified =&gt; <span class="string">&quot;ONBOARDING_STATE_UNSPECIFIED&quot;</span>,
-                OnboardingState::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
-                OnboardingState::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
-                OnboardingState::BillingSelected =&gt; <span class="string">&quot;BILLING_SELECTED&quot;</span>,
-                OnboardingState::ProvidersSelected =&gt; <span class="string">&quot;PROVIDERS_SELECTED&quot;</span>,
-                OnboardingState::ResourcesSelected =&gt; <span class="string">&quot;RESOURCES_SELECTED&quot;</span>,
+                OnboardingState::Unspecified =&gt; <span class="string">"ONBOARDING_STATE_UNSPECIFIED"</span>,
+                OnboardingState::Enabled =&gt; <span class="string">"ENABLED"</span>,
+                OnboardingState::Disabled =&gt; <span class="string">"DISABLED"</span>,
+                OnboardingState::BillingSelected =&gt; <span class="string">"BILLING_SELECTED"</span>,
+                OnboardingState::ProvidersSelected =&gt; <span class="string">"PROVIDERS_SELECTED"</span>,
+                OnboardingState::ResourcesSelected =&gt; <span class="string">"RESOURCES_SELECTED"</span>,
                 OnboardingState::OrgServiceAccountCreated =&gt; {
-                    <span class="string">&quot;ORG_SERVICE_ACCOUNT_CREATED&quot;
+                    <span class="string">"ORG_SERVICE_ACCOUNT_CREATED"
                 </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ONBOARDING_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
-                <span class="string">&quot;BILLING_SELECTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BillingSelected),
-                <span class="string">&quot;PROVIDERS_SELECTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProvidersSelected),
-                <span class="string">&quot;RESOURCES_SELECTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourcesSelected),
-                <span class="string">&quot;ORG_SERVICE_ACCOUNT_CREATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OrgServiceAccountCreated),
+                <span class="string">"ONBOARDING_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ENABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
+                <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">"BILLING_SELECTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BillingSelected),
+                <span class="string">"PROVIDERS_SELECTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProvidersSelected),
+                <span class="string">"RESOURCES_SELECTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourcesSelected),
+                <span class="string">"ORG_SERVICE_ACCOUNT_CREATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OrgServiceAccountCreated),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1696,7 +1697,7 @@
     <span class="doccomment">/// Required. The relative resource name of the service account resource.
     /// Format:
     ///   * `organizations/{organization}/serviceAccount`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An organization-level service account to be used by threat detection
@@ -1707,13 +1708,13 @@
     <span class="doccomment">/// The relative resource name of the service account resource.
     /// Format:
     ///   * `organizations/{organization}/serviceAccount`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Security Center managed service account for the organization
     /// example service-org-1234@scc.iam.gserviceaccount.com
     /// This service_account will be stored in the ComponentSettings field for the
     /// SCC, SHA, and Infra Automation components.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>service_account: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for GetSettings.
@@ -1728,7 +1729,7 @@
     ///   * `projects/{project}/locations/{location}/clusters/{cluster}/settings`
     ///   * `projects/{project}/regions/{region}/clusters/{cluster}/settings`
     ///   * `projects/{project}/zones/{zone}/clusters/{cluster}/settings`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for UpdateSettings.
@@ -1737,7 +1738,7 @@
 </span><span class="kw">pub struct </span>UpdateSettingsRequest {
     <span class="doccomment">/// Required. The settings to update.
     ///
-    /// The settings&#39; `name` field is used to identify the settings to be updated.
+    /// The settings' `name` field is used to identify the settings to be updated.
     /// Formats:
     ///   * `organizations/{organization}/settings`
     ///   * `folders/{folder}/settings`
@@ -1745,10 +1746,10 @@
     ///   * `projects/{project}/locations/{location}/clusters/{cluster}/settings`
     ///   * `projects/{project}/regions/{region}/clusters/{cluster}/settings`
     ///   * `projects/{project}/zones/{zone}/clusters/{cluster}/settings`
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>settings: ::core::option::Option&lt;Settings&gt;,
     <span class="doccomment">/// The list of fields to be updated on the settings.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for ResetSettings.
@@ -1763,11 +1764,11 @@
     ///   * `projects/{project}/locations/{location}/clusters/{cluster}/settings`
     ///   * `projects/{project}/regions/{region}/clusters/{cluster}/settings`
     ///   * `projects/{project}/zones/{zone}/clusters/{cluster}/settings`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A fingerprint used for optimistic concurrency. If none is provided,
     /// then the existing settings will be blindly overwritten.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for BatchGetSettings.
@@ -1778,7 +1779,7 @@
     /// settings being retrieved.
     /// Format:
     ///   * `organizations/{organization}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The names of the settings to retrieve.
     /// A maximum of 1000 settings can be retrieved in a batch.
@@ -1789,7 +1790,7 @@
     ///   * `projects/{project}/locations/{location}/clusters/{cluster}/settings`
     ///   * `projects/{project}/regions/{region}/clusters/{cluster}/settings`
     ///   * `projects/{project}/zones/{zone}/clusters/{cluster}/settings`
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Response message for BatchGetSettings.
@@ -1797,7 +1798,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchGetSettingsResponse {
     <span class="doccomment">/// Settings requested.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>settings: ::prost::alloc::vec::Vec&lt;Settings&gt;,
 }
 <span class="doccomment">/// Request message for CalculateEffectiveSettings.
@@ -1812,7 +1813,7 @@
     ///   * `projects/{project}/locations/{location}/clusters/{cluster}/effectiveSettings`
     ///   * `projects/{project}/regions/{region}/clusters/{cluster}/effectiveSettings`
     ///   * `projects/{project}/zones/{zone}/clusters/{cluster}/effectiveSettings`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for BatchGetEffectiveSettings.
@@ -1823,11 +1824,11 @@
     /// settings being retrieved.
     /// Format:
     ///   * `organizations/{organization}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The requests specifying the effective settings to retrieve.
     /// A maximum of 1000 effective settings can be retrieved in a batch.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>requests: ::prost::alloc::vec::Vec&lt;CalculateEffectiveSettingsRequest&gt;,
 }
 <span class="doccomment">/// Response message for BatchGetEffectiveSettings.
@@ -1835,7 +1836,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchCalculateEffectiveSettingsResponse {
     <span class="doccomment">/// Settings requested.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>settings: ::prost::alloc::vec::Vec&lt;Settings&gt;,
 }
 <span class="doccomment">/// Request message for GetComponentSettings.
@@ -1851,7 +1852,7 @@
     ///   * `projects/{project}/locations/{location}/clusters/{cluster}/components/{component}/settings`
     ///   * `projects/{project}/regions/{region}/clusters/{cluster}/components/{component}/settings`
     ///   * `projects/{project}/zones/{zone}/clusters/{cluster}/components/{component}/settings`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for UpdateComponentSettings.
@@ -1860,7 +1861,7 @@
 </span><span class="kw">pub struct </span>UpdateComponentSettingsRequest {
     <span class="doccomment">/// Required. The component settings to update.
     ///
-    /// The component settings&#39; `name` field is used to identify the component
+    /// The component settings' `name` field is used to identify the component
     /// settings to be updated. Formats:
     ///   * `organizations/{organization}/components/{component}/settings`
     ///   * `folders/{folder}/components/{component}/settings`
@@ -1868,10 +1869,10 @@
     ///   * `projects/{project}/locations/{location}/clusters/{cluster}/components/{component}/settings`
     ///   * `projects/{project}/regions/{region}/clusters/{cluster}/components/{component}/settings`
     ///   * `projects/{project}/zones/{zone}/clusters/{cluster}/components/{component}/settings`
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>component_settings: ::core::option::Option&lt;ComponentSettings&gt;,
     <span class="doccomment">/// The list of fields to be updated on the component settings resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request message for ResetComponentSettings.
@@ -1887,11 +1888,11 @@
     ///   * `projects/{project}/locations/{location}/clusters/{cluster}/components/{component}/settings`
     ///   * `projects/{project}/regions/{region}/clusters/{cluster}/components/{component}/settings`
     ///   * `projects/{project}/zones/{zone}/clusters/{cluster}/components/{component}/settings`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// An fingerprint used for optimistic concurrency. If none is provided,
     /// then the existing settings will be blindly overwritten.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for CalculateEffectiveComponentSettings.
@@ -1907,7 +1908,7 @@
     ///   * `projects/{project}/locations/{location}/clusters/{cluster}/components/{component}/settings`
     ///   * `projects/{project}/regions/{region}/clusters/{cluster}/components/{component}/settings`
     ///   * `projects/{project}/zones/{zone}/clusters/{cluster}/components/{component}/settings`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for ListDetectors.
@@ -1917,7 +1918,7 @@
     <span class="doccomment">/// Required. The parent, which owns this collection of detectors.
     /// Format:
     ///   * `organizations/{organization}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Filters to apply on the response. Filters can be applied on:
     ///   * components
@@ -1930,19 +1931,19 @@
     /// that billing tier.
     ///
     /// The filters
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of detectors to return. The service may return fewer
     /// than this value. If unspecified, at most 100 detectors will be returned.
     /// The maximum value is 1000; values above 1000 will be coerced to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListDetectors` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListDetectors` must
     /// match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListDetectors.
@@ -1950,11 +1951,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDetectorsResponse {
     <span class="doccomment">/// The detectors from the specified organization.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>detectors: ::prost::alloc::vec::Vec&lt;Detector&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for ListComponents.
@@ -1964,19 +1965,19 @@
     <span class="doccomment">/// Required. The parent, which owns this collection of components.
     /// Format:
     ///   * `organizations/{organization}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of components to return. The service may return fewer
     /// than this value. If unspecified, at most 100 components will be returned.
     /// The maximum value is 1000; values above 1000 will be coerced to 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListComponents` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListComponents` must
     /// match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for ListComponents.
@@ -1984,11 +1985,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListComponentsResponse {
     <span class="doccomment">/// The components from the specified organization.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>components: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A token that can be sent as `page_token` to retrieve the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2010,7 +2011,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2093,19 +2094,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/GetServiceAccount&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/GetServiceAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;GetServiceAccount&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"GetServiceAccount"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2121,19 +2122,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/GetSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/GetSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;GetSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"GetSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2149,29 +2150,29 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/UpdateSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/UpdateSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;UpdateSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"UpdateSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Reset the organization, folder or project&#39;s settings and return
+        <span class="doccomment">/// Reset the organization, folder or project's settings and return
         /// the settings of just that resource to the default.
         ///
         /// Settings are present at the organization, folder, project, and cluster
-        /// levels. Using Reset on a sub-organization level will remove that resource&#39;s
-        /// override and result in the parent&#39;s settings being used (eg: if Reset on a
+        /// levels. Using Reset on a sub-organization level will remove that resource's
+        /// override and result in the parent's settings being used (eg: if Reset on a
         /// cluster, project settings will be used).
         ///
         /// Using Reset on organization will remove the override that was set and
@@ -2186,19 +2187,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/ResetSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/ResetSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;ResetSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"ResetSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2217,19 +2218,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/BatchGetSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/BatchGetSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;BatchGetSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"BatchGetSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2255,19 +2256,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/CalculateEffectiveSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/CalculateEffectiveSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;CalculateEffectiveSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"CalculateEffectiveSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2288,19 +2289,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/BatchCalculateEffectiveSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/BatchCalculateEffectiveSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;BatchCalculateEffectiveSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"BatchCalculateEffectiveSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2319,19 +2320,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/GetComponentSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/GetComponentSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;GetComponentSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"GetComponentSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2350,24 +2351,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/UpdateComponentSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/UpdateComponentSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;UpdateComponentSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"UpdateComponentSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Reset the organization, folder or project&#39;s component settings and return
+        <span class="doccomment">/// Reset the organization, folder or project's component settings and return
         /// the settings to the default. Settings are present at the
         /// organization, folder and project levels. Using Reset for a folder or
         /// project will remove the override that was set and result in the
@@ -2382,19 +2383,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/ResetComponentSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/ResetComponentSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;ResetComponentSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"ResetComponentSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2415,19 +2416,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/CalculateEffectiveComponentSettings&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/CalculateEffectiveComponentSettings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;CalculateEffectiveComponentSettings&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"CalculateEffectiveComponentSettings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2446,19 +2447,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/ListDetectors&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/ListDetectors"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;ListDetectors&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"ListDetectors"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2477,19 +2478,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/ListComponents&quot;</span>,
+                <span class="string">"/google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService/ListComponents"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService&quot;</span>,
-                        <span class="string">&quot;ListComponents&quot;</span>,
+                        <span class="string">"google.cloud.securitycenter.settings.v1beta1.SecurityCenterSettingsService"</span>,
+                        <span class="string">"ListComponents"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

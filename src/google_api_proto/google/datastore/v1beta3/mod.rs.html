@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/datastore/v1beta3/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/datastore/v1beta3/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../" data-static-root-path="../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../src-files.js"></script><script defer src="../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1462,7 +1463,7 @@
 ///
 /// Partition dimensions:
 ///
-/// - May be `&quot;&quot;`.
+/// - May be `""`.
 /// - Must be valid UTF-8 bytes.
 /// - Must have values that match regex `\[A-Za-z\d\.\-_\]{1,100}`
 /// If the value of any dimension matches regex `__.*__`, the partition is
@@ -1478,14 +1479,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PartitionId {
     <span class="doccomment">/// The ID of the project to which the entities belong.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// If not empty, the ID of the namespace to which the entities belong.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>namespace_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A unique identifier for an entity.
-/// If a key&#39;s partition ID or any of its path kinds or names are
+/// If a key's partition ID or any of its path kinds or names are
 /// reserved/read-only, the key is reserved/read-only.
 /// A reserved/read-only key is forbidden in certain documented contexts.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
@@ -1494,7 +1495,7 @@
     <span class="doccomment">/// Entities are partitioned into subsets, currently identified by a project
     /// ID and namespace ID.
     /// Queries are scoped to a single partition.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>partition_id: ::core::option::Option&lt;PartitionId&gt;,
     <span class="doccomment">/// The entity path.
     /// An entity path consists of one or more elements composed of a kind and a
@@ -1502,9 +1503,9 @@
     /// element identifies a _root entity_, the second element identifies
     /// a _child_ of the root entity, the third element identifies a child of the
     /// second entity, and so forth. The entities identified by all prefixes of
-    /// the path are called the element&#39;s _ancestors_.
+    /// the path are called the element's _ancestors_.
     ///
-    /// An entity path is always fully complete: *all* of the entity&#39;s ancestors
+    /// An entity path is always fully complete: *all* of the entity's ancestors
     /// are required to be in the path along with the entity identifier itself.
     /// The only exception is that in some documented cases, the identifier in the
     /// last path element (for the entity) itself may be omitted. For example,
@@ -1512,7 +1513,7 @@
     /// identifier.
     ///
     /// A path can never be empty, and a path can have at most 100 elements.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::vec::Vec&lt;key::PathElement&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Key`.
@@ -1527,11 +1528,11 @@
         <span class="doccomment">/// The kind of the entity.
         /// A kind matching regex `__.*__` is reserved/read-only.
         /// A kind must not contain more than 1500 bytes when UTF-8 encoded.
-        /// Cannot be `&quot;&quot;`.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        /// Cannot be `""`.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>kind: ::prost::alloc::string::String,
         <span class="doccomment">/// The type of ID.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;path_element::IdType&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"path_element::IdType"</span>, tags = <span class="string">"2, 3"</span>)]
         </span><span class="kw">pub </span>id_type: ::core::option::Option&lt;path_element::IdType&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `PathElement`.
@@ -1543,13 +1544,13 @@
             <span class="doccomment">/// The auto-allocated ID of the entity.
             /// Never equal to zero. Values less than zero are discouraged and may not
             /// be supported in the future.
-            </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
             </span>Id(i64),
             <span class="doccomment">/// The name of the entity.
             /// A name matching regex `__.*__` is reserved/read-only.
             /// A name must not be more than 1500 bytes when UTF-8 encoded.
-            /// Cannot be `&quot;&quot;`.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+            /// Cannot be `""`.
+            </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
             </span>Name(::prost::alloc::string::String),
         }
     }
@@ -1561,7 +1562,7 @@
     <span class="doccomment">/// Values in the array.
     /// The order of this array may not be preserved if it contains a mix of
     /// indexed and unindexed values.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;Value&gt;,
 }
 <span class="doccomment">/// A message that can hold any of the supported value types and associated
@@ -1570,14 +1571,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Value {
     <span class="doccomment">/// The `meaning` field should only be populated for backwards compatibility.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>meaning: i32,
     <span class="doccomment">/// If the value should be excluded from all indexes including those defined
     /// explicitly.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>exclude_from_indexes: bool,
     <span class="doccomment">/// Must have a value set.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;value::ValueType&quot;</span>, tags = <span class="string">&quot;11, 1, 2, 3, 10, 5, 17, 18, 8, 6, 9&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"value::ValueType"</span>, tags = <span class="string">"11, 1, 2, 3, 10, 5, 17, 18, 8, 6, 9"</span>)]
     </span><span class="kw">pub </span>value_type: ::core::option::Option&lt;value::ValueType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Value`.
@@ -1587,51 +1588,51 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ValueType {
         <span class="doccomment">/// A null value.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;::prost_types::NullValue&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"::prost_types::NullValue"</span>, tag = <span class="string">"11"</span>)]
         </span>NullValue(i32),
         <span class="doccomment">/// A boolean value.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
         </span>BooleanValue(bool),
         <span class="doccomment">/// An integer value.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
         </span>IntegerValue(i64),
         <span class="doccomment">/// A double value.
-        </span><span class="attr">#[prost(double, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(double, tag = <span class="string">"3"</span>)]
         </span>DoubleValue(f64),
         <span class="doccomment">/// A timestamp value.
         /// When stored in the Datastore, precise only to microseconds;
         /// any additional precision is rounded down.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>TimestampValue(::prost_types::Timestamp),
         <span class="doccomment">/// A key value.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>KeyValue(<span class="kw">super</span>::Key),
         <span class="doccomment">/// A UTF-8 encoded string value.
         /// When `exclude_from_indexes` is false (it is indexed), may have at most
         /// 1500 bytes. Otherwise, may be set to at most 1,000,000 bytes.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"17"</span>)]
         </span>StringValue(::prost::alloc::string::String),
         <span class="doccomment">/// A blob value.
         /// May have at most 1,000,000 bytes.
         /// When `exclude_from_indexes` is false, may have at most 1500 bytes.
         /// In JSON requests, must be base64-encoded.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;18&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"18"</span>)]
         </span>BlobValue(::prost::bytes::Bytes),
         <span class="doccomment">/// A geo point value representing a point on the surface of Earth.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"8"</span>)]
         </span>GeoPointValue(<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::LatLng),
         <span class="doccomment">/// An entity value.
         ///
         /// - May have no key.
         /// - May have a key with an incomplete key path.
         /// - May have a reserved/read-only key.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>EntityValue(<span class="kw">super</span>::Entity),
         <span class="doccomment">/// An array value.
         /// Cannot contain another array value.
         /// A `Value` instance that sets field `array_value` must not set fields
         /// `meaning` or `exclude_from_indexes`.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;9&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"9"</span>)]
         </span>ArrayValue(<span class="kw">super</span>::ArrayValue),
     }
 }
@@ -1643,21 +1644,21 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Entity {
-    <span class="doccomment">/// The entity&#39;s key.
+    <span class="doccomment">/// The entity's key.
     ///
     /// An entity must have a key, unless otherwise documented (for example,
     /// an entity in `Value.entity_value` may have no key).
-    /// An entity&#39;s kind is its key path&#39;s last element&#39;s kind,
+    /// An entity's kind is its key path's last element's kind,
     /// or null if it has no key.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>key: ::core::option::Option&lt;Key&gt;,
-    <span class="doccomment">/// The entity&#39;s properties.
-    /// The map&#39;s keys are property names.
+    <span class="doccomment">/// The entity's properties.
+    /// The map's keys are property names.
     /// A property name matching regex `__.*__` is reserved.
     /// A reserved property name is forbidden in certain documented contexts.
     /// The name must not contain more than 500 characters.
-    /// The name cannot be `&quot;&quot;`.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    /// The name cannot be `""`.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>properties: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         Value,
@@ -1668,7 +1669,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EntityResult {
     <span class="doccomment">/// The resulting entity.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>entity: ::core::option::Option&lt;Entity&gt;,
     <span class="doccomment">/// The version of the entity, a strictly positive number that monotonically
     /// increases with changes to the entity.
@@ -1680,16 +1681,16 @@
     /// For [missing][google.datastore.v1beta3.LookupResponse.missing] entities in
     /// `LookupResponse`, this is the version of the snapshot that was used to look
     /// up the entity, and it is always set except for eventually consistent reads.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>version: i64,
     <span class="doccomment">/// A cursor that points to the position after the result entity.
     /// Set only when the `EntityResult` is part of a `QueryResultBatch` message.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>cursor: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// Nested message and enum types in `EntityResult`.
 </span><span class="kw">pub mod </span>entity_result {
-    <span class="doccomment">/// Specifies what data the &#39;entity&#39; field contains.
+    <span class="doccomment">/// Specifies what data the 'entity' field contains.
     /// A `ResultType` is either implied (for example, in `LookupResponse.missing`
     /// from `datastore.proto`, it is always `KEY_ONLY`) or specified by context
     /// (for example, in message `QueryResultBatch`, field `entity_result_type`
@@ -1721,21 +1722,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ResultType::Unspecified =&gt; <span class="string">&quot;RESULT_TYPE_UNSPECIFIED&quot;</span>,
-                ResultType::Full =&gt; <span class="string">&quot;FULL&quot;</span>,
-                ResultType::Projection =&gt; <span class="string">&quot;PROJECTION&quot;</span>,
-                ResultType::KeyOnly =&gt; <span class="string">&quot;KEY_ONLY&quot;</span>,
+                ResultType::Unspecified =&gt; <span class="string">"RESULT_TYPE_UNSPECIFIED"</span>,
+                ResultType::Full =&gt; <span class="string">"FULL"</span>,
+                ResultType::Projection =&gt; <span class="string">"PROJECTION"</span>,
+                ResultType::KeyOnly =&gt; <span class="string">"KEY_ONLY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RESULT_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;FULL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
-                <span class="string">&quot;PROJECTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Projection),
-                <span class="string">&quot;KEY_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyOnly),
+                <span class="string">"RESULT_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"FULL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Full),
+                <span class="string">"PROJECTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Projection),
+                <span class="string">"KEY_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::KeyOnly),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1746,44 +1747,44 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Query {
     <span class="doccomment">/// The projection to return. Defaults to returning all properties.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>projection: ::prost::alloc::vec::Vec&lt;Projection&gt;,
     <span class="doccomment">/// The kinds to query (if empty, returns entities of all kinds).
     /// Currently at most 1 kind may be specified.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>kind: ::prost::alloc::vec::Vec&lt;KindExpression&gt;,
     <span class="doccomment">/// The filter to apply.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::core::option::Option&lt;Filter&gt;,
     <span class="doccomment">/// The order to apply to the query results (if empty, order is unspecified).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>order: ::prost::alloc::vec::Vec&lt;PropertyOrder&gt;,
     <span class="doccomment">/// The properties to make distinct. The query results will contain the first
     /// result for each distinct combination of values for the given properties
     /// (if empty, all results are returned).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>distinct_on: ::prost::alloc::vec::Vec&lt;PropertyReference&gt;,
     <span class="doccomment">/// A starting point for the query results. Query cursors are
     /// returned in query result batches and
     /// [can only be used to continue the same
     /// query](&lt;https://cloud.google.com/datastore/docs/concepts/queries#cursors_limits_and_offsets&gt;).
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>start_cursor: ::prost::bytes::Bytes,
     <span class="doccomment">/// An ending point for the query results. Query cursors are
     /// returned in query result batches and
     /// [can only be used to limit the same
     /// query](&lt;https://cloud.google.com/datastore/docs/concepts/queries#cursors_limits_and_offsets&gt;).
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>end_cursor: ::prost::bytes::Bytes,
     <span class="doccomment">/// The number of results to skip. Applies before limit, but after all other
     /// constraints. Optional. Must be &gt;= 0 if specified.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>offset: i32,
     <span class="doccomment">/// The maximum number of results to return. Applies after all other
     /// constraints. Optional.
     /// Unspecified is interpreted as no limit.
     /// Must be &gt;= 0 if specified.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>limit: ::core::option::Option&lt;i32&gt;,
 }
 <span class="doccomment">/// A representation of a kind.
@@ -1791,7 +1792,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>KindExpression {
     <span class="doccomment">/// The name of the kind.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A reference to a property relative to the kind expressions.
@@ -1799,8 +1800,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PropertyReference {
     <span class="doccomment">/// The name of the property.
-    /// If name includes &quot;.&quot;s, it may be interpreted as a property name path.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// If name includes "."s, it may be interpreted as a property name path.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A representation of a property in a projection.
@@ -1808,7 +1809,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Projection {
     <span class="doccomment">/// The property to project.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>property: ::core::option::Option&lt;PropertyReference&gt;,
 }
 <span class="doccomment">/// The desired order for a specific property.
@@ -1816,10 +1817,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PropertyOrder {
     <span class="doccomment">/// The property to order by.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>property: ::core::option::Option&lt;PropertyReference&gt;,
     <span class="doccomment">/// The direction to order by. Defaults to `ASCENDING`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;property_order::Direction&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"property_order::Direction"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>direction: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `PropertyOrder`.
@@ -1850,19 +1851,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Direction::Unspecified =&gt; <span class="string">&quot;DIRECTION_UNSPECIFIED&quot;</span>,
-                Direction::Ascending =&gt; <span class="string">&quot;ASCENDING&quot;</span>,
-                Direction::Descending =&gt; <span class="string">&quot;DESCENDING&quot;</span>,
+                Direction::Unspecified =&gt; <span class="string">"DIRECTION_UNSPECIFIED"</span>,
+                Direction::Ascending =&gt; <span class="string">"ASCENDING"</span>,
+                Direction::Descending =&gt; <span class="string">"DESCENDING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DIRECTION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ASCENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ascending),
-                <span class="string">&quot;DESCENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Descending),
+                <span class="string">"DIRECTION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ASCENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ascending),
+                <span class="string">"DESCENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Descending),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1873,7 +1874,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Filter {
     <span class="doccomment">/// The type of filter.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;filter::FilterType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"filter::FilterType"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>filter_type: ::core::option::Option&lt;filter::FilterType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Filter`.
@@ -1883,10 +1884,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>FilterType {
         <span class="doccomment">/// A composite filter.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>CompositeFilter(<span class="kw">super</span>::CompositeFilter),
         <span class="doccomment">/// A filter on a property.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>PropertyFilter(<span class="kw">super</span>::PropertyFilter),
     }
 }
@@ -1895,11 +1896,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CompositeFilter {
     <span class="doccomment">/// The operator for combining multiple filters.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;composite_filter::Operator&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"composite_filter::Operator"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>op: i32,
     <span class="doccomment">/// The list of filters to combine.
     /// Must contain at least one filter.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filters: ::prost::alloc::vec::Vec&lt;Filter&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CompositeFilter`.
@@ -1928,17 +1929,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Operator::Unspecified =&gt; <span class="string">&quot;OPERATOR_UNSPECIFIED&quot;</span>,
-                Operator::And =&gt; <span class="string">&quot;AND&quot;</span>,
+                Operator::Unspecified =&gt; <span class="string">"OPERATOR_UNSPECIFIED"</span>,
+                Operator::And =&gt; <span class="string">"AND"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;OPERATOR_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::And),
+                <span class="string">"OPERATOR_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::And),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1949,13 +1950,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PropertyFilter {
     <span class="doccomment">/// The property to filter by.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>property: ::core::option::Option&lt;PropertyReference&gt;,
     <span class="doccomment">/// The operator to filter by.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;property_filter::Operator&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"property_filter::Operator"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>op: i32,
     <span class="doccomment">/// The value to compare the property to.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>value: ::core::option::Option&lt;Value&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `PropertyFilter`.
@@ -1994,27 +1995,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Operator::Unspecified =&gt; <span class="string">&quot;OPERATOR_UNSPECIFIED&quot;</span>,
-                Operator::LessThan =&gt; <span class="string">&quot;LESS_THAN&quot;</span>,
-                Operator::LessThanOrEqual =&gt; <span class="string">&quot;LESS_THAN_OR_EQUAL&quot;</span>,
-                Operator::GreaterThan =&gt; <span class="string">&quot;GREATER_THAN&quot;</span>,
-                Operator::GreaterThanOrEqual =&gt; <span class="string">&quot;GREATER_THAN_OR_EQUAL&quot;</span>,
-                Operator::Equal =&gt; <span class="string">&quot;EQUAL&quot;</span>,
-                Operator::HasAncestor =&gt; <span class="string">&quot;HAS_ANCESTOR&quot;</span>,
+                Operator::Unspecified =&gt; <span class="string">"OPERATOR_UNSPECIFIED"</span>,
+                Operator::LessThan =&gt; <span class="string">"LESS_THAN"</span>,
+                Operator::LessThanOrEqual =&gt; <span class="string">"LESS_THAN_OR_EQUAL"</span>,
+                Operator::GreaterThan =&gt; <span class="string">"GREATER_THAN"</span>,
+                Operator::GreaterThanOrEqual =&gt; <span class="string">"GREATER_THAN_OR_EQUAL"</span>,
+                Operator::Equal =&gt; <span class="string">"EQUAL"</span>,
+                Operator::HasAncestor =&gt; <span class="string">"HAS_ANCESTOR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;OPERATOR_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LESS_THAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LessThan),
-                <span class="string">&quot;LESS_THAN_OR_EQUAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LessThanOrEqual),
-                <span class="string">&quot;GREATER_THAN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GreaterThan),
-                <span class="string">&quot;GREATER_THAN_OR_EQUAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GreaterThanOrEqual),
-                <span class="string">&quot;EQUAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Equal),
-                <span class="string">&quot;HAS_ANCESTOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HasAncestor),
+                <span class="string">"OPERATOR_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LESS_THAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LessThan),
+                <span class="string">"LESS_THAN_OR_EQUAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LessThanOrEqual),
+                <span class="string">"GREATER_THAN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GreaterThan),
+                <span class="string">"GREATER_THAN_OR_EQUAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GreaterThanOrEqual),
+                <span class="string">"EQUAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Equal),
+                <span class="string">"HAS_ANCESTOR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HasAncestor),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2027,20 +2028,20 @@
 </span><span class="kw">pub struct </span>GqlQuery {
     <span class="doccomment">/// A string of the format described
     /// [here](&lt;https://cloud.google.com/datastore/docs/apis/gql/gql_reference&gt;).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>query_string: ::prost::alloc::string::String,
     <span class="doccomment">/// When false, the query string must not contain any literals and instead must
     /// bind all values. For example,
-    /// `SELECT * FROM Kind WHERE a = &#39;string literal&#39;` is not allowed, while
+    /// `SELECT * FROM Kind WHERE a = 'string literal'` is not allowed, while
     /// `SELECT * FROM Kind WHERE a = @value` is.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>allow_literals: bool,
     <span class="doccomment">/// For each non-reserved named binding site in the query string, there must be
     /// a named parameter with that name, but not necessarily the inverse.
     ///
     /// Key must match regex `[A-Za-z_$][A-Za-z_$0-9]*`, must not match regex
-    /// `__.*__`, and must not be `&quot;&quot;`.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    /// `__.*__`, and must not be `""`.
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>named_bindings: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         GqlQueryParameter,
@@ -2050,7 +2051,7 @@
     ///
     /// For each binding site numbered i in `query_string`, there must be an i-th
     /// numbered parameter. The inverse must also be true.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>positional_bindings: ::prost::alloc::vec::Vec&lt;GqlQueryParameter&gt;,
 }
 <span class="doccomment">/// A binding parameter for a GQL query.
@@ -2058,7 +2059,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GqlQueryParameter {
     <span class="doccomment">/// The type of parameter.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;gql_query_parameter::ParameterType&quot;</span>, tags = <span class="string">&quot;2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"gql_query_parameter::ParameterType"</span>, tags = <span class="string">"2, 3"</span>)]
     </span><span class="kw">pub </span>parameter_type: ::core::option::Option&lt;gql_query_parameter::ParameterType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `GqlQueryParameter`.
@@ -2068,11 +2069,11 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ParameterType {
         <span class="doccomment">/// A value parameter.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Value(<span class="kw">super</span>::Value),
         <span class="doccomment">/// A query cursor. Query cursors are returned in query
         /// result batches.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"3"</span>)]
         </span>Cursor(::prost::bytes::Bytes),
     }
 }
@@ -2081,34 +2082,34 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>QueryResultBatch {
     <span class="doccomment">/// The number of results skipped, typically because of an offset.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>skipped_results: i32,
     <span class="doccomment">/// A cursor that points to the position after the last skipped result.
     /// Will be set when `skipped_results` != 0.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>skipped_cursor: ::prost::bytes::Bytes,
     <span class="doccomment">/// The result type for every entity in `entity_results`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;entity_result::ResultType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"entity_result::ResultType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>entity_result_type: i32,
     <span class="doccomment">/// The results for this batch.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>entity_results: ::prost::alloc::vec::Vec&lt;EntityResult&gt;,
     <span class="doccomment">/// A cursor that points to the position after the last result in the batch.
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>end_cursor: ::prost::bytes::Bytes,
     <span class="doccomment">/// The state of the query after the current batch.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;query_result_batch::MoreResultsType&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"query_result_batch::MoreResultsType"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>more_results: i32,
     <span class="doccomment">/// The version number of the snapshot this batch was returned from.
-    /// This applies to the range of results from the query&#39;s `start_cursor` (or
-    /// the beginning of the query if no cursor was given) to this batch&#39;s
-    /// `end_cursor` (not the query&#39;s `end_cursor`).
+    /// This applies to the range of results from the query's `start_cursor` (or
+    /// the beginning of the query if no cursor was given) to this batch's
+    /// `end_cursor` (not the query's `end_cursor`).
     ///
     /// In a single transaction, subsequent query result batches for the same query
-    /// can have a greater snapshot version number. Each batch&#39;s snapshot version
+    /// can have a greater snapshot version number. Each batch's snapshot version
     /// is valid for all preceding batches.
     /// The value will be zero for eventually consistent queries.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>snapshot_version: i64,
 }
 <span class="doccomment">/// Nested message and enum types in `QueryResultBatch`.
@@ -2144,23 +2145,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                MoreResultsType::Unspecified =&gt; <span class="string">&quot;MORE_RESULTS_TYPE_UNSPECIFIED&quot;</span>,
-                MoreResultsType::NotFinished =&gt; <span class="string">&quot;NOT_FINISHED&quot;</span>,
-                MoreResultsType::MoreResultsAfterLimit =&gt; <span class="string">&quot;MORE_RESULTS_AFTER_LIMIT&quot;</span>,
-                MoreResultsType::MoreResultsAfterCursor =&gt; <span class="string">&quot;MORE_RESULTS_AFTER_CURSOR&quot;</span>,
-                MoreResultsType::NoMoreResults =&gt; <span class="string">&quot;NO_MORE_RESULTS&quot;</span>,
+                MoreResultsType::Unspecified =&gt; <span class="string">"MORE_RESULTS_TYPE_UNSPECIFIED"</span>,
+                MoreResultsType::NotFinished =&gt; <span class="string">"NOT_FINISHED"</span>,
+                MoreResultsType::MoreResultsAfterLimit =&gt; <span class="string">"MORE_RESULTS_AFTER_LIMIT"</span>,
+                MoreResultsType::MoreResultsAfterCursor =&gt; <span class="string">"MORE_RESULTS_AFTER_CURSOR"</span>,
+                MoreResultsType::NoMoreResults =&gt; <span class="string">"NO_MORE_RESULTS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MORE_RESULTS_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NOT_FINISHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotFinished),
-                <span class="string">&quot;MORE_RESULTS_AFTER_LIMIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MoreResultsAfterLimit),
-                <span class="string">&quot;MORE_RESULTS_AFTER_CURSOR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MoreResultsAfterCursor),
-                <span class="string">&quot;NO_MORE_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoMoreResults),
+                <span class="string">"MORE_RESULTS_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NOT_FINISHED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotFinished),
+                <span class="string">"MORE_RESULTS_AFTER_LIMIT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MoreResultsAfterLimit),
+                <span class="string">"MORE_RESULTS_AFTER_CURSOR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MoreResultsAfterCursor),
+                <span class="string">"NO_MORE_RESULTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoMoreResults),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2172,13 +2173,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LookupRequest {
     <span class="doccomment">/// The ID of the project against which to make the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The options for this lookup request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>read_options: ::core::option::Option&lt;ReadOptions&gt;,
     <span class="doccomment">/// Keys of entities to look up.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>keys: ::prost::alloc::vec::Vec&lt;Key&gt;,
 }
 <span class="doccomment">/// The response for
@@ -2189,17 +2190,17 @@
     <span class="doccomment">/// Entities found as `ResultType.FULL` entities. The order of results in this
     /// field is undefined and has no relation to the order of the keys in the
     /// input.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>found: ::prost::alloc::vec::Vec&lt;EntityResult&gt;,
     <span class="doccomment">/// Entities not found as `ResultType.KEY_ONLY` entities. The order of results
     /// in this field is undefined and has no relation to the order of the keys
     /// in the input.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>missing: ::prost::alloc::vec::Vec&lt;EntityResult&gt;,
     <span class="doccomment">/// A list of keys that were not looked up due to resource constraints. The
     /// order of results in this field is undefined and has no relation to the
     /// order of the keys in the input.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>deferred: ::prost::alloc::vec::Vec&lt;Key&gt;,
 }
 <span class="doccomment">/// The request for
@@ -2208,19 +2209,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RunQueryRequest {
     <span class="doccomment">/// The ID of the project against which to make the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Entities are partitioned into subsets, identified by a partition ID.
     /// Queries are scoped to a single partition.
     /// This partition ID is normalized with the standard default context
     /// partition ID.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>partition_id: ::core::option::Option&lt;PartitionId&gt;,
     <span class="doccomment">/// The options for this query.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>read_options: ::core::option::Option&lt;ReadOptions&gt;,
     <span class="doccomment">/// The type of query.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;run_query_request::QueryType&quot;</span>, tags = <span class="string">&quot;3, 7&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"run_query_request::QueryType"</span>, tags = <span class="string">"3, 7"</span>)]
     </span><span class="kw">pub </span>query_type: ::core::option::Option&lt;run_query_request::QueryType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RunQueryRequest`.
@@ -2230,10 +2231,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>QueryType {
         <span class="doccomment">/// The query to run.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Query(<span class="kw">super</span>::Query),
         <span class="doccomment">/// The GQL query to run.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>GqlQuery(<span class="kw">super</span>::GqlQuery),
     }
 }
@@ -2243,10 +2244,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RunQueryResponse {
     <span class="doccomment">/// A batch of query results (always present).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>batch: ::core::option::Option&lt;QueryResultBatch&gt;,
     <span class="doccomment">/// The parsed form of the `GqlQuery` from the request, if it was set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>query: ::core::option::Option&lt;Query&gt;,
 }
 <span class="doccomment">/// The request for
@@ -2255,10 +2256,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BeginTransactionRequest {
     <span class="doccomment">/// The ID of the project against which to make the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Options for a new transaction.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>transaction_options: ::core::option::Option&lt;TransactionOptions&gt;,
 }
 <span class="doccomment">/// The response for
@@ -2267,7 +2268,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BeginTransactionResponse {
     <span class="doccomment">/// The transaction identifier (always present).
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transaction: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// The request for
@@ -2276,11 +2277,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RollbackRequest {
     <span class="doccomment">/// The ID of the project against which to make the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The transaction identifier, returned by a call to
     /// [Datastore.BeginTransaction][google.datastore.v1beta3.Datastore.BeginTransaction].
-    </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transaction: ::prost::bytes::Bytes,
 }
 <span class="doccomment">/// The response for
@@ -2295,10 +2296,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CommitRequest {
     <span class="doccomment">/// The ID of the project against which to make the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The type of commit to perform. Defaults to `TRANSACTIONAL`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;commit_request::Mode&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"commit_request::Mode"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>mode: i32,
     <span class="doccomment">/// The mutations to perform.
     ///
@@ -2313,10 +2314,10 @@
     ///
     /// When mode is `NON_TRANSACTIONAL`, no two mutations may affect a single
     /// entity.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>mutations: ::prost::alloc::vec::Vec&lt;Mutation&gt;,
     <span class="doccomment">/// Must be set when mode is `TRANSACTIONAL`.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;commit_request::TransactionSelector&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"commit_request::TransactionSelector"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transaction_selector: ::core::option::Option&lt;
         commit_request::TransactionSelector,
     &gt;,
@@ -2351,19 +2352,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Mode::Unspecified =&gt; <span class="string">&quot;MODE_UNSPECIFIED&quot;</span>,
-                Mode::Transactional =&gt; <span class="string">&quot;TRANSACTIONAL&quot;</span>,
-                Mode::NonTransactional =&gt; <span class="string">&quot;NON_TRANSACTIONAL&quot;</span>,
+                Mode::Unspecified =&gt; <span class="string">"MODE_UNSPECIFIED"</span>,
+                Mode::Transactional =&gt; <span class="string">"TRANSACTIONAL"</span>,
+                Mode::NonTransactional =&gt; <span class="string">"NON_TRANSACTIONAL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;TRANSACTIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Transactional),
-                <span class="string">&quot;NON_TRANSACTIONAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonTransactional),
+                <span class="string">"MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"TRANSACTIONAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Transactional),
+                <span class="string">"NON_TRANSACTIONAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NonTransactional),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2375,7 +2376,7 @@
         <span class="doccomment">/// The identifier of the transaction associated with the commit. A
         /// transaction identifier is returned by a call to
         /// [Datastore.BeginTransaction][google.datastore.v1beta3.Datastore.BeginTransaction].
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"1"</span>)]
         </span>Transaction(::prost::bytes::Bytes),
     }
 }
@@ -2386,11 +2387,11 @@
 </span><span class="kw">pub struct </span>CommitResponse {
     <span class="doccomment">/// The result of performing the mutations.
     /// The i-th mutation result corresponds to the i-th mutation in the request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>mutation_results: ::prost::alloc::vec::Vec&lt;MutationResult&gt;,
     <span class="doccomment">/// The number of index entries updated during the commit, or zero if none were
     /// updated.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>index_updates: i32,
 }
 <span class="doccomment">/// The request for
@@ -2399,11 +2400,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AllocateIdsRequest {
     <span class="doccomment">/// The ID of the project against which to make the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of keys with incomplete key paths for which to allocate IDs.
     /// No key may be reserved/read-only.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>keys: ::prost::alloc::vec::Vec&lt;Key&gt;,
 }
 <span class="doccomment">/// The response for
@@ -2413,7 +2414,7 @@
 </span><span class="kw">pub struct </span>AllocateIdsResponse {
     <span class="doccomment">/// The keys specified in the request (in the same order), each with
     /// its key path completed with a newly allocated ID.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>keys: ::prost::alloc::vec::Vec&lt;Key&gt;,
 }
 <span class="doccomment">/// The request for
@@ -2422,14 +2423,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReserveIdsRequest {
     <span class="doccomment">/// The ID of the project against which to make the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// If not empty, the ID of the database against which to make the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>database_id: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of keys with complete key paths whose numeric IDs should not be
     /// auto-allocated.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>keys: ::prost::alloc::vec::Vec&lt;Key&gt;,
 }
 <span class="doccomment">/// The response for
@@ -2444,17 +2445,17 @@
     <span class="doccomment">/// The mutation operation.
     ///
     /// For `insert`, `update`, and `upsert`:
-    /// - The entity&#39;s key must not be reserved/read-only.
+    /// - The entity's key must not be reserved/read-only.
     /// - No property in the entity may have a reserved name,
     ///    not even a property in an entity in a value.
     /// - No value in the entity may have meaning 18,
     ///    not even a value in an entity in another value.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;mutation::Operation&quot;</span>, tags = <span class="string">&quot;4, 5, 6, 7&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"mutation::Operation"</span>, tags = <span class="string">"4, 5, 6, 7"</span>)]
     </span><span class="kw">pub </span>operation: ::core::option::Option&lt;mutation::Operation&gt;,
     <span class="doccomment">/// When set, the server will detect whether or not this mutation conflicts
     /// with the current version of the entity on the server. Conflicting mutations
     /// are not applied, and are marked as such in MutationResult.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;mutation::ConflictDetectionStrategy&quot;</span>, tags = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"mutation::ConflictDetectionStrategy"</span>, tags = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>conflict_detection_strategy: ::core::option::Option&lt;
         mutation::ConflictDetectionStrategy,
     &gt;,
@@ -2464,7 +2465,7 @@
     <span class="doccomment">/// The mutation operation.
     ///
     /// For `insert`, `update`, and `upsert`:
-    /// - The entity&#39;s key must not be reserved/read-only.
+    /// - The entity's key must not be reserved/read-only.
     /// - No property in the entity may have a reserved name,
     ///    not even a property in an entity in a value.
     /// - No value in the entity may have meaning 18,
@@ -2473,20 +2474,20 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Operation {
         <span class="doccomment">/// The entity to insert. The entity must not already exist.
-        /// The entity key&#39;s final path element may be incomplete.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        /// The entity key's final path element may be incomplete.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>Insert(<span class="kw">super</span>::Entity),
         <span class="doccomment">/// The entity to update. The entity must already exist.
         /// Must have a complete key path.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>Update(<span class="kw">super</span>::Entity),
         <span class="doccomment">/// The entity to upsert. The entity may or may not already exist.
-        /// The entity key&#39;s final path element may be incomplete.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        /// The entity key's final path element may be incomplete.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>Upsert(<span class="kw">super</span>::Entity),
         <span class="doccomment">/// The key of the entity to delete. The entity may or may not already exist.
         /// Must have a complete key path and must not be reserved/read-only.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>Delete(<span class="kw">super</span>::Key),
     }
     <span class="doccomment">/// When set, the server will detect whether or not this mutation conflicts
@@ -2497,7 +2498,7 @@
     </span><span class="kw">pub enum </span>ConflictDetectionStrategy {
         <span class="doccomment">/// The version of the entity that this mutation is being applied to. If this
         /// does not match the current version on the server, the mutation conflicts.
-        </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;8&quot;</span>)]
+        </span><span class="attr">#[prost(int64, tag = <span class="string">"8"</span>)]
         </span>BaseVersion(i64),
     }
 }
@@ -2507,18 +2508,18 @@
 </span><span class="kw">pub struct </span>MutationResult {
     <span class="doccomment">/// The automatically allocated key.
     /// Set only when the mutation allocated a key.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>key: ::core::option::Option&lt;Key&gt;,
     <span class="doccomment">/// The version of the entity on the server after processing the mutation. If
-    /// the mutation doesn&#39;t change anything on the server, then the version will
+    /// the mutation doesn't change anything on the server, then the version will
     /// be the version of the current entity or, if no entity is present, a version
     /// that is strictly greater than the version of any previous entity and less
     /// than the version of any possible future entity.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>version: i64,
     <span class="doccomment">/// Whether a conflict was detected for this mutation. Always false when a
     /// conflict detection strategy field is not set in the mutation.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>conflict_detected: bool,
 }
 <span class="doccomment">/// The options shared by read requests.
@@ -2528,7 +2529,7 @@
     <span class="doccomment">/// If not specified, lookups and ancestor queries default to
     /// `read_consistency`=`STRONG`, global queries default to
     /// `read_consistency`=`EVENTUAL`.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;read_options::ConsistencyType&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"read_options::ConsistencyType"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>consistency_type: ::core::option::Option&lt;read_options::ConsistencyType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ReadOptions`.
@@ -2559,19 +2560,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ReadConsistency::Unspecified =&gt; <span class="string">&quot;READ_CONSISTENCY_UNSPECIFIED&quot;</span>,
-                ReadConsistency::Strong =&gt; <span class="string">&quot;STRONG&quot;</span>,
-                ReadConsistency::Eventual =&gt; <span class="string">&quot;EVENTUAL&quot;</span>,
+                ReadConsistency::Unspecified =&gt; <span class="string">"READ_CONSISTENCY_UNSPECIFIED"</span>,
+                ReadConsistency::Strong =&gt; <span class="string">"STRONG"</span>,
+                ReadConsistency::Eventual =&gt; <span class="string">"EVENTUAL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;READ_CONSISTENCY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STRONG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Strong),
-                <span class="string">&quot;EVENTUAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Eventual),
+                <span class="string">"READ_CONSISTENCY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STRONG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Strong),
+                <span class="string">"EVENTUAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Eventual),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2584,12 +2585,12 @@
     </span><span class="kw">pub enum </span>ConsistencyType {
         <span class="doccomment">/// The non-transactional read consistency to use.
         /// Cannot be set to `STRONG` for global queries.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;ReadConsistency&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"ReadConsistency"</span>, tag = <span class="string">"1"</span>)]
         </span>ReadConsistency(i32),
         <span class="doccomment">/// The identifier of the transaction in which to read. A
         /// transaction identifier is returned by a call to
         /// [Datastore.BeginTransaction][google.datastore.v1beta3.Datastore.BeginTransaction].
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"2"</span>)]
         </span>Transaction(::prost::bytes::Bytes),
     }
 }
@@ -2605,7 +2606,7 @@
 </span><span class="kw">pub struct </span>TransactionOptions {
     <span class="doccomment">/// The `mode` of the transaction, indicating whether write operations are
     /// supported.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;transaction_options::Mode&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"transaction_options::Mode"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>mode: ::core::option::Option&lt;transaction_options::Mode&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TransactionOptions`.
@@ -2615,7 +2616,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ReadWrite {
         <span class="doccomment">/// The transaction identifier of the transaction being retried.
-        </span><span class="attr">#[prost(bytes = <span class="string">&quot;bytes&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bytes = <span class="string">"bytes"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>previous_transaction: ::prost::bytes::Bytes,
     }
     <span class="doccomment">/// Options specific to read-only transactions.
@@ -2628,10 +2629,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Mode {
         <span class="doccomment">/// The transaction should allow both reads and writes.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>ReadWrite(ReadWrite),
         <span class="doccomment">/// The transaction should only allow reads.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>ReadOnly(ReadOnly),
     }
 }
@@ -2655,7 +2656,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2727,16 +2728,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.datastore.v1beta3.Datastore/Lookup&quot;</span>,
+                <span class="string">"/google.datastore.v1beta3.Datastore/Lookup"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.datastore.v1beta3.Datastore&quot;</span>, <span class="string">&quot;Lookup&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.datastore.v1beta3.Datastore"</span>, <span class="string">"Lookup"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Queries for entities.
@@ -2753,17 +2754,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.datastore.v1beta3.Datastore/RunQuery&quot;</span>,
+                <span class="string">"/google.datastore.v1beta3.Datastore/RunQuery"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.datastore.v1beta3.Datastore&quot;</span>, <span class="string">&quot;RunQuery&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.datastore.v1beta3.Datastore"</span>, <span class="string">"RunQuery"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2781,19 +2782,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.datastore.v1beta3.Datastore/BeginTransaction&quot;</span>,
+                <span class="string">"/google.datastore.v1beta3.Datastore/BeginTransaction"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.datastore.v1beta3.Datastore&quot;</span>,
-                        <span class="string">&quot;BeginTransaction&quot;</span>,
+                        <span class="string">"google.datastore.v1beta3.Datastore"</span>,
+                        <span class="string">"BeginTransaction"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2810,16 +2811,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.datastore.v1beta3.Datastore/Commit&quot;</span>,
+                <span class="string">"/google.datastore.v1beta3.Datastore/Commit"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.datastore.v1beta3.Datastore&quot;</span>, <span class="string">&quot;Commit&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.datastore.v1beta3.Datastore"</span>, <span class="string">"Commit"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Rolls back a transaction.
@@ -2836,17 +2837,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.datastore.v1beta3.Datastore/Rollback&quot;</span>,
+                <span class="string">"/google.datastore.v1beta3.Datastore/Rollback"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.datastore.v1beta3.Datastore&quot;</span>, <span class="string">&quot;Rollback&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.datastore.v1beta3.Datastore"</span>, <span class="string">"Rollback"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2865,21 +2866,21 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.datastore.v1beta3.Datastore/AllocateIds&quot;</span>,
+                <span class="string">"/google.datastore.v1beta3.Datastore/AllocateIds"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.datastore.v1beta3.Datastore&quot;</span>, <span class="string">&quot;AllocateIds&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.datastore.v1beta3.Datastore"</span>, <span class="string">"AllocateIds"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Prevents the supplied keys&#39; IDs from being auto-allocated by Cloud
+        <span class="doccomment">/// Prevents the supplied keys' IDs from being auto-allocated by Cloud
         /// Datastore.
         </span><span class="kw">pub async fn </span>reserve_ids(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
@@ -2894,17 +2895,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.datastore.v1beta3.Datastore/ReserveIds&quot;</span>,
+                <span class="string">"/google.datastore.v1beta3.Datastore/ReserveIds"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.datastore.v1beta3.Datastore&quot;</span>, <span class="string">&quot;ReserveIds&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.datastore.v1beta3.Datastore"</span>, <span class="string">"ReserveIds"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}

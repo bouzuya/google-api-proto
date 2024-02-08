@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/clouddms/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/clouddms/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -927,10 +928,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DatabaseType {
     <span class="doccomment">/// The database provider.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DatabaseProvider&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DatabaseProvider"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>provider: i32,
     <span class="doccomment">/// The database engine.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DatabaseEngine&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DatabaseEngine"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>engine: i32,
 }
 <span class="doccomment">/// Migration job as stored in Cloud Logging logs.
@@ -939,53 +940,53 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LoggedMigrationJob {
     <span class="doccomment">/// Required. The unique identifier for a migration job.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Required. The display name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The current migration job state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logged_migration_job::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"logged_migration_job::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Required. The current migration job phase.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logged_migration_job::Phase&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"logged_migration_job::Phase"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>phase: i32,
     <span class="doccomment">/// Required. The migration job type.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logged_migration_job::Type&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"logged_migration_job::Type"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Optional. An optional dump path (gs://\[BUCKET_NAME\]/[OBJECT_NAME]).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>dump_path: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The migration job source connection profile name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>source: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The migration job destination connection profile name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>destination: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. the migration job duration in seconds.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Required. Type of connectivity to source database.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logged_migration_job::ConnectivityType&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"logged_migration_job::ConnectivityType"</span>, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>connectivity_type: i32,
     <span class="doccomment">/// Required. The error details in case of state FAILED.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Required. The time when this migration job was completed. Should only be set when the
     /// phase of the migration job is COMPLETED.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. The indicative source database.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>source_database: ::core::option::Option&lt;DatabaseType&gt;,
     <span class="doccomment">/// Required. The indicative destination database.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>destination_database: ::core::option::Option&lt;DatabaseType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `LoggedMigrationJob`.
@@ -1042,45 +1043,45 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Maintenance =&gt; <span class="string">&quot;MAINTENANCE&quot;</span>,
-                State::Draft =&gt; <span class="string">&quot;DRAFT&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::NotStarted =&gt; <span class="string">&quot;NOT_STARTED&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Stopping =&gt; <span class="string">&quot;STOPPING&quot;</span>,
-                State::Stopped =&gt; <span class="string">&quot;STOPPED&quot;</span>,
-                State::Deleted =&gt; <span class="string">&quot;DELETED&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Starting =&gt; <span class="string">&quot;STARTING&quot;</span>,
-                State::Restarting =&gt; <span class="string">&quot;RESTARTING&quot;</span>,
-                State::Resuming =&gt; <span class="string">&quot;RESUMING&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Maintenance =&gt; <span class="string">"MAINTENANCE"</span>,
+                State::Draft =&gt; <span class="string">"DRAFT"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::NotStarted =&gt; <span class="string">"NOT_STARTED"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Completed =&gt; <span class="string">"COMPLETED"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Stopping =&gt; <span class="string">"STOPPING"</span>,
+                State::Stopped =&gt; <span class="string">"STOPPED"</span>,
+                State::Deleted =&gt; <span class="string">"DELETED"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::Starting =&gt; <span class="string">"STARTING"</span>,
+                State::Restarting =&gt; <span class="string">"RESTARTING"</span>,
+                State::Resuming =&gt; <span class="string">"RESUMING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;MAINTENANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Maintenance),
-                <span class="string">&quot;DRAFT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Draft),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;NOT_STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotStarted),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;STOPPING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopping),
-                <span class="string">&quot;STOPPED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopped),
-                <span class="string">&quot;DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;STARTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Starting),
-                <span class="string">&quot;RESTARTING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Restarting),
-                <span class="string">&quot;RESUMING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resuming),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"MAINTENANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Maintenance),
+                <span class="string">"DRAFT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Draft),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"NOT_STARTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::NotStarted),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"COMPLETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"STOPPING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopping),
+                <span class="string">"STOPPED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Stopped),
+                <span class="string">"DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"STARTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Starting),
+                <span class="string">"RESTARTING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Restarting),
+                <span class="string">"RESUMING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Resuming),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1117,29 +1118,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Phase::Unspecified =&gt; <span class="string">&quot;PHASE_UNSPECIFIED&quot;</span>,
-                Phase::FullDump =&gt; <span class="string">&quot;FULL_DUMP&quot;</span>,
-                Phase::Cdc =&gt; <span class="string">&quot;CDC&quot;</span>,
-                Phase::PromoteInProgress =&gt; <span class="string">&quot;PROMOTE_IN_PROGRESS&quot;</span>,
+                Phase::Unspecified =&gt; <span class="string">"PHASE_UNSPECIFIED"</span>,
+                Phase::FullDump =&gt; <span class="string">"FULL_DUMP"</span>,
+                Phase::Cdc =&gt; <span class="string">"CDC"</span>,
+                Phase::PromoteInProgress =&gt; <span class="string">"PROMOTE_IN_PROGRESS"</span>,
                 Phase::WaitingForSourceWritesToStop =&gt; {
-                    <span class="string">&quot;WAITING_FOR_SOURCE_WRITES_TO_STOP&quot;
+                    <span class="string">"WAITING_FOR_SOURCE_WRITES_TO_STOP"
                 </span>}
-                Phase::PreparingTheDump =&gt; <span class="string">&quot;PREPARING_THE_DUMP&quot;</span>,
+                Phase::PreparingTheDump =&gt; <span class="string">"PREPARING_THE_DUMP"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PHASE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;FULL_DUMP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FullDump),
-                <span class="string">&quot;CDC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cdc),
-                <span class="string">&quot;PROMOTE_IN_PROGRESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PromoteInProgress),
-                <span class="string">&quot;WAITING_FOR_SOURCE_WRITES_TO_STOP&quot; </span>=&gt; {
+                <span class="string">"PHASE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"FULL_DUMP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FullDump),
+                <span class="string">"CDC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cdc),
+                <span class="string">"PROMOTE_IN_PROGRESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PromoteInProgress),
+                <span class="string">"WAITING_FOR_SOURCE_WRITES_TO_STOP" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::WaitingForSourceWritesToStop)
                 }
-                <span class="string">&quot;PREPARING_THE_DUMP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreparingTheDump),
+                <span class="string">"PREPARING_THE_DUMP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PreparingTheDump),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1170,19 +1171,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::OneTime =&gt; <span class="string">&quot;ONE_TIME&quot;</span>,
-                Type::Continuous =&gt; <span class="string">&quot;CONTINUOUS&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::OneTime =&gt; <span class="string">"ONE_TIME"</span>,
+                Type::Continuous =&gt; <span class="string">"CONTINUOUS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ONE_TIME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OneTime),
-                <span class="string">&quot;CONTINUOUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Continuous),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ONE_TIME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OneTime),
+                <span class="string">"CONTINUOUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Continuous),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1215,21 +1216,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ConnectivityType::Unspecified =&gt; <span class="string">&quot;CONNECTIVITY_TYPE_UNSPECIFIED&quot;</span>,
-                ConnectivityType::StaticIp =&gt; <span class="string">&quot;STATIC_IP&quot;</span>,
-                ConnectivityType::ReverseSsh =&gt; <span class="string">&quot;REVERSE_SSH&quot;</span>,
-                ConnectivityType::VpcPeering =&gt; <span class="string">&quot;VPC_PEERING&quot;</span>,
+                ConnectivityType::Unspecified =&gt; <span class="string">"CONNECTIVITY_TYPE_UNSPECIFIED"</span>,
+                ConnectivityType::StaticIp =&gt; <span class="string">"STATIC_IP"</span>,
+                ConnectivityType::ReverseSsh =&gt; <span class="string">"REVERSE_SSH"</span>,
+                ConnectivityType::VpcPeering =&gt; <span class="string">"VPC_PEERING"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CONNECTIVITY_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STATIC_IP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StaticIp),
-                <span class="string">&quot;REVERSE_SSH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReverseSsh),
-                <span class="string">&quot;VPC_PEERING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcPeering),
+                <span class="string">"CONNECTIVITY_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STATIC_IP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StaticIp),
+                <span class="string">"REVERSE_SSH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReverseSsh),
+                <span class="string">"VPC_PEERING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VpcPeering),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1240,10 +1241,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MySqlConnectionProfile {
     <span class="doccomment">/// The database version.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;my_sql_connection_profile::Version&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"my_sql_connection_profile::Version"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: i32,
     <span class="doccomment">/// The Cloud SQL id for a Cloud SQL instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>cloud_sql_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `MySqlConnectionProfile`.
@@ -1278,23 +1279,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Version::Unspecified =&gt; <span class="string">&quot;VERSION_UNSPECIFIED&quot;</span>,
-                Version::V55 =&gt; <span class="string">&quot;V5_5&quot;</span>,
-                Version::V56 =&gt; <span class="string">&quot;V5_6&quot;</span>,
-                Version::V57 =&gt; <span class="string">&quot;V5_7&quot;</span>,
-                Version::V80 =&gt; <span class="string">&quot;V8_0&quot;</span>,
+                Version::Unspecified =&gt; <span class="string">"VERSION_UNSPECIFIED"</span>,
+                Version::V55 =&gt; <span class="string">"V5_5"</span>,
+                Version::V56 =&gt; <span class="string">"V5_6"</span>,
+                Version::V57 =&gt; <span class="string">"V5_7"</span>,
+                Version::V80 =&gt; <span class="string">"V8_0"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;VERSION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;V5_5&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V55),
-                <span class="string">&quot;V5_6&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V56),
-                <span class="string">&quot;V5_7&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V57),
-                <span class="string">&quot;V8_0&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V80),
+                <span class="string">"VERSION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"V5_5" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V55),
+                <span class="string">"V5_6" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V56),
+                <span class="string">"V5_7" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V57),
+                <span class="string">"V8_0" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V80),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1305,10 +1306,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PostgreSqlConnectionProfile {
     <span class="doccomment">/// The database version.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;postgre_sql_connection_profile::Version&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"postgre_sql_connection_profile::Version"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>version: i32,
     <span class="doccomment">/// The Cloud SQL id for a Cloud SQL instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>cloud_sql_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `PostgreSqlConnectionProfile`.
@@ -1345,25 +1346,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Version::Unspecified =&gt; <span class="string">&quot;VERSION_UNSPECIFIED&quot;</span>,
-                Version::V96 =&gt; <span class="string">&quot;V9_6&quot;</span>,
-                Version::V11 =&gt; <span class="string">&quot;V11&quot;</span>,
-                Version::V10 =&gt; <span class="string">&quot;V10&quot;</span>,
-                Version::V12 =&gt; <span class="string">&quot;V12&quot;</span>,
-                Version::V13 =&gt; <span class="string">&quot;V13&quot;</span>,
+                Version::Unspecified =&gt; <span class="string">"VERSION_UNSPECIFIED"</span>,
+                Version::V96 =&gt; <span class="string">"V9_6"</span>,
+                Version::V11 =&gt; <span class="string">"V11"</span>,
+                Version::V10 =&gt; <span class="string">"V10"</span>,
+                Version::V12 =&gt; <span class="string">"V12"</span>,
+                Version::V13 =&gt; <span class="string">"V13"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;VERSION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;V9_6&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V96),
-                <span class="string">&quot;V11&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V11),
-                <span class="string">&quot;V10&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V10),
-                <span class="string">&quot;V12&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V12),
-                <span class="string">&quot;V13&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V13),
+                <span class="string">"VERSION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"V9_6" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V96),
+                <span class="string">"V11" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V11),
+                <span class="string">"V10" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V10),
+                <span class="string">"V12" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V12),
+                <span class="string">"V13" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::V13),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1374,7 +1375,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudSqlConnectionProfile {
     <span class="doccomment">/// The Cloud SQL id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cloud_sql_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An Oracle connection profile.
@@ -1382,7 +1383,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OracleConnectionProfile {
     <span class="doccomment">/// Required. Type of connectivity to source database.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;oracle_connection_profile::ConnectivityType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"oracle_connection_profile::ConnectivityType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>connectivity_type: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `OracleConnectionProfile`.
@@ -1415,21 +1416,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ConnectivityType::Unspecified =&gt; <span class="string">&quot;CONNECTIVITY_TYPE_UNSPECIFIED&quot;</span>,
-                ConnectivityType::StaticServiceIp =&gt; <span class="string">&quot;STATIC_SERVICE_IP&quot;</span>,
-                ConnectivityType::ForwardSshTunnel =&gt; <span class="string">&quot;FORWARD_SSH_TUNNEL&quot;</span>,
-                ConnectivityType::PrivateConnectivity =&gt; <span class="string">&quot;PRIVATE_CONNECTIVITY&quot;</span>,
+                ConnectivityType::Unspecified =&gt; <span class="string">"CONNECTIVITY_TYPE_UNSPECIFIED"</span>,
+                ConnectivityType::StaticServiceIp =&gt; <span class="string">"STATIC_SERVICE_IP"</span>,
+                ConnectivityType::ForwardSshTunnel =&gt; <span class="string">"FORWARD_SSH_TUNNEL"</span>,
+                ConnectivityType::PrivateConnectivity =&gt; <span class="string">"PRIVATE_CONNECTIVITY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CONNECTIVITY_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STATIC_SERVICE_IP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StaticServiceIp),
-                <span class="string">&quot;FORWARD_SSH_TUNNEL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForwardSshTunnel),
-                <span class="string">&quot;PRIVATE_CONNECTIVITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateConnectivity),
+                <span class="string">"CONNECTIVITY_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STATIC_SERVICE_IP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StaticServiceIp),
+                <span class="string">"FORWARD_SSH_TUNNEL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForwardSshTunnel),
+                <span class="string">"PRIVATE_CONNECTIVITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PrivateConnectivity),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1441,30 +1442,30 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LoggedConnectionProfile {
     <span class="doccomment">/// The unique identifier for a connection profile.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// The current connection profile state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logged_connection_profile::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"logged_connection_profile::State"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// The display name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The error details in case of state FAILED.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// The database provider.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;DatabaseProvider&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"DatabaseProvider"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>provider: i32,
     <span class="doccomment">/// The connection profile definition
     </span><span class="attr">#[prost(
-        oneof = <span class="string">&quot;logged_connection_profile::ConnectionProfile&quot;</span>,
-        tags = <span class="string">&quot;100, 101, 102, 103&quot;
+        oneof = <span class="string">"logged_connection_profile::ConnectionProfile"</span>,
+        tags = <span class="string">"100, 101, 102, 103"
     </span>)]
     </span><span class="kw">pub </span>connection_profile: ::core::option::Option&lt;
         logged_connection_profile::ConnectionProfile,
@@ -1508,29 +1509,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Draft =&gt; <span class="string">&quot;DRAFT&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Ready =&gt; <span class="string">&quot;READY&quot;</span>,
-                State::Updating =&gt; <span class="string">&quot;UPDATING&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::Deleted =&gt; <span class="string">&quot;DELETED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Draft =&gt; <span class="string">"DRAFT"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Ready =&gt; <span class="string">"READY"</span>,
+                State::Updating =&gt; <span class="string">"UPDATING"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::Deleted =&gt; <span class="string">"DELETED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DRAFT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Draft),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;READY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
-                <span class="string">&quot;UPDATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DRAFT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Draft),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"READY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ready),
+                <span class="string">"UPDATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Updating),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1540,16 +1541,16 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>ConnectionProfile {
         <span class="doccomment">/// A MySQL database connection profile.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;100&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"100"</span>)]
         </span>Mysql(<span class="kw">super</span>::MySqlConnectionProfile),
         <span class="doccomment">/// A PostgreSQL database connection profile.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;101&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"101"</span>)]
         </span>Postgresql(<span class="kw">super</span>::PostgreSqlConnectionProfile),
         <span class="doccomment">/// A CloudSQL database connection profile.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;102&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"102"</span>)]
         </span>Cloudsql(<span class="kw">super</span>::CloudSqlConnectionProfile),
         <span class="doccomment">/// An Oracle database connection profile.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;103&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"103"</span>)]
         </span>Oracle(<span class="kw">super</span>::OracleConnectionProfile),
     }
 }
@@ -1558,19 +1559,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MigrationJobEventLog {
     <span class="doccomment">/// The migration job resource
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>migration_job: ::core::option::Option&lt;LoggedMigrationJob&gt;,
     <span class="doccomment">/// Timestamp of the event
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>occurrence_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Event code
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// Event message
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>text_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Original event data
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;migration_job_event_log::OriginalCause&quot;</span>, tags = <span class="string">&quot;200, 201&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"migration_job_event_log::OriginalCause"</span>, tags = <span class="string">"200, 201"</span>)]
     </span><span class="kw">pub </span>original_cause: ::core::option::Option&lt;migration_job_event_log::OriginalCause&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `MigrationJobEventLog`.
@@ -1580,10 +1581,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>OriginalCause {
         <span class="doccomment">/// Original event code
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;200&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"200"</span>)]
         </span>OriginalCode(i32),
         <span class="doccomment">/// Original event message
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;201&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"201"</span>)]
         </span>OriginalMessage(::prost::alloc::string::String),
     }
 }
@@ -1592,19 +1593,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ConnectionProfileEventLog {
     <span class="doccomment">/// The connection profilr resource
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>connection_profile: ::core::option::Option&lt;LoggedConnectionProfile&gt;,
     <span class="doccomment">/// Timestamp of the event
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>occurrence_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Event code
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// Event message
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>text_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Original event data
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;connection_profile_event_log::OriginalCause&quot;</span>, tags = <span class="string">&quot;200, 201&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"connection_profile_event_log::OriginalCause"</span>, tags = <span class="string">"200, 201"</span>)]
     </span><span class="kw">pub </span>original_cause: ::core::option::Option&lt;
         connection_profile_event_log::OriginalCause,
     &gt;,
@@ -1616,38 +1617,38 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>OriginalCause {
         <span class="doccomment">/// Original event code
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;200&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"200"</span>)]
         </span>OriginalCode(i32),
         <span class="doccomment">/// Original event message
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;201&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"201"</span>)]
         </span>OriginalMessage(::prost::alloc::string::String),
     }
 }
 <span class="doccomment">/// The PrivateConnection resource is used to establish private connectivity
-/// with the customer&#39;s network.
+/// with the customer's network.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LoggedPrivateConnection {
-    <span class="doccomment">/// The resource&#39;s name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// The resource's name.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Labels.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Display name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The state of the Private Connection.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;logged_private_connection::State&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"logged_private_connection::State"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// The error details in case of state FAILED.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// VPC Peering Config.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;100&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"100"</span>)]
     </span><span class="kw">pub </span>vpc_peering_config: ::core::option::Option&lt;VpcPeeringConfig&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `LoggedPrivateConnection`.
@@ -1686,42 +1687,42 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Creating =&gt; <span class="string">&quot;CREATING&quot;</span>,
-                State::Created =&gt; <span class="string">&quot;CREATED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Deleting =&gt; <span class="string">&quot;DELETING&quot;</span>,
-                State::FailedToDelete =&gt; <span class="string">&quot;FAILED_TO_DELETE&quot;</span>,
-                State::Deleted =&gt; <span class="string">&quot;DELETED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Creating =&gt; <span class="string">"CREATING"</span>,
+                State::Created =&gt; <span class="string">"CREATED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Deleting =&gt; <span class="string">"DELETING"</span>,
+                State::FailedToDelete =&gt; <span class="string">"FAILED_TO_DELETE"</span>,
+                State::Deleted =&gt; <span class="string">"DELETED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CREATING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
-                <span class="string">&quot;CREATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Created),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;DELETING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
-                <span class="string">&quot;FAILED_TO_DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailedToDelete),
-                <span class="string">&quot;DELETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CREATING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Creating),
+                <span class="string">"CREATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Created),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"DELETING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleting),
+                <span class="string">"FAILED_TO_DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailedToDelete),
+                <span class="string">"DELETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Deleted),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
 }
 <span class="doccomment">/// The VPC Peering configuration is used to create VPC peering between
-/// the data plane and the consumer&#39;s VPC.
+/// the data plane and the consumer's VPC.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VpcPeeringConfig {
     <span class="doccomment">/// Fully qualified name of the VPC DMS will peer to.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>vpc_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The subnet that will be peered to. (CIDR of /29).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>subnet: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Log definition for a Private Connection event.
@@ -1729,19 +1730,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PrivateConnectionEventLog {
     <span class="doccomment">/// The private connection resource.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>private_connection: ::core::option::Option&lt;LoggedPrivateConnection&gt;,
     <span class="doccomment">/// Timestamp of the event.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>occurrence_timestamp: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Event code.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// Event message.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>text_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Original event data.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;private_connection_event_log::OriginalCause&quot;</span>, tags = <span class="string">&quot;200, 201&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"private_connection_event_log::OriginalCause"</span>, tags = <span class="string">"200, 201"</span>)]
     </span><span class="kw">pub </span>original_cause: ::core::option::Option&lt;
         private_connection_event_log::OriginalCause,
     &gt;,
@@ -1753,10 +1754,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>OriginalCause {
         <span class="doccomment">/// Original event code.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;200&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"200"</span>)]
         </span>OriginalCode(i32),
         <span class="doccomment">/// Original event message.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;201&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"201"</span>)]
         </span>OriginalMessage(::prost::alloc::string::String),
     }
 }
@@ -1782,25 +1783,25 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DatabaseEngine::Unspecified =&gt; <span class="string">&quot;DATABASE_ENGINE_UNSPECIFIED&quot;</span>,
-            DatabaseEngine::Mysql =&gt; <span class="string">&quot;MYSQL&quot;</span>,
-            DatabaseEngine::Postgresql =&gt; <span class="string">&quot;POSTGRESQL&quot;</span>,
-            DatabaseEngine::Sqlserver =&gt; <span class="string">&quot;SQLSERVER&quot;</span>,
-            DatabaseEngine::Oracle =&gt; <span class="string">&quot;ORACLE&quot;</span>,
-            DatabaseEngine::Spanner =&gt; <span class="string">&quot;SPANNER&quot;</span>,
+            DatabaseEngine::Unspecified =&gt; <span class="string">"DATABASE_ENGINE_UNSPECIFIED"</span>,
+            DatabaseEngine::Mysql =&gt; <span class="string">"MYSQL"</span>,
+            DatabaseEngine::Postgresql =&gt; <span class="string">"POSTGRESQL"</span>,
+            DatabaseEngine::Sqlserver =&gt; <span class="string">"SQLSERVER"</span>,
+            DatabaseEngine::Oracle =&gt; <span class="string">"ORACLE"</span>,
+            DatabaseEngine::Spanner =&gt; <span class="string">"SPANNER"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;DATABASE_ENGINE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;MYSQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
-            <span class="string">&quot;POSTGRESQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Postgresql),
-            <span class="string">&quot;SQLSERVER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sqlserver),
-            <span class="string">&quot;ORACLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Oracle),
-            <span class="string">&quot;SPANNER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Spanner),
+            <span class="string">"DATABASE_ENGINE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"MYSQL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mysql),
+            <span class="string">"POSTGRESQL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Postgresql),
+            <span class="string">"SQLSERVER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sqlserver),
+            <span class="string">"ORACLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Oracle),
+            <span class="string">"SPANNER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Spanner),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1825,23 +1826,23 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            DatabaseProvider::Unspecified =&gt; <span class="string">&quot;DATABASE_PROVIDER_UNSPECIFIED&quot;</span>,
-            DatabaseProvider::Cloudsql =&gt; <span class="string">&quot;CLOUDSQL&quot;</span>,
-            DatabaseProvider::Rds =&gt; <span class="string">&quot;RDS&quot;</span>,
-            DatabaseProvider::Aurora =&gt; <span class="string">&quot;AURORA&quot;</span>,
-            DatabaseProvider::Alloydb =&gt; <span class="string">&quot;ALLOYDB&quot;</span>,
+            DatabaseProvider::Unspecified =&gt; <span class="string">"DATABASE_PROVIDER_UNSPECIFIED"</span>,
+            DatabaseProvider::Cloudsql =&gt; <span class="string">"CLOUDSQL"</span>,
+            DatabaseProvider::Rds =&gt; <span class="string">"RDS"</span>,
+            DatabaseProvider::Aurora =&gt; <span class="string">"AURORA"</span>,
+            DatabaseProvider::Alloydb =&gt; <span class="string">"ALLOYDB"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;DATABASE_PROVIDER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;CLOUDSQL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cloudsql),
-            <span class="string">&quot;RDS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rds),
-            <span class="string">&quot;AURORA&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aurora),
-            <span class="string">&quot;ALLOYDB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Alloydb),
+            <span class="string">"DATABASE_PROVIDER_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"CLOUDSQL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cloudsql),
+            <span class="string">"RDS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Rds),
+            <span class="string">"AURORA" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aurora),
+            <span class="string">"ALLOYDB" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Alloydb),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }

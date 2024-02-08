@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/recommender/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/recommender/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1746,45 +1747,45 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Insight {
     <span class="doccomment">/// Name of the insight.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Free-form human readable summary in English. The maximum length is 500
     /// characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Fully qualified resource names that this insight is targeting.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>target_resources: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Insight subtype. Insight content schema will be stable for a given subtype.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>insight_subtype: ::prost::alloc::string::String,
     <span class="doccomment">/// A struct of custom fields to explain the insight.
-    /// Example: &quot;grantedPermissionsCount&quot;: &quot;1000&quot;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    /// Example: "grantedPermissionsCount": "1000"
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>content: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// Timestamp of the latest data used to generate the insight.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>last_refresh_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Observation period that led to the insight. The source data used to
     /// generate the insight ends at last_refresh_time and begins at
     /// (last_refresh_time - observation_period).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>observation_period: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Information state and metadata.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>state_info: ::core::option::Option&lt;InsightStateInfo&gt;,
     <span class="doccomment">/// Category being targeted by the insight.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;insight::Category&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"insight::Category"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>category: i32,
-    <span class="doccomment">/// Insight&#39;s severity.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;insight::Severity&quot;</span>, tag = <span class="string">&quot;15&quot;</span>)]
+    <span class="doccomment">/// Insight's severity.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"insight::Severity"</span>, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>severity: i32,
     <span class="doccomment">/// Fingerprint of the Insight. Provides optimistic locking when updating
     /// states.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Recommendations derived from this insight.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>associated_recommendations: ::prost::alloc::vec::Vec&lt;
         insight::RecommendationReference,
     &gt;,
@@ -1797,7 +1798,7 @@
     </span><span class="kw">pub struct </span>RecommendationReference {
         <span class="doccomment">/// Recommendation resource name, e.g.
         /// projects/\[PROJECT_NUMBER\]/locations/\[LOCATION\]/recommenders/\[RECOMMENDER_ID\]/recommendations/\[RECOMMENDATION_ID\]
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>recommendation: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Insight category.
@@ -1834,27 +1835,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Category::Unspecified =&gt; <span class="string">&quot;CATEGORY_UNSPECIFIED&quot;</span>,
-                Category::Cost =&gt; <span class="string">&quot;COST&quot;</span>,
-                Category::Security =&gt; <span class="string">&quot;SECURITY&quot;</span>,
-                Category::Performance =&gt; <span class="string">&quot;PERFORMANCE&quot;</span>,
-                Category::Manageability =&gt; <span class="string">&quot;MANAGEABILITY&quot;</span>,
-                Category::Sustainability =&gt; <span class="string">&quot;SUSTAINABILITY&quot;</span>,
-                Category::Reliability =&gt; <span class="string">&quot;RELIABILITY&quot;</span>,
+                Category::Unspecified =&gt; <span class="string">"CATEGORY_UNSPECIFIED"</span>,
+                Category::Cost =&gt; <span class="string">"COST"</span>,
+                Category::Security =&gt; <span class="string">"SECURITY"</span>,
+                Category::Performance =&gt; <span class="string">"PERFORMANCE"</span>,
+                Category::Manageability =&gt; <span class="string">"MANAGEABILITY"</span>,
+                Category::Sustainability =&gt; <span class="string">"SUSTAINABILITY"</span>,
+                Category::Reliability =&gt; <span class="string">"RELIABILITY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;COST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cost),
-                <span class="string">&quot;SECURITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Security),
-                <span class="string">&quot;PERFORMANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Performance),
-                <span class="string">&quot;MANAGEABILITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Manageability),
-                <span class="string">&quot;SUSTAINABILITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sustainability),
-                <span class="string">&quot;RELIABILITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reliability),
+                <span class="string">"CATEGORY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"COST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cost),
+                <span class="string">"SECURITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Security),
+                <span class="string">"PERFORMANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Performance),
+                <span class="string">"MANAGEABILITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Manageability),
+                <span class="string">"SUSTAINABILITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sustainability),
+                <span class="string">"RELIABILITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reliability),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1889,23 +1890,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Severity::Unspecified =&gt; <span class="string">&quot;SEVERITY_UNSPECIFIED&quot;</span>,
-                Severity::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
-                Severity::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
-                Severity::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
-                Severity::Critical =&gt; <span class="string">&quot;CRITICAL&quot;</span>,
+                Severity::Unspecified =&gt; <span class="string">"SEVERITY_UNSPECIFIED"</span>,
+                Severity::Low =&gt; <span class="string">"LOW"</span>,
+                Severity::Medium =&gt; <span class="string">"MEDIUM"</span>,
+                Severity::High =&gt; <span class="string">"HIGH"</span>,
+                Severity::Critical =&gt; <span class="string">"CRITICAL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SEVERITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
-                <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-                <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
-                <span class="string">&quot;CRITICAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
+                <span class="string">"SEVERITY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+                <span class="string">"MEDIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+                <span class="string">"HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+                <span class="string">"CRITICAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1916,10 +1917,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>InsightStateInfo {
     <span class="doccomment">/// Insight state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;insight_state_info::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"insight_state_info::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// A map of metadata for the state, provided by user or automations systems.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state_metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1961,21 +1962,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Accepted =&gt; <span class="string">&quot;ACCEPTED&quot;</span>,
-                State::Dismissed =&gt; <span class="string">&quot;DISMISSED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Accepted =&gt; <span class="string">"ACCEPTED"</span>,
+                State::Dismissed =&gt; <span class="string">"DISMISSED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;ACCEPTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Accepted),
-                <span class="string">&quot;DISMISSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dismissed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"ACCEPTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Accepted),
+                <span class="string">"DISMISSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dismissed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1987,11 +1988,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Recommendation {
     <span class="doccomment">/// Name of recommendation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Free-form human readable summary in English. The maximum length is 500
     /// characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Contains an identifier for a subtype of recommendations produced for the
     /// same recommender. Subtype is a function of content and impact, meaning a
@@ -2000,44 +2001,44 @@
     /// to see a list of subtypes for a given Recommender.
     ///
     /// Examples:
-    ///    For recommender = &quot;google.iam.policy.Recommender&quot;,
-    ///    recommender_subtype can be one of &quot;REMOVE_ROLE&quot;/&quot;REPLACE_ROLE&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    ///    For recommender = "google.iam.policy.Recommender",
+    ///    recommender_subtype can be one of "REMOVE_ROLE"/"REPLACE_ROLE"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>recommender_subtype: ::prost::alloc::string::String,
     <span class="doccomment">/// Last time this recommendation was refreshed by the system that created it
     /// in the first place.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>last_refresh_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The primary impact that this recommendation can have while trying to
     /// optimize for one category.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>primary_impact: ::core::option::Option&lt;Impact&gt;,
     <span class="doccomment">/// Optional set of additional impact that this recommendation may have when
     /// trying to optimize for the primary category. These may be positive
     /// or negative.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>additional_impact: ::prost::alloc::vec::Vec&lt;Impact&gt;,
-    <span class="doccomment">/// Recommendation&#39;s priority.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;recommendation::Priority&quot;</span>, tag = <span class="string">&quot;17&quot;</span>)]
+    <span class="doccomment">/// Recommendation's priority.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"recommendation::Priority"</span>, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>priority: i32,
     <span class="doccomment">/// Content of the recommendation describing recommended changes to resources.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>content: ::core::option::Option&lt;RecommendationContent&gt;,
     <span class="doccomment">/// Information for state. Contains state and metadata.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>state_info: ::core::option::Option&lt;RecommendationStateInfo&gt;,
     <span class="doccomment">/// Fingerprint of the Recommendation. Provides optimistic locking when
     /// updating states.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Insights that led to this recommendation.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>associated_insights: ::prost::alloc::vec::Vec&lt;recommendation::InsightReference&gt;,
     <span class="doccomment">/// Corresponds to a mutually exclusive group ID within a recommender.
     /// A non-empty ID indicates that the recommendation belongs to a mutually
     /// exclusive group. This means that only one recommendation within the group
     /// is suggested to be applied.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>xor_group_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `Recommendation`.
@@ -2048,7 +2049,7 @@
     </span><span class="kw">pub struct </span>InsightReference {
         <span class="doccomment">/// Insight resource name, e.g.
         /// projects/\[PROJECT_NUMBER\]/locations/\[LOCATION\]/insightTypes/\[INSIGHT_TYPE_ID\]/insights/\[INSIGHT_ID\]
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>insight: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Recommendation priority levels.
@@ -2081,23 +2082,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Priority::Unspecified =&gt; <span class="string">&quot;PRIORITY_UNSPECIFIED&quot;</span>,
-                Priority::P4 =&gt; <span class="string">&quot;P4&quot;</span>,
-                Priority::P3 =&gt; <span class="string">&quot;P3&quot;</span>,
-                Priority::P2 =&gt; <span class="string">&quot;P2&quot;</span>,
-                Priority::P1 =&gt; <span class="string">&quot;P1&quot;</span>,
+                Priority::Unspecified =&gt; <span class="string">"PRIORITY_UNSPECIFIED"</span>,
+                Priority::P4 =&gt; <span class="string">"P4"</span>,
+                Priority::P3 =&gt; <span class="string">"P3"</span>,
+                Priority::P2 =&gt; <span class="string">"P2"</span>,
+                Priority::P1 =&gt; <span class="string">"P1"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;PRIORITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;P4&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P4),
-                <span class="string">&quot;P3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P3),
-                <span class="string">&quot;P2&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P2),
-                <span class="string">&quot;P1&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P1),
+                <span class="string">"PRIORITY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"P4" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P4),
+                <span class="string">"P3" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P3),
+                <span class="string">"P2" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P2),
+                <span class="string">"P1" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::P1),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2110,10 +2111,10 @@
     <span class="doccomment">/// Operations to one or more Google Cloud resources grouped in such a way
     /// that, all operations within one group are expected to be performed
     /// atomically and in an order.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>operation_groups: ::prost::alloc::vec::Vec&lt;OperationGroup&gt;,
     <span class="doccomment">/// Condensed overview information about the recommendation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>overview: ::core::option::Option&lt;::prost_types::Struct&gt;,
 }
 <span class="doccomment">/// Group of operations that need to be performed atomically.
@@ -2122,7 +2123,7 @@
 </span><span class="kw">pub struct </span>OperationGroup {
     <span class="doccomment">/// List of operations across one or more resources that belong to this group.
     /// Loosely based on RFC6902 and should be performed in the order they appear.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>operations: ::prost::alloc::vec::Vec&lt;Operation&gt;,
 }
 <span class="doccomment">/// Contains an operation for a resource loosely based on the JSON-PATCH format
@@ -2137,34 +2138,34 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Operation {
-    <span class="doccomment">/// Type of this operation. Contains one of &#39;add&#39;, &#39;remove&#39;, &#39;replace&#39;, &#39;move&#39;,
-    /// &#39;copy&#39;, &#39;test&#39; and custom operations. This field is case-insensitive and
+    <span class="doccomment">/// Type of this operation. Contains one of 'add', 'remove', 'replace', 'move',
+    /// 'copy', 'test' and custom operations. This field is case-insensitive and
     /// always populated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>action: ::prost::alloc::string::String,
     <span class="doccomment">/// Type of GCP resource being modified/tested. This field is always populated.
     /// Example: cloudresourcemanager.googleapis.com/Project,
     /// compute.googleapis.com/Instance
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Contains the fully qualified resource name. This field is always populated.
     /// ex: //cloudresourcemanager.googleapis.com/projects/foo.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
     <span class="doccomment">/// Path to the target field being operated on. If the operation is at the
-    /// resource level, then path should be &quot;/&quot;. This field is always populated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    /// resource level, then path should be "/". This field is always populated.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
-    <span class="doccomment">/// Can be set with action &#39;copy&#39; to copy resource configuration across
+    <span class="doccomment">/// Can be set with action 'copy' to copy resource configuration across
     /// different resources of the same type. Example: A resource clone can be
-    /// done via action = &#39;copy&#39;, path = &quot;/&quot;, from = &quot;/&quot;,
+    /// done via action = 'copy', path = "/", from = "/",
     /// source_resource = &lt;source&gt; and resource_name = &lt;target&gt;.
     /// This field is empty for all other values of `action`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>source_resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// Can be set with action &#39;copy&#39; or &#39;move&#39; to indicate the source field within
+    <span class="doccomment">/// Can be set with action 'copy' or 'move' to indicate the source field within
     /// resource or source_resource, ignored if provided for other operation types.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>source_path: ::prost::alloc::string::String,
     <span class="doccomment">/// Set of filters to apply if `path` refers to array elements or nested array
     /// elements in order to narrow down to a single unique element that is being
@@ -2175,27 +2176,27 @@
     /// * Example:
     /// ```
     /// {
-    ///    &quot;/versions/*/name&quot; : &quot;it-123&quot;
-    ///    &quot;/versions/*/targetSize/percent&quot;: 20
+    ///    "/versions/*/name" : "it-123"
+    ///    "/versions/*/targetSize/percent": 20
     /// }
     /// ```
     /// * Example:
     /// ```
     /// {
-    ///    &quot;/bindings/*/role&quot;: &quot;roles/owner&quot;
-    ///    &quot;/bindings/*/condition&quot; : null
+    ///    "/bindings/*/role": "roles/owner"
+    ///    "/bindings/*/condition" : null
     /// }
     /// ```
     /// * Example:
     /// ```
     /// {
-    ///    &quot;/bindings/*/role&quot;: &quot;roles/owner&quot;
-    ///    &quot;/bindings/*/members/*&quot; : \[&quot;x@example.com&quot;, &quot;y@example.com&quot;\]
+    ///    "/bindings/*/role": "roles/owner"
+    ///    "/bindings/*/members/*" : \["x@example.com", "y@example.com"\]
     /// }
     /// ```
     /// When both path_filters and path_value_matchers are set, an implicit AND
     /// must be performed.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>path_filters: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost_types::Value,
@@ -2205,31 +2206,31 @@
     /// beyond exact match. To perform exact match, use path_filters.
     /// When both path_filters and path_value_matchers are set, an implicit AND
     /// must be performed.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>path_value_matchers: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ValueMatcher,
     &gt;,
     <span class="doccomment">/// One of the fields in the following block will be set and intend to
-    /// describe a value for &#39;path&#39; field.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;operation::PathValue&quot;</span>, tags = <span class="string">&quot;7, 10&quot;</span>)]
+    /// describe a value for 'path' field.
+    </span><span class="attr">#[prost(oneof = <span class="string">"operation::PathValue"</span>, tags = <span class="string">"7, 10"</span>)]
     </span><span class="kw">pub </span>path_value: ::core::option::Option&lt;operation::PathValue&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Operation`.
 </span><span class="kw">pub mod </span>operation {
     <span class="doccomment">/// One of the fields in the following block will be set and intend to
-    /// describe a value for &#39;path&#39; field.
+    /// describe a value for 'path' field.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>PathValue {
-        <span class="doccomment">/// Value for the `path` field. Will be set for actions:&#39;add&#39;/&#39;replace&#39;.
-        /// Maybe set for action: &#39;test&#39;. Either this or `value_matcher` will be set
-        /// for &#39;test&#39; operation. An exact match must be performed.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;7&quot;</span>)]
+        <span class="doccomment">/// Value for the `path` field. Will be set for actions:'add'/'replace'.
+        /// Maybe set for action: 'test'. Either this or `value_matcher` will be set
+        /// for 'test' operation. An exact match must be performed.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"7"</span>)]
         </span>Value(::prost_types::Value),
-        <span class="doccomment">/// Can be set for action &#39;test&#39; for advanced matching for the value of
-        /// &#39;path&#39; field. Either this or `value` will be set for &#39;test&#39; operation.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;10&quot;</span>)]
+        <span class="doccomment">/// Can be set for action 'test' for advanced matching for the value of
+        /// 'path' field. Either this or `value` will be set for 'test' operation.
+        </span><span class="attr">#[prost(message, tag = <span class="string">"10"</span>)]
         </span>ValueMatcher(<span class="kw">super</span>::ValueMatcher),
     }
 }
@@ -2237,7 +2238,7 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ValueMatcher {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;value_matcher::MatchVariant&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"value_matcher::MatchVariant"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>match_variant: ::core::option::Option&lt;value_matcher::MatchVariant&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ValueMatcher`.
@@ -2248,7 +2249,7 @@
         <span class="doccomment">/// To be used for full regex matching. The regular expression is using the
         /// Google RE2 syntax (&lt;https://github.com/google/re2/wiki/Syntax&gt;), so to be
         /// used with RE2::FullMatch
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>MatchesPattern(::prost::alloc::string::String),
     }
 }
@@ -2260,15 +2261,15 @@
     /// units indicate cost savings and positive cost units indicate increase.
     /// See google.type.Money documentation for positive/negative units.
     ///
-    /// A user&#39;s permissions may affect whether the cost is computed using list
+    /// A user's permissions may affect whether the cost is computed using list
     /// prices or custom contract prices.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>cost: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money&gt;,
     <span class="doccomment">/// Duration for which this cost applies.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
-    <span class="doccomment">/// The approximate cost savings in the billing account&#39;s local currency.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    <span class="doccomment">/// The approximate cost savings in the billing account's local currency.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>cost_in_local_currency: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Money,
     &gt;,
@@ -2278,7 +2279,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SecurityProjection {
     <span class="doccomment">/// Additional security impact details that is provided by the recommender.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>details: ::core::option::Option&lt;::prost_types::Struct&gt;,
 }
 <span class="doccomment">/// Contains metadata about how much sustainability a recommendation can save or
@@ -2288,10 +2289,10 @@
 </span><span class="kw">pub struct </span>SustainabilityProjection {
     <span class="doccomment">/// Carbon Footprint generated in kg of CO2 equivalent.
     /// Chose kg_c_o2e so that the name renders correctly in camelCase (kgCO2e).
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>kg_c_o2e: f64,
     <span class="doccomment">/// Duration for which this sustainability applies.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>duration: ::core::option::Option&lt;::prost_types::Duration&gt;,
 }
 <span class="doccomment">/// Contains information on the impact of a reliability recommendation.
@@ -2299,10 +2300,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReliabilityProjection {
     <span class="doccomment">/// Reliability risks mitigated by this recommendation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;reliability_projection::RiskType&quot;</span>, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"reliability_projection::RiskType"</span>, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>risks: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Per-recommender projection.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>details: ::core::option::Option&lt;::prost_types::Struct&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ReliabilityProjection`.
@@ -2321,14 +2322,14 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>RiskType {
-        <span class="doccomment">/// Default unspecified risk. Don&#39;t use directly.
+        <span class="doccomment">/// Default unspecified risk. Don't use directly.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Potential service downtime.
         </span>ServiceDisruption = <span class="number">1</span>,
         <span class="doccomment">/// Potential data loss.
         </span>DataLoss = <span class="number">2</span>,
         <span class="doccomment">/// Potential access denial. The service is still up but some or all clients
-        /// can&#39;t access it.
+        /// can't access it.
         </span>AccessDeny = <span class="number">3</span>,
     }
     <span class="kw">impl </span>RiskType {
@@ -2336,21 +2337,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RiskType::Unspecified =&gt; <span class="string">&quot;RISK_TYPE_UNSPECIFIED&quot;</span>,
-                RiskType::ServiceDisruption =&gt; <span class="string">&quot;SERVICE_DISRUPTION&quot;</span>,
-                RiskType::DataLoss =&gt; <span class="string">&quot;DATA_LOSS&quot;</span>,
-                RiskType::AccessDeny =&gt; <span class="string">&quot;ACCESS_DENY&quot;</span>,
+                RiskType::Unspecified =&gt; <span class="string">"RISK_TYPE_UNSPECIFIED"</span>,
+                RiskType::ServiceDisruption =&gt; <span class="string">"SERVICE_DISRUPTION"</span>,
+                RiskType::DataLoss =&gt; <span class="string">"DATA_LOSS"</span>,
+                RiskType::AccessDeny =&gt; <span class="string">"ACCESS_DENY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RISK_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SERVICE_DISRUPTION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceDisruption),
-                <span class="string">&quot;DATA_LOSS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataLoss),
-                <span class="string">&quot;ACCESS_DENY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AccessDeny),
+                <span class="string">"RISK_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SERVICE_DISRUPTION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceDisruption),
+                <span class="string">"DATA_LOSS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataLoss),
+                <span class="string">"ACCESS_DENY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AccessDeny),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2361,10 +2362,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Impact {
     <span class="doccomment">/// Category that is being targeted.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;impact::Category&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"impact::Category"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>category: i32,
     <span class="doccomment">/// Contains projections (if any) for this category.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;impact::Projection&quot;</span>, tags = <span class="string">&quot;100, 101, 102, 103&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"impact::Projection"</span>, tags = <span class="string">"100, 101, 102, 103"</span>)]
     </span><span class="kw">pub </span>projection: ::core::option::Option&lt;impact::Projection&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Impact`.
@@ -2383,7 +2384,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>Category {
-        <span class="doccomment">/// Default unspecified category. Don&#39;t use directly.
+        <span class="doccomment">/// Default unspecified category. Don't use directly.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Indicates a potential increase or decrease in cost.
         </span>Cost = <span class="number">1</span>,
@@ -2403,27 +2404,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Category::Unspecified =&gt; <span class="string">&quot;CATEGORY_UNSPECIFIED&quot;</span>,
-                Category::Cost =&gt; <span class="string">&quot;COST&quot;</span>,
-                Category::Security =&gt; <span class="string">&quot;SECURITY&quot;</span>,
-                Category::Performance =&gt; <span class="string">&quot;PERFORMANCE&quot;</span>,
-                Category::Manageability =&gt; <span class="string">&quot;MANAGEABILITY&quot;</span>,
-                Category::Sustainability =&gt; <span class="string">&quot;SUSTAINABILITY&quot;</span>,
-                Category::Reliability =&gt; <span class="string">&quot;RELIABILITY&quot;</span>,
+                Category::Unspecified =&gt; <span class="string">"CATEGORY_UNSPECIFIED"</span>,
+                Category::Cost =&gt; <span class="string">"COST"</span>,
+                Category::Security =&gt; <span class="string">"SECURITY"</span>,
+                Category::Performance =&gt; <span class="string">"PERFORMANCE"</span>,
+                Category::Manageability =&gt; <span class="string">"MANAGEABILITY"</span>,
+                Category::Sustainability =&gt; <span class="string">"SUSTAINABILITY"</span>,
+                Category::Reliability =&gt; <span class="string">"RELIABILITY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CATEGORY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;COST&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cost),
-                <span class="string">&quot;SECURITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Security),
-                <span class="string">&quot;PERFORMANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Performance),
-                <span class="string">&quot;MANAGEABILITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Manageability),
-                <span class="string">&quot;SUSTAINABILITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sustainability),
-                <span class="string">&quot;RELIABILITY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reliability),
+                <span class="string">"CATEGORY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"COST" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cost),
+                <span class="string">"SECURITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Security),
+                <span class="string">"PERFORMANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Performance),
+                <span class="string">"MANAGEABILITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Manageability),
+                <span class="string">"SUSTAINABILITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Sustainability),
+                <span class="string">"RELIABILITY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Reliability),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2433,16 +2434,16 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Projection {
         <span class="doccomment">/// Use with CategoryType.COST
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;100&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"100"</span>)]
         </span>CostProjection(<span class="kw">super</span>::CostProjection),
         <span class="doccomment">/// Use with CategoryType.SECURITY
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;101&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"101"</span>)]
         </span>SecurityProjection(<span class="kw">super</span>::SecurityProjection),
         <span class="doccomment">/// Use with CategoryType.SUSTAINABILITY
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;102&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"102"</span>)]
         </span>SustainabilityProjection(<span class="kw">super</span>::SustainabilityProjection),
         <span class="doccomment">/// Use with CategoryType.RELIABILITY
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;103&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"103"</span>)]
         </span>ReliabilityProjection(<span class="kw">super</span>::ReliabilityProjection),
     }
 }
@@ -2451,10 +2452,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RecommendationStateInfo {
     <span class="doccomment">/// The state of the recommendation, Eg ACTIVE, SUCCEEDED, FAILED.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;recommendation_state_info::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"recommendation_state_info::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// A map of metadata for the state, provided by user or automations systems.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state_metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -2476,7 +2477,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>State {
-        <span class="doccomment">/// Default state. Don&#39;t use directly.
+        <span class="doccomment">/// Default state. Don't use directly.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Recommendation is active and can be applied. Recommendations content can
         /// be updated by Google.
@@ -2509,25 +2510,25 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Active =&gt; <span class="string">&quot;ACTIVE&quot;</span>,
-                State::Claimed =&gt; <span class="string">&quot;CLAIMED&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Dismissed =&gt; <span class="string">&quot;DISMISSED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Active =&gt; <span class="string">"ACTIVE"</span>,
+                State::Claimed =&gt; <span class="string">"CLAIMED"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Dismissed =&gt; <span class="string">"DISMISSED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
-                <span class="string">&quot;CLAIMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Claimed),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;DISMISSED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dismissed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Active),
+                <span class="string">"CLAIMED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Claimed),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"DISMISSED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dismissed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2540,25 +2541,25 @@
     <span class="doccomment">/// Name of insight type config.
     /// Eg,
     /// projects/\[PROJECT_NUMBER\]/locations/\[LOCATION\]/insightTypes/\[INSIGHT_TYPE_ID\]/config
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// InsightTypeGenerationConfig which configures the generation of
     /// insights for this insight type.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>insight_type_generation_config: ::core::option::Option&lt;
         InsightTypeGenerationConfig,
     &gt;,
     <span class="doccomment">/// Fingerprint of the InsightTypeConfig. Provides optimistic locking when
     /// updating.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Last time when the config was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Immutable. The revision ID of the config.
     /// A new revision is committed whenever the config is changed in any way.
     /// The format is an 8-character hexadecimal string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>revision_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Allows clients to store small amounts of arbitrary data. Annotations must
     /// follow the Kubernetes syntax.
@@ -2568,14 +2569,14 @@
     /// Prefix must be a DNS subdomain.
     /// Name must be 63 characters or less, begin and end with alphanumerics,
     /// with dashes (-), underscores (_), dots (.), and alphanumerics between.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// A user-settable field to provide a human-readable name to be used in user
     /// interfaces.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A configuration to customize the generation of insights.
@@ -2586,7 +2587,7 @@
 </span><span class="kw">pub struct </span>InsightTypeGenerationConfig {
     <span class="doccomment">/// Parameters for this InsightTypeGenerationConfig. These configs can be used
     /// by or are applied to all subtypes.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>params: ::core::option::Option&lt;::prost_types::Struct&gt;,
 }
 <span class="doccomment">/// Configuration for a Recommender.
@@ -2596,25 +2597,25 @@
     <span class="doccomment">/// Name of recommender config.
     /// Eg,
     /// projects/\[PROJECT_NUMBER\]/locations/\[LOCATION\]/recommenders/\[RECOMMENDER_ID\]/config
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// RecommenderGenerationConfig which configures the Generation of
     /// recommendations for this recommender.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>recommender_generation_config: ::core::option::Option&lt;
         RecommenderGenerationConfig,
     &gt;,
     <span class="doccomment">/// Fingerprint of the RecommenderConfig. Provides optimistic locking when
     /// updating.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
     <span class="doccomment">/// Last time when the config was updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Immutable. The revision ID of the config.
     /// A new revision is committed whenever the config is changed in any way.
     /// The format is an 8-character hexadecimal string.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>revision_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Allows clients to store small amounts of arbitrary data. Annotations must
     /// follow the Kubernetes syntax.
@@ -2624,14 +2625,14 @@
     /// Prefix must be a DNS subdomain.
     /// Name must be 63 characters or less, begin and end with alphanumerics,
     /// with dashes (-), underscores (_), dots (.), and alphanumerics between.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>annotations: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// A user-settable field to provide a human-readable name to be used in user
     /// interfaces.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A Configuration to customize the generation of recommendations.
@@ -2642,7 +2643,7 @@
 </span><span class="kw">pub struct </span>RecommenderGenerationConfig {
     <span class="doccomment">/// Parameters for this RecommenderGenerationConfig. These configs can be used
     /// by or are applied to all subtypes.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>params: ::core::option::Option&lt;::prost_types::Struct&gt;,
 }
 <span class="doccomment">/// Request for the `ListInsights` method.
@@ -2666,18 +2667,18 @@
     /// &lt;https://cloud.google.com/about/locations/&gt;
     /// INSIGHT_TYPE_ID refers to supported insight types:
     /// &lt;https://cloud.google.com/recommender/docs/insights/insight-types.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of results to return from this request.
     /// Non-positive values are ignored. If not specified, the server will
     /// determine the number of results to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. If present, retrieves the next batch of results from the
     /// preceding call to this method. `page_token` must be the value of
     /// `next_page_token` from the previous response. The values of other method
     /// parameters must be identical to those in the previous call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Filter expression to restrict the insights returned. Supported
     /// filter fields:
@@ -2707,7 +2708,7 @@
     ///
     /// (These expressions are based on the filter language described at
     /// &lt;https://google.aip.dev/160&gt;)
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response to the `ListInsights` method.
@@ -2715,11 +2716,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListInsightsResponse {
     <span class="doccomment">/// The set of insights for the `parent` resource.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>insights: ::prost::alloc::vec::Vec&lt;Insight&gt;,
     <span class="doccomment">/// A token that can be used to request the next page of results. This field is
     /// empty if there are no additional results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to the `GetInsight` method.
@@ -2727,7 +2728,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetInsightRequest {
     <span class="doccomment">/// Required. Name of the insight.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `MarkInsightAccepted` method.
@@ -2735,17 +2736,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MarkInsightAcceptedRequest {
     <span class="doccomment">/// Required. Name of the insight.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. State properties user wish to include with this state.  Full
     /// replace of the current state_metadata.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state_metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Required. Fingerprint of the Insight. Provides optimistic locking.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `ListRecommendations` method.
@@ -2769,18 +2770,18 @@
     /// &lt;https://cloud.google.com/about/locations/&gt;
     /// RECOMMENDER_ID refers to supported recommenders:
     /// &lt;https://cloud.google.com/recommender/docs/recommenders.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of results to return from this request.
     /// Non-positive values are ignored. If not specified, the server will
     /// determine the number of results to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. If present, retrieves the next batch of results from the
     /// preceding call to this method. `page_token` must be the value of
     /// `next_page_token` from the previous response. The values of other method
     /// parameters must be identical to those in the previous call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Filter expression to restrict the recommendations returned. Supported
     /// filter fields:
@@ -2810,7 +2811,7 @@
     ///
     /// (These expressions are based on the filter language described at
     /// &lt;https://google.aip.dev/160&gt;)
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response to the `ListRecommendations` method.
@@ -2818,11 +2819,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRecommendationsResponse {
     <span class="doccomment">/// The set of recommendations for the `parent` resource.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>recommendations: ::prost::alloc::vec::Vec&lt;Recommendation&gt;,
     <span class="doccomment">/// A token that can be used to request the next page of results. This field is
     /// empty if there are no additional results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to the `GetRecommendation` method.
@@ -2830,7 +2831,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetRecommendationRequest {
     <span class="doccomment">/// Required. Name of the recommendation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `MarkRecommendationDismissed` Method.
@@ -2838,10 +2839,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MarkRecommendationDismissedRequest {
     <span class="doccomment">/// Required. Name of the recommendation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Fingerprint of the Recommendation. Provides optimistic locking.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `MarkRecommendationClaimed` Method.
@@ -2849,19 +2850,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MarkRecommendationClaimedRequest {
     <span class="doccomment">/// Required. Name of the recommendation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// State properties to include with this state. Overwrites any existing
     /// `state_metadata`.
     /// Keys must match the regex `/^[a-z0-9][a-z0-9_.-]{0,62}$/`.
     /// Values must match the regex `/^\[a-zA-Z0-9_./-\]{0,255}$/`.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state_metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Required. Fingerprint of the Recommendation. Provides optimistic locking.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `MarkRecommendationSucceeded` Method.
@@ -2869,19 +2870,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MarkRecommendationSucceededRequest {
     <span class="doccomment">/// Required. Name of the recommendation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// State properties to include with this state. Overwrites any existing
     /// `state_metadata`.
     /// Keys must match the regex `/^[a-z0-9][a-z0-9_.-]{0,62}$/`.
     /// Values must match the regex `/^\[a-zA-Z0-9_./-\]{0,255}$/`.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state_metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Required. Fingerprint of the Recommendation. Provides optimistic locking.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `MarkRecommendationFailed` Method.
@@ -2889,19 +2890,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MarkRecommendationFailedRequest {
     <span class="doccomment">/// Required. Name of the recommendation.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// State properties to include with this state. Overwrites any existing
     /// `state_metadata`.
     /// Keys must match the regex `/^[a-z0-9][a-z0-9_.-]{0,62}$/`.
     /// Values must match the regex `/^\[a-zA-Z0-9_./-\]{0,255}$/`.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>state_metadata: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Required. Fingerprint of the Recommendation. Provides optimistic locking.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>etag: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the GetRecommenderConfig` method.
@@ -2919,7 +2920,7 @@
     /// * `organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION\]/recommenders/\[RECOMMENDER_ID\]/config`
     ///
     /// * `billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION\]/recommenders/\[RECOMMENDER_ID\]/config`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `UpdateRecommenderConfig` method.
@@ -2927,14 +2928,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateRecommenderConfigRequest {
     <span class="doccomment">/// Required. The RecommenderConfig to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>recommender_config: ::core::option::Option&lt;RecommenderConfig&gt;,
     <span class="doccomment">/// The list of fields to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// If true, validate the request and preview the change, but do not actually
     /// update it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Request for the GetInsightTypeConfig` method.
@@ -2952,7 +2953,7 @@
     /// * `organizations/\[ORGANIZATION_ID\]/locations/\[LOCATION\]/insightTypes/\[INSIGHT_TYPE_ID\]/config`
     ///
     /// * `billingAccounts/\[BILLING_ACCOUNT_ID\]/locations/\[LOCATION\]/insightTypes/\[INSIGHT_TYPE_ID\]/config`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `UpdateInsightTypeConfig` method.
@@ -2960,14 +2961,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateInsightTypeConfigRequest {
     <span class="doccomment">/// Required. The InsightTypeConfig to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>insight_type_config: ::core::option::Option&lt;InsightTypeConfig&gt;,
     <span class="doccomment">/// The list of fields to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// If true, validate the request and preview the change, but do not actually
     /// update it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>validate_only: bool,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2987,7 +2988,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3063,19 +3064,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/ListInsights&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/ListInsights"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;ListInsights&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"ListInsights"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3092,19 +3093,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/GetInsight&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/GetInsight"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;GetInsight&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"GetInsight"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3125,19 +3126,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/MarkInsightAccepted&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/MarkInsightAccepted"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;MarkInsightAccepted&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"MarkInsightAccepted"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3157,19 +3158,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/ListRecommendations&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/ListRecommendations"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;ListRecommendations&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"ListRecommendations"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3186,19 +3187,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/GetRecommendation&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/GetRecommendation"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;GetRecommendation&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"GetRecommendation"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3222,19 +3223,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/MarkRecommendationDismissed&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/MarkRecommendationDismissed"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;MarkRecommendationDismissed&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"MarkRecommendationDismissed"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3259,19 +3260,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/MarkRecommendationClaimed&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/MarkRecommendationClaimed"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;MarkRecommendationClaimed&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"MarkRecommendationClaimed"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3297,19 +3298,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/MarkRecommendationSucceeded&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/MarkRecommendationSucceeded"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;MarkRecommendationSucceeded&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"MarkRecommendationSucceeded"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3335,19 +3336,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/MarkRecommendationFailed&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/MarkRecommendationFailed"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;MarkRecommendationFailed&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"MarkRecommendationFailed"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3367,19 +3368,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/GetRecommenderConfig&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/GetRecommenderConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;GetRecommenderConfig&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"GetRecommenderConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3399,19 +3400,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/UpdateRecommenderConfig&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/UpdateRecommenderConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;UpdateRecommenderConfig&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"UpdateRecommenderConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3431,19 +3432,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/GetInsightTypeConfig&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/GetInsightTypeConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;GetInsightTypeConfig&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"GetInsightTypeConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3463,19 +3464,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.recommender.v1.Recommender/UpdateInsightTypeConfig&quot;</span>,
+                <span class="string">"/google.cloud.recommender.v1.Recommender/UpdateInsightTypeConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.recommender.v1.Recommender&quot;</span>,
-                        <span class="string">&quot;UpdateInsightTypeConfig&quot;</span>,
+                        <span class="string">"google.cloud.recommender.v1.Recommender"</span>,
+                        <span class="string">"UpdateInsightTypeConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

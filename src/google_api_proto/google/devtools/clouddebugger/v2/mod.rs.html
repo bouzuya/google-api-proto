@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/clouddebugger/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/clouddebugger/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1246,13 +1247,13 @@
     ///
     /// Examples:
     ///
-    /// *   `Failed to load &#39;$0&#39; which helps debug $1 the first time it
+    /// *   `Failed to load '$0' which helps debug $1 the first time it
     ///      is loaded.  Again, $0 is very important.`
     /// *   `Please pay $$10 to use $0 instead of $1.`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>format: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional parameters to be embedded into the message.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>parameters: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Represents a contextual status message.
@@ -1264,13 +1265,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StatusMessage {
     <span class="doccomment">/// Distinguishes errors from informational messages.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>is_error: bool,
     <span class="doccomment">/// Reference to which the message applies.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;status_message::Reference&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"status_message::Reference"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>refers_to: i32,
     <span class="doccomment">/// Status message text.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>description: ::core::option::Option&lt;FormatMessage&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `StatusMessage`.
@@ -1289,7 +1290,7 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>Reference {
-        <span class="doccomment">/// Status doesn&#39;t refer to any particular input.
+        <span class="doccomment">/// Status doesn't refer to any particular input.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Status applies to the breakpoint and is related to its location.
         </span>BreakpointSourceLocation = <span class="number">3</span>,
@@ -1309,27 +1310,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Reference::Unspecified =&gt; <span class="string">&quot;UNSPECIFIED&quot;</span>,
-                Reference::BreakpointSourceLocation =&gt; <span class="string">&quot;BREAKPOINT_SOURCE_LOCATION&quot;</span>,
-                Reference::BreakpointCondition =&gt; <span class="string">&quot;BREAKPOINT_CONDITION&quot;</span>,
-                Reference::BreakpointExpression =&gt; <span class="string">&quot;BREAKPOINT_EXPRESSION&quot;</span>,
-                Reference::BreakpointAge =&gt; <span class="string">&quot;BREAKPOINT_AGE&quot;</span>,
-                Reference::VariableName =&gt; <span class="string">&quot;VARIABLE_NAME&quot;</span>,
-                Reference::VariableValue =&gt; <span class="string">&quot;VARIABLE_VALUE&quot;</span>,
+                Reference::Unspecified =&gt; <span class="string">"UNSPECIFIED"</span>,
+                Reference::BreakpointSourceLocation =&gt; <span class="string">"BREAKPOINT_SOURCE_LOCATION"</span>,
+                Reference::BreakpointCondition =&gt; <span class="string">"BREAKPOINT_CONDITION"</span>,
+                Reference::BreakpointExpression =&gt; <span class="string">"BREAKPOINT_EXPRESSION"</span>,
+                Reference::BreakpointAge =&gt; <span class="string">"BREAKPOINT_AGE"</span>,
+                Reference::VariableName =&gt; <span class="string">"VARIABLE_NAME"</span>,
+                Reference::VariableValue =&gt; <span class="string">"VARIABLE_VALUE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;BREAKPOINT_SOURCE_LOCATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakpointSourceLocation),
-                <span class="string">&quot;BREAKPOINT_CONDITION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakpointCondition),
-                <span class="string">&quot;BREAKPOINT_EXPRESSION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakpointExpression),
-                <span class="string">&quot;BREAKPOINT_AGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakpointAge),
-                <span class="string">&quot;VARIABLE_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VariableName),
-                <span class="string">&quot;VARIABLE_VALUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VariableValue),
+                <span class="string">"UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"BREAKPOINT_SOURCE_LOCATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakpointSourceLocation),
+                <span class="string">"BREAKPOINT_CONDITION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakpointCondition),
+                <span class="string">"BREAKPOINT_EXPRESSION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakpointExpression),
+                <span class="string">"BREAKPOINT_AGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BreakpointAge),
+                <span class="string">"VARIABLE_NAME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VariableName),
+                <span class="string">"VARIABLE_VALUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VariableValue),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1340,15 +1341,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SourceLocation {
     <span class="doccomment">/// Path to the source file within the source context of the target binary.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>path: ::prost::alloc::string::String,
     <span class="doccomment">/// Line inside the file. The first line in the file has the value `1`.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>line: i32,
     <span class="doccomment">/// Column within a line. The first column in a line as the value `1`.
     /// Agents that do not support setting breakpoints on specific columns ignore
     /// this field.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>column: i32,
 }
 <span class="doccomment">/// Represents a variable or an argument possibly of a compound object type.
@@ -1358,7 +1359,7 @@
 ///
 ///      int x = 5
 ///
-///      { name: &quot;x&quot;, value: &quot;5&quot;, type: &quot;int&quot; }  // Captured variable
+///      { name: "x", value: "5", type: "int" }  // Captured variable
 ///
 /// 2) A compound object:
 ///
@@ -1369,10 +1370,10 @@
 ///      T x = { 3, 7 };
 ///
 ///      {  // Captured variable
-///          name: &quot;x&quot;,
-///          type: &quot;T&quot;,
-///          members { name: &quot;m1&quot;, value: &quot;3&quot;, type: &quot;int&quot; },
-///          members { name: &quot;m2&quot;, value: &quot;7&quot;, type: &quot;int&quot; }
+///          name: "x",
+///          type: "T",
+///          members { name: "m1", value: "3", type: "int" },
+///          members { name: "m2", value: "7", type: "int" }
 ///      }
 ///
 /// 3) A pointer where the pointee was captured:
@@ -1381,11 +1382,11 @@
 ///      T* p = &amp;x;
 ///
 ///      {   // Captured variable
-///          name: &quot;p&quot;,
-///          type: &quot;T*&quot;,
-///          value: &quot;0x00500500&quot;,
-///          members { name: &quot;m1&quot;, value: &quot;3&quot;, type: &quot;int&quot; },
-///          members { name: &quot;m2&quot;, value: &quot;7&quot;, type: &quot;int&quot; }
+///          name: "p",
+///          type: "T*",
+///          value: "0x00500500",
+///          members { name: "m1", value: "3", type: "int" },
+///          members { name: "m2", value: "7", type: "int" }
 ///      }
 ///
 /// 4) A pointer where the pointee was not captured:
@@ -1393,10 +1394,10 @@
 ///      T* p = new T;
 ///
 ///      {   // Captured variable
-///          name: &quot;p&quot;,
-///          type: &quot;T*&quot;,
-///          value: &quot;0x00400400&quot;
-///          status { is_error: true, description { format: &quot;unavailable&quot; } }
+///          name: "p",
+///          type: "T*",
+///          value: "0x00400400"
+///          status { is_error: true, description { format: "unavailable" } }
 ///      }
 ///
 /// The status should describe the reason for the missing value,
@@ -1409,10 +1410,10 @@
 ///      int* p = new int(7);
 ///
 ///      {   // Captured variable
-///          name: &quot;p&quot;,
-///          value: &quot;0x00500500&quot;,
-///          type: &quot;int*&quot;,
-///          members { value: &quot;7&quot;, type: &quot;int&quot; } }
+///          name: "p",
+///          value: "0x00500500",
+///          type: "int*",
+///          members { value: "7", type: "int" } }
 ///
 /// 6) An unnamed pointer where the pointee was not captured:
 ///
@@ -1420,15 +1421,15 @@
 ///      int** pp = &amp;p;
 ///
 ///      {  // Captured variable
-///          name: &quot;pp&quot;,
-///          value: &quot;0x00500500&quot;,
-///          type: &quot;int**&quot;,
+///          name: "pp",
+///          value: "0x00500500",
+///          type: "int**",
 ///          members {
-///              value: &quot;0x00400400&quot;,
-///              type: &quot;int*&quot;
+///              value: "0x00400400",
+///              type: "int*"
 ///              status {
 ///                  is_error: true,
-///                  description: { format: &quot;unavailable&quot; } }
+///                  description: { format: "unavailable" } }
 ///              }
 ///          }
 ///      }
@@ -1446,13 +1447,13 @@
 ///      T* p = &amp;x;
 ///      T&amp; r = x;
 ///
-///      { name: &quot;x&quot;, var_table_index: 3, type: &quot;T&quot; }  // Captured variables
-///      { name: &quot;p&quot;, value &quot;0x00500500&quot;, type=&quot;T*&quot;, var_table_index: 3 }
-///      { name: &quot;r&quot;, type=&quot;T&amp;&quot;, var_table_index: 3 }
+///      { name: "x", var_table_index: 3, type: "T" }  // Captured variables
+///      { name: "p", value "0x00500500", type="T*", var_table_index: 3 }
+///      { name: "r", type="T&amp;", var_table_index: 3 }
 ///
 ///      {  // Shared variable table entry #3:
-///          members { name: &quot;m1&quot;, value: &quot;3&quot;, type: &quot;int&quot; },
-///          members { name: &quot;m2&quot;, value: &quot;7&quot;, type: &quot;int&quot; }
+///          members { name: "m1", value: "3", type: "int" },
+///          members { name: "m2", value: "7", type: "int" }
 ///      }
 ///
 /// Note that the pointer address is stored with the referencing variable
@@ -1464,24 +1465,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Variable {
     <span class="doccomment">/// Name of the variable, if any.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Simple value of the variable.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
     <span class="doccomment">/// Variable type (e.g. `MyClass`). If the variable is split with
     /// `var_table_index`, `type` goes next to `value`. The interpretation of
     /// a type is agent specific. It is recommended to include the dynamic type
     /// rather than a static type of an object.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>r#type: ::prost::alloc::string::String,
     <span class="doccomment">/// Members contained or pointed to by the variable.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>members: ::prost::alloc::vec::Vec&lt;Variable&gt;,
     <span class="doccomment">/// Reference to a variable in the shared variable table. More than
     /// one variable can reference the same variable in the table. The
     /// `var_table_index` field is an index into `variable_table` in Breakpoint.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>var_table_index: ::core::option::Option&lt;i32&gt;,
     <span class="doccomment">/// Status associated with the variable. This field will usually stay
     /// unset. A status of a single variable only applies to that variable or
@@ -1502,7 +1503,7 @@
     /// *   `Malformed string`,
     /// *   `Field f not found in class C`
     /// *   `Null pointer dereference`
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;StatusMessage&gt;,
 }
 <span class="doccomment">/// Represents a stack frame context.
@@ -1510,18 +1511,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StackFrame {
     <span class="doccomment">/// Demangled function name at the call site.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>function: ::prost::alloc::string::String,
     <span class="doccomment">/// Source location of the call site.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;SourceLocation&gt;,
     <span class="doccomment">/// Set of arguments passed to this function.
     /// Note that this might not be populated for all stack frames.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>arguments: ::prost::alloc::vec::Vec&lt;Variable&gt;,
     <span class="doccomment">/// Set of local variables at the stack frame location.
     /// Note that this might not be populated for all stack frames.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>locals: ::prost::alloc::vec::Vec&lt;Variable&gt;,
 }
 <span class="doccomment">/// Represents the breakpoint specification, status and results.
@@ -1529,25 +1530,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Breakpoint {
     <span class="doccomment">/// Breakpoint identifier, unique in the scope of the debuggee.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Action that the agent should perform when the code at the
     /// breakpoint location is hit.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;breakpoint::Action&quot;</span>, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"breakpoint::Action"</span>, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>action: i32,
     <span class="doccomment">/// Breakpoint source location.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>location: ::core::option::Option&lt;SourceLocation&gt;,
     <span class="doccomment">/// Condition that triggers the breakpoint.
     /// The condition is a compound boolean expression composed using expressions
     /// in a programming language at the source location.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>condition: ::prost::alloc::string::String,
     <span class="doccomment">/// List of read-only expressions to evaluate at the breakpoint location.
     /// The expressions are composed using expressions in the programming language
     /// at the source location. If the breakpoint action is `LOG`, the evaluated
     /// expressions are included in log statements.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>expressions: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Only relevant when action is `LOG`. Defines the message to log when
     /// the breakpoint hits. The message may include parameter placeholders `$0`,
@@ -1557,24 +1558,24 @@
     ///
     /// Example: `Message received, id = $0, count = $1` with
     /// `expressions` = `\[ message.id, message.count \]`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>log_message_format: ::prost::alloc::string::String,
     <span class="doccomment">/// Indicates the severity of the log. Only relevant when action is `LOG`.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;breakpoint::LogLevel&quot;</span>, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"breakpoint::LogLevel"</span>, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>log_level: i32,
     <span class="doccomment">/// When true, indicates that this is a final result and the
     /// breakpoint state will not change from here on.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>is_final_state: bool,
     <span class="doccomment">/// Time this breakpoint was created by the server in seconds resolution.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Time this breakpoint was finalized as seen by the server in seconds
     /// resolution.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>final_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// E-mail address of the user that created this breakpoint
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>user_email: ::prost::alloc::string::String,
     <span class="doccomment">/// Breakpoint status.
     ///
@@ -1591,11 +1592,11 @@
     ///
     /// *   `Invalid line number` referring to location
     /// *   `Field f not found in class C` referring to condition
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;StatusMessage&gt;,
     <span class="doccomment">/// The stack at breakpoint time, where stack_frames\[0\] represents the most
     /// recently entered function.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>stack_frames: ::prost::alloc::vec::Vec&lt;StackFrame&gt;,
     <span class="doccomment">/// Values of evaluated expressions at breakpoint time.
     /// The evaluated expressions appear in exactly the same order they
@@ -1604,7 +1605,7 @@
     /// `members` field holds the result of the evaluated expression.
     /// If the expression cannot be evaluated, the `status` inside the `Variable`
     /// will indicate an error and contain the error text.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>evaluated_expressions: ::prost::alloc::vec::Vec&lt;Variable&gt;,
     <span class="doccomment">/// The `variable_table` exists to aid with computation, memory and network
     /// traffic optimization.  It enables storing a variable once and reference
@@ -1618,11 +1619,11 @@
     /// The stored objects are nameless and get their name from the referencing
     /// variable. The effective variable is a merge of the referencing variable
     /// and the referenced variable.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>variable_table: ::prost::alloc::vec::Vec&lt;Variable&gt;,
     <span class="doccomment">/// A set of custom breakpoint properties, populated by the agent, to be
     /// displayed to the user.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1658,17 +1659,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Action::Capture =&gt; <span class="string">&quot;CAPTURE&quot;</span>,
-                Action::Log =&gt; <span class="string">&quot;LOG&quot;</span>,
+                Action::Capture =&gt; <span class="string">"CAPTURE"</span>,
+                Action::Log =&gt; <span class="string">"LOG"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CAPTURE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Capture),
-                <span class="string">&quot;LOG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Log),
+                <span class="string">"CAPTURE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Capture),
+                <span class="string">"LOG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Log),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1699,19 +1700,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                LogLevel::Info =&gt; <span class="string">&quot;INFO&quot;</span>,
-                LogLevel::Warning =&gt; <span class="string">&quot;WARNING&quot;</span>,
-                LogLevel::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
+                LogLevel::Info =&gt; <span class="string">"INFO"</span>,
+                LogLevel::Warning =&gt; <span class="string">"WARNING"</span>,
+                LogLevel::Error =&gt; <span class="string">"ERROR"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;INFO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Info),
-                <span class="string">&quot;WARNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"INFO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Info),
+                <span class="string">"WARNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Warning),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1726,11 +1727,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Debuggee {
     <span class="doccomment">/// Unique identifier for the debuggee generated by the controller service.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
     <span class="doccomment">/// Project the debuggee is associated with.
     /// Use project number or id when registering a Google Cloud Platform project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
     <span class="doccomment">/// Uniquifier to further distinguish the application.
     /// It is possible that different applications might have identical values in
@@ -1738,47 +1739,47 @@
     /// by the Controller service. This field adds salt to further distinguish the
     /// application. Agents should consider seeding this field with value that
     /// identifies the code, binary, configuration and environment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>uniquifier: ::prost::alloc::string::String,
     <span class="doccomment">/// Human readable description of the debuggee.
     /// Including a human-readable project name, environment name and version
     /// information is recommended.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to `true`, indicates that Controller service does not detect any
     /// activity from the debuggee agents and the application is possibly stopped.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>is_inactive: bool,
     <span class="doccomment">/// Version ID of the agent.
     /// Schema: `domain/language-platform/vmajor.minor` (for example
     /// `google.com/java-gcp/v1.1`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>agent_version: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to `true`, indicates that the agent should disable itself and
     /// detach from the debuggee.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>is_disabled: bool,
     <span class="doccomment">/// Human readable message to be displayed to the user about this debuggee.
     /// Absence of this field indicates no status. The message can be either
     /// informational or an error status.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>status: ::core::option::Option&lt;StatusMessage&gt;,
     <span class="doccomment">/// References to the locations and revisions of the source code used in the
     /// deployed application.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>source_contexts: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::source::v1::SourceContext,
     &gt;,
     <span class="doccomment">/// References to the locations and revisions of the source code used in the
     /// deployed application.
     </span><span class="attr">#[deprecated]
-    #[prost(message, repeated, tag = <span class="string">&quot;13&quot;</span>)]
+    #[prost(message, repeated, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>ext_source_contexts: ::prost::alloc::vec::Vec&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::source::v1::ExtendedSourceContext,
     &gt;,
     <span class="doccomment">/// A set of custom debuggee properties, populated by the agent, to be
     /// displayed to the user.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -1789,15 +1790,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SetBreakpointRequest {
     <span class="doccomment">/// Required. ID of the debuggee where the breakpoint is to be set.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>debuggee_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Breakpoint specification to set.
     /// The field `location` of the breakpoint must be set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>breakpoint: ::core::option::Option&lt;Breakpoint&gt;,
     <span class="doccomment">/// Required. The client version making the call.
     /// Schema: `domain/type/version` (e.g., `google.com/intellij/v1`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>client_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for setting a breakpoint.
@@ -1806,7 +1807,7 @@
 </span><span class="kw">pub struct </span>SetBreakpointResponse {
     <span class="doccomment">/// Breakpoint resource.
     /// The field `id` is guaranteed to be set (in addition to the echoed fileds).
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>breakpoint: ::core::option::Option&lt;Breakpoint&gt;,
 }
 <span class="doccomment">/// Request to get breakpoint information.
@@ -1814,14 +1815,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetBreakpointRequest {
     <span class="doccomment">/// Required. ID of the debuggee whose breakpoint to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>debuggee_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. ID of the breakpoint to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>breakpoint_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The client version making the call.
     /// Schema: `domain/type/version` (e.g., `google.com/intellij/v1`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>client_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for getting breakpoint information.
@@ -1830,7 +1831,7 @@
 </span><span class="kw">pub struct </span>GetBreakpointResponse {
     <span class="doccomment">/// Complete breakpoint state.
     /// The fields `id` and `location` are guaranteed to be set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>breakpoint: ::core::option::Option&lt;Breakpoint&gt;,
 }
 <span class="doccomment">/// Request to delete a breakpoint.
@@ -1838,14 +1839,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteBreakpointRequest {
     <span class="doccomment">/// Required. ID of the debuggee whose breakpoint to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>debuggee_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. ID of the breakpoint to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>breakpoint_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The client version making the call.
     /// Schema: `domain/type/version` (e.g., `google.com/intellij/v1`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>client_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to list breakpoints.
@@ -1853,34 +1854,34 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListBreakpointsRequest {
     <span class="doccomment">/// Required. ID of the debuggee whose breakpoints to list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>debuggee_id: ::prost::alloc::string::String,
     <span class="doccomment">/// When set to `true`, the response includes the list of breakpoints set by
     /// any user. Otherwise, it includes only breakpoints set by the caller.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>include_all_users: bool,
     <span class="doccomment">/// When set to `true`, the response includes active and inactive
     /// breakpoints. Otherwise, it includes only active breakpoints.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>include_inactive: bool,
     <span class="doccomment">/// When set, the response includes only breakpoints with the specified action.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>action: ::core::option::Option&lt;list_breakpoints_request::BreakpointActionValue&gt;,
     <span class="doccomment">/// This field is deprecated. The following fields are always stripped out of
     /// the result: `stack_frames`, `evaluated_expressions` and `variable_table`.
     </span><span class="attr">#[deprecated]
-    #[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    #[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>strip_results: bool,
     <span class="doccomment">/// A wait token that, if specified, blocks the call until the breakpoints
     /// list has changed, or a server selected timeout has expired.  The value
     /// should be set from the last response. The error code
     /// `google.rpc.Code.ABORTED` (RPC) is returned on wait timeout, which
     /// should be called again with the same `wait_token`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>wait_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The client version making the call.
     /// Schema: `domain/type/version` (e.g., `google.com/intellij/v1`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>client_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `ListBreakpointsRequest`.
@@ -1891,7 +1892,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>BreakpointActionValue {
         <span class="doccomment">/// Only breakpoints with the specified action will pass the filter.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::breakpoint::Action&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::breakpoint::Action"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>value: i32,
     }
 }
@@ -1903,11 +1904,11 @@
     /// The fields `id` and `location` are guaranteed to be set on each breakpoint.
     /// The fields: `stack_frames`, `evaluated_expressions` and `variable_table`
     /// are cleared on each breakpoint regardless of its status.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>breakpoints: ::prost::alloc::vec::Vec&lt;Breakpoint&gt;,
     <span class="doccomment">/// A wait token that can be used in the next call to `list` (REST) or
     /// `ListBreakpoints` (RPC) to block until the list of breakpoints has changes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_wait_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to list debuggees.
@@ -1915,15 +1916,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListDebuggeesRequest {
     <span class="doccomment">/// Required. Project number of a Google Cloud project whose debuggees to list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>project: ::prost::alloc::string::String,
     <span class="doccomment">/// When set to `true`, the result includes all debuggees. Otherwise, the
     /// result includes only debuggees that are active.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>include_inactive: bool,
     <span class="doccomment">/// Required. The client version making the call.
     /// Schema: `domain/type/version` (e.g., `google.com/intellij/v1`).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>client_version: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for listing debuggees.
@@ -1934,7 +1935,7 @@
     /// The fields `debuggee.id` and `description` are guaranteed to be set.
     /// The `description` field is a human readable field provided by agents and
     /// can be displayed to users.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>debuggees: ::prost::alloc::vec::Vec&lt;Debuggee&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -1962,7 +1963,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2037,19 +2038,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouddebugger.v2.Debugger2/SetBreakpoint&quot;</span>,
+                <span class="string">"/google.devtools.clouddebugger.v2.Debugger2/SetBreakpoint"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouddebugger.v2.Debugger2&quot;</span>,
-                        <span class="string">&quot;SetBreakpoint&quot;</span>,
+                        <span class="string">"google.devtools.clouddebugger.v2.Debugger2"</span>,
+                        <span class="string">"SetBreakpoint"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2068,19 +2069,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouddebugger.v2.Debugger2/GetBreakpoint&quot;</span>,
+                <span class="string">"/google.devtools.clouddebugger.v2.Debugger2/GetBreakpoint"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouddebugger.v2.Debugger2&quot;</span>,
-                        <span class="string">&quot;GetBreakpoint&quot;</span>,
+                        <span class="string">"google.devtools.clouddebugger.v2.Debugger2"</span>,
+                        <span class="string">"GetBreakpoint"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2096,19 +2097,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouddebugger.v2.Debugger2/DeleteBreakpoint&quot;</span>,
+                <span class="string">"/google.devtools.clouddebugger.v2.Debugger2/DeleteBreakpoint"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouddebugger.v2.Debugger2&quot;</span>,
-                        <span class="string">&quot;DeleteBreakpoint&quot;</span>,
+                        <span class="string">"google.devtools.clouddebugger.v2.Debugger2"</span>,
+                        <span class="string">"DeleteBreakpoint"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2127,19 +2128,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouddebugger.v2.Debugger2/ListBreakpoints&quot;</span>,
+                <span class="string">"/google.devtools.clouddebugger.v2.Debugger2/ListBreakpoints"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouddebugger.v2.Debugger2&quot;</span>,
-                        <span class="string">&quot;ListBreakpoints&quot;</span>,
+                        <span class="string">"google.devtools.clouddebugger.v2.Debugger2"</span>,
+                        <span class="string">"ListBreakpoints"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2158,19 +2159,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouddebugger.v2.Debugger2/ListDebuggees&quot;</span>,
+                <span class="string">"/google.devtools.clouddebugger.v2.Debugger2/ListDebuggees"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouddebugger.v2.Debugger2&quot;</span>,
-                        <span class="string">&quot;ListDebuggees&quot;</span>,
+                        <span class="string">"google.devtools.clouddebugger.v2.Debugger2"</span>,
+                        <span class="string">"ListDebuggees"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2184,7 +2185,7 @@
     <span class="doccomment">/// Required. Debuggee information to register.
     /// The fields `project`, `uniquifier`, `description` and `agent_version`
     /// of the debuggee must be set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>debuggee: ::core::option::Option&lt;Debuggee&gt;,
 }
 <span class="doccomment">/// Response for registering a debuggee.
@@ -2196,7 +2197,7 @@
     /// If the field `is_disabled` is set to `true`, the agent should disable
     /// itself by removing all breakpoints and detaching from the application.
     /// It should however continue to poll `RegisterDebuggee` until reenabled.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>debuggee: ::core::option::Option&lt;Debuggee&gt;,
 }
 <span class="doccomment">/// Request to list active breakpoints.
@@ -2204,13 +2205,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListActiveBreakpointsRequest {
     <span class="doccomment">/// Required. Identifies the debuggee.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>debuggee_id: ::prost::alloc::string::String,
     <span class="doccomment">/// A token that, if specified, blocks the method call until the list
     /// of active breakpoints has changed, or a server-selected timeout has
     /// expired. The value should be set from the `next_wait_token` field in
-    /// the last response. The initial value should be set to `&quot;init&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// the last response. The initial value should be set to `"init"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>wait_token: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to `true` (recommended), returns `google.rpc.Code.OK` status and
     /// sets the `wait_expired` response field to `true` when the server-selected
@@ -2218,7 +2219,7 @@
     ///
     /// If set to `false` (deprecated), returns `google.rpc.Code.ABORTED` status
     /// when the server-selected timeout has expired.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>success_on_timeout: bool,
 }
 <span class="doccomment">/// Response for listing active breakpoints.
@@ -2227,16 +2228,16 @@
 </span><span class="kw">pub struct </span>ListActiveBreakpointsResponse {
     <span class="doccomment">/// List of all active breakpoints.
     /// The fields `id` and `location` are guaranteed to be set on each breakpoint.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>breakpoints: ::prost::alloc::vec::Vec&lt;Breakpoint&gt;,
     <span class="doccomment">/// A token that can be used in the next method call to block until
     /// the list of breakpoints changes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_wait_token: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to `true`, indicates that there is no change to the
     /// list of active breakpoints and the server-selected timeout has expired.
     /// The `breakpoints` field would be empty and should be ignored.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>wait_expired: bool,
 }
 <span class="doccomment">/// Request to update an active breakpoint.
@@ -2244,12 +2245,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateActiveBreakpointRequest {
     <span class="doccomment">/// Required. Identifies the debuggee being debugged.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>debuggee_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. Updated breakpoint information.
     /// The field `id` must be set.
     /// The agent must echo all Breakpoint specification fields in the update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>breakpoint: ::core::option::Option&lt;Breakpoint&gt;,
 }
 <span class="doccomment">/// Response for updating an active breakpoint.
@@ -2290,7 +2291,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2374,19 +2375,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouddebugger.v2.Controller2/RegisterDebuggee&quot;</span>,
+                <span class="string">"/google.devtools.clouddebugger.v2.Controller2/RegisterDebuggee"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouddebugger.v2.Controller2&quot;</span>,
-                        <span class="string">&quot;RegisterDebuggee&quot;</span>,
+                        <span class="string">"google.devtools.clouddebugger.v2.Controller2"</span>,
+                        <span class="string">"RegisterDebuggee"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2397,7 +2398,7 @@
         /// fields) is semantically immutable, although the field values may
         /// change. For example, an agent may update the location line number
         /// to reflect the actual line where the breakpoint was set, but this
-        /// doesn&#39;t change the breakpoint semantics.
+        /// doesn't change the breakpoint semantics.
         ///
         /// This means that an agent does not need to check if a breakpoint has changed
         /// when it encounters the same breakpoint on a successive call.
@@ -2417,19 +2418,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouddebugger.v2.Controller2/ListActiveBreakpoints&quot;</span>,
+                <span class="string">"/google.devtools.clouddebugger.v2.Controller2/ListActiveBreakpoints"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouddebugger.v2.Controller2&quot;</span>,
-                        <span class="string">&quot;ListActiveBreakpoints&quot;</span>,
+                        <span class="string">"google.devtools.clouddebugger.v2.Controller2"</span>,
+                        <span class="string">"ListActiveBreakpoints"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2455,19 +2456,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.devtools.clouddebugger.v2.Controller2/UpdateActiveBreakpoint&quot;</span>,
+                <span class="string">"/google.devtools.clouddebugger.v2.Controller2/UpdateActiveBreakpoint"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.devtools.clouddebugger.v2.Controller2&quot;</span>,
-                        <span class="string">&quot;UpdateActiveBreakpoint&quot;</span>,
+                        <span class="string">"google.devtools.clouddebugger.v2.Controller2"</span>,
+                        <span class="string">"UpdateActiveBreakpoint"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

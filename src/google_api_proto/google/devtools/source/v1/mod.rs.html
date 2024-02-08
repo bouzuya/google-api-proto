@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/source/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/devtools/source/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -252,7 +253,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SourceContext {
     <span class="doccomment">/// A SourceContext can refer any one of the following types of repositories.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;source_context::Context&quot;</span>, tags = <span class="string">&quot;1, 2, 3, 6&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"source_context::Context"</span>, tags = <span class="string">"1, 2, 3, 6"</span>)]
     </span><span class="kw">pub </span>context: ::core::option::Option&lt;source_context::Context&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SourceContext`.
@@ -262,16 +263,16 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Context {
         <span class="doccomment">/// A SourceContext referring to a revision in a cloud repo.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>CloudRepo(<span class="kw">super</span>::CloudRepoSourceContext),
         <span class="doccomment">/// A SourceContext referring to a snapshot in a cloud workspace.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>CloudWorkspace(<span class="kw">super</span>::CloudWorkspaceSourceContext),
         <span class="doccomment">/// A SourceContext referring to a Gerrit project.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Gerrit(<span class="kw">super</span>::GerritSourceContext),
         <span class="doccomment">/// A SourceContext referring to any third party Git repo (e.g. GitHub).
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>Git(<span class="kw">super</span>::GitSourceContext),
     }
 }
@@ -281,10 +282,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ExtendedSourceContext {
     <span class="doccomment">/// Any source context.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>context: ::core::option::Option&lt;SourceContext&gt;,
     <span class="doccomment">/// Labels with user defined metadata.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, string&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, string"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>labels: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost::alloc::string::String,
@@ -295,10 +296,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AliasContext {
     <span class="doccomment">/// The alias kind.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;alias_context::Kind&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"alias_context::Kind"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>kind: i32,
     <span class="doccomment">/// The alias name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `AliasContext`.
@@ -324,7 +325,7 @@
         <span class="doccomment">/// Git branch
         </span>Movable = <span class="number">2</span>,
         <span class="doccomment">/// OTHER is used to specify non-standard aliases, those not of the kinds
-        /// above. For example, if a Git repo has a ref named &quot;refs/foo/bar&quot;, it
+        /// above. For example, if a Git repo has a ref named "refs/foo/bar", it
         /// is considered to be of kind OTHER.
         </span>Other = <span class="number">4</span>,
     }
@@ -333,21 +334,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Kind::Any =&gt; <span class="string">&quot;ANY&quot;</span>,
-                Kind::Fixed =&gt; <span class="string">&quot;FIXED&quot;</span>,
-                Kind::Movable =&gt; <span class="string">&quot;MOVABLE&quot;</span>,
-                Kind::Other =&gt; <span class="string">&quot;OTHER&quot;</span>,
+                Kind::Any =&gt; <span class="string">"ANY"</span>,
+                Kind::Fixed =&gt; <span class="string">"FIXED"</span>,
+                Kind::Movable =&gt; <span class="string">"MOVABLE"</span>,
+                Kind::Other =&gt; <span class="string">"OTHER"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ANY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Any),
-                <span class="string">&quot;FIXED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Fixed),
-                <span class="string">&quot;MOVABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Movable),
-                <span class="string">&quot;OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
+                <span class="string">"ANY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Any),
+                <span class="string">"FIXED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Fixed),
+                <span class="string">"MOVABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Movable),
+                <span class="string">"OTHER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -359,11 +360,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudRepoSourceContext {
     <span class="doccomment">/// The ID of the repo.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repo_id: ::core::option::Option&lt;RepoId&gt;,
     <span class="doccomment">/// A revision in a cloud repository can be identified by either its revision
     /// ID or its Alias.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;cloud_repo_source_context::Revision&quot;</span>, tags = <span class="string">&quot;2, 3, 4&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"cloud_repo_source_context::Revision"</span>, tags = <span class="string">"2, 3, 4"</span>)]
     </span><span class="kw">pub </span>revision: ::core::option::Option&lt;cloud_repo_source_context::Revision&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CloudRepoSourceContext`.
@@ -374,13 +375,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Revision {
         <span class="doccomment">/// A revision ID.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>RevisionId(::prost::alloc::string::String),
         <span class="doccomment">/// The name of an alias (branch, tag, etc.).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>AliasName(::prost::alloc::string::String),
         <span class="doccomment">/// An alias, which may be a branch or tag.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>AliasContext(<span class="kw">super</span>::AliasContext),
     }
 }
@@ -389,11 +390,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudWorkspaceSourceContext {
     <span class="doccomment">/// The ID of the workspace.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>workspace_id: ::core::option::Option&lt;CloudWorkspaceId&gt;,
     <span class="doccomment">/// The ID of the snapshot.
     /// An empty snapshot_id refers to the most recent snapshot.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>snapshot_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A SourceContext referring to a Gerrit project.
@@ -401,16 +402,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GerritSourceContext {
     <span class="doccomment">/// The URI of a running Gerrit instance.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>host_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// The full project name within the host. Projects may be nested, so
-    /// &quot;project/subproject&quot; is a valid project name.
-    /// The &quot;repo name&quot; is hostURI/project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// "project/subproject" is a valid project name.
+    /// The "repo name" is hostURI/project.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>gerrit_project: ::prost::alloc::string::String,
     <span class="doccomment">/// A revision in a Gerrit project can be identified by either its revision ID
     /// or its alias.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;gerrit_source_context::Revision&quot;</span>, tags = <span class="string">&quot;3, 4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"gerrit_source_context::Revision"</span>, tags = <span class="string">"3, 4, 5"</span>)]
     </span><span class="kw">pub </span>revision: ::core::option::Option&lt;gerrit_source_context::Revision&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `GerritSourceContext`.
@@ -421,13 +422,13 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Revision {
         <span class="doccomment">/// A revision (commit) ID.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>RevisionId(::prost::alloc::string::String),
         <span class="doccomment">/// The name of an alias (branch, tag, etc.).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
         </span>AliasName(::prost::alloc::string::String),
         <span class="doccomment">/// An alias, which may be a branch or tag.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>AliasContext(<span class="kw">super</span>::AliasContext),
     }
 }
@@ -437,11 +438,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GitSourceContext {
     <span class="doccomment">/// Git repository URL.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
     <span class="doccomment">/// Git commit hash.
     /// required.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>revision_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A unique identifier for a cloud repo.
@@ -450,7 +451,7 @@
 </span><span class="kw">pub struct </span>RepoId {
     <span class="doccomment">/// A cloud repository can be identified by either its project ID and
     /// repository name combination, or its globally unique identifier.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;repo_id::Id&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"repo_id::Id"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>id: ::core::option::Option&lt;repo_id::Id&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RepoId`.
@@ -461,10 +462,10 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Id {
         <span class="doccomment">/// A combination of a project ID and a repo name.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>ProjectRepoId(<span class="kw">super</span>::ProjectRepoId),
         <span class="doccomment">/// A server-assigned, globally unique identifier.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>Uid(::prost::alloc::string::String),
     }
 }
@@ -474,10 +475,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ProjectRepoId {
     <span class="doccomment">/// The ID of the project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>project_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The name of the repo. Leave empty for the default repo.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>repo_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A CloudWorkspaceId is a unique identifier for a cloud workspace.
@@ -487,11 +488,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CloudWorkspaceId {
     <span class="doccomment">/// The ID of the repo containing the workspace.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repo_id: ::core::option::Option&lt;RepoId&gt;,
     <span class="doccomment">/// The unique name of the workspace within the repo.  This is the name
-    /// chosen by the client in the Source API&#39;s CreateWorkspace method.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// chosen by the client in the Source API's CreateWorkspace method.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 </code></pre></div></section></main></body></html>

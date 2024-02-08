@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/ads/admob/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/ads/admob/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1285,47 +1286,47 @@
 </span><span class="kw">pub struct </span>PublisherAccount {
     <span class="doccomment">/// Resource name of this account.
     /// Format is accounts/{publisher_id}.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The unique ID by which this publisher account can be identified
     /// in the API requests (for example, pub-1234567890).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>publisher_id: ::prost::alloc::string::String,
     <span class="doccomment">/// The time zone that is used in reports that are generated for this account.
     /// The value is a time-zone ID as specified by the CLDR project,
-    /// for example, &quot;America/Los_Angeles&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// for example, "America/Los_Angeles".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>reporting_time_zone: ::prost::alloc::string::String,
     <span class="doccomment">/// Currency code of the earning-related metrics, which is the 3-letter code
     /// defined in ISO 4217. The daily average rate is used for the currency
     /// conversion.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The specification for generating an AdMob Network report.
 /// For example, the specification to get clicks and estimated earnings for only
-/// the &#39;US&#39; and &#39;CN&#39; countries can look like the following example:
+/// the 'US' and 'CN' countries can look like the following example:
 ///
 ///      {
-///        &#39;date_range&#39;: {
-///          &#39;start_date&#39;: {&#39;year&#39;: 2018, &#39;month&#39;: 9, &#39;day&#39;: 1},
-///          &#39;end_date&#39;: {&#39;year&#39;: 2018, &#39;month&#39;: 9, &#39;day&#39;: 30}
+///        'date_range': {
+///          'start_date': {'year': 2018, 'month': 9, 'day': 1},
+///          'end_date': {'year': 2018, 'month': 9, 'day': 30}
 ///        },
-///        &#39;dimensions&#39;: \[&#39;DATE&#39;, &#39;APP&#39;, &#39;COUNTRY&#39;\],
-///        &#39;metrics&#39;: \[&#39;CLICKS&#39;, &#39;ESTIMATED_EARNINGS&#39;\],
-///        &#39;dimension_filters&#39;: [
+///        'dimensions': \['DATE', 'APP', 'COUNTRY'\],
+///        'metrics': \['CLICKS', 'ESTIMATED_EARNINGS'\],
+///        'dimension_filters': [
 ///          {
-///            &#39;dimension&#39;: &#39;COUNTRY&#39;,
-///            &#39;matches_any&#39;: {&#39;values&#39;: \[{&#39;value&#39;: &#39;US&#39;, &#39;value&#39;: &#39;CN&#39;}\]}
+///            'dimension': 'COUNTRY',
+///            'matches_any': {'values': \[{'value': 'US', 'value': 'CN'}\]}
 ///          }
 ///        ],
-///        &#39;sort_conditions&#39;: [
-///          {&#39;dimension&#39;:&#39;APP&#39;, order: &#39;ASCENDING&#39;},
-///          {&#39;metric&#39;:&#39;CLICKS&#39;, order: &#39;DESCENDING&#39;}
+///        'sort_conditions': [
+///          {'dimension':'APP', order: 'ASCENDING'},
+///          {'metric':'CLICKS', order: 'DESCENDING'}
 ///        ],
-///        &#39;localization_settings&#39;: {
-///          &#39;currency_code&#39;: &#39;USD&#39;,
-///          &#39;language_code&#39;: &#39;en-US&#39;
+///        'localization_settings': {
+///          'currency_code': 'USD',
+///          'language_code': 'en-US'
 ///        }
 ///      }
 ///
@@ -1334,26 +1335,26 @@
 ///
 ///      SELECT DATE, APP, COUNTRY, CLICKS, ESTIMATED_EARNINGS
 ///      FROM NETWORK_REPORT
-///      WHERE DATE &gt;= &#39;2018-09-01&#39; AND DATE &lt;= &#39;2018-09-30&#39;
-///          AND COUNTRY IN (&#39;US&#39;, &#39;CN&#39;)
+///      WHERE DATE &gt;= '2018-09-01' AND DATE &lt;= '2018-09-30'
+///          AND COUNTRY IN ('US', 'CN')
 ///      GROUP BY DATE, APP, COUNTRY
 ///      ORDER BY APP ASC, CLICKS DESC;
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>NetworkReportSpec {
     <span class="doccomment">/// The date range for which the report is generated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>date_range: ::core::option::Option&lt;DateRange&gt;,
     <span class="doccomment">/// List of dimensions of the report. The value combination of these dimensions
     /// determines the row of the report. If no dimensions are specified, the
     /// report returns a single row of requested metrics for the entire account.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;network_report_spec::Dimension&quot;</span>, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"network_report_spec::Dimension"</span>, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dimensions: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// List of metrics of the report. A report must specify at least one metric.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;network_report_spec::Metric&quot;</span>, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"network_report_spec::Metric"</span>, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>metrics: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Describes which report rows to match based on their dimension values.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>dimension_filters: ::prost::alloc::vec::Vec&lt;
         network_report_spec::DimensionFilter,
     &gt;,
@@ -1361,23 +1362,23 @@
     /// list defines its precedence; the earlier the condition, the higher its
     /// precedence. If no sort conditions are specified, the row ordering is
     /// undefined.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>sort_conditions: ::prost::alloc::vec::Vec&lt;network_report_spec::SortCondition&gt;,
     <span class="doccomment">/// Localization settings of the report.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>localization_settings: ::core::option::Option&lt;LocalizationSettings&gt;,
     <span class="doccomment">/// Maximum number of report data rows to return. If the value is not set, the
     /// API returns as many rows as possible, up to 100000. Acceptable values are
     /// 1-100000, inclusive. Any other values are treated as 100000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>max_report_rows: i32,
     <span class="doccomment">/// A report time zone. Accepts an IANA TZ name values, such as
-    /// &quot;America/Los_Angeles.&quot;  If no time zone is defined, the account default
+    /// "America/Los_Angeles."  If no time zone is defined, the account default
     /// takes effect. Check default value by the get account action.
     ///
-    /// **Warning:** The &quot;America/Los_Angeles&quot; is the only supported value at
+    /// **Warning:** The "America/Los_Angeles" is the only supported value at
     /// the moment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `NetworkReportSpec`.
@@ -1387,10 +1388,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>DimensionFilter {
         <span class="doccomment">/// Applies the filter criterion to the specified dimension.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Dimension&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"Dimension"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>dimension: i32,
         <span class="doccomment">/// Filter operator to be applied.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;dimension_filter::Operator&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"dimension_filter::Operator"</span>, tags = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>operator: ::core::option::Option&lt;dimension_filter::Operator&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `DimensionFilter`.
@@ -1401,7 +1402,7 @@
         </span><span class="kw">pub enum </span>Operator {
             <span class="doccomment">/// Matches a row if its value for the specified dimension is in one of the
             /// values specified in this condition.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>MatchesAny(<span class="kw">super</span>::<span class="kw">super</span>::StringList),
         }
     }
@@ -1410,10 +1411,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>SortCondition {
         <span class="doccomment">/// Sorting order of the dimension or metric.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::SortOrder&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::SortOrder"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>order: i32,
         <span class="doccomment">/// Identifies which values to sort on.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;sort_condition::SortOn&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"sort_condition::SortOn"</span>, tags = <span class="string">"1, 2"</span>)]
         </span><span class="kw">pub </span>sort_on: ::core::option::Option&lt;sort_condition::SortOn&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `SortCondition`.
@@ -1423,10 +1424,10 @@
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>SortOn {
             <span class="doccomment">/// Sort by the specified dimension.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::Dimension&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(enumeration = <span class="string">"super::Dimension"</span>, tag = <span class="string">"1"</span>)]
             </span>Dimension(i32),
             <span class="doccomment">/// Sort by the specified metric.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::Metric&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(enumeration = <span class="string">"super::Metric"</span>, tag = <span class="string">"2"</span>)]
             </span>Metric(i32),
         }
     }
@@ -1448,23 +1449,23 @@
     </span><span class="kw">pub enum </span>Dimension {
         <span class="doccomment">/// Default value for an unset field. Do not use.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// A date in the YYYY-MM-DD format (for example, &quot;2018-12-21&quot;). Requests can
+        <span class="doccomment">/// A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
         /// specify at most one time dimension.
         </span>Date = <span class="number">1</span>,
-        <span class="doccomment">/// A month in the YYYY-MM format (for example, &quot;2018-12&quot;). Requests can
+        <span class="doccomment">/// A month in the YYYY-MM format (for example, "2018-12"). Requests can
         /// specify at most one time dimension.
         </span>Month = <span class="number">2</span>,
         <span class="doccomment">/// The date of the first day of a week in the YYYY-MM-DD format
-        /// (for example, &quot;2018-12-21&quot;). Requests can specify at most one time
+        /// (for example, "2018-12-21"). Requests can specify at most one time
         /// dimension.
         </span>Week = <span class="number">3</span>,
-        <span class="doccomment">/// The unique ID of the ad unit (for example, &quot;ca-app-pub-1234/1234&quot;).
+        <span class="doccomment">/// The unique ID of the ad unit (for example, "ca-app-pub-1234/1234").
         /// If AD_UNIT dimension is specified, then APP is included automatically.
         </span>AdUnit = <span class="number">4</span>,
         <span class="doccomment">/// The unique ID of the mobile application (for example,
-        /// &quot;ca-app-pub-1234~1234&quot;).
+        /// "ca-app-pub-1234~1234").
         </span>App = <span class="number">5</span>,
-        <span class="doccomment">/// Type of the ad (for example, &quot;text&quot; or &quot;image&quot;), an ad delivery
+        <span class="doccomment">/// Type of the ad (for example, "text" or "image"), an ad delivery
         /// dimension.
         ///
         /// **Warning:** The dimension is incompatible with
@@ -1473,12 +1474,12 @@
         /// [IMPRESSION_RPM](#Metric.ENUM_VALUES.IMPRESSION_RPM) metrics.
         </span>AdType = <span class="number">6</span>,
         <span class="doccomment">/// CLDR country code of the place where the ad views/clicks occur (for
-        /// example, &quot;US&quot; or &quot;FR&quot;). This is a geography dimension.
+        /// example, "US" or "FR"). This is a geography dimension.
         </span>Country = <span class="number">7</span>,
-        <span class="doccomment">/// Format of the ad unit (for example, &quot;banner&quot;, &quot;native&quot;), an ad delivery
+        <span class="doccomment">/// Format of the ad unit (for example, "banner", "native"), an ad delivery
         /// dimension.
         </span>Format = <span class="number">8</span>,
-        <span class="doccomment">/// Mobile OS platform of the app (for example, &quot;Android&quot; or &quot;iOS&quot;).
+        <span class="doccomment">/// Mobile OS platform of the app (for example, "Android" or "iOS").
         </span>Platform = <span class="number">9</span>,
     }
     <span class="kw">impl </span>Dimension {
@@ -1486,33 +1487,33 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Dimension::Unspecified =&gt; <span class="string">&quot;DIMENSION_UNSPECIFIED&quot;</span>,
-                Dimension::Date =&gt; <span class="string">&quot;DATE&quot;</span>,
-                Dimension::Month =&gt; <span class="string">&quot;MONTH&quot;</span>,
-                Dimension::Week =&gt; <span class="string">&quot;WEEK&quot;</span>,
-                Dimension::AdUnit =&gt; <span class="string">&quot;AD_UNIT&quot;</span>,
-                Dimension::App =&gt; <span class="string">&quot;APP&quot;</span>,
-                Dimension::AdType =&gt; <span class="string">&quot;AD_TYPE&quot;</span>,
-                Dimension::Country =&gt; <span class="string">&quot;COUNTRY&quot;</span>,
-                Dimension::Format =&gt; <span class="string">&quot;FORMAT&quot;</span>,
-                Dimension::Platform =&gt; <span class="string">&quot;PLATFORM&quot;</span>,
+                Dimension::Unspecified =&gt; <span class="string">"DIMENSION_UNSPECIFIED"</span>,
+                Dimension::Date =&gt; <span class="string">"DATE"</span>,
+                Dimension::Month =&gt; <span class="string">"MONTH"</span>,
+                Dimension::Week =&gt; <span class="string">"WEEK"</span>,
+                Dimension::AdUnit =&gt; <span class="string">"AD_UNIT"</span>,
+                Dimension::App =&gt; <span class="string">"APP"</span>,
+                Dimension::AdType =&gt; <span class="string">"AD_TYPE"</span>,
+                Dimension::Country =&gt; <span class="string">"COUNTRY"</span>,
+                Dimension::Format =&gt; <span class="string">"FORMAT"</span>,
+                Dimension::Platform =&gt; <span class="string">"PLATFORM"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DIMENSION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
-                <span class="string">&quot;MONTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Month),
-                <span class="string">&quot;WEEK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Week),
-                <span class="string">&quot;AD_UNIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdUnit),
-                <span class="string">&quot;APP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::App),
-                <span class="string">&quot;AD_TYPE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdType),
-                <span class="string">&quot;COUNTRY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Country),
-                <span class="string">&quot;FORMAT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Format),
-                <span class="string">&quot;PLATFORM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Platform),
+                <span class="string">"DIMENSION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
+                <span class="string">"MONTH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Month),
+                <span class="string">"WEEK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Week),
+                <span class="string">"AD_UNIT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdUnit),
+                <span class="string">"APP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::App),
+                <span class="string">"AD_TYPE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdType),
+                <span class="string">"COUNTRY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Country),
+                <span class="string">"FORMAT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Format),
+                <span class="string">"PLATFORM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Platform),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1578,33 +1579,33 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Metric::Unspecified =&gt; <span class="string">&quot;METRIC_UNSPECIFIED&quot;</span>,
-                Metric::AdRequests =&gt; <span class="string">&quot;AD_REQUESTS&quot;</span>,
-                Metric::Clicks =&gt; <span class="string">&quot;CLICKS&quot;</span>,
-                Metric::EstimatedEarnings =&gt; <span class="string">&quot;ESTIMATED_EARNINGS&quot;</span>,
-                Metric::Impressions =&gt; <span class="string">&quot;IMPRESSIONS&quot;</span>,
-                Metric::ImpressionCtr =&gt; <span class="string">&quot;IMPRESSION_CTR&quot;</span>,
-                Metric::ImpressionRpm =&gt; <span class="string">&quot;IMPRESSION_RPM&quot;</span>,
-                Metric::MatchedRequests =&gt; <span class="string">&quot;MATCHED_REQUESTS&quot;</span>,
-                Metric::MatchRate =&gt; <span class="string">&quot;MATCH_RATE&quot;</span>,
-                Metric::ShowRate =&gt; <span class="string">&quot;SHOW_RATE&quot;</span>,
+                Metric::Unspecified =&gt; <span class="string">"METRIC_UNSPECIFIED"</span>,
+                Metric::AdRequests =&gt; <span class="string">"AD_REQUESTS"</span>,
+                Metric::Clicks =&gt; <span class="string">"CLICKS"</span>,
+                Metric::EstimatedEarnings =&gt; <span class="string">"ESTIMATED_EARNINGS"</span>,
+                Metric::Impressions =&gt; <span class="string">"IMPRESSIONS"</span>,
+                Metric::ImpressionCtr =&gt; <span class="string">"IMPRESSION_CTR"</span>,
+                Metric::ImpressionRpm =&gt; <span class="string">"IMPRESSION_RPM"</span>,
+                Metric::MatchedRequests =&gt; <span class="string">"MATCHED_REQUESTS"</span>,
+                Metric::MatchRate =&gt; <span class="string">"MATCH_RATE"</span>,
+                Metric::ShowRate =&gt; <span class="string">"SHOW_RATE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;METRIC_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AD_REQUESTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdRequests),
-                <span class="string">&quot;CLICKS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Clicks),
-                <span class="string">&quot;ESTIMATED_EARNINGS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EstimatedEarnings),
-                <span class="string">&quot;IMPRESSIONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Impressions),
-                <span class="string">&quot;IMPRESSION_CTR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImpressionCtr),
-                <span class="string">&quot;IMPRESSION_RPM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImpressionRpm),
-                <span class="string">&quot;MATCHED_REQUESTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MatchedRequests),
-                <span class="string">&quot;MATCH_RATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MatchRate),
-                <span class="string">&quot;SHOW_RATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ShowRate),
+                <span class="string">"METRIC_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AD_REQUESTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdRequests),
+                <span class="string">"CLICKS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Clicks),
+                <span class="string">"ESTIMATED_EARNINGS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EstimatedEarnings),
+                <span class="string">"IMPRESSIONS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Impressions),
+                <span class="string">"IMPRESSION_CTR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImpressionCtr),
+                <span class="string">"IMPRESSION_RPM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImpressionRpm),
+                <span class="string">"MATCHED_REQUESTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MatchedRequests),
+                <span class="string">"MATCH_RATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MatchRate),
+                <span class="string">"SHOW_RATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ShowRate),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1612,27 +1613,27 @@
 }
 <span class="doccomment">/// The specification for generating an AdMob Mediation report.
 /// For example, the specification to get observed ECPM sliced by ad source and
-/// app for the &#39;US&#39; and &#39;CN&#39; countries can look like the following example:
+/// app for the 'US' and 'CN' countries can look like the following example:
 ///
 ///      {
-///        &quot;date_range&quot;: {
-///          &quot;start_date&quot;: {&quot;year&quot;: 2018, &quot;month&quot;: 9, &quot;day&quot;: 1},
-///          &quot;end_date&quot;: {&quot;year&quot;: 2018, &quot;month&quot;: 9, &quot;day&quot;: 30}
+///        "date_range": {
+///          "start_date": {"year": 2018, "month": 9, "day": 1},
+///          "end_date": {"year": 2018, "month": 9, "day": 30}
 ///        },
-///        &quot;dimensions&quot;: \[&quot;AD_SOURCE&quot;, &quot;APP&quot;, &quot;COUNTRY&quot;\],
-///        &quot;metrics&quot;: \[&quot;OBSERVED_ECPM&quot;\],
-///        &quot;dimension_filters&quot;: [
+///        "dimensions": \["AD_SOURCE", "APP", "COUNTRY"\],
+///        "metrics": \["OBSERVED_ECPM"\],
+///        "dimension_filters": [
 ///          {
-///            &quot;dimension&quot;: &quot;COUNTRY&quot;,
-///            &quot;matches_any&quot;: {&quot;values&quot;: \[{&quot;value&quot;: &quot;US&quot;, &quot;value&quot;: &quot;CN&quot;}\]}
+///            "dimension": "COUNTRY",
+///            "matches_any": {"values": \[{"value": "US", "value": "CN"}\]}
 ///          }
 ///        ],
-///        &quot;sort_conditions&quot;: [
-///          {&quot;dimension&quot;:&quot;APP&quot;, order: &quot;ASCENDING&quot;}
+///        "sort_conditions": [
+///          {"dimension":"APP", order: "ASCENDING"}
 ///        ],
-///        &quot;localization_settings&quot;: {
-///          &quot;currency_code&quot;: &quot;USD&quot;,
-///          &quot;language_code&quot;: &quot;en-US&quot;
+///        "localization_settings": {
+///          "currency_code": "USD",
+///          "language_code": "en-US"
 ///        }
 ///      }
 ///
@@ -1641,26 +1642,26 @@
 ///
 ///      SELECT AD_SOURCE, APP, COUNTRY, OBSERVED_ECPM
 ///      FROM MEDIATION_REPORT
-///      WHERE DATE &gt;= &#39;2018-09-01&#39; AND DATE &lt;= &#39;2018-09-30&#39;
-///          AND COUNTRY IN (&#39;US&#39;, &#39;CN&#39;)
+///      WHERE DATE &gt;= '2018-09-01' AND DATE &lt;= '2018-09-30'
+///          AND COUNTRY IN ('US', 'CN')
 ///      GROUP BY AD_SOURCE, APP, COUNTRY
 ///      ORDER BY APP ASC;
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>MediationReportSpec {
     <span class="doccomment">/// The date range for which the report is generated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>date_range: ::core::option::Option&lt;DateRange&gt;,
     <span class="doccomment">/// List of dimensions of the report. The value combination of these dimensions
     /// determines the row of the report. If no dimensions are specified, the
     /// report returns a single row of requested metrics for the entire account.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;mediation_report_spec::Dimension&quot;</span>, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"mediation_report_spec::Dimension"</span>, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>dimensions: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// List of metrics of the report. A report must specify at least one metric.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;mediation_report_spec::Metric&quot;</span>, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"mediation_report_spec::Metric"</span>, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>metrics: ::prost::alloc::vec::Vec&lt;i32&gt;,
     <span class="doccomment">/// Describes which report rows to match based on their dimension values.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>dimension_filters: ::prost::alloc::vec::Vec&lt;
         mediation_report_spec::DimensionFilter,
     &gt;,
@@ -1668,23 +1669,23 @@
     /// list defines its precedence; the earlier the condition, the higher its
     /// precedence. If no sort conditions are specified, the row ordering is
     /// undefined.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>sort_conditions: ::prost::alloc::vec::Vec&lt;mediation_report_spec::SortCondition&gt;,
     <span class="doccomment">/// Localization settings of the report.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>localization_settings: ::core::option::Option&lt;LocalizationSettings&gt;,
     <span class="doccomment">/// Maximum number of report data rows to return. If the value is not set, the
     /// API returns as many rows as possible, up to 100000. Acceptable values are
     /// 1-100000, inclusive. Any other values are treated as 100000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>max_report_rows: i32,
     <span class="doccomment">/// A report time zone. Accepts an IANA TZ name values, such as
-    /// &quot;America/Los_Angeles.&quot;  If no time zone is defined, the account default
+    /// "America/Los_Angeles."  If no time zone is defined, the account default
     /// takes effect. Check default value by the get account action.
     ///
-    /// **Warning:** The &quot;America/Los_Angeles&quot; is the only supported value at
+    /// **Warning:** The "America/Los_Angeles" is the only supported value at
     /// the moment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>time_zone: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `MediationReportSpec`.
@@ -1694,10 +1695,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>DimensionFilter {
         <span class="doccomment">/// Applies the filter criterion to the specified dimension.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;Dimension&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"Dimension"</span>, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>dimension: i32,
         <span class="doccomment">/// Filter operator to be applied.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;dimension_filter::Operator&quot;</span>, tags = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"dimension_filter::Operator"</span>, tags = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>operator: ::core::option::Option&lt;dimension_filter::Operator&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `DimensionFilter`.
@@ -1708,7 +1709,7 @@
         </span><span class="kw">pub enum </span>Operator {
             <span class="doccomment">/// Matches a row if its value for the specified dimension is in one of the
             /// values specified in this condition.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>MatchesAny(<span class="kw">super</span>::<span class="kw">super</span>::StringList),
         }
     }
@@ -1717,10 +1718,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>SortCondition {
         <span class="doccomment">/// Sorting order of the dimension or metric.
-        </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::SortOrder&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(enumeration = <span class="string">"super::SortOrder"</span>, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>order: i32,
         <span class="doccomment">/// Identifies which values to sort on.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;sort_condition::SortOn&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"sort_condition::SortOn"</span>, tags = <span class="string">"1, 2"</span>)]
         </span><span class="kw">pub </span>sort_on: ::core::option::Option&lt;sort_condition::SortOn&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `SortCondition`.
@@ -1730,10 +1731,10 @@
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>SortOn {
             <span class="doccomment">/// Sort by the specified dimension.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::Dimension&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(enumeration = <span class="string">"super::Dimension"</span>, tag = <span class="string">"1"</span>)]
             </span>Dimension(i32),
             <span class="doccomment">/// Sort by the specified metric.
-            </span><span class="attr">#[prost(enumeration = <span class="string">&quot;super::Metric&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(enumeration = <span class="string">"super::Metric"</span>, tag = <span class="string">"2"</span>)]
             </span>Metric(i32),
         }
     }
@@ -1755,38 +1756,38 @@
     </span><span class="kw">pub enum </span>Dimension {
         <span class="doccomment">/// Default value for an unset field. Do not use.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// A date in the YYYY-MM-DD format (for example, &quot;2018-12-21&quot;). Requests can
+        <span class="doccomment">/// A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
         /// specify at most one time dimension.
         </span>Date = <span class="number">1</span>,
-        <span class="doccomment">/// A month in the YYYY-MM format (for example, &quot;2018-12&quot;). Requests can
+        <span class="doccomment">/// A month in the YYYY-MM format (for example, "2018-12"). Requests can
         /// specify at most one time dimension.
         </span>Month = <span class="number">2</span>,
         <span class="doccomment">/// The date of the first day of a week in the YYYY-MM-DD format
-        /// (for example, &quot;2018-12-21&quot;). Requests can specify at most one time
+        /// (for example, "2018-12-21"). Requests can specify at most one time
         /// dimension.
         </span>Week = <span class="number">3</span>,
         <span class="doccomment">/// The [unique ID of the ad source](/admob/api/v1/ad_sources) (for example,
-        /// &quot;5450213213286189855&quot; and &quot;AdMob Network&quot; as label value).
+        /// "5450213213286189855" and "AdMob Network" as label value).
         </span>AdSource = <span class="number">4</span>,
         <span class="doccomment">/// The unique ID of the ad source instance (for example,
-        /// &quot;ca-app-pub-1234#5678&quot; and &quot;AdMob (default)&quot; as label value).
+        /// "ca-app-pub-1234#5678" and "AdMob (default)" as label value).
         </span>AdSourceInstance = <span class="number">5</span>,
-        <span class="doccomment">/// The unique ID of the ad unit (for example, &quot;ca-app-pub-1234/8790&quot;).
+        <span class="doccomment">/// The unique ID of the ad unit (for example, "ca-app-pub-1234/8790").
         /// If AD_UNIT dimension is specified, then APP is included automatically.
         </span>AdUnit = <span class="number">6</span>,
         <span class="doccomment">/// The unique ID of the mobile application (for example,
-        /// &quot;ca-app-pub-1234~1234&quot;).
+        /// "ca-app-pub-1234~1234").
         </span>App = <span class="number">7</span>,
         <span class="doccomment">/// The unique ID of the mediation group (for example,
-        /// &quot;ca-app-pub-1234:mg:1234&quot; and &quot;AdMob (default)&quot; as label value).
+        /// "ca-app-pub-1234:mg:1234" and "AdMob (default)" as label value).
         </span>MediationGroup = <span class="number">11</span>,
         <span class="doccomment">/// CLDR country code of the place where the ad views/clicks occur (for
-        /// example, &quot;US&quot; or &quot;FR&quot;). This is a geography dimension.
+        /// example, "US" or "FR"). This is a geography dimension.
         </span>Country = <span class="number">8</span>,
-        <span class="doccomment">/// Format of the ad unit (for example, &quot;banner&quot;, &quot;native&quot;), an ad delivery
+        <span class="doccomment">/// Format of the ad unit (for example, "banner", "native"), an ad delivery
         /// dimension.
         </span>Format = <span class="number">9</span>,
-        <span class="doccomment">/// Mobile OS platform of the app (for example, &quot;Android&quot; or &quot;iOS&quot;).
+        <span class="doccomment">/// Mobile OS platform of the app (for example, "Android" or "iOS").
         </span>Platform = <span class="number">10</span>,
     }
     <span class="kw">impl </span>Dimension {
@@ -1794,37 +1795,37 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Dimension::Unspecified =&gt; <span class="string">&quot;DIMENSION_UNSPECIFIED&quot;</span>,
-                Dimension::Date =&gt; <span class="string">&quot;DATE&quot;</span>,
-                Dimension::Month =&gt; <span class="string">&quot;MONTH&quot;</span>,
-                Dimension::Week =&gt; <span class="string">&quot;WEEK&quot;</span>,
-                Dimension::AdSource =&gt; <span class="string">&quot;AD_SOURCE&quot;</span>,
-                Dimension::AdSourceInstance =&gt; <span class="string">&quot;AD_SOURCE_INSTANCE&quot;</span>,
-                Dimension::AdUnit =&gt; <span class="string">&quot;AD_UNIT&quot;</span>,
-                Dimension::App =&gt; <span class="string">&quot;APP&quot;</span>,
-                Dimension::MediationGroup =&gt; <span class="string">&quot;MEDIATION_GROUP&quot;</span>,
-                Dimension::Country =&gt; <span class="string">&quot;COUNTRY&quot;</span>,
-                Dimension::Format =&gt; <span class="string">&quot;FORMAT&quot;</span>,
-                Dimension::Platform =&gt; <span class="string">&quot;PLATFORM&quot;</span>,
+                Dimension::Unspecified =&gt; <span class="string">"DIMENSION_UNSPECIFIED"</span>,
+                Dimension::Date =&gt; <span class="string">"DATE"</span>,
+                Dimension::Month =&gt; <span class="string">"MONTH"</span>,
+                Dimension::Week =&gt; <span class="string">"WEEK"</span>,
+                Dimension::AdSource =&gt; <span class="string">"AD_SOURCE"</span>,
+                Dimension::AdSourceInstance =&gt; <span class="string">"AD_SOURCE_INSTANCE"</span>,
+                Dimension::AdUnit =&gt; <span class="string">"AD_UNIT"</span>,
+                Dimension::App =&gt; <span class="string">"APP"</span>,
+                Dimension::MediationGroup =&gt; <span class="string">"MEDIATION_GROUP"</span>,
+                Dimension::Country =&gt; <span class="string">"COUNTRY"</span>,
+                Dimension::Format =&gt; <span class="string">"FORMAT"</span>,
+                Dimension::Platform =&gt; <span class="string">"PLATFORM"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;DIMENSION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
-                <span class="string">&quot;MONTH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Month),
-                <span class="string">&quot;WEEK&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Week),
-                <span class="string">&quot;AD_SOURCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdSource),
-                <span class="string">&quot;AD_SOURCE_INSTANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdSourceInstance),
-                <span class="string">&quot;AD_UNIT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdUnit),
-                <span class="string">&quot;APP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::App),
-                <span class="string">&quot;MEDIATION_GROUP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MediationGroup),
-                <span class="string">&quot;COUNTRY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Country),
-                <span class="string">&quot;FORMAT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Format),
-                <span class="string">&quot;PLATFORM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Platform),
+                <span class="string">"DIMENSION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Date),
+                <span class="string">"MONTH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Month),
+                <span class="string">"WEEK" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Week),
+                <span class="string">"AD_SOURCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdSource),
+                <span class="string">"AD_SOURCE_INSTANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdSourceInstance),
+                <span class="string">"AD_UNIT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdUnit),
+                <span class="string">"APP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::App),
+                <span class="string">"MEDIATION_GROUP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MediationGroup),
+                <span class="string">"COUNTRY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Country),
+                <span class="string">"FORMAT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Format),
+                <span class="string">"PLATFORM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Platform),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1872,7 +1873,7 @@
         <span class="doccomment">/// The ratio of matched ad requests over the total ad requests. The value is
         /// a double precision (approximate) decimal value.
         </span>MatchRate = <span class="number">7</span>,
-        <span class="doccomment">/// The third-party ad network&#39;s estimated average eCPM. The currency unit
+        <span class="doccomment">/// The third-party ad network's estimated average eCPM. The currency unit
         /// (USD, EUR, or other) of the earning metrics are determined by the
         /// localization setting for currency. The amount is in micros. For example,
         /// $2.30 would be represented as 2300000.
@@ -1887,31 +1888,31 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Metric::Unspecified =&gt; <span class="string">&quot;METRIC_UNSPECIFIED&quot;</span>,
-                Metric::AdRequests =&gt; <span class="string">&quot;AD_REQUESTS&quot;</span>,
-                Metric::Clicks =&gt; <span class="string">&quot;CLICKS&quot;</span>,
-                Metric::EstimatedEarnings =&gt; <span class="string">&quot;ESTIMATED_EARNINGS&quot;</span>,
-                Metric::Impressions =&gt; <span class="string">&quot;IMPRESSIONS&quot;</span>,
-                Metric::ImpressionCtr =&gt; <span class="string">&quot;IMPRESSION_CTR&quot;</span>,
-                Metric::MatchedRequests =&gt; <span class="string">&quot;MATCHED_REQUESTS&quot;</span>,
-                Metric::MatchRate =&gt; <span class="string">&quot;MATCH_RATE&quot;</span>,
-                Metric::ObservedEcpm =&gt; <span class="string">&quot;OBSERVED_ECPM&quot;</span>,
+                Metric::Unspecified =&gt; <span class="string">"METRIC_UNSPECIFIED"</span>,
+                Metric::AdRequests =&gt; <span class="string">"AD_REQUESTS"</span>,
+                Metric::Clicks =&gt; <span class="string">"CLICKS"</span>,
+                Metric::EstimatedEarnings =&gt; <span class="string">"ESTIMATED_EARNINGS"</span>,
+                Metric::Impressions =&gt; <span class="string">"IMPRESSIONS"</span>,
+                Metric::ImpressionCtr =&gt; <span class="string">"IMPRESSION_CTR"</span>,
+                Metric::MatchedRequests =&gt; <span class="string">"MATCHED_REQUESTS"</span>,
+                Metric::MatchRate =&gt; <span class="string">"MATCH_RATE"</span>,
+                Metric::ObservedEcpm =&gt; <span class="string">"OBSERVED_ECPM"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;METRIC_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AD_REQUESTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdRequests),
-                <span class="string">&quot;CLICKS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Clicks),
-                <span class="string">&quot;ESTIMATED_EARNINGS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EstimatedEarnings),
-                <span class="string">&quot;IMPRESSIONS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Impressions),
-                <span class="string">&quot;IMPRESSION_CTR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImpressionCtr),
-                <span class="string">&quot;MATCHED_REQUESTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MatchedRequests),
-                <span class="string">&quot;MATCH_RATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MatchRate),
-                <span class="string">&quot;OBSERVED_ECPM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ObservedEcpm),
+                <span class="string">"METRIC_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AD_REQUESTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AdRequests),
+                <span class="string">"CLICKS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Clicks),
+                <span class="string">"ESTIMATED_EARNINGS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EstimatedEarnings),
+                <span class="string">"IMPRESSIONS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Impressions),
+                <span class="string">"IMPRESSION_CTR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ImpressionCtr),
+                <span class="string">"MATCHED_REQUESTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MatchedRequests),
+                <span class="string">"MATCH_RATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MatchRate),
+                <span class="string">"OBSERVED_ECPM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ObservedEcpm),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1922,7 +1923,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReportRow {
     <span class="doccomment">/// Map of dimension values in a row, with keys as enum name of the dimensions.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>dimension_values: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         report_row::DimensionValue,
@@ -1930,7 +1931,7 @@
     <span class="doccomment">/// Map of metric values in a row, with keys as enum name of the metrics. If
     /// a metric being requested has no value returned, the map will not include
     /// it.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>metric_values: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         report_row::MetricValue,
@@ -1942,41 +1943,41 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>DimensionValue {
-        <span class="doccomment">/// Dimension value in the format specified in the report&#39;s spec Dimension
+        <span class="doccomment">/// Dimension value in the format specified in the report's spec Dimension
         /// enum.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
         <span class="doccomment">/// The localized string representation of the value. If unspecified, the
         /// display label should be derived from the value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>display_label: ::prost::alloc::string::String,
     }
     <span class="doccomment">/// Representation of a metric value.
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>MetricValue {
-        <span class="doccomment">/// Metric value in the format specified in the report&#39;s spec Metric enum
+        <span class="doccomment">/// Metric value in the format specified in the report's spec Metric enum
         /// name.
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;metric_value::Value&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"metric_value::Value"</span>, tags = <span class="string">"1, 2, 3"</span>)]
         </span><span class="kw">pub </span>value: ::core::option::Option&lt;metric_value::Value&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `MetricValue`.
     </span><span class="kw">pub mod </span>metric_value {
-        <span class="doccomment">/// Metric value in the format specified in the report&#39;s spec Metric enum
+        <span class="doccomment">/// Metric value in the format specified in the report's spec Metric enum
         /// name.
         </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>Value {
             <span class="doccomment">/// Metric integer value.
-            </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(int64, tag = <span class="string">"1"</span>)]
             </span>IntegerValue(i64),
             <span class="doccomment">/// Double precision (approximate) decimal values. Rates are from 0 to 1.
-            </span><span class="attr">#[prost(double, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(double, tag = <span class="string">"2"</span>)]
             </span>DoubleValue(f64),
             <span class="doccomment">/// Amount in micros. One million is equivalent to one unit. Currency value
             /// is in the unit (USD, EUR or other) specified by the request.
             /// For example, $6.50 whould be represented as 6500000 micros.
-            </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(int64, tag = <span class="string">"3"</span>)]
             </span>MicrosValue(i64),
         }
     }
@@ -1986,10 +1987,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReportWarning {
     <span class="doccomment">/// Type of the warning.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;report_warning::Type&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"report_warning::Type"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>r#type: i32,
     <span class="doccomment">/// Describes the details of the warning message, in English.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `ReportWarning`.
@@ -2035,29 +2036,29 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
                 Type::DataBeforeAccountTimezoneChange =&gt; {
-                    <span class="string">&quot;DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE&quot;
+                    <span class="string">"DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE"
                 </span>}
-                Type::DataDelayed =&gt; <span class="string">&quot;DATA_DELAYED&quot;</span>,
-                Type::Other =&gt; <span class="string">&quot;OTHER&quot;</span>,
+                Type::DataDelayed =&gt; <span class="string">"DATA_DELAYED"</span>,
+                Type::Other =&gt; <span class="string">"OTHER"</span>,
                 Type::ReportCurrencyNotAccountCurrency =&gt; {
-                    <span class="string">&quot;REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY&quot;
+                    <span class="string">"REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY"
                 </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE&quot; </span>=&gt; {
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataBeforeAccountTimezoneChange)
                 }
-                <span class="string">&quot;DATA_DELAYED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataDelayed),
-                <span class="string">&quot;OTHER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
-                <span class="string">&quot;REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY&quot; </span>=&gt; {
+                <span class="string">"DATA_DELAYED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataDelayed),
+                <span class="string">"OTHER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Other),
+                <span class="string">"REPORT_CURRENCY_NOT_ACCOUNT_CURRENCY" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::ReportCurrencyNotAccountCurrency)
                 }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -2072,15 +2073,15 @@
 </span><span class="kw">pub struct </span>ReportHeader {
     <span class="doccomment">/// The date range for which the report is generated. This is identical to the
     /// range specified in the report request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>date_range: ::core::option::Option&lt;DateRange&gt;,
     <span class="doccomment">/// Localization settings of the report. This is identical to the settings
     /// in the report request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>localization_settings: ::core::option::Option&lt;LocalizationSettings&gt;,
     <span class="doccomment">/// The report time zone. The value is a time-zone ID as specified by the CLDR
-    /// project, for example, &quot;America/Los_Angeles&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// project, for example, "America/Los_Angeles".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>reporting_time_zone: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Groups data available after report generation, for example, warnings and row
@@ -2089,13 +2090,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ReportFooter {
     <span class="doccomment">/// Warnings associated with generation of the report.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>warnings: ::prost::alloc::vec::Vec&lt;ReportWarning&gt;,
     <span class="doccomment">/// Total number of rows that matched the request.
     ///
     /// Warning: This count does NOT always match the number of rows in the
     /// response. Do not make that assumption when processing the response.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>matching_row_count: i64,
 }
 <span class="doccomment">/// Specification of a single date range. Both dates are inclusive.
@@ -2104,11 +2105,11 @@
 </span><span class="kw">pub struct </span>DateRange {
     <span class="doccomment">/// Start date of the date range, inclusive. Must be less than or equal to the
     /// end date.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
     <span class="doccomment">/// End date of the date range, inclusive. Must be greater than or equal to the
     /// start date.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_date: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::r#type::Date&gt;,
 }
 <span class="doccomment">/// Localization settings for reports, such as currency and language. It affects
@@ -2119,12 +2120,12 @@
     <span class="doccomment">/// Currency code of the earning related metrics, which is the 3-letter code
     /// defined in ISO 4217. The daily average rate is used for the currency
     /// conversion. Defaults to the account currency code if unspecified.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>currency_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Language used for any localized text, such as some dimension value display
-    /// labels. The language tag defined in the IETF BCP47. Defaults to &#39;en-US&#39; if
+    /// labels. The language tag defined in the IETF BCP47. Defaults to 'en-US' if
     /// unspecified.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// List of string values.
@@ -2132,7 +2133,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StringList {
     <span class="doccomment">/// The string values.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>values: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// The sorting order.
@@ -2151,19 +2152,19 @@
     ///
     /// The values are not transformed in any way and thus are considered stable
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
-            SortOrder::Unspecified =&gt; <span class="string">&quot;SORT_ORDER_UNSPECIFIED&quot;</span>,
-            SortOrder::Ascending =&gt; <span class="string">&quot;ASCENDING&quot;</span>,
-            SortOrder::Descending =&gt; <span class="string">&quot;DESCENDING&quot;</span>,
+            SortOrder::Unspecified =&gt; <span class="string">"SORT_ORDER_UNSPECIFIED"</span>,
+            SortOrder::Ascending =&gt; <span class="string">"ASCENDING"</span>,
+            SortOrder::Descending =&gt; <span class="string">"DESCENDING"</span>,
         }
     }
     <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
     </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
         <span class="kw">match </span>value {
-            <span class="string">&quot;SORT_ORDER_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-            <span class="string">&quot;ASCENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ascending),
-            <span class="string">&quot;DESCENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Descending),
+            <span class="string">"SORT_ORDER_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+            <span class="string">"ASCENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ascending),
+            <span class="string">"DESCENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Descending),
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -2174,7 +2175,7 @@
 </span><span class="kw">pub struct </span>GetPublisherAccountRequest {
     <span class="doccomment">/// Resource name of the publisher account to retrieve.
     /// Example: accounts/pub-9876543210987654
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to retrieve the AdMob publisher account accessible with the client
@@ -2183,12 +2184,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPublisherAccountsRequest {
     <span class="doccomment">/// Maximum number of accounts to return.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The value returned by the last `ListPublisherAccountsResponse`; indicates
     /// that this is a continuation of a prior `ListPublisherAccounts` call, and
     /// that the system should return the next page of data.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for the publisher account list request.
@@ -2196,11 +2197,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPublisherAccountsResponse {
     <span class="doccomment">/// Publisher that the client credentials can access.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>account: ::prost::alloc::vec::Vec&lt;PublisherAccount&gt;,
     <span class="doccomment">/// If not empty, indicates that there might be more accounts for the request;
     /// you must pass this value in a new `ListPublisherAccountsRequest`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to generate an AdMob Mediation report.
@@ -2209,10 +2210,10 @@
 </span><span class="kw">pub struct </span>GenerateMediationReportRequest {
     <span class="doccomment">/// Resource name of the account to generate the report for.
     /// Example: accounts/pub-9876543210987654
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Network report specification.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>report_spec: ::core::option::Option&lt;MediationReportSpec&gt;,
 }
 <span class="doccomment">/// The streaming response for the AdMob Mediation report where the first
@@ -2222,39 +2223,39 @@
 /// For example:
 ///
 ///      [{
-///        &quot;header&quot;: {
-///          &quot;date_range&quot;: {
-///            &quot;start_date&quot;: {&quot;year&quot;: 2018, &quot;month&quot;: 9, &quot;day&quot;: 1},
-///            &quot;end_date&quot;: {&quot;year&quot;: 2018, &quot;month&quot;: 9, &quot;day&quot;: 1}
+///        "header": {
+///          "date_range": {
+///            "start_date": {"year": 2018, "month": 9, "day": 1},
+///            "end_date": {"year": 2018, "month": 9, "day": 1}
 ///          },
-///          &quot;localization_settings&quot;: {
-///            &quot;currency_code&quot;: &quot;USD&quot;,
-///            &quot;language_code&quot;: &quot;en-US&quot;
+///          "localization_settings": {
+///            "currency_code": "USD",
+///            "language_code": "en-US"
 ///          }
 ///        }
 ///      },
 ///      {
-///        &quot;row&quot;: {
-///          &quot;dimension_values&quot;: {
-///            &quot;DATE&quot;: {&quot;value&quot;: &quot;20180918&quot;},
-///            &quot;APP&quot;: {
-///              &quot;value&quot;: &quot;ca-app-pub-8123415297019784~1001342552&quot;,
-///               &quot;display_label&quot;: &quot;My app name!&quot;
+///        "row": {
+///          "dimension_values": {
+///            "DATE": {"value": "20180918"},
+///            "APP": {
+///              "value": "ca-app-pub-8123415297019784~1001342552",
+///               "display_label": "My app name!"
 ///            }
 ///          },
-///          &quot;metric_values&quot;: {
-///            &quot;ESTIMATED_EARNINGS&quot;: {&quot;decimal_value&quot;: &quot;1324746&quot;}
+///          "metric_values": {
+///            "ESTIMATED_EARNINGS": {"decimal_value": "1324746"}
 ///          }
 ///        }
 ///      },
 ///      {
-///        &quot;footer&quot;: {&quot;matching_row_count&quot;: 1}
+///        "footer": {"matching_row_count": 1}
 ///      }]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateMediationReportResponse {
     <span class="doccomment">/// Each stream response message contains one type of payload.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;generate_mediation_report_response::Payload&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"generate_mediation_report_response::Payload"</span>, tags = <span class="string">"1, 2, 3"</span>)]
     </span><span class="kw">pub </span>payload: ::core::option::Option&lt;generate_mediation_report_response::Payload&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `GenerateMediationReportResponse`.
@@ -2265,14 +2266,14 @@
     </span><span class="kw">pub enum </span>Payload {
         <span class="doccomment">/// Report generation settings that describes the report contents, such as
         /// the report date range and localization settings.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Header(<span class="kw">super</span>::ReportHeader),
         <span class="doccomment">/// Actual report data.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Row(<span class="kw">super</span>::ReportRow),
         <span class="doccomment">/// Additional information about the generated report, such as warnings about
         /// the data.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Footer(<span class="kw">super</span>::ReportFooter),
     }
 }
@@ -2282,10 +2283,10 @@
 </span><span class="kw">pub struct </span>GenerateNetworkReportRequest {
     <span class="doccomment">/// Resource name of the account to generate the report for.
     /// Example: accounts/pub-9876543210987654
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Network report specification.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>report_spec: ::core::option::Option&lt;NetworkReportSpec&gt;,
 }
 <span class="doccomment">/// The streaming response for the AdMob Network report where the first response
@@ -2295,39 +2296,39 @@
 /// For example:
 ///
 ///      [{
-///        &quot;header&quot;: {
-///          &quot;dateRange&quot;: {
-///            &quot;startDate&quot;: {&quot;year&quot;: 2018, &quot;month&quot;: 9, &quot;day&quot;: 1},
-///            &quot;endDate&quot;: {&quot;year&quot;: 2018, &quot;month&quot;: 9, &quot;day&quot;: 1}
+///        "header": {
+///          "dateRange": {
+///            "startDate": {"year": 2018, "month": 9, "day": 1},
+///            "endDate": {"year": 2018, "month": 9, "day": 1}
 ///          },
-///          &quot;localizationSettings&quot;: {
-///            &quot;currencyCode&quot;: &quot;USD&quot;,
-///            &quot;languageCode&quot;: &quot;en-US&quot;
+///          "localizationSettings": {
+///            "currencyCode": "USD",
+///            "languageCode": "en-US"
 ///          }
 ///        }
 ///      },
 ///      {
-///        &quot;row&quot;: {
-///          &quot;dimensionValues&quot;: {
-///            &quot;DATE&quot;: {&quot;value&quot;: &quot;20180918&quot;},
-///            &quot;APP&quot;: {
-///              &quot;value&quot;: &quot;ca-app-pub-8123415297019784~1001342552&quot;,
-///               displayLabel: &quot;My app name!&quot;
+///        "row": {
+///          "dimensionValues": {
+///            "DATE": {"value": "20180918"},
+///            "APP": {
+///              "value": "ca-app-pub-8123415297019784~1001342552",
+///               displayLabel: "My app name!"
 ///            }
 ///          },
-///          &quot;metricValues&quot;: {
-///            &quot;ESTIMATED_EARNINGS&quot;: {&quot;microsValue&quot;: 6500000}
+///          "metricValues": {
+///            "ESTIMATED_EARNINGS": {"microsValue": 6500000}
 ///          }
 ///        }
 ///      },
 ///      {
-///        &quot;footer&quot;: {&quot;matchingRowCount&quot;: 1}
+///        "footer": {"matchingRowCount": 1}
 ///      }]
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GenerateNetworkReportResponse {
     <span class="doccomment">/// Each stream response message contains one type of payload.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;generate_network_report_response::Payload&quot;</span>, tags = <span class="string">&quot;1, 2, 3&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"generate_network_report_response::Payload"</span>, tags = <span class="string">"1, 2, 3"</span>)]
     </span><span class="kw">pub </span>payload: ::core::option::Option&lt;generate_network_report_response::Payload&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `GenerateNetworkReportResponse`.
@@ -2338,14 +2339,14 @@
     </span><span class="kw">pub enum </span>Payload {
         <span class="doccomment">/// Report generation settings that describes the report contents, such as
         /// the report date range and localization settings.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>Header(<span class="kw">super</span>::ReportHeader),
         <span class="doccomment">/// Actual report data.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
         </span>Row(<span class="kw">super</span>::ReportRow),
         <span class="doccomment">/// Additional information about the generated report, such as warnings about
         /// the data.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>Footer(<span class="kw">super</span>::ReportFooter),
     }
 }
@@ -2364,7 +2365,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2439,19 +2440,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.ads.admob.v1.AdMobApi/GetPublisherAccount&quot;</span>,
+                <span class="string">"/google.ads.admob.v1.AdMobApi/GetPublisherAccount"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.ads.admob.v1.AdMobApi&quot;</span>,
-                        <span class="string">&quot;GetPublisherAccount&quot;</span>,
+                        <span class="string">"google.ads.admob.v1.AdMobApi"</span>,
+                        <span class="string">"GetPublisherAccount"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2471,19 +2472,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.ads.admob.v1.AdMobApi/ListPublisherAccounts&quot;</span>,
+                <span class="string">"/google.ads.admob.v1.AdMobApi/ListPublisherAccounts"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.ads.admob.v1.AdMobApi&quot;</span>,
-                        <span class="string">&quot;ListPublisherAccounts&quot;</span>,
+                        <span class="string">"google.ads.admob.v1.AdMobApi"</span>,
+                        <span class="string">"ListPublisherAccounts"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2505,19 +2506,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.ads.admob.v1.AdMobApi/GenerateNetworkReport&quot;</span>,
+                <span class="string">"/google.ads.admob.v1.AdMobApi/GenerateNetworkReport"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.ads.admob.v1.AdMobApi&quot;</span>,
-                        <span class="string">&quot;GenerateNetworkReport&quot;</span>,
+                        <span class="string">"google.ads.admob.v1.AdMobApi"</span>,
+                        <span class="string">"GenerateNetworkReport"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.server_streaming(req, path, codec).<span class="kw">await
@@ -2539,19 +2540,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.ads.admob.v1.AdMobApi/GenerateMediationReport&quot;</span>,
+                <span class="string">"/google.ads.admob.v1.AdMobApi/GenerateMediationReport"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.ads.admob.v1.AdMobApi&quot;</span>,
-                        <span class="string">&quot;GenerateMediationReport&quot;</span>,
+                        <span class="string">"google.ads.admob.v1.AdMobApi"</span>,
+                        <span class="string">"GenerateMediationReport"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.server_streaming(req, path, codec).<span class="kw">await

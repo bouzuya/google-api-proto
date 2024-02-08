@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/binaryauthorization/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/binaryauthorization/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1188,21 +1189,21 @@
 </span><span class="kw">pub struct </span>Policy {
     <span class="doccomment">/// Output only. The resource name, in the format `projects/*/policy`. There is
     /// at most one policy per project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A descriptive comment.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Controls the evaluation of a Google-maintained global admission
     /// policy for common system-level images. Images not covered by the global
     /// policy will be subject to the project admission policy. This setting
     /// has no effect when specified inside a global admission policy.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;policy::GlobalPolicyEvaluationMode&quot;</span>, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"policy::GlobalPolicyEvaluationMode"</span>, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>global_policy_evaluation_mode: i32,
     <span class="doccomment">/// Optional. Admission policy allowlisting. A matching admission request will
     /// always be permitted. This feature is typically used to exclude Google or
     /// third-party infrastructure images from Binary Authorization policies.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>admission_whitelist_patterns: ::prost::alloc::vec::Vec&lt;
         AdmissionWhitelistPattern,
     &gt;,
@@ -1213,21 +1214,21 @@
     /// (e.g. us-central1).
     /// For `clusterId` syntax restrictions see
     /// &lt;https://cloud.google.com/container-engine/reference/rest/v1/projects.zones.clusters.&gt;
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>cluster_admission_rules: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         AdmissionRule,
     &gt;,
     <span class="doccomment">/// Optional. Per-kubernetes-namespace admission rules. K8s namespace spec format:
-    /// \[a-z.-\]+, e.g. &#39;some-namespace&#39;
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    /// \[a-z.-\]+, e.g. 'some-namespace'
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>kubernetes_namespace_admission_rules: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         AdmissionRule,
     &gt;,
     <span class="doccomment">/// Optional. Per-kubernetes-service-account admission rules. Service account
-    /// spec format: `namespace:serviceaccount`. e.g. &#39;test-ns:default&#39;
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;8&quot;</span>)]
+    /// spec format: `namespace:serviceaccount`. e.g. 'test-ns:default'
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>kubernetes_service_account_admission_rules: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         AdmissionRule,
@@ -1237,17 +1238,17 @@
     /// spiffe://&lt;domain&gt;/ns/&lt;namespace&gt;/sa/&lt;serviceaccount&gt; or
     /// &lt;domain&gt;/ns/&lt;namespace&gt;/sa/&lt;serviceaccount&gt;
     /// e.g. spiffe://example.com/ns/test-ns/sa/default
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>istio_service_identity_admission_rules: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         AdmissionRule,
     &gt;,
     <span class="doccomment">/// Required. Default admission rule for a cluster without a per-cluster, per-
     /// kubernetes-service-account, or per-istio-service-identity admission rule.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>default_admission_rule: ::core::option::Option&lt;AdmissionRule&gt;,
     <span class="doccomment">/// Output only. Time when the policy was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Policy`.
@@ -1277,21 +1278,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
                 GlobalPolicyEvaluationMode::Unspecified =&gt; {
-                    <span class="string">&quot;GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED&quot;
+                    <span class="string">"GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED"
                 </span>}
-                GlobalPolicyEvaluationMode::Enable =&gt; <span class="string">&quot;ENABLE&quot;</span>,
-                GlobalPolicyEvaluationMode::Disable =&gt; <span class="string">&quot;DISABLE&quot;</span>,
+                GlobalPolicyEvaluationMode::Enable =&gt; <span class="string">"ENABLE"</span>,
+                GlobalPolicyEvaluationMode::Disable =&gt; <span class="string">"DISABLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enable),
-                <span class="string">&quot;DISABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disable),
+                <span class="string">"GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ENABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enable),
+                <span class="string">"DISABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disable),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1306,7 +1307,7 @@
     /// This supports a trailing `*` wildcard, but this is allowed only in
     /// text after the `registry/` part. This also supports a trailing `**`
     /// wildcard which matches subdirectories of a given entry.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name_pattern: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// An [admission rule][google.cloud.binaryauthorization.v1.AdmissionRule] specifies either that all container images
@@ -1320,7 +1321,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AdmissionRule {
     <span class="doccomment">/// Required. How this admission rule will be evaluated.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;admission_rule::EvaluationMode&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"admission_rule::EvaluationMode"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>evaluation_mode: i32,
     <span class="doccomment">/// Optional. The resource names of the attestors that must attest to
     /// a container image, in the format `projects/*/attestors/*`. Each
@@ -1330,12 +1331,12 @@
     ///
     /// Note: this field must be non-empty when the evaluation_mode field specifies
     /// REQUIRE_ATTESTATION, otherwise it must be empty.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>require_attestations_by: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
     <span class="doccomment">/// Required. The action when a pod creation is denied by the admission rule.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;admission_rule::EnforcementMode&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"admission_rule::EnforcementMode"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>enforcement_mode: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `AdmissionRule`.
@@ -1358,7 +1359,7 @@
         <span class="doccomment">/// This rule allows all all pod creations.
         </span>AlwaysAllow = <span class="number">1</span>,
         <span class="doccomment">/// This rule allows a pod creation if all the attestors listed in
-        /// &#39;require_attestations_by&#39; have valid attestations for all of the
+        /// 'require_attestations_by' have valid attestations for all of the
         /// images in the pod spec.
         </span>RequireAttestation = <span class="number">2</span>,
         <span class="doccomment">/// This rule denies all pod creations.
@@ -1369,21 +1370,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EvaluationMode::Unspecified =&gt; <span class="string">&quot;EVALUATION_MODE_UNSPECIFIED&quot;</span>,
-                EvaluationMode::AlwaysAllow =&gt; <span class="string">&quot;ALWAYS_ALLOW&quot;</span>,
-                EvaluationMode::RequireAttestation =&gt; <span class="string">&quot;REQUIRE_ATTESTATION&quot;</span>,
-                EvaluationMode::AlwaysDeny =&gt; <span class="string">&quot;ALWAYS_DENY&quot;</span>,
+                EvaluationMode::Unspecified =&gt; <span class="string">"EVALUATION_MODE_UNSPECIFIED"</span>,
+                EvaluationMode::AlwaysAllow =&gt; <span class="string">"ALWAYS_ALLOW"</span>,
+                EvaluationMode::RequireAttestation =&gt; <span class="string">"REQUIRE_ATTESTATION"</span>,
+                EvaluationMode::AlwaysDeny =&gt; <span class="string">"ALWAYS_DENY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;EVALUATION_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ALWAYS_ALLOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlwaysAllow),
-                <span class="string">&quot;REQUIRE_ATTESTATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequireAttestation),
-                <span class="string">&quot;ALWAYS_DENY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlwaysDeny),
+                <span class="string">"EVALUATION_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ALWAYS_ALLOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlwaysAllow),
+                <span class="string">"REQUIRE_ATTESTATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequireAttestation),
+                <span class="string">"ALWAYS_DENY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AlwaysDeny),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1416,21 +1417,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EnforcementMode::Unspecified =&gt; <span class="string">&quot;ENFORCEMENT_MODE_UNSPECIFIED&quot;</span>,
+                EnforcementMode::Unspecified =&gt; <span class="string">"ENFORCEMENT_MODE_UNSPECIFIED"</span>,
                 EnforcementMode::EnforcedBlockAndAuditLog =&gt; {
-                    <span class="string">&quot;ENFORCED_BLOCK_AND_AUDIT_LOG&quot;
+                    <span class="string">"ENFORCED_BLOCK_AND_AUDIT_LOG"
                 </span>}
-                EnforcementMode::DryrunAuditLogOnly =&gt; <span class="string">&quot;DRYRUN_AUDIT_LOG_ONLY&quot;</span>,
+                EnforcementMode::DryrunAuditLogOnly =&gt; <span class="string">"DRYRUN_AUDIT_LOG_ONLY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ENFORCEMENT_MODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ENFORCED_BLOCK_AND_AUDIT_LOG&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EnforcedBlockAndAuditLog),
-                <span class="string">&quot;DRYRUN_AUDIT_LOG_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DryrunAuditLogOnly),
+                <span class="string">"ENFORCEMENT_MODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ENFORCED_BLOCK_AND_AUDIT_LOG" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EnforcedBlockAndAuditLog),
+                <span class="string">"DRYRUN_AUDIT_LOG_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DryrunAuditLogOnly),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1444,16 +1445,16 @@
 </span><span class="kw">pub struct </span>Attestor {
     <span class="doccomment">/// Required. The resource name, in the format:
     /// `projects/*/attestors/*`. This field may not be updated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A descriptive comment.  This field may be updated.
     /// The field may be displayed in chooser dialogs.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Time when the attestor was last updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;attestor::AttestorType&quot;</span>, tags = <span class="string">&quot;3&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"attestor::AttestorType"</span>, tags = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>attestor_type: ::core::option::Option&lt;attestor::AttestorType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Attestor`.
@@ -1463,7 +1464,7 @@
     </span><span class="kw">pub enum </span>AttestorType {
         <span class="doccomment">/// This specifies how an attestation will be read, and how it will be used
         /// during policy enforcement.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"3"</span>)]
         </span>UserOwnedGrafeasNote(<span class="kw">super</span>::UserOwnedGrafeasNote),
     }
 }
@@ -1479,7 +1480,7 @@
     /// An attestation by this attestor is stored as a Grafeas
     /// Attestation.Authority Occurrence that names a container image and that
     /// links to this Note. Grafeas is an external dependency.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>note_reference: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Public keys that verify attestations signed by this
     /// attestor.  This field may be updated.
@@ -1490,7 +1491,7 @@
     ///
     /// If this field is empty, this attestor always returns that no
     /// valid attestations exist.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>public_keys: ::prost::alloc::vec::Vec&lt;AttestorPublicKey&gt;,
     <span class="doccomment">/// Output only. This field will contain the service account email address
     /// that this Attestor will use as the principal when querying Container
@@ -1501,7 +1502,7 @@
     /// This email address is fixed for the lifetime of the Attestor, but callers
     /// should not make any other assumptions about the service account email;
     /// future versions may use an email based on a different naming pattern.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>delegation_service_account_email: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A public key in the PkixPublicKey format (see
@@ -1513,22 +1514,22 @@
 </span><span class="kw">pub struct </span>PkixPublicKey {
     <span class="doccomment">/// A PEM-encoded public key, as described in
     /// &lt;https://tools.ietf.org/html/rfc7468#section-13&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>public_key_pem: ::prost::alloc::string::String,
     <span class="doccomment">/// The signature algorithm used to verify a message against a signature using
     /// this key.
     /// These signature algorithm must match the structure and any object
     /// identifiers encoded in `public_key_pem` (i.e. this algorithm must match
     /// that of the public key).
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;pkix_public_key::SignatureAlgorithm&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"pkix_public_key::SignatureAlgorithm"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>signature_algorithm: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `PkixPublicKey`.
 </span><span class="kw">pub mod </span>pkix_public_key {
     <span class="doccomment">/// Represents a signature algorithm and other information necessary to verify
     /// signatures with a given public key.
-    /// This is based primarily on the public key types supported by Tink&#39;s
-    /// PemKeyType, which is in turn based on KMS&#39;s supported signing algorithms.
+    /// This is based primarily on the public key types supported by Tink's
+    /// PemKeyType, which is in turn based on KMS's supported signing algorithms.
     /// See &lt;https://cloud.google.com/kms/docs/algorithms.&gt; In the future, BinAuthz
     /// might support additional public key types independently of Tink and/or KMS.
     </span><span class="attr">#[derive(
@@ -1574,45 +1575,45 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SignatureAlgorithm::Unspecified =&gt; <span class="string">&quot;SIGNATURE_ALGORITHM_UNSPECIFIED&quot;</span>,
-                SignatureAlgorithm::RsaPss2048Sha256 =&gt; <span class="string">&quot;RSA_PSS_2048_SHA256&quot;</span>,
-                SignatureAlgorithm::RsaPss3072Sha256 =&gt; <span class="string">&quot;RSA_PSS_3072_SHA256&quot;</span>,
-                SignatureAlgorithm::RsaPss4096Sha256 =&gt; <span class="string">&quot;RSA_PSS_4096_SHA256&quot;</span>,
-                SignatureAlgorithm::RsaPss4096Sha512 =&gt; <span class="string">&quot;RSA_PSS_4096_SHA512&quot;</span>,
+                SignatureAlgorithm::Unspecified =&gt; <span class="string">"SIGNATURE_ALGORITHM_UNSPECIFIED"</span>,
+                SignatureAlgorithm::RsaPss2048Sha256 =&gt; <span class="string">"RSA_PSS_2048_SHA256"</span>,
+                SignatureAlgorithm::RsaPss3072Sha256 =&gt; <span class="string">"RSA_PSS_3072_SHA256"</span>,
+                SignatureAlgorithm::RsaPss4096Sha256 =&gt; <span class="string">"RSA_PSS_4096_SHA256"</span>,
+                SignatureAlgorithm::RsaPss4096Sha512 =&gt; <span class="string">"RSA_PSS_4096_SHA512"</span>,
                 SignatureAlgorithm::RsaSignPkcs12048Sha256 =&gt; {
-                    <span class="string">&quot;RSA_SIGN_PKCS1_2048_SHA256&quot;
+                    <span class="string">"RSA_SIGN_PKCS1_2048_SHA256"
                 </span>}
                 SignatureAlgorithm::RsaSignPkcs13072Sha256 =&gt; {
-                    <span class="string">&quot;RSA_SIGN_PKCS1_3072_SHA256&quot;
+                    <span class="string">"RSA_SIGN_PKCS1_3072_SHA256"
                 </span>}
                 SignatureAlgorithm::RsaSignPkcs14096Sha256 =&gt; {
-                    <span class="string">&quot;RSA_SIGN_PKCS1_4096_SHA256&quot;
+                    <span class="string">"RSA_SIGN_PKCS1_4096_SHA256"
                 </span>}
                 SignatureAlgorithm::RsaSignPkcs14096Sha512 =&gt; {
-                    <span class="string">&quot;RSA_SIGN_PKCS1_4096_SHA512&quot;
+                    <span class="string">"RSA_SIGN_PKCS1_4096_SHA512"
                 </span>}
-                SignatureAlgorithm::EcdsaP256Sha256 =&gt; <span class="string">&quot;ECDSA_P256_SHA256&quot;</span>,
-                SignatureAlgorithm::EcdsaP384Sha384 =&gt; <span class="string">&quot;ECDSA_P384_SHA384&quot;</span>,
-                SignatureAlgorithm::EcdsaP521Sha512 =&gt; <span class="string">&quot;ECDSA_P521_SHA512&quot;</span>,
+                SignatureAlgorithm::EcdsaP256Sha256 =&gt; <span class="string">"ECDSA_P256_SHA256"</span>,
+                SignatureAlgorithm::EcdsaP384Sha384 =&gt; <span class="string">"ECDSA_P384_SHA384"</span>,
+                SignatureAlgorithm::EcdsaP521Sha512 =&gt; <span class="string">"ECDSA_P521_SHA512"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SIGNATURE_ALGORITHM_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;RSA_PSS_2048_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaPss2048Sha256),
-                <span class="string">&quot;RSA_PSS_3072_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaPss3072Sha256),
-                <span class="string">&quot;RSA_PSS_4096_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaPss4096Sha256),
-                <span class="string">&quot;RSA_PSS_4096_SHA512&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaPss4096Sha512),
-                <span class="string">&quot;RSA_SIGN_PKCS1_2048_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaSignPkcs12048Sha256),
-                <span class="string">&quot;RSA_SIGN_PKCS1_3072_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaSignPkcs13072Sha256),
-                <span class="string">&quot;RSA_SIGN_PKCS1_4096_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaSignPkcs14096Sha256),
-                <span class="string">&quot;RSA_SIGN_PKCS1_4096_SHA512&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaSignPkcs14096Sha512),
-                <span class="string">&quot;ECDSA_P256_SHA256&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EcdsaP256Sha256),
-                <span class="string">&quot;ECDSA_P384_SHA384&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EcdsaP384Sha384),
-                <span class="string">&quot;ECDSA_P521_SHA512&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EcdsaP521Sha512),
+                <span class="string">"SIGNATURE_ALGORITHM_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"RSA_PSS_2048_SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaPss2048Sha256),
+                <span class="string">"RSA_PSS_3072_SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaPss3072Sha256),
+                <span class="string">"RSA_PSS_4096_SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaPss4096Sha256),
+                <span class="string">"RSA_PSS_4096_SHA512" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaPss4096Sha512),
+                <span class="string">"RSA_SIGN_PKCS1_2048_SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaSignPkcs12048Sha256),
+                <span class="string">"RSA_SIGN_PKCS1_3072_SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaSignPkcs13072Sha256),
+                <span class="string">"RSA_SIGN_PKCS1_4096_SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaSignPkcs14096Sha256),
+                <span class="string">"RSA_SIGN_PKCS1_4096_SHA512" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RsaSignPkcs14096Sha512),
+                <span class="string">"ECDSA_P256_SHA256" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EcdsaP256Sha256),
+                <span class="string">"ECDSA_P384_SHA384" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EcdsaP384Sha384),
+                <span class="string">"ECDSA_P521_SHA512" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EcdsaP521Sha512),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1624,7 +1625,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AttestorPublicKey {
     <span class="doccomment">/// Optional. A descriptive comment. This field may be updated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>comment: ::prost::alloc::string::String,
     <span class="doccomment">/// The ID of this public key.
     /// Signatures verified by BinAuthz must include the ID of the public key that
@@ -1633,9 +1634,9 @@
     /// Additional restrictions on this field can be imposed based on which public
     /// key type is encapsulated. See the documentation on `public_key` cases below
     /// for details.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>id: ::prost::alloc::string::String,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;attestor_public_key::PublicKey&quot;</span>, tags = <span class="string">&quot;3, 5&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"attestor_public_key::PublicKey"</span>, tags = <span class="string">"3, 5"</span>)]
     </span><span class="kw">pub </span>public_key: ::core::option::Option&lt;attestor_public_key::PublicKey&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `AttestorPublicKey`.
@@ -1651,7 +1652,7 @@
         /// computes this ID as the OpenPGP RFC4880 V4 fingerprint, represented as
         /// upper-case hex.  If `id` is provided by the caller, it will be
         /// overwritten by the API-calculated ID.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
         </span>AsciiArmoredPgpPublicKey(::prost::alloc::string::String),
         <span class="doccomment">/// A raw PKIX SubjectPublicKeyInfo format public key.
         ///
@@ -1659,7 +1660,7 @@
         /// type of public key, but it MUST be a valid RFC3986 URI. If `id` is left
         /// blank, a default one will be computed based on the digest of the DER
         /// encoding of the public key.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>PkixPublicKey(<span class="kw">super</span>::PkixPublicKey),
     }
 }
@@ -1669,7 +1670,7 @@
 </span><span class="kw">pub struct </span>GetPolicyRequest {
     <span class="doccomment">/// Required. The resource name of the [policy][google.cloud.binaryauthorization.v1.Policy] to retrieve,
     /// in the format `projects/*/policy`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for [BinauthzManagementService.UpdatePolicy][].
@@ -1679,7 +1680,7 @@
     <span class="doccomment">/// Required. A new or updated [policy][google.cloud.binaryauthorization.v1.Policy] value. The service will
     /// overwrite the [policy name][google.cloud.binaryauthorization.v1.Policy.name] field with the resource name in
     /// the request URL, in the format `projects/*/policy`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>policy: ::core::option::Option&lt;Policy&gt;,
 }
 <span class="doccomment">/// Request message for [BinauthzManagementService.CreateAttestor][].
@@ -1687,15 +1688,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateAttestorRequest {
     <span class="doccomment">/// Required. The parent of this [attestor][google.cloud.binaryauthorization.v1.Attestor].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The [attestors][google.cloud.binaryauthorization.v1.Attestor] ID.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>attestor_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The initial [attestor][google.cloud.binaryauthorization.v1.Attestor] value. The service will
     /// overwrite the [attestor name][google.cloud.binaryauthorization.v1.Attestor.name] field with the resource name,
     /// in the format `projects/*/attestors/*`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>attestor: ::core::option::Option&lt;Attestor&gt;,
 }
 <span class="doccomment">/// Request message for [BinauthzManagementService.GetAttestor][].
@@ -1704,7 +1705,7 @@
 </span><span class="kw">pub struct </span>GetAttestorRequest {
     <span class="doccomment">/// Required. The name of the [attestor][google.cloud.binaryauthorization.v1.Attestor] to retrieve, in the format
     /// `projects/*/attestors/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for [BinauthzManagementService.UpdateAttestor][].
@@ -1714,7 +1715,7 @@
     <span class="doccomment">/// Required. The updated [attestor][google.cloud.binaryauthorization.v1.Attestor] value. The service will
     /// overwrite the [attestor name][google.cloud.binaryauthorization.v1.Attestor.name] field with the resource name
     /// in the request URL, in the format `projects/*/attestors/*`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>attestor: ::core::option::Option&lt;Attestor&gt;,
 }
 <span class="doccomment">/// Request message for [BinauthzManagementService.ListAttestors][].
@@ -1723,16 +1724,16 @@
 </span><span class="kw">pub struct </span>ListAttestorsRequest {
     <span class="doccomment">/// Required. The resource name of the project associated with the
     /// [attestors][google.cloud.binaryauthorization.v1.Attestor], in the format `projects/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Requested page size. The server may return fewer results than requested. If
     /// unspecified, the server will pick an appropriate default.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A token identifying a page of results the server should return. Typically,
     /// this is the value of [ListAttestorsResponse.next_page_token][google.cloud.binaryauthorization.v1.ListAttestorsResponse.next_page_token] returned
     /// from the previous call to the `ListAttestors` method.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for [BinauthzManagementService.ListAttestors][].
@@ -1740,12 +1741,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListAttestorsResponse {
     <span class="doccomment">/// The list of [attestors][google.cloud.binaryauthorization.v1.Attestor].
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>attestors: ::prost::alloc::vec::Vec&lt;Attestor&gt;,
     <span class="doccomment">/// A token to retrieve the next page of results. Pass this value in the
     /// [ListAttestorsRequest.page_token][google.cloud.binaryauthorization.v1.ListAttestorsRequest.page_token] field in the subsequent call to the
     /// `ListAttestors` method to retrieve the next page of results.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for [BinauthzManagementService.DeleteAttestor][].
@@ -1754,7 +1755,7 @@
 </span><span class="kw">pub struct </span>DeleteAttestorRequest {
     <span class="doccomment">/// Required. The name of the [attestors][google.cloud.binaryauthorization.v1.Attestor] to delete, in the format
     /// `projects/*/attestors/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to read the current system policy.
@@ -1763,7 +1764,7 @@
 </span><span class="kw">pub struct </span>GetSystemPolicyRequest {
     <span class="doccomment">/// Required. The resource name, in the format `locations/*/policy`.
     /// Note that the system policy is not associated with a project.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1774,23 +1775,23 @@
     <span class="doccomment">/// Required. The resource name of the [Attestor][google.cloud.binaryauthorization.v1.Attestor] of the
     /// [occurrence][grafeas.v1.Occurrence], in the format
     /// `projects/*/attestors/*`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>attestor: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. An [AttestationOccurrence][grafeas.v1.AttestationOccurrence] to
     /// be checked that it can be verified by the Attestor. It does not have to be
     /// an existing entity in Container Analysis. It must otherwise be a valid
     /// AttestationOccurrence.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>attestation: ::core::option::Option&lt;
         <span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::grafeas::v1::AttestationOccurrence,
     &gt;,
     <span class="doccomment">/// Required. The resource name of the [Note][grafeas.v1.Note] to which the
     /// containing [Occurrence][grafeas.v1.Occurrence] is associated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>occurrence_note: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The URI of the artifact (e.g. container image) that is the
     /// subject of the containing [Occurrence][grafeas.v1.Occurrence].
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>occurrence_resource_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -1799,15 +1800,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ValidateAttestationOccurrenceResponse {
     <span class="doccomment">/// The result of the Attestation validation.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;validate_attestation_occurrence_response::Result&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"validate_attestation_occurrence_response::Result"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>result: i32,
-    <span class="doccomment">/// The reason for denial if the Attestation couldn&#39;t be validated.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// The reason for denial if the Attestation couldn't be validated.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>denial_reason: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `ValidateAttestationOccurrenceResponse`.
 </span><span class="kw">pub mod </span>validate_attestation_occurrence_response {
-    <span class="doccomment">/// The enum returned in the &quot;result&quot; field.
+    <span class="doccomment">/// The enum returned in the "result" field.
     </span><span class="attr">#[derive(
         Clone,
         Copy,
@@ -1833,19 +1834,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Result::Unspecified =&gt; <span class="string">&quot;RESULT_UNSPECIFIED&quot;</span>,
-                Result::Verified =&gt; <span class="string">&quot;VERIFIED&quot;</span>,
-                Result::AttestationNotVerifiable =&gt; <span class="string">&quot;ATTESTATION_NOT_VERIFIABLE&quot;</span>,
+                Result::Unspecified =&gt; <span class="string">"RESULT_UNSPECIFIED"</span>,
+                Result::Verified =&gt; <span class="string">"VERIFIED"</span>,
+                Result::AttestationNotVerifiable =&gt; <span class="string">"ATTESTATION_NOT_VERIFIABLE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RESULT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;VERIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Verified),
-                <span class="string">&quot;ATTESTATION_NOT_VERIFIABLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AttestationNotVerifiable),
+                <span class="string">"RESULT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"VERIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Verified),
+                <span class="string">"ATTESTATION_NOT_VERIFIABLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AttestationNotVerifiable),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1871,7 +1872,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -1951,24 +1952,24 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/GetPolicy&quot;</span>,
+                <span class="string">"/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/GetPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1&quot;</span>,
-                        <span class="string">&quot;GetPolicy&quot;</span>,
+                        <span class="string">"google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1"</span>,
+                        <span class="string">"GetPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Creates or updates a project&#39;s [policy][google.cloud.binaryauthorization.v1.Policy], and returns a copy of the
+        <span class="doccomment">/// Creates or updates a project's [policy][google.cloud.binaryauthorization.v1.Policy], and returns a copy of the
         /// new [policy][google.cloud.binaryauthorization.v1.Policy]. A policy is always updated as a whole, to avoid race
         /// conditions with concurrent policy enforcement (or management!)
         /// requests. Returns NOT_FOUND if the project does not exist, INVALID_ARGUMENT
@@ -1983,19 +1984,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/UpdatePolicy&quot;</span>,
+                <span class="string">"/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/UpdatePolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1&quot;</span>,
-                        <span class="string">&quot;UpdatePolicy&quot;</span>,
+                        <span class="string">"google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1"</span>,
+                        <span class="string">"UpdatePolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2014,19 +2015,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/CreateAttestor&quot;</span>,
+                <span class="string">"/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/CreateAttestor"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1&quot;</span>,
-                        <span class="string">&quot;CreateAttestor&quot;</span>,
+                        <span class="string">"google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1"</span>,
+                        <span class="string">"CreateAttestor"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2043,19 +2044,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/GetAttestor&quot;</span>,
+                <span class="string">"/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/GetAttestor"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1&quot;</span>,
-                        <span class="string">&quot;GetAttestor&quot;</span>,
+                        <span class="string">"google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1"</span>,
+                        <span class="string">"GetAttestor"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2072,19 +2073,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/UpdateAttestor&quot;</span>,
+                <span class="string">"/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/UpdateAttestor"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1&quot;</span>,
-                        <span class="string">&quot;UpdateAttestor&quot;</span>,
+                        <span class="string">"google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1"</span>,
+                        <span class="string">"UpdateAttestor"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2104,19 +2105,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/ListAttestors&quot;</span>,
+                <span class="string">"/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/ListAttestors"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1&quot;</span>,
-                        <span class="string">&quot;ListAttestors&quot;</span>,
+                        <span class="string">"google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1"</span>,
+                        <span class="string">"ListAttestors"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2133,19 +2134,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/DeleteAttestor&quot;</span>,
+                <span class="string">"/google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1/DeleteAttestor"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1&quot;</span>,
-                        <span class="string">&quot;DeleteAttestor&quot;</span>,
+                        <span class="string">"google.cloud.binaryauthorization.v1.BinauthzManagementServiceV1"</span>,
+                        <span class="string">"DeleteAttestor"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2166,7 +2167,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2238,19 +2239,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.binaryauthorization.v1.SystemPolicyV1/GetSystemPolicy&quot;</span>,
+                <span class="string">"/google.cloud.binaryauthorization.v1.SystemPolicyV1/GetSystemPolicy"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.binaryauthorization.v1.SystemPolicyV1&quot;</span>,
-                        <span class="string">&quot;GetSystemPolicy&quot;</span>,
+                        <span class="string">"google.cloud.binaryauthorization.v1.SystemPolicyV1"</span>,
+                        <span class="string">"GetSystemPolicy"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2271,7 +2272,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2347,19 +2348,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.binaryauthorization.v1.ValidationHelperV1/ValidateAttestationOccurrence&quot;</span>,
+                <span class="string">"/google.cloud.binaryauthorization.v1.ValidationHelperV1/ValidateAttestationOccurrence"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.binaryauthorization.v1.ValidationHelperV1&quot;</span>,
-                        <span class="string">&quot;ValidateAttestationOccurrence&quot;</span>,
+                        <span class="string">"google.cloud.binaryauthorization.v1.ValidationHelperV1"</span>,
+                        <span class="string">"ValidateAttestationOccurrence"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

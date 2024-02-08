@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/datacatalog/lineage/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/datacatalog/lineage/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../../" data-static-root-path="../../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../../src-files.js"></script><script defer src="../../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1452,25 +1453,25 @@
     /// Can be specified or auto-assigned.
     /// {process} must be not longer than 200 characters and only
     /// contain characters in a set: `a-zA-Z0-9_-:.`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A human-readable name you can set to display in a user interface.
     /// Must be not longer than 200 characters and only contain UTF-8 letters
     /// or numbers, spaces or characters like `_-:&amp;.`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The attributes of the process. Should only be used for the
     /// purpose of non-semantic management (classifying, describing or labeling the
     /// process).
     ///
     /// Up to 100 attributes are allowed.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>attributes: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost_types::Value,
     &gt;,
     <span class="doccomment">/// Optional. The origin of this process and its runs and lineage events.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>origin: ::core::option::Option&lt;Origin&gt;,
 }
 <span class="doccomment">/// A lineage run represents an execution of a process that creates
@@ -1483,30 +1484,30 @@
     /// Can be specified or auto-assigned.
     /// {run} must be not longer than 200 characters and only
     /// contain characters in a set: `a-zA-Z0-9_-:.`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. A human-readable name you can set to display in a user interface.
     /// Must be not longer than 1024 characters and only contain UTF-8 letters
     /// or numbers, spaces or characters like `_-:&amp;.`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The attributes of the run. Should only be used for the purpose of
     /// non-semantic management (classifying, describing or labeling the run).
     ///
     /// Up to 100 attributes are allowed.
-    </span><span class="attr">#[prost(btree_map = <span class="string">&quot;string, message&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(btree_map = <span class="string">"string, message"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>attributes: ::prost::alloc::collections::BTreeMap&lt;
         ::prost::alloc::string::String,
         ::prost_types::Value,
     &gt;,
     <span class="doccomment">/// Required. The timestamp of the start of the run.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. The timestamp of the end of the run.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Required. The state of the run.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;run::State&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"run::State"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>state: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Run`.
@@ -1542,23 +1543,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unknown =&gt; <span class="string">&quot;UNKNOWN&quot;</span>,
-                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
-                State::Completed =&gt; <span class="string">&quot;COMPLETED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
-                State::Aborted =&gt; <span class="string">&quot;ABORTED&quot;</span>,
+                State::Unknown =&gt; <span class="string">"UNKNOWN"</span>,
+                State::Started =&gt; <span class="string">"STARTED"</span>,
+                State::Completed =&gt; <span class="string">"COMPLETED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
+                State::Aborted =&gt; <span class="string">"ABORTED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;UNKNOWN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
-                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
-                <span class="string">&quot;COMPLETED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
-                <span class="string">&quot;ABORTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aborted),
+                <span class="string">"UNKNOWN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unknown),
+                <span class="string">"STARTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
+                <span class="string">"COMPLETED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Completed),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"ABORTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Aborted),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1575,20 +1576,20 @@
     /// Can be specified or auto-assigned.
     /// {lineage_event} must be not longer than 200 characters and only
     /// contain characters in a set: `a-zA-Z0-9_-:.`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
-    <span class="doccomment">/// Optional. List of source-target pairs. Can&#39;t contain more than 100 tuples.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;8&quot;</span>)]
+    <span class="doccomment">/// Optional. List of source-target pairs. Can't contain more than 100 tuples.
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>links: ::prost::alloc::vec::Vec&lt;EventLink&gt;,
     <span class="doccomment">/// Required. The beginning of the transformation which resulted in this
     /// lineage event. For streaming scenarios, it should be the beginning of the
     /// period from which the lineage is being reported.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Optional. The end of the transformation which resulted in this lineage
     /// event.  For streaming scenarios, it should be the end of the period from
     /// which the lineage is being reported.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// A lineage between source and target entities.
@@ -1596,10 +1597,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EventLink {
     <span class="doccomment">/// Required. Reference to the source entity
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;EntityReference&gt;,
     <span class="doccomment">/// Required. Reference to the target entity
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>target: ::core::option::Option&lt;EntityReference&gt;,
 }
 <span class="doccomment">/// The soft reference to everything you can attach a lineage event to.
@@ -1609,7 +1610,7 @@
     <span class="doccomment">/// Required. [Fully Qualified Name
     /// (FQN)](&lt;https://cloud.google.com/data-catalog/docs/fully-qualified-names&gt;)
     /// of the entity.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>fully_qualified_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Metadata describing the operation.
@@ -1617,25 +1618,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OperationMetadata {
     <span class="doccomment">/// Output only. The current operation state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation_metadata::State&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"operation_metadata::State"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. The type of the operation being performed.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;operation_metadata::Type&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"operation_metadata::Type"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>operation_type: i32,
     <span class="doccomment">/// Output only. The \[relative name\]
     /// (&lt;https://cloud.google.com//apis/design/resource_names#relative_resource_name&gt;)
     /// of the resource being operated on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The UUID of the resource being operated on.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>resource_uuid: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The timestamp of the operation submission to the server.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>create_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The timestamp of the operation termination, regardless of its
     /// success. This field is unset if the operation is still ongoing.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `OperationMetadata`.
@@ -1670,23 +1671,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Pending =&gt; <span class="string">&quot;PENDING&quot;</span>,
-                State::Running =&gt; <span class="string">&quot;RUNNING&quot;</span>,
-                State::Succeeded =&gt; <span class="string">&quot;SUCCEEDED&quot;</span>,
-                State::Failed =&gt; <span class="string">&quot;FAILED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Pending =&gt; <span class="string">"PENDING"</span>,
+                State::Running =&gt; <span class="string">"RUNNING"</span>,
+                State::Succeeded =&gt; <span class="string">"SUCCEEDED"</span>,
+                State::Failed =&gt; <span class="string">"FAILED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;PENDING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
-                <span class="string">&quot;RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
-                <span class="string">&quot;SUCCEEDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
-                <span class="string">&quot;FAILED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"PENDING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pending),
+                <span class="string">"RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Running),
+                <span class="string">"SUCCEEDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Succeeded),
+                <span class="string">"FAILED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Failed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1717,19 +1718,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Type::Unspecified =&gt; <span class="string">&quot;TYPE_UNSPECIFIED&quot;</span>,
-                Type::Delete =&gt; <span class="string">&quot;DELETE&quot;</span>,
-                Type::Create =&gt; <span class="string">&quot;CREATE&quot;</span>,
+                Type::Unspecified =&gt; <span class="string">"TYPE_UNSPECIFIED"</span>,
+                Type::Delete =&gt; <span class="string">"DELETE"</span>,
+                Type::Create =&gt; <span class="string">"CREATE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DELETE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
-                <span class="string">&quot;CREATE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
+                <span class="string">"TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DELETE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Delete),
+                <span class="string">"CREATE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Create),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1742,16 +1743,16 @@
 </span><span class="kw">pub struct </span>ProcessOpenLineageRunEventRequest {
     <span class="doccomment">/// Required. The name of the project and its location that should own the
     /// process, run, and lineage event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. OpenLineage message following OpenLineage format:
     /// &lt;https://github.com/OpenLineage/OpenLineage/blob/main/spec/OpenLineage.json&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>open_lineage: ::core::option::Option&lt;::prost_types::Struct&gt;,
     <span class="doccomment">/// A unique identifier for this request. Restricted to 36 ASCII characters.
     /// A random UUID is recommended. This request is idempotent only if a
     /// `request_id` is provided.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -1761,17 +1762,17 @@
 </span><span class="kw">pub struct </span>ProcessOpenLineageRunEventResponse {
     <span class="doccomment">/// Created process name.
     /// Format: `projects/{project}/locations/{location}/processes/{process}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>process: ::prost::alloc::string::String,
     <span class="doccomment">/// Created run name.
     /// Format:
     /// `projects/{project}/locations/{location}/processes/{process}/runs/{run}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>run: ::prost::alloc::string::String,
     <span class="doccomment">/// Created lineage event names.
     /// Format:
     /// `projects/{project}/locations/{location}/processes/{process}/runs/{run}/lineageEvents/{lineage_event}`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>lineage_events: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -1781,15 +1782,15 @@
 </span><span class="kw">pub struct </span>CreateProcessRequest {
     <span class="doccomment">/// Required. The name of the project and its location that should own the
     /// process.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The process to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>process: ::core::option::Option&lt;Process&gt;,
     <span class="doccomment">/// A unique identifier for this request. Restricted to 36 ASCII characters.
     /// A random UUID is recommended. This request is idempotent only if a
     /// `request_id` is provided.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1799,15 +1800,15 @@
 </span><span class="kw">pub struct </span>UpdateProcessRequest {
     <span class="doccomment">/// Required. The lineage process to update.
     ///
-    /// The process&#39;s `name` field is used to identify the process to update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    /// The process's `name` field is used to identify the process to update.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>process: ::core::option::Option&lt;Process&gt;,
     <span class="doccomment">/// The list of fields to update. Currently not used. The whole message is
     /// updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// If set to true and the process is not found, the request inserts it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
 <span class="doccomment">/// Request message for
@@ -1816,7 +1817,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetProcessRequest {
     <span class="doccomment">/// Required. The name of the process to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1826,20 +1827,20 @@
 </span><span class="kw">pub struct </span>ListProcessesRequest {
     <span class="doccomment">/// Required. The name of the project and its location that owns this
     /// collection of processes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of processes to return. The service may return
     /// fewer than this value. If unspecified, at most 50 processes are
     /// returned. The maximum value is 100; values greater than 100 are cut to
     /// 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token received from a previous `ListProcesses` call. Specify
     /// it to get the next page.
     ///
     /// When paginating, all other parameters specified in this call must
     /// match the parameters of the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -1848,11 +1849,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListProcessesResponse {
     <span class="doccomment">/// The processes from the specified project and location.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>processes: ::prost::alloc::vec::Vec&lt;Process&gt;,
     <span class="doccomment">/// The token to specify as `page_token` in the next call to get the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1861,11 +1862,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteProcessRequest {
     <span class="doccomment">/// Required. The name of the process to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to true and the process is not found, the request
-    /// succeeds but the server doesn&#39;t perform any actions.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    /// succeeds but the server doesn't perform any actions.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
 <span class="doccomment">/// Request message for
@@ -1874,15 +1875,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateRunRequest {
     <span class="doccomment">/// Required. The name of the process that should own the run.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The run to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>run: ::core::option::Option&lt;Run&gt;,
     <span class="doccomment">/// A unique identifier for this request. Restricted to 36 ASCII characters.
     /// A random UUID is recommended. This request is idempotent only if a
     /// `request_id` is provided.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1892,18 +1893,18 @@
 </span><span class="kw">pub struct </span>UpdateRunRequest {
     <span class="doccomment">/// Required. The lineage run to update.
     ///
-    /// The run&#39;s `name` field is used to identify the run to update.
+    /// The run's `name` field is used to identify the run to update.
     ///
     /// Format:
     /// `projects/{project}/locations/{location}/processes/{process}/runs/{run}`.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>run: ::core::option::Option&lt;Run&gt;,
     <span class="doccomment">/// The list of fields to update. Currently not used. The whole message is
     /// updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
     <span class="doccomment">/// If set to true and the run is not found, the request creates it.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
 <span class="doccomment">/// Request message for
@@ -1912,7 +1913,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetRunRequest {
     <span class="doccomment">/// Required. The name of the run to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1921,20 +1922,20 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRunsRequest {
     <span class="doccomment">/// Required. The name of process that owns this collection of runs.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of runs to return. The service may return
     /// fewer than this value. If unspecified, at most 50 runs are
     /// returned. The maximum value is 100; values greater than 100 are cut to
     /// 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token received from a previous `ListRuns` call. Specify
     /// it to get the next page.
     ///
     /// When paginating, all other parameters specified in this call must
     /// match the parameters of the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -1943,11 +1944,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRunsResponse {
     <span class="doccomment">/// The runs from the specified project and location.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>runs: ::prost::alloc::vec::Vec&lt;Run&gt;,
     <span class="doccomment">/// The token to specify as `page_token` in the next call to get the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1956,11 +1957,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteRunRequest {
     <span class="doccomment">/// Required. The name of the run to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to true and the run is not found, the request
-    /// succeeds but the server doesn&#39;t perform any actions.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    /// succeeds but the server doesn't perform any actions.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
 <span class="doccomment">/// Request message for
@@ -1969,15 +1970,15 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateLineageEventRequest {
     <span class="doccomment">/// Required. The name of the run that should own the lineage event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The lineage event to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>lineage_event: ::core::option::Option&lt;LineageEvent&gt;,
     <span class="doccomment">/// A unique identifier for this request. Restricted to 36 ASCII characters.
     /// A random UUID is recommended. This request is idempotent only if a
     /// `request_id` is provided.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1986,7 +1987,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetLineageEventRequest {
     <span class="doccomment">/// Required. The name of the lineage event to get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -1996,21 +1997,21 @@
 </span><span class="kw">pub struct </span>ListLineageEventsRequest {
     <span class="doccomment">/// Required. The name of the run that owns the collection of lineage events to
     /// get.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of lineage events to return.
     ///
     /// The service may return fewer events than this value.
     /// If unspecified, at most 50 events are returned. The maximum value is 100;
     /// values greater than 100 are cut to 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token received from a previous `ListLineageEvents` call. Specify
     /// it to get the next page.
     ///
     /// When paginating, all other parameters specified in this call must
     /// match the parameters of the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -2019,11 +2020,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListLineageEventsResponse {
     <span class="doccomment">/// Lineage events from the specified project and location.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>lineage_events: ::prost::alloc::vec::Vec&lt;LineageEvent&gt;,
     <span class="doccomment">/// The token to specify as `page_token` in the next call to get the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for
@@ -2032,11 +2033,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteLineageEventRequest {
     <span class="doccomment">/// Required. The name of the lineage event to delete.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If set to true and the lineage event is not found, the request
-    /// succeeds but the server doesn&#39;t perform any actions.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    /// succeeds but the server doesn't perform any actions.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>allow_missing: bool,
 }
 <span class="doccomment">/// Request message for
@@ -2045,14 +2046,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SearchLinksRequest {
     <span class="doccomment">/// Required. The project and location you want search in.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. The maximum number of links to return in a single page of the
     /// response. A page may contain fewer links than this value. If unspecified,
     /// at most 10 links are returned.
     ///
     /// Maximum value is 100; values greater than 100 are reduced to 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. The page token received from a previous `SearchLinksRequest`
     /// call. Use it to get the next page.
@@ -2060,10 +2061,10 @@
     /// When requesting subsequent pages of a response, remember that
     /// all parameters must match the values you provided
     /// in the original request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The asset for which you want to retrieve links.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;search_links_request::Criteria&quot;</span>, tags = <span class="string">&quot;4, 5&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"search_links_request::Criteria"</span>, tags = <span class="string">"4, 5"</span>)]
     </span><span class="kw">pub </span>criteria: ::core::option::Option&lt;search_links_request::Criteria&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SearchLinksRequest`.
@@ -2074,11 +2075,11 @@
     </span><span class="kw">pub enum </span>Criteria {
         <span class="doccomment">/// Optional. Send asset information in the **source** field to retrieve all
         /// links that lead from the specified asset to downstream assets.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>Source(<span class="kw">super</span>::EntityReference),
         <span class="doccomment">/// Optional. Send asset information in the **target** field to retrieve all
         /// links that lead from upstream assets to the specified asset.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>Target(<span class="kw">super</span>::EntityReference),
     }
 }
@@ -2089,11 +2090,11 @@
 </span><span class="kw">pub struct </span>SearchLinksResponse {
     <span class="doccomment">/// The list of links for a given asset. Can be empty if the asset has no
     /// relations of requested type (source or target).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>links: ::prost::alloc::vec::Vec&lt;Link&gt;,
     <span class="doccomment">/// The token to specify as `page_token` in the subsequent call to get the next
     /// page. Omitted if there are no more pages in the response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Links represent the data flow between **source** (upstream)
@@ -2106,19 +2107,19 @@
 </span><span class="kw">pub struct </span>Link {
     <span class="doccomment">/// Output only. Immutable. The name of the link. Format:
     /// `projects/{project}/locations/{location}/links/{link}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The pointer to the entity that is the **source** of this link.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>source: ::core::option::Option&lt;EntityReference&gt;,
     <span class="doccomment">/// The pointer to the entity that is the **target** of this link.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>target: ::core::option::Option&lt;EntityReference&gt;,
     <span class="doccomment">/// The start of the first event establishing this link.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The end of the last event establishing this link.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request message for
@@ -2127,7 +2128,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchSearchLinkProcessesRequest {
     <span class="doccomment">/// Required. The project and location where you want to search.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. An array of links to check for their associated LineageProcesses.
     ///
@@ -2136,11 +2137,11 @@
     /// `INVALID_ARGUMENT` error.
     ///
     /// Format: `projects/{project}/locations/{location}/links/{link}`.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>links: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The maximum number of processes to return in a single page of the response.
     /// A page may contain fewer results than this value.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// The page token received from a previous `BatchSearchLinkProcesses` call.
     /// Use it to get the next page.
@@ -2148,7 +2149,7 @@
     /// When requesting subsequent pages of a response, remember that
     /// all parameters must match the values you provided
     /// in the original request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response message for
@@ -2157,11 +2158,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>BatchSearchLinkProcessesResponse {
     <span class="doccomment">/// An array of processes associated with the specified links.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>process_links: ::prost::alloc::vec::Vec&lt;ProcessLinks&gt;,
     <span class="doccomment">/// The token to specify as `page_token` in the subsequent call to get the next
     /// page. Omitted if there are no more pages in the response.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Links associated with a specific process.
@@ -2170,7 +2171,7 @@
 </span><span class="kw">pub struct </span>ProcessLinks {
     <span class="doccomment">/// The process name in the format of
     /// `projects/{project}/locations/{location}/processes/{process}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>process: ::prost::alloc::string::String,
     <span class="doccomment">/// An array containing link details objects of the links provided in
     /// the original request.
@@ -2178,7 +2179,7 @@
     /// A single process can result in creating multiple links.
     /// If any of the links you provide in the request are created by
     /// the same process, they all are included in this array.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>links: ::prost::alloc::vec::Vec&lt;ProcessLinkInfo&gt;,
 }
 <span class="doccomment">/// Link details.
@@ -2187,13 +2188,13 @@
 </span><span class="kw">pub struct </span>ProcessLinkInfo {
     <span class="doccomment">/// The name of the link in the format of
     /// `projects/{project}/locations/{location}/links/{link}`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>link: ::prost::alloc::string::String,
     <span class="doccomment">/// The start of the first event establishing this link-process tuple.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// The end of the last event establishing this link-process tuple.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Origin of a process.
@@ -2205,18 +2206,18 @@
     /// Use of a source_type other than `CUSTOM` for process creation
     /// or updating is highly discouraged, and may be restricted in the future
     /// without notice.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;origin::SourceType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"origin::SourceType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>source_type: i32,
-    <span class="doccomment">/// If the source_type isn&#39;t CUSTOM, the value of this field should be a GCP
+    <span class="doccomment">/// If the source_type isn't CUSTOM, the value of this field should be a GCP
     /// resource name of the system, which reports lineage. The project and
     /// location parts of the resource name must match the project and location of
     /// the lineage resource being created. Examples:
     ///
     /// - `{source_type: COMPOSER, name:
-    ///    &quot;projects/foo/locations/us/environments/bar&quot;}`
-    /// - `{source_type: BIGQUERY, name: &quot;projects/foo/locations/eu&quot;}`
-    /// - `{source_type: CUSTOM,   name: &quot;myCustomIntegration&quot;}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    ///    "projects/foo/locations/us/environments/bar"}`
+    /// - `{source_type: BIGQUERY, name: "projects/foo/locations/eu"}`
+    /// - `{source_type: CUSTOM,   name: "myCustomIntegration"}`
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `Origin`.
@@ -2255,27 +2256,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SourceType::Unspecified =&gt; <span class="string">&quot;SOURCE_TYPE_UNSPECIFIED&quot;</span>,
-                SourceType::Custom =&gt; <span class="string">&quot;CUSTOM&quot;</span>,
-                SourceType::Bigquery =&gt; <span class="string">&quot;BIGQUERY&quot;</span>,
-                SourceType::DataFusion =&gt; <span class="string">&quot;DATA_FUSION&quot;</span>,
-                SourceType::Composer =&gt; <span class="string">&quot;COMPOSER&quot;</span>,
-                SourceType::LookerStudio =&gt; <span class="string">&quot;LOOKER_STUDIO&quot;</span>,
-                SourceType::Dataproc =&gt; <span class="string">&quot;DATAPROC&quot;</span>,
+                SourceType::Unspecified =&gt; <span class="string">"SOURCE_TYPE_UNSPECIFIED"</span>,
+                SourceType::Custom =&gt; <span class="string">"CUSTOM"</span>,
+                SourceType::Bigquery =&gt; <span class="string">"BIGQUERY"</span>,
+                SourceType::DataFusion =&gt; <span class="string">"DATA_FUSION"</span>,
+                SourceType::Composer =&gt; <span class="string">"COMPOSER"</span>,
+                SourceType::LookerStudio =&gt; <span class="string">"LOOKER_STUDIO"</span>,
+                SourceType::Dataproc =&gt; <span class="string">"DATAPROC"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SOURCE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CUSTOM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Custom),
-                <span class="string">&quot;BIGQUERY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bigquery),
-                <span class="string">&quot;DATA_FUSION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataFusion),
-                <span class="string">&quot;COMPOSER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Composer),
-                <span class="string">&quot;LOOKER_STUDIO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LookerStudio),
-                <span class="string">&quot;DATAPROC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dataproc),
+                <span class="string">"SOURCE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CUSTOM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Custom),
+                <span class="string">"BIGQUERY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Bigquery),
+                <span class="string">"DATA_FUSION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DataFusion),
+                <span class="string">"COMPOSER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Composer),
+                <span class="string">"LOOKER_STUDIO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LookerStudio),
+                <span class="string">"DATAPROC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dataproc),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2298,7 +2299,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2376,19 +2377,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/ProcessOpenLineageRunEvent&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/ProcessOpenLineageRunEvent"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;ProcessOpenLineageRunEvent&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"ProcessOpenLineageRunEvent"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2404,19 +2405,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/CreateProcess&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/CreateProcess"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;CreateProcess&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"CreateProcess"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2432,19 +2433,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/UpdateProcess&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/UpdateProcess"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;UpdateProcess&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"UpdateProcess"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2460,19 +2461,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/GetProcess&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/GetProcess"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;GetProcess&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"GetProcess"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2492,19 +2493,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/ListProcesses&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/ListProcesses"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;ListProcesses&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"ListProcesses"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2523,19 +2524,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/DeleteProcess&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/DeleteProcess"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;DeleteProcess&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"DeleteProcess"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2551,19 +2552,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/CreateRun&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/CreateRun"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;CreateRun&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"CreateRun"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2579,19 +2580,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/UpdateRun&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/UpdateRun"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;UpdateRun&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"UpdateRun"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2607,19 +2608,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/GetRun&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/GetRun"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;GetRun&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"GetRun"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2639,19 +2640,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/ListRuns&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/ListRuns"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;ListRuns&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"ListRuns"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2670,19 +2671,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/DeleteRun&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/DeleteRun"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;DeleteRun&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"DeleteRun"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2698,19 +2699,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/CreateLineageEvent&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/CreateLineageEvent"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;CreateLineageEvent&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"CreateLineageEvent"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2726,19 +2727,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/GetLineageEvent&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/GetLineageEvent"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;GetLineageEvent&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"GetLineageEvent"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2758,19 +2759,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/ListLineageEvents&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/ListLineageEvents"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;ListLineageEvents&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"ListLineageEvents"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2786,19 +2787,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/DeleteLineageEvent&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/DeleteLineageEvent"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;DeleteLineageEvent&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"DeleteLineageEvent"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2825,19 +2826,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/SearchLinks&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/SearchLinks"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;SearchLinks&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"SearchLinks"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2869,19 +2870,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.datacatalog.lineage.v1.Lineage/BatchSearchLinkProcesses&quot;</span>,
+                <span class="string">"/google.cloud.datacatalog.lineage.v1.Lineage/BatchSearchLinkProcesses"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.datacatalog.lineage.v1.Lineage&quot;</span>,
-                        <span class="string">&quot;BatchSearchLinkProcesses&quot;</span>,
+                        <span class="string">"google.cloud.datacatalog.lineage.v1.Lineage"</span>,
+                        <span class="string">"BatchSearchLinkProcesses"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/websecurityscanner/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/websecurityscanner/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2022,13 +2023,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ScanConfigError {
     <span class="doccomment">/// Output only. Indicates the reason code for a configuration failure.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_config_error::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"scan_config_error::Code"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// Output only. Indicates the full name of the ScanConfig field that triggers this error,
-    /// for example &quot;scan_config.max_qps&quot;. This field is provided for
+    /// for example "scan_config.max_qps". This field is provided for
     /// troubleshooting purposes only and its actual value can change in the
     /// future.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>field_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `ScanConfigError`.
@@ -2153,149 +2154,149 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
-                Code::InternalError =&gt; <span class="string">&quot;INTERNAL_ERROR&quot;</span>,
-                Code::AppengineApiBackendError =&gt; <span class="string">&quot;APPENGINE_API_BACKEND_ERROR&quot;</span>,
-                Code::AppengineApiNotAccessible =&gt; <span class="string">&quot;APPENGINE_API_NOT_ACCESSIBLE&quot;</span>,
-                Code::AppengineDefaultHostMissing =&gt; <span class="string">&quot;APPENGINE_DEFAULT_HOST_MISSING&quot;</span>,
-                Code::CannotUseGoogleComAccount =&gt; <span class="string">&quot;CANNOT_USE_GOOGLE_COM_ACCOUNT&quot;</span>,
-                Code::CannotUseOwnerAccount =&gt; <span class="string">&quot;CANNOT_USE_OWNER_ACCOUNT&quot;</span>,
-                Code::ComputeApiBackendError =&gt; <span class="string">&quot;COMPUTE_API_BACKEND_ERROR&quot;</span>,
-                Code::ComputeApiNotAccessible =&gt; <span class="string">&quot;COMPUTE_API_NOT_ACCESSIBLE&quot;</span>,
+                Code::Unspecified =&gt; <span class="string">"CODE_UNSPECIFIED"</span>,
+                Code::InternalError =&gt; <span class="string">"INTERNAL_ERROR"</span>,
+                Code::AppengineApiBackendError =&gt; <span class="string">"APPENGINE_API_BACKEND_ERROR"</span>,
+                Code::AppengineApiNotAccessible =&gt; <span class="string">"APPENGINE_API_NOT_ACCESSIBLE"</span>,
+                Code::AppengineDefaultHostMissing =&gt; <span class="string">"APPENGINE_DEFAULT_HOST_MISSING"</span>,
+                Code::CannotUseGoogleComAccount =&gt; <span class="string">"CANNOT_USE_GOOGLE_COM_ACCOUNT"</span>,
+                Code::CannotUseOwnerAccount =&gt; <span class="string">"CANNOT_USE_OWNER_ACCOUNT"</span>,
+                Code::ComputeApiBackendError =&gt; <span class="string">"COMPUTE_API_BACKEND_ERROR"</span>,
+                Code::ComputeApiNotAccessible =&gt; <span class="string">"COMPUTE_API_NOT_ACCESSIBLE"</span>,
                 Code::CustomLoginUrlDoesNotBelongToCurrentProject =&gt; {
-                    <span class="string">&quot;CUSTOM_LOGIN_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot;
+                    <span class="string">"CUSTOM_LOGIN_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT"
                 </span>}
-                Code::CustomLoginUrlMalformed =&gt; <span class="string">&quot;CUSTOM_LOGIN_URL_MALFORMED&quot;</span>,
+                Code::CustomLoginUrlMalformed =&gt; <span class="string">"CUSTOM_LOGIN_URL_MALFORMED"</span>,
                 Code::CustomLoginUrlMappedToNonRoutableAddress =&gt; {
-                    <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot;
+                    <span class="string">"CUSTOM_LOGIN_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS"
                 </span>}
                 Code::CustomLoginUrlMappedToUnreservedAddress =&gt; {
-                    <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot;
+                    <span class="string">"CUSTOM_LOGIN_URL_MAPPED_TO_UNRESERVED_ADDRESS"
                 </span>}
                 Code::CustomLoginUrlHasNonRoutableIpAddress =&gt; {
-                    <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot;
+                    <span class="string">"CUSTOM_LOGIN_URL_HAS_NON_ROUTABLE_IP_ADDRESS"
                 </span>}
                 Code::CustomLoginUrlHasUnreservedIpAddress =&gt; {
-                    <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_UNRESERVED_IP_ADDRESS&quot;
+                    <span class="string">"CUSTOM_LOGIN_URL_HAS_UNRESERVED_IP_ADDRESS"
                 </span>}
-                Code::DuplicateScanName =&gt; <span class="string">&quot;DUPLICATE_SCAN_NAME&quot;</span>,
-                Code::InvalidFieldValue =&gt; <span class="string">&quot;INVALID_FIELD_VALUE&quot;</span>,
-                Code::FailedToAuthenticateToTarget =&gt; <span class="string">&quot;FAILED_TO_AUTHENTICATE_TO_TARGET&quot;</span>,
-                Code::FindingTypeUnspecified =&gt; <span class="string">&quot;FINDING_TYPE_UNSPECIFIED&quot;</span>,
-                Code::ForbiddenToScanCompute =&gt; <span class="string">&quot;FORBIDDEN_TO_SCAN_COMPUTE&quot;</span>,
-                Code::ForbiddenUpdateToManagedScan =&gt; <span class="string">&quot;FORBIDDEN_UPDATE_TO_MANAGED_SCAN&quot;</span>,
-                Code::MalformedFilter =&gt; <span class="string">&quot;MALFORMED_FILTER&quot;</span>,
-                Code::MalformedResourceName =&gt; <span class="string">&quot;MALFORMED_RESOURCE_NAME&quot;</span>,
-                Code::ProjectInactive =&gt; <span class="string">&quot;PROJECT_INACTIVE&quot;</span>,
-                Code::RequiredField =&gt; <span class="string">&quot;REQUIRED_FIELD&quot;</span>,
-                Code::ResourceNameInconsistent =&gt; <span class="string">&quot;RESOURCE_NAME_INCONSISTENT&quot;</span>,
-                Code::ScanAlreadyRunning =&gt; <span class="string">&quot;SCAN_ALREADY_RUNNING&quot;</span>,
-                Code::ScanNotRunning =&gt; <span class="string">&quot;SCAN_NOT_RUNNING&quot;</span>,
+                Code::DuplicateScanName =&gt; <span class="string">"DUPLICATE_SCAN_NAME"</span>,
+                Code::InvalidFieldValue =&gt; <span class="string">"INVALID_FIELD_VALUE"</span>,
+                Code::FailedToAuthenticateToTarget =&gt; <span class="string">"FAILED_TO_AUTHENTICATE_TO_TARGET"</span>,
+                Code::FindingTypeUnspecified =&gt; <span class="string">"FINDING_TYPE_UNSPECIFIED"</span>,
+                Code::ForbiddenToScanCompute =&gt; <span class="string">"FORBIDDEN_TO_SCAN_COMPUTE"</span>,
+                Code::ForbiddenUpdateToManagedScan =&gt; <span class="string">"FORBIDDEN_UPDATE_TO_MANAGED_SCAN"</span>,
+                Code::MalformedFilter =&gt; <span class="string">"MALFORMED_FILTER"</span>,
+                Code::MalformedResourceName =&gt; <span class="string">"MALFORMED_RESOURCE_NAME"</span>,
+                Code::ProjectInactive =&gt; <span class="string">"PROJECT_INACTIVE"</span>,
+                Code::RequiredField =&gt; <span class="string">"REQUIRED_FIELD"</span>,
+                Code::ResourceNameInconsistent =&gt; <span class="string">"RESOURCE_NAME_INCONSISTENT"</span>,
+                Code::ScanAlreadyRunning =&gt; <span class="string">"SCAN_ALREADY_RUNNING"</span>,
+                Code::ScanNotRunning =&gt; <span class="string">"SCAN_NOT_RUNNING"</span>,
                 Code::SeedUrlDoesNotBelongToCurrentProject =&gt; {
-                    <span class="string">&quot;SEED_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot;
+                    <span class="string">"SEED_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT"
                 </span>}
-                Code::SeedUrlMalformed =&gt; <span class="string">&quot;SEED_URL_MALFORMED&quot;</span>,
+                Code::SeedUrlMalformed =&gt; <span class="string">"SEED_URL_MALFORMED"</span>,
                 Code::SeedUrlMappedToNonRoutableAddress =&gt; {
-                    <span class="string">&quot;SEED_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot;
+                    <span class="string">"SEED_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS"
                 </span>}
                 Code::SeedUrlMappedToUnreservedAddress =&gt; {
-                    <span class="string">&quot;SEED_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot;
+                    <span class="string">"SEED_URL_MAPPED_TO_UNRESERVED_ADDRESS"
                 </span>}
                 Code::SeedUrlHasNonRoutableIpAddress =&gt; {
-                    <span class="string">&quot;SEED_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot;
+                    <span class="string">"SEED_URL_HAS_NON_ROUTABLE_IP_ADDRESS"
                 </span>}
                 Code::SeedUrlHasUnreservedIpAddress =&gt; {
-                    <span class="string">&quot;SEED_URL_HAS_UNRESERVED_IP_ADDRESS&quot;
+                    <span class="string">"SEED_URL_HAS_UNRESERVED_IP_ADDRESS"
                 </span>}
-                Code::ServiceAccountNotConfigured =&gt; <span class="string">&quot;SERVICE_ACCOUNT_NOT_CONFIGURED&quot;</span>,
-                Code::TooManyScans =&gt; <span class="string">&quot;TOO_MANY_SCANS&quot;</span>,
-                Code::UnableToResolveProjectInfo =&gt; <span class="string">&quot;UNABLE_TO_RESOLVE_PROJECT_INFO&quot;</span>,
+                Code::ServiceAccountNotConfigured =&gt; <span class="string">"SERVICE_ACCOUNT_NOT_CONFIGURED"</span>,
+                Code::TooManyScans =&gt; <span class="string">"TOO_MANY_SCANS"</span>,
+                Code::UnableToResolveProjectInfo =&gt; <span class="string">"UNABLE_TO_RESOLVE_PROJECT_INFO"</span>,
                 Code::UnsupportedBlacklistPatternFormat =&gt; {
-                    <span class="string">&quot;UNSUPPORTED_BLACKLIST_PATTERN_FORMAT&quot;
+                    <span class="string">"UNSUPPORTED_BLACKLIST_PATTERN_FORMAT"
                 </span>}
-                Code::UnsupportedFilter =&gt; <span class="string">&quot;UNSUPPORTED_FILTER&quot;</span>,
-                Code::UnsupportedFindingType =&gt; <span class="string">&quot;UNSUPPORTED_FINDING_TYPE&quot;</span>,
-                Code::UnsupportedUrlScheme =&gt; <span class="string">&quot;UNSUPPORTED_URL_SCHEME&quot;</span>,
+                Code::UnsupportedFilter =&gt; <span class="string">"UNSUPPORTED_FILTER"</span>,
+                Code::UnsupportedFindingType =&gt; <span class="string">"UNSUPPORTED_FINDING_TYPE"</span>,
+                Code::UnsupportedUrlScheme =&gt; <span class="string">"UNSUPPORTED_URL_SCHEME"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INTERNAL_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalError),
-                <span class="string">&quot;APPENGINE_API_BACKEND_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AppengineApiBackendError),
-                <span class="string">&quot;APPENGINE_API_NOT_ACCESSIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AppengineApiNotAccessible),
-                <span class="string">&quot;APPENGINE_DEFAULT_HOST_MISSING&quot; </span>=&gt; {
+                <span class="string">"CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"INTERNAL_ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalError),
+                <span class="string">"APPENGINE_API_BACKEND_ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AppengineApiBackendError),
+                <span class="string">"APPENGINE_API_NOT_ACCESSIBLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AppengineApiNotAccessible),
+                <span class="string">"APPENGINE_DEFAULT_HOST_MISSING" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::AppengineDefaultHostMissing)
                 }
-                <span class="string">&quot;CANNOT_USE_GOOGLE_COM_ACCOUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotUseGoogleComAccount),
-                <span class="string">&quot;CANNOT_USE_OWNER_ACCOUNT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotUseOwnerAccount),
-                <span class="string">&quot;COMPUTE_API_BACKEND_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ComputeApiBackendError),
-                <span class="string">&quot;COMPUTE_API_NOT_ACCESSIBLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ComputeApiNotAccessible),
-                <span class="string">&quot;CUSTOM_LOGIN_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot; </span>=&gt; {
+                <span class="string">"CANNOT_USE_GOOGLE_COM_ACCOUNT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotUseGoogleComAccount),
+                <span class="string">"CANNOT_USE_OWNER_ACCOUNT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CannotUseOwnerAccount),
+                <span class="string">"COMPUTE_API_BACKEND_ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ComputeApiBackendError),
+                <span class="string">"COMPUTE_API_NOT_ACCESSIBLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ComputeApiNotAccessible),
+                <span class="string">"CUSTOM_LOGIN_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlDoesNotBelongToCurrentProject)
                 }
-                <span class="string">&quot;CUSTOM_LOGIN_URL_MALFORMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlMalformed),
-                <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot; </span>=&gt; {
+                <span class="string">"CUSTOM_LOGIN_URL_MALFORMED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlMalformed),
+                <span class="string">"CUSTOM_LOGIN_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlMappedToNonRoutableAddress)
                 }
-                <span class="string">&quot;CUSTOM_LOGIN_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot; </span>=&gt; {
+                <span class="string">"CUSTOM_LOGIN_URL_MAPPED_TO_UNRESERVED_ADDRESS" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlMappedToUnreservedAddress)
                 }
-                <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot; </span>=&gt; {
+                <span class="string">"CUSTOM_LOGIN_URL_HAS_NON_ROUTABLE_IP_ADDRESS" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlHasNonRoutableIpAddress)
                 }
-                <span class="string">&quot;CUSTOM_LOGIN_URL_HAS_UNRESERVED_IP_ADDRESS&quot; </span>=&gt; {
+                <span class="string">"CUSTOM_LOGIN_URL_HAS_UNRESERVED_IP_ADDRESS" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::CustomLoginUrlHasUnreservedIpAddress)
                 }
-                <span class="string">&quot;DUPLICATE_SCAN_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DuplicateScanName),
-                <span class="string">&quot;INVALID_FIELD_VALUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidFieldValue),
-                <span class="string">&quot;FAILED_TO_AUTHENTICATE_TO_TARGET&quot; </span>=&gt; {
+                <span class="string">"DUPLICATE_SCAN_NAME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::DuplicateScanName),
+                <span class="string">"INVALID_FIELD_VALUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InvalidFieldValue),
+                <span class="string">"FAILED_TO_AUTHENTICATE_TO_TARGET" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::FailedToAuthenticateToTarget)
                 }
-                <span class="string">&quot;FINDING_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FindingTypeUnspecified),
-                <span class="string">&quot;FORBIDDEN_TO_SCAN_COMPUTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForbiddenToScanCompute),
-                <span class="string">&quot;FORBIDDEN_UPDATE_TO_MANAGED_SCAN&quot; </span>=&gt; {
+                <span class="string">"FINDING_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FindingTypeUnspecified),
+                <span class="string">"FORBIDDEN_TO_SCAN_COMPUTE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForbiddenToScanCompute),
+                <span class="string">"FORBIDDEN_UPDATE_TO_MANAGED_SCAN" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::ForbiddenUpdateToManagedScan)
                 }
-                <span class="string">&quot;MALFORMED_FILTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MalformedFilter),
-                <span class="string">&quot;MALFORMED_RESOURCE_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MalformedResourceName),
-                <span class="string">&quot;PROJECT_INACTIVE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectInactive),
-                <span class="string">&quot;REQUIRED_FIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredField),
-                <span class="string">&quot;RESOURCE_NAME_INCONSISTENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceNameInconsistent),
-                <span class="string">&quot;SCAN_ALREADY_RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanAlreadyRunning),
-                <span class="string">&quot;SCAN_NOT_RUNNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanNotRunning),
-                <span class="string">&quot;SEED_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT&quot; </span>=&gt; {
+                <span class="string">"MALFORMED_FILTER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MalformedFilter),
+                <span class="string">"MALFORMED_RESOURCE_NAME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::MalformedResourceName),
+                <span class="string">"PROJECT_INACTIVE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProjectInactive),
+                <span class="string">"REQUIRED_FIELD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::RequiredField),
+                <span class="string">"RESOURCE_NAME_INCONSISTENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ResourceNameInconsistent),
+                <span class="string">"SCAN_ALREADY_RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanAlreadyRunning),
+                <span class="string">"SCAN_NOT_RUNNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanNotRunning),
+                <span class="string">"SEED_URL_DOES_NOT_BELONG_TO_CURRENT_PROJECT" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlDoesNotBelongToCurrentProject)
                 }
-                <span class="string">&quot;SEED_URL_MALFORMED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlMalformed),
-                <span class="string">&quot;SEED_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS&quot; </span>=&gt; {
+                <span class="string">"SEED_URL_MALFORMED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlMalformed),
+                <span class="string">"SEED_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlMappedToNonRoutableAddress)
                 }
-                <span class="string">&quot;SEED_URL_MAPPED_TO_UNRESERVED_ADDRESS&quot; </span>=&gt; {
+                <span class="string">"SEED_URL_MAPPED_TO_UNRESERVED_ADDRESS" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlMappedToUnreservedAddress)
                 }
-                <span class="string">&quot;SEED_URL_HAS_NON_ROUTABLE_IP_ADDRESS&quot; </span>=&gt; {
+                <span class="string">"SEED_URL_HAS_NON_ROUTABLE_IP_ADDRESS" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlHasNonRoutableIpAddress)
                 }
-                <span class="string">&quot;SEED_URL_HAS_UNRESERVED_IP_ADDRESS&quot; </span>=&gt; {
+                <span class="string">"SEED_URL_HAS_UNRESERVED_IP_ADDRESS" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::SeedUrlHasUnreservedIpAddress)
                 }
-                <span class="string">&quot;SERVICE_ACCOUNT_NOT_CONFIGURED&quot; </span>=&gt; {
+                <span class="string">"SERVICE_ACCOUNT_NOT_CONFIGURED" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::ServiceAccountNotConfigured)
                 }
-                <span class="string">&quot;TOO_MANY_SCANS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyScans),
-                <span class="string">&quot;UNABLE_TO_RESOLVE_PROJECT_INFO&quot; </span>=&gt; {
+                <span class="string">"TOO_MANY_SCANS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyScans),
+                <span class="string">"UNABLE_TO_RESOLVE_PROJECT_INFO" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnableToResolveProjectInfo)
                 }
-                <span class="string">&quot;UNSUPPORTED_BLACKLIST_PATTERN_FORMAT&quot; </span>=&gt; {
+                <span class="string">"UNSUPPORTED_BLACKLIST_PATTERN_FORMAT" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedBlacklistPatternFormat)
                 }
-                <span class="string">&quot;UNSUPPORTED_FILTER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedFilter),
-                <span class="string">&quot;UNSUPPORTED_FINDING_TYPE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedFindingType),
-                <span class="string">&quot;UNSUPPORTED_URL_SCHEME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedUrlScheme),
+                <span class="string">"UNSUPPORTED_FILTER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedFilter),
+                <span class="string">"UNSUPPORTED_FINDING_TYPE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedFindingType),
+                <span class="string">"UNSUPPORTED_URL_SCHEME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UnsupportedUrlScheme),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2307,17 +2308,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ScanRunErrorTrace {
     <span class="doccomment">/// Output only. Indicates the error reason code.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run_error_trace::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"scan_run_error_trace::Code"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: i32,
     <span class="doccomment">/// Output only. If the scan encounters SCAN_CONFIG_ISSUE error, this field has the error
     /// message encountered during scan configuration validation that is performed
     /// before each scan run.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>scan_config_error: ::core::option::Option&lt;ScanConfigError&gt;,
     <span class="doccomment">/// Output only. If the scan encounters TOO_MANY_HTTP_ERRORS, this field indicates the most
     /// common HTTP error code, if such is available. For example, if this code is
     /// 404, the scan has encountered too many NOT_FOUND responses.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>most_common_http_error_code: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ScanRunErrorTrace`.
@@ -2363,27 +2364,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
-                Code::InternalError =&gt; <span class="string">&quot;INTERNAL_ERROR&quot;</span>,
-                Code::ScanConfigIssue =&gt; <span class="string">&quot;SCAN_CONFIG_ISSUE&quot;</span>,
-                Code::AuthenticationConfigIssue =&gt; <span class="string">&quot;AUTHENTICATION_CONFIG_ISSUE&quot;</span>,
-                Code::TimedOutWhileScanning =&gt; <span class="string">&quot;TIMED_OUT_WHILE_SCANNING&quot;</span>,
-                Code::TooManyRedirects =&gt; <span class="string">&quot;TOO_MANY_REDIRECTS&quot;</span>,
-                Code::TooManyHttpErrors =&gt; <span class="string">&quot;TOO_MANY_HTTP_ERRORS&quot;</span>,
+                Code::Unspecified =&gt; <span class="string">"CODE_UNSPECIFIED"</span>,
+                Code::InternalError =&gt; <span class="string">"INTERNAL_ERROR"</span>,
+                Code::ScanConfigIssue =&gt; <span class="string">"SCAN_CONFIG_ISSUE"</span>,
+                Code::AuthenticationConfigIssue =&gt; <span class="string">"AUTHENTICATION_CONFIG_ISSUE"</span>,
+                Code::TimedOutWhileScanning =&gt; <span class="string">"TIMED_OUT_WHILE_SCANNING"</span>,
+                Code::TooManyRedirects =&gt; <span class="string">"TOO_MANY_REDIRECTS"</span>,
+                Code::TooManyHttpErrors =&gt; <span class="string">"TOO_MANY_HTTP_ERRORS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INTERNAL_ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalError),
-                <span class="string">&quot;SCAN_CONFIG_ISSUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanConfigIssue),
-                <span class="string">&quot;AUTHENTICATION_CONFIG_ISSUE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthenticationConfigIssue),
-                <span class="string">&quot;TIMED_OUT_WHILE_SCANNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimedOutWhileScanning),
-                <span class="string">&quot;TOO_MANY_REDIRECTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyRedirects),
-                <span class="string">&quot;TOO_MANY_HTTP_ERRORS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyHttpErrors),
+                <span class="string">"CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"INTERNAL_ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InternalError),
+                <span class="string">"SCAN_CONFIG_ISSUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ScanConfigIssue),
+                <span class="string">"AUTHENTICATION_CONFIG_ISSUE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AuthenticationConfigIssue),
+                <span class="string">"TIMED_OUT_WHILE_SCANNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TimedOutWhileScanning),
+                <span class="string">"TOO_MANY_REDIRECTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyRedirects),
+                <span class="string">"TOO_MANY_HTTP_ERRORS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyHttpErrors),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2396,7 +2397,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ScanRunWarningTrace {
     <span class="doccomment">/// Output only. Indicates the warning code.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run_warning_trace::Code&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"scan_run_warning_trace::Code"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>code: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `ScanRunWarningTrace`.
@@ -2440,27 +2441,27 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Code::Unspecified =&gt; <span class="string">&quot;CODE_UNSPECIFIED&quot;</span>,
-                Code::InsufficientCrawlResults =&gt; <span class="string">&quot;INSUFFICIENT_CRAWL_RESULTS&quot;</span>,
-                Code::TooManyCrawlResults =&gt; <span class="string">&quot;TOO_MANY_CRAWL_RESULTS&quot;</span>,
-                Code::TooManyFuzzTasks =&gt; <span class="string">&quot;TOO_MANY_FUZZ_TASKS&quot;</span>,
-                Code::BlockedByIap =&gt; <span class="string">&quot;BLOCKED_BY_IAP&quot;</span>,
+                Code::Unspecified =&gt; <span class="string">"CODE_UNSPECIFIED"</span>,
+                Code::InsufficientCrawlResults =&gt; <span class="string">"INSUFFICIENT_CRAWL_RESULTS"</span>,
+                Code::TooManyCrawlResults =&gt; <span class="string">"TOO_MANY_CRAWL_RESULTS"</span>,
+                Code::TooManyFuzzTasks =&gt; <span class="string">"TOO_MANY_FUZZ_TASKS"</span>,
+                Code::BlockedByIap =&gt; <span class="string">"BLOCKED_BY_IAP"</span>,
                 Code::NoStartingUrlFoundForManagedScan =&gt; {
-                    <span class="string">&quot;NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN&quot;
+                    <span class="string">"NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN"
                 </span>}
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;CODE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;INSUFFICIENT_CRAWL_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientCrawlResults),
-                <span class="string">&quot;TOO_MANY_CRAWL_RESULTS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyCrawlResults),
-                <span class="string">&quot;TOO_MANY_FUZZ_TASKS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyFuzzTasks),
-                <span class="string">&quot;BLOCKED_BY_IAP&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockedByIap),
-                <span class="string">&quot;NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN&quot; </span>=&gt; {
+                <span class="string">"CODE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"INSUFFICIENT_CRAWL_RESULTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::InsufficientCrawlResults),
+                <span class="string">"TOO_MANY_CRAWL_RESULTS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyCrawlResults),
+                <span class="string">"TOO_MANY_FUZZ_TASKS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::TooManyFuzzTasks),
+                <span class="string">"BLOCKED_BY_IAP" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::BlockedByIap),
+                <span class="string">"NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::NoStartingUrlFoundForManagedScan)
                 }
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -2474,49 +2475,49 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ScanRun {
     <span class="doccomment">/// Output only. The resource name of the ScanRun. The name follows the format of
-    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}&#39;.
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
     /// The ScanRun IDs are generated by the system.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The execution state of the ScanRun.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ExecutionState&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"scan_run::ExecutionState"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>execution_state: i32,
     <span class="doccomment">/// Output only. The result state of the ScanRun. This field is only available after the
-    /// execution state reaches &quot;FINISHED&quot;.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ResultState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    /// execution state reaches "FINISHED".
+    </span><span class="attr">#[prost(enumeration = <span class="string">"scan_run::ResultState"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>result_state: i32,
     <span class="doccomment">/// Output only. The time at which the ScanRun started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The time at which the ScanRun reached termination state - that the ScanRun
     /// is either finished or stopped by user.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The number of URLs crawled during this ScanRun. If the scan is in progress,
     /// the value represents the number of URLs crawled up to now.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>urls_crawled_count: i64,
     <span class="doccomment">/// Output only. The number of URLs tested during this ScanRun. If the scan is in progress,
     /// the value represents the number of URLs tested up to now. The number of
     /// URLs tested is usually larger than the number URLS crawled because
     /// typically a crawled URL is tested with multiple test payloads.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>urls_tested_count: i64,
     <span class="doccomment">/// Output only. Whether the scan run has found any vulnerabilities.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>has_vulnerabilities: bool,
     <span class="doccomment">/// Output only. The percentage of total completion ranging from 0 to 100.
     /// If the scan is in queue, the value is 0.
     /// If the scan is running, the value ranges from 0 to 100.
     /// If the scan is finished, the value is 100.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>progress_percent: i32,
     <span class="doccomment">/// Output only. If result_state is an ERROR, this field provides the primary reason for
-    /// scan&#39;s termination and more details, if such are available.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;10&quot;</span>)]
+    /// scan's termination and more details, if such are available.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>error_trace: ::core::option::Option&lt;ScanRunErrorTrace&gt;,
     <span class="doccomment">/// Output only. A list of warnings, if such are encountered during this scan run.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>warning_traces: ::prost::alloc::vec::Vec&lt;ScanRunWarningTrace&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `ScanRun`.
@@ -2550,21 +2551,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ExecutionState::Unspecified =&gt; <span class="string">&quot;EXECUTION_STATE_UNSPECIFIED&quot;</span>,
-                ExecutionState::Queued =&gt; <span class="string">&quot;QUEUED&quot;</span>,
-                ExecutionState::Scanning =&gt; <span class="string">&quot;SCANNING&quot;</span>,
-                ExecutionState::Finished =&gt; <span class="string">&quot;FINISHED&quot;</span>,
+                ExecutionState::Unspecified =&gt; <span class="string">"EXECUTION_STATE_UNSPECIFIED"</span>,
+                ExecutionState::Queued =&gt; <span class="string">"QUEUED"</span>,
+                ExecutionState::Scanning =&gt; <span class="string">"SCANNING"</span>,
+                ExecutionState::Finished =&gt; <span class="string">"FINISHED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;EXECUTION_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;QUEUED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Queued),
-                <span class="string">&quot;SCANNING&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scanning),
-                <span class="string">&quot;FINISHED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finished),
+                <span class="string">"EXECUTION_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"QUEUED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Queued),
+                <span class="string">"SCANNING" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Scanning),
+                <span class="string">"FINISHED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Finished),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2598,21 +2599,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                ResultState::Unspecified =&gt; <span class="string">&quot;RESULT_STATE_UNSPECIFIED&quot;</span>,
-                ResultState::Success =&gt; <span class="string">&quot;SUCCESS&quot;</span>,
-                ResultState::Error =&gt; <span class="string">&quot;ERROR&quot;</span>,
-                ResultState::Killed =&gt; <span class="string">&quot;KILLED&quot;</span>,
+                ResultState::Unspecified =&gt; <span class="string">"RESULT_STATE_UNSPECIFIED"</span>,
+                ResultState::Success =&gt; <span class="string">"SUCCESS"</span>,
+                ResultState::Error =&gt; <span class="string">"ERROR"</span>,
+                ResultState::Killed =&gt; <span class="string">"KILLED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RESULT_STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SUCCESS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Success),
-                <span class="string">&quot;ERROR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
-                <span class="string">&quot;KILLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Killed),
+                <span class="string">"RESULT_STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SUCCESS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Success),
+                <span class="string">"ERROR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Error),
+                <span class="string">"KILLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Killed),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2627,24 +2628,24 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ScanRunLog {
     <span class="doccomment">/// Human friendly message about the event.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>summary: ::prost::alloc::string::String,
     <span class="doccomment">/// The resource name of the ScanRun being logged.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// The execution state of the ScanRun.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ExecutionState&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"scan_run::ExecutionState"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>execution_state: i32,
     <span class="doccomment">/// The result state of the ScanRun.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_run::ResultState&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"scan_run::ResultState"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>result_state: i32,
-    <span class="attr">#[prost(int64, tag = <span class="string">&quot;5&quot;</span>)]
+    <span class="attr">#[prost(int64, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>urls_crawled_count: i64,
-    <span class="attr">#[prost(int64, tag = <span class="string">&quot;6&quot;</span>)]
+    <span class="attr">#[prost(int64, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>urls_tested_count: i64,
-    <span class="attr">#[prost(bool, tag = <span class="string">&quot;7&quot;</span>)]
+    <span class="attr">#[prost(bool, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>has_findings: bool,
-    <span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    <span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>error_trace: ::core::option::Option&lt;ScanRunErrorTrace&gt;,
 }
 <span class="doccomment">/// A ScanConfig resource contains the configurations to launch a scan.
@@ -2652,53 +2653,53 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ScanConfig {
     <span class="doccomment">/// The resource name of the ScanConfig. The name follows the format of
-    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}&#39;. The ScanConfig IDs are
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}'. The ScanConfig IDs are
     /// generated by the system.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The user provided display name of the ScanConfig.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum QPS during scanning. A valid value ranges from 5 to 20
     /// inclusively. If the field is unspecified or its value is set 0, server will
     /// default to 15. Other values outside of \[5, 20\] range will be rejected with
     /// INVALID_ARGUMENT error.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>max_qps: i32,
     <span class="doccomment">/// Required. The starting URLs from which the scanner finds site pages.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>starting_urls: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The authentication configuration. If specified, service will use the
     /// authentication configuration during scanning.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>authentication: ::core::option::Option&lt;scan_config::Authentication&gt;,
     <span class="doccomment">/// The user agent used during scanning.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_config::UserAgent&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"scan_config::UserAgent"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>user_agent: i32,
     <span class="doccomment">/// The excluded URL patterns as described in
     /// &lt;https://cloud.google.com/security-command-center/docs/how-to-use-web-security-scanner#excluding_urls&gt;
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>blacklist_patterns: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// The schedule of the ScanConfig.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>schedule: ::core::option::Option&lt;scan_config::Schedule&gt;,
     <span class="doccomment">/// Controls export of scan configurations and results to Security
     /// Command Center.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_config::ExportToSecurityCommandCenter&quot;</span>, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"scan_config::ExportToSecurityCommandCenter"</span>, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>export_to_security_command_center: i32,
     <span class="doccomment">/// The risk level selected for the scan
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;scan_config::RiskLevel&quot;</span>, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"scan_config::RiskLevel"</span>, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>risk_level: i32,
     <span class="doccomment">/// Whether the scan config is managed by Web Security Scanner, output
     /// only.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>managed_scan: bool,
     <span class="doccomment">/// Whether the scan configuration has enabled static IP address scan feature.
     /// If enabled, the scanner will access applications from static IP addresses.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>static_ip_scan: bool,
     <span class="doccomment">/// Whether to keep scanning even if most requests return HTTP error codes.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>ignore_http_status_errors: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `ScanConfig`.
@@ -2709,7 +2710,7 @@
     </span><span class="kw">pub struct </span>Authentication {
         <span class="doccomment">/// Required.
         /// Authentication configuration
-        </span><span class="attr">#[prost(oneof = <span class="string">&quot;authentication::Authentication&quot;</span>, tags = <span class="string">&quot;1, 2, 4&quot;</span>)]
+        </span><span class="attr">#[prost(oneof = <span class="string">"authentication::Authentication"</span>, tags = <span class="string">"1, 2, 4"</span>)]
         </span><span class="kw">pub </span>authentication: ::core::option::Option&lt;authentication::Authentication&gt;,
     }
     <span class="doccomment">/// Nested message and enum types in `Authentication`.
@@ -2719,11 +2720,11 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>GoogleAccount {
             <span class="doccomment">/// Required. The user name of the Google account.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
             <span class="doccomment">/// Required. Input only. The password of the Google account. The credential is stored encrypted
             /// and not returned in any response nor included in audit logs.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>password: ::prost::alloc::string::String,
         }
         <span class="doccomment">/// Describes authentication configuration that uses a custom account.
@@ -2731,14 +2732,14 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>CustomAccount {
             <span class="doccomment">/// Required. The user name of the custom account.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>username: ::prost::alloc::string::String,
             <span class="doccomment">/// Required. Input only. The password of the custom account. The credential is stored encrypted
             /// and not returned in any response nor included in audit logs.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
             </span><span class="kw">pub </span>password: ::prost::alloc::string::String,
             <span class="doccomment">/// Required. The login form URL of the website.
-            </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+            </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
             </span><span class="kw">pub </span>login_url: ::prost::alloc::string::String,
         }
         <span class="doccomment">/// Describes authentication configuration for Identity-Aware-Proxy (IAP).
@@ -2746,7 +2747,7 @@
         #[derive(Clone, PartialEq, ::prost::Message)]
         </span><span class="kw">pub struct </span>IapCredential {
             <span class="doccomment">/// Identity-Aware-Proxy (IAP) Authentication Configuration
-            </span><span class="attr">#[prost(oneof = <span class="string">&quot;iap_credential::IapCredentials&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(oneof = <span class="string">"iap_credential::IapCredentials"</span>, tags = <span class="string">"1"</span>)]
             </span><span class="kw">pub </span>iap_credentials: ::core::option::Option&lt;iap_credential::IapCredentials&gt;,
         }
         <span class="doccomment">/// Nested message and enum types in `IapCredential`.
@@ -2758,7 +2759,7 @@
             </span><span class="kw">pub struct </span>IapTestServiceAccountInfo {
                 <span class="doccomment">/// Required. Describes OAuth2 client id of resources protected by
                 /// Identity-Aware-Proxy (IAP).
-                </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
                 </span><span class="kw">pub </span>target_audience_client_id: ::prost::alloc::string::String,
             }
             <span class="doccomment">/// Identity-Aware-Proxy (IAP) Authentication Configuration
@@ -2767,7 +2768,7 @@
             </span><span class="kw">pub enum </span>IapCredentials {
                 <span class="doccomment">/// Authentication configuration when Web-Security-Scanner service
                 /// account is added in Identity-Aware-Proxy (IAP) access policies.
-                </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+                </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
                 </span>IapTestServiceAccountInfo(IapTestServiceAccountInfo),
             }
         }
@@ -2777,13 +2778,13 @@
         #[derive(Clone, PartialEq, ::prost::Oneof)]
         </span><span class="kw">pub enum </span>Authentication {
             <span class="doccomment">/// Authentication using a Google account.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
             </span>GoogleAccount(GoogleAccount),
             <span class="doccomment">/// Authentication using a custom account.
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;2&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"2"</span>)]
             </span>CustomAccount(CustomAccount),
             <span class="doccomment">/// Authentication using Identity-Aware-Proxy (IAP).
-            </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+            </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
             </span>IapCredential(IapCredential),
         }
     }
@@ -2795,10 +2796,10 @@
         /// refreshed by the server after each run. If unspecified, it will default
         /// to current server time, which means the scan will be scheduled to start
         /// immediately.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>schedule_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
         <span class="doccomment">/// Required. The duration of time between executions in days.
-        </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>interval_duration_days: i32,
     }
     <span class="doccomment">/// Type of user agents used for scanning.
@@ -2829,21 +2830,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                UserAgent::Unspecified =&gt; <span class="string">&quot;USER_AGENT_UNSPECIFIED&quot;</span>,
-                UserAgent::ChromeLinux =&gt; <span class="string">&quot;CHROME_LINUX&quot;</span>,
-                UserAgent::ChromeAndroid =&gt; <span class="string">&quot;CHROME_ANDROID&quot;</span>,
-                UserAgent::SafariIphone =&gt; <span class="string">&quot;SAFARI_IPHONE&quot;</span>,
+                UserAgent::Unspecified =&gt; <span class="string">"USER_AGENT_UNSPECIFIED"</span>,
+                UserAgent::ChromeLinux =&gt; <span class="string">"CHROME_LINUX"</span>,
+                UserAgent::ChromeAndroid =&gt; <span class="string">"CHROME_ANDROID"</span>,
+                UserAgent::SafariIphone =&gt; <span class="string">"SAFARI_IPHONE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;USER_AGENT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CHROME_LINUX&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChromeLinux),
-                <span class="string">&quot;CHROME_ANDROID&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChromeAndroid),
-                <span class="string">&quot;SAFARI_IPHONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SafariIphone),
+                <span class="string">"USER_AGENT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CHROME_LINUX" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChromeLinux),
+                <span class="string">"CHROME_ANDROID" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ChromeAndroid),
+                <span class="string">"SAFARI_IPHONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SafariIphone),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2876,19 +2877,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RiskLevel::Unspecified =&gt; <span class="string">&quot;RISK_LEVEL_UNSPECIFIED&quot;</span>,
-                RiskLevel::Normal =&gt; <span class="string">&quot;NORMAL&quot;</span>,
-                RiskLevel::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
+                RiskLevel::Unspecified =&gt; <span class="string">"RISK_LEVEL_UNSPECIFIED"</span>,
+                RiskLevel::Normal =&gt; <span class="string">"NORMAL"</span>,
+                RiskLevel::Low =&gt; <span class="string">"LOW"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RISK_LEVEL_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NORMAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
-                <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+                <span class="string">"RISK_LEVEL_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NORMAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Normal),
+                <span class="string">"LOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2920,23 +2921,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
                 ExportToSecurityCommandCenter::Unspecified =&gt; {
-                    <span class="string">&quot;EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED&quot;
+                    <span class="string">"EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED"
                 </span>}
-                ExportToSecurityCommandCenter::Enabled =&gt; <span class="string">&quot;ENABLED&quot;</span>,
-                ExportToSecurityCommandCenter::Disabled =&gt; <span class="string">&quot;DISABLED&quot;</span>,
+                ExportToSecurityCommandCenter::Enabled =&gt; <span class="string">"ENABLED"</span>,
+                ExportToSecurityCommandCenter::Disabled =&gt; <span class="string">"DISABLED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED&quot; </span>=&gt; {
+                <span class="string">"EXPORT_TO_SECURITY_COMMAND_CENTER_UNSPECIFIED" </span>=&gt; {
                     <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified)
                 }
-                <span class="string">&quot;ENABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
-                <span class="string">&quot;DISABLED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
+                <span class="string">"ENABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Enabled),
+                <span class="string">"DISABLED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Disabled),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -2950,24 +2951,24 @@
 </span><span class="kw">pub struct </span>CrawledUrl {
     <span class="doccomment">/// Output only. The http method of the request that was used to visit the URL, in
     /// uppercase.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>http_method: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The URL that was crawled.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>url: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The body of the request that was used to visit the URL.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// ! Information about a vulnerability with an HTML.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Form {
-    <span class="doccomment">/// ! The URI where to send the form when it&#39;s submitted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// ! The URI where to send the form when it's submitted.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>action_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// ! The names of form fields related to the vulnerability.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>fields: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Information reported for an outdated library.
@@ -2975,13 +2976,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>OutdatedLibrary {
     <span class="doccomment">/// The name of the outdated library.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>library_name: ::prost::alloc::string::String,
     <span class="doccomment">/// The version number.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>version: ::prost::alloc::string::String,
     <span class="doccomment">/// URLs to learn more information about the vulnerabilities in the library.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>learn_more_urls: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Information regarding any resource causing the vulnerability such
@@ -2990,10 +2991,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ViolatingResource {
     <span class="doccomment">/// The MIME type of this resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>content_type: ::prost::alloc::string::String,
     <span class="doccomment">/// URL of this violating resource.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>resource_url: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Information about vulnerable request parameters.
@@ -3001,7 +3002,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VulnerableParameters {
     <span class="doccomment">/// The vulnerable parameter names.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parameter_names: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
 }
 <span class="doccomment">/// Information about vulnerable or missing HTTP Headers.
@@ -3009,10 +3010,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>VulnerableHeaders {
     <span class="doccomment">/// List of vulnerable headers.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>headers: ::prost::alloc::vec::Vec&lt;vulnerable_headers::Header&gt;,
     <span class="doccomment">/// List of missing headers.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>missing_headers: ::prost::alloc::vec::Vec&lt;vulnerable_headers::Header&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `VulnerableHeaders`.
@@ -3022,10 +3023,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Header {
         <span class="doccomment">/// Header name.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
         <span class="doccomment">/// Header value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
     }
 }
@@ -3034,16 +3035,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Xss {
     <span class="doccomment">/// Stack traces leading to the point where the XSS occurred.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>stack_traces: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// An error message generated by a javascript breakage.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>error_message: ::prost::alloc::string::String,
     <span class="doccomment">/// The attack vector of the payload triggering this XSS.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;xss::AttackVector&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"xss::AttackVector"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>attack_vector: i32,
     <span class="doccomment">/// The reproduction url for the seeding POST request of a Stored XSS.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>stored_xss_seeding_url: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `Xss`.
@@ -3064,17 +3065,17 @@
     </span><span class="kw">pub enum </span>AttackVector {
         <span class="doccomment">/// Unknown attack vector.
         </span>Unspecified = <span class="number">0</span>,
-        <span class="doccomment">/// The attack comes from fuzzing the browser&#39;s localStorage.
+        <span class="doccomment">/// The attack comes from fuzzing the browser's localStorage.
         </span>LocalStorage = <span class="number">1</span>,
-        <span class="doccomment">/// The attack comes from fuzzing the browser&#39;s sessionStorage.
+        <span class="doccomment">/// The attack comes from fuzzing the browser's sessionStorage.
         </span>SessionStorage = <span class="number">2</span>,
-        <span class="doccomment">/// The attack comes from fuzzing the window&#39;s name property.
+        <span class="doccomment">/// The attack comes from fuzzing the window's name property.
         </span>WindowName = <span class="number">3</span>,
         <span class="doccomment">/// The attack comes from fuzzing the referrer property.
         </span>Referrer = <span class="number">4</span>,
         <span class="doccomment">/// The attack comes from fuzzing an input element.
         </span>FormInput = <span class="number">5</span>,
-        <span class="doccomment">/// The attack comes from fuzzing the browser&#39;s cookies.
+        <span class="doccomment">/// The attack comes from fuzzing the browser's cookies.
         </span>Cookie = <span class="number">6</span>,
         <span class="doccomment">/// The attack comes from hijacking the post messaging mechanism.
         </span>PostMessage = <span class="number">7</span>,
@@ -3101,45 +3102,45 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AttackVector::Unspecified =&gt; <span class="string">&quot;ATTACK_VECTOR_UNSPECIFIED&quot;</span>,
-                AttackVector::LocalStorage =&gt; <span class="string">&quot;LOCAL_STORAGE&quot;</span>,
-                AttackVector::SessionStorage =&gt; <span class="string">&quot;SESSION_STORAGE&quot;</span>,
-                AttackVector::WindowName =&gt; <span class="string">&quot;WINDOW_NAME&quot;</span>,
-                AttackVector::Referrer =&gt; <span class="string">&quot;REFERRER&quot;</span>,
-                AttackVector::FormInput =&gt; <span class="string">&quot;FORM_INPUT&quot;</span>,
-                AttackVector::Cookie =&gt; <span class="string">&quot;COOKIE&quot;</span>,
-                AttackVector::PostMessage =&gt; <span class="string">&quot;POST_MESSAGE&quot;</span>,
-                AttackVector::GetParameters =&gt; <span class="string">&quot;GET_PARAMETERS&quot;</span>,
-                AttackVector::UrlFragment =&gt; <span class="string">&quot;URL_FRAGMENT&quot;</span>,
-                AttackVector::HtmlComment =&gt; <span class="string">&quot;HTML_COMMENT&quot;</span>,
-                AttackVector::PostParameters =&gt; <span class="string">&quot;POST_PARAMETERS&quot;</span>,
-                AttackVector::Protocol =&gt; <span class="string">&quot;PROTOCOL&quot;</span>,
-                AttackVector::StoredXss =&gt; <span class="string">&quot;STORED_XSS&quot;</span>,
-                AttackVector::SameOrigin =&gt; <span class="string">&quot;SAME_ORIGIN&quot;</span>,
-                AttackVector::UserControllableUrl =&gt; <span class="string">&quot;USER_CONTROLLABLE_URL&quot;</span>,
+                AttackVector::Unspecified =&gt; <span class="string">"ATTACK_VECTOR_UNSPECIFIED"</span>,
+                AttackVector::LocalStorage =&gt; <span class="string">"LOCAL_STORAGE"</span>,
+                AttackVector::SessionStorage =&gt; <span class="string">"SESSION_STORAGE"</span>,
+                AttackVector::WindowName =&gt; <span class="string">"WINDOW_NAME"</span>,
+                AttackVector::Referrer =&gt; <span class="string">"REFERRER"</span>,
+                AttackVector::FormInput =&gt; <span class="string">"FORM_INPUT"</span>,
+                AttackVector::Cookie =&gt; <span class="string">"COOKIE"</span>,
+                AttackVector::PostMessage =&gt; <span class="string">"POST_MESSAGE"</span>,
+                AttackVector::GetParameters =&gt; <span class="string">"GET_PARAMETERS"</span>,
+                AttackVector::UrlFragment =&gt; <span class="string">"URL_FRAGMENT"</span>,
+                AttackVector::HtmlComment =&gt; <span class="string">"HTML_COMMENT"</span>,
+                AttackVector::PostParameters =&gt; <span class="string">"POST_PARAMETERS"</span>,
+                AttackVector::Protocol =&gt; <span class="string">"PROTOCOL"</span>,
+                AttackVector::StoredXss =&gt; <span class="string">"STORED_XSS"</span>,
+                AttackVector::SameOrigin =&gt; <span class="string">"SAME_ORIGIN"</span>,
+                AttackVector::UserControllableUrl =&gt; <span class="string">"USER_CONTROLLABLE_URL"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ATTACK_VECTOR_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;LOCAL_STORAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocalStorage),
-                <span class="string">&quot;SESSION_STORAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionStorage),
-                <span class="string">&quot;WINDOW_NAME&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WindowName),
-                <span class="string">&quot;REFERRER&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Referrer),
-                <span class="string">&quot;FORM_INPUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FormInput),
-                <span class="string">&quot;COOKIE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cookie),
-                <span class="string">&quot;POST_MESSAGE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostMessage),
-                <span class="string">&quot;GET_PARAMETERS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GetParameters),
-                <span class="string">&quot;URL_FRAGMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UrlFragment),
-                <span class="string">&quot;HTML_COMMENT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HtmlComment),
-                <span class="string">&quot;POST_PARAMETERS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostParameters),
-                <span class="string">&quot;PROTOCOL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Protocol),
-                <span class="string">&quot;STORED_XSS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StoredXss),
-                <span class="string">&quot;SAME_ORIGIN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SameOrigin),
-                <span class="string">&quot;USER_CONTROLLABLE_URL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserControllableUrl),
+                <span class="string">"ATTACK_VECTOR_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"LOCAL_STORAGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::LocalStorage),
+                <span class="string">"SESSION_STORAGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SessionStorage),
+                <span class="string">"WINDOW_NAME" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WindowName),
+                <span class="string">"REFERRER" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Referrer),
+                <span class="string">"FORM_INPUT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FormInput),
+                <span class="string">"COOKIE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Cookie),
+                <span class="string">"POST_MESSAGE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostMessage),
+                <span class="string">"GET_PARAMETERS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::GetParameters),
+                <span class="string">"URL_FRAGMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UrlFragment),
+                <span class="string">"HTML_COMMENT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::HtmlComment),
+                <span class="string">"POST_PARAMETERS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PostParameters),
+                <span class="string">"PROTOCOL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Protocol),
+                <span class="string">"STORED_XSS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::StoredXss),
+                <span class="string">"SAME_ORIGIN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SameOrigin),
+                <span class="string">"USER_CONTROLLABLE_URL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::UserControllableUrl),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3151,10 +3152,10 @@
 </span><span class="kw">pub struct </span>Xxe {
     <span class="doccomment">/// The XML string that triggered the XXE vulnerability. Non-payload values
     /// might be redacted.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>payload_value: ::prost::alloc::string::String,
     <span class="doccomment">/// Location within the request where the payload was placed.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;xxe::Location&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"xxe::Location"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>payload_location: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `Xxe`.
@@ -3183,17 +3184,17 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Location::Unspecified =&gt; <span class="string">&quot;LOCATION_UNSPECIFIED&quot;</span>,
-                Location::CompleteRequestBody =&gt; <span class="string">&quot;COMPLETE_REQUEST_BODY&quot;</span>,
+                Location::Unspecified =&gt; <span class="string">"LOCATION_UNSPECIFIED"</span>,
+                Location::CompleteRequestBody =&gt; <span class="string">"COMPLETE_REQUEST_BODY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;LOCATION_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;COMPLETE_REQUEST_BODY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CompleteRequestBody),
+                <span class="string">"LOCATION_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"COMPLETE_REQUEST_BODY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CompleteRequestBody),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3205,70 +3206,70 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Finding {
     <span class="doccomment">/// Output only. The resource name of the Finding. The name follows the format of
-    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanruns/{scanRunId}/findings/{findingId}&#39;.
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanruns/{scanRunId}/findings/{findingId}'.
     /// The finding IDs are generated by the system.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The type of the Finding.
     /// Detailed and up-to-date information on findings can be found here:
     /// &lt;https://cloud.google.com/security-command-center/docs/how-to-remediate-web-security-scanner-findings&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>finding_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The severity level of the reported vulnerability.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;finding::Severity&quot;</span>, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"finding::Severity"</span>, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>severity: i32,
     <span class="doccomment">/// Output only. The http method of the request that triggered the vulnerability, in
     /// uppercase.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>http_method: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The URL produced by the server-side fuzzer and used in the request that
     /// triggered the vulnerability.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>fuzzed_url: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The body of the request that triggered the vulnerability.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>body: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The description of the vulnerability.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>description: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The URL containing human-readable payload that user can leverage to
     /// reproduce the vulnerability.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>reproduction_url: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. If the vulnerability was originated from nested IFrame, the immediate
     /// parent IFrame is reported.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>frame_url: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The URL where the browser lands when the vulnerability is detected.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>final_url: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The tracking ID uniquely identifies a vulnerability instance across
     /// multiple ScanRuns.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>tracking_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. An addon containing information reported for a vulnerability with an HTML
     /// form, if any.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>form: ::core::option::Option&lt;Form&gt;,
     <span class="doccomment">/// Output only. An addon containing information about outdated libraries.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>outdated_library: ::core::option::Option&lt;OutdatedLibrary&gt;,
     <span class="doccomment">/// Output only. An addon containing detailed information regarding any resource causing the
     /// vulnerability such as JavaScript sources, image, audio files, etc.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>violating_resource: ::core::option::Option&lt;ViolatingResource&gt;,
     <span class="doccomment">/// Output only. An addon containing information about vulnerable or missing HTTP headers.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>vulnerable_headers: ::core::option::Option&lt;VulnerableHeaders&gt;,
     <span class="doccomment">/// Output only. An addon containing information about request parameters which were found
     /// to be vulnerable.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>vulnerable_parameters: ::core::option::Option&lt;VulnerableParameters&gt;,
     <span class="doccomment">/// Output only. An addon containing information reported for an XSS, if any.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>xss: ::core::option::Option&lt;Xss&gt;,
     <span class="doccomment">/// Output only. An addon containing information reported for an XXE, if any.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>xxe: ::core::option::Option&lt;Xxe&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Finding`.
@@ -3303,23 +3304,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                Severity::Unspecified =&gt; <span class="string">&quot;SEVERITY_UNSPECIFIED&quot;</span>,
-                Severity::Critical =&gt; <span class="string">&quot;CRITICAL&quot;</span>,
-                Severity::High =&gt; <span class="string">&quot;HIGH&quot;</span>,
-                Severity::Medium =&gt; <span class="string">&quot;MEDIUM&quot;</span>,
-                Severity::Low =&gt; <span class="string">&quot;LOW&quot;</span>,
+                Severity::Unspecified =&gt; <span class="string">"SEVERITY_UNSPECIFIED"</span>,
+                Severity::Critical =&gt; <span class="string">"CRITICAL"</span>,
+                Severity::High =&gt; <span class="string">"HIGH"</span>,
+                Severity::Medium =&gt; <span class="string">"MEDIUM"</span>,
+                Severity::Low =&gt; <span class="string">"LOW"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SEVERITY_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;CRITICAL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
-                <span class="string">&quot;HIGH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
-                <span class="string">&quot;MEDIUM&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
-                <span class="string">&quot;LOW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
+                <span class="string">"SEVERITY_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"CRITICAL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Critical),
+                <span class="string">"HIGH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::High),
+                <span class="string">"MEDIUM" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Medium),
+                <span class="string">"LOW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Low),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3331,10 +3332,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>FindingTypeStats {
     <span class="doccomment">/// Output only. The finding type associated with the stats.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>finding_type: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. The count of findings belonging to this finding type.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>finding_count: i32,
 }
 <span class="doccomment">/// Request for the `CreateScanConfig` method.
@@ -3342,11 +3343,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CreateScanConfigRequest {
     <span class="doccomment">/// Required. The parent resource name where the scan is created, which should be a
-    /// project resource name in the format &#39;projects/{projectId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// project resource name in the format 'projects/{projectId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ScanConfig to be created.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>scan_config: ::core::option::Option&lt;ScanConfig&gt;,
 }
 <span class="doccomment">/// Request for the `DeleteScanConfig` method.
@@ -3354,8 +3355,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DeleteScanConfigRequest {
     <span class="doccomment">/// Required. The resource name of the ScanConfig to be deleted. The name follows the
-    /// format of &#39;projects/{projectId}/scanConfigs/{scanConfigId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// format of 'projects/{projectId}/scanConfigs/{scanConfigId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `GetScanConfig` method.
@@ -3363,8 +3364,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetScanConfigRequest {
     <span class="doccomment">/// Required. The resource name of the ScanConfig to be returned. The name follows the
-    /// format of &#39;projects/{projectId}/scanConfigs/{scanConfigId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// format of 'projects/{projectId}/scanConfigs/{scanConfigId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `ListScanConfigs` method.
@@ -3372,18 +3373,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListScanConfigsRequest {
     <span class="doccomment">/// Required. The parent resource name, which should be a project resource name in the
-    /// format &#39;projects/{projectId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// format 'projects/{projectId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// A token identifying a page of results to be returned. This should be a
     /// `next_page_token` value returned from a previous List request.
     /// If unspecified, the first page of results is returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of ScanConfigs to return, can be limited by server.
     /// If not specified or not positive, the implementation will select a
     /// reasonable value.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// Request for the `UpdateScanConfigRequest` method.
@@ -3393,12 +3394,12 @@
     <span class="doccomment">/// Required. The ScanConfig to be updated. The name field must be set to identify the
     /// resource to be updated. The values of fields not covered by the mask
     /// will be ignored.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>scan_config: ::core::option::Option&lt;ScanConfig&gt;,
     <span class="doccomment">/// Required. The update mask applies to the resource. For the `FieldMask` definition,
     /// see
     /// &lt;https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Response for the `ListScanConfigs` method.
@@ -3406,11 +3407,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListScanConfigsResponse {
     <span class="doccomment">/// The list of ScanConfigs returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>scan_configs: ::prost::alloc::vec::Vec&lt;ScanConfig&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no
     /// more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `StartScanRun` method.
@@ -3418,8 +3419,8 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StartScanRunRequest {
     <span class="doccomment">/// Required. The resource name of the ScanConfig to be used. The name follows the
-    /// format of &#39;projects/{projectId}/scanConfigs/{scanConfigId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// format of 'projects/{projectId}/scanConfigs/{scanConfigId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `GetScanRun` method.
@@ -3428,8 +3429,8 @@
 </span><span class="kw">pub struct </span>GetScanRunRequest {
     <span class="doccomment">/// Required. The resource name of the ScanRun to be returned. The name follows the
     /// format of
-    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `ListScanRuns` method.
@@ -3437,18 +3438,18 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListScanRunsRequest {
     <span class="doccomment">/// Required. The parent resource name, which should be a scan resource name in the
-    /// format &#39;projects/{projectId}/scanConfigs/{scanConfigId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// format 'projects/{projectId}/scanConfigs/{scanConfigId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// A token identifying a page of results to be returned. This should be a
     /// `next_page_token` value returned from a previous List request.
     /// If unspecified, the first page of results is returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of ScanRuns to return, can be limited by server.
     /// If not specified or not positive, the implementation will select a
     /// reasonable value.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// Response for the `ListScanRuns` method.
@@ -3456,11 +3457,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListScanRunsResponse {
     <span class="doccomment">/// The list of ScanRuns returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>scan_runs: ::prost::alloc::vec::Vec&lt;ScanRun&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no
     /// more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `StopScanRun` method.
@@ -3469,8 +3470,8 @@
 </span><span class="kw">pub struct </span>StopScanRunRequest {
     <span class="doccomment">/// Required. The resource name of the ScanRun to be stopped. The name follows the
     /// format of
-    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `ListCrawledUrls` method.
@@ -3479,18 +3480,18 @@
 </span><span class="kw">pub struct </span>ListCrawledUrlsRequest {
     <span class="doccomment">/// Required. The parent resource name, which should be a scan run resource name in the
     /// format
-    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// A token identifying a page of results to be returned. This should be a
     /// `next_page_token` value returned from a previous List request.
     /// If unspecified, the first page of results is returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of CrawledUrls to return, can be limited by server.
     /// If not specified or not positive, the implementation will select a
     /// reasonable value.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// Response for the `ListCrawledUrls` method.
@@ -3498,11 +3499,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCrawledUrlsResponse {
     <span class="doccomment">/// The list of CrawledUrls returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>crawled_urls: ::prost::alloc::vec::Vec&lt;CrawledUrl&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no
     /// more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `GetFinding` method.
@@ -3511,8 +3512,8 @@
 </span><span class="kw">pub struct </span>GetFindingRequest {
     <span class="doccomment">/// Required. The resource name of the Finding to be returned. The name follows the
     /// format of
-    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}/findings/{findingId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}/findings/{findingId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `ListFindings` method.
@@ -3521,24 +3522,24 @@
 </span><span class="kw">pub struct </span>ListFindingsRequest {
     <span class="doccomment">/// Required. The parent resource name, which should be a scan run resource name in the
     /// format
-    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The filter expression. The expression must be in the format: &lt;field&gt;
     /// &lt;operator&gt; &lt;value&gt;.
-    /// Supported field: &#39;finding_type&#39;.
-    /// Supported operator: &#39;=&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// Supported field: 'finding_type'.
+    /// Supported operator: '='.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
     <span class="doccomment">/// A token identifying a page of results to be returned. This should be a
     /// `next_page_token` value returned from a previous List request.
     /// If unspecified, the first page of results is returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of Findings to return, can be limited by server.
     /// If not specified or not positive, the implementation will select a
     /// reasonable value.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
 }
 <span class="doccomment">/// Response for the `ListFindings` method.
@@ -3546,11 +3547,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFindingsResponse {
     <span class="doccomment">/// The list of Findings returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>findings: ::prost::alloc::vec::Vec&lt;Finding&gt;,
     <span class="doccomment">/// Token to retrieve the next page of results, or empty if there are no
     /// more results in the list.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for the `ListFindingTypeStats` method.
@@ -3559,8 +3560,8 @@
 </span><span class="kw">pub struct </span>ListFindingTypeStatsRequest {
     <span class="doccomment">/// Required. The parent resource name, which should be a scan run resource name in the
     /// format
-    /// &#39;projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for the `ListFindingTypeStats` method.
@@ -3568,7 +3569,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListFindingTypeStatsResponse {
     <span class="doccomment">/// The list of FindingTypeStats returned.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>finding_type_stats: ::prost::alloc::vec::Vec&lt;FindingTypeStats&gt;,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -3587,7 +3588,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -3659,19 +3660,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/CreateScanConfig&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/CreateScanConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;CreateScanConfig&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"CreateScanConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3687,19 +3688,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/DeleteScanConfig&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/DeleteScanConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;DeleteScanConfig&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"DeleteScanConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3715,19 +3716,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/GetScanConfig&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/GetScanConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;GetScanConfig&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"GetScanConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3746,19 +3747,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/ListScanConfigs&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/ListScanConfigs"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;ListScanConfigs&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"ListScanConfigs"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3774,19 +3775,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/UpdateScanConfig&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/UpdateScanConfig"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;UpdateScanConfig&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"UpdateScanConfig"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3802,19 +3803,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/StartScanRun&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/StartScanRun"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;StartScanRun&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"StartScanRun"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3830,19 +3831,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/GetScanRun&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/GetScanRun"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;GetScanRun&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"GetScanRun"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3862,19 +3863,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/ListScanRuns&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/ListScanRuns"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;ListScanRuns&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"ListScanRuns"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3890,19 +3891,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/StopScanRun&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/StopScanRun"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;StopScanRun&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"StopScanRun"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3921,19 +3922,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/ListCrawledUrls&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/ListCrawledUrls"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;ListCrawledUrls&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"ListCrawledUrls"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3949,19 +3950,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/GetFinding&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/GetFinding"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;GetFinding&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"GetFinding"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -3980,19 +3981,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/ListFindings&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/ListFindings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;ListFindings&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"ListFindings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4011,19 +4012,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.websecurityscanner.v1.WebSecurityScanner/ListFindingTypeStats&quot;</span>,
+                <span class="string">"/google.cloud.websecurityscanner.v1.WebSecurityScanner/ListFindingTypeStats"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.websecurityscanner.v1.WebSecurityScanner&quot;</span>,
-                        <span class="string">&quot;ListFindingTypeStats&quot;</span>,
+                        <span class="string">"google.cloud.websecurityscanner.v1.WebSecurityScanner"</span>,
+                        <span class="string">"ListFindingTypeStats"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

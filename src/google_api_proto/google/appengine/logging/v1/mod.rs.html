@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/appengine/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/appengine/logging/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -181,19 +182,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>LogLine {
     <span class="doccomment">/// Approximate time when this log entry was made.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Severity of this log entry.
     </span><span class="attr">#[prost(
-        enumeration = <span class="string">&quot;super::super::super::logging::r#type::LogSeverity&quot;</span>,
-        tag = <span class="string">&quot;2&quot;
+        enumeration = <span class="string">"super::super::super::logging::r#type::LogSeverity"</span>,
+        tag = <span class="string">"2"
     </span>)]
     </span><span class="kw">pub </span>severity: i32,
     <span class="doccomment">/// App-provided log message.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>log_message: ::prost::alloc::string::String,
     <span class="doccomment">/// Where in the source code this log message was written.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>source_location: ::core::option::Option&lt;SourceLocation&gt;,
 }
 <span class="doccomment">/// Specifies a location in a source code file.
@@ -202,10 +203,10 @@
 </span><span class="kw">pub struct </span>SourceLocation {
     <span class="doccomment">/// Source file name. Depending on the runtime environment, this might be a
     /// simple name or a fully-qualified name.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>file: ::prost::alloc::string::String,
     <span class="doccomment">/// Line within the source file.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>line: i64,
     <span class="doccomment">/// Human-readable name of the function or method being invoked, with optional
     /// context such as the class or package name. This information is used in
@@ -213,7 +214,7 @@
     /// meaningful. The format can vary by language. For example:
     /// `qual.if.ied.Class.method` (Java), `dir/package.func` (Go), `function`
     /// (Python).
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>function_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A reference to a particular snapshot of the source tree used to build and
@@ -222,12 +223,12 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SourceReference {
     <span class="doccomment">/// Optional. A URI string identifying the repository.
-    /// Example: &quot;&lt;https://github.com/GoogleCloudPlatform/kubernetes.git&quot;&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// Example: "&lt;https://github.com/GoogleCloudPlatform/kubernetes.git"&gt;
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>repository: ::prost::alloc::string::String,
     <span class="doccomment">/// The canonical and persistent identifier of the deployed revision.
-    /// Example (git): &quot;0035781c50ec7aa23385dc841529ce8a4b70db1b&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    /// Example (git): "0035781c50ec7aa23385dc841529ce8a4b70db1b"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>revision_id: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Complete log information about a single HTTP request to an App Engine
@@ -236,122 +237,122 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RequestLog {
     <span class="doccomment">/// Application that handled this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>app_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Module of the application that handled this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;37&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"37"</span>)]
     </span><span class="kw">pub </span>module_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Version of the application that handled this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>version_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Globally unique identifier for a request, which is based on the request
     /// start time.  Request IDs for requests which started later will compare
     /// greater as strings than those for requests which started earlier.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>request_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Origin IP address.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>ip: ::prost::alloc::string::String,
     <span class="doccomment">/// Time when the request started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Time when the request finished.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Latency of the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>latency: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Number of CPU megacycles used to process request.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>mega_cycles: i64,
-    <span class="doccomment">/// Request method. Example: `&quot;GET&quot;`, `&quot;HEAD&quot;`, `&quot;PUT&quot;`, `&quot;POST&quot;`, `&quot;DELETE&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    <span class="doccomment">/// Request method. Example: `"GET"`, `"HEAD"`, `"PUT"`, `"POST"`, `"DELETE"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>method: ::prost::alloc::string::String,
     <span class="doccomment">/// Contains the path and query portion of the URL that was requested. For
-    /// example, if the URL was &quot;&lt;http://example.com/app?name=val&quot;,&gt; the resource
-    /// would be &quot;/app?name=val&quot;.  The fragment identifier, which is identified by
+    /// example, if the URL was "&lt;http://example.com/app?name=val",&gt; the resource
+    /// would be "/app?name=val".  The fragment identifier, which is identified by
     /// the `#` character, is not included.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;11&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>resource: ::prost::alloc::string::String,
-    <span class="doccomment">/// HTTP version of request. Example: `&quot;HTTP/1.1&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;12&quot;</span>)]
+    <span class="doccomment">/// HTTP version of request. Example: `"HTTP/1.1"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>http_version: ::prost::alloc::string::String,
     <span class="doccomment">/// HTTP response status code. Example: 200, 404.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>status: i32,
     <span class="doccomment">/// Size in bytes sent back to client by request.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>response_size: i64,
     <span class="doccomment">/// Referrer URL of request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>referrer: ::prost::alloc::string::String,
     <span class="doccomment">/// User agent that made the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;16&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"16"</span>)]
     </span><span class="kw">pub </span>user_agent: ::prost::alloc::string::String,
     <span class="doccomment">/// The logged-in user who made the request.
     ///
-    /// Most likely, this is the part of the user&#39;s email before the `@` sign.  The
+    /// Most likely, this is the part of the user's email before the `@` sign.  The
     /// field value is the same for different requests from the same user, but
     /// different users can have similar names.  This information is also
     /// available to the application via the App Engine Users API.
     ///
     /// This field will be populated starting with App Engine 1.9.21.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;40&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"40"</span>)]
     </span><span class="kw">pub </span>nickname: ::prost::alloc::string::String,
     <span class="doccomment">/// File or class that handled the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;17&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"17"</span>)]
     </span><span class="kw">pub </span>url_map_entry: ::prost::alloc::string::String,
     <span class="doccomment">/// Internet host and port number of the resource being requested.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>host: ::prost::alloc::string::String,
     <span class="doccomment">/// An indication of the relative cost of serving this request.
-    </span><span class="attr">#[prost(double, tag = <span class="string">&quot;21&quot;</span>)]
+    </span><span class="attr">#[prost(double, tag = <span class="string">"21"</span>)]
     </span><span class="kw">pub </span>cost: f64,
     <span class="doccomment">/// Queue name of the request, in the case of an offline request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;22&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>task_queue_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Task name of the request, in the case of an offline request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;23&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>task_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Whether this was a loading request for the instance.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"24"</span>)]
     </span><span class="kw">pub </span>was_loading_request: bool,
     <span class="doccomment">/// Time this request spent in the pending request queue.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;25&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"25"</span>)]
     </span><span class="kw">pub </span>pending_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// If the instance processing this request belongs to a manually scaled
     /// module, then this is the 0-based index of the instance. Otherwise, this
     /// value is -1.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;26&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"26"</span>)]
     </span><span class="kw">pub </span>instance_index: i32,
     <span class="doccomment">/// Whether this request is finished or active.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;27&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"27"</span>)]
     </span><span class="kw">pub </span>finished: bool,
     <span class="doccomment">/// Whether this is the first `RequestLog` entry for this request.  If an
     /// active request has several `RequestLog` entries written to Stackdriver
     /// Logging, then this field will be set for one of them.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;42&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"42"</span>)]
     </span><span class="kw">pub </span>first: bool,
     <span class="doccomment">/// An identifier for the instance that handled the request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;28&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"28"</span>)]
     </span><span class="kw">pub </span>instance_id: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of log lines emitted by the application while serving this request.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;29&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"29"</span>)]
     </span><span class="kw">pub </span>line: ::prost::alloc::vec::Vec&lt;LogLine&gt;,
     <span class="doccomment">/// App Engine release version.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;38&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"38"</span>)]
     </span><span class="kw">pub </span>app_engine_release: ::prost::alloc::string::String,
     <span class="doccomment">/// Stackdriver Trace identifier for this request.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;39&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"39"</span>)]
     </span><span class="kw">pub </span>trace_id: ::prost::alloc::string::String,
-    <span class="doccomment">/// If true, the value in the &#39;trace_id&#39; field was sampled for storage in a
+    <span class="doccomment">/// If true, the value in the 'trace_id' field was sampled for storage in a
     /// trace backend.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;43&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"43"</span>)]
     </span><span class="kw">pub </span>trace_sampled: bool,
     <span class="doccomment">/// Source code for the application that handled this request. There can be
     /// more than one source reference per deployed application if source code is
     /// distributed among multiple repositories.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;41&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"41"</span>)]
     </span><span class="kw">pub </span>source_reference: ::prost::alloc::vec::Vec&lt;SourceReference&gt;,
 }
 </code></pre></div></section></main></body></html>

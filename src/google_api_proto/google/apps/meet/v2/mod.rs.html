@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/meet/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/apps/meet/v2/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1436,32 +1437,32 @@
 </span><span class="kw">pub struct </span>Space {
     <span class="doccomment">/// Immutable. Resource name of the space.
     /// Format: `spaces/{space}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. URI used to join meetings, such as
     /// `&lt;https://meet.google.com/abc-mnop-xyz`.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>meeting_uri: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Type friendly code to join the meeting. Format:
     /// `\[a-z\]+-\[a-z\]+-\[a-z\]+` such as `abc-mnop-xyz`. The maximum length is 128
     /// characters. Can only be used as an alias of the space ID to get the space.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>meeting_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Configuration pertaining to the meeting space.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;SpaceConfig&gt;,
     <span class="doccomment">/// Active conference, if it exists.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>active_conference: ::core::option::Option&lt;ActiveConference&gt;,
 }
 <span class="doccomment">/// Active conference.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ActiveConference {
-    <span class="doccomment">/// Output only. Reference to &#39;ConferenceRecord&#39; resource.
+    <span class="doccomment">/// Output only. Reference to 'ConferenceRecord' resource.
     /// Format: `conferenceRecords/{conference_record}` where `{conference_record}`
     /// is a unique ID for each instance of a call within a space.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>conference_record: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// The configuration pertaining to a meeting space.
@@ -1469,14 +1470,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SpaceConfig {
     <span class="doccomment">/// Access type of the meeting space that determines who can join without
-    /// knocking. Default: The user&#39;s default access settings.  Controlled by the
-    /// user&#39;s admin for enterprise users or RESTRICTED.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;space_config::AccessType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    /// knocking. Default: The user's default access settings.  Controlled by the
+    /// user's admin for enterprise users or RESTRICTED.
+    </span><span class="attr">#[prost(enumeration = <span class="string">"space_config::AccessType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>access_type: i32,
     <span class="doccomment">/// Defines the entry points that can be used to join meetings hosted in this
     /// meeting space.
     /// Default: EntryPointAccess.ALL
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;space_config::EntryPointAccess&quot;</span>, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"space_config::EntryPointAccess"</span>, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>entry_point_access: i32,
 }
 <span class="doccomment">/// Nested message and enum types in `SpaceConfig`.
@@ -1495,14 +1496,14 @@
     )]
     #[repr(i32)]
     </span><span class="kw">pub enum </span>AccessType {
-        <span class="doccomment">/// Default value specified by the user&#39;s organization.
+        <span class="doccomment">/// Default value specified by the user's organization.
         /// Note: This is never returned, as the configured access type is
         /// returned instead.
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// Anyone with the join information (for example, the URL or phone access
         /// information) can join without knocking.
         </span>Open = <span class="number">1</span>,
-        <span class="doccomment">/// Members of the host&#39;s organization, invited external users, and dial-in
+        <span class="doccomment">/// Members of the host's organization, invited external users, and dial-in
         /// users can join without knocking. Everyone else must knock.
         </span>Trusted = <span class="number">2</span>,
         <span class="doccomment">/// Only invitees can join without knocking. Everyone else must knock.
@@ -1513,21 +1514,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AccessType::Unspecified =&gt; <span class="string">&quot;ACCESS_TYPE_UNSPECIFIED&quot;</span>,
-                AccessType::Open =&gt; <span class="string">&quot;OPEN&quot;</span>,
-                AccessType::Trusted =&gt; <span class="string">&quot;TRUSTED&quot;</span>,
-                AccessType::Restricted =&gt; <span class="string">&quot;RESTRICTED&quot;</span>,
+                AccessType::Unspecified =&gt; <span class="string">"ACCESS_TYPE_UNSPECIFIED"</span>,
+                AccessType::Open =&gt; <span class="string">"OPEN"</span>,
+                AccessType::Trusted =&gt; <span class="string">"TRUSTED"</span>,
+                AccessType::Restricted =&gt; <span class="string">"RESTRICTED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ACCESS_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;OPEN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Open),
-                <span class="string">&quot;TRUSTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Trusted),
-                <span class="string">&quot;RESTRICTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Restricted),
+                <span class="string">"ACCESS_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"OPEN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Open),
+                <span class="string">"TRUSTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Trusted),
+                <span class="string">"RESTRICTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Restricted),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1561,19 +1562,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                EntryPointAccess::Unspecified =&gt; <span class="string">&quot;ENTRY_POINT_ACCESS_UNSPECIFIED&quot;</span>,
-                EntryPointAccess::All =&gt; <span class="string">&quot;ALL&quot;</span>,
-                EntryPointAccess::CreatorAppOnly =&gt; <span class="string">&quot;CREATOR_APP_ONLY&quot;</span>,
+                EntryPointAccess::Unspecified =&gt; <span class="string">"ENTRY_POINT_ACCESS_UNSPECIFIED"</span>,
+                EntryPointAccess::All =&gt; <span class="string">"ALL"</span>,
+                EntryPointAccess::CreatorAppOnly =&gt; <span class="string">"CREATOR_APP_ONLY"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ENTRY_POINT_ACCESS_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;ALL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::All),
-                <span class="string">&quot;CREATOR_APP_ONLY&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreatorAppOnly),
+                <span class="string">"ENTRY_POINT_ACCESS_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"ALL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::All),
+                <span class="string">"CREATOR_APP_ONLY" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::CreatorAppOnly),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1586,22 +1587,22 @@
     <span class="doccomment">/// Identifier. Resource name of the conference record.
     /// Format: `conferenceRecords/{conference_record}` where `{conference_record}`
     /// is a unique ID for each instance of a call within a space.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Timestamp when the conference started. Always set.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Timestamp when the conference ended.
     /// Set for past conferences. Unset if the conference is ongoing.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Server enforced expiration time for when this conference
     /// record resource is deleted. The resource is deleted 30 days after the
     /// conference ends.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>expire_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The space where the conference was held.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>space: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// User who attended or is attending a conference.
@@ -1610,16 +1611,16 @@
 </span><span class="kw">pub struct </span>Participant {
     <span class="doccomment">/// Output only. Resource name of the participant.
     /// Format: `conferenceRecords/{conference_record}/participants/{participant}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Time when the participant first joined the meeting.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>earliest_start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Time when the participant left the meeting for the last time.
-    /// This can be null if it&#39;s an active meeting.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    /// This can be null if it's an active meeting.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>latest_end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;participant::User&quot;</span>, tags = <span class="string">&quot;4, 5, 6&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"participant::User"</span>, tags = <span class="string">"4, 5, 6"</span>)]
     </span><span class="kw">pub </span>user: ::core::option::Option&lt;participant::User&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Participant`.
@@ -1628,33 +1629,33 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>User {
         <span class="doccomment">/// Signed-in user.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;4&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"4"</span>)]
         </span>SignedinUser(<span class="kw">super</span>::SignedinUser),
         <span class="doccomment">/// Anonymous user.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;5&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"5"</span>)]
         </span>AnonymousUser(<span class="kw">super</span>::AnonymousUser),
         <span class="doccomment">/// User calling from their phone.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>PhoneUser(<span class="kw">super</span>::PhoneUser),
     }
 }
 <span class="doccomment">/// Refers to each unique join or leave session when a user joins a conference
 /// from a device. Note that any time a user joins the conference a new unique ID
 /// is assigned. That means if a user joins a space multiple times from the same
-/// device, they&#39;re assigned different IDs, and are also be treated as different
+/// device, they're assigned different IDs, and are also be treated as different
 /// participant sessions.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ParticipantSession {
     <span class="doccomment">/// Identifier. Session id.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Timestamp when the user session starts.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Timestamp when the user session ends. Unset if the user
     /// session hasn’t ended.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// A signed-in user can be:
@@ -1666,12 +1667,12 @@
 </span><span class="kw">pub struct </span>SignedinUser {
     <span class="doccomment">/// Output only. Unique ID for the user. Interoperable with Admin SDK API and
     /// People API. Format: `users/{user}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>user: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. For a personal device, it&#39;s the user&#39;s first name and last
-    /// name. For a robot account, it&#39;s the administrator-specified device name.
-    /// For example, &quot;Altostrat Room&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    <span class="doccomment">/// Output only. For a personal device, it's the user's first name and last
+    /// name. For a robot account, it's the administrator-specified device name.
+    /// For example, "Altostrat Room".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// User who joins anonymously (meaning not signed into a Google Account).
@@ -1679,16 +1680,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>AnonymousUser {
     <span class="doccomment">/// Output only. User provided name when they join a conference anonymously.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
-<span class="doccomment">/// User dialing in from a phone where the user&#39;s identity is unknown because
-/// they haven&#39;t signed in with a Google Account.
+<span class="doccomment">/// User dialing in from a phone where the user's identity is unknown because
+/// they haven't signed in with a Google Account.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PhoneUser {
-    <span class="doccomment">/// Output only. Partially redacted user&#39;s phone number when calling.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    <span class="doccomment">/// Output only. Partially redacted user's phone number when calling.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>display_name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Metadata about a recording created during a conference.
@@ -1699,18 +1700,18 @@
     /// Format: `conferenceRecords/{conference_record}/recordings/{recording}`
     /// where `{recording}` is a 1:1 mapping to each unique recording session
     /// during the conference.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Current state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;recording::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"recording::State"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Timestamp when the recording started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Timestamp when the recording ended.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;recording::Destination&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"recording::Destination"</span>, tags = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;recording::Destination&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Recording`.
@@ -1733,7 +1734,7 @@
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// An active recording session has started.
         </span>Started = <span class="number">1</span>,
-        <span class="doccomment">/// This recording session has ended, but the recording file hasn&#39;t been
+        <span class="doccomment">/// This recording session has ended, but the recording file hasn't been
         /// generated yet.
         </span>Ended = <span class="number">2</span>,
         <span class="doccomment">/// Recording file is generated and ready to download.
@@ -1744,21 +1745,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
-                State::Ended =&gt; <span class="string">&quot;ENDED&quot;</span>,
-                State::FileGenerated =&gt; <span class="string">&quot;FILE_GENERATED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Started =&gt; <span class="string">"STARTED"</span>,
+                State::Ended =&gt; <span class="string">"ENDED"</span>,
+                State::FileGenerated =&gt; <span class="string">"FILE_GENERATED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
-                <span class="string">&quot;ENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ended),
-                <span class="string">&quot;FILE_GENERATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FileGenerated),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STARTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
+                <span class="string">"ENDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ended),
+                <span class="string">"FILE_GENERATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FileGenerated),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1769,7 +1770,7 @@
         <span class="doccomment">/// Output only. Recording is saved to Google Drive as an MP4 file. The
         /// `drive_destination` includes the Drive `fileId` that can be used to
         /// download the file using the `files.get` method of the Drive API.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>DriveDestination(<span class="kw">super</span>::DriveDestination),
     }
 }
@@ -1778,19 +1779,19 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DriveDestination {
     <span class="doccomment">/// Output only. The `fileId` for the underlying MP4 file. For example,
-    /// &quot;1kuceFZohVoCh6FulBHxwy6I15Ogpc4hP&quot;. Use `$ GET
+    /// "1kuceFZohVoCh6FulBHxwy6I15Ogpc4hP". Use `$ GET
     /// &lt;https://www.googleapis.com/drive/v3/files/{$fileId}?alt=media`&gt; to download
     /// the blob. For more information, see
     /// &lt;https://developers.google.com/drive/api/v3/reference/files/get.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>file: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Link used to play back the recording file in the browser. For
     /// example, `&lt;https://drive.google.com/file/d/{$fileId}/view`.&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>export_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Metadata for a transcript generated from a conference. It refers to the ASR
-/// (Automatic Speech Recognition) result of user&#39;s speech during the conference.
+/// (Automatic Speech Recognition) result of user's speech during the conference.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>Transcript {
@@ -1798,18 +1799,18 @@
     /// Format: `conferenceRecords/{conference_record}/transcripts/{transcript}`,
     /// where `{transcript}` is a 1:1 mapping to each unique transcription session
     /// of the conference.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Current state.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;transcript::State&quot;</span>, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"transcript::State"</span>, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>state: i32,
     <span class="doccomment">/// Output only. Timestamp when the transcript started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Timestamp when the transcript stopped.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
-    <span class="attr">#[prost(oneof = <span class="string">&quot;transcript::Destination&quot;</span>, tags = <span class="string">&quot;6&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"transcript::Destination"</span>, tags = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>destination: ::core::option::Option&lt;transcript::Destination&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `Transcript`.
@@ -1832,7 +1833,7 @@
         </span>Unspecified = <span class="number">0</span>,
         <span class="doccomment">/// An active transcript session has started.
         </span>Started = <span class="number">1</span>,
-        <span class="doccomment">/// This transcript session has ended, but the transcript file hasn&#39;t been
+        <span class="doccomment">/// This transcript session has ended, but the transcript file hasn't been
         /// generated yet.
         </span>Ended = <span class="number">2</span>,
         <span class="doccomment">/// Transcript file is generated and ready to download.
@@ -1843,21 +1844,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                State::Unspecified =&gt; <span class="string">&quot;STATE_UNSPECIFIED&quot;</span>,
-                State::Started =&gt; <span class="string">&quot;STARTED&quot;</span>,
-                State::Ended =&gt; <span class="string">&quot;ENDED&quot;</span>,
-                State::FileGenerated =&gt; <span class="string">&quot;FILE_GENERATED&quot;</span>,
+                State::Unspecified =&gt; <span class="string">"STATE_UNSPECIFIED"</span>,
+                State::Started =&gt; <span class="string">"STARTED"</span>,
+                State::Ended =&gt; <span class="string">"ENDED"</span>,
+                State::FileGenerated =&gt; <span class="string">"FILE_GENERATED"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;STATE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;STARTED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
-                <span class="string">&quot;ENDED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ended),
-                <span class="string">&quot;FILE_GENERATED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FileGenerated),
+                <span class="string">"STATE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"STARTED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Started),
+                <span class="string">"ENDED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Ended),
+                <span class="string">"FILE_GENERATED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::FileGenerated),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -1866,7 +1867,7 @@
     #[derive(Clone, PartialEq, ::prost::Oneof)]
     </span><span class="kw">pub enum </span>Destination {
         <span class="doccomment">/// Output only. Where the Google Docs transcript is saved.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;6&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"6"</span>)]
         </span>DocsDestination(<span class="kw">super</span>::DocsDestination),
     }
 }
@@ -1875,16 +1876,16 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>DocsDestination {
     <span class="doccomment">/// Output only. The document ID for the underlying Google Docs transcript
-    /// file. For example, &quot;1kuceFZohVoCh6FulBHxwy6I15Ogpc4hP&quot;. Use the
+    /// file. For example, "1kuceFZohVoCh6FulBHxwy6I15Ogpc4hP". Use the
     /// `documents.get` method of the Google Docs API
     /// (&lt;https://developers.google.com/docs/api/reference/rest/v1/documents/get&gt;) to
     /// fetch the content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>document: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. URI for the Google Docs transcript file. Use
     /// `&lt;https://docs.google.com/document/d/{$DocumentId}/view`&gt; to browse the
     /// transcript in the browser.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>export_uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Single entry for one user’s speech during a transcript session.
@@ -1892,25 +1893,25 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TranscriptEntry {
     <span class="doccomment">/// Output only. Resource name of the entry. Format:
-    /// &quot;conferenceRecords/{conference_record}/transcripts/{transcript}/entries/{entry}&quot;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    /// "conferenceRecords/{conference_record}/transcripts/{transcript}/entries/{entry}"
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Refers to the participant who speaks.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>participant: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. The transcribed text of the participant&#39;s voice, at maximum
+    <span class="doccomment">/// Output only. The transcribed text of the participant's voice, at maximum
     /// 10K words. Note that the limit is subject to change.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>text: ::prost::alloc::string::String,
-    <span class="doccomment">/// Output only. Language of spoken text, such as &quot;en-US&quot;.
+    <span class="doccomment">/// Output only. Language of spoken text, such as "en-US".
     /// IETF BCP 47 syntax (&lt;https://tools.ietf.org/html/bcp47&gt;)
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// Output only. Timestamp when the transcript entry started.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. Timestamp when the transcript entry ended.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
 }
 <span class="doccomment">/// Request to create a space.
@@ -1919,7 +1920,7 @@
 </span><span class="kw">pub struct </span>CreateSpaceRequest {
     <span class="doccomment">/// Space to be created. As of May 2023, the input space can be empty. Later on
     /// the input space can be non-empty when space configuration is introduced.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>space: ::core::option::Option&lt;Space&gt;,
 }
 <span class="doccomment">/// Request to get a space.
@@ -1927,7 +1928,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetSpaceRequest {
     <span class="doccomment">/// Required. Resource name of the space.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to update a space.
@@ -1935,13 +1936,13 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>UpdateSpaceRequest {
     <span class="doccomment">/// Required. Space to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>space: ::core::option::Option&lt;Space&gt;,
     <span class="doccomment">/// Optional. Field mask used to specify the fields to be updated in the space.
-    /// If update_mask isn&#39;t provided, it defaults to &#39;*&#39; and updates all
+    /// If update_mask isn't provided, it defaults to '*' and updates all
     /// fields provided in the request, including deleting fields not set in the
     /// request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Request to end an ongoing conference of a space.
@@ -1949,7 +1950,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>EndActiveConferenceRequest {
     <span class="doccomment">/// Required. Resource name of the space.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to get a conference record.
@@ -1957,7 +1958,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetConferenceRecordRequest {
     <span class="doccomment">/// Required. Resource name of the conference.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to fetch list of conference records per user.
@@ -1968,10 +1969,10 @@
     /// return fewer than this value. If unspecified, at most 25 conference records
     /// are returned. The maximum value is 100; values above 100 are coerced to
     /// 100. Maximum might change in the future.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. Page token returned from previous List Call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. User specified filtering condition in [EBNF
     /// format](&lt;https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form&gt;).
@@ -1982,8 +1983,8 @@
     /// * `start_time`
     /// * `end_time`
     ///
-    /// For example, `space.meeting_code = &quot;abc-mnop-xyz&quot;`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    /// For example, `space.meeting_code = "abc-mnop-xyz"`.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response of ListConferenceRecords method.
@@ -1991,11 +1992,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListConferenceRecordsResponse {
     <span class="doccomment">/// List of conferences in one page.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>conference_records: ::prost::alloc::vec::Vec&lt;ConferenceRecord&gt;,
     <span class="doccomment">/// Token to be circulated back for further List call if current List does NOT
     /// include all the Conferences. Unset if all conferences have been returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to get a participant.
@@ -2003,7 +2004,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetParticipantRequest {
     <span class="doccomment">/// Required. Resource name of the participant.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to fetch list of participants per conference.
@@ -2011,17 +2012,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListParticipantsRequest {
     <span class="doccomment">/// Required. Format: `conferenceRecords/{conference_record}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Maximum number of participants to return. The service might return fewer
     /// than this value.
     /// If unspecified, at most 100 participants are returned.
     /// The maximum value is 250; values above 250 are coerced to 250.
     /// Maximum might change in the future.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token returned from previous List Call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. User specified filtering condition in [EBNF
     /// format](&lt;https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form&gt;).
@@ -2032,7 +2033,7 @@
     ///
     /// For example, `latest_end_time IS NULL` returns active participants in
     /// the conference.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response of ListParticipants method.
@@ -2040,17 +2041,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListParticipantsResponse {
     <span class="doccomment">/// List of participants in one page.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>participants: ::prost::alloc::vec::Vec&lt;Participant&gt;,
-    <span class="doccomment">/// Token to be circulated back for further List call if current List doesn&#39;t
+    <span class="doccomment">/// Token to be circulated back for further List call if current List doesn't
     /// include all the participants. Unset if all participants are returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
-    <span class="doccomment">/// Total, exact number of `participants`. By default, this field isn&#39;t
+    <span class="doccomment">/// Total, exact number of `participants`. By default, this field isn't
     /// included in the response. Set the field mask in
     /// [SystemParameterContext](&lt;https://cloud.google.com/apis/docs/system-parameters&gt;)
     /// to receive this field in the response.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>total_size: i32,
 }
 <span class="doccomment">/// Request to get a participant session.
@@ -2058,7 +2059,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetParticipantSessionRequest {
     <span class="doccomment">/// Required. Resource name of the participant.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request to fetch list of participant sessions per conference record, per
@@ -2068,16 +2069,16 @@
 </span><span class="kw">pub struct </span>ListParticipantSessionsRequest {
     <span class="doccomment">/// Required. Format:
     /// `conferenceRecords/{conference_record}/participants/{participant}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. Maximum number of participant sessions to return. The service
     /// might return fewer than this value. If unspecified, at most 100
     /// participants are returned. The maximum value is 250; values above 250 are
     /// coerced to 250. Maximum might change in the future.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Optional. Page token returned from previous List Call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
     <span class="doccomment">/// Optional. User specified filtering condition in [EBNF
     /// format](&lt;https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form&gt;).
@@ -2088,7 +2089,7 @@
     ///
     /// For example, `end_time IS NULL` returns active participant sessions in
     /// the conference record.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>filter: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response of ListParticipants method.
@@ -2096,11 +2097,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListParticipantSessionsResponse {
     <span class="doccomment">/// List of participants in one page.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>participant_sessions: ::prost::alloc::vec::Vec&lt;ParticipantSession&gt;,
-    <span class="doccomment">/// Token to be circulated back for further List call if current List doesn&#39;t
+    <span class="doccomment">/// Token to be circulated back for further List call if current List doesn't
     /// include all the participants. Unset if all participants are returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request message for GetRecording method.
@@ -2108,7 +2109,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetRecordingRequest {
     <span class="doccomment">/// Required. Resource name of the recording.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for ListRecordings method.
@@ -2116,17 +2117,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRecordingsRequest {
     <span class="doccomment">/// Required. Format: `conferenceRecords/{conference_record}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Maximum number of recordings to return. The service might return fewer
     /// than this value.
     /// If unspecified, at most 10 recordings are returned.
     /// The maximum value is 100; values above 100 are coerced to 100.
     /// Maximum might change in the future.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token returned from previous List Call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for ListRecordings method.
@@ -2134,11 +2135,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListRecordingsResponse {
     <span class="doccomment">/// List of recordings in one page.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>recordings: ::prost::alloc::vec::Vec&lt;Recording&gt;,
-    <span class="doccomment">/// Token to be circulated back for further List call if current List doesn&#39;t
+    <span class="doccomment">/// Token to be circulated back for further List call if current List doesn't
     /// include all the recordings. Unset if all recordings are returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for GetTranscript method.
@@ -2146,7 +2147,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTranscriptRequest {
     <span class="doccomment">/// Required. Resource name of the transcript.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for ListTranscripts method.
@@ -2154,17 +2155,17 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTranscriptsRequest {
     <span class="doccomment">/// Required. Format: `conferenceRecords/{conference_record}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Maximum number of transcripts to return. The service might return fewer
     /// than this value.
     /// If unspecified, at most 10 transcripts are returned.
     /// The maximum value is 100; values above 100 are coerced to 100.
     /// Maximum might change in the future.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token returned from previous List Call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for ListTranscripts method.
@@ -2172,11 +2173,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTranscriptsResponse {
     <span class="doccomment">/// List of transcripts in one page.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transcripts: ::prost::alloc::vec::Vec&lt;Transcript&gt;,
-    <span class="doccomment">/// Token to be circulated back for further List call if current List doesn&#39;t
+    <span class="doccomment">/// Token to be circulated back for further List call if current List doesn't
     /// include all the transcripts. Unset if all transcripts are returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for GetTranscriptEntry method.
@@ -2184,7 +2185,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>GetTranscriptEntryRequest {
     <span class="doccomment">/// Required. Resource name of the `TranscriptEntry`.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Request for ListTranscriptEntries method.
@@ -2193,17 +2194,17 @@
 </span><span class="kw">pub struct </span>ListTranscriptEntriesRequest {
     <span class="doccomment">/// Required. Format:
     /// `conferenceRecords/{conference_record}/transcripts/{transcript}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Maximum number of entries to return. The service might return fewer than
     /// this value.
     /// If unspecified, at most 10 entries are returned.
     /// The maximum value is 100; values above 100 are coerced to 100.
     /// Maximum might change in the future.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// Page token returned from previous List Call.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Response for ListTranscriptEntries method.
@@ -2211,11 +2212,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListTranscriptEntriesResponse {
     <span class="doccomment">/// List of TranscriptEntries in one page.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transcript_entries: ::prost::alloc::vec::Vec&lt;TranscriptEntry&gt;,
-    <span class="doccomment">/// Token to be circulated back for further List call if current List doesn&#39;t
+    <span class="doccomment">/// Token to be circulated back for further List call if current List doesn't
     /// include all the transcript entries. Unset if all entries are returned.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2232,7 +2233,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2304,17 +2305,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.SpacesService/CreateSpace&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.SpacesService/CreateSpace"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.apps.meet.v2.SpacesService&quot;</span>, <span class="string">&quot;CreateSpace&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.apps.meet.v2.SpacesService"</span>, <span class="string">"CreateSpace"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2329,17 +2330,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.SpacesService/GetSpace&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.SpacesService/GetSpace"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.apps.meet.v2.SpacesService&quot;</span>, <span class="string">&quot;GetSpace&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.apps.meet.v2.SpacesService"</span>, <span class="string">"GetSpace"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2354,21 +2355,21 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.SpacesService/UpdateSpace&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.SpacesService/UpdateSpace"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.apps.meet.v2.SpacesService&quot;</span>, <span class="string">&quot;UpdateSpace&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.apps.meet.v2.SpacesService"</span>, <span class="string">"UpdateSpace"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
-        <span class="doccomment">/// Ends an active conference (if there&#39;s one).
+        <span class="doccomment">/// Ends an active conference (if there's one).
         </span><span class="kw">pub async fn </span>end_active_conference(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::EndActiveConferenceRequest&gt;,
@@ -2379,19 +2380,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.SpacesService/EndActiveConference&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.SpacesService/EndActiveConference"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.SpacesService&quot;</span>,
-                        <span class="string">&quot;EndActiveConference&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.SpacesService"</span>,
+                        <span class="string">"EndActiveConference"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2412,7 +2413,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2489,19 +2490,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/GetConferenceRecord&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/GetConferenceRecord"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;GetConferenceRecord&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"GetConferenceRecord"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2521,19 +2522,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/ListConferenceRecords&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/ListConferenceRecords"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;ListConferenceRecords&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"ListConferenceRecords"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2549,19 +2550,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/GetParticipant&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/GetParticipant"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;GetParticipant&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"GetParticipant"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2569,8 +2570,8 @@
         <span class="doccomment">/// Lists the participants in a conference record. By default, ordered by join
         /// time and in descending order. This API supports `fields` as standard
         /// parameters like every other API. However, when the `fields` request
-        /// parameter is omitted, this API defaults to `&#39;participants/*,
-        /// next_page_token&#39;`.
+        /// parameter is omitted, this API defaults to `'participants/*,
+        /// next_page_token'`.
         </span><span class="kw">pub async fn </span>list_participants(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListParticipantsRequest&gt;,
@@ -2584,19 +2585,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/ListParticipants&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/ListParticipants"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;ListParticipants&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"ListParticipants"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2615,19 +2616,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/GetParticipantSession&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/GetParticipantSession"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;GetParticipantSession&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"GetParticipantSession"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2636,7 +2637,7 @@
         /// default, ordered by join time and in descending order. This API supports
         /// `fields` as standard parameters like every other API. However, when the
         /// `fields` request parameter is omitted this API defaults to
-        /// `&#39;participantsessions/*, next_page_token&#39;`.
+        /// `'participantsessions/*, next_page_token'`.
         </span><span class="kw">pub async fn </span>list_participant_sessions(
             <span class="kw-2">&amp;mut </span><span class="self">self</span>,
             request: <span class="kw">impl </span>tonic::IntoRequest&lt;<span class="kw">super</span>::ListParticipantSessionsRequest&gt;,
@@ -2650,19 +2651,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/ListParticipantSessions&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/ListParticipantSessions"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;ListParticipantSessions&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"ListParticipantSessions"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2678,19 +2679,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/GetRecording&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/GetRecording"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;GetRecording&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"GetRecording"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2710,19 +2711,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/ListRecordings&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/ListRecordings"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;ListRecordings&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"ListRecordings"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2738,19 +2739,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/GetTranscript&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/GetTranscript"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;GetTranscript&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"GetTranscript"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2770,19 +2771,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/ListTranscripts&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/ListTranscripts"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;ListTranscripts&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"ListTranscripts"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2805,19 +2806,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/GetTranscriptEntry&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/GetTranscriptEntry"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;GetTranscriptEntry&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"GetTranscriptEntry"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2841,19 +2842,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.apps.meet.v2.ConferenceRecordsService/ListTranscriptEntries&quot;</span>,
+                <span class="string">"/google.apps.meet.v2.ConferenceRecordsService/ListTranscriptEntries"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.apps.meet.v2.ConferenceRecordsService&quot;</span>,
-                        <span class="string">&quot;ListTranscriptEntries&quot;</span>,
+                        <span class="string">"google.apps.meet.v2.ConferenceRecordsService"</span>,
+                        <span class="string">"ListTranscriptEntries"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await

@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/speech/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-9ee3a5e31a2afa3e.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0 (82e1608df 2023-12-21)" data-channel="1.75.0" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../../../../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../../../../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-9dd44ab47b99a0fb.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../../../../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `google-api-proto/src/google/cloud/speech/v1/mod.rs`."><title>mod.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../../../static.files/rustdoc-ac92e1bbe349e143.css"><meta name="rustdoc-vars" data-root-path="../../../../../../" data-static-root-path="../../../../../../static.files/" data-current-crate="google_api_proto" data-themes="" data-resource-suffix="" data-rustdoc-version="1.76.0 (07dca489a 2024-02-04)" data-channel="1.76.0" data-search-js="search-2b6ce74ff89ae146.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../../../static.files/src-script-39ed315d46fb705f.js"></script><script defer src="../../../../../../src-files.js"></script><script defer src="../../../../../../static.files/main-305769736d49e732.js"></script><noscript><link rel="stylesheet" href="../../../../../../static.files/noscript-feafe1bb7466e4bd.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2138,14 +2139,14 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>CustomClass {
     <span class="doccomment">/// The resource name of the custom class.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// If this custom class is a resource, the custom_class_id is the resource id
     /// of the CustomClass. Case sensitive.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>custom_class_id: ::prost::alloc::string::String,
     <span class="doccomment">/// A collection of class items.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>items: ::prost::alloc::vec::Vec&lt;custom_class::ClassItem&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `CustomClass`.
@@ -2154,21 +2155,21 @@
     </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>ClassItem {
-        <span class="doccomment">/// The class item&#39;s value.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        <span class="doccomment">/// The class item's value.
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
     }
 }
-<span class="doccomment">/// Provides &quot;hints&quot; to the speech recognizer to favor specific words and phrases
+<span class="doccomment">/// Provides "hints" to the speech recognizer to favor specific words and phrases
 /// in the results.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>PhraseSet {
     <span class="doccomment">/// The resource name of the phrase set.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of word and phrases.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>phrases: ::prost::alloc::vec::Vec&lt;phrase_set::Phrase&gt;,
     <span class="doccomment">/// Hint Boost. Positive value will increase the probability that a specific
     /// phrase will be recognized over other similar sounding phrases. The higher
@@ -2179,12 +2180,12 @@
     /// values between 0 (exclusive) and 20. We recommend using a binary search
     /// approach to finding the optimal value for your use case as well as adding
     /// phrases both with and without boost to your requests.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>boost: f32,
 }
 <span class="doccomment">/// Nested message and enum types in `PhraseSet`.
 </span><span class="kw">pub mod </span>phrase_set {
-    <span class="doccomment">/// A phrases containing words and phrase &quot;hints&quot; so that
+    <span class="doccomment">/// A phrases containing words and phrase "hints" so that
     /// the speech recognition is more likely to recognize them. This can be used
     /// to improve the accuracy for specific words and phrases, for example, if
     /// specific commands are typically spoken by the user. This can also be used
@@ -2194,14 +2195,14 @@
     /// List items can also include pre-built or custom classes containing groups
     /// of words that represent common concepts that occur in natural language. For
     /// example, rather than providing a phrase hint for every month of the
-    /// year (e.g. &quot;i was born in january&quot;, &quot;i was born in febuary&quot;, ...), use the
+    /// year (e.g. "i was born in january", "i was born in febuary", ...), use the
     /// pre-built `$MONTH` class improves the likelihood of correctly transcribing
-    /// audio that includes months (e.g. &quot;i was born in $month&quot;).
-    /// To refer to pre-built classes, use the class&#39; symbol prepended with `$`
+    /// audio that includes months (e.g. "i was born in $month").
+    /// To refer to pre-built classes, use the class' symbol prepended with `$`
     /// e.g. `$MONTH`. To refer to custom classes that were defined inline in the
-    /// request, set the class&#39;s `custom_class_id` to a string unique to all class
-    /// resources and inline classes. Then use the class&#39; id wrapped in $`{...}`
-    /// e.g. &quot;${my-months}&quot;. To refer to custom classes resources, use the class&#39;
+    /// request, set the class's `custom_class_id` to a string unique to all class
+    /// resources and inline classes. Then use the class' id wrapped in $`{...}`
+    /// e.g. "${my-months}". To refer to custom classes resources, use the class'
     /// id wrapped in `${}` (e.g. `${my-months}`).
     ///
     /// Speech-to-Text supports three locations: `global`, `us` (US North America),
@@ -2213,7 +2214,7 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Phrase {
         <span class="doccomment">/// The phrase itself.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>value: ::prost::alloc::string::String,
         <span class="doccomment">/// Hint Boost. Overrides the boost set at the phrase set level.
         /// Positive value will increase the probability that a specific phrase will
@@ -2224,7 +2225,7 @@
         /// with values between 0 and 20. We recommend using a binary search approach
         /// to finding the optimal value for your use case as well as adding
         /// phrases both with and without boost to your requests.
-        </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>boost: f32,
     }
 }
@@ -2233,23 +2234,23 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SpeechAdaptation {
     <span class="doccomment">/// A collection of phrase sets. To specify the hints inline, leave the
-    /// phrase set&#39;s `name` blank and fill in the rest of its fields. Any
+    /// phrase set's `name` blank and fill in the rest of its fields. Any
     /// phrase set can use any custom class.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>phrase_sets: ::prost::alloc::vec::Vec&lt;PhraseSet&gt;,
     <span class="doccomment">/// A collection of phrase set resource names to use.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>phrase_set_references: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// A collection of custom classes. To specify the classes inline, leave the
-    /// class&#39; `name` blank and fill in the rest of its fields, giving it a unique
+    /// class' `name` blank and fill in the rest of its fields, giving it a unique
     /// `custom_class_id`. Refer to the inline defined class in phrase hints by its
     /// `custom_class_id`.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>custom_classes: ::prost::alloc::vec::Vec&lt;CustomClass&gt;,
     <span class="doccomment">/// Augmented Backus-Naur form (ABNF) is a standardized grammar notation
     /// comprised by a set of derivation rules.
     /// See specifications: &lt;https://www.w3.org/TR/speech-grammar&gt;
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>abnf_grammar: ::core::option::Option&lt;speech_adaptation::AbnfGrammar&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `SpeechAdaptation`.
@@ -2259,7 +2260,7 @@
     </span><span class="kw">pub struct </span>AbnfGrammar {
         <span class="doccomment">/// All declarations and rules of an ABNF grammar broken up into multiple
         /// strings that will end up concatenated.
-        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>abnf_strings: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     }
 }
@@ -2271,10 +2272,10 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TranscriptNormalization {
     <span class="doccomment">/// A list of replacement entries. We will perform replacement with one entry
-    /// at a time. For example, the second entry in [&quot;cat&quot; =&gt; &quot;dog&quot;, &quot;mountain cat&quot;
-    /// =&gt; &quot;mountain dog&quot;] will never be applied because we will always process the
+    /// at a time. For example, the second entry in ["cat" =&gt; "dog", "mountain cat"
+    /// =&gt; "mountain dog"] will never be applied because we will always process the
     /// first entry before it. At most 100 entries.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>entries: ::prost::alloc::vec::Vec&lt;transcript_normalization::Entry&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TranscriptNormalization`.
@@ -2284,13 +2285,13 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>Entry {
         <span class="doccomment">/// What to replace. Max length is 100 characters.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>search: ::prost::alloc::string::String,
         <span class="doccomment">/// What to replace with. Max length is 100 characters.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>replace: ::prost::alloc::string::String,
         <span class="doccomment">/// Whether the search is case sensitive.
-        </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+        </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
         </span><span class="kw">pub </span>case_sensitive: bool,
     }
 }
@@ -2308,17 +2309,17 @@
     /// endpoint, use the `global` location. To specify a region, use a
     /// [regional endpoint](&lt;https://cloud.google.com/speech-to-text/docs/endpoints&gt;)
     /// with matching `us` or `eu` location value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID to use for the phrase set, which will become the final
-    /// component of the phrase set&#39;s resource name.
+    /// component of the phrase set's resource name.
     ///
     /// This value should restrict to letters, numbers, and hyphens, with the first
     /// character a letter, the last a letter or a number, and be 4-63 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>phrase_set_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The phrase set to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>phrase_set: ::core::option::Option&lt;PhraseSet&gt;,
 }
 <span class="doccomment">/// Message sent by the client for the `UpdatePhraseSet` method.
@@ -2327,7 +2328,7 @@
 </span><span class="kw">pub struct </span>UpdatePhraseSetRequest {
     <span class="doccomment">/// Required. The phrase set to update.
     ///
-    /// The phrase set&#39;s `name` field is used to identify the set to be
+    /// The phrase set's `name` field is used to identify the set to be
     /// updated. Format:
     ///
     /// `projects/{project}/locations/{location}/phraseSets/{phrase_set}`
@@ -2337,10 +2338,10 @@
     /// endpoint, use the `global` location. To specify a region, use a
     /// [regional endpoint](&lt;https://cloud.google.com/speech-to-text/docs/endpoints&gt;)
     /// with matching `us` or `eu` location value.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>phrase_set: ::core::option::Option&lt;PhraseSet&gt;,
     <span class="doccomment">/// The list of fields to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Message sent by the client for the `GetPhraseSet` method.
@@ -2356,7 +2357,7 @@
     /// endpoint, use the `global` location. To specify a region, use a
     /// [regional endpoint](&lt;https://cloud.google.com/speech-to-text/docs/endpoints&gt;)
     /// with matching `us` or `eu` location value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message sent by the client for the `ListPhraseSet` method.
@@ -2372,20 +2373,20 @@
     /// endpoint, use the `global` location. To specify a region, use a
     /// [regional endpoint](&lt;https://cloud.google.com/speech-to-text/docs/endpoints&gt;)
     /// with matching `us` or `eu` location value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of phrase sets to return. The service may return
     /// fewer than this value. If unspecified, at most 50 phrase sets will be
     /// returned. The maximum value is 1000; values above 1000 will be coerced to
     /// 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListPhraseSet` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListPhraseSet` must
     /// match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message returned to the client by the `ListPhraseSet` method.
@@ -2393,11 +2394,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListPhraseSetResponse {
     <span class="doccomment">/// The phrase set.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>phrase_sets: ::prost::alloc::vec::Vec&lt;PhraseSet&gt;,
     <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message sent by the client for the `DeletePhraseSet` method.
@@ -2407,7 +2408,7 @@
     <span class="doccomment">/// Required. The name of the phrase set to delete. Format:
     ///
     /// `projects/{project}/locations/{location}/phraseSets/{phrase_set}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message sent by the client for the `CreateCustomClass` method.
@@ -2424,17 +2425,17 @@
     /// endpoint, use the `global` location. To specify a region, use a
     /// [regional endpoint](&lt;https://cloud.google.com/speech-to-text/docs/endpoints&gt;)
     /// with matching `us` or `eu` location value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The ID to use for the custom class, which will become the final
-    /// component of the custom class&#39; resource name.
+    /// component of the custom class' resource name.
     ///
     /// This value should restrict to letters, numbers, and hyphens, with the first
     /// character a letter, the last a letter or a number, and be 4-63 characters.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>custom_class_id: ::prost::alloc::string::String,
     <span class="doccomment">/// Required. The custom class to create.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>custom_class: ::core::option::Option&lt;CustomClass&gt;,
 }
 <span class="doccomment">/// Message sent by the client for the `UpdateCustomClass` method.
@@ -2443,7 +2444,7 @@
 </span><span class="kw">pub struct </span>UpdateCustomClassRequest {
     <span class="doccomment">/// Required. The custom class to update.
     ///
-    /// The custom class&#39;s `name` field is used to identify the custom class to be
+    /// The custom class's `name` field is used to identify the custom class to be
     /// updated. Format:
     ///
     /// `projects/{project}/locations/{location}/customClasses/{custom_class}`
@@ -2453,10 +2454,10 @@
     /// endpoint, use the `global` location. To specify a region, use a
     /// [regional endpoint](&lt;https://cloud.google.com/speech-to-text/docs/endpoints&gt;)
     /// with matching `us` or `eu` location value.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>custom_class: ::core::option::Option&lt;CustomClass&gt;,
     <span class="doccomment">/// The list of fields to be updated.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>update_mask: ::core::option::Option&lt;::prost_types::FieldMask&gt;,
 }
 <span class="doccomment">/// Message sent by the client for the `GetCustomClass` method.
@@ -2466,7 +2467,7 @@
     <span class="doccomment">/// Required. The name of the custom class to retrieve. Format:
     ///
     /// `projects/{project}/locations/{location}/customClasses/{custom_class}`
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message sent by the client for the `ListCustomClasses` method.
@@ -2482,20 +2483,20 @@
     /// endpoint, use the `global` location. To specify a region, use a
     /// [regional endpoint](&lt;https://cloud.google.com/speech-to-text/docs/endpoints&gt;)
     /// with matching `us` or `eu` location value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>parent: ::prost::alloc::string::String,
     <span class="doccomment">/// The maximum number of custom classes to return. The service may return
     /// fewer than this value. If unspecified, at most 50 custom classes will be
     /// returned. The maximum value is 1000; values above 1000 will be coerced to
     /// 1000.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>page_size: i32,
     <span class="doccomment">/// A page token, received from a previous `ListCustomClass` call.
     /// Provide this to retrieve the subsequent page.
     ///
     /// When paginating, all other parameters provided to `ListCustomClass` must
     /// match the call that provided the page token.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message returned to the client by the `ListCustomClasses` method.
@@ -2503,11 +2504,11 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>ListCustomClassesResponse {
     <span class="doccomment">/// The custom classes.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>custom_classes: ::prost::alloc::vec::Vec&lt;CustomClass&gt;,
     <span class="doccomment">/// A token, which can be sent as `page_token` to retrieve the next page.
     /// If this field is omitted, there are no subsequent pages.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>next_page_token: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Message sent by the client for the `DeleteCustomClass` method.
@@ -2523,7 +2524,7 @@
     /// endpoint, use the `global` location. To specify a region, use a
     /// [regional endpoint](&lt;https://cloud.google.com/speech-to-text/docs/endpoints&gt;)
     /// with matching `us` or `eu` location value.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>name: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -2540,7 +2541,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -2614,19 +2615,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Adaptation/CreatePhraseSet&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Adaptation/CreatePhraseSet"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.speech.v1.Adaptation&quot;</span>,
-                        <span class="string">&quot;CreatePhraseSet&quot;</span>,
+                        <span class="string">"google.cloud.speech.v1.Adaptation"</span>,
+                        <span class="string">"CreatePhraseSet"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2642,17 +2643,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Adaptation/GetPhraseSet&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Adaptation/GetPhraseSet"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.speech.v1.Adaptation&quot;</span>, <span class="string">&quot;GetPhraseSet&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.speech.v1.Adaptation"</span>, <span class="string">"GetPhraseSet"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2670,17 +2671,17 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Adaptation/ListPhraseSet&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Adaptation/ListPhraseSet"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
-                    GrpcMethod::new(<span class="string">&quot;google.cloud.speech.v1.Adaptation&quot;</span>, <span class="string">&quot;ListPhraseSet&quot;</span>),
+                    GrpcMethod::new(<span class="string">"google.cloud.speech.v1.Adaptation"</span>, <span class="string">"ListPhraseSet"</span>),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
@@ -2695,19 +2696,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Adaptation/UpdatePhraseSet&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Adaptation/UpdatePhraseSet"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.speech.v1.Adaptation&quot;</span>,
-                        <span class="string">&quot;UpdatePhraseSet&quot;</span>,
+                        <span class="string">"google.cloud.speech.v1.Adaptation"</span>,
+                        <span class="string">"UpdatePhraseSet"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2723,19 +2724,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Adaptation/DeletePhraseSet&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Adaptation/DeletePhraseSet"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.speech.v1.Adaptation&quot;</span>,
-                        <span class="string">&quot;DeletePhraseSet&quot;</span>,
+                        <span class="string">"google.cloud.speech.v1.Adaptation"</span>,
+                        <span class="string">"DeletePhraseSet"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2751,19 +2752,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Adaptation/CreateCustomClass&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Adaptation/CreateCustomClass"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.speech.v1.Adaptation&quot;</span>,
-                        <span class="string">&quot;CreateCustomClass&quot;</span>,
+                        <span class="string">"google.cloud.speech.v1.Adaptation"</span>,
+                        <span class="string">"CreateCustomClass"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2779,19 +2780,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Adaptation/GetCustomClass&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Adaptation/GetCustomClass"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.speech.v1.Adaptation&quot;</span>,
-                        <span class="string">&quot;GetCustomClass&quot;</span>,
+                        <span class="string">"google.cloud.speech.v1.Adaptation"</span>,
+                        <span class="string">"GetCustomClass"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2810,19 +2811,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Adaptation/ListCustomClasses&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Adaptation/ListCustomClasses"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.speech.v1.Adaptation&quot;</span>,
-                        <span class="string">&quot;ListCustomClasses&quot;</span>,
+                        <span class="string">"google.cloud.speech.v1.Adaptation"</span>,
+                        <span class="string">"ListCustomClasses"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2838,19 +2839,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Adaptation/UpdateCustomClass&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Adaptation/UpdateCustomClass"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.speech.v1.Adaptation&quot;</span>,
-                        <span class="string">&quot;UpdateCustomClass&quot;</span>,
+                        <span class="string">"google.cloud.speech.v1.Adaptation"</span>,
+                        <span class="string">"UpdateCustomClass"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2866,19 +2867,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Adaptation/DeleteCustomClass&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Adaptation/DeleteCustomClass"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.speech.v1.Adaptation&quot;</span>,
-                        <span class="string">&quot;DeleteCustomClass&quot;</span>,
+                        <span class="string">"google.cloud.speech.v1.Adaptation"</span>,
+                        <span class="string">"DeleteCustomClass"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -2891,10 +2892,10 @@
 </span><span class="kw">pub struct </span>RecognizeRequest {
     <span class="doccomment">/// Required. Provides information to the recognizer that specifies how to
     /// process the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;RecognitionConfig&gt;,
     <span class="doccomment">/// Required. The audio data to be recognized.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>audio: ::core::option::Option&lt;RecognitionAudio&gt;,
 }
 <span class="doccomment">/// The top-level message sent by the client for the `LongRunningRecognize`
@@ -2904,20 +2905,20 @@
 </span><span class="kw">pub struct </span>LongRunningRecognizeRequest {
     <span class="doccomment">/// Required. Provides information to the recognizer that specifies how to
     /// process the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;RecognitionConfig&gt;,
     <span class="doccomment">/// Required. The audio data to be recognized.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>audio: ::core::option::Option&lt;RecognitionAudio&gt;,
     <span class="doccomment">/// Optional. Specifies an optional destination for the recognition results.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>output_config: ::core::option::Option&lt;TranscriptOutputConfig&gt;,
 }
 <span class="doccomment">/// Specifies an optional destination for the recognition results.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>TranscriptOutputConfig {
-    <span class="attr">#[prost(oneof = <span class="string">&quot;transcript_output_config::OutputType&quot;</span>, tags = <span class="string">&quot;1&quot;</span>)]
+    <span class="attr">#[prost(oneof = <span class="string">"transcript_output_config::OutputType"</span>, tags = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>output_type: ::core::option::Option&lt;transcript_output_config::OutputType&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `TranscriptOutputConfig`.
@@ -2928,7 +2929,7 @@
         <span class="doccomment">/// Specifies a Cloud Storage URI for the recognition results. Must be
         /// specified in the format: `gs://bucket_name/object_name`, and the bucket
         /// must already exist.
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
         </span>GcsUri(::prost::alloc::string::String),
     }
 }
@@ -2941,7 +2942,7 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>StreamingRecognizeRequest {
     <span class="doccomment">/// The streaming request, which is either a streaming config or audio content.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;streaming_recognize_request::StreamingRequest&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"streaming_recognize_request::StreamingRequest"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>streaming_request: ::core::option::Option&lt;
         streaming_recognize_request::StreamingRequest,
     &gt;,
@@ -2955,7 +2956,7 @@
         <span class="doccomment">/// Provides information to the recognizer that specifies how to process the
         /// request. The first `StreamingRecognizeRequest` message must contain a
         /// `streaming_config`  message.
-        </span><span class="attr">#[prost(message, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, tag = <span class="string">"1"</span>)]
         </span>StreamingConfig(<span class="kw">super</span>::StreamingRecognitionConfig),
         <span class="doccomment">/// The audio data to be recognized. Sequential chunks of audio data are sent
         /// in sequential `StreamingRecognizeRequest` messages. The first
@@ -2965,7 +2966,7 @@
         /// `RecognitionConfig`. Note: as with all bytes fields, proto buffers use a
         /// pure binary representation (not base64). See
         /// [content limits](&lt;https://cloud.google.com/speech-to-text/quotas#content&gt;).
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"2"</span>)]
         </span>AudioContent(::prost::bytes::Bytes),
     }
 }
@@ -2976,7 +2977,7 @@
 </span><span class="kw">pub struct </span>StreamingRecognitionConfig {
     <span class="doccomment">/// Required. Provides information to the recognizer that specifies how to
     /// process the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>config: ::core::option::Option&lt;RecognitionConfig&gt;,
     <span class="doccomment">/// If `false` or omitted, the recognizer will perform continuous
     /// recognition (continuing to wait for and process audio even if the user
@@ -2999,22 +3000,22 @@
     /// * The `model` field is left undefined. In this case the API auto-selects
     ///    a model based on any other parameters that you set in
     ///    `RecognitionConfig`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>single_utterance: bool,
     <span class="doccomment">/// If `true`, interim results (tentative hypotheses) may be
     /// returned as they become available (these interim results are indicated with
     /// the `is_final=false` flag).
     /// If `false` or omitted, only `is_final=true` result(s) are returned.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>interim_results: bool,
     <span class="doccomment">/// If `true`, responses with voice activity speech events will be returned as
     /// they are detected.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>enable_voice_activity_events: bool,
     <span class="doccomment">/// If set, the server will automatically close the stream after the specified
     /// duration has elapsed after the last VOICE_ACTIVITY speech event has been
     /// sent. The field `voice_activity_events` must also be set to true.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>voice_activity_timeout: ::core::option::Option&lt;
         streaming_recognition_config::VoiceActivityTimeout,
     &gt;,
@@ -3026,10 +3027,10 @@
     #[derive(Clone, PartialEq, ::prost::Message)]
     </span><span class="kw">pub struct </span>VoiceActivityTimeout {
         <span class="doccomment">/// Duration to timeout the stream if no speech begins.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
         </span><span class="kw">pub </span>speech_start_timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
         <span class="doccomment">/// Duration to timeout the stream after speech ends.
-        </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
         </span><span class="kw">pub </span>speech_end_timeout: ::core::option::Option&lt;::prost_types::Duration&gt;,
     }
 }
@@ -3042,17 +3043,17 @@
     /// This field is optional for `FLAC` and `WAV` audio files and required
     /// for all other audio formats. For details, see
     /// [AudioEncoding][google.cloud.speech.v1.RecognitionConfig.AudioEncoding].
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;recognition_config::AudioEncoding&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"recognition_config::AudioEncoding"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>encoding: i32,
     <span class="doccomment">/// Sample rate in Hertz of the audio data sent in all
     /// `RecognitionAudio` messages. Valid values are: 8000-48000.
     /// 16000 is optimal. For best results, set the sampling rate of the audio
-    /// source to 16000 Hz. If that&#39;s not possible, use the native sample rate of
+    /// source to 16000 Hz. If that's not possible, use the native sample rate of
     /// the audio source (instead of re-sampling).
     /// This field is optional for FLAC and WAV audio files, but is
     /// required for all other audio formats. For details, see
     /// [AudioEncoding][google.cloud.speech.v1.RecognitionConfig.AudioEncoding].
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>sample_rate_hertz: i32,
     <span class="doccomment">/// The number of channels in the input audio data.
     /// ONLY set this for MULTI-CHANNEL recognition.
@@ -3061,8 +3062,8 @@
     /// If `0` or omitted, defaults to one channel (mono).
     /// Note: We only recognize the first channel by default.
     /// To perform independent recognition on each channel set
-    /// `enable_separate_recognition_per_channel` to &#39;true&#39;.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;7&quot;</span>)]
+    /// `enable_separate_recognition_per_channel` to 'true'.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>audio_channel_count: i32,
     <span class="doccomment">/// This needs to be set to `true` explicitly and `audio_channel_count` &gt; 1
     /// to get each channel recognized separately. The recognition result will
@@ -3070,15 +3071,15 @@
     /// to. If this is not true, we will only recognize the first channel. The
     /// request is billed cumulatively for all channels recognized:
     /// `audio_channel_count` multiplied by the length of the audio.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;12&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"12"</span>)]
     </span><span class="kw">pub </span>enable_separate_recognition_per_channel: bool,
     <span class="doccomment">/// Required. The language of the supplied audio as a
     /// [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;) language tag.
-    /// Example: &quot;en-US&quot;.
+    /// Example: "en-US".
     /// See [Language
     /// Support](&lt;https://cloud.google.com/speech-to-text/docs/languages&gt;) for a list
     /// of the currently supported language codes.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
     <span class="doccomment">/// A list of up to 3 additional
     /// [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;) language tags,
@@ -3092,7 +3093,7 @@
     /// This feature is only supported for Voice Command and Voice Search use cases
     /// and performance may vary for other use cases (e.g., phone call
     /// transcription).
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;18&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"18"</span>)]
     </span><span class="kw">pub </span>alternative_language_codes: ::prost::alloc::vec::Vec&lt;
         ::prost::alloc::string::String,
     &gt;,
@@ -3102,66 +3103,66 @@
     /// The server may return fewer than `max_alternatives`.
     /// Valid values are `0`-`30`. A value of `0` or `1` will return a maximum of
     /// one. If omitted, will return a maximum of one.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>max_alternatives: i32,
     <span class="doccomment">/// If set to `true`, the server will attempt to filter out
     /// profanities, replacing all but the initial character in each filtered word
-    /// with asterisks, e.g. &quot;f***&quot;. If set to `false` or omitted, profanities
-    /// won&#39;t be filtered out.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;5&quot;</span>)]
+    /// with asterisks, e.g. "f***". If set to `false` or omitted, profanities
+    /// won't be filtered out.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>profanity_filter: bool,
     <span class="doccomment">/// Speech adaptation configuration improves the accuracy of speech
     /// recognition. For more information, see the [speech
     /// adaptation](&lt;https://cloud.google.com/speech-to-text/docs/adaptation&gt;)
     /// documentation.
     /// When speech adaptation is set it supersedes the `speech_contexts` field.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;20&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"20"</span>)]
     </span><span class="kw">pub </span>adaptation: ::core::option::Option&lt;SpeechAdaptation&gt;,
     <span class="doccomment">/// Optional. Use transcription normalization to automatically replace parts of
     /// the transcript with phrases of your choosing. For StreamingRecognize, this
     /// normalization only applies to stable partial transcripts (stability &gt; 0.8)
     /// and final transcripts.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;24&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"24"</span>)]
     </span><span class="kw">pub </span>transcript_normalization: ::core::option::Option&lt;TranscriptNormalization&gt;,
     <span class="doccomment">/// Array of [SpeechContext][google.cloud.speech.v1.SpeechContext].
     /// A means to provide context to assist the speech recognition. For more
     /// information, see
     /// [speech
     /// adaptation](&lt;https://cloud.google.com/speech-to-text/docs/adaptation&gt;).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>speech_contexts: ::prost::alloc::vec::Vec&lt;SpeechContext&gt;,
     <span class="doccomment">/// If `true`, the top result includes a list of words and
     /// the start and end time offsets (timestamps) for those words. If
     /// `false`, no word-level time offset information is returned. The default is
     /// `false`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>enable_word_time_offsets: bool,
     <span class="doccomment">/// If `true`, the top result includes a list of words and the
     /// confidence for those words. If `false`, no word-level confidence
     /// information is returned. The default is `false`.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;15&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"15"</span>)]
     </span><span class="kw">pub </span>enable_word_confidence: bool,
-    <span class="doccomment">/// If &#39;true&#39;, adds punctuation to recognition result hypotheses.
+    <span class="doccomment">/// If 'true', adds punctuation to recognition result hypotheses.
     /// This feature is only available in select languages. Setting this for
     /// requests in other languages has no effect at all.
-    /// The default &#39;false&#39; value does not add punctuation to result hypotheses.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;11&quot;</span>)]
+    /// The default 'false' value does not add punctuation to result hypotheses.
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"11"</span>)]
     </span><span class="kw">pub </span>enable_automatic_punctuation: bool,
     <span class="doccomment">/// The spoken punctuation behavior for the call
     /// If not set, uses default behavior based on model of choice
     /// e.g. command_and_search will enable spoken punctuation by default
-    /// If &#39;true&#39;, replaces spoken punctuation with the corresponding symbols in
-    /// the request. For example, &quot;how are you question mark&quot; becomes &quot;how are
-    /// you?&quot;. See &lt;https://cloud.google.com/speech-to-text/docs/spoken-punctuation&gt;
-    /// for support. If &#39;false&#39;, spoken punctuation is not replaced.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;22&quot;</span>)]
+    /// If 'true', replaces spoken punctuation with the corresponding symbols in
+    /// the request. For example, "how are you question mark" becomes "how are
+    /// you?". See &lt;https://cloud.google.com/speech-to-text/docs/spoken-punctuation&gt;
+    /// for support. If 'false', spoken punctuation is not replaced.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"22"</span>)]
     </span><span class="kw">pub </span>enable_spoken_punctuation: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// The spoken emoji behavior for the call
     /// If not set, uses default behavior based on model of choice
-    /// If &#39;true&#39;, adds spoken emoji formatting for the request. This will replace
+    /// If 'true', adds spoken emoji formatting for the request. This will replace
     /// spoken emojis with the corresponding Unicode symbols in the final
-    /// transcript. If &#39;false&#39;, spoken emojis are not replaced.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;23&quot;</span>)]
+    /// transcript. If 'false', spoken emojis are not replaced.
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"23"</span>)]
     </span><span class="kw">pub </span>enable_spoken_emojis: ::core::option::Option&lt;bool&gt;,
     <span class="doccomment">/// Config to enable speaker diarization and set additional
     /// parameters to make diarization better suited for your application.
@@ -3171,10 +3172,10 @@
     /// identify the speakers in the conversation over time.
     /// For non-streaming requests, the diarization results will be provided only
     /// in the top alternative of the FINAL SpeechRecognitionResult.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;19&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"19"</span>)]
     </span><span class="kw">pub </span>diarization_config: ::core::option::Option&lt;SpeakerDiarizationConfig&gt;,
     <span class="doccomment">/// Metadata regarding this request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>metadata: ::core::option::Option&lt;RecognitionMetadata&gt;,
     <span class="doccomment">/// Which model to select for the given request. Select the model
     /// best suited to your domain to get best results. If a model is not
@@ -3227,7 +3228,7 @@
     ///          provider.&lt;/td&gt;
     ///    &lt;/tr&gt;
     /// &lt;/table&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;13&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"13"</span>)]
     </span><span class="kw">pub </span>model: ::prost::alloc::string::String,
     <span class="doccomment">/// Set to true to use an enhanced model for speech recognition.
     /// If `use_enhanced` is set to true and the `model` field is not set, then
@@ -3237,7 +3238,7 @@
     /// If `use_enhanced` is true and an enhanced version of the specified model
     /// does not exist, then the speech is recognized using the standard version
     /// of the specified model.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;14&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"14"</span>)]
     </span><span class="kw">pub </span>use_enhanced: bool,
 }
 <span class="doccomment">/// Nested message and enum types in `RecognitionConfig`.
@@ -3329,33 +3330,33 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                AudioEncoding::EncodingUnspecified =&gt; <span class="string">&quot;ENCODING_UNSPECIFIED&quot;</span>,
-                AudioEncoding::Linear16 =&gt; <span class="string">&quot;LINEAR16&quot;</span>,
-                AudioEncoding::Flac =&gt; <span class="string">&quot;FLAC&quot;</span>,
-                AudioEncoding::Mulaw =&gt; <span class="string">&quot;MULAW&quot;</span>,
-                AudioEncoding::Amr =&gt; <span class="string">&quot;AMR&quot;</span>,
-                AudioEncoding::AmrWb =&gt; <span class="string">&quot;AMR_WB&quot;</span>,
-                AudioEncoding::OggOpus =&gt; <span class="string">&quot;OGG_OPUS&quot;</span>,
-                AudioEncoding::SpeexWithHeaderByte =&gt; <span class="string">&quot;SPEEX_WITH_HEADER_BYTE&quot;</span>,
-                AudioEncoding::Mp3 =&gt; <span class="string">&quot;MP3&quot;</span>,
-                AudioEncoding::WebmOpus =&gt; <span class="string">&quot;WEBM_OPUS&quot;</span>,
+                AudioEncoding::EncodingUnspecified =&gt; <span class="string">"ENCODING_UNSPECIFIED"</span>,
+                AudioEncoding::Linear16 =&gt; <span class="string">"LINEAR16"</span>,
+                AudioEncoding::Flac =&gt; <span class="string">"FLAC"</span>,
+                AudioEncoding::Mulaw =&gt; <span class="string">"MULAW"</span>,
+                AudioEncoding::Amr =&gt; <span class="string">"AMR"</span>,
+                AudioEncoding::AmrWb =&gt; <span class="string">"AMR_WB"</span>,
+                AudioEncoding::OggOpus =&gt; <span class="string">"OGG_OPUS"</span>,
+                AudioEncoding::SpeexWithHeaderByte =&gt; <span class="string">"SPEEX_WITH_HEADER_BYTE"</span>,
+                AudioEncoding::Mp3 =&gt; <span class="string">"MP3"</span>,
+                AudioEncoding::WebmOpus =&gt; <span class="string">"WEBM_OPUS"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ENCODING_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EncodingUnspecified),
-                <span class="string">&quot;LINEAR16&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linear16),
-                <span class="string">&quot;FLAC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Flac),
-                <span class="string">&quot;MULAW&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mulaw),
-                <span class="string">&quot;AMR&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Amr),
-                <span class="string">&quot;AMR_WB&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AmrWb),
-                <span class="string">&quot;OGG_OPUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OggOpus),
-                <span class="string">&quot;SPEEX_WITH_HEADER_BYTE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpeexWithHeaderByte),
-                <span class="string">&quot;MP3&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mp3),
-                <span class="string">&quot;WEBM_OPUS&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WebmOpus),
+                <span class="string">"ENCODING_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EncodingUnspecified),
+                <span class="string">"LINEAR16" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Linear16),
+                <span class="string">"FLAC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Flac),
+                <span class="string">"MULAW" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mulaw),
+                <span class="string">"AMR" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Amr),
+                <span class="string">"AMR_WB" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::AmrWb),
+                <span class="string">"OGG_OPUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OggOpus),
+                <span class="string">"SPEEX_WITH_HEADER_BYTE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpeexWithHeaderByte),
+                <span class="string">"MP3" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Mp3),
+                <span class="string">"WEBM_OPUS" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::WebmOpus),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3365,24 +3366,24 @@
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SpeakerDiarizationConfig {
-    <span class="doccomment">/// If &#39;true&#39;, enables speaker detection for each recognized word in
+    <span class="doccomment">/// If 'true', enables speaker detection for each recognized word in
     /// the top alternative of the recognition result using a speaker_label
     /// provided in the WordInfo.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>enable_speaker_diarization: bool,
     <span class="doccomment">/// Minimum number of speakers in the conversation. This range gives you more
     /// flexibility by allowing the system to automatically determine the correct
     /// number of speakers. If not set, the default value is 2.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>min_speaker_count: i32,
     <span class="doccomment">/// Maximum number of speakers in the conversation. This range gives you more
     /// flexibility by allowing the system to automatically determine the correct
     /// number of speakers. If not set, the default value is 6.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>max_speaker_count: i32,
     <span class="doccomment">/// Output only. Unused.
     </span><span class="attr">#[deprecated]
-    #[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    #[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>speaker_tag: i32,
 }
 <span class="doccomment">/// Description of audio data to be recognized.
@@ -3390,37 +3391,37 @@
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>RecognitionMetadata {
     <span class="doccomment">/// The use case most closely describing the audio content to be recognized.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;recognition_metadata::InteractionType&quot;</span>, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"recognition_metadata::InteractionType"</span>, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>interaction_type: i32,
     <span class="doccomment">/// The industry vertical to which this speech recognition request most
     /// closely applies. This is most indicative of the topics contained
     /// in the audio.  Use the 6-digit NAICS code to identify the industry
     /// vertical - see &lt;https://www.naics.com/search/.&gt;
-    </span><span class="attr">#[prost(uint32, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(uint32, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>industry_naics_code_of_audio: u32,
     <span class="doccomment">/// The audio type that most closely describes the audio being recognized.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;recognition_metadata::MicrophoneDistance&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"recognition_metadata::MicrophoneDistance"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>microphone_distance: i32,
     <span class="doccomment">/// The original media the speech was recorded on.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;recognition_metadata::OriginalMediaType&quot;</span>, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"recognition_metadata::OriginalMediaType"</span>, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>original_media_type: i32,
     <span class="doccomment">/// The type of device the speech was recorded with.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;recognition_metadata::RecordingDeviceType&quot;</span>, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"recognition_metadata::RecordingDeviceType"</span>, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>recording_device_type: i32,
-    <span class="doccomment">/// The device used to make the recording.  Examples &#39;Nexus 5X&#39; or
-    /// &#39;Polycom SoundStation IP 6000&#39; or &#39;POTS&#39; or &#39;VoIP&#39; or
-    /// &#39;Cardioid Microphone&#39;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;7&quot;</span>)]
+    <span class="doccomment">/// The device used to make the recording.  Examples 'Nexus 5X' or
+    /// 'Polycom SoundStation IP 6000' or 'POTS' or 'VoIP' or
+    /// 'Cardioid Microphone'.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>recording_device_name: ::prost::alloc::string::String,
     <span class="doccomment">/// Mime type of the original audio file.  For example `audio/m4a`,
     /// `audio/x-alaw-basic`, `audio/mp3`, `audio/3gpp`.
     /// A list of possible audio mime types is maintained at
     /// &lt;http://www.iana.org/assignments/media-types/media-types.xhtml#audio&gt;
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>original_mime_type: ::prost::alloc::string::String,
-    <span class="doccomment">/// Description of the content. Eg. &quot;Recordings of federal supreme court
-    /// hearings from 2012&quot;.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;10&quot;</span>)]
+    <span class="doccomment">/// Description of the content. Eg. "Recordings of federal supreme court
+    /// hearings from 2012".
+    </span><span class="attr">#[prost(string, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>audio_topic: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Nested message and enum types in `RecognitionMetadata`.
@@ -3471,31 +3472,31 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                InteractionType::Unspecified =&gt; <span class="string">&quot;INTERACTION_TYPE_UNSPECIFIED&quot;</span>,
-                InteractionType::Discussion =&gt; <span class="string">&quot;DISCUSSION&quot;</span>,
-                InteractionType::Presentation =&gt; <span class="string">&quot;PRESENTATION&quot;</span>,
-                InteractionType::PhoneCall =&gt; <span class="string">&quot;PHONE_CALL&quot;</span>,
-                InteractionType::Voicemail =&gt; <span class="string">&quot;VOICEMAIL&quot;</span>,
-                InteractionType::ProfessionallyProduced =&gt; <span class="string">&quot;PROFESSIONALLY_PRODUCED&quot;</span>,
-                InteractionType::VoiceSearch =&gt; <span class="string">&quot;VOICE_SEARCH&quot;</span>,
-                InteractionType::VoiceCommand =&gt; <span class="string">&quot;VOICE_COMMAND&quot;</span>,
-                InteractionType::Dictation =&gt; <span class="string">&quot;DICTATION&quot;</span>,
+                InteractionType::Unspecified =&gt; <span class="string">"INTERACTION_TYPE_UNSPECIFIED"</span>,
+                InteractionType::Discussion =&gt; <span class="string">"DISCUSSION"</span>,
+                InteractionType::Presentation =&gt; <span class="string">"PRESENTATION"</span>,
+                InteractionType::PhoneCall =&gt; <span class="string">"PHONE_CALL"</span>,
+                InteractionType::Voicemail =&gt; <span class="string">"VOICEMAIL"</span>,
+                InteractionType::ProfessionallyProduced =&gt; <span class="string">"PROFESSIONALLY_PRODUCED"</span>,
+                InteractionType::VoiceSearch =&gt; <span class="string">"VOICE_SEARCH"</span>,
+                InteractionType::VoiceCommand =&gt; <span class="string">"VOICE_COMMAND"</span>,
+                InteractionType::Dictation =&gt; <span class="string">"DICTATION"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;INTERACTION_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;DISCUSSION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Discussion),
-                <span class="string">&quot;PRESENTATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Presentation),
-                <span class="string">&quot;PHONE_CALL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PhoneCall),
-                <span class="string">&quot;VOICEMAIL&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Voicemail),
-                <span class="string">&quot;PROFESSIONALLY_PRODUCED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProfessionallyProduced),
-                <span class="string">&quot;VOICE_SEARCH&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VoiceSearch),
-                <span class="string">&quot;VOICE_COMMAND&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VoiceCommand),
-                <span class="string">&quot;DICTATION&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dictation),
+                <span class="string">"INTERACTION_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"DISCUSSION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Discussion),
+                <span class="string">"PRESENTATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Presentation),
+                <span class="string">"PHONE_CALL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PhoneCall),
+                <span class="string">"VOICEMAIL" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Voicemail),
+                <span class="string">"PROFESSIONALLY_PRODUCED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::ProfessionallyProduced),
+                <span class="string">"VOICE_SEARCH" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VoiceSearch),
+                <span class="string">"VOICE_COMMAND" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::VoiceCommand),
+                <span class="string">"DICTATION" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Dictation),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3530,21 +3531,21 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                MicrophoneDistance::Unspecified =&gt; <span class="string">&quot;MICROPHONE_DISTANCE_UNSPECIFIED&quot;</span>,
-                MicrophoneDistance::Nearfield =&gt; <span class="string">&quot;NEARFIELD&quot;</span>,
-                MicrophoneDistance::Midfield =&gt; <span class="string">&quot;MIDFIELD&quot;</span>,
-                MicrophoneDistance::Farfield =&gt; <span class="string">&quot;FARFIELD&quot;</span>,
+                MicrophoneDistance::Unspecified =&gt; <span class="string">"MICROPHONE_DISTANCE_UNSPECIFIED"</span>,
+                MicrophoneDistance::Nearfield =&gt; <span class="string">"NEARFIELD"</span>,
+                MicrophoneDistance::Midfield =&gt; <span class="string">"MIDFIELD"</span>,
+                MicrophoneDistance::Farfield =&gt; <span class="string">"FARFIELD"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;MICROPHONE_DISTANCE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;NEARFIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nearfield),
-                <span class="string">&quot;MIDFIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Midfield),
-                <span class="string">&quot;FARFIELD&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Farfield),
+                <span class="string">"MICROPHONE_DISTANCE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"NEARFIELD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Nearfield),
+                <span class="string">"MIDFIELD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Midfield),
+                <span class="string">"FARFIELD" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Farfield),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3575,19 +3576,19 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                OriginalMediaType::Unspecified =&gt; <span class="string">&quot;ORIGINAL_MEDIA_TYPE_UNSPECIFIED&quot;</span>,
-                OriginalMediaType::Audio =&gt; <span class="string">&quot;AUDIO&quot;</span>,
-                OriginalMediaType::Video =&gt; <span class="string">&quot;VIDEO&quot;</span>,
+                OriginalMediaType::Unspecified =&gt; <span class="string">"ORIGINAL_MEDIA_TYPE_UNSPECIFIED"</span>,
+                OriginalMediaType::Audio =&gt; <span class="string">"AUDIO"</span>,
+                OriginalMediaType::Video =&gt; <span class="string">"VIDEO"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;ORIGINAL_MEDIA_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;AUDIO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Audio),
-                <span class="string">&quot;VIDEO&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Video),
+                <span class="string">"ORIGINAL_MEDIA_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"AUDIO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Audio),
+                <span class="string">"VIDEO" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Video),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3626,38 +3627,38 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                RecordingDeviceType::Unspecified =&gt; <span class="string">&quot;RECORDING_DEVICE_TYPE_UNSPECIFIED&quot;</span>,
-                RecordingDeviceType::Smartphone =&gt; <span class="string">&quot;SMARTPHONE&quot;</span>,
-                RecordingDeviceType::Pc =&gt; <span class="string">&quot;PC&quot;</span>,
-                RecordingDeviceType::PhoneLine =&gt; <span class="string">&quot;PHONE_LINE&quot;</span>,
-                RecordingDeviceType::Vehicle =&gt; <span class="string">&quot;VEHICLE&quot;</span>,
-                RecordingDeviceType::OtherOutdoorDevice =&gt; <span class="string">&quot;OTHER_OUTDOOR_DEVICE&quot;</span>,
-                RecordingDeviceType::OtherIndoorDevice =&gt; <span class="string">&quot;OTHER_INDOOR_DEVICE&quot;</span>,
+                RecordingDeviceType::Unspecified =&gt; <span class="string">"RECORDING_DEVICE_TYPE_UNSPECIFIED"</span>,
+                RecordingDeviceType::Smartphone =&gt; <span class="string">"SMARTPHONE"</span>,
+                RecordingDeviceType::Pc =&gt; <span class="string">"PC"</span>,
+                RecordingDeviceType::PhoneLine =&gt; <span class="string">"PHONE_LINE"</span>,
+                RecordingDeviceType::Vehicle =&gt; <span class="string">"VEHICLE"</span>,
+                RecordingDeviceType::OtherOutdoorDevice =&gt; <span class="string">"OTHER_OUTDOOR_DEVICE"</span>,
+                RecordingDeviceType::OtherIndoorDevice =&gt; <span class="string">"OTHER_INDOOR_DEVICE"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;RECORDING_DEVICE_TYPE_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
-                <span class="string">&quot;SMARTPHONE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Smartphone),
-                <span class="string">&quot;PC&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pc),
-                <span class="string">&quot;PHONE_LINE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PhoneLine),
-                <span class="string">&quot;VEHICLE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Vehicle),
-                <span class="string">&quot;OTHER_OUTDOOR_DEVICE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OtherOutdoorDevice),
-                <span class="string">&quot;OTHER_INDOOR_DEVICE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OtherIndoorDevice),
+                <span class="string">"RECORDING_DEVICE_TYPE_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Unspecified),
+                <span class="string">"SMARTPHONE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Smartphone),
+                <span class="string">"PC" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Pc),
+                <span class="string">"PHONE_LINE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::PhoneLine),
+                <span class="string">"VEHICLE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::Vehicle),
+                <span class="string">"OTHER_OUTDOOR_DEVICE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OtherOutdoorDevice),
+                <span class="string">"OTHER_INDOOR_DEVICE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::OtherIndoorDevice),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
     }
 }
-<span class="doccomment">/// Provides &quot;hints&quot; to the speech recognizer to favor specific words and phrases
+<span class="doccomment">/// Provides "hints" to the speech recognizer to favor specific words and phrases
 /// in the results.
 </span><span class="attr">#[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(Clone, PartialEq, ::prost::Message)]
 </span><span class="kw">pub struct </span>SpeechContext {
-    <span class="doccomment">/// A list of strings containing words and phrases &quot;hints&quot; so that
+    <span class="doccomment">/// A list of strings containing words and phrases "hints" so that
     /// the speech recognition is more likely to recognize them. This can be used
     /// to improve the accuracy for specific words and phrases, for example, if
     /// specific commands are typically spoken by the user. This can also be used
@@ -3669,7 +3670,7 @@
     /// providing phrase hints for every month of the year, using the $MONTH class
     /// improves the likelihood of correctly transcribing audio that includes
     /// months.
-    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>phrases: ::prost::alloc::vec::Vec&lt;::prost::alloc::string::String&gt;,
     <span class="doccomment">/// Hint Boost. Positive value will increase the probability that a specific
     /// phrase will be recognized over other similar sounding phrases. The higher
@@ -3679,7 +3680,7 @@
     /// accept a wide range of positive values, most use cases are best served with
     /// values between 0 and 20. We recommend using a binary search approach to
     /// finding the optimal value for your use case.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>boost: f32,
 }
 <span class="doccomment">/// Contains audio data in the encoding specified in the `RecognitionConfig`.
@@ -3691,7 +3692,7 @@
 </span><span class="kw">pub struct </span>RecognitionAudio {
     <span class="doccomment">/// The audio source, which is either inline content or a Google Cloud
     /// Storage uri.
-    </span><span class="attr">#[prost(oneof = <span class="string">&quot;recognition_audio::AudioSource&quot;</span>, tags = <span class="string">&quot;1, 2&quot;</span>)]
+    </span><span class="attr">#[prost(oneof = <span class="string">"recognition_audio::AudioSource"</span>, tags = <span class="string">"1, 2"</span>)]
     </span><span class="kw">pub </span>audio_source: ::core::option::Option&lt;recognition_audio::AudioSource&gt;,
 }
 <span class="doccomment">/// Nested message and enum types in `RecognitionAudio`.
@@ -3704,7 +3705,7 @@
         <span class="doccomment">/// The audio data bytes encoded as specified in
         /// `RecognitionConfig`. Note: as with all bytes fields, proto buffers use a
         /// pure binary representation, whereas JSON representations use base64.
-        </span><span class="attr">#[prost(bytes, tag = <span class="string">&quot;1&quot;</span>)]
+        </span><span class="attr">#[prost(bytes, tag = <span class="string">"1"</span>)]
         </span>Content(::prost::bytes::Bytes),
         <span class="doccomment">/// URI that points to a file that contains audio data bytes as specified in
         /// `RecognitionConfig`. The file must not be compressed (for example, gzip).
@@ -3714,7 +3715,7 @@
         /// [google.rpc.Code.INVALID_ARGUMENT][google.rpc.Code.INVALID_ARGUMENT]).
         /// For more information, see [Request
         /// URIs](&lt;https://cloud.google.com/storage/docs/reference-uris&gt;).
-        </span><span class="attr">#[prost(string, tag = <span class="string">&quot;2&quot;</span>)]
+        </span><span class="attr">#[prost(string, tag = <span class="string">"2"</span>)]
         </span>Uri(::prost::alloc::string::String),
     }
 }
@@ -3726,17 +3727,17 @@
 </span><span class="kw">pub struct </span>RecognizeResponse {
     <span class="doccomment">/// Sequential list of transcription results corresponding to
     /// sequential portions of audio.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>results: ::prost::alloc::vec::Vec&lt;SpeechRecognitionResult&gt;,
     <span class="doccomment">/// When available, billed audio seconds for the corresponding request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>total_billed_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Provides information on adaptation behavior in response
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>speech_adaptation_info: ::core::option::Option&lt;SpeechAdaptationInfo&gt;,
     <span class="doccomment">/// The ID associated with the request. This is a unique ID specific only to
     /// the given request.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>request_id: i64,
 }
 <span class="doccomment">/// The only message returned to the client by the `LongRunningRecognize` method.
@@ -3749,23 +3750,23 @@
 </span><span class="kw">pub struct </span>LongRunningRecognizeResponse {
     <span class="doccomment">/// Sequential list of transcription results corresponding to
     /// sequential portions of audio.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>results: ::prost::alloc::vec::Vec&lt;SpeechRecognitionResult&gt;,
     <span class="doccomment">/// When available, billed audio seconds for the corresponding request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>total_billed_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Original output config if present in the request.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>output_config: ::core::option::Option&lt;TranscriptOutputConfig&gt;,
     <span class="doccomment">/// If the transcript output fails this field contains the relevant error.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;7&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"7"</span>)]
     </span><span class="kw">pub </span>output_error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// Provides information on speech adaptation behavior in response
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>speech_adaptation_info: ::core::option::Option&lt;SpeechAdaptationInfo&gt;,
     <span class="doccomment">/// The ID associated with the request. This is a unique ID specific only to
     /// the given request.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>request_id: i64,
 }
 <span class="doccomment">/// Describes the progress of a long-running `LongRunningRecognize` call. It is
@@ -3776,17 +3777,17 @@
 </span><span class="kw">pub struct </span>LongRunningRecognizeMetadata {
     <span class="doccomment">/// Approximate percentage of audio processed thus far. Guaranteed to be 100
     /// when the audio is fully processed and the results are available.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>progress_percent: i32,
     <span class="doccomment">/// Time when the request was received.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Time of the most recent processing update.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>last_update_time: ::core::option::Option&lt;::prost_types::Timestamp&gt;,
     <span class="doccomment">/// Output only. The URI of the audio file being transcribed. Empty if the
     /// audio was sent as byte content.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>uri: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// `StreamingRecognizeResponse` is the only message returned to the client by
@@ -3795,36 +3796,36 @@
 /// audio, and `single_utterance` is set to false, then no messages are streamed
 /// back to the client.
 ///
-/// Here&#39;s an example of a series of `StreamingRecognizeResponse`s that might be
+/// Here's an example of a series of `StreamingRecognizeResponse`s that might be
 /// returned while processing audio:
 ///
-/// 1. results { alternatives { transcript: &quot;tube&quot; } stability: 0.01 }
+/// 1. results { alternatives { transcript: "tube" } stability: 0.01 }
 ///
-/// 2. results { alternatives { transcript: &quot;to be a&quot; } stability: 0.01 }
+/// 2. results { alternatives { transcript: "to be a" } stability: 0.01 }
 ///
-/// 3. results { alternatives { transcript: &quot;to be&quot; } stability: 0.9 }
-///     results { alternatives { transcript: &quot; or not to be&quot; } stability: 0.01 }
+/// 3. results { alternatives { transcript: "to be" } stability: 0.9 }
+///     results { alternatives { transcript: " or not to be" } stability: 0.01 }
 ///
-/// 4. results { alternatives { transcript: &quot;to be or not to be&quot;
+/// 4. results { alternatives { transcript: "to be or not to be"
 ///                              confidence: 0.92 }
-///               alternatives { transcript: &quot;to bee or not to bee&quot; }
+///               alternatives { transcript: "to bee or not to bee" }
 ///               is_final: true }
 ///
-/// 5. results { alternatives { transcript: &quot; that&#39;s&quot; } stability: 0.01 }
+/// 5. results { alternatives { transcript: " that's" } stability: 0.01 }
 ///
-/// 6. results { alternatives { transcript: &quot; that is&quot; } stability: 0.9 }
-///     results { alternatives { transcript: &quot; the question&quot; } stability: 0.01 }
+/// 6. results { alternatives { transcript: " that is" } stability: 0.9 }
+///     results { alternatives { transcript: " the question" } stability: 0.01 }
 ///
-/// 7. results { alternatives { transcript: &quot; that is the question&quot;
+/// 7. results { alternatives { transcript: " that is the question"
 ///                              confidence: 0.98 }
-///               alternatives { transcript: &quot; that was the question&quot; }
+///               alternatives { transcript: " that was the question" }
 ///               is_final: true }
 ///
 /// Notes:
 ///
 /// - Only two of the above responses #4 and #7 contain final results; they are
 ///    indicated by `is_final: true`. Concatenating these together generates the
-///    full transcript: &quot;to be or not to be that is the question&quot;.
+///    full transcript: "to be or not to be that is the question".
 ///
 /// - The others contain interim `results`. #3 and #6 contain two interim
 ///    `results`: the first portion has a high stability and is less likely to
@@ -3843,30 +3844,30 @@
 </span><span class="kw">pub struct </span>StreamingRecognizeResponse {
     <span class="doccomment">/// If set, returns a [google.rpc.Status][google.rpc.Status] message that
     /// specifies the error for the operation.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>error: ::core::option::Option&lt;<span class="kw">super</span>::<span class="kw">super</span>::<span class="kw">super</span>::rpc::Status&gt;,
     <span class="doccomment">/// This repeated list contains zero or more results that
     /// correspond to consecutive portions of the audio currently being processed.
     /// It contains zero or one `is_final=true` result (the newly settled portion),
     /// followed by zero or more `is_final=false` results (the interim results).
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>results: ::prost::alloc::vec::Vec&lt;StreamingRecognitionResult&gt;,
     <span class="doccomment">/// Indicates the type of speech event.
-    </span><span class="attr">#[prost(enumeration = <span class="string">&quot;streaming_recognize_response::SpeechEventType&quot;</span>, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(enumeration = <span class="string">"streaming_recognize_response::SpeechEventType"</span>, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>speech_event_type: i32,
     <span class="doccomment">/// Time offset between the beginning of the audio and event emission.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;8&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"8"</span>)]
     </span><span class="kw">pub </span>speech_event_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// When available, billed audio seconds for the stream.
     /// Set only if this is the last response in the stream.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>total_billed_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Provides information on adaptation behavior in response
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;9&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"9"</span>)]
     </span><span class="kw">pub </span>speech_adaptation_info: ::core::option::Option&lt;SpeechAdaptationInfo&gt;,
     <span class="doccomment">/// The ID associated with the request. This is a unique ID specific only to
     /// the given request.
-    </span><span class="attr">#[prost(int64, tag = <span class="string">&quot;10&quot;</span>)]
+    </span><span class="attr">#[prost(int64, tag = <span class="string">"10"</span>)]
     </span><span class="kw">pub </span>request_id: i64,
 }
 <span class="doccomment">/// Nested message and enum types in `StreamingRecognizeResponse`.
@@ -3887,7 +3888,7 @@
     </span><span class="kw">pub enum </span>SpeechEventType {
         <span class="doccomment">/// No speech event specified.
         </span>SpeechEventUnspecified = <span class="number">0</span>,
-        <span class="doccomment">/// This event indicates that the server has detected the end of the user&#39;s
+        <span class="doccomment">/// This event indicates that the server has detected the end of the user's
         /// speech utterance and expects no additional speech. Therefore, the server
         /// will not process additional audio (although it may subsequently return
         /// additional results). The client should stop sending additional audio
@@ -3915,23 +3916,23 @@
         ///
         /// The values are not transformed in any way and thus are considered stable
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
-        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+        </span><span class="kw">pub fn </span>as_str_name(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
             <span class="kw">match </span><span class="self">self </span>{
-                SpeechEventType::SpeechEventUnspecified =&gt; <span class="string">&quot;SPEECH_EVENT_UNSPECIFIED&quot;</span>,
-                SpeechEventType::EndOfSingleUtterance =&gt; <span class="string">&quot;END_OF_SINGLE_UTTERANCE&quot;</span>,
-                SpeechEventType::SpeechActivityBegin =&gt; <span class="string">&quot;SPEECH_ACTIVITY_BEGIN&quot;</span>,
-                SpeechEventType::SpeechActivityEnd =&gt; <span class="string">&quot;SPEECH_ACTIVITY_END&quot;</span>,
-                SpeechEventType::SpeechActivityTimeout =&gt; <span class="string">&quot;SPEECH_ACTIVITY_TIMEOUT&quot;</span>,
+                SpeechEventType::SpeechEventUnspecified =&gt; <span class="string">"SPEECH_EVENT_UNSPECIFIED"</span>,
+                SpeechEventType::EndOfSingleUtterance =&gt; <span class="string">"END_OF_SINGLE_UTTERANCE"</span>,
+                SpeechEventType::SpeechActivityBegin =&gt; <span class="string">"SPEECH_ACTIVITY_BEGIN"</span>,
+                SpeechEventType::SpeechActivityEnd =&gt; <span class="string">"SPEECH_ACTIVITY_END"</span>,
+                SpeechEventType::SpeechActivityTimeout =&gt; <span class="string">"SPEECH_ACTIVITY_TIMEOUT"</span>,
             }
         }
         <span class="doccomment">/// Creates an enum from field names used in the ProtoBuf definition.
         </span><span class="kw">pub fn </span>from_str_name(value: <span class="kw-2">&amp;</span>str) -&gt; ::core::option::Option&lt;<span class="self">Self</span>&gt; {
             <span class="kw">match </span>value {
-                <span class="string">&quot;SPEECH_EVENT_UNSPECIFIED&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpeechEventUnspecified),
-                <span class="string">&quot;END_OF_SINGLE_UTTERANCE&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EndOfSingleUtterance),
-                <span class="string">&quot;SPEECH_ACTIVITY_BEGIN&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpeechActivityBegin),
-                <span class="string">&quot;SPEECH_ACTIVITY_END&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpeechActivityEnd),
-                <span class="string">&quot;SPEECH_ACTIVITY_TIMEOUT&quot; </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpeechActivityTimeout),
+                <span class="string">"SPEECH_EVENT_UNSPECIFIED" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpeechEventUnspecified),
+                <span class="string">"END_OF_SINGLE_UTTERANCE" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::EndOfSingleUtterance),
+                <span class="string">"SPEECH_ACTIVITY_BEGIN" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpeechActivityBegin),
+                <span class="string">"SPEECH_ACTIVITY_END" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpeechActivityEnd),
+                <span class="string">"SPEECH_ACTIVITY_TIMEOUT" </span>=&gt; <span class="prelude-val">Some</span>(<span class="self">Self</span>::SpeechActivityTimeout),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
             }
         }
@@ -3946,35 +3947,35 @@
     /// maximum specified in `max_alternatives`).
     /// These alternatives are ordered in terms of accuracy, with the top (first)
     /// alternative being the most probable, as ranked by the recognizer.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>alternatives: ::prost::alloc::vec::Vec&lt;SpeechRecognitionAlternative&gt;,
     <span class="doccomment">/// If `false`, this `StreamingRecognitionResult` represents an
     /// interim result that may change. If `true`, this is the final time the
     /// speech service will return this particular `StreamingRecognitionResult`,
     /// the recognizer will not return any further hypotheses for this portion of
     /// the transcript and corresponding audio.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>is_final: bool,
     <span class="doccomment">/// An estimate of the likelihood that the recognizer will not
     /// change its guess about this interim result. Values range from 0.0
     /// (completely unstable) to 1.0 (completely stable).
     /// This field is only provided for interim results (`is_final=false`).
     /// The default of 0.0 is a sentinel value indicating `stability` was not set.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>stability: f32,
     <span class="doccomment">/// Time offset of the end of this result relative to the
     /// beginning of the audio.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>result_end_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// For multi-channel audio, this is the channel number corresponding to the
     /// recognized result for the audio from that channel.
-    /// For audio_channel_count = N, its output values can range from &#39;1&#39; to &#39;N&#39;.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    /// For audio_channel_count = N, its output values can range from '1' to 'N'.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>channel_tag: i32,
     <span class="doccomment">/// Output only. The [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;)
     /// language tag of the language in this result. This language code was
     /// detected to have the most likelihood of being spoken in the audio.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// A speech recognition result corresponding to a portion of the audio.
@@ -3985,21 +3986,21 @@
     /// maximum specified in `max_alternatives`).
     /// These alternatives are ordered in terms of accuracy, with the top (first)
     /// alternative being the most probable, as ranked by the recognizer.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>alternatives: ::prost::alloc::vec::Vec&lt;SpeechRecognitionAlternative&gt;,
     <span class="doccomment">/// For multi-channel audio, this is the channel number corresponding to the
     /// recognized result for the audio from that channel.
-    /// For audio_channel_count = N, its output values can range from &#39;1&#39; to &#39;N&#39;.
-    </span><span class="attr">#[prost(int32, tag = <span class="string">&quot;2&quot;</span>)]
+    /// For audio_channel_count = N, its output values can range from '1' to 'N'.
+    </span><span class="attr">#[prost(int32, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>channel_tag: i32,
     <span class="doccomment">/// Time offset of the end of this result relative to the
     /// beginning of the audio.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>result_end_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Output only. The [BCP-47](&lt;https://www.rfc-editor.org/rfc/bcp/bcp47.txt&gt;)
     /// language tag of the language in this result. This language code was
     /// detected to have the most likelihood of being spoken in the audio.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;5&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>language_code: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Alternative hypotheses (a.k.a. n-best list).
@@ -4008,9 +4009,9 @@
 </span><span class="kw">pub struct </span>SpeechRecognitionAlternative {
     <span class="doccomment">/// Transcript text representing the words that the user spoke.
     /// In languages that use spaces to separate words, the transcript might have a
-    /// leading space if it isn&#39;t the first result. You can concatenate each result
+    /// leading space if it isn't the first result. You can concatenate each result
     /// to obtain the full transcript without using a separator.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>transcript: ::prost::alloc::string::String,
     <span class="doccomment">/// The confidence estimate between 0.0 and 1.0. A higher number
     /// indicates an estimated greater likelihood that the recognized words are
@@ -4019,12 +4020,12 @@
     /// This field is not guaranteed to be accurate and users should not rely on it
     /// to be always provided.
     /// The default of 0.0 is a sentinel value indicating `confidence` was not set.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>confidence: f32,
     <span class="doccomment">/// A list of word-specific information for each recognized word.
     /// Note: When `enable_speaker_diarization` is true, you will see all the words
     /// from the beginning of the audio.
-    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(message, repeated, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>words: ::prost::alloc::vec::Vec&lt;WordInfo&gt;,
 }
 <span class="doccomment">/// Word-specific information for recognized words.
@@ -4037,7 +4038,7 @@
     /// in the top hypothesis.
     /// This is an experimental feature and the accuracy of the time offset can
     /// vary.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>start_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// Time offset relative to the beginning of the audio,
     /// and corresponding to the end of the spoken word.
@@ -4045,10 +4046,10 @@
     /// in the top hypothesis.
     /// This is an experimental feature and the accuracy of the time offset can
     /// vary.
-    </span><span class="attr">#[prost(message, optional, tag = <span class="string">&quot;2&quot;</span>)]
+    </span><span class="attr">#[prost(message, optional, tag = <span class="string">"2"</span>)]
     </span><span class="kw">pub </span>end_time: ::core::option::Option&lt;::prost_types::Duration&gt;,
     <span class="doccomment">/// The word corresponding to this set of information.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;3&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"3"</span>)]
     </span><span class="kw">pub </span>word: ::prost::alloc::string::String,
     <span class="doccomment">/// The confidence estimate between 0.0 and 1.0. A higher number
     /// indicates an estimated greater likelihood that the recognized words are
@@ -4057,24 +4058,24 @@
     /// This field is not guaranteed to be accurate and users should not rely on it
     /// to be always provided.
     /// The default of 0.0 is a sentinel value indicating `confidence` was not set.
-    </span><span class="attr">#[prost(float, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(float, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>confidence: f32,
     <span class="doccomment">/// Output only. A distinct integer value is assigned for every speaker within
     /// the audio. This field specifies which one of those speakers was detected to
-    /// have spoken this word. Value ranges from &#39;1&#39; to diarization_speaker_count.
-    /// speaker_tag is set if enable_speaker_diarization = &#39;true&#39; and only for the
+    /// have spoken this word. Value ranges from '1' to diarization_speaker_count.
+    /// speaker_tag is set if enable_speaker_diarization = 'true' and only for the
     /// top alternative.
     /// Note: Use speaker_label instead.
     </span><span class="attr">#[deprecated]
-    #[prost(int32, tag = <span class="string">&quot;5&quot;</span>)]
+    #[prost(int32, tag = <span class="string">"5"</span>)]
     </span><span class="kw">pub </span>speaker_tag: i32,
     <span class="doccomment">/// Output only. A label value assigned for every unique speaker within the
     /// audio. This field specifies which speaker was detected to have spoken this
     /// word. For some models, like medical_conversation this can be actual speaker
-    /// role, for example &quot;patient&quot; or &quot;provider&quot;, but generally this would be a
+    /// role, for example "patient" or "provider", but generally this would be a
     /// number identifying a speaker. This field is only set if
-    /// enable_speaker_diarization = &#39;true&#39; and only for the top alternative.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;6&quot;</span>)]
+    /// enable_speaker_diarization = 'true' and only for the top alternative.
+    </span><span class="attr">#[prost(string, tag = <span class="string">"6"</span>)]
     </span><span class="kw">pub </span>speaker_label: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Information on speech adaptation use in results
@@ -4083,11 +4084,11 @@
 </span><span class="kw">pub struct </span>SpeechAdaptationInfo {
     <span class="doccomment">/// Whether there was a timeout when applying speech adaptation. If true,
     /// adaptation had no effect in the response transcript.
-    </span><span class="attr">#[prost(bool, tag = <span class="string">&quot;1&quot;</span>)]
+    </span><span class="attr">#[prost(bool, tag = <span class="string">"1"</span>)]
     </span><span class="kw">pub </span>adaptation_timeout: bool,
     <span class="doccomment">/// If set, returns a message specifying which part of the speech adaptation
     /// request timed out.
-    </span><span class="attr">#[prost(string, tag = <span class="string">&quot;4&quot;</span>)]
+    </span><span class="attr">#[prost(string, tag = <span class="string">"4"</span>)]
     </span><span class="kw">pub </span>timeout_message: ::prost::alloc::string::String,
 }
 <span class="doccomment">/// Generated client implementations.
@@ -4104,7 +4105,7 @@
     <span class="kw">where
         </span>T: tonic::client::GrpcService&lt;tonic::body::BoxBody&gt;,
         T::Error: Into&lt;StdError&gt;,
-        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">&#39;static</span>,
+        T::ResponseBody: Body&lt;Data = Bytes&gt; + Send + <span class="lifetime">'static</span>,
         &lt;T::ResponseBody <span class="kw">as </span>Body&gt;::Error: Into&lt;StdError&gt; + Send,
     {
         <span class="kw">pub fn </span>new(inner: T) -&gt; <span class="self">Self </span>{
@@ -4180,16 +4181,16 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Speech/Recognize&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Speech/Recognize"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
-                .insert(GrpcMethod::new(<span class="string">&quot;google.cloud.speech.v1.Speech&quot;</span>, <span class="string">&quot;Recognize&quot;</span>));
+                .insert(GrpcMethod::new(<span class="string">"google.cloud.speech.v1.Speech"</span>, <span class="string">"Recognize"</span>));
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
         </span>}
         <span class="doccomment">/// Performs asynchronous speech recognition: receive results via the
@@ -4211,19 +4212,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Speech/LongRunningRecognize&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Speech/LongRunningRecognize"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.speech.v1.Speech&quot;</span>,
-                        <span class="string">&quot;LongRunningRecognize&quot;</span>,
+                        <span class="string">"google.cloud.speech.v1.Speech"</span>,
+                        <span class="string">"LongRunningRecognize"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.unary(req, path, codec).<span class="kw">await
@@ -4245,19 +4246,19 @@
                 </span>.map_err(|e| {
                     tonic::Status::new(
                         tonic::Code::Unknown,
-                        <span class="macro">format!</span>(<span class="string">&quot;Service was not ready: {}&quot;</span>, e.into()),
+                        <span class="macro">format!</span>(<span class="string">"Service was not ready: {}"</span>, e.into()),
                     )
                 })<span class="question-mark">?</span>;
             <span class="kw">let </span>codec = tonic::codec::ProstCodec::default();
             <span class="kw">let </span>path = http::uri::PathAndQuery::from_static(
-                <span class="string">&quot;/google.cloud.speech.v1.Speech/StreamingRecognize&quot;</span>,
+                <span class="string">"/google.cloud.speech.v1.Speech/StreamingRecognize"</span>,
             );
             <span class="kw">let </span><span class="kw-2">mut </span>req = request.into_streaming_request();
             req.extensions_mut()
                 .insert(
                     GrpcMethod::new(
-                        <span class="string">&quot;google.cloud.speech.v1.Speech&quot;</span>,
-                        <span class="string">&quot;StreamingRecognize&quot;</span>,
+                        <span class="string">"google.cloud.speech.v1.Speech"</span>,
+                        <span class="string">"StreamingRecognize"</span>,
                     ),
                 );
             <span class="self">self</span>.inner.streaming(req, path, codec).<span class="kw">await
